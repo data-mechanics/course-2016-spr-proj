@@ -1,9 +1,12 @@
 import getopt
+import os
 import sys
 
 
-def main():
-    """ Parse user input and run application """
+def run():
+    """ Load plugins and parse user options """
+    plugins = load_plugins('plugins')
+
     try:
         # Get CLI options
         opts, args = getopt.getopt(sys.argv[1:], "", ['get-data', 'parse-data'])
@@ -14,25 +17,58 @@ def main():
 
     # If no options supplied, execute default ones
     if not opts:
-        get_data()
-        parse_data()
+        get_data(plugins)
+        parse_data(plugins)
     else:
         commands = []
         for o, a in opts:
             commands.append(o)
 
         if '--get-data' in commands:
-            get_data()
+            get_data(plugins)
         if '--parse-data' in commands:
-            parse_data()
+            parse_data(plugins)
 
 
-def get_data():
-    print('get data')
+def get_data(plugins):
+    for Plugin in plugins:
+        Plugin.get_data()
+        pass
 
 
-def parse_data():
-    print('parse data')
+def parse_data(plugins):
+    for Plugin in plugins:
+        Plugin.parse_data()
+        pass
+
+
+def load_plugins(folder):
+    plugin_names = get_plugin_names(folder)
+    plugins = []
+    for plugin_name in plugin_names:
+        Plugin = load_plugin(plugin_name)
+        plugins.append(Plugin)
+    return plugins
+
+
+def get_plugin_names(folder):
+    plugins = []
+    for dirpath, dirnames, filenames in os.walk(folder):
+        for filename in filenames:
+            if filename != '__init__.py' and '__' not in dirpath:
+                # Get list of individual folder names
+                dirs = dirpath.split(os.sep)
+                # Get rid of extension
+                dirs.append(os.path.splitext(filename)[0])
+                plugins.append('.'.join(dirs))
+    return plugins
+
+
+def load_plugin(plugin_name):
+    module_name, class_name = plugin_name.rsplit(".", 1)
+    # TODO Switch to importlib
+    Klass = __import__(plugin_name, fromlist=module_name)
+    return Klass
 
 
 def usage():
@@ -44,4 +80,4 @@ def usage():
     print('Without supplying any options, both are executed')
 
 if __name__ == '__main__':
-    main()
+    run()
