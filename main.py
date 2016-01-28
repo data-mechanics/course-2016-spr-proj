@@ -43,6 +43,11 @@ def parse_data(plugins):
 
 
 def load_plugins(folder):
+    """
+    Get all plugins from folder and load them dynamically.
+    :param folder: Root folder to get plugins from
+    :return: List of imported plugin modules
+    """
     plugin_names = get_plugin_names(folder)
     plugins = []
     for plugin_name in plugin_names:
@@ -52,9 +57,16 @@ def load_plugins(folder):
 
 
 def get_plugin_names(folder):
+    """
+    Search folder for all plugins to load. A plugin is simply a Python module adhering to an interface that is loaded
+    dynamically.
+    :param folder: Root folder to search for plugins
+    :return: List of plugin names in the form of abc.def.module_name
+    """
     plugins = []
     for dirpath, dirnames, filenames in os.walk(folder):
         for filename in filenames:
+            # Ignore init file and internal Python folders such as __pycache__
             if filename != '__init__.py' and '__' not in dirpath:
                 # Get list of individual folder names
                 dirs = dirpath.split(os.sep)
@@ -65,9 +77,14 @@ def get_plugin_names(folder):
 
 
 def load_plugin(plugin_name):
-    module_name, class_name = plugin_name.rsplit(".", 1)
+    """
+    Import the plugin object dynamically.
+    :param plugin_name: Name of the object to load, in the form of abc.def.module_name
+    :return: Imported object
+    """
+    package_name, module_name = plugin_name.rsplit(".", 1)
     # TODO Switch to importlib
-    Klass = __import__(plugin_name, fromlist=module_name)
+    Klass = __import__(plugin_name, fromlist=package_name)
     return Klass
 
 
