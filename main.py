@@ -1,6 +1,9 @@
 import getopt
 import os
 import sys
+import importlib
+import inspect
+from plugins.abstract_plugin import AbstractPlugin
 
 
 def run():
@@ -66,8 +69,8 @@ def get_plugin_names(folder):
     plugins = []
     for dirpath, dirnames, filenames in os.walk(folder):
         for filename in filenames:
-            # Ignore init file and internal Python folders such as __pycache__
-            if filename != '__init__.py' and '__' not in dirpath:
+            # Ignore init, abstract_plugin and internal Python folders such as __pycache__
+            if filename != '__init__.py' and filename != 'abstract_plugin.py' and '__' not in dirpath:
                 # Get list of individual folder names
                 dirs = dirpath.split(os.sep)
                 # Get rid of extension
@@ -82,10 +85,14 @@ def load_plugin(plugin_name):
     :param plugin_name: Name of the object to load, in the form of abc.def.module_name
     :return: Imported object
     """
-    package_name, module_name = plugin_name.rsplit(".", 1)
-    # TODO Switch to importlib
-    Klass = __import__(plugin_name, fromlist=package_name)
-    return Klass
+    # Import module
+    module = importlib.import_module(plugin_name)
+    # Get class names in imported module
+    for name, obj in inspect.getmembers(module, inspect.isclass):
+        # issubclass returns itself as subclass, so we check to make sure this isn't the case
+        # This allows people to use whatever name they want for the class, as long as it implements AbstractPlugin
+        if issubclass(obj, AbstractPlugin) and obj is not AbstractPlugin:
+            return obj()
 
 
 def usage():
