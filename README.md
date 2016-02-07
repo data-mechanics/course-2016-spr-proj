@@ -54,3 +54,7 @@ WriteResult({ "nInserted" : 1 })
 For temporary collections that are only necessary during intermediate steps of of a computation, use `createTemp()`; for permanent collections that represent data that is imported or derived, use `createPerm()`.
 
 If you do not want to run `db.loadServerScripts()` every time you open a new terminal, you can use a `.mongorc.js` file in your home directory to store any commands or calls you want issued whenever you run `mongo`.
+
+## Python infrastructure
+
+Ignore the Python files for the moment; we will be updating them shortly with matching interface wrappers for PyMongo. For now, install PyMongo if you are planning to use it to move your data into MongoDB from data obtained via web APIs.
