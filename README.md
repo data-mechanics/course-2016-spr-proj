@@ -7,6 +7,8 @@ In this project, you will implement components that obtain a few data sets from 
 
 ## MongoDB infrastructure
 
+### Setting up
+
 We have committed setup scripts for a MongoDB database that will set up the database and collection management functions that ensure users sharing the project data repository can read everyone's collections but can only write to their own collections. Once you have installed your MongoDB instance, you can prepare it by first starting `mongod` _without authentication_:
 ```
 mongod --dbpath "<your_db_path>"
@@ -19,6 +21,9 @@ Your MongoDB instance should now be ready. Stop `mongod` and restart it, enablin
 ```
 mongod --auth --dbpath "<your_db_path>"
 ```
+
+### Working on data sets with authentication
+
 With authentication enabled, you can start `mongo` on the repository (called `repo` by default) with your user credentials:
 ```
 mongo repo -u alice_bob -p alice_bob --authenticationDatabase "repo"
