@@ -20,6 +20,15 @@
 // Configuration.
 load("config.js");
 
+// Create role capable of evaluating stored functions.
+db = new Mongo().getDB('admin');
+db.dropRole("evaluator");
+db.createRole({
+  role: 'evaluator',
+  privileges: [{resource:{anyResource:true}, actions:['anyAction']}],
+  roles: []
+});
+
 // Create administration account for repository.
 db = new Mongo().getDB(config.repo.name);
 db.dropUser("admin");
@@ -27,6 +36,7 @@ db.createUser({
   user: "admin", 
   pwd: config.admin.pwd, 
   roles: [
+      {role: "evaluator", db:'admin'},
       {role: "userAdmin", db: config.repo.name},
       {role: "readWrite", db: config.repo.name}
     ]
@@ -70,13 +80,15 @@ var createCreate =
     return eval(
           "(function(collName, user, pwd) {"
         + "  /* By default, use current user. */"
-        + "  if (user == null || pwd == null) {"
+        + "  if (user == null && pwd == null) {"
         + "    user = currentUser();"
         + "    pwd = currentUser();"
         + "  }"
+        + "  if (user != null && pwd == null)"
+        + "    pwd = user;"
         + "  /* Validate collection name as <user>.<collection>. */"
-        + "  if (collName.split('.')[0] != currentUser())"
-        + "    collName = currentUser() + '.' + collName;"
+        + "  if (collName.split('.')[0] != user)"
+        + "    collName = user + '.' + collName;"
         + "  var repo = new Mongo().getDB('" + config.repo.name + "');"
         + "  repo.auth('admin', '" + config.admin.pwd + "');"
         + "  repo.createCollection('_registry');"
@@ -97,6 +109,35 @@ db.system.js.save({_id:"createTemporary", value:createCreate("temporary")});
 db.system.js.save({_id:"createTemp", value:createCreate("temporary")});
 db.system.js.save({_id:"createPermanent", value:createCreate("permanent")});
 db.system.js.save({_id:"createPerm", value:createCreate("permanent")});
+
+var createDrop =
+  (function(lifespan) {
+    // Build the function that drops a collection.
+    return eval(
+          "(function(collName, user, pwd) {"
+        + "  /* By default, use current user. */"
+        + "  if (user == null && pwd == null) {"
+        + "    user = currentUser();"
+        + "    pwd = currentUser();"
+        + "  }"
+        + "  if (user != null && pwd == null)"
+        + "    pwd = user;"
+        + "  /* Validate collection name as <user>.<collection>. */"
+        + "  if (collName.split('.')[0] != user)"
+        + "    collName = user + '.' + collName;"
+        + "  var repo = new Mongo().getDB('" + config.repo.name + "');"
+        + "  repo.auth('admin', '" + config.admin.pwd + "');"
+        + "  repo.getCollection('_registry').remove({name:collName});"
+        + "  repo[collName].drop();"
+        + "  repo.auth(user, pwd);"
+        + "  return collName;"
+        + "})"
+      ); // eval()
+  });
+db.system.js.save({_id:"dropTemporary", value:createDrop()});
+db.system.js.save({_id:"dropTemp", value:createDrop()});
+db.system.js.save({_id:"dropPermanent", value:createDrop()});
+db.system.js.save({_id:"dropPerm", value:createDrop()});
 
 var createCleanCollections =
   (function() {
