@@ -1,0 +1,30 @@
+{
+  "prefix": {
+    "cityofboston": "https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&",
+    "people": "https://github.com/mjclawar"
+  },
+  "entity": {
+    "cityofboston:https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&$limit=10&$order=fromdate%20DESC": [
+      {},
+      {}
+    ]
+  },
+  "agent": {
+    "people:mjclawar": [
+      {},
+      {}
+    ]
+  },
+  "wasAttributedTo": {
+    "_:id1": [
+      {
+        "prov:entity": "cityofboston:https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&$limit=10&$order=fromdate%20DESC",
+        "prov:agent": "people:mjclawar"
+      },
+      {
+        "prov:entity": "cityofboston:https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&$limit=10&$order=fromdate%20DESC",
+        "prov:agent": "people:mjclawar"
+      }
+    ]
+  }
+}
