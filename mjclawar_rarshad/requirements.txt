@@ -3,3 +3,6 @@ prov==1.4.0
 lxml==3.4.4
 decorator==4.0.9
 networkx==1.11
+
+# Database management
+pymongo==3.2.1
