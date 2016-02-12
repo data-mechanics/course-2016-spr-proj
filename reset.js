@@ -13,10 +13,10 @@
 **
 */
 
-// Configuration.
-load("config.js");
+// Load the configuration file.
+var config = JSON.parse(cat("config.json"));
 
-// Create an administrator with full privileges.
+// Drop the repository database.
 db = new Mongo().getDB(config.repo.name);
 db.dropDatabase();
 

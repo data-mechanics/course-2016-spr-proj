@@ -57,4 +57,8 @@ If you do not want to run `db.loadServerScripts()` every time you open a new ter
 
 ## Python infrastructure
 
-Ignore the Python files for the moment; we will be updating them shortly with matching interface wrappers for PyMongo. For now, install PyMongo if you are planning to use it to move your data into MongoDB from data obtained via web APIs.
+To use PyMongo with the above interface, run the `pymongo_dm.py` script at the top of your modules or script:
+```
+exec(open('../pymongo_dm.py').read())
+```
+The script `alice_bob/example.py` is an example that illustrates how the wrappers can be used. It also provides a detailed example of how to record appropriate provenance information using the `prov` module.
