@@ -4,21 +4,22 @@ Crime incidents API from data.cityofboston.gov
 Michael Clawar and Raaid Arshad
 """
 
-import urllib.request
-import json
-import pymongo
-from mjclawar_rarshad.reference import api_token, provenance_document, provenance_file
-from mjclawar_rarshad.structures import APIQuery
+import datetime
+
+from mjclawar_rarshad import mcra_structures as mcras
+from mjclawar_rarshad.reference import provenance_document
+from mjclawar_rarshad.mcra_structures import APIQuery
+from mjclawar_rarshad.api import bdp_api
 
 exec(open('../../pymongo_dm.py').read())
 
 
 class CrimeAPIQuery(APIQuery):
-    base_url = 'https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=%s&' % api_token
+    base_url = 'https://data.cityofboston.gov/resource/7cdf-6fgx.json?'
 
     @property
     def data_namespace(self):
-        return 'cityofboston'
+        return mcras.BDP_NAMESPACE
 
     @property
     def data_entity(self):
@@ -29,29 +30,12 @@ class CrimeAPIQuery(APIQuery):
         if self.data_namespace not in provenance_document._namespaces:
             provenance_document.add_namespace(self.data_namespace, self.base_url)
 
-    @staticmethod
-    def api_query(limit=100, order=None, select=None, where=None):
-        assert isinstance(limit, int)
-        query_url = CrimeAPIQuery.base_url + '$limit=%s' %limit
-        if order is not None:
-            assert isinstance(order, str)
-            query_url += '&$order=%s' % order + '%20DESC'
-        if select is not None:
-            assert isinstance(select, list)
-        if where is not None:
-            assert isinstance(where, str)
-
-        response = urllib.request.urlopen(query_url).read().decode('utf-8')
-        r = json.loads(response)
-        return query_url, json.dumps(r, sort_keys=True, indent=2)
-
     def download_update_database(self):
-        query_url, s = self.api_query(limit=10, order='fromdate')
-        agent = provenance_document.agent('people:%s' % self.agent)
-        entity = provenance_document.entity('%s:%s' % (self.data_namespace, query_url))
-        provenance_document.wasAttributedTo(entity, agent)
-        print(provenance_document.serialize())
-        provenance_document.serialize(provenance_file, indent=2)
+        start_time = datetime.datetime.now()
+        data_json = bdp_api.api_query(base_url=self.base_url, limit=10, order='fromdate')
+
+
+
         # TODO write to database
 
 

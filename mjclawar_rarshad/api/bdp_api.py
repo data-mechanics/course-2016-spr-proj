@@ -30,5 +30,3 @@ def get_query_url(base_url, limit, order, select, where):
         assert isinstance(where, str)
 
     return query_url
-
-print(reference.api_token)
