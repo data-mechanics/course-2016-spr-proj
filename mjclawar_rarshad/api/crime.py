@@ -7,13 +7,14 @@ Michael Clawar and Raaid Arshad
 import datetime
 import uuid
 
-from mjclawar_rarshad.api import setup_repo
-from mjclawar_rarshad import mcra_structures as mcras
-from mjclawar_rarshad.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
-from mjclawar_rarshad.api import bdp_api
-from mjclawar_rarshad.setup_provenance import load_provenance_json, write_provenance_json
-from prov.model import ProvDocument
 import prov.model
+
+
+from mjclawar_rarshad import mcra_structures as mcras
+from mjclawar_rarshad.database_helpers import DatabaseHelper
+from mjclawar_rarshad.api.bdp_query import BDPQuery
+from mjclawar_rarshad.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
+from mjclawar_rarshad.setup_provenance import load_provenance_json, write_provenance_json
 
 
 class CrimeSettings(MCRASSettings):
@@ -23,7 +24,7 @@ class CrimeSettings(MCRASSettings):
 
     @property
     def data_entity(self):
-        return 'crime_data'
+        return 'crime_incidents'
 
     @property
     def agent(self):
@@ -67,19 +68,20 @@ class CrimeProvenance(MCRASProvenance):
 
 
 class CrimeAPIQuery(APIQuery):
-    def __init__(self, settings):
+    def __init__(self, settings, database_helper, bdp_api):
         assert isinstance(settings, CrimeSettings)
+        assert isinstance(database_helper, DatabaseHelper)
+        assert isinstance(bdp_api, BDPQuery)
+
         self.settings = settings
-        self.agent = settings.agent
+        self.database_helper = database_helper
+        self.bdp_api = bdp_api
 
     def download_update_database(self):
-        prov_doc = load_provenance_json()
-        assert isinstance(prov_doc, ProvDocument)
-
         start_time = datetime.datetime.now()
-        data_json, api_query = bdp_api.api_query(base_url=self.settings.base_url, limit=10, order='fromdate')
+        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url, limit=10, order='fromdate')
 
-        setup_repo.insert_db(self.settings.data_entity, data_json)
+        self.database_helper.insert_permanent_db(self.settings.data_entity, data_json)
 
         end_time = datetime.datetime.now()
 

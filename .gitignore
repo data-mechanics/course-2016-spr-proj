@@ -5,6 +5,7 @@ __pycache__/
 
 api_token.txt
 auth.json
+provenance.json
 
 # C extensions
 *.so

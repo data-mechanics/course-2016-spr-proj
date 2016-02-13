@@ -1,12 +1,11 @@
 from prov.model import ProvDocument
+
 from mjclawar_rarshad import mcra_structures as mcras
-from mjclawar_rarshad import reference
-from mjclawar_rarshad.api import setup_repo
+from mjclawar_rarshad import reference, database_helpers
 
 
 def load_provenance_json():
     # TODO load from repo
-    repo = setup_repo.connect_repo()
     provenance_document = ProvDocument.deserialize(reference.provenance_file)
     return provenance_document
 

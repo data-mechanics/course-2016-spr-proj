@@ -1,6 +1,11 @@
 mjclawar_rarshad
 ================
 
+Running the package
+-------------------
+Run setup.py in the base directory
+
+
 Data Sets
 ---------
 
