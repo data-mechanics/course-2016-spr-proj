@@ -10,7 +10,11 @@ with open(api_token_file) as f:
 assert isinstance(api_token, str)
 
 provenance_file = os.path.join(os.path.dirname(__file__), 'provenance.json')
-assert os.path.isfile(provenance_file)
-provenance_document = ProvDocument.deserialize(provenance_file)
 
-assert isinstance(provenance_document, ProvDocument)
+
+def load_provenance_json():
+    assert os.path.isfile(provenance_file)
+    provenance_document = ProvDocument.deserialize(provenance_file)
+    assert isinstance(provenance_document, ProvDocument)
+
+    return provenance_document

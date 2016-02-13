@@ -1,18 +1,1 @@
-{
-  "wasAttributedTo": {
-    "_:id1": {
-      "prov:agent": "people:mjclawar",
-      "prov:entity": "cityofboston:https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&$limit=10&$order=fromdate%20DESC"
-    }
-  },
-  "entity": {
-    "cityofboston:https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&$limit=10&$order=fromdate%20DESC": {}
-  },
-  "prefix": {
-    "cityofboston": "https://data.cityofboston.gov/resource/7cdf-6fgx.json?$$app_token=PzCgdQTFNhH7Gtrs7hd1lelxA&",
-    "people": "https://github.com/mjclawar"
-  },
-  "agent": {
-    "people:mjclawar": {}
-  }
-}
+{"used": {"_:id2": {"prov:time": "2016-02-13T16:05:32.440037", "prov:activity": "log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab", "prov:entity": "bdp:https://data.cityofboston.gov/resource/7cdf-6fgx.json"}}, "activity": {"log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab": {"prov:startTime": "2016-02-13T16:05:32.440037", "prov:type": "ont:Retrieval", "ont:Query": "?", "prov:endTime": "2016-02-13T16:05:33.284196"}}, "wasGeneratedBy": {"_:id4": {"prov:time": "2016-02-13T16:05:33.284196", "prov:activity": "log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab", "prov:entity": "dat:crime_data"}}, "wasAssociatedWith": {"_:id1": {"prov:activity": "log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab", "prov:agent": "bdp:crime_incidents"}}, "prefix": {"alg": "http://datamechanics.io/algorithm/mjclawar_rarshad/", "ont": "http://datamechanics.io/ontology#", "bdp": "https://data.cityofboston.gov/resource", "log": "http://datamechanics.io/log#", "dat": "http://datamechanics.io/data/mjclawar_rarshad/"}, "agent": {"bdp:crime_incidents": {"prov:type": {"$": "prov:SoftwareAgent", "type": "prov:QUALIFIED_NAME"}, "ont:Extension": "py"}}, "wasDerivedFrom": {"_:id5": {"prov:usedEntity": "bdp:https://data.cityofboston.gov/resource/7cdf-6fgx.json", "prov:usage": "log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab", "prov:activity": "log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab", "prov:generatedEntity": "dat:crime_data", "prov:generation": "log:a3bd8d99d-d55a-4d7a-b1ce-8a829801e0ab"}}, "entity": {"bdp:https://data.cityofboston.gov/resource/7cdf-6fgx.json": {}, "dat:crime_data": {"prov:type": "ont:DataSet", "prov:label": "Crimes Committed"}}, "wasAttributedTo": {"_:id3": {"prov:entity": "dat:crime_data", "prov:agent": "bdp:crime_incidents"}}}

@@ -19,7 +19,7 @@ def api_query(base_url, limit=100, order=None, select=None, where=None):
 
 def get_query_url(base_url, limit, order, select, where):
     # TODO make me in auth.json
-    query_url = base_url + '$$app_token=%s&' % reference.api_token + '$limit=%s' % limit
+    query_url = base_url + '?$$app_token=%s&' % reference.api_token + '$limit=%s' % limit
 
     if order is not None:
         assert isinstance(order, str)
