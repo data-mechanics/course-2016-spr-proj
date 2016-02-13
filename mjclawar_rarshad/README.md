@@ -22,4 +22,4 @@ include additional relevant data sets such as emergency response times, demograp
 a value metric based on our data. We will then compare our value metric to actual property assessment data and observe
 the following:
     -What parameters strongly influence property value?
-    -Does our model agree with actual property data?
+    -How well does our model agree with actual property data?
