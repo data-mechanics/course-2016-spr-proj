@@ -17,7 +17,10 @@ def connect_repo():
 
 def insert_db(dbname, thedata):
     assert isinstance(dbname, str)
+
     repo = connect_repo()
     repo.dropPermanent(dbname)
     repo.createPermanent(dbname)
     repo['mjclawar_rarshad.%s' % dbname].insert_many(thedata)
+
+    repo.logout()

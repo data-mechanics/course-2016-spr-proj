@@ -7,6 +7,7 @@ Michael Clawar and Raaid Arshad
 import datetime
 import uuid
 
+from mjclawar_rarshad.api import setup_repo
 from mjclawar_rarshad import mcra_structures as mcras
 from mjclawar_rarshad.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
 from mjclawar_rarshad.api import bdp_api
@@ -34,9 +35,11 @@ class CrimeSettings(MCRASSettings):
 
 
 class CrimeProvenance(MCRASProvenance):
-    def __init__(self, settings):
+    def __init__(self, settings, query=''):
         assert isinstance(settings, CrimeSettings)
+        assert isinstance(query, str)
         self.settings = settings
+        self.query = query
 
     def update_provenance(self, start_time, end_time):
         prov_doc = load_provenance_json()
@@ -44,10 +47,10 @@ class CrimeProvenance(MCRASProvenance):
 
         resource = prov_doc.entity('%s:%s' % (self.settings.data_namespace.name,
                                               self.settings.base_url))
-        # TODO add query
-        this_run = prov_doc.activity('log:a%s' % str(uuid.uuid4()), start_time, end_time,
+
+        this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
                                      {prov.model.PROV_TYPE: mcras.PROVENANCE_ONT_RETRIEVAL,
-                                      mcras.PROV_ONT_QUERY: '?'})
+                                      mcras.PROV_ONT_QUERY: '?' + self.query})
 
         prov_doc.wasAssociatedWith(this_run, this_script)
         prov_doc.used(this_run, resource, start_time)
@@ -74,9 +77,11 @@ class CrimeAPIQuery(APIQuery):
         assert isinstance(prov_doc, ProvDocument)
 
         start_time = datetime.datetime.now()
-        data_json = bdp_api.api_query(base_url=self.settings.base_url, limit=10, order='fromdate')
+        data_json, api_query = bdp_api.api_query(base_url=self.settings.base_url, limit=10, order='fromdate')
+
+        setup_repo.insert_db(self.settings.data_entity, data_json)
 
         end_time = datetime.datetime.now()
 
-        crime_provenance = CrimeProvenance(self.settings)
+        crime_provenance = CrimeProvenance(self.settings, query=api_query)
         crime_provenance.update_provenance(start_time=start_time, end_time=end_time)
