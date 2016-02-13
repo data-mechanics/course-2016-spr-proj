@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 api_token.txt
+auth.json
 
 # C extensions
 *.so
