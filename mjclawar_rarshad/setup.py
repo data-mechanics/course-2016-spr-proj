@@ -22,16 +22,13 @@ def main(auth_json_path):
 
     database_helper = database_helpers.DatabaseHelper(username=username, password=mongo_pass)
     bdp_api = bdp_query.BDPQuery(api_token=api_token)
-    project_provenance = setup_provenance.ProjectProvenance(database_helper)
 
-    setup_crime_incidents(database_helper, bdp_api, project_provenance)
-
-    project_provenance.write_provenance_json()
+    setup_crime_incidents(database_helper, bdp_api)
 
 
-def setup_crime_incidents(database_helper, bdp_api, project_provenance):
+def setup_crime_incidents(database_helper, bdp_api):
     crime_settings = crime.CrimeSettings()
-    crime.CrimeAPIQuery(crime_settings, database_helper, bdp_api, project_provenance).download_update_database()
+    crime.CrimeAPIQuery(crime_settings, database_helper, bdp_api).download_update_database()
 
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())

@@ -9,7 +9,6 @@ import uuid
 
 import prov.model
 
-
 from mjclawar_rarshad import mcra_structures as mcras
 from mjclawar_rarshad.database_helpers import DatabaseHelper
 from mjclawar_rarshad.api.bdp_query import BDPQuery
@@ -36,47 +35,48 @@ class CrimeSettings(MCRASSettings):
 
 
 class CrimeProvenance(MCRASProvenance):
-    def __init__(self, settings, prov_doc, query=''):
+    def __init__(self, settings, database_helper, query=''):
         assert isinstance(settings, CrimeSettings)
-        assert isinstance(prov_doc, ProjectProvenance)
+        assert isinstance(database_helper, DatabaseHelper)
         assert isinstance(query, str)
         self.settings = settings
+        self.database_helper = database_helper
         self.query = query
-        self.prov_doc = prov_doc.prov_doc
 
     def update_provenance(self, start_time, end_time):
-        this_script = self.prov_doc.agent(self.settings.agent, mcras.PROVENANCE_PYTHON_SCRIPT)
+        prov_obj = ProjectProvenance(database_helper=self.database_helper)
+        prov_doc = prov_obj.prov_doc
+        this_script = prov_doc.agent(self.settings.agent, mcras.PROVENANCE_PYTHON_SCRIPT)
 
-        resource = self.prov_doc.entity('%s:%s' % (self.settings.data_namespace.name,
-                                              self.settings.base_url))
+        resource = prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.base_url))
 
-        this_run = self.prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
-                                     {prov.model.PROV_TYPE: mcras.PROVENANCE_ONT_RETRIEVAL,
-                                      mcras.PROV_ONT_QUERY: '?' + self.query})
+        this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
+                                          {prov.model.PROV_TYPE: mcras.PROVENANCE_ONT_RETRIEVAL,
+                                           mcras.PROV_ONT_QUERY: '?' + self.query})
 
-        self.prov_doc.wasAssociatedWith(this_run, this_script)
-        self.prov_doc.used(this_run, resource, start_time)
+        prov_doc.wasAssociatedWith(this_run, this_script)
+        prov_doc.used(this_run, resource, start_time)
 
-        data_doc = self.prov_doc.entity('%s:%s' % (mcras.DAT_NAMESPACE.name, self.settings.data_entity),
-                                   {prov.model.PROV_LABEL: 'Crimes Committed', prov.model.PROV_TYPE:
-                                       mcras.PROV_ONT_DATASET})
+        data_doc = prov_doc.entity('%s:%s' % (mcras.DAT_NAMESPACE.name, self.settings.data_entity),
+                                        {prov.model.PROV_LABEL: 'Crimes Committed', prov.model.PROV_TYPE:
+                                         mcras.PROV_ONT_DATASET})
 
-        self.prov_doc.wasAttributedTo(data_doc, this_script)
-        self.prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
-        self.prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
+        prov_doc.wasAttributedTo(data_doc, this_script)
+        prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
+        prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
+
+        # TODO Write me to database
 
 
 class CrimeAPIQuery(APIQuery):
-    def __init__(self, settings, database_helper, bdp_api, project_provenance):
+    def __init__(self, settings, database_helper, bdp_api):
         assert isinstance(settings, CrimeSettings)
         assert isinstance(database_helper, DatabaseHelper)
         assert isinstance(bdp_api, BDPQuery)
-        assert isinstance(project_provenance, ProjectProvenance)
 
         self.settings = settings
         self.database_helper = database_helper
         self.bdp_api = bdp_api
-        self.project_provenance = project_provenance
 
     def download_update_database(self):
         start_time = datetime.datetime.now()
@@ -86,5 +86,5 @@ class CrimeAPIQuery(APIQuery):
 
         end_time = datetime.datetime.now()
 
-        crime_provenance = CrimeProvenance(self.settings, prov_doc=self.project_provenance, query=api_query)
+        crime_provenance = CrimeProvenance(self.settings, database_helper=self.database_helper, query=api_query)
         crime_provenance.update_provenance(start_time=start_time, end_time=end_time)
