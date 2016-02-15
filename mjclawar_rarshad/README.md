@@ -3,7 +3,12 @@ mjclawar_rarshad
 
 Running the package
 -------------------
-Run setup.py in the base directory
+- Create a file named auth.json in the base directory with fields
+    - "api_token": A Socrata API token
+    - "username": The username with access to the collections
+    - "pass": The password associated with the username with access to the collections
+
+- Run `setup.py auth.json`
 
 
 Data Sets
@@ -28,5 +33,5 @@ include incidents of crime and proximity to facilities such as schools and publi
 include additional relevant data sets such as emergency response times, demographic data, and more. We will come up with
 a value metric based on our data. We will then compare our value metric to actual property assessment data and observe
 the following:
-    -What parameters strongly influence property value?
-    -How well does our model agree with actual property data?
+    - What parameters strongly influence property value?
+    - How well does our model agree with actual property data?
