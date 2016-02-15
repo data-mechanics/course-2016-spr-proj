@@ -44,6 +44,17 @@ class CrimeProvenance(MCRASProvenance):
         self.query = query
 
     def update_provenance(self, start_time, end_time):
+        """
+        Writes a ProvDoc for the crime.py script and saves to the collection
+
+        Parameters
+        ----------
+        start_time: datetime.datetime
+        end_time: datetime.datetime
+
+        Returns
+        -------
+        """
         prov_obj = ProjectProvenance(database_helper=self.database_helper)
         prov_doc = prov_obj.prov_doc
         this_script = prov_doc.agent(self.settings.agent, mcras.PROVENANCE_PYTHON_SCRIPT)
@@ -51,21 +62,23 @@ class CrimeProvenance(MCRASProvenance):
         resource = prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.base_url))
 
         this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
-                                          {prov.model.PROV_TYPE: mcras.PROVENANCE_ONT_RETRIEVAL,
-                                           mcras.PROV_ONT_QUERY: '?' + self.query})
+                                     {prov.model.PROV_TYPE: mcras.PROVENANCE_ONT_RETRIEVAL,
+                                      mcras.PROV_ONT_QUERY: '?' + self.query})
 
         prov_doc.wasAssociatedWith(this_run, this_script)
         prov_doc.used(this_run, resource, start_time)
 
         data_doc = prov_doc.entity('%s:%s' % (mcras.DAT_NAMESPACE.name, self.settings.data_entity),
-                                        {prov.model.PROV_LABEL: 'Crimes Committed', prov.model.PROV_TYPE:
-                                         mcras.PROV_ONT_DATASET})
+                                   {prov.model.PROV_LABEL: 'Crimes Committed',
+                                    prov.model.PROV_TYPE: mcras.PROV_ONT_DATASET})
 
         prov_doc.wasAttributedTo(data_doc, this_script)
         prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
         prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
 
-        # TODO Write me to database
+        # TODO figure out with record
+        prov_obj.write_provenance_json()
+        # self.database_helper.record(prov_doc.serialize())
 
 
 class CrimeAPIQuery(APIQuery):
@@ -79,8 +92,19 @@ class CrimeAPIQuery(APIQuery):
         self.bdp_api = bdp_api
 
     def download_update_database(self):
+        """
+        Downloads data on crimes committed in Boston, writes to a collection, and creates a provenance document
+
+        Returns
+        -------
+        """
         start_time = datetime.datetime.now()
-        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url, limit=10, order='fromdate')
+        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url,
+                                                      select=['fromdate', 'naturecode', 'weapontype',
+                                                              'shooting', 'domestic', 'year', 'month',
+                                                              'day_week', 'location'],
+                                                      where='year = 2015',
+                                                      order='fromdate')
 
         self.database_helper.insert_permanent_db(self.settings.data_entity, data_json)
 

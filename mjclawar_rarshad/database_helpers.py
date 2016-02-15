@@ -28,3 +28,9 @@ class DatabaseHelper:
         repo['%s.%s' % (self.username, database_name)].insert_many(json_data)
 
         repo.logout()
+
+    def record(self, json_data):
+        repo = self.connect_repo()
+        repo.record(json_data)
+
+        repo.logout()
