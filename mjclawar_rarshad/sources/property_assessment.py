@@ -1,5 +1,5 @@
 """
-Crime incidents API from data.cityofboston.gov
+Property Assessment data from data.cityofboston.gov
 
 Michael Clawar and Raaid Arshad
 """
@@ -9,34 +9,34 @@ import uuid
 
 import prov.model
 
-from mjclawar_rarshad import mcra_structures as mcras
-from mjclawar_rarshad.database_helpers import DatabaseHelper
-from mjclawar_rarshad.api.bdp_query import BDPQuery
-from mjclawar_rarshad.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
-from mjclawar_rarshad.setup_provenance import ProjectProvenance
+from mjclawar_rarshad.reference import mcra_structures as mcras
+from mjclawar_rarshad.reference.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
+from mjclawar_rarshad.reference.provenance import ProjectProvenance
+from mjclawar_rarshad.tools.bdp_query import BDPQuery
+from mjclawar_rarshad.tools.database_helpers import DatabaseHelper
 
 
-class CrimeSettings(MCRASSettings):
+class PropertyAssessmentSettings(MCRASSettings):
     @property
     def data_namespace(self):
         return mcras.BDP_NAMESPACE
 
     @property
     def data_entity(self):
-        return 'crime_incidents'
+        return 'property_assessment'
 
     @property
     def agent(self):
-        return '%s:crime_incidents' % self.data_namespace.name
+        return '%s:%s' % (self.data_namespace.name, self.data_entity)
 
     @property
     def base_url(self):
-        return 'https://data.cityofboston.gov/resource/7cdf-6fgx.json'
+        return 'https://data.cityofboston.gov/resource/yv8c-t43q.json'
 
 
-class CrimeProvenance(MCRASProvenance):
+class PropertyAssessmentProvenance(MCRASProvenance):
     def __init__(self, settings, database_helper, query=''):
-        assert isinstance(settings, CrimeSettings)
+        assert isinstance(settings, PropertyAssessmentSettings)
         assert isinstance(database_helper, DatabaseHelper)
         assert isinstance(query, str)
         self.settings = settings
@@ -45,7 +45,7 @@ class CrimeProvenance(MCRASProvenance):
 
     def update_provenance(self, start_time, end_time):
         """
-        Writes a ProvDoc for the crime.py script and saves to the collection
+        Writes a ProvDoc for the property_assessment.py script and saves to the collection
 
         Parameters
         ----------
@@ -69,7 +69,7 @@ class CrimeProvenance(MCRASProvenance):
         prov_doc.used(this_run, resource, start_time)
 
         data_doc = prov_doc.entity('%s:%s' % (mcras.DAT_NAMESPACE.name, self.settings.data_entity),
-                                   {prov.model.PROV_LABEL: 'Crimes Committed',
+                                   {prov.model.PROV_LABEL: 'Property Assessment',
                                     prov.model.PROV_TYPE: mcras.PROV_ONT_DATASET})
 
         prov_doc.wasAttributedTo(data_doc, this_script)
@@ -81,9 +81,9 @@ class CrimeProvenance(MCRASProvenance):
         # self.database_helper.record(prov_doc.serialize())
 
 
-class CrimeAPIQuery(APIQuery):
+class PropertyAssessmentAPIQuery(APIQuery):
     def __init__(self, settings, database_helper, bdp_api):
-        assert isinstance(settings, CrimeSettings)
+        assert isinstance(settings, PropertyAssessmentSettings)
         assert isinstance(database_helper, DatabaseHelper)
         assert isinstance(bdp_api, BDPQuery)
 
@@ -93,22 +93,19 @@ class CrimeAPIQuery(APIQuery):
 
     def download_update_database(self):
         """
-        Downloads data on crimes committed in Boston, writes to a collection, and creates a provenance document
+        Downloads data on property values in Boston, writes to a collection, and creates a provenance document
 
         Returns
         -------
         """
         start_time = datetime.datetime.now()
         data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url,
-                                                      select=['fromdate', 'naturecode', 'weapontype',
-                                                              'shooting', 'domestic', 'year', 'month',
-                                                              'day_week', 'location'],
-                                                      where='year = 2015',
-                                                      order='fromdate')
+                                                      select=['av_total', 'living_area', 'gross_tax', 'location'])
 
-        self.database_helper.insert_permanent_db(self.settings.data_entity, data_json)
+        self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
 
         end_time = datetime.datetime.now()
 
-        crime_provenance = CrimeProvenance(self.settings, database_helper=self.database_helper, query=api_query)
-        crime_provenance.update_provenance(start_time=start_time, end_time=end_time)
+        assessment_provenance = \
+            PropertyAssessmentProvenance(self.settings, database_helper=self.database_helper, query=api_query)
+        assessment_provenance.update_provenance(start_time=start_time, end_time=end_time)

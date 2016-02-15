@@ -3,12 +3,20 @@ import prov.model
 
 
 class APIQuery:
+    """
+    An APIQuery object which downloads data and updates the database
+    """
     @abstractmethod
     def download_update_database(self):
         pass
 
 
 class MCRASSettings:
+    """
+    A settings object which contains properties for proper Provenance and the APIQuery
+
+    (Michael Clawar, Raaid Arshad Settings)
+    """
     @property
     @abstractmethod
     def data_namespace(self):
@@ -26,6 +34,11 @@ class MCRASSettings:
 
 
 class MCRASProvenance:
+    """
+    A provenance object to properly document the script
+
+    (Michael Clawar, Raaid Arshad Provenance)
+    """
     pass
 
 
@@ -34,13 +47,14 @@ class Namespace:
         self.name = name
         self.link = link
 
+# Standard Provenance namespaces
 BDP_NAMESPACE = Namespace(name='bdp', link='https://data.cityofboston.gov/resource')
 ALG_NAMESPACE = Namespace(name='alg', link='http://datamechanics.io/algorithm/mjclawar_rarshad/')
 DAT_NAMESPACE = Namespace(name='dat', link='http://datamechanics.io/data/mjclawar_rarshad/')
 ONT_NAMESPACE = Namespace(name='ont', link='http://datamechanics.io/ontology#')
 LOG_NAMESPACE = Namespace(name='log', link='http://datamechanics.io/log#')
 
-
+# Standard Provenance terms
 PROVENANCE_ONT_RETRIEVAL = '%s:Retrieval' % ONT_NAMESPACE.name
 PROV_ONT_QUERY = '%s:Query' % ONT_NAMESPACE.name
 PROV_ONT_EXTENSION = '%s:Extension' % ONT_NAMESPACE.name

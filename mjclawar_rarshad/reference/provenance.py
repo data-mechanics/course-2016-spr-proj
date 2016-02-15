@@ -1,8 +1,8 @@
 from prov.model import ProvDocument
 
-from mjclawar_rarshad import mcra_structures as mcras
-from mjclawar_rarshad import reference
-from mjclawar_rarshad.database_helpers import DatabaseHelper
+from mjclawar_rarshad.reference import dir_info
+from mjclawar_rarshad.reference import mcra_structures as mcras
+from mjclawar_rarshad.tools.database_helpers import DatabaseHelper
 
 
 class ProjectProvenance:
@@ -18,4 +18,4 @@ class ProjectProvenance:
         self.prov_doc.add_namespace(mcras.ONT_NAMESPACE.name, mcras.ONT_NAMESPACE.link)
 
     def write_provenance_json(self):
-        self.prov_doc.serialize(reference.provenance_file)
+        self.prov_doc.serialize(dir_info.provenance_file)

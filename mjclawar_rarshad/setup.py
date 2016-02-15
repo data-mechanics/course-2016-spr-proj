@@ -8,8 +8,8 @@ Authors: Michael Clawar and Raaid Arshad
 import json
 import pymongo
 
-from mjclawar_rarshad import setup_provenance, database_helpers
-from mjclawar_rarshad.api import crime, bdp_query
+from mjclawar_rarshad.sources import crime, property_assessment
+from mjclawar_rarshad.tools import bdp_query, database_helpers
 
 
 def main(auth_json_path):
@@ -24,11 +24,19 @@ def main(auth_json_path):
     bdp_api = bdp_query.BDPQuery(api_token=api_token)
 
     setup_crime_incidents(database_helper, bdp_api)
+    setup_property_assessment(database_helper, bdp_api)
 
 
 def setup_crime_incidents(database_helper, bdp_api):
     crime_settings = crime.CrimeSettings()
     crime.CrimeAPIQuery(crime_settings, database_helper, bdp_api).download_update_database()
+
+
+def setup_property_assessment(database_helper, bdp_api):
+    property_assessment_settings = property_assessment.PropertyAssessmentSettings()
+    property_assessment.PropertyAssessmentAPIQuery(property_assessment_settings,
+                                                   database_helper,
+                                                   bdp_api).download_update_database()
 
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
