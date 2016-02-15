@@ -1,0 +1,4 @@
+The Importance of Safe Needle and Syringe Disposal
+==============================
+
+The safe disposal of needles, syringes, and other sharp medical devices ("sharps") is a public health issue. Americans annually use [over 3 billion needles and sharps] (http://www.fda.gov/MedicalDevices/ProductsandMedicalProcedures/HomeHealthandConsumer/ConsumerProducts/Sharps/) for medical purposes (e.g. for diabetes, allergies, cancer) at home. Workers such as recycling plant workers, waste haulers, and janitors can be injured by [improperly disposed sharps] (http://www.cdc.gov/niosh/topics/bbp/disposal.html). Household members, children, and pets can also be harmed if sharps are disposed of improperly around the home. This can potentially spread infections including [Hepatitis B and C and HIV] (Http://www.fda.gov/MedicalDevices/ProductsandMedicalProcedures/HomeHealthandConsumer/ConsumerProducts/Sharps/).
