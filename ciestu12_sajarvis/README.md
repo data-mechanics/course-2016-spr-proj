@@ -16,4 +16,6 @@ TODO add descriptions for each of these
 
 ### 4. (derived) Walking distances to other stops on a branch
 
-### 5. (derived) ??
+### 5. (derived) Time to nearest neighbor stop on same branch
+
+### 6. (derived) ??
