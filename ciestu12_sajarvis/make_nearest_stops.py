@@ -39,8 +39,7 @@ stops = [(s['source_id'], (s['line'], s['dest_id'], s['dist_val_ft'], s['duratio
 distances = map(stops, lambda k,v: [((k,v[0]), v)])
 
 # Reduce on the minimum *time* distance walking to the other stops on
-# the line. Line is not as complex as it looks, more just wordy.
-# We could refactor to not use anonymous lambdas..
+# the line. Second lambda function serves as the key to minimize (time).
 shortests = reduce(distances, lambda k,vs: (k[0], min([v for v in vs if v[1] != k[0]], key = lambda t : t[3])))
 
 # Put the resulting list of tuples into a JSON-friendly dictionary.
