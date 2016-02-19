@@ -75,6 +75,7 @@ for l in get_unique_lines():
         repo['{}.{}'.format(teamname, out_coll)].insert_one(
             { 'source_id' : r[0][2], \
               'dest_id' : r[1][2], \
+              'line' : l, \
               'dist_val_ft' : data['rows'][0]['elements'][0]['distance']['value'], \
               'dist_text' : data['rows'][0]['elements'][0]['distance']['text'], \
               'duration_val_sec' : data['rows'][0]['elements'][0]['duration']['value'], \
