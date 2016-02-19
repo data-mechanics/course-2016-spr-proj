@@ -5,6 +5,8 @@ The Green Line seems to stop too frequently. Presuming the best location for a s
 
 By using *k-means* and setting *k* to be *x* fewer than the number of existing stops, we can determine which *x* stops are best to remove from existing routes: the *k* stops nearest the cluster means (and only one stop per mean) would be the ones to persist.
 
+Here are the data sets we have to help solve this problem, along with why we believe they're helpful.
+
 # The Data Sets Involved
 TODO add descriptions for each of these
 
