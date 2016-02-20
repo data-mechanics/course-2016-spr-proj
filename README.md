@@ -1,5 +1,5 @@
 # course-2016-spr-proj-one
-Project repository for the first project in the Spring 2016 iteration of the Data Mechanics course at Boston University.
+Project repository for the first project in the Spring 2016 iteration of the Data Mechanics course at Boston University. ?
 
 In this project, you will implement components that obtain a few data sets from web services of your choice, insert them into the data set repository with appropriate provenance information, and combine them into at least two additional derived data sets (also with appropriate provenance information).
 
