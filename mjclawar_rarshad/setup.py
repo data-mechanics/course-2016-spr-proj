@@ -9,7 +9,7 @@ import json
 import pymongo
 
 from mjclawar_rarshad.sources import crime, property_assessment, boston_public_schools, hospital_locations
-from mjclawar_rarshad.tools import bdp_query, database_helpers
+from mjclawar_rarshad.tools import bdp_query, database_helpers, pandas_funcs
 
 
 def main(auth_json_path):
@@ -26,7 +26,7 @@ def main(auth_json_path):
     setup_crime_incidents(database_helper, bdp_api)
     setup_property_assessment(database_helper, bdp_api)
     setup_boston_public_schools(database_helper, bdp_api)
-    #setup_hospital_locations(database_helper, bdp_api)
+    setup_hospital_locations(database_helper, bdp_api)
 
 
 def setup_crime_incidents(database_helper, bdp_api):
@@ -48,11 +48,13 @@ def setup_boston_public_schools(database_helper, bdp_api):
                                                       bdp_api).download_update_database()
 
 
-# def setup_hospital_locations(database_helper, bdp_api):
-#     hospital_locations_settings = hospital_locations.HospitalLocationsSettings()
-#     hospital_locations.HospitalLocationsAPIQuery(hospital_locations_settings,
-#                                                  database_helper,
-#                                                  bdp_api).download_update_database()
+def setup_hospital_locations(database_helper, bdp_api):
+    hospital_locations_settings = hospital_locations.HospitalLocationsSettings()
+    hospital_locations.HospitalLocationsAPIQuery(hospital_locations_settings,
+                                                 database_helper,
+                                                 bdp_api).download_update_database()
+
+
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
     main('auth.json')
