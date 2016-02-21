@@ -48,13 +48,12 @@ this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.mod
 doc.wasAssociatedWith(this_run, this_script)
 doc.used(this_run, resource, startTime)
 
-lost = doc.entity('dat:boardings', {prov.model.PROV_LABEL:'Green Line Stop Boardings', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(lost, this_script)
-doc.wasGeneratedBy(lost, this_run, endTime)
-doc.wasDerivedFrom(lost, resource, this_run, this_run, this_run)
+boardings = doc.entity('dat:boardings', {prov.model.PROV_LABEL:'Green Line Stop Boardings', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(boardings, this_script)
+doc.wasGeneratedBy(boardings, this_run, endTime)
+doc.wasDerivedFrom(boardings, resource, this_run, this_run, this_run)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 
 repo.logout()
