@@ -17,9 +17,12 @@ Description pending.
 
 ### Software/Packages
 - Python 3.4
+  - `bs4`
+  - `pymongo`
+  - `prov`
 - MongoDB 3.2
 
-### Accounts required**
+### Accounts required
 - [OpenCage Geocoder] (https://geocoder.opencagedata.com/)
 - [Data Boston - City of Boston] (https://data.cityofboston.gov/)
 

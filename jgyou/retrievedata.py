@@ -41,7 +41,6 @@ provdoc.add_namespace('dat', 'http://datamechanics.io/data/jgyou/') # The data s
 provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 provdoc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')		# city of boston data.
-provdoc.add_namespace('bhpc', 'http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/')	# Boston Public Health website.
 
 
 this_script = provdoc.agent('alg:retrievedata', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})

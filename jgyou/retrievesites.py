@@ -27,12 +27,13 @@ repo = client.repo
 # remember to modify this line later
 repo.authenticate("jgyou", "jgyou")
 
-# get response from page, parses
+startTime = datetime.datetime.now()
+
+# get response from page, parses page to get information
 
 urlbhpc = "http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/Safe-Needle-and-Syringe-Disposal.aspx"
 response = urllib.request.urlopen(urlbhpc)
 #response_encoding = response.headers.get_content_charset(default)
-#doc = rqst.read()
 
 only_webpart = SoupStrainer(id="WebPartWPQ3")
 soup = BeautifulSoup(response, 'html.parser', parse_only=only_webpart)
@@ -49,7 +50,7 @@ for t in (soup.find('table')):
 		# resource name
 		for s in td.find_all('strong'):
 			temp = str(s.string)
-			name = temp.encode('ascii','ignore')
+			name = temp.encode('ascii','ignore').decode('utf-8')
 			#print(s.string.decode('unicode_escape').encode('ascii','ignore'))
 		
 		# link
@@ -66,17 +67,52 @@ for t in (soup.find('table')):
 					phone = temp2.strip()
 				else:
 					# save street name, town, zipcode
-					if re.match(r"[A-Za-z]+, MA", temp2) != None:
-						town, temp3, zipcode = temp2.split()
-						i = re.search(",", town)
-						town = town[:i.start()]
+					if re.match(r"([A-Za-z]+)(.*), MA", temp2) != None:
+						#temp2 = re.sub(r"^(-|[A-Z]|[a-z]|[0-9])", " ", temp2)
+						temp3 = temp2.split()
+						town = re.sub(r"[^A-Za-z-]", "", temp3[0])
+						for e in temp3:
+							if re.match(r"[0-9]+", e):
+								zipcode = e
 					else: 
 						addr1 = temp2.strip()
 					# save overall address for reference
-					addr = addr + temp2.strip() + "\n"
+					addr = addr + temp2.strip() + " "
 				#print(b.string)
 		#print()
-		resources.append({"resource_name": str(name), "addr": addr, "street": addr1, "town": town, "zipcode": zipcode, "phone": phone, "link": link})
+		resources.append({"resource_name": str(name), "location": addr, "location_street_name": addr1, "neighborhood": town, "location_zipcode": zipcode, "phone": phone, "weburl": link})
 
 print(json.dumps(resources, sort_keys = True, indent=4))
 
+repo.dropTemporary("currentsites")
+repo.createTemporary("currentsites")
+repo['jgyou.currentsites'].insert_many(resources)
+
+endTime = datetime.datetime.now()
+
+
+
+# record provenance data
+
+provdoc = prov.model.ProvDocument()
+provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/jgyou/') # The scripts in <folder>/<filename> format.
+provdoc.add_namespace('dat', 'http://datamechanics.io/data/jgyou/') # The data sets in <user>/<collection> format.
+provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+provdoc.add_namespace('bhpc', 'http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/')	# Boston Public Health website.
+
+
+this_script = provdoc.agent('alg:retrievesites', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource = provdoc.entity('bhpc:safeneedle', {'prov:label':'Safe Needle and Syringe Disposal Webpage', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'aspx'})
+this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'Safe-Needle-and-Syringe-Disposal.aspx'})
+provdoc.wasAssociatedWith(this_run, this_script)
+provdoc.used(this_run, resource, startTime)
+
+dropoffsites = provdoc.entity('dat:currentsites', {prov.model.PROV_LABEL:'Curent Drop-Off Sites', prov.model.PROV_TYPE:'ont:DataSet'})
+provdoc.wasAttributedTo(dropoffsites, this_script)
+provdoc.wasGeneratedBy(dropoffsites, this_run, endTime)
+provdoc.wasDerivedFrom(dropoffsites, resource, this_run, this_run, this_run)
+
+repo.record(provdoc.serialize()) # Record the provenance document.
+print(provdoc.get_provn())
+repo.logout()
