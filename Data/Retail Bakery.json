@@ -1,0 +1,798 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "pmdu-upcu",
+      "name" : "Retail Bakery",
+      "averageRating" : 0,
+      "category" : "Inspectional Services",
+      "createdAt" : 1347392931,
+      "description" : "This is a list of all active retail bakeries in the city.",
+      "displayType" : "table",
+      "downloadCount" : 343,
+      "indexUpdatedAt" : 1414540022,
+      "licenseId" : "PUBLIC_DOMAIN",
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 1066237,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1347417854,
+      "publicationGroup" : 423745,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "rowsUpdatedAt" : 1347392936,
+      "rowsUpdatedBy" : "4tjb-bgqg",
+      "tableId" : 423745,
+      "totalTimesRated" : 0,
+      "viewCount" : 350,
+      "viewLastModified" : 1347482607,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 17596479,
+        "name" : "BUSINESS NAME",
+        "dataTypeName" : "text",
+        "fieldName" : "business_name",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112519,
+        "width" : 256,
+        "cachedContents" : {
+          "non_null" : 89,
+          "smallest" : "\u001A",
+          "null" : 0,
+          "largest" : "YI SOON BAKERY",
+          "top" : [ {
+            "count" : 20,
+            "item" : "MY GRANDMA'S OF NEW ENGLAND"
+          }, {
+            "count" : 19,
+            "item" : "EAST COAST FENELON'S BAKERY"
+          }, {
+            "count" : 18,
+            "item" : "Edou and Den's Bakery"
+          }, {
+            "count" : 17,
+            "item" : "A La Carte Bakery & Ice Cream"
+          }, {
+            "count" : 16,
+            "item" : "KATY'S BAKERY"
+          }, {
+            "count" : 15,
+            "item" : "Dor Bakery"
+          }, {
+            "count" : 14,
+            "item" : "\u001A"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596480,
+        "name" : " DBA NAME",
+        "dataTypeName" : "text",
+        "fieldName" : "dba_name",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112520,
+        "width" : 208,
+        "cachedContents" : {
+          "non_null" : 1,
+          "smallest" : "Wai Guo Corporation",
+          "null" : 88,
+          "largest" : "Wai Guo Corporation",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Wai Guo Corporation"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596481,
+        "name" : " WARD",
+        "dataTypeName" : "number",
+        "fieldName" : "ward",
+        "position" : 4,
+        "renderTypeName" : "number",
+        "tableColumnId" : 4112521,
+        "width" : 160,
+        "cachedContents" : {
+          "non_null" : 88,
+          "smallest" : "1",
+          "sum" : "953",
+          "null" : 1,
+          "average" : "10.82954545454545",
+          "largest" : "22",
+          "top" : [ {
+            "count" : 20,
+            "item" : "3"
+          }, {
+            "count" : 19,
+            "item" : "5"
+          }, {
+            "count" : 18,
+            "item" : "9"
+          }, {
+            "count" : 17,
+            "item" : "15"
+          }, {
+            "count" : 16,
+            "item" : "17"
+          }, {
+            "count" : 15,
+            "item" : "13"
+          }, {
+            "count" : 14,
+            "item" : "18"
+          }, {
+            "count" : 13,
+            "item" : "14"
+          }, {
+            "count" : 12,
+            "item" : "6"
+          }, {
+            "count" : 11,
+            "item" : "1"
+          }, {
+            "count" : 10,
+            "item" : "19"
+          }, {
+            "count" : 9,
+            "item" : "11"
+          }, {
+            "count" : 8,
+            "item" : "10"
+          }, {
+            "count" : 7,
+            "item" : "20"
+          }, {
+            "count" : 6,
+            "item" : "21"
+          }, {
+            "count" : 5,
+            "item" : "22"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596482,
+        "name" : " PREDIR",
+        "dataTypeName" : "text",
+        "fieldName" : "predir",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112522,
+        "width" : 184,
+        "cachedContents" : {
+          "non_null" : 88,
+          "smallest" : " ",
+          "null" : 1,
+          "largest" : "W",
+          "top" : [ {
+            "count" : 20,
+            "item" : " "
+          }, {
+            "count" : 19,
+            "item" : "  "
+          }, {
+            "count" : 18,
+            "item" : "W"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596483,
+        "name" : " ST NO",
+        "dataTypeName" : "text",
+        "fieldName" : "st_no",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112523,
+        "width" : 172,
+        "cachedContents" : {
+          "non_null" : 88,
+          "smallest" : "1",
+          "null" : 1,
+          "largest" : "9",
+          "top" : [ {
+            "count" : 20,
+            "item" : "36"
+          }, {
+            "count" : 19,
+            "item" : "14"
+          }, {
+            "count" : 18,
+            "item" : "227"
+          }, {
+            "count" : 17,
+            "item" : "1035"
+          }, {
+            "count" : 16,
+            "item" : "105"
+          }, {
+            "count" : 15,
+            "item" : "462"
+          }, {
+            "count" : 14,
+            "item" : "3346"
+          }, {
+            "count" : 13,
+            "item" : "31"
+          }, {
+            "count" : 12,
+            "item" : "333"
+          }, {
+            "count" : 11,
+            "item" : "3"
+          }, {
+            "count" : 10,
+            "item" : "55"
+          }, {
+            "count" : 9,
+            "item" : "761"
+          }, {
+            "count" : 8,
+            "item" : "3351"
+          }, {
+            "count" : 7,
+            "item" : "403"
+          }, {
+            "count" : 6,
+            "item" : "29L"
+          }, {
+            "count" : 5,
+            "item" : "331"
+          }, {
+            "count" : 4,
+            "item" : "9"
+          }, {
+            "count" : 3,
+            "item" : "4172"
+          }, {
+            "count" : 2,
+            "item" : "4258"
+          }, {
+            "count" : 1,
+            "item" : "4174"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596484,
+        "name" : " ST NAME",
+        "dataTypeName" : "text",
+        "fieldName" : "st_name",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112524,
+        "width" : 196,
+        "cachedContents" : {
+          "non_null" : 88,
+          "smallest" : "Atlantic",
+          "null" : 1,
+          "largest" : "WILLIAM C KELLY",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Beach"
+          }, {
+            "count" : 19,
+            "item" : "HARRISON "
+          }, {
+            "count" : 18,
+            "item" : "Harrison"
+          }, {
+            "count" : 17,
+            "item" : "Hanover"
+          }, {
+            "count" : 16,
+            "item" : "Washington"
+          }, {
+            "count" : 15,
+            "item" : "DORCHESTER "
+          }, {
+            "count" : 14,
+            "item" : "Bennington"
+          }, {
+            "count" : 13,
+            "item" : "Chelsea"
+          }, {
+            "count" : 12,
+            "item" : "Centre"
+          }, {
+            "count" : 11,
+            "item" : "Germania"
+          }, {
+            "count" : 10,
+            "item" : "Poplar"
+          }, {
+            "count" : 9,
+            "item" : "Harvard"
+          }, {
+            "count" : 8,
+            "item" : "Market"
+          }, {
+            "count" : 7,
+            "item" : "WASHINGTON"
+          }, {
+            "count" : 6,
+            "item" : "Como"
+          }, {
+            "count" : 5,
+            "item" : "HYDE PARK "
+          }, {
+            "count" : 4,
+            "item" : "River"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596485,
+        "name" : " SUFFIX",
+        "dataTypeName" : "text",
+        "fieldName" : "suffix",
+        "position" : 8,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112525,
+        "width" : 184,
+        "cachedContents" : {
+          "non_null" : 87,
+          "smallest" : " ",
+          "null" : 2,
+          "largest" : "ST",
+          "top" : [ {
+            "count" : 20,
+            "item" : "ST"
+          }, {
+            "count" : 19,
+            "item" : "PL"
+          }, {
+            "count" : 18,
+            "item" : "AV"
+          }, {
+            "count" : 17,
+            "item" : " "
+          }, {
+            "count" : 16,
+            "item" : "PZ"
+          }, {
+            "count" : 15,
+            "item" : "SQ"
+          }, {
+            "count" : 14,
+            "item" : "RD"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596486,
+        "name" : " LICENSE CAT",
+        "dataTypeName" : "text",
+        "fieldName" : "license_cat",
+        "position" : 9,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112526,
+        "width" : 244,
+        "cachedContents" : {
+          "non_null" : 88,
+          "smallest" : "BR",
+          "null" : 1,
+          "largest" : "BR",
+          "top" : [ {
+            "count" : 20,
+            "item" : "BR"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596487,
+        "name" : " DESCRIPT",
+        "dataTypeName" : "text",
+        "fieldName" : "descript",
+        "position" : 10,
+        "renderTypeName" : "text",
+        "tableColumnId" : 4112527,
+        "width" : 208,
+        "cachedContents" : {
+          "non_null" : 88,
+          "smallest" : "Bakery Retail",
+          "null" : 1,
+          "largest" : "Bakery Retail",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Bakery Retail"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596488,
+        "name" : " GPS X",
+        "dataTypeName" : "number",
+        "fieldName" : "gps_x",
+        "position" : 11,
+        "renderTypeName" : "number",
+        "tableColumnId" : 4112528,
+        "width" : 172,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : "0",
+          "sum" : "58322418.1244",
+          "null" : 6,
+          "average" : "702679.7364385542",
+          "largest" : "786286.3784",
+          "top" : [ {
+            "count" : 20,
+            "item" : "0"
+          }, {
+            "count" : 19,
+            "item" : "776408"
+          }, {
+            "count" : 18,
+            "item" : "776017"
+          }, {
+            "count" : 17,
+            "item" : "781686.0936"
+          }, {
+            "count" : 16,
+            "item" : "761216"
+          }, {
+            "count" : 15,
+            "item" : "763217.9115"
+          }, {
+            "count" : 14,
+            "item" : "762965"
+          }, {
+            "count" : 13,
+            "item" : "760085.4658"
+          }, {
+            "count" : 12,
+            "item" : "760246.5538"
+          }, {
+            "count" : 11,
+            "item" : "763050.7377"
+          }, {
+            "count" : 10,
+            "item" : "761558"
+          }, {
+            "count" : 9,
+            "item" : "762987"
+          }, {
+            "count" : 8,
+            "item" : "763540"
+          }, {
+            "count" : 7,
+            "item" : "756564.8852"
+          }, {
+            "count" : 6,
+            "item" : "756552.0852"
+          }, {
+            "count" : 5,
+            "item" : "757218"
+          }, {
+            "count" : 4,
+            "item" : "756539.9186"
+          }, {
+            "count" : 3,
+            "item" : "757225.2937"
+          }, {
+            "count" : 2,
+            "item" : "749293"
+          }, {
+            "count" : 1,
+            "item" : "749390.4578"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596489,
+        "name" : " GPS Y",
+        "dataTypeName" : "number",
+        "fieldName" : "gps_y",
+        "position" : 12,
+        "renderTypeName" : "number",
+        "tableColumnId" : 4112529,
+        "width" : 172,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : "0",
+          "sum" : "223791387.689",
+          "null" : 6,
+          "average" : "2696281.779385542",
+          "largest" : "2964732.708",
+          "top" : [ {
+            "count" : 20,
+            "item" : "0"
+          }, {
+            "count" : 19,
+            "item" : "2957610"
+          }, {
+            "count" : 18,
+            "item" : "2940250"
+          }, {
+            "count" : 17,
+            "item" : "2961092.034"
+          }, {
+            "count" : 16,
+            "item" : "2941620"
+          }, {
+            "count" : 15,
+            "item" : "2938039.97"
+          }, {
+            "count" : 14,
+            "item" : "2942930"
+          }, {
+            "count" : 13,
+            "item" : "2937471.724"
+          }, {
+            "count" : 12,
+            "item" : "2938339.779"
+          }, {
+            "count" : 11,
+            "item" : "2938024.101"
+          }, {
+            "count" : 10,
+            "item" : "2942490"
+          }, {
+            "count" : 9,
+            "item" : "2939850"
+          }, {
+            "count" : 8,
+            "item" : "2929708.504"
+          }, {
+            "count" : 7,
+            "item" : "2929540.814"
+          }, {
+            "count" : 6,
+            "item" : "2930080"
+          }, {
+            "count" : 5,
+            "item" : "2929227.358"
+          }, {
+            "count" : 4,
+            "item" : "2930044.38"
+          }, {
+            "count" : 3,
+            "item" : "2929210"
+          }, {
+            "count" : 2,
+            "item" : "2929313.988"
+          }, {
+            "count" : 1,
+            "item" : "2954360"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 17596490,
+        "name" : "Location 1",
+        "dataTypeName" : "location",
+        "fieldName" : "location_1",
+        "position" : 13,
+        "renderTypeName" : "location",
+        "tableColumnId" : 4112530,
+        "width" : 220,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : {
+            "longitude" : "2957600.0",
+            "latitude" : "777443.0",
+            "human_address" : "{\"address\":\"Atlantic\",\"city\":\"Downtown / Financial Distric\",\"state\":\"\",\"zip\":\"02110\"}"
+          },
+          "null" : 6,
+          "largest" : {
+            "longitude" : "2948445.12",
+            "latitude" : "770961.7194",
+            "human_address" : "{\"address\":\"Washington\",\"city\":\"ROXBURY\",\"state\":\"\",\"zip\":\"02118\"}"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "longitude" : "2918250.456",
+              "latitude" : "757250.9292",
+              "human_address" : "{\"address\":\"River\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}"
+            }
+          } ]
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "license" : {
+        "name" : "Public Domain"
+      },
+      "metadata" : {
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "thumbnail" : {
+          "page" : {
+            "created" : true,
+            "selection" : {
+              "height" : 317,
+              "width" : 596,
+              "y1" : 88,
+              "y2" : 405,
+              "x2" : 1440,
+              "x1" : 844
+            },
+            "filename" : "page.png-596.317.844.88.png"
+          }
+        },
+        "rdfSubject" : "0",
+        "rowIdentifier" : "0",
+        "rdfClass" : ""
+      },
+      "owner" : {
+        "id" : "4tjb-bgqg",
+        "displayName" : "Anna Veldt",
+        "screenName" : "Anna Veldt"
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "4tjb-bgqg",
+        "displayName" : "Anna Veldt",
+        "screenName" : "Anna Veldt"
+      },
+      "tags" : [ "food" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 1, "6CA37E41-69F1-4C39-86B8-5EB0F2CA0A8E", 1, 1347392933, "695128", 1347392933, "695128", "{\n}", "Cakeology", null, "3", " ", "45", "Province", "ST", "BR", "Bakery Retail", "775046", "2955440", [ "{\"address\":\"Province\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02106\"}", "775046", "2955440", null, false ] ]
+, [ 2, "7D31B299-01FF-43E1-95F8-6A83378E0582", 2, 1347392933, "695128", 1347392933, "695128", "{\n}", "NORTH END BAKERY", null, "3", " ", "1", "FANEUIL HALL MKT PL", "PL", "BR", "Bakery Retail", "776102.6489", "2956536.085", [ "{\"address\":\"FANEUIL HALL MKT PL\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02109\"}", "776102.6489", "2956536.085", null, false ] ]
+, [ 3, "012DDC50-202A-43F3-978F-9D355E5E0653", 3, 1347392933, "695128", 1347392933, "695128", "{\n}", "BOSTON CHIPYARD", null, "3", " ", "100-199", "Faneuil Hall Market", "PL", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"Faneuil Hall Market\",\"city\":\"Boston\",\"state\":\"\",\"zip\":\"20109\"}", "0", "0", null, false ] ]
+, [ 4, "48AE5F56-5346-42FE-9B0C-09887EDF9762", 4, 1347392933, "695128", 1347392933, "695128", "{\n}", "ROSIE'S BAKERY", null, "3", " ", "640", "Atlantic", "AV", "BR", "Bakery Retail", "777443", "2957600", [ "{\"address\":\"Atlantic\",\"city\":\"Downtown / Financial Distric\",\"state\":\"\",\"zip\":\"02110\"}", "777443", "2957600", null, false ] ]
+, [ 5, "1035A121-36BF-4A36-92CE-E97B74BD4CE8", 5, 1347392933, "695128", 1347392933, "695128", "{\n}", "Crumbs Bake Shop", null, "3", " ", "176", "Federal", "ST", "BR", "Bakery Retail", "776206.9116", "2954160.551", [ "{\"address\":\"Federal\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02110\"}", "776206.9116", "2954160.551", null, false ] ]
+, [ 6, "6FE4C6F7-3F2D-47F1-9E1E-D57B0890FA79", 6, 1347392933, "695128", 1347392933, "695128", "{\n}", "Ho Yeun Bakery", null, "3", " ", "54", "Beach", "ST", "BR", "Bakery Retail", "774945.6922", "2953421.517", [ "{\"address\":\"Beach\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774945.6922", "2953421.517", null, false ] ]
+, [ 7, "21D49152-7C4D-4FD5-9B42-C2182F1A3E1D", 7, 1347392933, "695128", 1347392933, "695128", "{\n}", "MAXIM BAKERY", null, "3", " ", "62", "HARRISON ", "AV", "BR", "Bakery Retail", "774824", "2953370", [ "{\"address\":\"HARRISON\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774824", "2953370", null, false ] ]
+, [ 8, "514EE7FC-0C2A-4361-BCA9-60101193D40F", 8, 1347392933, "695128", 1347392933, "695128", "{\n}", "Double Rich Bakery", null, "3", " ", "109", "Lincoln", "ST", "BR", "Bakery Retail", "775488.9323", "2953438.899", [ "{\"address\":\"Lincoln\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "775488.9323", "2953438.899", null, false ] ]
+, [ 9, "0F71A1DC-5422-4502-96E8-4DEEFFBD1B32", 9, 1347392933, "695128", 1347392933, "695128", "{\n}", "CROWN ROYAL BAKERY", null, "3", " ", "64", "Beach", "ST", "BR", "Bakery Retail", "775104.3229", "2953377.51", [ "{\"address\":\"Beach\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "775104.3229", "2953377.51", null, false ] ]
+, [ 10, "9033AF7D-AE12-4064-827D-ED877B1621FC", 10, 1347392933, "695128", 1347392933, "695128", "{\n}", "BAO-BAO BAKERY & CAFE", null, "3", " ", "77", "HARRISON ", "AV", "BR", "Bakery Retail", "774671", "2953260", [ "{\"address\":\"HARRISON\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774671", "2953260", null, false ] ]
+, [ 11, "3F5C3616-BDD1-4803-B553-81D7151A09E3", 11, 1347392933, "695128", 1347392933, "695128", "{\n}", "MAY'S CAKE HOUSE", null, "3", " ", "223", "Harrison", "AV", "BR", "Bakery Retail", "774323", "2952070", [ "{\"address\":\"Harrison\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774323", "2952070", null, false ] ]
+, [ 12, "8E1A65E1-ED0F-45F5-9907-C07BB1CA0142", 12, 1347392933, "695128", 1347392933, "695128", "{\n}", "MEISUM BAKERY", null, "3", " ", "36", "BEACH", " ", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"BEACH\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "0", "0", null, false ] ]
+, [ 13, "87E48CFD-A9CA-476D-8CE0-70D52DF911E0", 13, 1347392933, "695128", 1347392933, "695128", "{\n}", "Crown Royal Bakery", null, "3", " ", "21", "Edinboro", "ST", "BR", "Bakery Retail", "775134.3424", "2953531.818", [ "{\"address\":\"Edinboro\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "775134.3424", "2953531.818", null, false ] ]
+, [ 14, "F82EA9D1-26F5-44C9-8731-34AEC6357D62", 14, 1347392933, "695128", 1347392933, "695128", "{\n}", "Eldo Cake House", "Wai Guo Corporation", "3", "  ", "36", "Harrison", "AV", "BR", "Bakery Retail", "774831.6572", "2953519.325", [ "{\"address\":\"Harrison\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774831.6572", "2953519.325", null, false ] ]
+, [ 15, "320059CB-6506-4708-88F9-870E23AB26D0", 15, 1347392933, "695128", 1347392933, "695128", "{\n}", "101 Bakery", null, "3", " ", "56", "Beach", "ST", "BR", "Bakery Retail", "774961.9293", "2953417.956", [ "{\"address\":\"Beach\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774961.9293", "2953417.956", null, false ] ]
+, [ 16, "2F026DB0-B68C-42E5-AB98-E7207E177F2D", 16, 1347392933, "695128", 1347392933, "695128", "{\n}", "Mix Sum Bakery", null, "3", " ", "14", "Beach", "ST", "BR", "Bakery Retail", "774672.4207", "2953471.131", [ "{\"address\":\"Beach\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02111\"}", "774672.4207", "2953471.131", null, false ] ]
+, [ 17, "1B782962-6C45-487C-A374-FCA153CC459C", 17, 1347392933, "695128", 1347392933, "695128", "{\n}", "MODERN PASTRY", null, "3", " ", "257", "Hanover", "ST", "BR", "Bakery Retail", "776495.988", "2957710.505", [ "{\"address\":\"Hanover\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02113\"}", "776495.988", "2957710.505", null, false ] ]
+, [ 18, "F4096AA6-F9C5-4D33-94D6-C26F88960210", 18, 1347392933, "695128", 1347392933, "695128", "{\n}", "MIKE'S PASTRY INC", null, "3", " ", "298", "Hanover", "ST", "BR", "Bakery Retail", "776627.0629", "2958073.068", [ "{\"address\":\"Hanover\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02113\"}", "776627.0629", "2958073.068", null, false ] ]
+, [ 19, "DFADFFDF-1CA5-4F36-A902-C3844897C476", 19, 1347392933, "695128", 1347392933, "695128", "{\n}", "MARIA'S PASTRY", null, "3", " ", "46", "Cross", "ST", "BR", "Bakery Retail", "776039.7524", "2957716.509", [ "{\"address\":\"Cross\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02113\"}", "776039.7524", "2957716.509", null, false ] ]
+, [ 20, "2061BA0A-B4BD-47F6-BABA-8DD698D45F1D", 20, 1347392933, "695128", 1347392933, "695128", "{\n}", "PARZIALE'S BAKERY", null, "3", " ", "78", "Prince", "ST", "BR", "Bakery Retail", "776214.4014", "2958431.7", [ "{\"address\":\"Prince\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02113\"}", "776214.4014", "2958431.7", null, false ] ]
+, [ 21, "0E0233D3-AA56-45A8-9230-287F561085FB", 21, 1347392933, "695128", 1347392933, "695128", "{\n}", "LULU'S BAKE SHOPPE", null, "3", " ", "227", "Hanover", "ST", "BR", "Bakery Retail", "776408", "2957610", [ "{\"address\":\"Hanover\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02113\"}", "776408", "2957610", null, false ] ]
+, [ 22, "4AE203D4-9D3D-4BE7-8AF8-5713BD136FF6", 22, 1347392933, "695128", 1347392933, "695128", "{\n}", "Lyndell's Bakery", null, "3", " ", "227", "Hanover", "ST", "BR", "Bakery Retail", "776408", "2957610", [ "{\"address\":\"Hanover\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02113\"}", "776408", "2957610", null, false ] ]
+, [ 23, "F6206941-DEA5-414D-8EB3-20C25A32E752", 23, 1347392933, "695128", 1347392933, "695128", "{\n}", "Isabelle's Curly Cakes", null, "5", " ", "81", "Charles", "ST", "BR", "Bakery Retail", "772265.0506", "2955933.353", [ "{\"address\":\"Charles\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"02114\"}", "772265.0506", "2955933.353", null, false ] ]
+, [ 24, "CDE6F912-AA97-47E1-8448-3C1754FC792F", 24, 1347392933, "695128", 1347392933, "695128", "{\n}", "FINALE (ROOM FOR DESSERT LLC)", null, "5", " ", "50", "Park", "PZ", "BR", "Bakery Retail", "772614.684", "2953335.872", [ "{\"address\":\"Park\",\"city\":\"Downtown / Financial Distric\",\"state\":\"\",\"zip\":\"20116\"}", "772614.684", "2953335.872", null, false ] ]
+, [ 25, "1062A097-961B-4D9C-90BF-D23D618E3417", 25, 1347392933, "695128", 1347392933, "695128", "{\n}", "Georgetown Cupcake", null, "5", " ", "83", "Newbury", "ST", "BR", "Bakery Retail", "771079.5119", "2953562.272", [ "{\"address\":\"Newbury\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"21016\"}", "771079.5119", "2953562.272", null, false ] ]
+, [ 26, "D336901E-2112-4AD7-B3BE-2448BCF1F74F", 26, 1347392933, "695128", 1347392933, "695128", "{\n}", "South End Buttery", null, "3", " ", "314", "SHAWMUT ", "AV", "BR", "Bakery Retail", "772338", "2949980", [ "{\"address\":\"SHAWMUT\",\"city\":\"BOSTON\",\"state\":\"\",\"zip\":\"21018\"}", "772338", "2949980", null, false ] ]
+, [ 27, "F48DD9EB-40BA-4772-95F4-DE38A5009BC3", 27, 1347392933, "695128", 1347392933, "695128", "{\n}", "Jaho Coffee & Tea", null, "9", " ", "1651", "Washington", "ST", "BR", "Bakery Retail", "770961.7194", "2948445.12", [ "{\"address\":\"Washington\",\"city\":\"ROXBURY\",\"state\":\"\",\"zip\":\"02118\"}", "770961.7194", "2948445.12", null, false ] ]
+, [ 28, "2555F1BE-B409-4C3F-A2CB-A9380D5EF6E9", 28, 1347392933, "695128", 1347392933, "695128", "{\n}", "South End Buttery", null, "3", " ", "312", "Shawmut", "AV", "BR", "Bakery Retail", "772338.2936", "2949978.965", [ "{\"address\":\"Shawmut\",\"city\":\"ROXBURY\",\"state\":\"\",\"zip\":\"02118\"}", "772338.2936", "2949978.965", null, false ] ]
+, [ 29, "E996E138-724A-466A-B486-712215FF170A", 29, 1347392933, "695128", 1347392933, "695128", "{\n}", "HALEY HOUSE BAKERY CAFE", null, "9", " ", "12", "Dade", "ST", "BR", "Bakery Retail", "769060.7482", "2946289.263", [ "{\"address\":\"Dade\",\"city\":\"ROXBURY\",\"state\":\"\",\"zip\":\"02119\"}", "769060.7482", "2946289.263", null, false ] ]
+, [ 30, "744FF81F-31EF-47E9-81C6-E9C73EEA477A", 30, 1347392933, "695128", 1347392933, "695128", "{\n}", "CHAU'S BAKERY", null, "15", " ", "1456", "DORCHESTER ", "AV", "BR", "Bakery Retail", "775262", "2935020", [ "{\"address\":\"DORCHESTER\",\"city\":\"DORCHESTER\",\"state\":\"\",\"zip\":\"02122\"}", "775262", "2935020", null, false ] ]
+, [ 31, "4E2EA5A1-A797-41BA-92E1-3FD6C0BD766B", 31, 1347392933, "695128", 1347392933, "695128", "{\n}", "THE CAKERY BY MARIE EDITH", null, "17", " ", "2265", "Dorchester", "AV", "BR", "Bakery Retail", "773318", "2924780", [ "{\"address\":\"Dorchester\",\"city\":\"DORCHESTER\",\"state\":\"\",\"zip\":\"02124\"}", "773318", "2924780", null, false ] ]
+, [ 32, "D548E1AD-8791-4290-B38D-41F3D96CDA90", 32, 1347392933, "695128", 1347392933, "695128", "{\n}", "ANNA'S DONUT & BAKERY", null, "13", " ", "1035", "DORCHESTER ", "AV", "BR", "Bakery Retail", "776017", "2940250", [ "{\"address\":\"DORCHESTER\",\"city\":\"DORCHESTER\",\"state\":\"\",\"zip\":\"02125\"}", "776017", "2940250", null, false ] ]
+, [ 33, "3D508D54-252C-4081-BCD6-6946DD3D9EFA", 33, 1347392933, "695128", 1347392933, "695128", "{\n}", "FIESTA BAKERY", null, "13", " ", "14", "Hancock", "ST", "BR", "Bakery Retail", "773593.8263", "2940204.114", [ "{\"address\":\"Hancock\",\"city\":\"DORCHESTER\",\"state\":\"\",\"zip\":\"02125\"}", "773593.8263", "2940204.114", null, false ] ]
+, [ 34, "D737072C-D15F-421A-9FB9-A0E9220B3BC7", 34, 1347392933, "695128", 1347392933, "695128", "{\n}", "Anna Bakery  Inc.", null, "13", " ", "1035", "DORCHESTER ", "AV", "BR", "Bakery Retail", "776017", "2940250", [ "{\"address\":\"DORCHESTER\",\"city\":\"DORCHESTER\",\"state\":\"\",\"zip\":\"02125\"}", "776017", "2940250", null, false ] ]
+, [ 35, "29E53C4E-F113-4E03-91BE-C40C7563BFF6", 35, 1347392933, "695128", 1347392933, "695128", "{\n}", "LE FOYER BAKERY", null, "18", " ", "132", "Babson", "ST", "BR", "Bakery Retail", "766410", "2923760", [ "{\"address\":\"Babson\",\"city\":\"MATTAPAN\",\"state\":\"\",\"zip\":\"02126\"}", "766410", "2923760", null, false ] ]
+, [ 36, "D53D096C-888F-4141-9564-097B7A178F93", 36, 1347392933, "695128", 1347392933, "695128", "{\n}", "AU BEURRE CHAUD", null, "18", " ", "721", "River", "ST", "BR", "Bakery Retail", "763760.3233", "2921390.598", [ "{\"address\":\"River\",\"city\":\"MATTAPAN\",\"state\":\"\",\"zip\":\"02126\"}", "763760.3233", "2921390.598", null, false ] ]
+, [ 37, "CEFE9E48-49A4-40BE-B5EB-BC8A412AA9FB", 37, 1347392933, "695128", 1347392933, "695128", "{\n}", "LENNY'S TROPICAL BAKERY", null, "14", " ", "1195", "Blue Hill", "AV", "BR", "Bakery Retail", "766582", "2928670", [ "{\"address\":\"Blue Hill\",\"city\":\"MATTAPAN\",\"state\":\"\",\"zip\":\"20126\"}", "766582", "2928670", null, false ] ]
+, [ 38, "5108F02A-8847-4D14-80E5-9541A3652EB1", 38, 1347392933, "695128", 1347392933, "695128", "{\n}", "Sweet Tooth Boston", null, "6", "W", "371", "Broadway", null, "BR", "Bakery Retail", "777956", "2948420", [ "{\"address\":\"Broadway\",\"city\":\"SOUTH BOSTON\",\"state\":\"\",\"zip\":\"20127\"}", "777956", "2948420", null, false ] ]
+, [ 39, "4698CB50-867A-4217-B11C-FBBF5D8A84BB", 39, 1347392933, "695128", 1347392933, "695128", "{\n}", "PEACH'S & CREAM", null, "1", " ", "73", "Bennington", "ST", "BR", "Bakery Retail", "781442", "2962290", [ "{\"address\":\"Bennington\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "781442", "2962290", null, false ] ]
+, [ 40, "FEDC0E93-2627-4DDA-83AC-E2E044ABBF8D", 40, 1347392933, "695128", 1347392933, "695128", "{\n}", "PAPA'S BAKERY", null, "1", " ", "105", "Chelsea", "ST", "BR", "Bakery Retail", "781686.0936", "2961092.034", [ "{\"address\":\"Chelsea\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "781686.0936", "2961092.034", null, false ] ]
+, [ 41, "28357A5A-8A48-4D0D-96A4-B16D499E9184", 41, 1347392933, "695128", 1347392933, "695128", "{\n}", "CAFE MERIDIAN", null, "1", " ", "271", "Meridian", "ST", "BR", "Bakery Retail", "780741", "2962490", [ "{\"address\":\"Meridian\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "780741", "2962490", null, false ] ]
+, [ 42, "807CDBA0-3743-44D0-964A-87D5D730852E", 42, 1347392933, "695128", 1347392933, "695128", "{\n}", "El Jardin", null, "1", " ", "15", "WILLIAM C KELLY", "SQ", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"WILLIAM C KELLY\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "0", "0", null, false ] ]
+, [ 43, "81438823-6FCB-4829-BD69-B948E64C1E30", 43, 1347392933, "695128", 1347392933, "695128", "{\n}", "LOLLY'S BAKERY", null, "1", " ", "158", "Bennington", "ST", "BR", "Bakery Retail", "782265.8737", "2962793.448", [ "{\"address\":\"Bennington\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "782265.8737", "2962793.448", null, false ] ]
+, [ 44, "5BC4B6A7-2BF1-4D19-9E87-AD74578C0A79", 44, 1347392933, "695128", 1347392933, "695128", "{\n}", "POLLO DORENO", null, "1", " ", "309", "Bennington", "ST", "BR", "Bakery Retail", "783752.1492", "2963449.586", [ "{\"address\":\"Bennington\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "783752.1492", "2963449.586", null, false ] ]
+, [ 45, "43802002-E409-4D36-AC91-45CFA3F30062", 45, 1347392933, "695128", 1347392933, "695128", "{\n}", "Papa's Bakery", null, "1", " ", "105", "Chelsea", "ST", "BR", "Bakery Retail", "781686.0936", "2961092.034", [ "{\"address\":\"Chelsea\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "781686.0936", "2961092.034", null, false ] ]
+, [ 46, "CB408E0B-B831-4561-88DB-2E59C40FDCC4", 46, 1347392933, "695128", 1347392933, "695128", "{\n}", "Betty Ann Food Shop", null, "1", " ", "563", "Bennington", "ST", "BR", "Bakery Retail", "786286.3784", "2964732.708", [ "{\"address\":\"Bennington\",\"city\":\"EAST BOSTON\",\"state\":\"\",\"zip\":\"02128\"}", "786286.3784", "2964732.708", null, false ] ]
+, [ 47, "4B4948A6-CA72-4618-8E44-6EB5D89E01C9", 47, 1347392933, "695128", 1347392933, "695128", "{\n}", "QUISQUEYA BAKERY", null, "19", " ", "462", "Centre", "ST", "BR", "Bakery Retail", "761216", "2941620", [ "{\"address\":\"Centre\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "761216", "2941620", null, false ] ]
+, [ 48, "CE5EEFB2-D6FB-40AE-AEBD-67885168C702", 48, 1347392933, "695128", 1347392933, "695128", "{\n}", "BREAD & BUTTER BAKING CO.", null, "11", " ", "3346", "Washington", "ST", "BR", "Bakery Retail", "763217.9115", "2938039.97", [ "{\"address\":\"Washington\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "763217.9115", "2938039.97", null, false ] ]
+, [ 49, "BB997505-26DC-4731-B91C-0C5572E9B1A7", 49, 1347392933, "695128", 1347392933, "695128", "{\n  \"invalidCells\" : {\n    \"4112530\" : \"{\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"human_address\\\":{\\\"address\\\":\\\"Germania\\\",\\\"city\\\":\\\"JAMAICA PLAIN\\\",\\\"zip\\\":\\\"02130\\\"}}\"\n  }\n}", "STONY BROOK COOKIE COMPANY", null, "11", " ", "31", "Germania", "ST", "BR", "Bakery Retail", null, null, [ null, null, null, null, null ] ]
+, [ 50, "CD929B93-212E-4A17-8F3B-DF47A370AB13", 50, 1347392933, "695128", 1347392933, "695128", "{\n}", "ESTRELLA BAKERY & CAFE", null, "10", " ", "333", "Centre", "ST", "BR", "Bakery Retail", "762965", "2942930", [ "{\"address\":\"Centre\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "762965", "2942930", null, false ] ]
+, [ 51, "BC80E512-D3A9-40C1-8DDA-6F3A18C217BE", 51, 1347392933, "695128", 1347392933, "695128", "{\n  \"invalidCells\" : {\n    \"4112530\" : \"{\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"human_address\\\":{\\\"address\\\":\\\"Germania\\\",\\\"city\\\":\\\"West Roxbury\\\",\\\"zip\\\":\\\"02130\\\"}}\"\n  }\n}", "CLASSIC CAKES (BY DIANE)", null, "11", " ", "31", "Germania", "ST", "BR", "Bakery Retail", null, null, [ null, null, null, null, null ] ]
+, [ 52, "81B741B9-68D6-4011-8751-DF76BABED687", 52, 1347392933, "695128", 1347392933, "695128", "{\n}", "THE BLUE FROG BAKERY", null, "19", " ", "3", "GREEN", " ", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"GREEN\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "0", "0", null, false ] ]
+, [ 53, "5DC8156C-DB12-4038-96B9-9AB5FB2913D4", 53, 1347392933, "695128", 1347392933, "695128", "{\n}", "FIORE'S BAKERY", null, "19", " ", "55", "South", "ST", "BR", "Bakery Retail", "760085.4658", "2937471.724", [ "{\"address\":\"South\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "760085.4658", "2937471.724", null, false ] ]
+, [ 54, "EB1A5407-5266-40EF-907F-B72D56F52D67", 54, 1347392933, "695128", 1347392933, "695128", "{\n}", "SWEET FINNISH", null, "19", " ", "761", "Centre", "ST", "BR", "Bakery Retail", "760246.5538", "2938339.779", [ "{\"address\":\"Centre\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "760246.5538", "2938339.779", null, false ] ]
+, [ 55, "134F6C26-0FA7-4542-AD3B-A331623762CB", 55, 1347392933, "695128", 1347392933, "695128", "{\n  \"invalidCells\" : {\n    \"4112530\" : \"{\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"human_address\\\":{\\\"address\\\":\\\"Germania\\\",\\\"city\\\":\\\"Jamaica Plain\\\",\\\"zip\\\":\\\"02130\\\"}}\"\n  }\n}", "A DOZEN EGGS", null, "11", " ", "31", "Germania", "ST", "BR", "Bakery Retail", null, null, [ null, null, null, null, null ] ]
+, [ 56, "AC8C776B-A8B5-4A08-AEFB-5124DE03B859", 56, 1347392933, "695128", 1347392933, "695128", "{\n  \"invalidCells\" : {\n    \"4112530\" : \"{\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"human_address\\\":{\\\"address\\\":\\\"Germania\\\",\\\"city\\\":\\\"West Roxbury\\\",\\\"zip\\\":\\\"02130\\\"}}\"\n  }\n}", "PSALMS BREADS", null, "11", " ", "31", "Germania", "ST", "BR", "Bakery Retail", null, null, [ null, null, null, null, null ] ]
+, [ 57, "85F66D13-CD2B-4E1A-8ED3-B3B765BCAFE6", 57, 1347392933, "695128", 1347392933, "695128", "{\n  \"invalidCells\" : {\n    \"4112530\" : \"{\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"human_address\\\":{\\\"address\\\":\\\"Germania\\\",\\\"city\\\":\\\"West Roxbury\\\",\\\"zip\\\":\\\"02130\\\"}}\"\n  }\n}", "COOKIE-SWEET", null, "11", " ", "31", "Germania", "ST", "BR", "Bakery Retail", null, null, [ null, null, null, null, null ] ]
+, [ 58, "40C201C3-8A4F-441C-B301-E22692FEBD94", 58, 1347392933, "695128", 1347392933, "695128", "{\n}", "CANTO 6 BAKERY AND CAFE INC.", null, "11", " ", "3346", "Washington", "ST", "BR", "Bakery Retail", "763217.9115", "2938039.97", [ "{\"address\":\"Washington\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "763217.9115", "2938039.97", null, false ] ]
+, [ 59, "2DDE5F85-89B8-484B-B41C-EAB74C15D568", 59, 1347392933, "695128", 1347392933, "695128", "{\n}", "Canto 6 Bakery", null, "11", " ", "3346", "Washington", "ST", "BR", "Bakery Retail", "763217.9115", "2938039.97", [ "{\"address\":\"Washington\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "763217.9115", "2938039.97", null, false ] ]
+, [ 60, "A4AE7280-D4FE-4FA3-A05C-EAC56BDA663B", 60, 1347392933, "695128", 1347392933, "695128", "{\n}", "Republic Cafe and Bakery", null, "11", " ", "3351", "Washington", "ST", "BR", "Bakery Retail", "763050.7377", "2938024.101", [ "{\"address\":\"Washington\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "763050.7377", "2938024.101", null, false ] ]
+, [ 61, "BE9884BE-BAF9-4965-B706-515AEBBE59E5", 61, 1347392933, "695128", 1347392933, "695128", "{\n}", "Caffe Aromi", null, "19", " ", "403", "Centre", "ST", "BR", "Bakery Retail", "761558", "2942490", [ "{\"address\":\"Centre\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "761558", "2942490", null, false ] ]
+, [ 62, "7F3630B9-8D14-4426-8AD6-B20CB33F137A", 62, 1347392933, "695128", 1347392933, "695128", "{\n}", "Cake Pops Boston Inc.", null, "11", " ", "29L", "GERMANIA", "ST", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"GERMANIA\",\"city\":\"Jamaica Plain\",\"state\":\"\",\"zip\":\"02130\"}", "0", "0", null, false ] ]
+, [ 63, "0C0EDAC1-056D-4132-8160-A3F5D30DA088", 63, 1347392933, "695128", 1347392933, "695128", "{\n}", "Gondres Bakery", null, "10", " ", "331", "Centre", "ST", "BR", "Bakery Retail", "762987", "2942930", [ "{\"address\":\"Centre\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "762987", "2942930", null, false ] ]
+, [ 64, "64D6D6EF-6C9F-4A66-9B0D-108FB09BFC24", 64, 1347392933, "695128", 1347392933, "695128", "{\n}", "Good Measure Bakery", null, "11", " ", "31", "Germania", "ST", "BR", "Bakery Retail", "763540", "2939850", [ "{\"address\":\"Germania\",\"city\":\"JAMAICA PLAIN\",\"state\":\"\",\"zip\":\"02130\"}", "763540", "2939850", null, false ] ]
+, [ 65, "8A98BDD2-1032-4798-BDE1-1D63E19E34BE", 65, 1347392933, "695128", 1347392933, "695128", "{\n}", "DIANE'S BAKERY", null, "20", " ", "9", "Poplar", "ST", "BR", "Bakery Retail", "756564.8852", "2929708.504", [ "{\"address\":\"Poplar\",\"city\":\"ROSLINDALE\",\"state\":\"\",\"zip\":\"02131\"}", "756564.8852", "2929708.504", null, false ] ]
+, [ 66, "0A43F186-9534-4588-B833-58EED90C3883", 66, 1347392933, "695128", 1347392933, "695128", "{\n}", "JOHN'S BAKERY", null, "20", " ", "31", "Poplar", "ST", "BR", "Bakery Retail", "756552.0852", "2929540.814", [ "{\"address\":\"Poplar\",\"city\":\"ROSLINDALE\",\"state\":\"\",\"zip\":\"02131\"}", "756552.0852", "2929540.814", null, false ] ]
+, [ 67, "622BDB98-59F6-43A3-BA0E-CCC401791290", 67, 1347392933, "695128", 1347392933, "695128", "{\n}", "A. BOSCHETTO INC.", null, "19", " ", "4172", "Washington", "ST", "BR", "Bakery Retail", "757218", "2930080", [ "{\"address\":\"Washington\",\"city\":\"ROSLINDALE\",\"state\":\"\",\"zip\":\"02131\"}", "757218", "2930080", null, false ] ]
+, [ 68, "4FCDCB53-B2B8-4131-9C97-243C96F03F64", 68, 1347392933, "695128", 1347392933, "695128", "{\n}", "Vouros Pastry Shop-Bakery", null, "18", " ", "4258", "Washington", "ST", "BR", "Bakery Retail", "756539.9186", "2929227.358", [ "{\"address\":\"Washington\",\"city\":\"ROSLINDALE\",\"state\":\"\",\"zip\":\"02131\"}", "756539.9186", "2929227.358", null, false ] ]
+, [ 69, "6269BADC-D09A-4AB5-BE53-359F80641BF9", 69, 1347392933, "695128", 1347392933, "695128", "{\n}", "Sugar Baking Co. & Restaurant", null, "19", " ", "4174", "Washington", "ST", "BR", "Bakery Retail", "757225.2937", "2930044.38", [ "{\"address\":\"Washington\",\"city\":\"ROSLINDALE\",\"state\":\"\",\"zip\":\"02131\"}", "757225.2937", "2930044.38", null, false ] ]
+, [ 70, "AFB56F06-BBD3-4B11-AFA0-CA3865AE3443", 70, 1347392933, "695128", 1347392933, "695128", "{\n}", "SAMIA BAKERY", null, "20", " ", "1894", "Centre", "ST", "BR", "Bakery Retail", "749293", "2929210", [ "{\"address\":\"Centre\",\"city\":\"WEST ROXBURY\",\"state\":\"\",\"zip\":\"02132\"}", "749293", "2929210", null, false ] ]
+, [ 71, "C74E34DE-62C1-41B8-A044-1327F207290C", 71, 1347392933, "695128", 1347392933, "695128", "{\n}", "NEAR EAST BAKERY", null, "20", " ", "5286", "WASHINGTON", " ", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"WASHINGTON\",\"city\":\"WEST ROXBURY\",\"state\":\"\",\"zip\":\"02132\"}", "0", "0", null, false ] ]
+, [ 72, "C4170437-797D-43B6-866D-81F285F9F6C3", 72, 1347392933, "695128", 1347392933, "695128", "{\n}", "Sugar Bakery", null, "20", " ", "1882", "Centre", "ST", "BR", "Bakery Retail", "749390.4578", "2929313.988", [ "{\"address\":\"Centre\",\"city\":\"WEST ROXBURY\",\"state\":\"\",\"zip\":\"20132\"}", "749390.4578", "2929313.988", null, false ] ]
+, [ 73, "9361C752-8BAC-4710-8FE7-F5B384418635", 73, 1347392933, "695128", 1347392933, "695128", "{\n}", "SEOUL BAKERY", null, "21", " ", "56", "HARVARD ", "AV", "BR", "Bakery Retail", "755576", "2954360", [ "{\"address\":\"HARVARD\",\"city\":\"ALLSTON\",\"state\":\"\",\"zip\":\"02134\"}", "755576", "2954360", null, false ] ]
+, [ 74, "FBE6741D-4CFF-44EB-A85F-19549780CF55", 74, 1347392933, "695128", 1347392933, "695128", "{\n}", "YI SOON BAKERY", null, "21", " ", "112", "BRIGHTON ", "AV", "BR", "Bakery Retail", "756052", "2953730", [ "{\"address\":\"BRIGHTON\",\"city\":\"ALLSTON\",\"state\":\"\",\"zip\":\"02134\"}", "756052", "2953730", null, false ] ]
+, [ 75, "CDC4D067-F5F4-4D80-8918-9B4E49E38909", 75, 1347392933, "695128", 1347392933, "695128", "{\n}", "PADARIA BRASIL BAKERY", null, "21", " ", "125", "Harvard", "AV", "BR", "Bakery Retail", "755623", "2953580", [ "{\"address\":\"Harvard\",\"city\":\"ALLSTON\",\"state\":\"\",\"zip\":\"02134\"}", "755623", "2953580", null, false ] ]
+, [ 76, "4FACDE0E-4AB0-46F9-ACCA-6FFC0A2DC055", 76, 1347392933, "695128", 1347392933, "695128", "{\n}", "LATE NIGHT COOKIES LLC", null, "22", " ", "406", "Market", "ST", "BR", "Bakery Retail", "749934.3616", "2952599.244", [ "{\"address\":\"Market\",\"city\":\"BRIGHTON\",\"state\":\"\",\"zip\":\"02135\"}", "749934.3616", "2952599.244", null, false ] ]
+, [ 77, "B78B28F4-1E6B-4077-BF4E-B296653A7BAB", 77, 1347392933, "695128", 1347392933, "695128", "{\n}", "PAN DELIS BAKERY", null, "22", " ", "228", "Market", "ST", "BR", "Bakery Retail", "750848", "2954520", [ "{\"address\":\"Market\",\"city\":\"BRIGHTON\",\"state\":\"\",\"zip\":\"02135\"}", "750848", "2954520", null, false ] ]
+, [ 78, "17E349A0-6E0A-429B-AB6A-40A5EEFA8AB9", 78, 1347392933, "695128", 1347392933, "695128", "{\n}", "Athan's European Bakery", null, "22", " ", "407", "WASHINGTON", " ", "BR", "Bakery Retail", "0", "0", [ "{\"address\":\"WASHINGTON\",\"city\":\"BRIGHTON\",\"state\":\"\",\"zip\":\"02135\"}", "0", "0", null, false ] ]
+, [ 79, "48EA3689-00D5-48F9-8CE1-FF83D80B8655", 79, 1347392933, "695128", 1347392933, "695128", "{\n}", "DANIEL'S BAKERY", null, "22", " ", "395", "Washington", "ST", "BR", "Bakery Retail", "749459", "2952500", [ "{\"address\":\"Washington\",\"city\":\"BRIGHTON\",\"state\":\"\",\"zip\":\"02135\"}", "749459", "2952500", null, false ] ]
+, [ 80, "4B039448-FDC6-4C23-95C6-6C8BAA88F704", 80, 1347392933, "695128", 1347392933, "695128", "{\n}", "Cherry Bomb Bakery", null, "22", " ", "379", "Washington", "ST", "BR", "Bakery Retail", "749610", "2952500", [ "{\"address\":\"Washington\",\"city\":\"BRIGHTON\",\"state\":\"\",\"zip\":\"02135\"}", "749610", "2952500", null, false ] ]
+, [ 81, "20AAF75B-57DC-4767-B694-AEC32A99740B", 81, 1347392933, "695128", 1347392933, "695128", "{\n}", "Treats on Washington Bakery & Cafe", null, "22", " ", "379", "Washington", "ST", "BR", "Bakery Retail", "749610", "2952500", [ "{\"address\":\"Washington\",\"city\":\"BRIGHTON\",\"state\":\"\",\"zip\":\"02135\"}", "749610", "2952500", null, false ] ]
+, [ 82, "9A36965E-F691-4537-9D41-0A99EA96A252", 82, 1347392933, "695128", 1347392933, "695128", "{\n}", "MARIANO BAKERY", null, "18", " ", "27", "Como", "RD", "BR", "Bakery Retail", "754532", "2912850", [ "{\"address\":\"Como\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "754532", "2912850", null, false ] ]
+, [ 83, "BCA78A2D-51D0-4922-9192-895D15A900EE", 83, 1347392933, "695128", 1347392933, "695128", "{\n}", "MY GRANDMA'S OF NEW ENGLAND", null, "18", " ", "1636", "HYDE PARK ", "AV", "BR", "Bakery Retail", "756450", "2913780", [ "{\"address\":\"HYDE PARK\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "756450", "2913780", null, false ] ]
+, [ 84, "9B0C7F5C-A47F-4752-8ACA-7E373609AD5D", 84, 1347392933, "695128", 1347392933, "695128", "{\n}", "EAST COAST FENELON'S BAKERY", null, "18", " ", "1328", "River", "ST", "BR", "Bakery Retail", "757250.9292", "2918250.456", [ "{\"address\":\"River\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "757250.9292", "2918250.456", null, false ] ]
+, [ 85, "B3E2184E-D62B-40FD-A65B-73302727FFF6", 85, 1347392933, "695128", 1347392933, "695128", "{\n}", "Edou and Den's Bakery", null, "18", " ", "1328", "River", "ST", "BR", "Bakery Retail", "757250.9292", "2918250.456", [ "{\"address\":\"River\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "757250.9292", "2918250.456", null, false ] ]
+, [ 86, "F5CB18AB-EF7F-4AAF-A2C0-45E85869E5ED", 86, 1347392933, "695128", 1347392933, "695128", "{\n}", "A La Carte Bakery & Ice Cream", null, "18", " ", "1231", "River", "ST", "BR", "Bakery Retail", "758251.1057", "2918590.122", [ "{\"address\":\"River\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "758251.1057", "2918590.122", null, false ] ]
+, [ 87, "4B7B33D4-C0EA-4A92-BCE1-3084558F93E1", 87, 1347392933, "695128", 1347392933, "695128", "{\n}", "KATY'S BAKERY", null, "18", " ", "1328", "River", "ST", "BR", "Bakery Retail", "757250.9292", "2918250.456", [ "{\"address\":\"River\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "757250.9292", "2918250.456", null, false ] ]
+, [ 88, "C6741B8C-5374-4A74-B7FA-27B87E494EC8", 88, 1347392933, "695128", 1347392933, "695128", "{\n}", "Dor Bakery", null, "18", " ", "1328", "River", "ST", "BR", "Bakery Retail", "757250.9292", "2918250.456", [ "{\"address\":\"River\",\"city\":\"HYDE PARK\",\"state\":\"\",\"zip\":\"02136\"}", "757250.9292", "2918250.456", null, false ] ]
+, [ 89, "C1504273-E559-4B14-9AEE-A45B9C8A7C0D", 89, 1347392933, "695128", 1347392933, "695128", "{\n  \"invalidCells\" : {\n    \"4112530\" : \"{\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"human_address\\\":{\\\"address\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"zip\\\":\\\"\\\"}}\"\n  }\n}", "\u001A", null, null, null, null, null, null, null, null, null, null, [ null, null, null, null, null ] ]
+ ]
+}

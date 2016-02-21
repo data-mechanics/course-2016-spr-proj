@@ -1,0 +1,404 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "2tib-uhic",
+      "name" : "Winter Farmers Markets",
+      "attribution" : "Mayor's Office of Food Initiatives",
+      "attributionLink" : "http://cityofboston.gov/food",
+      "averageRating" : 0,
+      "category" : "Health",
+      "createdAt" : 1354733586,
+      "description" : "Winter farmers' market in Boston and surrounding areas. Subject to change in future seasons; times listed were accurate as of December 2012.",
+      "displayType" : "table",
+      "downloadCount" : 932,
+      "indexUpdatedAt" : 1414539741,
+      "licenseId" : "CC0_10",
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 1913124,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1354733859,
+      "publicationGroup" : 539034,
+      "publicationStage" : "published",
+      "rowsUpdatedAt" : 1354733806,
+      "rowsUpdatedBy" : "qyzb-duix",
+      "tableId" : 539034,
+      "totalTimesRated" : 0,
+      "viewCount" : 308,
+      "viewLastModified" : 1354733859,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 32979982,
+        "name" : "Site",
+        "dataTypeName" : "text",
+        "fieldName" : "site",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5825524,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : "Cambridge",
+          "null" : 0,
+          "largest" : "Somerville",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Site"
+          }, {
+            "count" : 19,
+            "item" : "Codman Square"
+          }, {
+            "count" : 18,
+            "item" : "Northeastern"
+          }, {
+            "count" : 17,
+            "item" : "Cambridge"
+          }, {
+            "count" : 16,
+            "item" : "Jamaica Plain (Egleston Square)"
+          }, {
+            "count" : 15,
+            "item" : "Somerville"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 32979983,
+        "name" : "Location",
+        "dataTypeName" : "text",
+        "fieldName" : "location",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5825525,
+        "width" : 196,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : "Armory",
+          "null" : 0,
+          "largest" : "The Great Hall at the Codman Square Health Center",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Location"
+          }, {
+            "count" : 19,
+            "item" : "The Great Hall at the Codman Square Health Center"
+          }, {
+            "count" : 18,
+            "item" : "Curry Student Center "
+          }, {
+            "count" : 17,
+            "item" : "Cambridge Community Center"
+          }, {
+            "count" : 16,
+            "item" : "Our Lady Of Lourdes Parish"
+          }, {
+            "count" : 15,
+            "item" : "Armory"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 32979990,
+        "name" : "Location 1",
+        "dataTypeName" : "location",
+        "fieldName" : "location_1",
+        "position" : 3,
+        "renderTypeName" : "location",
+        "tableColumnId" : 5825532,
+        "width" : 220,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : {
+            "human_address" : "{\"address\":\"\",\"city\":\"Fenway\",\"state\":\"MA\",\"zip\":\"2115\"}"
+          },
+          "null" : 0,
+          "largest" : {
+            "human_address" : "{\"address\":\"Address\",\"city\":\"Area\",\"state\":\"State\",\"zip\":\"Zip\"}"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "human_address" : "{\"address\":\"Address\",\"city\":\"Area\",\"state\":\"State\",\"zip\":\"Zip\"}"
+            }
+          }, {
+            "count" : 19,
+            "item" : {
+              "longitude" : "-71.06340000010977",
+              "latitude" : "42.30786999970087",
+              "human_address" : "{\"address\":\"6 Norfolk St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 18,
+            "item" : {
+              "human_address" : "{\"address\":\"\",\"city\":\"Fenway\",\"state\":\"MA\",\"zip\":\"2115\"}"
+            }
+          }, {
+            "count" : 17,
+            "item" : {
+              "longitude" : "-71.1112249426514",
+              "latitude" : "42.36538159916756",
+              "human_address" : "{\"address\":\"5 Callender St\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 16,
+            "item" : {
+              "longitude" : "-71.1034748920108",
+              "latitude" : "42.31333910264873",
+              "human_address" : "{\"address\":\"45 Brookside Ave\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 15,
+            "item" : {
+              "human_address" : "{\"address\":\"191 Highland Ave\",\"city\":\"\",\"state\":\"MA\",\"zip\":\"\"}"
+            }
+          } ]
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      }, {
+        "id" : 32979984,
+        "name" : "Area",
+        "dataTypeName" : "text",
+        "fieldName" : "area",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5825526,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : "Area",
+          "null" : 0,
+          "largest" : "Somerville",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Area"
+          }, {
+            "count" : 19,
+            "item" : "Dorchester"
+          }, {
+            "count" : 18,
+            "item" : "Fenway"
+          }, {
+            "count" : 17,
+            "item" : "Cambridge"
+          }, {
+            "count" : 16,
+            "item" : "Jamaica Plain"
+          }, {
+            "count" : 15,
+            "item" : "Somerville"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 32979987,
+        "name" : "Dates of Operation",
+        "dataTypeName" : "text",
+        "fieldName" : "dates_of_operation",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5825529,
+        "width" : 239,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : "Dates of Operation",
+          "null" : 0,
+          "largest" : "November 17 to June 1, 2013",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Dates of Operation"
+          }, {
+            "count" : 19,
+            "item" : "January 6 to March 24, 2013"
+          }, {
+            "count" : 18,
+            "item" : "Nov 28 to April 7th"
+          }, {
+            "count" : 17,
+            "item" : "January 5 to April 27, 2013"
+          }, {
+            "count" : 16,
+            "item" : "November 10 to February 23, 2013"
+          }, {
+            "count" : 15,
+            "item" : "November 17 to June 1, 2013"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 32979988,
+        "name" : "Times of Operation",
+        "dataTypeName" : "text",
+        "fieldName" : "times_of_operation",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5825530,
+        "width" : 316,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : "Saturday: 10:00 AM to 2:00 PM",
+          "null" : 0,
+          "largest" : "Wednesdays: 10AM-4PM ",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Times of Operation"
+          }, {
+            "count" : 19,
+            "item" : "Sunday: 12:00 PM to 4:00 PM"
+          }, {
+            "count" : 18,
+            "item" : "Wednesdays: 10AM-4PM "
+          }, {
+            "count" : 17,
+            "item" : "Saturday: 10:00 AM to 2:00 PM"
+          }, {
+            "count" : 16,
+            "item" : "Saturday: 11:00 AM to 2:00 PM"
+          }, {
+            "count" : 15,
+            "item" : "Saturday: 9:30 AM to 2:30 PM"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 32979989,
+        "name" : "SNAP/EBT?",
+        "dataTypeName" : "text",
+        "fieldName" : "snap_ebt",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5825531,
+        "width" : 208,
+        "cachedContents" : {
+          "non_null" : 6,
+          "smallest" : "No",
+          "null" : 0,
+          "largest" : "Yes",
+          "top" : [ {
+            "count" : 20,
+            "item" : "SNAP/EBT?"
+          }, {
+            "count" : 19,
+            "item" : "Yes"
+          }, {
+            "count" : 18,
+            "item" : "No"
+          } ]
+        },
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "license" : {
+        "name" : "Creative Commons 1.0 Universal (Public Domain Dedication)",
+        "logoUrl" : "images/licenses/ccZero.png",
+        "termsLink" : "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+      },
+      "metadata" : {
+        "custom_fields" : {
+          "Data Owner" : {
+            "Owner" : "Office of the Mayor"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+      },
+      "owner" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "tags" : [ "food", "food initiatives", "fresh food", "local food", "food access", "food security", "farmers markets" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 1, "1FDE5F21-2319-4BFF-9E5A-185463A61508", 1, 1354733588, "699782", 1354733588, "699782", "{\n}", "Site", "Location", [ "{\"address\":\"Address\",\"city\":\"Area\",\"state\":\"State\",\"zip\":\"Zip\"}", null, null, null, true ], "Area", "Dates of Operation", "Times of Operation", "SNAP/EBT?" ]
+, [ 2, "7DF57B3C-FC2B-4B40-B553-B4F4198F89C9", 2, 1354733588, "699782", 1354733598, "699782", "{\n}", "Codman Square", "The Great Hall at the Codman Square Health Center", [ "{\"address\":\"6 Norfolk St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"\"}", "42.30786999970087", "-71.06340000010977", null, false ], "Dorchester", "January 6 to March 24, 2013", "Sunday: 12:00 PM to 4:00 PM", "Yes" ]
+, [ 3, "3506AD3F-2D98-4DDD-8FB2-0E088F27D22A", 3, 1354733588, "699782", 1354733588, "699782", "{\n}", "Northeastern", "Curry Student Center ", [ "{\"address\":\"\",\"city\":\"Fenway\",\"state\":\"MA\",\"zip\":\"2115\"}", null, null, null, true ], "Fenway", "Nov 28 to April 7th", "Wednesdays: 10AM-4PM ", "No" ]
+, [ 4, "F2AAFB5D-0DAE-437C-A392-B4E9BC696E94", 4, 1354733588, "699782", 1354733598, "699782", "{\n}", "Cambridge", "Cambridge Community Center", [ "{\"address\":\"5 Callender St\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"\"}", "42.36538159916756", "-71.1112249426514", null, false ], "Cambridge", "January 5 to April 27, 2013", "Saturday: 10:00 AM to 2:00 PM", "Yes" ]
+, [ 5, "DBB69C19-5138-44F8-81C6-8F27E52F701B", 5, 1354733588, "699782", 1354733598, "699782", "{\n}", "Jamaica Plain (Egleston Square)", "Our Lady Of Lourdes Parish", [ "{\"address\":\"45 Brookside Ave\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"\"}", "42.31333910264873", "-71.1034748920108", null, false ], "Jamaica Plain", "November 10 to February 23, 2013", "Saturday: 11:00 AM to 2:00 PM", "Yes" ]
+, [ 6, "90B3F429-1563-475B-AE4C-6B095951745B", 6, 1354733588, "699782", 1354733806, "699782", "{}", "Somerville", "Armory", [ "{\"address\":\"191 Highland Ave\",\"city\":\"\",\"state\":\"MA\",\"zip\":\"\"}", null, null, null, true ], "Somerville", "November 17 to June 1, 2013", "Saturday: 9:30 AM to 2:30 PM", "Yes" ]
+ ]
+}
