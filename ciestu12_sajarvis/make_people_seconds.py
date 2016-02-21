@@ -22,6 +22,8 @@ import datetime
 import uuid
 import sys
 
+STOP_TIME = 60
+
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
 
@@ -33,38 +35,35 @@ repo.authenticate(teamname, teamname)
 
 startTime = datetime.datetime.now()
 
-out_coll = 'green_line_walking_distances'
-repo.dropPermanent(out_coll)
-repo.createPermanent(out_coll)
-
-
+def product(R, S):
+    return [(t,u) for t in R for u in S]
 
 # get DB for population and nearest stop
 stop_pop = repo['{}.{}'.format(teamname, 'boarding_counts')].find({})
 nearest_stops = repo['{}.{}'.format(teamname, 'nearest_stops')].find({})
 
-
 nearest = [ (s['stop'], s['line'], s['nearest'],s['time_sec']) for s in nearest_stops]
 pop = [ (s['stop_id'], s['stop_boardings']) for s in stop_pop]
 
-def product(R, S):
-    return [(t,u) for t in R for u in S]
-
-
 dot = product(nearest, pop)
+matches = [ (f,g) for (f,g) in dot if f[0] == g[0] ]
 
-dot1 = [ (f,g) for (f,g) in dot if f['stop'] == g['stop_id'] ]
+out_coll = 'people_second_utility'
+repo.dropPermanent(out_coll)
+repo.createPermanent(out_coll)
 
+for line in ['GLB', 'GLC', 'GLD', 'GLE']:
+    total_usage = sum([pop for ((s,l,n,w),(i,pop)) in matches if l == line])
+    for stop,pop,sec in [(s,p,w) for ((s,l,n,w),(i,p)) in matches if l == line]:
+        everyone_else = total_usage - pop
+        ppl_seconds = (everyone_else * STOP_TIME) - (pop * sec)
+        # now insert the people second utility into our data set.
+        elements = {'stop':stop, 'ppl-secs':ppl_seconds, 'line': line}
+        print(elements)
+        repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
 
-
-print(nearest)
-print(dot)
-
-
-
-
-
-
-
+endTime = datetime.datetime.now()
 
 # TODO provenance data
+
+repo.logout()
