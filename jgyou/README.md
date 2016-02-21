@@ -17,9 +17,9 @@ Description pending.
 
 ### Software/Packages
 - Python 3.4
-  - `bs4`
-  - `pymongo`
-  - `prov`
+  - [Beautiful Soup 4] (http://www.crummy.com/software/BeautifulSoup/) `bs4`
+  - [PyMongo] (https://api.mongodb.org/python/current/) `pymongo`
+  - [Prov] (https://pypi.python.org/pypi/prov) `prov`
 - MongoDB 3.2
 
 ### Accounts required
