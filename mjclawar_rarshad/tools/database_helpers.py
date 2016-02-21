@@ -4,6 +4,7 @@ Helpers for the project's MongoDB collections
 Michael Clawar and Raaid Arshad.
 """
 
+import json
 import pymongo
 
 
@@ -76,3 +77,18 @@ class DatabaseHelper:
         repo.record(json_data)
 
         repo.logout()
+
+    def insert_permanent_pandas(self, collection_name, df):
+        """
+        Inserts a pandas.DataFrame to the MongoDB collection
+        Parameters
+        ----------
+        collection_name: str
+        df: pandas.DataFrame
+
+        Returns
+        -------
+        """
+        df = df.reset_index(drop=True)
+        records = json.loads(df.T.to_json()).values()
+        self.insert_permanent_collection(collection_name=collection_name, json_data=records)

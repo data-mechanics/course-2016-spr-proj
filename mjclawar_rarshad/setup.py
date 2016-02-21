@@ -9,7 +9,8 @@ import json
 import pymongo
 
 from mjclawar_rarshad.sources import crime, property_assessment, boston_public_schools, hospital_locations
-from mjclawar_rarshad.tools import bdp_query, database_helpers, pandas_funcs
+from mjclawar_rarshad.tools import bdp_query, database_helpers
+from mjclawar_rarshad.processing import crime_centroids
 
 
 def main(auth_json_path):
@@ -23,10 +24,11 @@ def main(auth_json_path):
     database_helper = database_helpers.DatabaseHelper(username=username, password=mongo_pass)
     bdp_api = bdp_query.BDPQuery(api_token=api_token)
 
-    setup_crime_incidents(database_helper, bdp_api)
-    setup_property_assessment(database_helper, bdp_api)
-    setup_boston_public_schools(database_helper, bdp_api)
-    setup_hospital_locations(database_helper, bdp_api)
+    # setup_crime_incidents(database_helper, bdp_api)
+    # setup_property_assessment(database_helper, bdp_api)
+    # setup_boston_public_schools(database_helper, bdp_api)
+    # setup_hospital_locations(database_helper, bdp_api)
+    crime_centroids.kmeans_crime(database_helper)
 
 
 def setup_crime_incidents(database_helper, bdp_api):
