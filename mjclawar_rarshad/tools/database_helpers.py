@@ -1,10 +1,14 @@
 """
-Helpers for the project's MongoDB collections
+File: database_helpers.py
 
-Michael Clawar and Raaid Arshad.
+Description: Helper functions to make MongoDB play nice with authentication and pandas
+Author(s): Raaid Arshad and Michael Clawar
+
+Notes:
 """
 
 import json
+import pandas
 import pymongo
 
 
@@ -92,3 +96,36 @@ class DatabaseHelper:
         df = df.reset_index(drop=True)
         records = json.loads(df.T.to_json()).values()
         self.insert_permanent_collection(collection_name=collection_name, json_data=records)
+
+    def load_permanent_pandas(self, collection_name, query=None, cols=None):
+        """
+        Loads a pandas.DataFrame from a permanent MongoDB connection given a query and list of columns
+
+        Parameters
+        ----------
+        collection_name: str
+        query: dict
+        cols: list
+
+        Returns
+        -------
+        pandas.DataFrame
+        """
+        assert isinstance(collection_name, str)
+
+        repo = self.connect_repo()
+
+        if query is None:
+            query = {}
+
+        if cols is None:
+            cols_dict = {}
+        else:
+            cols_dict = {}
+            for col in cols:
+                cols_dict.update({col: 1})
+
+        # Get query from MongoDB and construct pandas.DataFrame
+        df = pandas.DataFrame(list(repo['%s.%s' % (self.username, collection_name)].find(query, cols_dict)))
+
+        return df

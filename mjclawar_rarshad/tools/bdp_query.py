@@ -1,8 +1,12 @@
 """
-CityOfBoston.gov API query functions
+File: bdp_query.py
 
-Michael Clawar and Raaid Arshad
+Description: City of Boston API query functions
+Author(s): Raaid Arshad and Michael Clawar
+
+Notes:
 """
+
 import json
 import urllib.request
 

@@ -1,3 +1,12 @@
+"""
+File: mcra_structures.py
+
+Description: Structures and constants for the project
+Author(s): Raaid Arshad and Michael Clawar
+
+Notes:
+"""
+
 from abc import abstractmethod
 import prov.model
 
@@ -40,6 +49,17 @@ class MCRASProvenance:
     (Michael Clawar, Raaid Arshad Provenance)
     """
     pass
+
+
+class MCRASProcessor:
+    """
+    A processor object to convert raw data to combined or cleaned data
+
+    (Michael Clawar, Raaid Arshad Processor)
+    """
+    @abstractmethod
+    def run_processor(self):
+        pass
 
 
 class Namespace:

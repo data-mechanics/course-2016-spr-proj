@@ -1,3 +1,12 @@
+"""
+File: provenance.py
+
+Description: Provenance object for the project
+Author(s): Raaid Arshad and Michael Clawar
+
+Notes: Can be used as a global provenance object, or for a single script
+"""
+
 from prov.model import ProvDocument
 
 from mjclawar_rarshad.reference import dir_info

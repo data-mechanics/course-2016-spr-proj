@@ -1,13 +1,15 @@
 """
-Boston public school data from data.cityofboston.gov
+File: boston_public_schools.py
 
-Michael Clawar and Raaid Arshad
+Description: Boston Public Schools locations from data.cityofboston.gov
+Author(s): Raaid Arshad and Michael Clawar
+
+Notes:
 """
 
 import datetime
-import uuid
-
 import prov.model
+import uuid
 
 from mjclawar_rarshad.reference import mcra_structures as mcras
 from mjclawar_rarshad.reference.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
