@@ -79,10 +79,10 @@ for t in (soup.find('table')):
 					# save overall address for reference
 					addr = addr + temp2.strip() + " "
 				#print(b.string)
-		#print()
+
 		resources.append({"resource_name": str(name), "location": addr, "location_street_name": addr1, "neighborhood": town, "location_zipcode": zipcode, "phone": phone, "weburl": link})
 
-print(json.dumps(resources, sort_keys = True, indent=4))
+#print(json.dumps(resources, sort_keys = True, indent=4))
 
 repo.dropTemporary("currentsites")
 repo.createTemporary("currentsites")
