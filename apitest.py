@@ -22,4 +22,4 @@ def request(url):
 
 #print(request(zipcarUrl1))
 #print(zipcarUrl2)
-print(ticketsUrl)
+print(request(ticketsUrl))

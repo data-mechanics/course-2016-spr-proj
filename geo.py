@@ -15,6 +15,11 @@ of possible. Specifically in regards to how
 we deal with addresses with no numbers given
 '''
 
-geocode_result = gmaps.geocode('10 beacon st, Boston, Ma')
+def locationQuery(addr):
+	queryAddr = addr + ', Boston, Ma'
+	geocode_result = gmaps.geocode(queryAddr)
+	print(geocode_result[0]['address_components'][7]['long_name'])
 
-print(geocode_result)
+locationQuery('61 larchwood dr')
+
+
