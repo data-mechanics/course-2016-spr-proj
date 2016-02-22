@@ -10,7 +10,7 @@ with open('auth.json') as credentials:
 
 zipcarUrl1 = 'https://data.cityofboston.gov/resource/78f5-5i4e.json' + '?$$app_token=' + data["api_key"] + "&$limit=10"
 zipcarUrl2 = 'https://data.cityofboston.gov/resource/498g-jbmi.json' + '?$$app_token=' + data["api_key"]# + "&$limit=10"
-ticketsUrl = 'https://data.cityofboston.gov/resource/cpdb-ie6e.json' + '?$$app_token=' + data["api_key"] + "&$limit=10"
+ticketsUrl = 'https://data.cityofboston.gov/resource/cpdb-ie6e.json' + '?$$app_token=' + data["api_key"] #+ "&$limit=10"
 
 
 
@@ -20,6 +20,6 @@ def request(url):
 	s = json.dumps(r, sort_keys=True, indent=2)
 	return s
 
-# print(request(zipcarUrl1))
-# print(request(zipcarUrl2))
-# print(request(ticketsUrl))
+#print(request(zipcarUrl1))
+#print(zipcarUrl2)
+print(ticketsUrl)
