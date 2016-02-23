@@ -18,8 +18,8 @@ def request(url):
 	response = urllib.request.urlopen(url).read().decode("utf-8")
 	r = json.loads(response)
 	s = json.dumps(r, sort_keys=True, indent=2)
-	return s
+	return (r , s)
 
 #print(request(zipcarUrl1))
 #print(zipcarUrl2)
-print(request(ticketsUrl))
+# print(request(ticketsUrl))
