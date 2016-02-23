@@ -52,6 +52,27 @@ repo['{}.{}'.format(teamname, nearest_coll)].insert_many(elements)
 
 endTime = datetime.datetime.now()
 
-# TODO provenance data and recording
+# Create provenance data and recording
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ciestu12_sajarvis/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bu', 'http://cs-people.bu.edu/sajarvis/datamech/')
+
+this_script = doc.agent('alg:make_nearest_stops', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource = doc.entity('bu:green_line_nearest_stops', {'prov:label':'Green Line Nearest Stops', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+# No additional query needed for this data
+this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+doc.wasAssociatedWith(this_run, this_script)
+doc.used(this_run, resource, startTime)
+
+nearest = doc.entity('dat:nearest', {prov.model.PROV_LABEL:'Green Line Nearest Stops', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(nearest, this_script)
+doc.wasGeneratedBy(nearest, this_run, endTime)
+doc.wasDerivedFrom(nearest, resource, this_run, this_run, this_run)
+
+repo.record(doc.serialize()) # Record the provenance document.
+print(doc.get_provn())
 
 repo.logout()
