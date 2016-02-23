@@ -15,11 +15,19 @@ of possible. Specifically in regards to how
 we deal with addresses with no numbers given
 '''
 
-def locationQuery(addr):
+# generate list of addresses
+
+def locationQueryHelper(addr):
 	queryAddr = addr + ', Boston, Ma'
 	geocode_result = gmaps.geocode(queryAddr)
-	print(geocode_result[0]['address_components'][7]['long_name'])
+	return str(geocode_result[0]['geometry']['location_type'])
 
-locationQuery('61 larchwood dr')
+def locationQuery(addr_list):
+	return [locationQueryHelper(elem) for elem in addr_list if locationQueryHelper(elem) != 'APPROXIMATE']
+
+
+
+
+
 
 
