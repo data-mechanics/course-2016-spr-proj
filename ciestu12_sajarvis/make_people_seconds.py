@@ -61,6 +61,29 @@ for line in ['GLB', 'GLC', 'GLD', 'GLE']:
 
 endTime = datetime.datetime.now()
 
-# TODO provenance data
+# Create provenance data and recording
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ciestu12_sajarvis/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+
+this_script = doc.agent('alg:make_people_seconds', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+# Other input resources
+nearest_resource = doc.entity('dat:nearest_stops', {'prov:label':'Green Line Nearest Stops', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+boarding_resource = doc.entity('dat:boarding_counts', {'prov:label':'Green Line Boarding Counts', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+doc.wasAssociatedWith(this_run, this_script)
+doc.used(this_run, nearest_resource, startTime)
+doc.used(this_run, boarding_resource, startTime)
+
+ppl_seconds = doc.entity('dat:people_second_utility', {prov.model.PROV_LABEL:'Measure of People Seconds Utility', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(ppl_seconds, this_script)
+doc.wasGeneratedBy(ppl_seconds, this_run, endTime)
+doc.wasDerivedFrom(ppl_seconds, nearest_resource, this_run, this_run, this_run)
+doc.wasDerivedFrom(ppl_seconds, boarding_resource, this_run, this_run, this_run)
+
+repo.record(doc.serialize()) # Record the provenance document.
+print(doc.get_provn())
 
 repo.logout()
