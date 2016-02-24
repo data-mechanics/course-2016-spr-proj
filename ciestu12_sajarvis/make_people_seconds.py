@@ -26,6 +26,10 @@ exec(open('../pymongo_dm.py').read())
 def product(R, S):
     return [(t,u) for t in R for u in S]
 
+def aggregate(R, f):
+    keys = {r[0] for r in R}
+    return [(key, f([v for (k,v) in R if k == key] + [])) for key in keys]
+
 def main():
     teamname = 'ciestu12_sajarvis'
     # Set up the database connection.
@@ -49,15 +53,16 @@ def main():
     dot = product(nearest, pop)
     matches = [(f,g) for (f,g) in dot if f[0] == g[0]]
 
-    for line in ['GLB', 'GLC', 'GLD', 'GLE']:
+    line_usages = aggregate([(l,pop) for ((s,l,n,w),(i,pop)) in matches], sum)
+    for line,total_usage in line_usages:
+        # Measure the utility of each stop on each branch
         # Selections on the branch to keep it on the same line.
-        total_usage = sum([pop for ((s,l,n,w),(i,pop)) in matches if l == line])
         for stop,pop,sec in [(s,p,w) for ((s,l,n,w),(i,p)) in matches if l == line]:
             everyone_else = total_usage - pop
             # the actual measure of utility. low scores are best.
             ppl_seconds = (everyone_else * STOP_TIME) - (pop * sec)
             # now insert the people second utility into our data set.
-            elements = {'stop':stop, 'ppl-secs':ppl_seconds, 'line': line}
+            elements = {'stop':stop, 'ppl-secs':ppl_seconds, 'line':line}
             print(elements)
             repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
 
