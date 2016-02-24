@@ -61,7 +61,7 @@ def dict_merge(x, y):
 	z.update(y)
 	return z
 
-'''
+
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
@@ -69,12 +69,10 @@ exec(open('../pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
-repo.authenticate('alice_bob', 'alice_bob')
+repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
-
-'''
 
 # Retrieve json files.
 j = jsonGetAll('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
@@ -100,11 +98,19 @@ f = map(lambda k, v: [(k, {'avg_salary': v})], f)
 #f2 = reduce(lambda k, vs: (k, sum(vs)), m)
 
 f3 = [('2014', 88058), ('2015', 49760), ('2013', 87052), ('2012', 43186)]
-f3 = map(lambda k, v: [(k, {'incidenct_count': v})], f3)
+f3 = map(lambda k, v: [(k, {'incidence_count': v})], f3)
 
-ff = reduce(lambda k, vs: (k, functools.reduce(dict_merge, vs)), f + f3)
+ff = reduce(lambda k, vs: dict_merge({'year': k}, functools.reduce(dict_merge, vs)), f + f3)
 
-# Retrieve json files.
+repo.dropPermanent('policeSalaryToCrimeIncidence')
+repo.createPermanent('policeSalaryToCrimeIncidence')
+repo['nlouie_thsu8.found'].insert_many(ff)
+
+endTime = datetime.datetime.now()
+
+# insert entries into mongo database
+
+
 
 
 
