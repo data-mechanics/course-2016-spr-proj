@@ -4,6 +4,7 @@ import pymongo
 import prov.model
 import datetime
 import uuid
+import functools
 
 
 
@@ -54,6 +55,12 @@ def jsonGetAll(addr, limit = 50000, offset = 0):
 			print(len(j))
 		return j
 
+
+def dict_merge(x, y):
+	z = x.copy()
+	z.update(y)
+	return z
+
 '''
 
 # Until a library is created, we just use the script directly.
@@ -82,7 +89,7 @@ f1 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
 # Retrieve json files.
 j = jsonGetAll('https://data.cityofboston.gov/resource/4swk-wcg8.json?department_name=Boston%20Police%20Department')
 m = map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department_name'] == 'Boston Police Department' else [], [("key", v) for v in j])
-f2 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)()
+f2 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
 
 f = f0 + f1 + f2
 f = map(lambda k, v: [(k, {'avg_salary': v})], f)
@@ -94,6 +101,8 @@ f = map(lambda k, v: [(k, {'avg_salary': v})], f)
 
 f3 = [('2014', 88058), ('2015', 49760), ('2013', 87052), ('2012', 43186)]
 f3 = map(lambda k, v: [(k, {'incidenct_count': v})], f3)
+
+ff = reduce(lambda k, vs: (k, functools.reduce(dict_merge, vs)), f + f3)
 
 # Retrieve json files.
 
