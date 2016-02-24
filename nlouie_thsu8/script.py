@@ -45,13 +45,29 @@ startTime = datetime.datetime.now()
 
 # Retrieve json files.
 j = jsonGetAll('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
-m = map(lambda k, v: [(2012, float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
-f = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
+m = map(lambda k, v: [('2012', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
+f0 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
 
 # Retrieve json files.
-j = jsonGetAll("https://data.cityofboston.gov/resource/7cdf-6fgx.json?")
-m = map(lambda k, v: [(k, 1)], [(v['year'], v) for v in j])
-f2 = reduce(lambda k, vs: (k, sum(vs)), m)
+j = jsonGetAll('https://data.cityofboston.gov/resource/54s2-yxpg.json?department=Boston%20Police%20Department')
+m = map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
+f1 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
+
+# Retrieve json files.
+j = jsonGetAll('https://data.cityofboston.gov/resource/4swk-wcg8.json?department_name=Boston%20Police%20Department')
+m = map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department_name'] == 'Boston Police Department' else [], [("key", v) for v in j])
+f2 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)()
+
+f = f0 + f1 + f2
+f = [{'year': k, 'avg_salary': v} for k, v in f]
+
+# Retrieve json files.
+#j = jsonGetAll("https://data.cityofboston.gov/resource/7cdf-6fgx.json?")
+#m = map(lambda k, v: [(k, 1)], [(v['year'], v) for v in j])
+#f2 = reduce(lambda k, vs: (k, sum(vs)), m)
+
+f3 = [('2014', 88058), ('2015', 49760), ('2013', 87052), ('2012', 43186)]
+f3 = [{'year': k, 'incident_count': v} for k, v in f3]
 
 # Retrieve json files.
 
