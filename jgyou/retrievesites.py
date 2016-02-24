@@ -108,7 +108,7 @@ this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov
 provdoc.wasAssociatedWith(this_run, this_script)
 provdoc.used(this_run, resource, startTime)
 
-dropoffsites = provdoc.entity('dat:currentsites', {prov.model.PROV_LABEL:'Curent Drop-Off Sites', prov.model.PROV_TYPE:'ont:DataSet'})
+dropoffsites = provdoc.entity('dat:currentsites', {prov.model.PROV_LABEL:'Current Drop-Off Sites', prov.model.PROV_TYPE:'ont:DataSet'})
 provdoc.wasAttributedTo(dropoffsites, this_script)
 provdoc.wasGeneratedBy(dropoffsites, this_run, endTime)
 provdoc.wasDerivedFrom(dropoffsites, resource, this_run, this_run, this_run)

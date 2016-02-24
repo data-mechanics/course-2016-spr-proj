@@ -1,3 +1,5 @@
+# https://docs.mongodb.org/manual/reference/operator/projection/positional/
+# https://docs.mongodb.org/manual/reference/operator/update/unset/
 from urllib import parse, request
 from json import loads, dumps
 
@@ -18,10 +20,8 @@ startTime = datetime.datetime.now()
 
 ##########
 
-repo.dropPermanent("sitescoordinates")
-repo.createPermanent("sitescoordinates")
-
-
+for coord in repo['sitegeocodes'].find():
+	repo['sitegeocodes'].update({}, $unset: {'confidence'})
 
 # note long-lat = x-y
 # http://stackoverflow.com/questions/6851933/how-do-i-remove-a-field-completely-from-mongo
