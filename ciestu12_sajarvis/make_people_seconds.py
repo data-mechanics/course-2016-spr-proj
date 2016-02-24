@@ -46,7 +46,7 @@ def main():
     stop_pop = repo['{}.{}'.format(teamname, 'green_line_boarding_counts')].find({})
     nearest_stops = repo['{}.{}'.format(teamname, 'nearest_stops')].find({})
 
-    # construct some tuples of the information we need
+    # project into some tuples the information we need
     nearest = [(s['stop'], s['line'], s['nearest'], s['time_sec']) for s in nearest_stops]
     pop = [(s['stop_id'], s['stop_boardings']) for s in stop_pop]
 
