@@ -59,7 +59,7 @@ m = map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department_nam
 f2 = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)()
 
 f = f0 + f1 + f2
-f = [{'year': k, 'avg_salary': v} for k, v in f]
+f = map(lambda k, v: [(k, {'avg_salary': v})], f)
 
 # Retrieve json files.
 #j = jsonGetAll("https://data.cityofboston.gov/resource/7cdf-6fgx.json?")
@@ -67,7 +67,7 @@ f = [{'year': k, 'avg_salary': v} for k, v in f]
 #f2 = reduce(lambda k, vs: (k, sum(vs)), m)
 
 f3 = [('2014', 88058), ('2015', 49760), ('2013', 87052), ('2012', 43186)]
-f3 = [{'year': k, 'incident_count': v} for k, v in f3]
+f3 = map(lambda k, v: [(k, {'incidenct_count': v})], f3)
 
 # Retrieve json files.
 
