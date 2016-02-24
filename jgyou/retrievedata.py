@@ -1,3 +1,10 @@
+'''
+retrievedata.py
+
+This script retrieves a subset of data from the City of Boston 
+website related to their Needle Program, and loads it into the repo.
+'''
+
 from urllib import request, parse
 import json
 import pymongo
