@@ -20,17 +20,13 @@ import make_people_seconds
 
 # Don't need time and won't keep it, but the individual methods expect it.
 time = datetime.datetime.now()
-json_arr_str = '['
 
+master_doc = prov.model.ProvDocument()
 for mod in [get_boarding_info, get_green_line_branch_info, make_stop_gps_db, make_walk_dist_db, make_nearest_stops, make_people_seconds]:
     doc = mod.create_prov(time, time)
-    json_arr_str += doc.serialize() + ','
+    master_doc.update(doc)
 
-# The last character will be a trailing comma, just overwrite with end
-# of array.
-json_arr_str = json_arr_str[:-1] + ']'
-
-pretty_str = json.dumps(json.loads(json_arr_str), indent=2, sort_keys=True)
+pretty_str = json.dumps(json.loads(master_doc.serialize()), indent=2, sort_keys=True)
 
 print(pretty_str)
 
