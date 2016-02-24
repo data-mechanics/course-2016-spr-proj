@@ -1,0 +1,87 @@
+{
+    "agent": {
+        "alg:example": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "activity": {
+        "log:a*": {
+            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:a*",
+            "prov:entity": "bdp:wc8w-nujj"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id4": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:lost"
+        },
+        "_:id7": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:found"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:example"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id3": {
+            "prov:agent": "alg:example",
+            "prov:entity": "dat:lost"
+        },
+        "_:id6": {
+            "prov:agent": "alg:example",
+            "prov:entity": "dat:found"
+        }
+    },
+    "entity": {
+        "bdp:wc8w-nujj": {
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:lost": {
+            "prov:label": "Animals Lost",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:found": {
+            "prov:label": "Animals Found",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id8": {
+            "prov:generatedEntity": "dat:found",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:activity": "log:a*",
+            "prov:usedEntity": "bdp:wc8w-nujj"
+        },
+        "_:id5": {
+            "prov:generatedEntity": "dat:lost",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:activity": "log:a*",
+            "prov:usedEntity": "bdp:wc8w-nujj"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/alice_bob/",
+        "dat": "http://datamechanics.io/data/alice_bob/"
+    }
+}
