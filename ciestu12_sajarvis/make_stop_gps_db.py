@@ -42,7 +42,7 @@ def main():
         obj = dict(zip(headers, values))
         json_array.append(obj)
 
-    #print(json_array)
+    print(json_array)
     collection = "t_stop_locations"
     repo.dropPermanent(collection)
     repo.createPermanent(collection)

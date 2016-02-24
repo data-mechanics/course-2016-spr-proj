@@ -48,6 +48,7 @@ def main():
 
     # Put the resulting list of tuples into a JSON-friendly dictionary.
     elements = [{'stop':k, 'line':v[0], 'nearest':v[1], 'distance_ft':v[2], 'time_sec':v[3]} for k,v in shortests]
+    print(elements)
 
     nearest_coll = 'nearest_stops'
     repo.dropPermanent(nearest_coll)

@@ -25,6 +25,12 @@ import sys
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
 
+teamname = 'ciestu12_sajarvis'
+# Set up the database connection.
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate(teamname, teamname)
+
 def product(X, Y):
     '''Cartesian product of sets X and Y'''
     return [(a, b) for a in X for b in Y]
@@ -41,20 +47,15 @@ def get_unique_lines():
     '''From the existing t_branch_info collection, get list of unique lines.'''
     # This collection must already exist.
     all_lines = repo['{}.{}'.format(teamname, 't_branch_info')].find({})
+    # Set to get only unique
     return set([x['line'] for x in all_lines])
 
 def get_stops_for_line(line):
     '''From the existing t_branch_info collection, all stops on given line.'''
     # This collection must already exist.
-    return list(repo['{}.{}'.format(teamname, 't_branch_info')].find({'line':l}))
+    return list(repo['{}.{}'.format(teamname, 't_branch_info')].find({'line':line}))
 
 def main():
-    teamname = 'ciestu12_sajarvis'
-    # Set up the database connection.
-    client = pymongo.MongoClient()
-    repo = client.repo
-    repo.authenticate(teamname, teamname)
-
     startTime = datetime.datetime.now()
 
     out_coll = 'green_line_walking_distances'
