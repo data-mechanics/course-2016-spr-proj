@@ -50,6 +50,7 @@ def main():
     matches = [(f,g) for (f,g) in dot if f[0] == g[0]]
 
     for line in ['GLB', 'GLC', 'GLD', 'GLE']:
+        # Selections on the branch to keep it on the same line.
         total_usage = sum([pop for ((s,l,n,w),(i,pop)) in matches if l == line])
         for stop,pop,sec in [(s,p,w) for ((s,l,n,w),(i,p)) in matches if l == line]:
             everyone_else = total_usage - pop
