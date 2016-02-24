@@ -11,26 +11,58 @@ exec(open('../pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
-repo.authenticate('alice_bob', 'alice_bob')
+repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = 'http://cs-people.bu.edu/lapets/591/examples/lost.json'
+url = 'https://github.com/ktmck678/course-2016-spr-proj-one/tree/master/Data/Active_Food_Establishment_Licenses.json'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
-repo.dropPermanent("lost")
-repo.createPermanent("lost")
-repo['alice_bob.lost'].insert_many(r)
+repo.dropPermanent("foodEst")
+repo.createPermanent("foodEst")
+repo['jlam17_mckay678.foodEst'].insert_many(r)
 
-url = 'http://cs-people.bu.edu/lapets/591/examples/found.json'
+url = 'https://github.com/ktmck678/course-2016-spr-proj-one/tree/master/Data/Corner Stores.json'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
-repo.dropPermanent("found")
-repo.createPermanent("found")
-repo['alice_bob.found'].insert_many(r)
+repo.dropPermanent("cornerStore")
+repo.createPermanent("cornerStore")
+repo['jlam17_mckay678.cornerStore'].insert_many(r)
+
+url = 'https://github.com/ktmck678/course-2016-spr-proj-one/tree/master/Data/Food Pantries.json'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("pantries")
+repo.createPermanent("pantries")
+repo['jlam17_mckay678.pantries'].insert_many(r)
+
+url = 'https://github.com/ktmck678/course-2016-spr-proj-one/tree/master/Data/Retail Bakery.json'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("bakeries")
+repo.createPermanent("bakeries")
+repo['jlam17_mckay678.bakeries'].insert_many(r)
+
+url = 'https://github.com/ktmck678/course-2016-spr-proj-one/tree/master/Data/Summer Farmers\' Markets.json'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("summerFM")
+repo.createPermanent("summerFM")
+repo['jlam17_mckay678.summerFM'].insert_many(r)
+
+url = 'https://github.com/ktmck678/course-2016-spr-proj-one/tree/master/Data/Winter Farmers Markets.json'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("winterFM")
+repo.createPermanent("winterFM")
+repo['jlam17_mckay678.winterFM'].insert_many(r)
 
 endTime = datetime.datetime.now()
 
