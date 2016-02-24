@@ -1,0 +1,513 @@
+[
+  {
+    "activity": {
+      "log:a*": {
+        "ont:Query": "",
+        "prov:type": "ont:Retrieval"
+      }
+    },
+    "agent": {
+      "alg:get_boarding_info": {
+        "ont:Extension": "py",
+        "prov:type": {
+          "$": "prov:SoftwareAgent",
+          "type": "prov:QUALIFIED_NAME"
+        }
+      }
+    },
+    "entity": {
+      "bu:green_line_boarding": {
+        "ont:Extension": "json",
+        "prov:label": "Green Line Boarding Counts",
+        "prov:type": "ont:DataResource"
+      },
+      "dat:green_line_boarding_counts": {
+        "prov:label": "Green Line Boarding Counts",
+        "prov:type": "ont:DataSet"
+      },
+      "dat:t_branch_info": {
+        "prov:label": "Collection of Green Line Branch Info",
+        "prov:type": "ont:DataSet"
+      },
+      "mbta:2014%20BLUEBOOK%2014th%20Edition": {
+        "ont:Extension": "pdf",
+        "prov:label": "PDF of Green Line Boarding Counts",
+        "prov:type": "ont:DataResource"
+      }
+    },
+    "prefix": {
+      "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+      "bu": "http://cs-people.bu.edu/sajarvis/datamech/",
+      "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+      "log": "http://datamechanics.io/log#",
+      "mbta": "http://www.mbta.com/uploadedfiles/documents/",
+      "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+      "_:id2": {
+        "prov:activity": "log:a*",
+        "prov:entity": "bu:green_line_boarding"
+      }
+    },
+    "wasAssociatedWith": {
+      "_:id1": {
+        "prov:activity": "log:a*",
+        "prov:agent": "alg:get_boarding_info"
+      }
+    },
+    "wasAttributedTo": {
+      "_:id5": {
+        "prov:agent": "alg:get_boarding_info",
+        "prov:entity": "dat:green_line_boarding_counts"
+      }
+    },
+    "wasDerivedFrom": {
+      "_:id3": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "bu:green_line_boarding",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "mbta:2014%20BLUEBOOK%2014th%20Edition"
+      },
+      "_:id4": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "bu:green_line_boarding",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:t_branch_info"
+      },
+      "_:id7": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:green_line_boarding_counts",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "bu:green_line_boarding"
+      }
+    },
+    "wasGeneratedBy": {
+      "_:id6": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:green_line_boarding_counts"
+      }
+    }
+  },
+  {
+    "activity": {
+      "log:a*": {
+        "ont:Query": "",
+        "prov:type": "ont:Retrieval"
+      }
+    },
+    "agent": {
+      "alg:get_green_line_branch_info": {
+        "ont:Extension": "py",
+        "prov:type": {
+          "$": "prov:SoftwareAgent",
+          "type": "prov:QUALIFIED_NAME"
+        }
+      }
+    },
+    "entity": {
+      "bu:green_line_branch_info": {
+        "ont:Extension": "json",
+        "prov:label": "Green Line Branch Info",
+        "prov:type": "ont:DataResource"
+      },
+      "dat:t_branch_info": [
+        {
+          "prov:label": "Collection of Green Line Branch Info",
+          "prov:type": "ont:DataSet"
+        },
+        {
+          "prov:label": "Green Line Branch Info",
+          "prov:type": "ont:DataSet"
+        }
+      ],
+      "mbta:subway-spider": {
+        "ont:Extension": "jpg",
+        "prov:label": "Map of T Lines and Stops",
+        "prov:type": "ont:DataResource"
+      }
+    },
+    "prefix": {
+      "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+      "bu": "http://cs-people.bu.edu/sajarvis/datamech/",
+      "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+      "log": "http://datamechanics.io/log#",
+      "mbta": "http://www.mbta.com/images/",
+      "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+      "_:id2": {
+        "prov:activity": "log:a*",
+        "prov:entity": "bu:green_line_branch_info"
+      }
+    },
+    "wasAssociatedWith": {
+      "_:id1": {
+        "prov:activity": "log:a*",
+        "prov:agent": "alg:get_green_line_branch_info"
+      }
+    },
+    "wasAttributedTo": {
+      "_:id5": {
+        "prov:agent": "alg:get_green_line_branch_info",
+        "prov:entity": "dat:t_branch_info"
+      }
+    },
+    "wasDerivedFrom": {
+      "_:id3": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "bu:green_line_branch_info",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "mbta:subway-spider"
+      },
+      "_:id4": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "bu:green_line_branch_info",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:t_branch_info"
+      },
+      "_:id7": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:t_branch_info",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "bu:green_line_branch_info"
+      }
+    },
+    "wasGeneratedBy": {
+      "_:id6": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:t_branch_info"
+      }
+    }
+  },
+  {
+    "activity": {
+      "log:a*": {
+        "ont:Query": "",
+        "prov:type": "ont:Retrieval"
+      }
+    },
+    "agent": {
+      "alg:make_stop_gps_db": {
+        "ont:Extension": "py",
+        "prov:type": {
+          "$": "prov:SoftwareAgent",
+          "type": "prov:QUALIFIED_NAME"
+        }
+      }
+    },
+    "entity": {
+      "bu:stops": {
+        "ont:Extension": "txt",
+        "prov:label": "GPS Locations and IDs of T Stops",
+        "prov:type": "ont:DataResource"
+      },
+      "dat:t_stop_locations": {
+        "prov:label": "GPS Locations and IDs of T Stops",
+        "prov:type": "ont:DataSet"
+      },
+      "mbta:MBTA_GTFS": {
+        "ont:Extension": "zip",
+        "prov:label": "GTFS Data from MBTA",
+        "prov:type": "ont:DataResource"
+      }
+    },
+    "prefix": {
+      "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+      "bu": "http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs",
+      "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+      "log": "http://datamechanics.io/log#",
+      "mbta": "http://www.mbta.com/uploadedfiles/",
+      "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+      "_:id2": {
+        "prov:activity": "log:a*",
+        "prov:entity": "bu:stops"
+      }
+    },
+    "wasAssociatedWith": {
+      "_:id1": {
+        "prov:activity": "log:a*",
+        "prov:agent": "alg:make_stop_gps_db"
+      }
+    },
+    "wasAttributedTo": {
+      "_:id4": {
+        "prov:agent": "alg:make_stop_gps_db",
+        "prov:entity": "dat:t_stop_locations"
+      }
+    },
+    "wasDerivedFrom": {
+      "_:id3": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "bu:stops",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "mbta:MBTA_GTFS"
+      },
+      "_:id6": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:t_stop_locations",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "bu:stops"
+      }
+    },
+    "wasGeneratedBy": {
+      "_:id5": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:t_stop_locations"
+      }
+    }
+  },
+  {
+    "activity": {
+      "log:a*": {
+        "ont:Query": "?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial",
+        "prov:type": "ont:Retrieval"
+      }
+    },
+    "agent": {
+      "alg:make_walk_dist_db": {
+        "ont:Extension": "py",
+        "prov:type": {
+          "$": "prov:SoftwareAgent",
+          "type": "prov:QUALIFIED_NAME"
+        }
+      }
+    },
+    "entity": {
+      "dat:green_line_walking_distances": {
+        "prov:label": "Green Line Walking Distances Between Stops",
+        "prov:type": "ont:DataSet"
+      },
+      "dat:t_branch_info": {
+        "prov:label": "Collection of Green Line Branch Info",
+        "prov:type": "ont:DataSet"
+      },
+      "dat:t_stop_locations": {
+        "prov:label": "Collection of Locations of T Stops",
+        "prov:type": "ont:DataSet"
+      },
+      "goog:maps/api/distancematrix/json": {
+        "prov:label": "Google Distance Matrix API",
+        "prov:type": "ont:Computation"
+      }
+    },
+    "prefix": {
+      "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+      "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+      "goog": "https://maps.googleapis.com/",
+      "log": "http://datamechanics.io/log#",
+      "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+      "_:id2": {
+        "prov:activity": "log:a*",
+        "prov:entity": "goog:maps/api/distancematrix/json"
+      },
+      "_:id3": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:t_stop_locations"
+      },
+      "_:id4": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:t_branch_info"
+      }
+    },
+    "wasAssociatedWith": {
+      "_:id1": {
+        "prov:activity": "log:a*",
+        "prov:agent": "alg:make_walk_dist_db"
+      }
+    },
+    "wasAttributedTo": {
+      "_:id5": {
+        "prov:agent": "alg:make_walk_dist_db",
+        "prov:entity": "dat:green_line_walking_distances"
+      }
+    },
+    "wasDerivedFrom": {
+      "_:id7": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:green_line_walking_distances",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "goog:maps/api/distancematrix/json"
+      },
+      "_:id8": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:green_line_walking_distances",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:t_stop_locations"
+      },
+      "_:id9": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:green_line_walking_distances",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:t_branch_info"
+      }
+    },
+    "wasGeneratedBy": {
+      "_:id6": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:green_line_walking_distances"
+      }
+    }
+  },
+  {
+    "activity": {
+      "log:a*": {
+        "ont:Query": "",
+        "prov:type": "ont:Computation"
+      }
+    },
+    "agent": {
+      "alg:make_nearest_stops": {
+        "ont:Extension": "py",
+        "prov:type": {
+          "$": "prov:SoftwareAgent",
+          "type": "prov:QUALIFIED_NAME"
+        }
+      }
+    },
+    "entity": {
+      "dat:green_line_walking_distances": {
+        "prov:label": "Walking Distances Between All Green Line Stops",
+        "prov:type": "ont:DataSet"
+      },
+      "dat:nearest_stops": {
+        "prov:label": "Nearest Neighboring Stops For Green Line Stops",
+        "prov:type": "ont:DataSet"
+      }
+    },
+    "prefix": {
+      "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+      "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+      "log": "http://datamechanics.io/log#",
+      "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+      "_:id2": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:green_line_walking_distances"
+      }
+    },
+    "wasAssociatedWith": {
+      "_:id1": {
+        "prov:activity": "log:a*",
+        "prov:agent": "alg:make_nearest_stops"
+      }
+    },
+    "wasAttributedTo": {
+      "_:id3": {
+        "prov:agent": "alg:make_nearest_stops",
+        "prov:entity": "dat:nearest_stops"
+      }
+    },
+    "wasDerivedFrom": {
+      "_:id5": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:nearest_stops",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:green_line_walking_distances"
+      }
+    },
+    "wasGeneratedBy": {
+      "_:id4": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:nearest_stops"
+      }
+    }
+  },
+  {
+    "activity": {
+      "log:a*": {
+        "ont:Query": "",
+        "prov:type": "ont:Computation"
+      }
+    },
+    "agent": {
+      "alg:make_people_seconds": {
+        "ont:Extension": "py",
+        "prov:type": {
+          "$": "prov:SoftwareAgent",
+          "type": "prov:QUALIFIED_NAME"
+        }
+      }
+    },
+    "entity": {
+      "dat:green_line_boarding_counts": {
+        "prov:label": "Boarding Counts for Green Line Stops",
+        "prov:type": "ont:DataSet"
+      },
+      "dat:nearest_stops": {
+        "prov:label": "Nearest Neighboring Stops on Green Line",
+        "prov:type": "ont:DataSet"
+      },
+      "dat:people_second_utility": {
+        "prov:label": "Measure of Utility Per Stop for Collective Riders",
+        "prov:type": "ont:DataSet"
+      }
+    },
+    "prefix": {
+      "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+      "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+      "log": "http://datamechanics.io/log#",
+      "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+      "_:id2": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:nearest_stops"
+      },
+      "_:id3": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:green_line_boarding_counts"
+      }
+    },
+    "wasAssociatedWith": {
+      "_:id1": {
+        "prov:activity": "log:a*",
+        "prov:agent": "alg:make_people_seconds"
+      }
+    },
+    "wasAttributedTo": {
+      "_:id4": {
+        "prov:agent": "alg:make_people_seconds",
+        "prov:entity": "dat:people_second_utility"
+      }
+    },
+    "wasDerivedFrom": {
+      "_:id6": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:people_second_utility",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:nearest_stops"
+      },
+      "_:id7": {
+        "prov:activity": "log:a*",
+        "prov:generatedEntity": "dat:people_second_utility",
+        "prov:generation": "log:a*",
+        "prov:usage": "log:a*",
+        "prov:usedEntity": "dat:green_line_boarding_counts"
+      }
+    },
+    "wasGeneratedBy": {
+      "_:id5": {
+        "prov:activity": "log:a*",
+        "prov:entity": "dat:people_second_utility"
+      }
+    }
+  }
+]
