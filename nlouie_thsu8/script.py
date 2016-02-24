@@ -5,6 +5,32 @@ import prov.model
 import datetime
 import uuid
 
+
+
+# data provenance 
+
+# doc = prov.model.ProvDocument()
+# doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nlouie_thsu8/') # The scripts in / format.
+# doc.add_namespace('dat', 'http://datamechanics.io/data/nlouie_thsu8/') # The data sets in / format.
+# doc.add_namespace('ont', 'http://datamechanics.io/ontology#')
+# doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+# doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/effb-uspk.json')
+
+
+# this_script = doc.agent('alg:GetPoliceSalaryPlusCrimeIncidents', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+# resource = doc.entity('bdp:wc8w-nujj', 
+#     {'prov:label':'311, Service Requests', 
+#     prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'}
+#   )
+# this_run = doc.activity(
+#     'log:a'+str(uuid.uuid4()), startTime, endTime, 
+#     {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'}
+#   )
+# doc.wasAssociatedWith(this_run, this_script)
+# doc.used(this_run, resource, startTime)
+
+
+
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
 
@@ -43,16 +69,18 @@ startTime = datetime.datetime.now()
 
 '''
 
-# Retrieve json files.
-j = jsonGetAll('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
-m = map(lambda k, v: [(2012, float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
-f = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
+# # Retrieve json files.
+# j = jsonGetAll('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
+# m = map(lambda k, v: [(2012, float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
+# f = reduce(lambda k,vs: (k, sum(vs)/len(vs)), m)
+
+# # Retrieve json files.
+# j = jsonGetAll("https://data.cityofboston.gov/resource/7cdf-6fgx.json?")
+# m = map(lambda k, v: [(k, 1)], [(v['year'], v) for v in j])
+# f2 = reduce(lambda k, vs: (k, sum(vs)), m)
 
 # Retrieve json files.
-j = jsonGetAll("https://data.cityofboston.gov/resource/7cdf-6fgx.json?")
-m = map(lambda k, v: [(k, 1)], [(v['year'], v) for v in j])
-f2 = reduce(lambda k, vs: (k, sum(vs)), m)
 
-# Retrieve json files.
+
 
 
