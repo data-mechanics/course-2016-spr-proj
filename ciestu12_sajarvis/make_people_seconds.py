@@ -5,7 +5,7 @@ measure can be used to determine the value of each stop.
 
 Requires the collections:
     'nearest_stops'
-    'boarding_counts'
+    'green_line_boarding_counts'
 
 Lower scores indicate a higher value, considering the overall time saved for
 commuters.
@@ -23,67 +23,96 @@ STOP_TIME = 60
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
 
-teamname = 'ciestu12_sajarvis'
-# Set up the database connection.
-client = pymongo.MongoClient()
-repo = client.repo
-repo.authenticate(teamname, teamname)
-out_coll = 'people_second_utility'
-repo.dropPermanent(out_coll)
-repo.createPermanent(out_coll)
-
-startTime = datetime.datetime.now()
-
 def product(R, S):
     return [(t,u) for t in R for u in S]
 
-# get DB for population and nearest stop
-stop_pop = repo['{}.{}'.format(teamname, 'boarding_counts')].find({})
-nearest_stops = repo['{}.{}'.format(teamname, 'nearest_stops')].find({})
+def main():
+    teamname = 'ciestu12_sajarvis'
+    # Set up the database connection.
+    client = pymongo.MongoClient()
+    repo = client.repo
+    repo.authenticate(teamname, teamname)
+    out_coll = 'people_second_utility'
+    repo.dropPermanent(out_coll)
+    repo.createPermanent(out_coll)
 
-# construct some tuples of the information we need
-nearest = [(s['stop'], s['line'], s['nearest'], s['time_sec']) for s in nearest_stops]
-pop = [(s['stop_id'], s['stop_boardings']) for s in stop_pop]
+    startTime = datetime.datetime.now()
 
-dot = product(nearest, pop)
-matches = [(f,g) for (f,g) in dot if f[0] == g[0]]
+    # get DB for population and nearest stop
+    stop_pop = repo['{}.{}'.format(teamname, 'green_line_boarding_counts')].find({})
+    nearest_stops = repo['{}.{}'.format(teamname, 'nearest_stops')].find({})
 
-for line in ['GLB', 'GLC', 'GLD', 'GLE']:
-    total_usage = sum([pop for ((s,l,n,w),(i,pop)) in matches if l == line])
-    for stop,pop,sec in [(s,p,w) for ((s,l,n,w),(i,p)) in matches if l == line]:
-        everyone_else = total_usage - pop
-        # the actual measure of utility. low scores are best.
-        ppl_seconds = (everyone_else * STOP_TIME) - (pop * sec)
-        # now insert the people second utility into our data set.
-        elements = {'stop':stop, 'ppl-secs':ppl_seconds, 'line': line}
-        print(elements)
-        repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
+    # construct some tuples of the information we need
+    nearest = [(s['stop'], s['line'], s['nearest'], s['time_sec']) for s in nearest_stops]
+    pop = [(s['stop_id'], s['stop_boardings']) for s in stop_pop]
 
-endTime = datetime.datetime.now()
+    dot = product(nearest, pop)
+    matches = [(f,g) for (f,g) in dot if f[0] == g[0]]
 
-# Create provenance data and recording
-doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ciestu12_sajarvis/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
-doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
-doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+    for line in ['GLB', 'GLC', 'GLD', 'GLE']:
+        total_usage = sum([pop for ((s,l,n,w),(i,pop)) in matches if l == line])
+        for stop,pop,sec in [(s,p,w) for ((s,l,n,w),(i,p)) in matches if l == line]:
+            everyone_else = total_usage - pop
+            # the actual measure of utility. low scores are best.
+            ppl_seconds = (everyone_else * STOP_TIME) - (pop * sec)
+            # now insert the people second utility into our data set.
+            elements = {'stop':stop, 'ppl-secs':ppl_seconds, 'line': line}
+            print(elements)
+            repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
 
-this_script = doc.agent('alg:make_people_seconds', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-# Other input resources
-nearest_resource = doc.entity('dat:nearest_stops', {'prov:label':'Green Line Nearest Stops', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-boarding_resource = doc.entity('dat:boarding_counts', {'prov:label':'Green Line Boarding Counts', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
-doc.wasAssociatedWith(this_run, this_script)
-doc.used(this_run, nearest_resource, startTime)
-doc.used(this_run, boarding_resource, startTime)
+    endTime = datetime.datetime.now()
 
-ppl_seconds = doc.entity('dat:people_second_utility', {prov.model.PROV_LABEL:'Measure of People Seconds Utility', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(ppl_seconds, this_script)
-doc.wasGeneratedBy(ppl_seconds, this_run, endTime)
-doc.wasDerivedFrom(ppl_seconds, nearest_resource, this_run, this_run, this_run)
-doc.wasDerivedFrom(ppl_seconds, boarding_resource, this_run, this_run, this_run)
+    # Record the provenance document.
+    doc = create_prov(startTime, endTime)
+    repo.record(doc.serialize())
+    print(doc.get_provn())
 
-repo.record(doc.serialize()) # Record the provenance document.
-print(doc.get_provn())
+    repo.logout()
 
-repo.logout()
+
+def create_prov(startTime, endTime):
+    '''Create the provenance document for file.'''
+    # Create provenance data and recording
+    doc = prov.model.ProvDocument()
+    doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ciestu12_sajarvis/') # The scripts in <folder>/<filename> format.
+    doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
+    doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+    doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+
+    # This run has an agent (the script), entities (the sources), and an activity (execution)
+    this_script = doc.agent('alg:make_people_seconds',
+                            {
+                                prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'],
+                                'ont:Extension':'py'})
+    nearest_resource = doc.entity('dat:nearest_stops',
+                                  {
+                                      'prov:label':'Nearest Neighboring Stops on Green Line',
+                                      prov.model.PROV_TYPE:'ont:DataSet'})
+    boarding_resource = doc.entity('dat:green_line_boarding_counts',
+                                   {
+                                       'prov:label':'Boarding Counts for Green Line Stops',
+                                       prov.model.PROV_TYPE:'ont:DataSet'})
+    this_run = doc.activity('log:a'+str(uuid.uuid4()),
+                            startTime, endTime,
+                            {
+                                prov.model.PROV_TYPE:'ont:Computation',
+                                'ont:Query':''})
+    doc.wasAssociatedWith(this_run, this_script)
+    doc.used(this_run, nearest_resource, startTime)
+    doc.used(this_run, boarding_resource, startTime)
+
+    # Now define entity for the dataset we obtained.
+    ppl_seconds = doc.entity('dat:people_second_utility',
+                          {
+                              prov.model.PROV_LABEL:'Measure of Utility Per Stop for Collective Riders',
+                              prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(ppl_seconds, this_script)
+    doc.wasGeneratedBy(ppl_seconds, this_run, endTime)
+    doc.wasDerivedFrom(ppl_seconds, nearest_resource, this_run, this_run, this_run)
+    doc.wasDerivedFrom(ppl_seconds, boarding_resource, this_run, this_run, this_run)
+
+    return doc
+
+
+if __name__ == '__main__':
+    main()
