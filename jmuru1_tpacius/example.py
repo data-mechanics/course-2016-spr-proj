@@ -71,7 +71,7 @@ doc.wasDerivedFrom(found, resource, this_run, this_run, this_run)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
-print(doc.get_provn())
+# print(doc.get_provn())
 repo.logout()
 
 ## eof

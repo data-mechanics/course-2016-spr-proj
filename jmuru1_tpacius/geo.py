@@ -38,9 +38,13 @@ def locationQueryHelper(addr):
 	geocode_result = gmaps.geocode(queryAddr)
 	return ((geocode_result[0]['address_components']), str(geocode_result[0]['geometry']['location_type']))
 
+# def locationQuery(addr_list):
+# 	#extracts zip code from addresses that got tickets
+# 	return [locationQueryHelper(ADDR_TICKETS[0])[0][len(locationQueryHelper(ADDR_TICKETS[0])[0])-1]['short_name'] for elem in addr_list if locationQueryHelper(elem)[1] != 'APPROXIMATE']
+
 def locationQuery(addr_list):
 	#extracts zip code from addresses that got tickets
-	return [locationQueryHelper(ADDR_TICKETS[0])[0][len(locationQueryHelper(ADDR_TICKETS[0])[0])-1]['short_name'] for elem in addr_list if locationQueryHelper(elem)[1] != 'APPROXIMATE']
+	return [locationQueryHelper(elem) for elem in addr_list]
 
 def locationQueryDict(lst):
 	locations = dict()
@@ -48,7 +52,8 @@ def locationQueryDict(lst):
 		locations[str(i)] = lst[i]
 	return locations
 
-
+# print(locationQuery(noDupes)[0])
+# print(locationQuery(noDupes[0][0])[0][-2])
 
 
 
