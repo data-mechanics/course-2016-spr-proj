@@ -77,4 +77,39 @@ db.nikolaj.name_gender_lookup.mapReduce(
 );
 db.nikolaj.combined_2014.find({})
 
+var genderSalaryMapper = function() {
+    if (this.value.hasOwnProperty('gender')) {
+        key = this.value.gender;
+    }
+    else {
+        key = 'unknown';
+    }
+    if (this.value.hasOwnProperty('sal')) {
+        s = this.value.sal;
+    }
+    else {
+        s = 0;
+    }
+    value = {sal: s};
+    emit(key, value);
+};
 
+var genderSalaryReducer = function(key, vals) {
+    reducedVal = {gender: key, sal: 0};
+    for (var idx = 0; idx < vals.length; idx++) {
+        reducedVal.sal += vals[idx].sal;
+    }
+    return reducedVal;
+};
+
+db.nikolaj.final_result_2014.drop();
+createPermanent('final_result_2014');
+
+db.nikolaj.combined_2014.mapReduce(
+    genderSalaryMapper,
+    genderSalaryReducer,
+    {
+        out: "nikolaj.final_result_2014"
+    }
+);
+db.nikolaj.final_result_2014.find({})
