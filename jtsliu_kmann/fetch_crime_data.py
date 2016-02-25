@@ -1,5 +1,6 @@
 import datetime
 import json
+import pymongo
 import urllib.request
 
 # Open the file for interfacing with DB
