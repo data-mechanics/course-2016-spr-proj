@@ -2,6 +2,7 @@
 import json
 import googlemaps
 import apitest
+import example
 
 with open('auth.json') as credentials:
 	data = json.load(credentials)
@@ -25,11 +26,7 @@ address_components
 types
 '''
 
-ticketsUrl = 'https://data.cityofboston.gov/resource/cpdb-ie6e.json' + '?$$app_token=' + data["api_key"] + "&$limit=1000"
-# generate list of addresses
-(rawAddr, formatted) = apitest.request(ticketsUrl)
-
-ticket_loc = rawAddr
+ticketsCollection = example.getCollection('jmuru1_tpacius.tickets')
 
 def generateAddr(json_obj):
 	return [elem['ticket_loc'] for elem in json_obj]

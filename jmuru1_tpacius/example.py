@@ -5,7 +5,7 @@ import prov.model
 import datetime
 import uuid
 import apitest as apitest
-import geo as geo
+# import geo as geo
 
 # Until a library is created, we just use the script directly.
 exec(open('pymongo_dm.py').read())
@@ -27,13 +27,11 @@ startTime = datetime.datetime.now()
 # repo.createPermanent("zipcarreservations")
 # repo['jmuru1_tpacius.zipcarreservations'].insert_many(apitest.zipCarReservations)
 
-# repo.dropPermanent("tickets")
-# repo.createPermanent("tickets")
-# repo['jmuru1_tpacius.tickets'].insert_many(geo.rawAddr)
-
 # ========================query databse=================================
-#ticketsCollection = repo['jmuru1_tpacius.tickets'].find({})
-#print(ticketsCollection)
+def getCollection(dbName):
+	if type(dbName) != str:
+		return "Error: please input a string"
+	return repo[dbName].find({})
 
 endTime = datetime.datetime.now()
 
