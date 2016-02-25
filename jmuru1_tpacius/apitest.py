@@ -23,3 +23,6 @@ def request(url):
 zipCarMemberCount = request(zipcarUrl1)
 #zipCarReservations = request(zipcarUrl2)
 #ticketsByAreaCode = request(ticketsUrl)
+
+for elem in zipCarMemberCount:
+	print(elem)
