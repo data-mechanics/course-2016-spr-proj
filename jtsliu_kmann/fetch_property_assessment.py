@@ -14,12 +14,10 @@ repo.authenticate('jtsliu_kmann', 'jtsliu_kmann')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = "https://data.cityofboston.gov/resource/ufcx-3fdn.json"
+url = "https://data.cityofboston.gov/resource/qz7u-kb7x.json"
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
-repo.dropPermanent("crime")
-repo.createPermanent("crime")
-repo['jtsliu_kmann.crime'].insert_many(r)
-
-# print(json.dumps(json.loads(response), sort_keys=True, indent=2))
+repo.dropPermanent("property_assessment")
+repo.createPermanent("property_assessment")
+repo['jtsliu_kmann.property_assessment'].insert_many(r)
