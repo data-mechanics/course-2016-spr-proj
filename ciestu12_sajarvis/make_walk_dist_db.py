@@ -35,6 +35,10 @@ def product(X, Y):
     '''Cartesian product of sets X and Y'''
     return [(a, b) for a in X for b in Y]
 
+def aggregate(R, f):
+    keys = {r[0] for r in R}
+    return [(key, f([v for (k,v) in R if k == key] + [])) for key in keys]
+
 def request_get_json(source_lat, source_lon, dest_lat, dest_lon):
     '''Make the request to Google Maps for the walking distance from
     source to dest.'''
@@ -43,18 +47,6 @@ def request_get_json(source_lat, source_lon, dest_lat, dest_lon):
     response = urllib.request.urlopen(url).read().decode("utf-8")
     return json.loads(response)
 
-def get_unique_lines():
-    '''From the existing t_branch_info collection, get list of unique lines.'''
-    # This collection must already exist.
-    all_lines = repo['{}.{}'.format(teamname, 't_branch_info')].find({})
-    # Set to get only unique
-    return set([x['line'] for x in all_lines])
-
-def get_stops_for_line(line):
-    '''From the existing t_branch_info collection, all stops on given line.'''
-    # This collection must already exist.
-    return list(repo['{}.{}'.format(teamname, 't_branch_info')].find({'line':line}))
-
 def main():
     startTime = datetime.datetime.now()
 
@@ -62,22 +54,23 @@ def main():
     repo.dropPermanent(out_coll)
     repo.createPermanent(out_coll)
 
-    for l in get_unique_lines():
-        line_stops = []
-        for s in [s for s in get_stops_for_line(l)]:
-            stop_id = s['stop_id']
-            # There should be exactly 1 associated document in the GPS db.
-            coords_doc = repo['{}.{}'.format(teamname,  't_stop_locations')].find({'stop_id':stop_id})[0]
-            # Append a tuple of the lat,lon, and this stop ID.
-            line_stops.append((coords_doc['stop_lat'], coords_doc['stop_lon'], stop_id))
+    stops_doc = repo['{}.{}'.format(teamname, 't_branch_info')].find({})
+    coords_doc = repo['{}.{}'.format(teamname,  't_stop_locations')].find({})
 
-        for r in product(line_stops, line_stops):
+    all_stops = [(s['line'], s['stop_id']) for s in stops_doc]
+    all_coords = [(c['stop_id'], c['stop_lat'], c['stop_lon']) for c in coords_doc if c['stop_id']]
+    line_stops = aggregate(all_stops, list)
+
+    for line, stop_ids in line_stops:
+        stop_coords = [(lat, lon, stop_id) for ((s_id),(stop_id,lat,lon)) in product(stop_ids, all_coords) if s_id == stop_id]
+
+        for r in product(stop_coords, stop_coords):
             data = request_get_json(r[0][0], r[0][1], r[1][0], r[1][1])
             print(data)
             repo['{}.{}'.format(teamname, out_coll)].insert_one(
                 { 'source_id' : r[0][2], \
                 'dest_id' : r[1][2], \
-                'line' : l, \
+                'line' : line, \
                 'dist_val_ft' : data['rows'][0]['elements'][0]['distance']['value'], \
                 'dist_text' : data['rows'][0]['elements'][0]['distance']['text'], \
                 'duration_val_sec' : data['rows'][0]['elements'][0]['duration']['value'], \
