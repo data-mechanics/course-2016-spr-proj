@@ -29,9 +29,14 @@ startTime = datetime.datetime.now()
 
 # ========================query databse=================================
 def getCollection(dbName):
+	temp = []
 	if type(dbName) != str:
 		return "Error: please input a string"
-	return repo[dbName].find({})
+	for elem in repo[dbName].find({}):
+		temp.append(elem)
+	return temp
+
+ticketsCollection = getCollection('jmuru1_tpacius.tickets')
 
 endTime = datetime.datetime.now()
 

@@ -1,8 +1,12 @@
 #get api key for google geolocation
 import json
+# import pymongo
 import googlemaps
 import apitest
 import example
+
+ticketColllectionLocations = [elem['ticket_loc'] for elem in example.ticketsCollection]
+noDupes = list(set(ticketColllectionLocations))
 
 with open('auth.json') as credentials:
 	data = json.load(credentials)
@@ -25,8 +29,6 @@ formatted_address
 address_components
 types
 '''
-
-ticketsCollection = example.getCollection('jmuru1_tpacius.tickets')
 
 def generateAddr(json_obj):
 	return [elem['ticket_loc'] for elem in json_obj]
