@@ -12,7 +12,7 @@
 
 import json
 
-pathToConfig = "../config.json"
+pathToConfig = "config.json"
 
 def customElevatedCommand(db, f, arg, op = None):
     """

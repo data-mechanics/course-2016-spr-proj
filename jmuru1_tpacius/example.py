@@ -4,10 +4,11 @@ import pymongo
 import prov.model
 import datetime
 import uuid
+import apitest as apitest
+import geo as geo
 
 # Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
-
+exec(open('pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
@@ -16,21 +17,19 @@ repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = 'http://cs-people.bu.edu/lapets/591/examples/lost.json'
-response = urllib.request.urlopen(url).read().decode("utf-8")
-r = json.loads(response)
-s = json.dumps(r, sort_keys=True, indent=2)
-repo.dropPermanent("lost")
-repo.createPermanent("lost")
-repo['jmuru1_tpacius.lost'].insert_many(r)
+#The collections are being created and populated here
 
-url = 'http://cs-people.bu.edu/lapets/591/examples/found.json'
-response = urllib.request.urlopen(url).read().decode("utf-8")
-r = json.loads(response)
-s = json.dumps(r, sort_keys=True, indent=2)
-repo.dropPermanent("found")
-repo.createPermanent("found")
-repo['jmuru1_tpacius.found'].insert_many(r)
+# repo.dropPermanent("zipcarmembers")
+# repo.createPermanent("zipcarmembers")
+# repo['jmuru1_tpacius.zipcarmembers'].insert_many(apitest.zipCarMemberCount)
+
+# repo.dropPermanent("zipcarreservations")
+# repo.createPermanent("zipcarreservations")
+# repo['jmuru1_tpacius.zipcarreservations'].insert_many(apitest.zipCarReservations)
+
+# repo.dropPermanent("tickets")
+# repo.createPermanent("tickets")
+# repo['jmuru1_tpacius.tickets'].insert_many(geo.rawAddr)
 
 endTime = datetime.datetime.now()
 
