@@ -3,6 +3,8 @@ import json
 import datetime
 import pymongo
 import sys
+from get_auth import auth
+from get_repo import get_mongodb_repo
 
 datasets = {
 	'crime_incident_reports':'https://data.cityofboston.gov/resource/7cdf-6fgx.json',
@@ -10,20 +12,12 @@ datasets = {
 	'approved_building_permits':'https://data.cityofboston.gov/resource/msk6-43c6.json'
 }
 
-# get credential file
-if len(sys.argv) < 2:	# no auth.json is given
-	auth_file = input('Please enter the auth file: ')
-else:
-	auth_file = sys.argv[1]
-auth = json.loads(open(auth_file).read())
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
 
 # Set up the database connection.
-client = pymongo.MongoClient()
-repo = client.repo
-repo.authenticate(auth['admin']['name'], auth['admin']['pwd'])
+repo = get_mongodb_repo(auth['admin']['name'], auth['admin']['pwd'])
 
 # Retrieve some data sets.
 startTime = datetime.datetime.now()
