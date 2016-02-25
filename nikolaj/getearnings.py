@@ -15,5 +15,6 @@ r = json.loads(response)
 
 startTime = datetime.datetime.now()
 
+repo.dropPermanent("earnings_2014")
 repo.createPermanent("earnings_2014")
 repo['nikolaj.earnings_2014'].insert_many(r)
