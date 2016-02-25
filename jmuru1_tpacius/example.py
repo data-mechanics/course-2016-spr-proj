@@ -31,6 +31,10 @@ startTime = datetime.datetime.now()
 # repo.createPermanent("tickets")
 # repo['jmuru1_tpacius.tickets'].insert_many(geo.rawAddr)
 
+# ========================query databse=================================
+#ticketsCollection = repo['jmuru1_tpacius.tickets'].find({})
+#print(ticketsCollection)
+
 endTime = datetime.datetime.now()
 
 # Create the provenance document describing everything happening

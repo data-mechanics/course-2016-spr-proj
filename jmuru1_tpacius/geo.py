@@ -49,15 +49,7 @@ def locationQueryDict(lst):
 		locations[str(i)] = lst[i]
 	return locations
 
-#ADDR_TICKETS = generateAddr(rawAddr)
 
-#zipcodes = locationQueryDict(locationQuery(ADDR_TICKETS))
-#print(zipcodes)
-
-
-# print(locationQuery(ADDR_TICKETS[0:50]))
-#print(locationQuery(ADDR_TICKETS[900:950]))
-# tickets_zips = locationQuery(ADDR_TICKETS)
 
 
 

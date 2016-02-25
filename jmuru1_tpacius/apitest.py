@@ -24,5 +24,5 @@ zipCarMemberCount = request(zipcarUrl1)[0]
 zipCarReservations = request(zipcarUrl2)[0]
 #ticketsByAreaCode = request(ticketsUrl)
 
-for elem in zipCarMemberCount:
-	print(elem)
+#for elem in zipCarMemberCount:
+#	print(elem)
