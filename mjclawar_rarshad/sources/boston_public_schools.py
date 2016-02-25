@@ -33,7 +33,7 @@ class BostonPublicSchoolsSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'https://data.cityofboston.gov/resource/e29s-ympv.json'
+        return 'e29s-ympv'
 
 
 class BostonPublicSchoolsProvenance(MCRASProvenance):
@@ -78,9 +78,7 @@ class BostonPublicSchoolsProvenance(MCRASProvenance):
         prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
         prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
 
-        # TODO figure out with record
-        prov_obj.write_provenance_json()
-        # self.database_helper.record(prov_doc.serialize())
+        self.database_helper.record(prov_doc.serialize())
 
 
 class BostonPublicSchoolsAPIQuery(APIQuery):
@@ -101,7 +99,8 @@ class BostonPublicSchoolsAPIQuery(APIQuery):
         -------
         """
         start_time = datetime.datetime.now()
-        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url,
+        api_url = self.settings.data_namespace.link + self.settings.base_url + '.json'
+        data_json, api_query = self.bdp_api.api_query(base_url=api_url,
                                                       select=['bldg_name', 'zipcode', 'sch_name',
                                                               'sch_type', 'location'])
 
@@ -109,5 +108,6 @@ class BostonPublicSchoolsAPIQuery(APIQuery):
 
         end_time = datetime.datetime.now()
 
-        boston_public_schools_provenance = BostonPublicSchoolsProvenance(self.settings, database_helper=self.database_helper, query=api_query)
+        boston_public_schools_provenance = \
+            BostonPublicSchoolsProvenance(self.settings, database_helper=self.database_helper, query=api_query)
         boston_public_schools_provenance.update_provenance(start_time=start_time, end_time=end_time)

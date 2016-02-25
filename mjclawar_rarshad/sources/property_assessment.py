@@ -33,7 +33,7 @@ class PropertyAssessmentSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'https://data.cityofboston.gov/resource/yv8c-t43q.json'
+        return 'yv8c-t43q'
 
 
 class PropertyAssessmentProvenance(MCRASProvenance):
@@ -101,8 +101,10 @@ class PropertyAssessmentAPIQuery(APIQuery):
         -------
         """
         start_time = datetime.datetime.now()
-        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url,
-                                                      select=['av_total', 'living_area', 'gross_tax', 'location'])
+        api_url = self.settings.data_namespace.link + self.settings.base_url + '.json'
+        data_json, api_query = self.bdp_api.api_query(base_url=api_url,
+                                                      select=['av_total', 'living_area', 'gross_tax', 'location'],
+                                                      limit=10000)
 
         self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
 

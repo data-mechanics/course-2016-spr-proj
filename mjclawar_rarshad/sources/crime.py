@@ -33,7 +33,7 @@ class CrimeSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'https://data.cityofboston.gov/resource/7cdf-6fgx.json'
+        return '7cdf-6fgx'
 
 
 class CrimeProvenance(MCRASProvenance):
@@ -78,9 +78,7 @@ class CrimeProvenance(MCRASProvenance):
         prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
         prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
 
-        # TODO figure out with record
-        prov_obj.write_provenance_json()
-        # self.database_helper.record(prov_doc.serialize())
+        self.database_helper.record(prov_doc.serialize())
 
 
 class CrimeAPIQuery(APIQuery):
@@ -101,12 +99,14 @@ class CrimeAPIQuery(APIQuery):
         -------
         """
         start_time = datetime.datetime.now()
-        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url,
+        api_url = self.settings.data_namespace.link + self.settings.base_url + '.json'
+        data_json, api_query = self.bdp_api.api_query(base_url=api_url,
                                                       select=['fromdate', 'naturecode', 'weapontype',
                                                               'shooting', 'domestic', 'year', 'month',
                                                               'day_week', 'location'],
                                                       where='year = 2015',
-                                                      order='fromdate')
+                                                      order='fromdate',
+                                                      limit=10000)
 
         self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
 

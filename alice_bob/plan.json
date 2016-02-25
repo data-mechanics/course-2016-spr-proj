@@ -1,4 +1,16 @@
 {
+    "used": {
+        "_:id4": {
+            "prov:activity": "log:a7ddfce53-eaab-4d5f-beea-192ee241d437",
+            "prov:time": "2016-02-25T18:40:28.848660",
+            "prov:entity": "bdp:wc8w-nujj"
+        },
+        "_:id3": {
+            "prov:activity": "log:ac0069e67-0eb3-4428-a0c7-973dff666585",
+            "prov:time": "2016-02-25T18:40:28.848660",
+            "prov:entity": "bdp:wc8w-nujj"
+        }
+    },
     "agent": {
         "alg:example": {
             "ont:Extension": "py",
@@ -9,44 +21,34 @@
         }
     },
     "activity": {
-        "log:a*": {
-            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
-            "prov:type": "ont:Retrieval"
-        }
-    },
-    "used": {
-        "_:id2": {
-            "prov:activity": "log:a*",
-            "prov:entity": "bdp:wc8w-nujj"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:activity": "log:a*",
-            "prov:entity": "dat:lost"
+        "log:ac0069e67-0eb3-4428-a0c7-973dff666585": {
+            "prov:startTime": "2016-02-25T18:40:28.848660",
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT",
+            "prov:endTime": "2016-02-25T18:40:29.427863"
         },
-        "_:id7": {
-            "prov:activity": "log:a*",
-            "prov:entity": "dat:found"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:activity": "log:a*",
-            "prov:agent": "alg:example"
+        "log:a7ddfce53-eaab-4d5f-beea-192ee241d437": {
+            "prov:startTime": "2016-02-25T18:40:28.848660",
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
+            "prov:endTime": "2016-02-25T18:40:29.427863"
         }
     },
     "wasAttributedTo": {
-        "_:id3": {
-            "prov:agent": "alg:example",
-            "prov:entity": "dat:lost"
+        "_:id5": {
+            "prov:entity": "dat:lost",
+            "prov:agent": "alg:example"
         },
-        "_:id6": {
-            "prov:agent": "alg:example",
-            "prov:entity": "dat:found"
+        "_:id8": {
+            "prov:entity": "dat:found",
+            "prov:agent": "alg:example"
         }
     },
     "entity": {
+        "dat:found": {
+            "prov:label": "Animals Found",
+            "prov:type": "ont:DataSet"
+        },
         "bdp:wc8w-nujj": {
             "ont:Extension": "json",
             "prov:label": "311, Service Requests",
@@ -55,33 +57,51 @@
         "dat:lost": {
             "prov:label": "Animals Lost",
             "prov:type": "ont:DataSet"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:ac0069e67-0eb3-4428-a0c7-973dff666585",
+            "prov:agent": "alg:example"
         },
-        "dat:found": {
-            "prov:label": "Animals Found",
-            "prov:type": "ont:DataSet"
+        "_:id2": {
+            "prov:activity": "log:a7ddfce53-eaab-4d5f-beea-192ee241d437",
+            "prov:agent": "alg:example"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id6": {
+            "prov:activity": "log:ac0069e67-0eb3-4428-a0c7-973dff666585",
+            "prov:time": "2016-02-25T18:40:29.427863",
+            "prov:entity": "dat:lost"
+        },
+        "_:id9": {
+            "prov:activity": "log:a7ddfce53-eaab-4d5f-beea-192ee241d437",
+            "prov:time": "2016-02-25T18:40:29.427863",
+            "prov:entity": "dat:found"
         }
     },
     "wasDerivedFrom": {
-        "_:id8": {
+        "_:id10": {
             "prov:generatedEntity": "dat:found",
-            "prov:generation": "log:a*",
-            "prov:usage": "log:a*",
-            "prov:activity": "log:a*",
-            "prov:usedEntity": "bdp:wc8w-nujj"
+            "prov:activity": "log:a7ddfce53-eaab-4d5f-beea-192ee241d437",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generation": "log:a7ddfce53-eaab-4d5f-beea-192ee241d437",
+            "prov:usage": "log:a7ddfce53-eaab-4d5f-beea-192ee241d437"
         },
-        "_:id5": {
+        "_:id7": {
             "prov:generatedEntity": "dat:lost",
-            "prov:generation": "log:a*",
-            "prov:usage": "log:a*",
-            "prov:activity": "log:a*",
-            "prov:usedEntity": "bdp:wc8w-nujj"
+            "prov:activity": "log:ac0069e67-0eb3-4428-a0c7-973dff666585",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generation": "log:ac0069e67-0eb3-4428-a0c7-973dff666585",
+            "prov:usage": "log:ac0069e67-0eb3-4428-a0c7-973dff666585"
         }
     },
     "prefix": {
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "ont": "http://datamechanics.io/ontology#",
-        "log": "http://datamechanics.io/log#",
         "alg": "http://datamechanics.io/algorithm/alice_bob/",
-        "dat": "http://datamechanics.io/data/alice_bob/"
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/alice_bob/",
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/"
     }
 }

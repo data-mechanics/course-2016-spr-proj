@@ -33,7 +33,7 @@ class HospitalLocationsSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'https://data.cityofboston.gov/resource/46f7-2snz.json'
+        return '46f7-2snz'
 
 
 class HospitalLocationsProvenance(MCRASProvenance):
@@ -78,9 +78,7 @@ class HospitalLocationsProvenance(MCRASProvenance):
         prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
         prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
 
-        # TODO figure out with record
-        prov_obj.write_provenance_json()
-        # self.database_helper.record(prov_doc.serialize())
+        self.database_helper.record(prov_doc.serialize())
 
 
 class HospitalLocationsAPIQuery(APIQuery):
@@ -101,7 +99,8 @@ class HospitalLocationsAPIQuery(APIQuery):
         -------
         """
         start_time = datetime.datetime.now()
-        data_json, api_query = self.bdp_api.api_query(base_url=self.settings.base_url,
+        api_url = self.settings.data_namespace.link + self.settings.base_url + '.json'
+        data_json, api_query = self.bdp_api.api_query(base_url=api_url,
                                                       select=['name', 'ad', 'zipcode',
                                                               'neigh', 'location'])
 
