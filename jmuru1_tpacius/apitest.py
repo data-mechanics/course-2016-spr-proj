@@ -20,6 +20,6 @@ def request(url):
 	s = json.dumps(r, sort_keys=True, indent=2)
 	return (r , s)
 
-zipCarMemberCount = request(zipcarUrl1)
-#zipCarReservations = request(zipcarUrl2)
+zipCarMemberCount = request(zipcarUrl1)[0]
+zipCarReservations = request(zipcarUrl2)[0]
 #ticketsByAreaCode = request(ticketsUrl)

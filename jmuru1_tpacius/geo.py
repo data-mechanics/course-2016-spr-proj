@@ -25,9 +25,11 @@ address_components
 types
 '''
 
-ticketsUrl = 'https://data.cityofboston.gov/resource/cpdb-ie6e.json' + '?$$app_token=' + data["api_key"]
+ticketsUrl = 'https://data.cityofboston.gov/resource/cpdb-ie6e.json' + '?$$app_token=' + data["api_key"] + "&$limit=1000"
 # generate list of addresses
 (rawAddr, formatted) = apitest.request(ticketsUrl)
+
+ticket_loc = rawAddr
 
 def generateAddr(json_obj):
 	return [elem['ticket_loc'] for elem in json_obj]
@@ -41,8 +43,21 @@ def locationQuery(addr_list):
 	#extracts zip code from addresses that got tickets
 	return [locationQueryHelper(ADDR_TICKETS[0])[0][len(locationQueryHelper(ADDR_TICKETS[0])[0])-1]['short_name'] for elem in addr_list if locationQueryHelper(elem)[1] != 'APPROXIMATE']
 
-ADDR_TICKETS = generateAddr(rawAddr)
-print(locationQuery(ADDR_TICKETS[900:950]))
+def locationQueryDict(lst):
+	locations = dict()
+	for i in range(len(lst)):
+		locations[str(i)] = lst[i]
+	return locations
+
+#ADDR_TICKETS = generateAddr(rawAddr)
+
+#zipcodes = locationQueryDict(locationQuery(ADDR_TICKETS))
+#print(zipcodes)
+
+
+# print(locationQuery(ADDR_TICKETS[0:50]))
+#print(locationQuery(ADDR_TICKETS[900:950]))
+# tickets_zips = locationQuery(ADDR_TICKETS)
 
 
 
