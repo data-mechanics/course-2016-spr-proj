@@ -64,7 +64,7 @@ class HospitalDistancesSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return mcras.DAT_NAMESPACE.link + 'hospital_locations'
+        return 'hospital_locations'
 
 
 class HospitalDistancesProvenance(MCRASProvenance):
@@ -74,40 +74,50 @@ class HospitalDistancesProvenance(MCRASProvenance):
         self.settings = settings
         self.database_helper = database_helper
 
-    def update_provenance(self, start_time, end_time):
+    def update_provenance(self, full_provenance=False, start_time=None, end_time=None):
         """
         Writes a ProvDoc for the hospital_distances.py script and saves to the collection
 
         Parameters
         ----------
+        full_provenance: bool
         start_time: datetime.datetime
         end_time: datetime.datetime
 
         Returns
         -------
         """
-        prov_obj = ProjectProvenance(database_helper=self.database_helper)
+        prov_obj = ProjectProvenance(database_helper=self.database_helper, full_provenance=full_provenance)
         prov_doc = prov_obj.prov_doc
         this_script = prov_doc.agent(self.settings.agent, mcras.PROVENANCE_PYTHON_SCRIPT)
 
         resource = prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.base_url))
 
-        this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time)
+        if full_provenance:
+            this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())))
+            prov_doc.used(this_run, resource)
+        else:
+            this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
+                                         {prov.model.PROV_TYPE: mcras.PROV_ONT_EXTENSION})
 
         prov_doc.wasAssociatedWith(this_run, this_script)
-        prov_doc.used(this_run, resource, start_time)
 
         data_doc = prov_doc.entity('%s:%s' % (mcras.DAT_NAMESPACE.name, self.settings.data_entity),
                                    {prov.model.PROV_LABEL: 'Hospital Locations',
                                     prov.model.PROV_TYPE: mcras.PROV_ONT_DATASET})
 
         prov_doc.wasAttributedTo(data_doc, this_script)
-        prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
-        prov_doc.wasDerivedFrom(data_doc, resource, this_run, this_run, this_run)
+        if full_provenance:
+            prov_doc.wasGeneratedBy(data_doc, this_run)
+        else:
+            prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
 
-        # TODO figure out with record
-        prov_obj.write_provenance_json()
-        # self.database_helper.record(prov_doc.serialize())
+        prov_doc.wasDerivedFrom(data_doc, resource, this_run)
+
+        if full_provenance:
+            prov_obj.write_provenance_json()
+        else:
+            self.database_helper.record(prov_doc.serialize())
 
 
 class HospitalLocationsProcessor(MCRASProcessor):
@@ -117,10 +127,10 @@ class HospitalLocationsProcessor(MCRASProcessor):
         self.settings = settings
         self.database_helper = database_helper
 
-    def run_processor(self):
+    def run_processor(self, full_provenance=False):
         start_time = datetime.datetime.now()
-        df_prop = self._load_prep_dfprop()
-        df_hosp = self._load_prep_dfhosp()
+        df_prop = self._load_prep_df_prop()
+        df_hosp = self._load_prep_df_hosp()
         df_prop = self._calc_distances(df_prop, df_hosp)
 
         self.database_helper.insert_permanent_pandas(self.settings.data_entity, df_prop)
@@ -128,7 +138,8 @@ class HospitalLocationsProcessor(MCRASProcessor):
         end_time = datetime.datetime.now()
 
         hospital_distances_provenance = HospitalDistancesProvenance(self.settings, database_helper=self.database_helper)
-        hospital_distances_provenance.update_provenance(start_time=start_time, end_time=end_time)
+        hospital_distances_provenance.update_provenance(full_provenance=full_provenance, start_time=start_time,
+                                                        end_time=end_time)
 
     def _load_prep_df_hosp(self):
         """
@@ -142,7 +153,7 @@ class HospitalLocationsProcessor(MCRASProcessor):
         df_hosp = df_hosp.merge(df_hosp['location'].apply(lambda x: pandas.Series({'NEEDS_RECODE': x['needs_recoding'],
                                                                     'LONGITUDE': float(x['longitude']),
                                                                     'LATITUDE': float(x['latitude'])})),
-                      left_index=True, right_index=True)
+                                left_index=True, right_index=True)
         df_hosp = df_hosp[(df_hosp['LONGITUDE'] != 0) & (df_hosp['LATITUDE'] != 0)].copy()
 
         return df_hosp
@@ -156,13 +167,13 @@ class HospitalLocationsProcessor(MCRASProcessor):
         pandas.DataFrame
         """
         df_prop = self.database_helper.load_permanent_pandas('property_assessment', cols=['location'])
-        df_prop = df_prop.merge(df_prop['location'].apply(lambda x: pandas.Series({'LATITUDE': float(x.split(',')[0][1:]),
-                                                                                'LONGITUDE': float(x.split(',')[1][0:-1])})),
-                              left_index=True, right_index=True)
+        df_prop = df_prop.merge(df_prop['location'].
+                                apply(lambda x: pandas.Series({'LATITUDE': float(x.split(',')[0][1:]),
+                                                               'LONGITUDE': float(x.split(',')[1][0:-1])})),
+                                left_index=True, right_index=True)
         df_prop = df_prop[(df_prop['LONGITUDE'] != 0) & (df_prop['LATITUDE'] != 0)].copy()
 
         return df_prop
-
 
     @staticmethod
     def _calc_distances(df_prop, df_hosp):
