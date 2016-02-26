@@ -57,8 +57,10 @@ def main():
     stops_doc = repo['{}.{}'.format(teamname, 't_branch_info')].find({})
     coords_doc = repo['{}.{}'.format(teamname,  't_stop_locations')].find({})
 
+    # projection to get the values we want for stops and coordinates
     all_stops = [(s['line'], s['stop_id']) for s in stops_doc]
     all_coords = [(c['stop_id'], c['stop_lat'], c['stop_lon']) for c in coords_doc if c['stop_id']]
+    # and aggregate all the stops on each branch into an associated list
     line_stops = aggregate(all_stops, list)
 
     for line, stop_ids in line_stops:
