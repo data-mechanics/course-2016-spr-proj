@@ -27,6 +27,9 @@ startTime = datetime.datetime.now()
 # repo.createPermanent("zipcarreservations")
 # repo['jmuru1_tpacius.zipcarreservations'].insert_many(apitest.zipCarReservations)
 
+# repo.dropPermanent("propertyvalue")
+# repo.createPermanent("propertyvalue")
+# repo['jmuru1_tpacius.propertyvalue'].insert_many(apitest.propertyvalue)
 # ========================query databse=================================
 def getCollection(dbName):
 	temp = []
@@ -36,7 +39,7 @@ def getCollection(dbName):
 		temp.append(elem)
 	return temp
 
-ticketsCollection = getCollection('jmuru1_tpacius.tickets')
+# ticketsCollection = getCollection('jmuru1_tpacius.tickets')
 
 endTime = datetime.datetime.now()
 
