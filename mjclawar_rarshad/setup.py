@@ -10,7 +10,7 @@ Notes:
 import json
 import pymongo
 
-from mjclawar_rarshad.processing import crime_centroids
+from mjclawar_rarshad.processing import crime_centroids, hospital_distances
 from mjclawar_rarshad.sources import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
 
@@ -31,6 +31,7 @@ def main(auth_json_path):
     setup_boston_public_schools(database_helper, bdp_api)
     setup_hospital_locations(database_helper, bdp_api)
     setup_crime_centroids(database_helper)
+    setup_hospital_distances(database_helper)
 
 
 def setup_crime_incidents(database_helper, bdp_api):
@@ -63,6 +64,10 @@ def setup_crime_centroids(database_helper):
     crime_centroids_settings = crime_centroids.CrimeCentroidsSettings()
     crime_centroids.CrimeCentroidsProcessor(crime_centroids_settings, database_helper).run_processor()
 
+
+def setup_hospital_distances(database_helper):
+    hospital_distances_settings = hospital_distances.HospitalDistancesSettings()
+    hospital_distances.HospitalLocationsProcessor(hospital_distances_settings, database_helper).run_processor()
 
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
