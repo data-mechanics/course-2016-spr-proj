@@ -6,7 +6,8 @@ __pycache__/
 api_token.txt
 auth.json
 provenance.json
-notebooks
+*.ipynb
+
 # C extensions
 *.so
 

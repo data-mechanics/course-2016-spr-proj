@@ -68,7 +68,7 @@ class Namespace:
         self.link = link
 
 # Standard Provenance namespaces
-BDP_NAMESPACE = Namespace(name='bdp', link='https://data.cityofboston.gov/resource')
+BDP_NAMESPACE = Namespace(name='bdp', link='https://data.cityofboston.gov/resource/')
 ALG_NAMESPACE = Namespace(name='alg', link='http://datamechanics.io/algorithm/mjclawar_rarshad/')
 DAT_NAMESPACE = Namespace(name='dat', link='http://datamechanics.io/data/mjclawar_rarshad/')
 ONT_NAMESPACE = Namespace(name='ont', link='http://datamechanics.io/ontology#')

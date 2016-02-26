@@ -8,7 +8,7 @@ Running the package
     - "username": The username with access to the collections
     - "pass": The password associated with the username with access to the collections
 
-- Run `setup.py auth.json`
+- Run `setup.py "auth.json"`
 
 
 Data Sets
