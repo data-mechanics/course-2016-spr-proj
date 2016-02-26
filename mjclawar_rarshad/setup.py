@@ -76,7 +76,7 @@ def setup_crime_centroids(database_helper, full_provenance=False):
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
     if len(sys.argv) == 1:
-        main('auth.json', full_provenance=True)
+        main('auth.json')
         # TODO Uncomment me
         # raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
     else:
