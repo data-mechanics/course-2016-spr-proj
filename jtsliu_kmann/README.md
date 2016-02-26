@@ -17,4 +17,13 @@ This dataset is a bit of an experiment. Perhaps it is the case that in areas wit
 available alcohol, there is high crime rate. In particular, violent crime related to
 alcohol - this would be a cause of a neighborhood becoming more dangerous potentially.
 
-3.
+3. Property Assessment 
+
+
+
+
+TODO:
+Filter out data with invalid locations
+Figure out what transformations to do on the data
+Prov
+
