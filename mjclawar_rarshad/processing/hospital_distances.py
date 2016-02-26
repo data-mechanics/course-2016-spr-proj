@@ -66,6 +66,10 @@ class HospitalDistancesSettings(MCRASSettings):
     def base_url(self):
         return 'hospital_locations'
 
+    @property
+    def resource_properties(self):
+        return 'property_assessment'
+
 
 class HospitalDistancesProvenance(MCRASProvenance):
     def __init__(self, settings, database_helper):
@@ -91,11 +95,15 @@ class HospitalDistancesProvenance(MCRASProvenance):
         prov_doc = prov_obj.prov_doc
         this_script = prov_doc.agent(self.settings.agent, mcras.PROVENANCE_PYTHON_SCRIPT)
 
-        resource = prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.base_url))
+        resource_hospitals = \
+            prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.base_url))
+        resource_properties = \
+            prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.resource_properties))
 
         if full_provenance:
             this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())))
-            prov_doc.used(this_run, resource)
+            prov_doc.used(this_run, resource_hospitals)
+            prov_doc.used(this_run, resource_properties)
         else:
             this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
                                          {prov.model.PROV_TYPE: mcras.PROV_ONT_EXTENSION})
@@ -112,7 +120,8 @@ class HospitalDistancesProvenance(MCRASProvenance):
         else:
             prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
 
-        prov_doc.wasDerivedFrom(data_doc, resource, this_run)
+        prov_doc.wasDerivedFrom(data_doc, resource_hospitals, this_run)
+        prov_doc.wasDerivedFrom(data_doc, resource_properties, this_run)
 
         if full_provenance:
             prov_obj.write_provenance_json()
@@ -151,8 +160,8 @@ class HospitalLocationsProcessor(MCRASProcessor):
         """
         df_hosp = self.database_helper.load_permanent_pandas('hospital_locations', cols=['name', 'location'])
         df_hosp = df_hosp.merge(df_hosp['location'].apply(lambda x: pandas.Series({'NEEDS_RECODE': x['needs_recoding'],
-                                                                    'LONGITUDE': float(x['longitude']),
-                                                                    'LATITUDE': float(x['latitude'])})),
+                                                                                   'LONGITUDE': float(x['longitude']),
+                                                                                   'LATITUDE': float(x['latitude'])})),
                                 left_index=True, right_index=True)
         df_hosp = df_hosp[(df_hosp['LONGITUDE'] != 0) & (df_hosp['LATITUDE'] != 0)].copy()
 
@@ -189,22 +198,22 @@ class HospitalLocationsProcessor(MCRASProcessor):
         -------
         pandas.DataFrame
         """
-        pos_prop = np.array(df_prop['LATITUDE'], df_prop['LONGITUDE'])
-        pos_hosp = np.array(df_hosp['LATITUDE'], df_hosp['LONGITUDE'])
+        pos_prop = df_prop[['LATITUDE', 'LONGITUDE']].values
+        pos_hosp = df_hosp[['LATITUDE', 'LONGITUDE']].values
 
         (prop_rows, prop_columns) = pos_prop.shape
         (hosp_rows, hosp_columns) = pos_hosp.shape
 
-        distances = np.zeros((hosp_rows,prop_rows))
+        distances = np.zeros((hosp_rows, prop_rows))
 
         for k in range(hosp_rows):
-            distances = spherical_dist(pos_prop.copy(), pos_hosp[k].copy())
+            distances[k, :] = spherical_dist(pos_prop.copy(), pos_hosp[k].copy())
 
-        minindices = np.argmin(distances, 0)
-        mindistances = np.amin(distances, 0)
+        min_indices = np.argmin(distances, 0)
+        min_distances = np.amin(distances, 0)
 
-        hosp_names = df_hosp['name']
-        df_prop['NEAREST_HOSPITAL'] = hosp_names.iloc[minindices]
-        df_prop['MIN_DISTANCE'] = mindistances
-        df_prop = df_prop[['LONGITUDE', 'LATITUDE', 'MIN_DISTANCE']].copy()
+        hosp_names = df_hosp['name'].values
+        df_prop['NEAREST_HOSPITAL'] = hosp_names[min_indices]
+        df_prop['MIN_DISTANCE'] = min_distances
+        df_prop = df_prop[['LONGITUDE', 'LATITUDE', 'NEAREST_HOSPITAL', 'MIN_DISTANCE']].copy()
         return df_prop
