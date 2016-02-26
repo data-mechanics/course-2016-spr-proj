@@ -24,8 +24,11 @@ exec(open('../pymongo_dm.py').read())
 client = pymongo.MongoClient()
 repo = client.repo
 
-# remember to modify this line later
-repo.authenticate("jgyou", "jgyou")
+f = open("auth.json").read()
+auth = json.loads(f)
+user = auth['user']
+
+repo.authenticate(user, user)
 
 startTime = datetime.datetime.now()
 
@@ -68,7 +71,6 @@ for t in (soup.find('table')):
 				else:
 					# save street name, town, zipcode
 					if re.match(r"([A-Za-z]+)(.*), MA", temp2) != None:
-						#temp2 = re.sub(r"^(-|[A-Z]|[a-z]|[0-9])", " ", temp2)
 						temp3 = temp2.split()
 						town = re.sub(r"[^A-Za-z-]", "", temp3[0])
 						for e in temp3:
@@ -78,15 +80,13 @@ for t in (soup.find('table')):
 						addr1 = temp2.strip()
 					# save overall address for reference
 					addr = addr + temp2.strip() + " "
-				#print(b.string)
 
 		resources.append({"resource_name": str(name), "location": addr, "location_street_name": addr1, "neighborhood": town, "location_zipcode": zipcode, "phone": phone, "weburl": link})
 
-#print(json.dumps(resources, sort_keys = True, indent=4))
 
 repo.dropTemporary("currentsites")
 repo.createTemporary("currentsites")
-repo['jgyou.currentsites'].insert_many(resources)
+repo[user + '.currentsites'].insert_many(resources)
 
 endTime = datetime.datetime.now()
 
@@ -95,8 +95,8 @@ endTime = datetime.datetime.now()
 # record provenance data
 
 provdoc = prov.model.ProvDocument()
-provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/jgyou/') # The scripts in <folder>/<filename> format.
-provdoc.add_namespace('dat', 'http://datamechanics.io/data/jgyou/') # The data sets in <user>/<collection> format.
+provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
 provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 provdoc.add_namespace('bhpc', 'http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/')	# Boston Public Health website.
@@ -114,5 +114,5 @@ provdoc.wasGeneratedBy(dropoffsites, this_run, endTime)
 provdoc.wasDerivedFrom(dropoffsites, resource, this_run, this_run, this_run)
 
 repo.record(provdoc.serialize()) # Record the provenance document.
-print(provdoc.get_provn())
+#print(provdoc.get_provn())
 repo.logout()

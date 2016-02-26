@@ -20,8 +20,11 @@ exec(open('../pymongo_dm.py').read())
 client = pymongo.MongoClient()
 repo = client.repo
 
-# remember to remove this line later
-repo.authenticate("jgyou", "jgyou")
+f = open("auth.json").read()
+auth = json.loads(f)
+user = auth['user']
+
+repo.authenticate(user, user)
 
 # retrieve City of Boston data on needle program
 
@@ -35,7 +38,7 @@ r1 = json.loads(responsebdp)
 repo.dropPermanent("needle311")
 repo.createPermanent("needle311")
 #s = json.dumps(r, sort_keys=True, indent=2)
-repo['jgyou.needle311'].insert_many(r1)
+repo[user + '.needle311'].insert_many(r1)
 
 endTime = datetime.datetime.now()
 
@@ -43,8 +46,8 @@ endTime = datetime.datetime.now()
 # record provenance data
 
 provdoc = prov.model.ProvDocument()
-provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/jgyou/') # The scripts in <folder>/<filename> format.
-provdoc.add_namespace('dat', 'http://datamechanics.io/data/jgyou/') # The data sets in <user>/<collection> format.
+provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
 provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 provdoc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')		# city of boston data.
@@ -62,7 +65,7 @@ provdoc.wasGeneratedBy(needle311, this_run, endTime)
 provdoc.wasDerivedFrom(needle311, resource, this_run, this_run, this_run)
 
 repo.record(provdoc.serialize()) # Record the provenance document.
-print(provdoc.get_provn())
+#print(provdoc.get_provn())
 repo.logout()
 
 
