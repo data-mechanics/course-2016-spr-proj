@@ -10,6 +10,7 @@ Notes:
 import json
 import pymongo
 
+from mjclawar_rarshad.reference.dir_info import plan_json
 from mjclawar_rarshad.processing import crime_centroids
 from mjclawar_rarshad.sources import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
@@ -26,42 +27,47 @@ def main(auth_json_path):
     database_helper = database_helpers.DatabaseHelper(username=username, password=mongo_pass)
     bdp_api = bdp_query.BDPQuery(api_token=api_token)
 
-    setup_crime_incidents(database_helper, bdp_api)
-    setup_property_assessment(database_helper, bdp_api)
-    setup_boston_public_schools(database_helper, bdp_api)
-    setup_hospital_locations(database_helper, bdp_api)
-    setup_crime_centroids(database_helper)
+    full_provenance = True
+
+    if full_provenance:
+        with open(plan_json, 'w') as f:
+            f.write(json.dumps({}))
+
+    setup_crime_incidents(database_helper, bdp_api, full_provenance=full_provenance)
+    setup_property_assessment(database_helper, bdp_api, full_provenance=full_provenance)
+    setup_boston_public_schools(database_helper, bdp_api, full_provenance=full_provenance)
+    setup_hospital_locations(database_helper, bdp_api, full_provenance=full_provenance)
+    setup_crime_centroids(database_helper, full_provenance=full_provenance)
 
 
-def setup_crime_incidents(database_helper, bdp_api):
+def setup_crime_incidents(database_helper, bdp_api, full_provenance=False):
     crime_settings = crime.CrimeSettings()
-    crime.CrimeAPIQuery(crime_settings, database_helper, bdp_api).download_update_database()
+    crime.CrimeAPIQuery(crime_settings, database_helper, bdp_api).\
+        download_update_database(full_provenance=full_provenance)
 
 
-def setup_property_assessment(database_helper, bdp_api):
+def setup_property_assessment(database_helper, bdp_api, full_provenance=False):
     property_assessment_settings = property_assessment.PropertyAssessmentSettings()
-    property_assessment.PropertyAssessmentAPIQuery(property_assessment_settings,
-                                                   database_helper,
-                                                   bdp_api).download_update_database()
+    property_assessment.PropertyAssessmentAPIQuery(property_assessment_settings, database_helper, bdp_api).\
+        download_update_database(full_provenance=full_provenance)
 
 
-def setup_boston_public_schools(database_helper, bdp_api):
+def setup_boston_public_schools(database_helper, bdp_api, full_provenance=False):
     boston_public_schools_settings = boston_public_schools.BostonPublicSchoolsSettings()
-    boston_public_schools.BostonPublicSchoolsAPIQuery(boston_public_schools_settings,
-                                                      database_helper,
-                                                      bdp_api).download_update_database()
+    boston_public_schools.BostonPublicSchoolsAPIQuery(boston_public_schools_settings, database_helper, bdp_api).\
+        download_update_database(full_provenance=full_provenance)
 
 
-def setup_hospital_locations(database_helper, bdp_api):
+def setup_hospital_locations(database_helper, bdp_api, full_provenance=False):
     hospital_locations_settings = hospital_locations.HospitalLocationsSettings()
-    hospital_locations.HospitalLocationsAPIQuery(hospital_locations_settings,
-                                                 database_helper,
-                                                 bdp_api).download_update_database()
+    hospital_locations.HospitalLocationsAPIQuery(hospital_locations_settings, database_helper, bdp_api).\
+        download_update_database(full_provenance=full_provenance)
 
 
-def setup_crime_centroids(database_helper):
+def setup_crime_centroids(database_helper, full_provenance=False):
     crime_centroids_settings = crime_centroids.CrimeCentroidsSettings()
-    crime_centroids.CrimeCentroidsProcessor(crime_centroids_settings, database_helper).run_processor()
+    crime_centroids.CrimeCentroidsProcessor(crime_centroids_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
 
 
 if __name__ == '__main__':
