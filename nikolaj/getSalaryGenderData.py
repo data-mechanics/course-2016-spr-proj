@@ -1,8 +1,11 @@
+import datetime
 import zipfile
 import urllib.request
 import io
 import json
+import prov.model
 import pymongo
+import uuid
 
 '''
 Any object created via exec(open(path_to_pymongo_dm).read())
@@ -34,6 +37,7 @@ def get_auth_repo(uname, pwd):
 def remove_dups(tups):
     return list(dict(tups).values())
 
+# this is a computation
 def store_name_gender_lookup(repo):
     def parse_line(line):
         no_new_line = line[:-1]
@@ -66,7 +70,7 @@ def retrieve_and_store_json(url, target, repo):
     repo['nikolaj.' + target].insert_many(r)
     
 def store_salary_data(repo):
-    url = 'https://data.cityofboston.gov/resource/ntv7-hwjm.json'
+    url = 'https://data.cityofboston.gov/resource/ntv7-hwjm.json?'
     retrieve_and_store_json(url, 'earnings_2014', repo)
 
 def drop_all_collections(repo):
@@ -76,5 +80,40 @@ def drop_all_collections(repo):
 repo = get_auth_repo('nikolaj', 'nikolaj')
 
 drop_all_collections(repo)
+
+startTime = datetime.datetime.now()
+
 store_name_gender_lookup(repo)
 store_salary_data(repo)
+
+endTime = datetime.datetime.now()
+
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nikolaj/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/nikolaj/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+
+this_script = doc.agent('alg:getSalaryGenderData', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource = doc.entity('bdp:ntv7-hwjm', {'prov:label':'Employee Earnings Report 2014', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+
+get_earnings = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?'})
+
+doc.wasAssociatedWith(get_earnings, this_script)
+doc.used(get_earnings, resource, startTime)
+
+earnings = doc.entity('dat:earnings_2014', {prov.model.PROV_LABEL:'Earnings Report 2014', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(earnings, this_script)
+doc.wasGeneratedBy(earnings, get_earnings, endTime)
+doc.wasDerivedFrom(earnings, resource, get_earnings, get_earnings, get_earnings)
+
+# get_name_gender_lookup
+# preprocess computation results in formatted data
+# formatted data gets uploaded
+
+repo.record(doc.serialize()) # Record the provenance document.
+print(json.dumps(json.loads(doc.serialize()), indent=4))
+# open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+print(doc.get_provn())
+repo.logout()

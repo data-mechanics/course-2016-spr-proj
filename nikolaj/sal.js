@@ -18,7 +18,7 @@ var computeAvgSalaryByGender = function(salaryData, nameGenderLookup, outputPref
         };
 
         db['nikolaj.'.concat(outColName)].drop();
-        createPermanent(outColName)
+        createTemp(outColName)
         
         db['nikolaj.'.concat(inColName)].mapReduce(
             nameSalaryMapper,
@@ -57,7 +57,7 @@ var computeAvgSalaryByGender = function(salaryData, nameGenderLookup, outputPref
         };
 
         db['nikolaj.'.concat(outColName)].drop();
-        createPermanent(outColName);
+        createTemp(outColName);
         
         db['nikolaj.'.concat(inColName1)].mapReduce(
             nameSalaryMapper,
