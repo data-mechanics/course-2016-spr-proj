@@ -9,6 +9,11 @@ Notes:
 
 import json
 import pymongo
+import sys
+import os
+
+# Make sure the system path is valid for running from command line
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from mjclawar_rarshad.reference.dir_info import plan_json
 from mjclawar_rarshad.processing import crime_centroids
@@ -16,7 +21,7 @@ from mjclawar_rarshad.sources import crime, property_assessment, boston_public_s
 from mjclawar_rarshad.tools import bdp_query, database_helpers
 
 
-def main(auth_json_path):
+def main(auth_json_path, full_provenance=False):
     # TODO put argv for auth.json here
     with open(auth_json_path, 'r') as f:
         auth_json = json.load(f)
@@ -26,8 +31,6 @@ def main(auth_json_path):
 
     database_helper = database_helpers.DatabaseHelper(username=username, password=mongo_pass)
     bdp_api = bdp_query.BDPQuery(api_token=api_token)
-
-    full_provenance = True
 
     if full_provenance:
         with open(plan_json, 'w') as f:
@@ -72,4 +75,10 @@ def setup_crime_centroids(database_helper, full_provenance=False):
 
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
-    main('auth.json')
+    if len(sys.argv) == 1:
+        main('auth.json', full_provenance=True)
+        # TODO Uncomment me
+        # raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
+    else:
+        print(sys.argv)
+        main(sys.argv[1])
