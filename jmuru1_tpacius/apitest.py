@@ -10,7 +10,6 @@ with open('auth.json') as credentials:
 
 zipcarUrl1 = 'https://data.cityofboston.gov/resource/78f5-5i4e.json' + '?$$app_token=' + data["api_key"] + "&$limit=1000"
 zipcarUrl2 = 'https://data.cityofboston.gov/resource/498g-jbmi.json' + '?$$app_token=' + data["api_key"] + "&$limit=1000"
-ticketsUrl = 'https://data.cityofboston.gov/resource/cpdb-ie6e.json' + '?$$app_token=' + data["api_key"] + "&$limit=1000"
 propertyUrl = 'https://data.cityofboston.gov/resource/n7za-nsjh.json'  + '?$$app_token=' + data["api_key"] + "&$limit=1000"
 
 def request(url):
@@ -21,7 +20,9 @@ def request(url):
 
 # print(request(newUrl)[1])
 
-# zipCarMemberCount = request(zipcarUrl1)[0]
-# zipCarReservations = request(zipcarUrl2)[0]
-propertyvalue = request(propertyUrl)[0]
-# (rawAddr, formatted) = request(ticketsUrl)
+#zipCarMemberCount = request(zipcarUrl1)[0][0]['postal_code']
+#zipCarReservations = request(zipcarUrl2)[0][0]['end_postal_code']
+#propertyvalue = request(propertyUrl)[0][0]['zipcode']
+#print(propertyvalue)
+#print(zipCarReservations)
+#print(zipCarMemberCount)
