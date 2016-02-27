@@ -17,9 +17,17 @@ startTime = datetime.datetime.now()
 url = "https://data.cityofboston.gov/resource/ufcx-3fdn.json"
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
+
+
 s = json.dumps(r, sort_keys=True, indent=2)
 repo.dropPermanent("crime")
 repo.createPermanent("crime")
-repo['jtsliu_kmann.crime'].insert_many(r)
+
+# Filter out the bad data
+for elem in r:
+	if elem['location']['coordinates'] != [0, 0]:
+		repo['jtsliu_kmann.crime'].insert_one(elem)
+
+#repo['jtsliu_kmann.crime'].insert_many(r)
 
 # print(json.dumps(json.loads(response), sort_keys=True, indent=2))

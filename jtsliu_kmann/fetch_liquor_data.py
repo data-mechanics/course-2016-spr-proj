@@ -20,5 +20,14 @@ r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
 repo.dropPermanent("liquor_license")
 repo.createPermanent("liquor_license")
-repo['jtsliu_kmann.liquor_license'].insert_many(r)
+
+for elem in r:
+	if not 'location' in elem:
+		# Apparently some of the data is missing this field
+		continue
+	# They are stored as strings which is super cool
+	if float(elem['location']['latitude']) != 0 or float(elem['location']['longitude']) != 0:
+		repo['jtsliu_kmann.liquor_license'].insert_one(elem)
+
+#repo['jtsliu_kmann.liquor_license'].insert_many(r)
 
