@@ -3,21 +3,17 @@ import json
 import datetime
 import pymongo
 import sys
-from get_auth import auth
-from get_repo import get_mongodb_repo
 
 datasets = {
-	'crime_incident_reports':'https://data.cityofboston.gov/resource/7cdf-6fgx.json',
-	'employee_earnings_report_2014':'https://data.cityofboston.gov/resource/4swk-wcg8.json',
-	'approved_building_permits':'https://data.cityofboston.gov/resource/msk6-43c6.json'
+	'crime_incident_reports':'https://data.cityofboston.gov/resource/7cdf-6fgx.json?year=2014&$limit=50000',
+	'employee_earnings_report_2014':'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=50000',
+	'approved_building_permits':'https://data.cityofboston.gov/resource/msk6-43c6.json?$limit=50000'
 }
 
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
-
-# Set up the database connection.
-repo = get_mongodb_repo(auth['admin']['name'], auth['admin']['pwd'])
+exec(open('get_repo.py').read())
 
 # Retrieve some data sets.
 startTime = datetime.datetime.now()
@@ -32,3 +28,6 @@ for title in datasets:
 	repo[auth['admin']['name']+'.'+title].insert_many(r)
 
 endTime = datetime.datetime.now()
+
+
+repo.logout()

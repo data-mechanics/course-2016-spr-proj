@@ -1,8 +1,7 @@
 import pymongo
 
-def get_mongodb_repo(name, pwd):
-	client = pymongo.MongoClient()
-	repo = client.repo
-	repo.authenticate(name, pwd)
+exec(open('get_auth.py').read())
 
-	return repo
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate(auth['admin']['name'], auth['admin']['pwd'])
