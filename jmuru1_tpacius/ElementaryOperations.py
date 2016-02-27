@@ -1,37 +1,23 @@
 import urllib.request
 import json
 import pymongo
-import prov.model
+#import prov.model
 import datetime
 import uuid
 import apitest as apitest
 # import geo as geo
 
 # Until a library is created, we just use the script directly.
-exec(open('pymongo_dm.py').read())
-# Set up the database connection.
-client = pymongo.MongoClient()
-repo = client.repo
-repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
+#exec(open('pymongo_dm.py').read())
+## Set up the database connection.
+#client = pymongo.MongoClient()
+#repo = client.repo
+#repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
 #The collections are being created and populated here
-
-
-# ========================query databse=================================
-
-def getCollection(dbName):
-	temp = []
-	if type(dbName) != str:
-		return "Error: please input a string"
-	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
-		temp.append(elem)
-	return temp
-
-
-endTime = datetime.datetime.now()
 
 #========================elementary ops=====================
 def union(R, S):
@@ -56,7 +42,60 @@ def aggregate(R, f):
     keys = {r[0] for r in R}
     return [(key, f([v for (k,v) in R if k == key] + [])) for key in keys]
 
+def map(f, R):
+    return [t for (k,v) in R for t in f(k,v)]
+    
+def reduce(f, R):
+    keys = {k for (k,v) in R}
+    return [f(k1, [v for (k2,v) in R if k1 == k2]) for k1 in keys]
 
-repo.logout()
+def reduceNoFunction(K,R):
+    keys = {k for (k,v) in K}
+    return [(k1, [v for (k2,v) in R if int(k1) == int(k2)]) for k1 in keys]
+
+# ========================query databse functions=================================
+def getCollection(dbName):
+	temp = []
+	if type(dbName) != str:
+		return "Error: please input a string"
+	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
+		temp.append(elem)
+	return temp
+# ========================query databse functions end =================================
+
+# ===========================Perform ops on collections==============================
+zipCarReservations = getCollection("zipcarreservations")
+zipCarMembers = getCollection("zipcarmembers")
+propertyValues = getCollection("propertyvalue")
+
+#reduce the property value collection onto zipcar collections
+def collectionsReduce(a, b, compareCollection=propertyValues):
+    x = [(memberPostal['postal_code'], memberPostal) for memberPostal in a] #zipcar members
+    y = [(reservePostal['end_postal_code'], reservePostal) for reservePostal in b] #zipcar reservations
+    c = [(propertyPostal['zip_code'], propertyPostal) for propertyPostal in compareCollection] #property values
+    memberReduce = reduceNoFunction(x, c) #reduceNoFunction declaration within the elementary ops section
+    reservationReduce = reduceNoFunction(y,c)
+    return (memberReduce, reservationReduce) #return a tuple of the wo lists after reduction
+
+def propertyAverage(propList):
+    props = propList[1] #takes in second part of each tuple (list of property)
+    total = 0
+    for elem in props:
+        #increment total by value associated with this key
+        total += int(elem['av_bldg']) 
+        #the largest property value should have largest ratio after dividing by the size
+    return total / len(props) 
+
+(cReduceMember, cReduceReservations) = collectionsReduce(zipCarMembers, zipCarReservations) #declaration
+testMember = max([(elem[0], propertyAverage(elem)) for elem in cReduceMember], key=lambda x: x[1]) #find max property value
+
+#test = [(1, 'a'),(1, 'a'),(2, 'b'),(2, 'b'),(3, 'c')]
+#print(reduceNoFunction(test))
+# [(1, ['a', 'a']), (2, ['b', 'b']), (3, ['c'])]
+
+# ===========================Perform ops on collections end==============================
+endTime = datetime.datetime.now()
+
+#repo.logout()
 
 ## eof
