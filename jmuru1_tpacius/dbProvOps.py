@@ -36,7 +36,7 @@ def getCollection(dbName):
 	temp = []
 	if type(dbName) != str:
 		return "Error: please input a string"
-	for elem in repo[dbName].find({}):
+	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
 		temp.append(elem)
 	return temp
 

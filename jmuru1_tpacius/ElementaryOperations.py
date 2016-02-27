@@ -1,9 +1,39 @@
-import dbProvOps as collections
+import urllib.request
+import json
+import pymongo
+import prov.model
+import datetime
+import uuid
+import apitest as apitest
+# import geo as geo
 
-# zipReserve = collections.getCollection("zipcarreservations")
-# zipMembership = collections.getCollection("zipcarmembers")
-# propertyValue = collections.getCollection("propertyvalue")
+# Until a library is created, we just use the script directly.
+exec(open('pymongo_dm.py').read())
+# Set up the database connection.
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
 
+# Retrieve some data sets (not using the API here for the sake of simplicity).
+startTime = datetime.datetime.now()
+
+#The collections are being created and populated here
+
+
+# ========================query databse=================================
+
+def getCollection(dbName):
+	temp = []
+	if type(dbName) != str:
+		return "Error: please input a string"
+	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
+		temp.append(elem)
+	return temp
+
+
+endTime = datetime.datetime.now()
+
+#========================elementary ops=====================
 def union(R, S):
     return R + S
 
@@ -27,3 +57,6 @@ def aggregate(R, f):
     return [(key, f([v for (k,v) in R if k == key] + [])) for key in keys]
 
 
+repo.logout()
+
+## eof
