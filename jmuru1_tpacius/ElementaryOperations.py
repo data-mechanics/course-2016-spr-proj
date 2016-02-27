@@ -8,11 +8,11 @@ import apitest as apitest
 # import geo as geo
 
 # Until a library is created, we just use the script directly.
-#exec(open('pymongo_dm.py').read())
-## Set up the database connection.
-#client = pymongo.MongoClient()
-#repo = client.repo
-#repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
+exec(open('pymongo_dm.py').read())
+# Set up the database connection.
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
@@ -64,7 +64,7 @@ def getCollection(dbName):
 # ========================query databse functions end =================================
 
 # ===========================Perform ops on collections==============================
-zipCarReservations = getCollection("zipcarreservations")
+zipCarReservations = getCollection("zipcarreversations")
 zipCarMembers = getCollection("zipcarmembers")
 propertyValues = getCollection("propertyvalue")
 
@@ -72,30 +72,41 @@ propertyValues = getCollection("propertyvalue")
 def collectionsReduce(a, b, compareCollection=propertyValues):
     x = [(memberPostal['postal_code'], memberPostal) for memberPostal in a] #zipcar members
     y = [(reservePostal['end_postal_code'], reservePostal) for reservePostal in b] #zipcar reservations
-    c = [(propertyPostal['zip_code'], propertyPostal) for propertyPostal in compareCollection] #property values
+    c = [(propertyPostal['zipcode'], propertyPostal) for propertyPostal in compareCollection] #property values
     memberReduce = reduceNoFunction(x, c) #reduceNoFunction declaration within the elementary ops section
     reservationReduce = reduceNoFunction(y,c)
     return (memberReduce, reservationReduce) #return a tuple of the wo lists after reduction
 
 def propertyAverage(propList):
-    props = propList[1] #takes in second part of each tuple (list of property)
+    props = propList #takes in second part of each tuple (list of property)
     total = 0
+    print(props)
     for elem in props:
         #increment total by value associated with this key
         total += int(elem['av_bldg']) 
         #the largest property value should have largest ratio after dividing by the size
-    return total / len(props) 
+    return (total / len(props))
+
+
 
 (cReduceMember, cReduceReservations) = collectionsReduce(zipCarMembers, zipCarReservations) #declaration
-testMember = max([(elem[0], propertyAverage(elem)) for elem in cReduceMember], key=lambda x: x[1]) #find max property value
 
-#test = [(1, 'a'),(1, 'a'),(2, 'b'),(2, 'b'),(3, 'c')]
-#print(reduceNoFunction(test))
-# [(1, ['a', 'a']), (2, ['b', 'b']), (3, ['c'])]
+
+repo.dropPermanent("membersreduction")
+repo.createPermanent("membersreduction")
+for elem in cReduceMember:
+    d = {elem[0]: elem[1]}
+    repo['jmuru1_tpacius.membersreduction'].insert_one(d)
+
+repo.dropPermanent("reservationsreductions")
+repo.createPermanent("reservationsreductions")
+for elem in cReduceReservations:
+    d = {elem[0]: elem[1]}
+    repo['jmuru1_tpacius.reservationsreductions'].insert_one(d)
 
 # ===========================Perform ops on collections end==============================
 endTime = datetime.datetime.now()
 
-#repo.logout()
+repo.logout()
 
 ## eof
