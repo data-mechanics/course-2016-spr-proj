@@ -1,3 +1,19 @@
+'''
+Nicholas Louie, Thomas Hsu
+nlouie@bu.edu, thsu@bu.edu
+nlouie_thsu8
+2/27/16
+Boston University Department of Computer Science
+CS 591 L1 - Data Mechanics Project 1
+Andrei Lapets (lapets@bu.edu)
+Datamechanics.org
+Datamechanics.io
+
+Description: The script opens the nlouie_thsu8 Mongo Database, takes the data off Boston's dataset without needing to the use the API key.
+We take the dataset from Boston's Salaries (2012,2013,2014) , reduce for the Boston Police Department and map each with the amount of crime incidents
+for that year.
+'''
+
 import requests # import sodapy
 import json
 import pymongo
@@ -14,7 +30,7 @@ def reduce(f, R):
     keys = {k for (k,v) in R}
     return [f(k1, [v for (k2,v) in R if k1 == k2]) for k1 in keys]
 
-
+# gets the entire dataset. 
 def jsonGetAll(addr, limit = 50000, offset = 0):
 	r = requests.get(addr + "&$limit=" + str(limit) + "&$offset=" + str(offset))
 	if len(r.json()) < 1000:
@@ -46,7 +62,7 @@ repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-# Retrieve json files.
+# Retrieve json files. 
 j = jsonGetAll('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
 # Map the salary of a police man to the year. 
 m = map(lambda k, v: [('2012', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
@@ -60,7 +76,7 @@ m = m + map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department
 
 # Retrieve json files.
 j = jsonGetAll('https://data.cityofboston.gov/resource/4swk-wcg8.json?department_name=Boston%20Police%20Department')
-# Map the salary of a police man to the year. 
+# Map the salary of a police man to the year. Note: accounts for inconsident field labling.
 m = m + map(lambda k, v: [('2014', float(v['total_earnings']))] if v['department_name'] == 'Boston Police Department' else [], [("key", v) for v in j])
 
 
@@ -127,12 +143,10 @@ doc.wasGeneratedBy(lost, this_run3, endTime)
 doc.wasDerivedFrom(lost, resource3, this_run0, this_run1, this_run2)
 
 repo.record(doc.serialize()) # Record the provenance document.
-print(json.dumps(json.loads(doc.serialize()), indent=4))
+#print(json.dumps(json.loads(doc.serialize()), indent=4))
+open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
-
-
-
 
 
 
