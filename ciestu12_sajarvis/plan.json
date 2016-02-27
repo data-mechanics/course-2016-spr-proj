@@ -9,6 +9,9 @@
       "prov:type": "ont:Retrieval"
     },
     "log:a*": {
+      "prov:type": "ont:Computation"
+    },
+    "log:a*": {
       "ont:Query": "",
       "prov:type": "ont:Retrieval"
     },
@@ -17,11 +20,6 @@
       "prov:type": "ont:Retrieval"
     },
     "log:a*": {
-      "ont:Query": "",
-      "prov:type": "ont:Computation"
-    },
-    "log:a*": {
-      "ont:Query": "",
       "prov:type": "ont:Computation"
     }
   },

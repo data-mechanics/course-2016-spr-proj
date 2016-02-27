@@ -101,8 +101,7 @@ def create_prov(startTime, endTime):
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
                             startTime, endTime,
                             {
-                                prov.model.PROV_TYPE:'ont:Computation',
-                                'ont:Query':''})
+                                prov.model.PROV_TYPE:'ont:Computation'})
     doc.wasAssociatedWith(this_run, this_script)
     doc.used(this_run, nearest_resource, startTime)
     doc.used(this_run, boarding_resource, startTime)

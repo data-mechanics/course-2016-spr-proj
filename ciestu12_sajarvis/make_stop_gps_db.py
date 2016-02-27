@@ -32,7 +32,8 @@ def main():
     url = 'http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs/stops.txt'
     response = urllib.request.urlopen(url).read().decode("utf-8")
 
-    all_lines = response.split('\n')
+    # The last entry will be an empty string from last newline, so splice it off.
+    all_lines = response.split('\n')[:-1]
     # The headers of the columns exist as the first line of the file.
     headers = [strip(h) for h in all_lines[0].split(',')]
     # Rest of the lines are data. Map them to headers and add to db.
