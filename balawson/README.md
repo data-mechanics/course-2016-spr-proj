@@ -31,7 +31,7 @@ Legend (TODO: fix crude legend):
 * Blue : Brightkite
 * Green: Gowalla
 
-![timeline of the datasets above](/postsperdaysmall.png)
+![timeline of the datasets above](/balawson/postsperdaysmall.png)
 
 ###Twitter
 This is a curated twitter dataset filtered for geotagged tweets in the Boston area, collected from the public stream. Currently, the only information considered are attributes shared by the Brightkite and Gowalla datasets, geocoordinates and user id. Other information available include the full Twitter API offering, including the actual tweet posted. 
@@ -48,7 +48,7 @@ Legend (TODO: fix crude legend):
 * Red  : Twitter 
 
 
-![timeline of the datasets above](/postsperday.png)
+![timeline of the datasets above](/balawson/postsperday.png)
 
 
 ###Are these datasets saying the same thing?
@@ -57,16 +57,16 @@ Legend (TODO: fix crude legend):
 * Colors are the same. 
 * y-axis represents the percentage of posts posted during each hour
 * 24 hour scale on x-axis
-![posts by the hour](/postsbyhour.png)
+![posts by the hour](/balawson/postsbyhour.png)
 
 #####Posts by the hour by location
 
 Brightkite: (still working on labeling which hour is shown)
-![heatmap of tweets by the hour](/notebooks/brightkite.gif)
+![heatmap of tweets by the hour](/balawson/notebooks/brightkite.gif)
 
 Gowalla: (still working on labeling which hour is shown)
-![heatmap of tweets by the hour](/notebooks/gowalla.gif)
+![heatmap of tweets by the hour](/balawson/notebooks/gowalla.gif)
 
 Twitter: (still working on labeling which hour is shown)
-![heatmap of tweets by the hour](/notebooks/twitter.gif)
+![heatmap of tweets by the hour](/balawson/notebooks/twitter.gif)
 
