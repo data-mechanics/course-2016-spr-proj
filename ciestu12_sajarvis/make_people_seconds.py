@@ -102,9 +102,9 @@ def create_prov(startTime, endTime):
                             startTime, endTime)
     doc.wasAssociatedWith(this_run, this_script)
     doc.usage(this_run, nearest_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+            { prov.model.PROV_TYPE:'ont:Computation', 'ont:Query':''})
     doc.usage(this_run, boarding_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+            { prov.model.PROV_TYPE:'ont:Computation', 'ont:Query':''})
 
     # Now define entity for the dataset we obtained.
     ppl_seconds = doc.entity('dat:people_second_utility',
