@@ -1,0 +1,110 @@
+{
+    "prefix": {
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "snap": "https://snap.stanford.edu/data/",
+        "dat": "http://datamechanics.io/data/balawson/",
+        "alg": "http://datamechanics.io/algorithm/balawson/"
+    },
+    "agent": {
+        "alg:collect": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "used": {
+        "_:id4": {
+            "prov:entity": "snap:gowalla",
+            "prov:time": "2016-02-27T17:46:02.097759",
+            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+        },
+        "_:id3": {
+            "prov:entity": "snap:brightkite",
+            "prov:time": "2016-02-27T17:46:02.097759",
+            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+        }
+    },
+    "entity": {
+        "snap:gowalla": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "txtgz",
+            "prov:label": "SNAP: Standford Network Analysis Project - Gowalla"
+        },
+        "dat:brightkite": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Brightkite data"
+        },
+        "snap:brightkite": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "txtgz",
+            "prov:label": "SNAP: Standford Network Analysis Project - Brightkite"
+        },
+        "dat:gowalla": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Gowalla dataset"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id8": {
+            "prov:agent": "alg:collect",
+            "prov:entity": "dat:gowalla"
+        },
+        "_:id5": {
+            "prov:agent": "alg:collect",
+            "prov:entity": "dat:brightkite"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:collect",
+            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+        },
+        "_:id2": {
+            "prov:agent": "alg:collect",
+            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:generatedEntity": "dat:gowalla",
+            "prov:generation": "log:a7368349c-7c96-4d45-9885-1289925e1f9a",
+            "prov:usedEntity": "snap:gowalla",
+            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a",
+            "prov:usage": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+        },
+        "_:id7": {
+            "prov:generatedEntity": "dat:brightkite",
+            "prov:generation": "log:af7baf957-afcd-478b-ad70-03e97d685263",
+            "prov:usedEntity": "snap:brightkite",
+            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263",
+            "prov:usage": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id9": {
+            "prov:entity": "dat:gowalla",
+            "prov:time": "2016-02-27T17:47:43.829888",
+            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+        },
+        "_:id6": {
+            "prov:entity": "dat:brightkite",
+            "prov:time": "2016-02-27T17:47:43.829888",
+            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+        }
+    },
+    "activity": {
+        "log:a7368349c-7c96-4d45-9885-1289925e1f9a": {
+            "prov:type": "ont:Retrieval",
+            "prov:startTime": "2016-02-27T17:46:02.097759",
+            "prov:endTime": "2016-02-27T17:47:43.829888"
+        },
+        "log:af7baf957-afcd-478b-ad70-03e97d685263": {
+            "prov:type": "ont:Retrieval",
+            "prov:startTime": "2016-02-27T17:46:02.097759",
+            "prov:endTime": "2016-02-27T17:47:43.829888"
+        }
+    }
+}
