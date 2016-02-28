@@ -84,7 +84,8 @@ def create_prov(startTime, endTime):
                             {
                                 prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
     doc.wasAssociatedWith(this_run, this_script)
-    doc.used(this_run, resource, startTime)
+    doc.usage(this_run, resource, startTime,None,
+            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
 
     # The original sources are entities, too. The MBTA published a .zip of csv
     # text files including the GPS coordinates of all stops.
