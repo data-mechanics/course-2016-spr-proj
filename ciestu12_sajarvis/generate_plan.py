@@ -26,7 +26,7 @@ for mod in [get_boarding_info, get_green_line_branch_info, make_stop_gps_db, mak
     doc = mod.create_prov(time, time)
     master_doc.update(doc)
 
-pretty_str = json.dumps(json.loads(master_doc.serialize()), indent=2, sort_keys=True)
+pretty_str = json.dumps(json.loads(master_doc.serialize()), indent=4, sort_keys=True)
 
 print(pretty_str)
 

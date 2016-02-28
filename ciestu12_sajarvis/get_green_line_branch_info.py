@@ -74,11 +74,11 @@ def create_prov(startTime, endTime):
                               prov.model.PROV_TYPE:'ont:DataResource',
                               'ont:Extension':'jpg'})
     doc.wasDerivedFrom(resource, map_resource, this_run, this_run, this_run)
-    branch_resource = doc.entity('dat:t_branch_info',
-                                 {
-                                     'prov:label':'Collection of Green Line Branch Info',
-                                     prov.model.PROV_TYPE:'ont:DataSet'})
-    doc.wasDerivedFrom(resource, branch_resource, this_run, this_run, this_run)
+    stop_resource = doc.entity('dat:t_stop_locations',
+                               {
+                                   'prov:label':'Collection with T Stop IDs',
+                                   prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasDerivedFrom(resource, stop_resource, this_run, this_run, this_run)
 
     # Now define entity for the dataset we obtained.
     branch_stops = doc.entity('dat:t_branch_info',
