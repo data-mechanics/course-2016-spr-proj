@@ -32,7 +32,12 @@ startTime = datetime.datetime.now()
 
 query = "Needle Pickup"
 
-urlbdp = "https://data.cityofboston.gov/resource/wc8w-nujj.json?type=" + parse.quote_plus(query)
+app_token = auth['bdp']['app_token']
+
+urlbdp = "https://data.cityofboston.gov/resource/wc8w-nujj.json?type=" + parse.quote_plus(query)  \
+	+ "&$select=longitude,latitude,location,geocoded_location,open_dt" + "&$$app_token="  \
+	+ app_token
+	
 responsebdp = request.urlopen(urlbdp).read().decode("utf-8")
 r1 = json.loads(responsebdp)
 repo.dropPermanent("needle311")

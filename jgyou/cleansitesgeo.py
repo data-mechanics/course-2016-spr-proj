@@ -10,15 +10,15 @@ import uuid
 
 exec(open('../pymongo_dm.py').read())
 
-# pass in collection name
-def flatten(db, X, field):
-	for x in db[X].find():
-		db[X].aggregate([{'$unwind': '$' + field }])
+# # pass in collection name
+# def flatten(db, X, field):
+# 	for x in db[X].find():
+# 		db[X].aggregate([{'$unwind': '$' + field }])
 
-def deletefield(db, X, Y):
-	for x in db[X].find():
-		for y in Y:
-			db[X].update_one({}, {'$unset': {y}})
+# def deletefield(db, X, Y):
+# 	for x in db[X].find():
+# 		for y in Y:
+# 			db[X].update_one({}, {'$unset': {y}})
 
 
 # set up repo
