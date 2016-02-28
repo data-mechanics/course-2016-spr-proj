@@ -26,7 +26,7 @@ Dataset is handcrafted based on stop IDs used by the MBTA and a map of T lines. 
 The map used to handcraft this data set exists as a provenance entity, with a source of where we found it online.
 
 ### 3. Popularity of each Green Line stop
-This dataset provides to average boarding population per day at each stop along the green line. We will assume that the number of boardings is proportional to the number of passengers that disembark. This information was provided by the MBTA, using the most recent boarding counts (2013).  
+This dataset provides to average boarding population per day at each stop along the green line. We will assume that the number of boardings is proportional to the number of passengers that disembark. This information was provided by the MBTA, using the most recent boarding counts (2013).
 
 Dataset handcrafted from a PDF published by the MBTA and the stop IDs included in the GPS database. The dataset is hosted at http://cs-people.bu.edu/sajarvis/datamech/green_line_boarding.json
 
@@ -37,7 +37,7 @@ This derived dataset uses Google API to get the walking distances to the next ne
 
 The provenance data does not list each URL queried, since they change for every combination of source and destination and are dependent on the combined data being used. We instead insert placeholders for the coordinates, e.g. "&lt;source_lat&gt;" for the source latitude.
 
-*NOTE: This will take a long time to generate because Google's API throttles the number of requests we can make (roughly 30 minutes running time currently).*
+*NOTE: This will take a long time to generate because Google's API throttles the number of requests we can make (roughly 45 minutes running time currently).*
 
 ### 5. (derived) Time to nearest neighbor stop on same branch
 This derived dataset holds information regarding the nearest neighbor stop on the same branch, including the time it takes to get there from the previous stop. If the two stops are really close together, then that means that the current stop is less important and could potentially be removed.
