@@ -99,9 +99,7 @@ def create_prov(startTime, endTime):
                                        'prov:label':'Boarding Counts for Green Line Stops',
                                        prov.model.PROV_TYPE:'ont:DataSet'})
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
-                            startTime, endTime,
-                            {
-                                prov.model.PROV_TYPE:'ont:Computation'})
+                            startTime, endTime)
     doc.wasAssociatedWith(this_run, this_script)
     doc.usage(this_run, nearest_resource, startTime, None,
             { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
