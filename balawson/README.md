@@ -70,3 +70,30 @@ Gowalla: (still working on labeling which hour is shown)
 Twitter: (still working on labeling which hour is shown)
 ![heatmap of tweets by the hour](/balawson/notebooks/twitter.gif)
 
+
+##Setup
+code is for debian-based systems
+
+imagemagick [download](http://www.imagemagick.org/script/binary-releases.php):
+```
+ sudo apt-get install imagemagick
+```
+
+```
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+###To collect data
+```
+python collect.py
+```
+###To generate visualizations of data
+```
+python data-viz.py
+```
+####To interact with data visualization
+```
+ipython notebook data-viz.ipynb
+```
