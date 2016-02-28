@@ -57,7 +57,8 @@ def main():
     line_usages = aggregate([(l,pop) for ((s,l,n,w),(i,pop)) in matches], sum)
     for line,total_usage in line_usages:
         # Measure the utility of each stop on each branch
-        # Selections on the branch to keep it on the same line.
+        # ultimately join nearest and pop on the branch to keep it on the
+        # same line.
         for stop,pop,sec in [(s,p,w) for ((s,l,n,w),(i,p)) in matches if l == line]:
             everyone_else = total_usage - pop
             # the actual measure of utility. low scores are best.
