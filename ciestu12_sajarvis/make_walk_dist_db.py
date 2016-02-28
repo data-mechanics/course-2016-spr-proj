@@ -125,9 +125,12 @@ def create_prov(startTime, endTime):
                                 prov.model.PROV_TYPE:'ont:Retrieval',
                                 'ont:Query':'?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial'})
     doc.wasAssociatedWith(this_run, this_script)
-    doc.used(this_run, goog_resource, startTime)
-    doc.used(this_run, coords_resource, startTime)
-    doc.used(this_run, branch_resource, startTime)
+    doc.usage(this_run, goog_resource, startTime, None,
+            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+    doc.usage(this_run, coords_resource, startTime, None,
+            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+    doc.usage(this_run, branch_resource, startTime, None,
+            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
 
     # Now define entity for the dataset we obtained.
     distances = doc.entity('dat:green_line_walking_distances',
