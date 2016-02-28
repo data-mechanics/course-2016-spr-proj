@@ -60,8 +60,9 @@ def download_and_insert(filename, url, collection_name, header = ['lat', 'locati
            handle.write(data)
     print('Finish downloading {0}'.format(filename))
     ####read###
-    df = pd.read_csv('{0}'.format(filename), names = header)
+    df = pd.read_csv('{0}'.format(filename), header = 0, names = header)
     df.drop('source', inplace=True, axis=1)
+    print(df.head())
     df =  df[ (df.lat < 42.445945) & (df.lat > 42.275086) & (df.lng > -71.194213) & (df.lng < -70.926301)]
     print('Inserting {0} into mongo'.format(filename))
     records = json.loads(df.T.to_json()).values()
@@ -102,7 +103,7 @@ doc.wasAssociatedWith(get_twitter, this_script)
 
 doc.used(get_brightkite, brightkite_resource, startTime)
 doc.used(get_gowalla, gowalla_resource, startTime)
-doc.used(get_twitter, gowalla_twitter, startTime)
+doc.used(get_twitter, twitter_resource, startTime)
 
 brightkite_ent = doc.entity('dat:brightkite', {prov.model.PROV_LABEL:'Brightkite data', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(brightkite_ent, this_script)
