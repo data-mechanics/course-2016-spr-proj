@@ -80,9 +80,7 @@ def create_prov(startTime, endTime):
                               prov.model.PROV_TYPE:'ont:DataResource',
                               'ont:Extension':'txt'})
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
-                            startTime, endTime,
-                            {
-                                prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+                            startTime, endTime)
     doc.wasAssociatedWith(this_run, this_script)
     doc.usage(this_run, resource, startTime,None,
             { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
