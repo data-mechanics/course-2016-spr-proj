@@ -49,7 +49,7 @@ def create_prov(startTime, endTime):
     doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
     doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
     doc.add_namespace('bu', 'http://cs-people.bu.edu/sajarvis/datamech/')
-    doc.add_namespace('mbta', 'http://www.mbta.com/images/')
+    doc.add_namespace('mbta_img', 'http://www.mbta.com/images/')
 
     # This run has an agent (the script), an entity (the source), and an activity (execution)
     this_script = doc.agent('alg:get_green_line_branch_info', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
@@ -64,12 +64,11 @@ def create_prov(startTime, endTime):
     doc.usage(this_run, resource, startTime, None,
                 {
                     prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
-                    
 
     # The original sources are entities, too. A map of lines from the MBTA and
     # stop IDs from the GPS file. These are the sources used for the
     # handcrafted data.
-    map_resource = doc.entity('mbta:subway-spider',
+    map_resource = doc.entity('mbta_img:subway-spider',
                           {
                               'prov:label':'Map of T Lines and Stops',
                               prov.model.PROV_TYPE:'ont:DataResource',

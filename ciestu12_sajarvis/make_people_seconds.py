@@ -53,6 +53,7 @@ def main():
     dot = product(nearest, pop)
     matches = [(f,g) for (f,g) in dot if f[0] == g[0]]
 
+    # aggregate to find the total usage on each branch
     line_usages = aggregate([(l,pop) for ((s,l,n,w),(i,pop)) in matches], sum)
     for line,total_usage in line_usages:
         # Measure the utility of each stop on each branch
@@ -99,12 +100,16 @@ def create_prov(startTime, endTime):
                                        'prov:label':'Boarding Counts for Green Line Stops',
                                        prov.model.PROV_TYPE:'ont:DataSet'})
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
-                            startTime, endTime)
+                            startTime, endTime,
+                            { prov.model.PROV_LABEL:'Compute Utility with Nearest Alternatives and Popularity',
+                              prov.model.PROV_TYPE:'ont:Computation' })
     doc.wasAssociatedWith(this_run, this_script)
     doc.usage(this_run, nearest_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Computation', 'ont:Query':''})
+            { prov.model.PROV_TYPE:'ont:Retrieval',
+              'ont:Query':'db.ciestu12_sajarvis.nearest_stops.find({})'})
     doc.usage(this_run, boarding_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Computation', 'ont:Query':''})
+            { prov.model.PROV_TYPE:'ont:Retrieval',
+              'ont:Query':'db.ciestu12_sajarvis.green_line_boarding_counts.find({})'})
 
     # Now define entity for the dataset we obtained.
     ppl_seconds = doc.entity('dat:people_second_utility',

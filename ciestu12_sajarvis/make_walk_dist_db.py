@@ -64,8 +64,16 @@ def main():
     line_stops = aggregate(all_stops, list)
 
     for line, stop_ids in line_stops:
+        # a selective product to get the associations between branches and locations
         stop_coords = [(lat, lon, stop_id) for ((s_id),(stop_id,lat,lon)) in product(stop_ids, all_coords) if s_id == stop_id]
 
+        # Could make the assumption that walking from a->b is always the same as
+        # b->a, and for now it likely is, but can imagine a scenario where the
+        # paths could be different (walking one direction on a branch being
+        # blocked by the track, for example). So for simplicity and the
+        # flexibility in considering two sides of the track and different
+        # optimal paths in different directions, we find distances for the full
+        # product.
         for r in product(stop_coords, stop_coords):
             data = request_get_json(r[0][0], r[0][1], r[1][0], r[1][1])
             print(data)
@@ -119,15 +127,27 @@ def create_prov(startTime, endTime):
                                  {
                                      'prov:label':'Collection of Green Line Branch Info',
                                      prov.model.PROV_TYPE:'ont:DataSet'})
+    # We operated on the data quite a bit too, so make an activity for that in
+    # addition to Google's.
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
-                            startTime, endTime)
+                             startTime, endTime,
+                            { prov.model.PROV_LABEL:'Transform Data to Find Matrix of Branch Destinations',
+                              prov.model.PROV_TYPE:'Computation' })
+    goog_act = doc.activity('log:a'+str(uuid.uuid4()),
+                             startTime, endTime,
+                            { prov.model.PROV_LABEL:'Use Google Maps API',
+                              prov.model.PROV_TYPE:'Computation' })
     doc.wasAssociatedWith(this_run, this_script)
-    doc.usage(this_run, goog_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial'})
+    doc.wasAssociatedWith(goog_act, this_script)
+    doc.usage(goog_act, goog_resource, startTime, None,
+              { prov.model.PROV_TYPE:'ont:Retrieval',
+                'ont:Query':'?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial'})
     doc.usage(this_run, coords_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial'})
+              { prov.model.PROV_TYPE:'ont:Retrieval',
+                'ont:Query':'db.ciestu12_sajarvis.t_stop_locations.find({})'})
     doc.usage(this_run, branch_resource, startTime, None,
-            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial'})
+              { prov.model.PROV_TYPE:'ont:Retrieval',
+                'ont:Query':'db.ciestu12_sajarvis.t_branch_info.find({})'})
 
     # Now define entity for the dataset we obtained.
     distances = doc.entity('dat:green_line_walking_distances',
@@ -136,6 +156,7 @@ def create_prov(startTime, endTime):
                                prov.model.PROV_TYPE:'ont:DataSet'})
     doc.wasAttributedTo(distances, this_script)
     doc.wasGeneratedBy(distances, this_run, endTime)
+    doc.wasGeneratedBy(distances, goog_act, endTime)
     doc.wasDerivedFrom(distances, goog_resource, this_run, this_run, this_run)
     doc.wasDerivedFrom(distances, coords_resource, this_run, this_run, this_run)
     doc.wasDerivedFrom(distances, branch_resource, this_run, this_run, this_run)

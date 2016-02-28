@@ -52,7 +52,7 @@ def create_prov(startTime, endTime):
     doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
     doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
     doc.add_namespace('bu', 'http://cs-people.bu.edu/sajarvis/datamech/')
-    doc.add_namespace('mbta', 'http://www.mbta.com/uploadedfiles/documents/')
+    doc.add_namespace('mbta_docs', 'http://www.mbta.com/uploadedfiles/documents/')
 
     # This run has an agent (the script), an entity (the source), and an activity (execution)
     this_script = doc.agent('alg:get_boarding_info',
@@ -74,17 +74,17 @@ def create_prov(startTime, endTime):
     # The original sources are entities, too. The BlueBook data from the MBTA
     # stop IDs from the GPS collection. These are the sources used for the
     # handcrafted data.
-    mbta_resource = doc.entity('mbta:2014%20BLUEBOOK%2014th%20Edition',
+    mbta_resource = doc.entity('mbta_docs:2014%20BLUEBOOK%2014th%20Edition',
                           {
                               'prov:label':'PDF of Green Line Boarding Counts',
                               prov.model.PROV_TYPE:'ont:DataResource',
                               'ont:Extension':'pdf'})
     doc.wasDerivedFrom(resource, mbta_resource, this_run, this_run, this_run)
-    branch_resource = doc.entity('dat:t_branch_info',
-                                 {
-                                     'prov:label':'Collection of Green Line Branch Info',
-                                     prov.model.PROV_TYPE:'ont:DataSet'})
-    doc.wasDerivedFrom(resource, branch_resource, this_run, this_run, this_run)
+    stop_resource = doc.entity('dat:t_stop_locations',
+                               {
+                                   'prov:label':'Collection with T Stop IDs',
+                                   prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasDerivedFrom(resource, stop_resource, this_run, this_run, this_run)
 
     # Now define entity for the dataset we obtained.
     boardings = doc.entity('dat:green_line_boarding_counts',

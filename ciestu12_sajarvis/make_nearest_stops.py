@@ -83,11 +83,13 @@ def create_prov(startTime, endTime):
                                    'prov:label':'Walking Distances Between All Green Line Stops',
                                    prov.model.PROV_TYPE:'ont:DataSet'})
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
-                            startTime, endTime)
+                            startTime, endTime,
+                            { prov.model.PROV_LABEL:'Find Nearest Neighbor Stops',
+                              prov.model.PROV_TYPE:'Computation' })
     doc.wasAssociatedWith(this_run, this_script)
     doc.usage(this_run, dist_resource, startTime,None,
-                {
-                    prov.model.PROV_TYPE:'ont:Computation'})
+              { prov.model.PROV_TYPE:'ont:Retrieval',
+                'ont:Query':'db.ciestu12_sajarvis.green_line_walking_distances.find({})'})
 
     # Now define entity for the dataset we obtained.
     nearests = doc.entity('dat:nearest_stops',

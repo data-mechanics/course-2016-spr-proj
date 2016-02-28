@@ -66,15 +66,15 @@ def create_prov(startTime, endTime):
     doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
     doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
     doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
-    doc.add_namespace('bu', 'http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs')
-    doc.add_namespace('mbta', 'http://www.mbta.com/uploadedfiles/')
+    doc.add_namespace('bu_gtfs', 'http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs')
+    doc.add_namespace('mbta_gtfs', 'http://www.mbta.com/uploadedfiles/')
 
     # This run has an agent (the script), an entity (the source), and an activity (execution)
     this_script = doc.agent('alg:make_stop_gps_db',
                             {
                                 prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'],
                                 'ont:Extension':'py'})
-    resource = doc.entity('bu:stops',
+    resource = doc.entity('bu_gtfs:stops',
                           {
                               'prov:label':'GPS Locations and IDs of T Stops',
                               prov.model.PROV_TYPE:'ont:DataResource',
@@ -82,12 +82,12 @@ def create_prov(startTime, endTime):
     this_run = doc.activity('log:a'+str(uuid.uuid4()),
                             startTime, endTime)
     doc.wasAssociatedWith(this_run, this_script)
-    doc.usage(this_run, resource, startTime,None,
-            { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+    doc.usage(this_run, resource, startTime, None,
+              { prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
 
     # The original sources are entities, too. The MBTA published a .zip of csv
     # text files including the GPS coordinates of all stops.
-    mbta_resource = doc.entity('mbta:MBTA_GTFS',
+    mbta_resource = doc.entity('mbta_gtfs:MBTA_GTFS',
                           {
                               'prov:label':'GTFS Data from MBTA',
                               prov.model.PROV_TYPE:'ont:DataResource',
