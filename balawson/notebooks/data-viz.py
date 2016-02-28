@@ -5,6 +5,16 @@ import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import pymongo
+import prov
+
+from IPython.display import HTML
+################to make heatmaps
+import folium
+from folium import plugins
+###############to download heatmaps and make gifs
+import os, time
+from selenium import webdriver
+from pyvirtualdisplay import Display
 
 client = pymongo.MongoClient()
 repo = client.repo
@@ -82,7 +92,6 @@ plot_timegroups(gowalla, 'hour', 'Relative by hour', avg=True)
 plot_timegroups(tweets, 'hour', 'Relative by hour', avg= True)
 
 #http://nbviewer.jupyter.org/gist/bburky/7763555/folium-ipython.ipynb
-from IPython.display import HTML
 def inline_map(map):
     """
     Embeds the HTML source of the map directly into the IPython notebook.
@@ -130,8 +139,6 @@ def plot_timegroups(dataframe, column, title=None,avg = False):
 
 #http://www.jackboot7.com/visualizing-tweets.html
 #Thank you Luis Alberto Santana
-import folium
-from folium import plugins
 
 # Create a heatmap with the data.
 heatmap_map = folium.Map(location=[42.359716, -71.065917], zoom_start=12)
@@ -139,9 +146,6 @@ heatmap_map.add_children(plugins.HeatMap([(row.lat, row.lng) for idx, row in gow
 embed_map(heatmap_map)
 
 
-import os, time
-from selenium import webdriver
-from pyvirtualdisplay import Display
 
 
 def make_heatmap(df, count):
@@ -196,7 +200,6 @@ plot_heatgroups(tweets, 'hour', 'twitter')
 
 
 endTime = datetime.datetime.now()
-import prov
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
 # document describing that invocation event. This information
