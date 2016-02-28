@@ -87,7 +87,9 @@ def create_prov(startTime, endTime):
                             {
                                 prov.model.PROV_TYPE:'ont:Computation'})
     doc.wasAssociatedWith(this_run, this_script)
-    doc.used(this_run, dist_resource, startTime)
+    doc.usage(this_run, dist_resource, startTime,None,
+                {
+                    prov.model.PROV_TYPE:'ont:Retrieval','ont:Query':''})
 
     # Now define entity for the dataset we obtained.
     nearests = doc.entity('dat:nearest_stops',
