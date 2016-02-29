@@ -1,0 +1,71 @@
+{
+    "activity": {
+        "log:a44cbe30a-f460-4401-bb31-3528178a0323": {
+            "prov:startTime": "2016-02-29T15:17:22.359756",
+            "prov:endTime": "2016-02-29T15:17:25.930159",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id3": {
+            "prov:agent": "alg:fetch_liquor_data",
+            "prov:entity": "dat:liquor_license"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id5": {
+            "prov:generatedEntity": "dat:liquor_license",
+            "prov:activity": "log:a44cbe30a-f460-4401-bb31-3528178a0323",
+            "prov:generation": "log:a44cbe30a-f460-4401-bb31-3528178a0323",
+            "prov:usedEntity": "bdp:hda6-fnsh",
+            "prov:usage": "log:a44cbe30a-f460-4401-bb31-3528178a0323"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id4": {
+            "prov:activity": "log:a44cbe30a-f460-4401-bb31-3528178a0323",
+            "prov:time": "2016-02-29T15:17:25.930159",
+            "prov:entity": "dat:liquor_license"
+        }
+    },
+    "entity": {
+        "dat:liquor_license": {
+            "prov:label": "Liquor Licenses",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:hda6-fnsh": {
+            "prov:label": "Liquor Licenses",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/alice_bob/",
+        "dat": "http://datamechanics.io/data/alice_bob/"
+    },
+    "agent": {
+        "alg:fetch_liquor_data": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a44cbe30a-f460-4401-bb31-3528178a0323",
+            "prov:agent": "alg:fetch_liquor_data"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:a44cbe30a-f460-4401-bb31-3528178a0323",
+            "prov:time": "2016-02-29T15:17:22.359756",
+            "prov:entity": "bdp:hda6-fnsh"
+        }
+    }
+}

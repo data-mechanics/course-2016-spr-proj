@@ -24,10 +24,11 @@ repo.dropPermanent("crime")
 repo.createPermanent("crime")
 
 # Filter out the bad data
+clean = []
 for elem in r:
 	if elem['location']['coordinates'] != [0, 0]:
-		repo['jtsliu_kmann.crime'].insert_one(elem)
+		clean.append(elem)
 
-#repo['jtsliu_kmann.crime'].insert_many(r)
+repo['jtsliu_kmann.crime'].insert_many(clean)
 
 # print(json.dumps(json.loads(response), sort_keys=True, indent=2))
