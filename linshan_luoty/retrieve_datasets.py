@@ -5,9 +5,9 @@ import pymongo
 import sys
 
 datasets = {
-	'crime_incident_reports':'https://data.cityofboston.gov/resource/7cdf-6fgx.json?year=2014&$limit=50000',
-	'employee_earnings_report_2014':'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=50000',
-	'approved_building_permits':'https://data.cityofboston.gov/resource/msk6-43c6.json?$limit=50000'
+	'crime_incident_reports':'https://data.cityofboston.gov/resource/7cdf-6fgx.json?year=2014&$limit=10000',
+	'employee_earnings_report_2014':'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=10000',
+	'approved_building_permits':'https://data.cityofboston.gov/resource/msk6-43c6.json?$limit=10000'
 }
 
 

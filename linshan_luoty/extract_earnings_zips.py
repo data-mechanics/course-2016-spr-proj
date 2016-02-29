@@ -14,7 +14,8 @@ startTime = datetime.datetime.now()
 # update extract earnings and zips info
 earnings_zips = []
 for document in db.find({}, {'zip': True,'total_earnings':True, '_id': False}):	# only project zips and earnings
-	earnings_zips.append( {'zip': document['zip'], 'total_earnings': document['total_earnings']} )
+	if 'zip' in document:
+		earnings_zips.append( {'zip': document['zip'], 'total_earnings': float(document['total_earnings'])} )
 
 # save it to a temporary folder
 repo.dropTemporary("earnings_zips")
