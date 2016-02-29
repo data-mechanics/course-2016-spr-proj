@@ -1,11 +1,10 @@
 import urllib.request
 import json
 import pymongo
-#import prov.model
+import prov.model
 import datetime
 import uuid
 import apitest as apitest
-# import geo as geo
 
 # Until a library is created, we just use the script directly.
 exec(open('pymongo_dm.py').read())
@@ -98,15 +97,45 @@ for elem in cReduceMember:
     d = {elem[0]: elem[1]}
     repo['jmuru1_tpacius.membersreduction'].insert_one(d)
 
-repo.dropPermanent("reservationsreductions")
-repo.createPermanent("reservationsreductions")
+repo.dropPermanent("reservationsreduction")
+repo.createPermanent("reservationsreduction")
 for elem in cReduceReservations:
     d = {elem[0]: elem[1]}
-    repo['jmuru1_tpacius.reservationsreductions'].insert_one(d)
+    repo['jmuru1_tpacius.reservationsreduction'].insert_one(d)
 
 # ===========================Perform ops on collections end==============================
 endTime = datetime.datetime.now()
 
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/jmuru1_tpacius/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/jmuru1_tpacius/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+
+this_script = doc.agent('alg:ElementaryOperations', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource1 = doc.entity('dat:membersreduction', {'prov:label':'Members Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource2 = doc.entity('dat:reservationsreduction', {'prov:label':'Reservations Reduced By Zipcodes', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(this_run, this_script)
+
+doc.used(this_run, resource1, startTime)
+doc.used(this_run, resource2, startTime)
+
+zipcarmembers = doc.entity('dat:membersreduction', {prov.model.PROV_LABEL:'Members Reduced By Zipcode', prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAttributedTo(zipcarmembers, this_script)
+doc.wasGeneratedBy(zipcarmembers, this_run, endTime)
+doc.wasDerivedFrom(zipcarmembers, resource1, this_run, this_run, this_run)
+
+zipcarreservations = doc.entity('dat:zipcarreduction', {prov.model.PROV_LABEL:'Reservations Reduced By Zipcodes', prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAttributedTo(zipcarreservations, this_script)
+doc.wasGeneratedBy(zipcarreservations, this_run, endTime)
+doc.wasDerivedFrom(zipcarreservations, resource2, this_run, this_run, this_run)
+
+repo.record(doc.serialize()) # Record the provenance document.
+#print(json.dumps(json.loads(doc.serialize()), indent=4))
+open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+print(doc.get_provn())
 repo.logout()
 
 ## eof

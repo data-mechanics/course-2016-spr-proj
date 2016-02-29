@@ -5,7 +5,6 @@ import prov.model
 import datetime
 import uuid
 import apitest as apitest
-# import geo as geo
 
 # Until a library is created, we just use the script directly.
 exec(open('pymongo_dm.py').read())
@@ -56,25 +55,35 @@ doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'Da
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:example', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-resource = doc.entity('bdp:wc8w-nujj', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'})
+this_script = doc.agent('alg:dbProvOps', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource1 = doc.entity('bdp:78f5-5i4e', {'prov:label':'Zipcar Member Counts By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+resource2 = doc.entity('bdp:498g-jbmi', {'prov:label':'Zipcar Boston Reservations', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+resource3 = doc.entity('bdp:n7za-nsjh', {'prov:label':'Boston Property Values', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?$limit=1000'})
 doc.wasAssociatedWith(this_run, this_script)
-doc.used(this_run, resource, startTime)
+doc.used(this_run, resource1, startTime)
+doc.used(this_run, resource2, startTime)
+doc.used(this_run, resource3, startTime)
 
-lost = doc.entity('dat:lost', {prov.model.PROV_LABEL:'Animals Lost', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(lost, this_script)
-doc.wasGeneratedBy(lost, this_run, endTime)
-doc.wasDerivedFrom(lost, resource, this_run, this_run, this_run)
+zipcarmembers = doc.entity('dat:zipcarmembers', {prov.model.PROV_LABEL:'Zipcar Member Count', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(zipcarmembers, this_script)
+doc.wasGeneratedBy(zipcarmembers, this_run, endTime)
+doc.wasDerivedFrom(zipcarmembers, resource1, this_run, this_run, this_run)
 
-found = doc.entity('dat:found', {prov.model.PROV_LABEL:'Animals Found', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(found, this_script)
-doc.wasGeneratedBy(found, this_run, endTime)
-doc.wasDerivedFrom(found, resource, this_run, this_run, this_run)
+zipcarreservations = doc.entity('dat:zipcarreservations', {prov.model.PROV_LABEL:'Zipcar Reservations', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(zipcarreservations, this_script)
+doc.wasGeneratedBy(zipcarreservations, this_run, endTime)
+doc.wasDerivedFrom(zipcarreservations, resource2, this_run, this_run, this_run)
+
+propertyvalues = doc.entity('dat:propertyvalues', {prov.model.PROV_LABEL:'Property Values', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(propertyvalues, this_script)
+doc.wasGeneratedBy(propertyvalues, this_run, endTime)
+doc.wasDerivedFrom(propertyvalues, resource3, this_run, this_run, this_run)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
-# print(doc.get_provn())
+open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+print(doc.get_provn())
 repo.logout()
 
 ## eof
