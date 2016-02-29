@@ -8,14 +8,15 @@ Notes:
 """
 
 import datetime
-import prov.model
 import uuid
+
+import prov.model
 
 from mjclawar_rarshad.reference import mcra_structures as mcras
 from mjclawar_rarshad.reference.mcra_structures import APIQuery, MCRASSettings, MCRASProvenance
-from mjclawar_rarshad.reference.provenance import ProjectProvenance
 from mjclawar_rarshad.tools.bdp_query import BDPQuery
 from mjclawar_rarshad.tools.database_helpers import DatabaseHelper
+from mjclawar_rarshad.tools.provenance import ProjectProvenance
 
 
 class PropertyAssessmentSettings(MCRASSettings):
@@ -117,8 +118,7 @@ class PropertyAssessmentAPIQuery(APIQuery):
         start_time = datetime.datetime.now()
         api_url = self.settings.data_namespace.link + self.settings.base_url + '.json'
         data_json, api_query = self.bdp_api.api_query(base_url=api_url,
-                                                      select=['av_total', 'living_area', 'gross_tax', 'location'],
-                                                      limit=10000)
+                                                      select=['av_total', 'living_area', 'gross_tax', 'location'])
 
         self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
 

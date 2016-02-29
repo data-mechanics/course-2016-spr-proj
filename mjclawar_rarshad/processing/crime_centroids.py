@@ -7,47 +7,19 @@ Author(s): Raaid Arshad and Michael Clawar
 Notes:
 """
 
+import datetime
+import uuid
 
 import numpy as np
 import pandas
-from sklearn import cluster
-
-import datetime
 import prov
-import uuid
+from sklearn import cluster
 
 from mjclawar_rarshad.reference import mcra_structures as mcras
 from mjclawar_rarshad.reference.mcra_structures import MCRASProcessor, MCRASSettings, MCRASProvenance
-from mjclawar_rarshad.reference.provenance import ProjectProvenance
 from mjclawar_rarshad.tools.database_helpers import DatabaseHelper
-
-
-def spherical_dist(pos1, pos2, r=3958.75):
-    """
-    Calculates the distance between two np arrays with [Longitude, Latitude]
-
-    Modified from http://stackoverflow.com/a/19414306
-
-    Parameters
-    ----------
-    pos1: np.array
-    pos2: np.array
-    r: float
-
-    Returns
-    -------
-    np.array
-    """
-
-    pos1 *= np.pi / 180
-    pos2 *= np.pi / 180
-
-    cos_lat1 = np.cos(pos1[..., 0])
-    cos_lat2 = np.cos(pos2[..., 0])
-    cos_lat_d = np.cos(pos1[..., 0] - pos2[..., 0])
-    cos_lon_d = np.cos(pos1[..., 1] - pos2[..., 1])
-    dist = r * np.arccos(cos_lat_d - cos_lat1 * cos_lat2 * (1 - cos_lon_d))
-    return dist
+from mjclawar_rarshad.tools.provenance import ProjectProvenance
+from mjclawar_rarshad.tools import distance_estimators
 
 
 def sse_group(df, columns):
@@ -63,7 +35,7 @@ def sse_group(df, columns):
     -------
     np.float
     """
-    distances = spherical_dist(df[columns].values, np.array([df[columns].mean().values]))
+    distances = distance_estimators.spherical_distance(df[columns].values, np.array([df[columns].mean().values]))
     distances *= distances
     sse = sum(distances)
     return sse
