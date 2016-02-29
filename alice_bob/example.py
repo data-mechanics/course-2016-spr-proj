@@ -49,12 +49,20 @@ doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
 this_script = doc.agent('alg:example', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = doc.entity('bdp:wc8w-nujj', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-get_found = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'})
-get_lost = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT'})
-doc.wasAssociatedWith(get_lost, this_script)
+get_found = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_lost = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
 doc.wasAssociatedWith(get_found, this_script)
-doc.used(get_lost, resource, startTime)
-doc.used(get_found, resource, startTime)
+doc.wasAssociatedWith(get_lost, this_script)
+doc.usage(get_found, resource, startTime, None,
+        {prov.model.PROV_TYPE:'ont:Retrieval',
+         'ont:Query':'?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'
+        }
+    )
+doc.usage(get_lost, resource, startTime, None,
+        {prov.model.PROV_TYPE:'ont:Retrieval',
+         'ont:Query':'?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT'
+        }
+    )
 
 lost = doc.entity('dat:lost', {prov.model.PROV_LABEL:'Animals Lost', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(lost, this_script)
