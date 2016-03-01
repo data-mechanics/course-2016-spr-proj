@@ -20,9 +20,9 @@ def request(url):
 
 # print(request(newUrl)[1])
 
-#zipCarMemberCount = request(zipcarUrl1)[0][0]['postal_code']
-#zipCarReservations = request(zipcarUrl2)[0][0]['end_postal_code']
-#propertyvalue = request(propertyUrl)[0][2]['av_bldg']
-#print(propertyvalue)
-#print(zipCarReservations)
-#print(zipCarMemberCount)
+# zipCarMemberCount = request(zipcarUrl1)[0][0]['postal_code']
+# zipCarReservations = request(zipcarUrl2)[0][0]['end_postal_code']
+# propertyvalue = request(propertyUrl)[0][2]['av_bldg']
+# print(propertyvalue)
+# print(zipCarReservations)
+# print(zipCarMemberCount)

@@ -26,6 +26,10 @@ startTime = datetime.datetime.now()
 # repo.createPermanent("zipcarreversations")
 # repo['jmuru1_tpacius.zipcarreversations'].insert_many(apitest.zipCarReservations)
 
+# repo.dropPermanent("zipcarreservations")
+# repo.createPermanent("zipcarreservations")
+# repo['jmuru1_tpacius.zipcarreservations'].insert_many(apitest.zipCarReservations)
+
 # repo.dropPermanent("propertyvalue")
 # repo.createPermanent("propertyvalue")
 # repo['jmuru1_tpacius.propertyvalue'].insert_many(apitest.propertyvalue)
