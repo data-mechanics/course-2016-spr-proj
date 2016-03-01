@@ -22,8 +22,16 @@ alcohol - this would be a cause of a neighborhood becoming more dangerous potent
 
 
 
+http://zipcode.org/city/MA/BOSTON - 37 zipcodes
+
 TODO:
-Filter out data with invalid locations
+Filter out data with invalid locations - done?
+
+
 Figure out what transformations to do on the data
+	crime data - generate a new dataset that contains the crime data with the zip code it occurs in
+		Using this, we can aggregate to get the number of crimes per zipcode
+	Property and liquor - transform to make a dataset of zipcode with average property assessment and 
+					number of liquor licenses
 Prov
 
