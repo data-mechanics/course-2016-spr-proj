@@ -63,7 +63,8 @@ def getCollection(dbName):
 # ========================query databse functions end =================================
 
 # ===========================Perform ops on collections==============================
-zipCarReservations = getCollection("zipcarreversations")
+# zipCarReservations = getCollection("zipcarreversations")
+zipCarReservations = getCollection("zipcarreservations")
 zipCarMembers = getCollection("zipcarmembers")
 propertyValues = getCollection("propertyvalue")
 

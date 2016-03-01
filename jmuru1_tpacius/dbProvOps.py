@@ -18,21 +18,21 @@ startTime = datetime.datetime.now()
 
 #The collections are being created and populated here
 
-# repo.dropPermanent("zipcarmembers")
-# repo.createPermanent("zipcarmembers")
-# repo['jmuru1_tpacius.zipcarmembers'].insert_many(apitest.zipCarMemberCount)
+repo.dropPermanent("zipcarmembers")
+repo.createPermanent("zipcarmembers")
+repo['jmuru1_tpacius.zipcarmembers'].insert_many(apitest.zipCarMemberCount)
 
 # repo.dropPermanent("zipcarreversations")
 # repo.createPermanent("zipcarreversations")
 # repo['jmuru1_tpacius.zipcarreversations'].insert_many(apitest.zipCarReservations)
 
-# repo.dropPermanent("zipcarreservations")
-# repo.createPermanent("zipcarreservations")
-# repo['jmuru1_tpacius.zipcarreservations'].insert_many(apitest.zipCarReservations)
+repo.dropPermanent("zipcarreservations")
+repo.createPermanent("zipcarreservations")
+repo['jmuru1_tpacius.zipcarreservations'].insert_many(apitest.zipCarReservations)
 
-# repo.dropPermanent("propertyvalue")
-# repo.createPermanent("propertyvalue")
-# repo['jmuru1_tpacius.propertyvalue'].insert_many(apitest.propertyvalue)
+repo.dropPermanent("propertyvalue")
+repo.createPermanent("propertyvalue")
+repo['jmuru1_tpacius.propertyvalue'].insert_many(apitest.propertyvalue)
 # ========================query databse=================================
 
 def getCollection(dbName):
