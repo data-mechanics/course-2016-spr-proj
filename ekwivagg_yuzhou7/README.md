@@ -16,3 +16,7 @@ Future project angles may seek to find crime incident reports that occur near re
 The goal to to determine for any particular restaurant what the unsafe aspects or incidents are that have occurred at or nearby the restaurant.
 
 For this assignment, we will focus on determining what inspections have been performed and passed/failed by each restaurant (using (1) and (2) above) and which restaurants have had rodent problems nearby (using (1) and (3) above).
+
+Transformations:
+We will perform a map/reduce that aggregates Active Food Establishment Licenses with Food Establishment Inspections to determine which currently licensed restaurants have failed inspection.
+Our second transformation will perform a map/reduce that aggregates Active Food Establishment Licenses and Mayors 24 Hour Hotline reports to determine if there are any restaurants that have had rodent activity nearby. We aggregate on rounded latitude and longitude, to determine the area immediately surrounding a restaurant.
