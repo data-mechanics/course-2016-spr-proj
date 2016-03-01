@@ -114,20 +114,20 @@ doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
 this_script = doc.agent('alg:ElementaryOperations', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-resource1 = doc.entity('dat:membersreduction', {'prov:label':'Members Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
-resource2 = doc.entity('dat:reservationsreduction', {'prov:label':'Reservations Reduced By Zipcodes', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource1 = doc.entity('dat:membersreduction', {'prov:label':'Members and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource2 = doc.entity('dat:reservationsreduction', {'prov:label':'Reservations and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
 this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', prov.model.PROV_TYPE:'ont:Computation'})
 doc.wasAssociatedWith(this_run, this_script)
 
 doc.used(this_run, resource1, startTime)
 doc.used(this_run, resource2, startTime)
 
-zipcarmembers = doc.entity('dat:membersreduction', {prov.model.PROV_LABEL:'Members Reduced By Zipcode', prov.model.PROV_TYPE:'ont:Computation'})
+zipcarmembers = doc.entity('dat:membersreduction', {prov.model.PROV_LABEL:'Members and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:Computation'})
 doc.wasAttributedTo(zipcarmembers, this_script)
 doc.wasGeneratedBy(zipcarmembers, this_run, endTime)
 doc.wasDerivedFrom(zipcarmembers, resource1, this_run, this_run, this_run)
 
-zipcarreservations = doc.entity('dat:zipcarreduction', {prov.model.PROV_LABEL:'Reservations Reduced By Zipcodes', prov.model.PROV_TYPE:'ont:Computation'})
+zipcarreservations = doc.entity('dat:zipcarreduction', {prov.model.PROV_LABEL:'Reservations and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:Computation'})
 doc.wasAttributedTo(zipcarreservations, this_script)
 doc.wasGeneratedBy(zipcarreservations, this_run, endTime)
 doc.wasDerivedFrom(zipcarreservations, resource2, this_run, this_run, this_run)
