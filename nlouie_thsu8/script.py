@@ -22,6 +22,7 @@ import datetime
 import uuid
 import functools
 
+
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
 
@@ -32,7 +33,9 @@ def reduce(f, R):
 
 
 # gets the entire dataset.
-def jsonGetAll(addr, limit=50000, offset=0):
+
+
+def json_get_all(addr, limit=50000, offset=0):
     r = requests.get(addr + "&$limit=" + str(limit) + "&$offset=" + str(offset))
     if len(r.json()) < 1000:
         return r.json()
@@ -63,20 +66,21 @@ repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
+'''
 # Retrieve json files. 
-j = jsonGetAll('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
+j = json_get_all('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
 # Map the salary of a police man to the year. 
 m = map(lambda k, v: [('2012', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
 
 
 # Retrieve json files.
-j = jsonGetAll('https://data.cityofboston.gov/resource/54s2-yxpg.json?department=Boston%20Police%20Department')
+j = json_get_all('https://data.cityofboston.gov/resource/54s2-yxpg.json?department=Boston%20Police%20Department')
 # Map the salary of a police man to the year. 
 m = m + map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
 
 
 # Retrieve json files.
-j = jsonGetAll('https://data.cityofboston.gov/resource/4swk-wcg8.json?department_name=Boston%20Police%20Department')
+j = json_get_all('https://data.cityofboston.gov/resource/4swk-wcg8.json?department_name=Boston%20Police%20Department')
 # Map the salary of a police man to the year. Note: accounts for inconsident field labling.
 m = m + map(lambda k, v: [('2014', float(v['total_earnings']))] if v['department_name'] == 'Boston Police Department' else [], [("key", v) for v in j])
 
@@ -100,6 +104,7 @@ print(f3)
 
 ff = reduce(lambda k, vs: dict_merge({'year': k}, functools.reduce(dict_merge, vs)), f + f3)
 print(ff)
+'''
 
 # insert entries into mongo database
 
