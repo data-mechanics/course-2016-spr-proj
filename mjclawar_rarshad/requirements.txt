@@ -3,7 +3,7 @@ numpy==1.10.4
 pandas==0.17.1
 scikit-learn==0.16.1
 
-# Data documentation
+# Data documentation and visualization
 prov==1.4.0
 lxml==3.4.4
 decorator==4.0.9

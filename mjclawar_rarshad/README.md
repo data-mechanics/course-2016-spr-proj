@@ -13,11 +13,21 @@ Dependencies
 Running the package
 -------------------
 - Create a file named auth.json with fields
-    - "api_token": A Socrata API token
-    - "username": The username with access to the collections
-    - "pass": The password associated with the username with access to the collections
 
-- Run `setup.py "auth.json"`
+```json
+{
+    "services": {
+        "cityofbostondataportal": {
+            "service": "https://data.cityofboston.gov/",
+            "username": username,
+            "password": password,
+            "token": token (API token for the City of Boston portal)
+        }
+    }
+}           
+```
+
+- Run `setup.py auth.json`
 
 
 Reference information

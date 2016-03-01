@@ -25,9 +25,9 @@ def main(auth_json_path, full_provenance=False):
     # TODO put argv for auth.json here
     with open(auth_json_path, 'r') as f:
         auth_json = json.load(f)
-        api_token = auth_json['api_token']
-        username = auth_json['username']
-        mongo_pass = auth_json['pass']
+        api_token = auth_json['services']['cityofbostondataportal']['token']
+        username = auth_json['services']['cityofbostondataportal']['username']
+        mongo_pass = auth_json['services']['cityofbostondataportal']['password']
 
     database_helper = database_helpers.DatabaseHelper(username=username, password=mongo_pass)
     bdp_api = bdp_query.BDPQuery(api_token=api_token)
@@ -83,10 +83,8 @@ def setup_hospital_distances(database_helper, full_provenance=False):
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
     if len(sys.argv) == 1:
-        main('auth.json', full_provenance=True)
-
-        # TODO Uncomment me
-        # raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
+        # main('auth.json', full_provenance=True)
+        raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
     else:
         print(sys.argv)
         main(sys.argv[1])
