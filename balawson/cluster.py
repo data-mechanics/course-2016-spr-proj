@@ -2,29 +2,9 @@
 ###############################################################
 ####   import dependancies       
 ###############################################################
-
 import pandas as pd
 import pymongo, datetime, uuid
 import prov.model
-import random
-from scic_stat_tests import *
-
-##############################################################
-####   define functions
-##############################################################
-####   random sampler
-#stackoverflow.com/questions/6482889/get-random-sample-from-list-while-maintaining-ordering-of-items
-##############################################################
-def orderedSampleWithoutReplacement(seq, k):
-    if not 0<=k<=len(seq):
-        raise ValueError('Required that 0 <= sample_size <= population_size')
-
-    numbersPicked = 0
-    for i,number in enumerate(seq):
-        prob = (k-numbersPicked)/(len(seq)-i)
-        if random.random() < prob:
-            yield number
-            numbersPicked += 1
 ###############################################################
 ####    access the data       
 ###############################################################
@@ -37,35 +17,11 @@ tweets     = pd.DataFrame(list(repo.balawson.twitter.find()))
 gowalla    = pd.DataFrame(list(repo.balawson.gowalla.find()))
 brightkite = pd.DataFrame(list(repo.balawson.brightkite.find()))
 
-####create random samples of each dataset (because they are too big)
-b_test =  brightkite.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(brightkite.lat))], 5000))]
-g_test =  gowalla.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(gowalla.lat))], 5000))]
-t_test =  tweets.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(tweets.lat))], 5000))]
-
 ###############################################################
 ####    analyze the data       
 ###############################################################
 
-###### test similarity between datasets based on random geocoordinate samples
-print('calculating two sample, two dimensional (geocoordinates) ,kolmogoro-smirnov tests...')
-print('\tbetween Gowalla and Twitter: ',)
-print(ks2d2s(list(g_test.lat), list(g_test.lng), list(t_test.lat), list(t_test.lng)))
-print('\tbetween Brightkite and Twitter: ',)
-print(ks2d2s(list(b_test.lat), list(b_test.lng), list(t_test.lat), list(t_test.lng)))
-print('\tbetween Gowalla and Brightkite: ',)
-print(ks2d2s(list(g_test.lat), list(g_test.lng), list(b_test.lat), list(b_test.lng)))
 
-###### test similarity between datasets based on random geocoordinate samples
-print('calculating two sample, one dimensional (time),kolmogoro-smirnov tests...')
-print('\tbetween Gowalla and Twitter: ',)
-print(ks2d2s(list(g_test.time), list(t_test.time)))
-print('\tbetween Brightkite and Twitter: ',)
-print(ks2d2s(list(b_test.time), list(t_test.time)))
-print('\tbetween Gowalla and Brightkite: ',)
-print(ks2d2s(list(g_test.time), list(t_test.time)))
-
-
-endTime = datetime.datetime.now()
 ###############################################################
 ####    record provanence       
 ###############################################################
