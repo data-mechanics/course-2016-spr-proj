@@ -30,26 +30,27 @@ def reduce(f, R):
     keys = {k for (k,v) in R}
     return [f(k1, [v for (k2,v) in R if k1 == k2]) for k1 in keys]
 
-# gets the entire dataset. 
-def jsonGetAll(addr, limit = 50000, offset = 0):
-	r = requests.get(addr + "&$limit=" + str(limit) + "&$offset=" + str(offset))
-	if len(r.json()) < 1000:
-		return r.json()
-	else:
-		j = r.json()
-		offset += limit
-		while len(r.json()) == limit:
-			r = requests.get(addr + "&$limit=" + str(limit) + '&$offset=' + str(offset))
-			j = j + r.json()
-			offset += limit
-			print(len(j))
-		return j
+
+# gets the entire dataset.
+def jsonGetAll(addr, limit=50000, offset=0):
+    r = requests.get(addr + "&$limit=" + str(limit) + "&$offset=" + str(offset))
+    if len(r.json()) < 1000:
+        return r.json()
+    else:
+        j = r.json()
+        offset += limit
+        while len(r.json()) == limit:
+            r = requests.get(addr + "&$limit=" + str(limit) + '&$offset=' + str(offset))
+            j = j + r.json()
+            offset += limit
+            print(len(j))
+        return j
 
 
 def dict_merge(x, y):
-	z = x.copy()
-	z.update(y)
-	return z
+    z = x.copy()
+    z.update(y)
+    return z
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
@@ -113,7 +114,7 @@ doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nlouie_thsu8/') # Th
 doc.add_namespace('dat', 'http://datamechanics.io/data/nlouie_thsu8/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
-doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc.add_namespace('bdp', 'https://data-mechanics.s3.amazonaws.com')
 
 this_script = doc.agent('alg:script', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
