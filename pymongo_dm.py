@@ -1,3 +1,9 @@
+import urllib.request
+import json
+import pymongo
+import prov.model
+import datetime
+import uuid
 ###############################################################################
 ## 
 ## pymongo_dm.py
@@ -81,3 +87,4 @@ pymongo.database.Database.dropPerm = dropPermanent
 pymongo.database.Database.record = record
 
 ## eof
+
