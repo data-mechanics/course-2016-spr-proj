@@ -1,0 +1,797 @@
+[
+    {
+        "agent": {
+            "alg:get": {
+                "ont:Extension": "py",
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "@": "prov:SoftwareAgent"
+                }
+            }
+        },
+        "wasAssociatedWith": {
+            "_:id3": {
+                "prov:activity": "log:a*",
+                "prov:agent": "alg:get"
+            },
+            "_:id1": {
+                "prov:activity": "log:a*",
+                "prov:agent": "alg:get"
+            },
+            "_:id2": {
+                "prov:activity": "log:a*",
+                "prov:agent": "alg:get"
+            }
+        },
+        "prefix": {
+            "dat": "http://datamechanics.io/data/djmcc_jasper/",
+            "bdp": "https://data.cityofboston.gov/resource/",
+            "ont": "http://datamechanics.io/ontology#",
+            "log": "http://datamechanics.io/log#",
+            "alg": "http://datamechanics.io/algorithm/djmcc_jasper/",
+            "usr": "https://data-mechanics.s3.amazonaws.com/djmcc_jasper/"
+        },
+        "wasGeneratedBy": {
+            "_:id11": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a*"
+            },
+            "_:id14": {
+                "prov:entity": "dat:approved_permits",
+                "prov:activity": "log:a*"
+            },
+            "_:id8": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a*"
+            },
+            "_:idX": {
+                "prov:entity": "dat:ptypes",
+                "prov:activity": "log:a*"
+            }
+
+        },
+        "activity": {
+            "log:a.*": {
+                "ont:Query": "?$select=parcel_id,declared_valuation,location,occupancytype,zip,issued_date",
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "ont:Query": "?$select=parcel_id,ptype,av_land,av_bldg,av_total,zipcode,gross_tax",
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "ont:Query": "?$select=parcel_id,ptype,av_land,av_bldg,av_total,zipcode,gross_tax",
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            }
+        },
+        "used": {
+            "_:id4": {
+                "prov:entity": "bdp:qz7u-kb7x",
+                "prov:activity": "log:a*"
+            },
+            "_:id6": {
+                "prov:entity": "bdp:msk6-43c6",
+                "prov:activity": "log:a*"
+            },
+            "_:id5": {
+                "prov:entity": "bdp:yv8c-t43q",
+                "prov:activity": "log:a*"
+            },
+            "_:idX": {
+                "prov:entity": "usr:ptype",
+                "prov:activity": "log:a*"
+            }
+        },
+        "wasAttributedTo": {
+            "_:id10": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:agent": "alg:get"
+            },
+            "_:id7": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:agent": "alg:get"
+            },
+            "_:id13": {
+                "prov:entity": "dat:approved_permits",
+                "prov:agent": "alg:get"
+            },
+            "_:idX": {
+                "prov:entity": "dat:ptypes",
+                "prov:agent": "alg:get"
+            }
+        },
+        "entity": {
+            "bdp:msk6-43c6": {
+                "ont:Extension": "json",
+                "prov:type": "ont:DataResource",
+                "prov:label": "Approved Building Permits"
+            },
+            "bdp:qz7u-kb7x": {
+                "ont:Extension": "json",
+                "prov:type": "ont:DataResource",
+                "prov:label": "Property Assessments 2014"
+            },
+            "bdp:yv8c-t43q": {
+                "ont:Extension": "json",
+                "prov:type": "ont:DataResource",
+                "prov:label": "Property Assessments 2015"
+            },
+            "usr:ptype": {
+                "ont:Extension": "json",
+                "prov:type": "ont:DataResource",
+                "prov:label": "Property Types"
+            },
+            "dat:assessments_2014": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2014"
+            },
+            
+            "dat:assessments_2015": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2015"
+            },
+            "dat:approved_permits": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Approved Building Permits"
+            },
+            "dat:ptypes": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Types"
+            }
+        },
+        "wasDerivedFrom": {
+            "_:id12": {
+                "prov:usage": "log:a*",
+                "prov:generatedEntity": "dat:assessments_2015",
+                "prov:activity": "log:a*",
+                "prov:usedEntity": "bdp:yv8c-t43q",
+                "prov:generation": "log:a*"
+            },
+            "_:id15": {
+                "prov:usage": "log:a*",
+                "prov:generatedEntity": "dat:approved_permits",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "bdp:msk6-43c6",
+                "prov:generation": "log:a.*"
+            },
+            "_:id9": {
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:assessments_2014",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "bdp:qz7u-kb7x",
+                "prov:generation": "log:a.*"
+            },
+            "_:idX": {
+                "prov:usage": "log:a*",
+                "prov:generatedEntity": "dat:ptypes",
+                "prov:activity": "log:a*",
+                "prov:usedEntity": "usr:ptype",
+                "prov:generation": "log:a*"
+            }
+        }
+    },
+
+    {
+        "agent": {
+            "alg:clean": {
+                "ont:Extension": "py",
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "@": "prov:SoftwareAgent"
+                }
+            }
+        },
+        "wasAssociatedWith": {
+            "_:id3": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:clean"
+            },
+            "_:id1": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:clean"
+            },
+            "_:id2": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:clean"
+            }
+        },
+        "prefix": {
+            "dat": "http://datamechanics.io/data/djmcc_jasper/",
+            "ont": "http://datamechanics.io/ontology#",
+            "log": "http://datamechanics.io/log#",
+            "alg": "http://datamechanics.io/algorithm/djmcc_jasper/"
+        },
+        "wasGeneratedBy": {
+            "_:id11": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            },
+            "_:id14": {
+                "prov:entity": "dat:approved_permits",
+                "prov:activity": "log:a.*"
+            },
+            "_:id8": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "activity": {
+            "log:a.*": {
+                "prov:type": "ont:Computation"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Computation"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Computation"
+            }
+        },
+        "used": {
+            "_:id4": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            },
+            "_:id6": {
+                "prov:entity": "dat:approved_permits",
+                "prov:activity": "log:a.*"
+            },
+            "_:id5": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "wasAttributedTo": {
+            "_:id10": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:agent": "alg:clean"
+            },
+            "_:id7": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:agent": "alg:clean"
+            },
+            "_:id13": {
+                "prov:entity": "dat:approved_permits",
+                "prov:agent": "alg:clean"
+            }
+        },
+        "entity": {
+            "dat:assessments_2014": [{
+                "ont:Extension": "json",
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2014"
+            }, {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2014"
+            }],
+            "dat:assessments_2015": [{
+                "ont:Extension": "json",
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2015"
+            }, {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2015"
+            }],
+            "dat:approved_permits": [{
+                "ont:Extension": "json",
+                "prov:type": "ont:DataSet",
+                "prov:label": "Approved Building Permits"
+            }, {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Approved Building Permits"
+            }]
+        },
+        "wasDerivedFrom": {
+            "_:id12": {
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:assessments_2015",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "dat:assessments_2015",
+                "prov:generation": "log:a.*"
+            },
+            "_:id15": {
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:approved_permits",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "dat:approved_permits",
+                "prov:generation": "log:a.*"
+            },
+            "_:id9": {
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:assessments_2014",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "dat:assessments_2014",
+                "prov:generation": "log:a.*"
+            }
+        }
+    },
+
+
+    {
+        "agent": {
+            "alg:merge": {
+                "prov:type": {
+                    "@": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        },
+        "prefix": {
+            "dat": "http://datamechanics.io/data/djmcc_jasper/",
+            "ont": "http://datamechanics.io/ontology#",
+            "log": "http://datamechanics.io/log#",
+            "alg": "http://datamechanics.io/algorithm/djmcc_jasper/"
+        },
+        "entity": {
+            "dat:assessments_2015": [{
+                "prov:label": "Property Assessments 2015",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            }, {
+                "prov:label": "Property Assessments 2015",
+                "prov:type": "ont:DataSet"
+            }],
+            "dat:assessments_2014": [{
+                "prov:label": "Property Assessments 2014",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            }, {
+                "prov:label": "Property Assessments 2014",
+                "prov:type": "ont:DataSet"
+            }],
+            "dat:ptypes": {
+                "prov:label": "Massachusetts Property Classifications",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            }
+        },
+        "wasAttributedTo": {
+            "_:id20": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:agent": "alg:merge"
+            },
+            "_:id17": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:agent": "alg:merge"
+            }
+        },
+        "activity": {
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:DataSet"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Extension"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Extension"
+            },
+            "log:a.*": {
+                "prov:type": "ont:DataSet"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            }
+        },
+        "wasGeneratedBy": {
+            "_:id21": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            },
+            "_:id18": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "used": {
+            "_:id6": {
+                "prov:entity": "dat:ptypes",
+                "prov:activity": "log:a.*"
+            },
+            "_:id9": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            },
+            "_:id4": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            },
+            "_:id15": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            },
+            "_:id10": {
+                "prov:entity": "dat:ptypes",
+                "prov:activity": "log:a.*"
+            },
+            "_:id16": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            },
+            "_:id11": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            },
+            "_:id12": {
+                "prov:entity": "dat:ptypes",
+                "prov:activity": "log:a.*"
+            },
+            "_:id5": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "wasAssociatedWith": {
+            "_:id3": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            },
+            "_:id1": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            },
+            "_:id14": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            },
+            "_:id2": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            },
+            "_:id13": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            },
+            "_:id7": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            },
+            "_:id8": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:merge"
+            }
+        },
+        "wasDerivedFrom": {
+            "_:id22": {
+                "prov:generation": "log:a.*",
+                "prov:generatedEntity": "dat:assessments_2015",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "dat:assessments_2015",
+                "prov:usage": "log:a.*"
+            },
+            "_:id19": {
+                "prov:generation": "log:a.*",
+                "prov:generatedEntity": "dat:assessments_2014",
+                "prov:activity": "log:a.*",
+                "prov:usedEntity": "dat:assessments_2014",
+                "prov:usage": "log:a.*"
+            }
+        }
+    },
+
+
+    {
+        "agent": {
+            "alg:kmeans": {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "@": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            }
+        },
+        "entity": {
+            "dat:commercial_centers": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Commercial Centers"
+            },
+            "dat:approved_permits": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Approved Building Permits",
+                "ont:Extension": "json"
+            },
+            "dat:assessments_2014": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2014",
+                "ont:Extension": "json"
+            },
+            "geo:findNearestAddressJSON": {
+                "prov:type": "ont:DataResource",
+                "prov:label": "Nearest Address",
+                "ont:Extension": "json"
+            },
+            "dat:residential_centers": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Residential Centers"
+            },
+            "dat:assessments_2015": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Property Assessments 2015",
+                "ont:Extension": "json"
+            }
+        },
+        "used": {
+            "_:id11": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            },
+            "_:id6": {
+                "prov:entity": "dat:approved_permits",
+                "prov:activity": "log:a.*"
+            },
+            "_:id8": {
+                "prov:entity": "geo:findNearestAddressJSON",
+                "prov:activity": "log:a.*"
+            },
+            "_:id4": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            },
+            "_:id5": {
+                "prov:entity": "dat:assessments_2015",
+                "prov:activity": "log:a.*"
+            },
+            "_:id13": {
+                "prov:entity": "geo:findNearestAddressJSON",
+                "prov:activity": "log:a.*"
+            },
+            "_:id12": {
+                "prov:entity": "dat:approved_permits",
+                "prov:activity": "log:a.*"
+            },
+            "_:id10": {
+                "prov:entity": "dat:assessments_2014",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "wasAttributedTo": {
+            "_:id14": {
+                "prov:entity": "dat:residential_centers",
+                "prov:agent": "alg:kmeans"
+            },
+            "_:id20": {
+                "prov:entity": "dat:commercial_centers",
+                "prov:agent": "alg:kmeans"
+            }
+        },
+        "activity": {
+            "log:a.*": {
+                "prov:type": "ont:Computation"
+            },
+            "log:a.*": {
+                "ont:Query": "?lat=<LAT>&lng=<LNG>&username=djmcc",
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            }
+        },
+        "wasAssociatedWith": {
+            "_:id7": {
+                "prov:agent": "alg:kmeans",
+                "prov:activity": "log:a.*"
+            },
+            "_:id3": {
+                "prov:agent": "alg:kmeans",
+                "prov:activity": "log:a.*"
+            },
+            "_:id1": {
+                "prov:agent": "alg:kmeans",
+                "prov:activity": "log:a.*"
+            },
+            "_:id9": {
+                "prov:agent": "alg:kmeans",
+                "prov:activity": "log:a.*"
+            },
+            "_:id2": {
+                "prov:agent": "alg:kmeans",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "prefix": {
+            "dat": "http://datamechanics.io/data/djmcc_jasper/",
+            "ont": "http://datamechanics.io/ontology#",
+            "alg": "http://datamechanics.io/algorithm/djmcc_jasper/",
+            "log": "http://datamechanics.io/log#",
+            "geo": "http://api.geonames.org/"
+        },
+        "wasDerivedFrom": {
+            "_:id16": {
+                "prov:usedEntity": "dat:assessments_2014",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:residential_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id18": {
+                "prov:usedEntity": "dat:approved_permits",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:residential_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id24": {
+                "prov:usedEntity": "dat:approved_permits",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:commercial_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id17": {
+                "prov:usedEntity": "dat:assessments_2015",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:residential_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id25": {
+                "prov:usedEntity": "geo:findNearestAddressJSON",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:commercial_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id23": {
+                "prov:usedEntity": "dat:assessments_2015",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:commercial_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id22": {
+                "prov:usedEntity": "dat:assessments_2014",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:commercial_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            },
+            "_:id19": {
+                "prov:usedEntity": "geo:findNearestAddressJSON",
+                "prov:usage": "log:a.*",
+                "prov:generatedEntity": "dat:residential_centers",
+                "prov:activity": "log:a.*",
+                "prov:generation": "log:a.*"
+            }
+        },
+        "wasGeneratedBy": {
+            "_:id15": {
+                "prov:entity": "dat:residential_centers",
+                "prov:activity": "log:a.*"
+            },
+            "_:id21": {
+                "prov:entity": "dat:commercial_centers",
+                "prov:activity": "log:a.*"
+            }
+        },
+    },
+
+    {
+        "agent": {
+            "alg:zoning": {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "@": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            }
+        },
+        "entity": {
+            "dat:assessments_2014": {
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json",
+                "prov:label": "Property Assessments 2014"
+            },
+            "dat:neighborhood_zoning": {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Neighborhood Zoning"
+            },
+            "dat:assessments_2015": {
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json",
+                "prov:label": "Property Assessments 2015"
+            }
+        },
+        "used": {
+            "_:id7": {
+                "prov:activity": "log:a.*",
+                "prov:entity": "dat:assessments_2014"
+            },
+            "_:id4": {
+                "prov:activity": "log:a.*",
+                "prov:entity": "dat:assessments_2015"
+            },
+            "_:id3": {
+                "prov:activity": "log:a.*",
+                "prov:entity": "dat:assessments_2014"
+            },
+            "_:id8": {
+                "prov:activity": "log:a.*",
+                "prov:entity": "dat:assessments_2015"
+            }
+        },
+        "prefix": {
+            "dat": "http://datamechanics.io/data/djmcc_jasper/",
+            "ont": "http://datamechanics.io/ontology#",
+            "log": "http://datamechanics.io/log#",
+            "alg": "http://datamechanics.io/algorithm/djmcc_jasper/"
+        },
+        "activity": {
+            "log:a.*": {
+                "prov:type": "ont:Computation"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Retrieval"
+            },
+            "log:a.*": {
+                "prov:type": "ont:Computation"
+            }
+        },
+        "wasAttributedTo": {
+            "_:id9": {
+                "prov:entity": "dat:neighborhood_zoning",
+                "prov:agent": "alg:zoning"
+            }
+        },
+        "wasDerivedFrom": {
+            "_:id13": {
+                "prov:usedEntity": "dat:assessments_2015",
+                "prov:generation": "log:a.*",
+                "prov:generatedEntity": "dat:neighborhood_zoning",
+                "prov:usage": "log:a.*",
+                "prov:activity": "log:a.*"
+            },
+            "_:id12": {
+                "prov:usedEntity": "dat:assessments_2014",
+                "prov:generation": "log:a.*",
+                "prov:generatedEntity": "dat:neighborhood_zoning",
+                "prov:usage": "log:a.*",
+                "prov:activity": "log:a.*"
+            }
+        },
+        "wasGeneratedBy": {
+            "_:id11": {
+                "prov:activity": "log:a.*",
+                "prov:entity": "dat:neighborhood_zoning"
+            },
+            "_:id10": {
+                "prov:activity": "log:a.*",
+                "prov:entity": "dat:neighborhood_zoning"
+            }
+        },
+        "wasAssociatedWith": {
+            "_:id2": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:zoning"
+            },
+            "_:id1": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:zoning"
+            },
+            "_:id5": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:zoning"
+            },
+            "_:id6": {
+                "prov:activity": "log:a.*",
+                "prov:agent": "alg:zoning"
+            }
+        }
+    }
+]
