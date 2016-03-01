@@ -9,9 +9,8 @@ Andrei Lapets (lapets@bu.edu)
 Datamechanics.org
 Datamechanics.io
 
-Description: The script opens the nlouie_thsu8 Mongo Database, takes the data off Boston's dataset without needing to the use the API key.
-We take the dataset from Boston's Salaries (2012,2013,2014) , reduce for the Boston Police Department and map each with the amount of crime incidents
-for that year.
+Description: The script opens the nlouie_thsu8 Mongo Database, takes the data from our datamechanics repo, and adds
+the original and processed data to the database
 '''
 
 import requests # import sodapy
@@ -20,8 +19,7 @@ import pymongo
 import prov.model
 import datetime
 import uuid
-import functools
-
+import urllib
 
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
@@ -55,106 +53,101 @@ def dict_merge(x, y):
     z.update(y)
     return z
 
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
+# take collection name (same as dataset name without .json at end)
+def insert_to_db(repo, s):
+    url = 'https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data/' + s + '.json'
+    response = urllib.request.urlopen(url).read().decode("utf-8")
+    r = json.loads(response)
+    s = json.dumps(r, sort_keys=True, indent=2)
+    repo.dropPermanent(s)
+    repo.createPermanent(s)
+    repo['nlouie_thsu8.' + s].insert_many(r)
 
-# Set up the database connection.
-client = pymongo.MongoClient()
-repo = client.repo
-repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
+# add to mongo database and generate prov
+def main():
 
-# Retrieve some data sets (not using the API here for the sake of simplicity).
-startTime = datetime.datetime.now()
+    # Until a library is created, we just use the script directly.
+    exec(open('../pymongo_dm.py').read())
 
-'''
-# Retrieve json files. 
-j = json_get_all('https://data.cityofboston.gov/resource/effb-uspk.json?department=Boston%20Police%20Department')
-# Map the salary of a police man to the year. 
-m = map(lambda k, v: [('2012', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
+    # Set up the database connection.
+    client = pymongo.MongoClient()
+    repo = client.repo
+    repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
 
+    # Retrieve some data sets (not using the API here for the sake of simplicity).
+    startTime = datetime.datetime.now()
 
-# Retrieve json files.
-j = json_get_all('https://data.cityofboston.gov/resource/54s2-yxpg.json?department=Boston%20Police%20Department')
-# Map the salary of a police man to the year. 
-m = m + map(lambda k, v: [('2013', float(v['total_earnings']))] if v['department'] == 'Boston Police Department' else [], [("key", v) for v in j])
+    # insert entries into mongo database
 
+    insert_to_db(repo, 'BPDEarnings2012')
+    insert_to_db(repo, 'BPDEarnings2013')
+    insert_to_db(repo, 'BPDEarnings2014')
+    insert_to_db(repo, 'BPDEarnings2012')
+    insert_to_db(repo, 'avgEarnings')
+    insert_to_db(repo, 'incidentCounts')
+    insert_to_db(repo, 'avgEarningsIncidents')
 
-# Retrieve json files.
-j = json_get_all('https://data.cityofboston.gov/resource/4swk-wcg8.json?department_name=Boston%20Police%20Department')
-# Map the salary of a police man to the year. Note: accounts for inconsident field labling.
-m = m + map(lambda k, v: [('2014', float(v['total_earnings']))] if v['department_name'] == 'Boston Police Department' else [], [("key", v) for v in j])
+    endTime = datetime.datetime.now()
 
+    # generate provenance data
 
-# Average the salary for each year. 
-f = reduce(lambda k,vs: (k, {'avg_salary': sum(vs)/len(vs)}), m)
+    doc = prov.model.ProvDocument()
+    doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nlouie_thsu8/') # The scripts in <folder>/<filename> format.
+    doc.add_namespace('dat', 'http://datamechanics.io/data/nlouie_thsu8/') # The data sets in <user>/<collection> format.
+    doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+    doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+    doc.add_namespace('bdp', 'https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data')
 
-print(f)
+    this_script = doc.agent('alg:script', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
-# Retrieve json files. This takes a longgggg time. Just take my word for it. 
-#j = jsonGetAll("https://data.cityofboston.gov/resource/7cdf-6fgx.json?")
-# Map an incident to the year with a value of 1. 
-# m = map(lambda k, v: [(k, 1)], [(v['year'], v) for v in j])
-# Reduce by year. 
-# f3 = reduce(lambda k, vs: (k, sum(vs)), m)
+    # resources
 
-f3 = [('2014', 88058), ('2015', 49760), ('2013', 87052), ('2012', 43186)]
-f3 = map(lambda k, v: [(k, {'incidence_count': v})], f3)
+    resource0 = doc.entity('bdp:effb-uspk', {'prov:label':'Employee Earnings Report 2012', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+    this_run0 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?department=Boston%20Police%20Department'})
+    doc.wasAssociatedWith(this_run0, this_script)
+    doc.used(this_run0, resource0, startTime)
 
-print(f3)
+    resource1 = doc.entity('bdp:54s2-yxpg', {'prov:label':'Employee Earnings Report 2013', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+    this_run1 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?department=Boston%20Police%20Department'})
+    doc.wasAssociatedWith(this_run1, this_script)
+    doc.used(this_run1, resource1, startTime)
 
-ff = reduce(lambda k, vs: dict_merge({'year': k}, functools.reduce(dict_merge, vs)), f + f3)
-print(ff)
-'''
+    resource2 = doc.entity('bdp:4swk-wcg8', {'prov:label':'Employee Earnings Report 2014', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+    this_run2 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?department_name=Boston%20Police%20Department'})
+    doc.wasAssociatedWith(this_run2, this_script)
+    doc.used(this_run2, resource2, startTime)
 
-# insert entries into mongo database
+    resource3 = doc.entity('bdp:7cdf-6fgx', {'prov:label':'Crime Incident Report', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+    this_run3 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+    doc.wasAssociatedWith(this_run3, this_script)
+    doc.used(this_run3, resource3, startTime)
 
-repo.dropPermanent('policeSalaryToCrimeIncidence')
-repo.createPermanent('policeSalaryToCrimeIncidence')
-repo['nlouie_thsu8.policeSalaryToCrimeIncidence'].insert_many(ff)
+    # generated
 
-endTime = datetime.datetime.now()
+    avgEarnings = doc.entity('dat:avgEarnings', {prov.model.PROV_LABEL:'Police Salary and Crime Incidence by Year', prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(avgEarnings, this_script)
+    doc.wasGeneratedBy(avgEarnings, this_run0, endTime)
+    doc.wasGeneratedBy(avgEarnings, this_run1, endTime)
+    doc.wasGeneratedBy(avgEarnings, this_run2, endTime)
+    doc.wasDerivedFrom(avgEarnings, resource0, this_run0)
+    doc.wasDerivedFrom(avgEarnings, resource1, this_run1)
+    doc.wasDerivedFrom(avgEarnings, resource2, this_run2)
 
-doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nlouie_thsu8/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'http://datamechanics.io/data/nlouie_thsu8/') # The data sets in <user>/<collection> format.
-doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
-doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
-doc.add_namespace('bdp', 'https://data-mechanics.s3.amazonaws.com')
+    incidentCounts = doc.entity('dat:incidentCounts', {prov.model.PROV_LABEL:'Police Salary and Crime Incidence by Year', prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(incidentCounts, this_script)
+    doc.wasGeneratedBy(incidentCounts, this_run3, endTime)
+    doc.wasDerivedFrom(incidentCounts, resource3, this_run3)
 
-this_script = doc.agent('alg:script', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+    avgEarningsIncidents = doc.entity('dat:avgEarningsIncidents', {prov.model.PROV_LABEL:'Police Salary and Crime Incidence by Year', prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(avgEarningsIncidents, this_script)
+    doc.wasGeneratedBy(avgEarningsIncidents, this_run3, endTime)
+    doc.wasDerivedFrom(avgEarningsIncidents, resource3, this_run0, this_run1, this_run2)
 
-resource0 = doc.entity('bdp:effb-uspk', {'prov:label':'Employee Earnings Report 2012', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run0 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?department=Boston%20Police%20Department'})
-doc.wasAssociatedWith(this_run0, this_script)
-doc.used(this_run0, resource0, startTime)
+    repo.record(doc.serialize()) # Record the provenance document.
+    #print(json.dumps(json.loads(doc.serialize()), indent=4))
+    open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+    print(doc.get_provn())
+    repo.logout()
 
-resource1 = doc.entity('bdp:54s2-yxpg', {'prov:label':'Employee Earnings Report 2013', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run1 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?department=Boston%20Police%20Department'})
-doc.wasAssociatedWith(this_run1, this_script)
-doc.used(this_run1, resource1, startTime)
-
-resource2 = doc.entity('bdp:4swk-wcg8', {'prov:label':'Employee Earnings Report 2014', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run2 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?department_name=Boston%20Police%20Department'})
-doc.wasAssociatedWith(this_run2, this_script)
-doc.used(this_run2, resource2, startTime)
-
-resource3 = doc.entity('bdp:7cdf-6fgx', {'prov:label':'Crime Incident Report', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run3 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
-doc.wasAssociatedWith(this_run3, this_script)
-doc.used(this_run3, resource3, startTime)
-
-lost = doc.entity('dat:policeSalaryToCrimeIncidence', {prov.model.PROV_LABEL:'Police Salary and Crime Incidence by Year', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(lost, this_script)
-doc.wasGeneratedBy(lost, this_run3, endTime)
-doc.wasDerivedFrom(lost, resource3, this_run0, this_run1, this_run2)
-
-repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
-print(doc.get_provn())
-repo.logout()
-
-
-
-
-
+if __name__ == '__main__':
+    main()

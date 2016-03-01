@@ -120,7 +120,6 @@ def main():
 
     ff = reduce(lambda k, vs: dict_merge({'year': k}, functools.reduce(dict_merge, vs)), f + f3)
     print(ff)
-
     output_json(ff, 'data/avgEarningsIncidents.json')
 
 if __name__ == '__main__':
