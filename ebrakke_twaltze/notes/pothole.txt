@@ -1,0 +1,3 @@
+Collection: serviceCalls
+	filter: {'type': 'Request for Pothole Repair'}
+	filter: {'type': 'BWSC Pothole'}
