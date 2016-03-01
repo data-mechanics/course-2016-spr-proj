@@ -22,7 +22,6 @@ from mjclawar_rarshad.tools import bdp_query, database_helpers
 
 
 def main(auth_json_path, full_provenance=False):
-    # TODO put argv for auth.json here
     with open(auth_json_path, 'r') as f:
         auth_json = json.load(f)
         api_token = auth_json['services']['cityofbostondataportal']['token']

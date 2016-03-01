@@ -76,7 +76,6 @@ class DatabaseHelper:
         repo.logout()
 
     def record(self, json_data):
-        # TODO This doesn't work, ask Prof. Lapets
         repo = self.connect_repo()
         repo.record(json_data)
 
