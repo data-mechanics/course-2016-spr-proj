@@ -1,20 +1,46 @@
-# Boston University Data Mechanics CS591 L1
-# course-2016-spr-proj-one
+#nlouie_thsu8
+### Thomas Hsu (thsu@bu.edu), Nicholas Louie (nlouie@bu.edu)
 
-## Thomas Hsu (thsu@bu.edu), Nicholas Louie (nlouie@bu.edu)
-Date: 2/27/16
+#### Boston University Data Mechanics CS591 L1
+####course-2016-spr-proj-one
+
+
+### Running the package
+
+- Create your own auth.json with the format below: 
+
+```json
+{
+    "services": {
+        "cityofbostondataportal": {
+            "service": "https://data.cityofboston.gov/",
+            "username": username,
+            "password": password,
+            "token": token (API token for the City of Boston portal)
+        }
+    }
+}  
+```
 
 ### Functionality
 
-The goal of our ** script.py ** is to obtain the data of Boston's Employee Earnings. We take the years [2012](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2012/effb-uspk), [2013](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg), and [2014](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8).
+The goal of our `script.py` is to obtain the data of Boston's Employee Earnings, Crime Incidents, map and reduce the results to obtain for a given year between 2012-2014 average police salary versus crime incidents.
 
-We also obtain the dataset for [Crime Incidents](https://data.cityofboston.gov/resource/7cdf-6fgx.json). We extract for years 2012, 2013, 2014.
+### Datasets 
 
-We map together the average Police Officer's salary for a yearwith the crime incidents for that given year. The dataset is then added to our database. 
+#### Employee Earnings Report
+-[2012](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2012/effb-uspk) -[2013](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg) -[2014](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8
+
+#### Crime Incidents
+[Crime Incidents](https://data.cityofboston.gov/resource/7cdf-6fgx.json). We extract for years 2012, 2013, 2014.
+
+We map together the average Police Officer's salary for a year with the crime incidents for that given year. The dataset is then added to our database. 
 
 We also create provenance data that acts as a log of actions our script has taken from its specific sources. This too is added to our database. 
 
 ### Possibilities
+
+We are interested in the effects of money on the crime in Boston. In particular, for our package how Boston Police Department employee earnings affect crime in Boston.
 
 With Boston's Employee earings dataset, there are many possibilities including creating trends by various departments and attempting to link it with other facts present in Boston (in our case, the police department and amount of crime).
 
