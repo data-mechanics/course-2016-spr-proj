@@ -52,7 +52,7 @@ def reduceNoFunction(K,R):
     keys = {k for (k,v) in K}
     return [(k1, [v for (k2,v) in R if int(k1) == int(k2)]) for k1 in keys]
 
-# ========================query databse functions=================================
+# ========================query database functions=================================
 def getCollection(dbName):
 	temp = []
 	if type(dbName) != str:
@@ -60,10 +60,9 @@ def getCollection(dbName):
 	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
 		temp.append(elem)
 	return temp
-# ========================query databse functions end =================================
+# ========================query database functions end =================================
 
 # ===========================Perform ops on collections==============================
-# zipCarReservations = getCollection("zipcarreversations")
 zipCarReservations = getCollection("zipcarreservations")
 zipCarMembers = getCollection("zipcarmembers")
 propertyValues = getCollection("propertyvalue")
