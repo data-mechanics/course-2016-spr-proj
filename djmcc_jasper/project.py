@@ -26,12 +26,12 @@ repo.authenticate('djmcc_jasper', 'djmcc_jasper')
 
 # execute scripts
 
-# reset.run(repo)
-# get.run(repo)
-# clean.run(repo)
-# merge.run(repo)
+reset.run(repo)
+get.run(repo)
+clean.run(repo)
+merge.run(repo)
 kmeans.run(repo)
-# zoning.run(repo)
+zoning.run(repo)
 
 # disconnect from the DBMS
 
