@@ -1,0 +1,365 @@
+{
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/nikolaj/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "ssa": "https://www.ssa.gov/oact/babynames/",
+        "dat": "http://datamechanics.io/data/nikolaj/"
+    },
+    "wasDerivedFrom": {
+        "_:id34": {
+            "prov:usedEntity": "dat:earnings_2013_combined",
+            "prov:generation": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
+            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
+            "prov:generatedEntity": "dat:earnings_2013_avg_by_gender",
+            "prov:usage": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a"
+        },
+        "_:id39": {
+            "prov:usedEntity": "dat:earnings_2014_combined",
+            "prov:generation": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
+            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
+            "prov:generatedEntity": "dat:earnings_2014_avg_by_gender",
+            "prov:usage": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0"
+        },
+        "_:id22": {
+            "prov:usedEntity": "dat:name_gender_lookup",
+            "prov:generation": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:generatedEntity": "dat:earnings_2013_combined",
+            "prov:usage": "log:a11d77307-8853-499d-948f-bc01671f29a8"
+        },
+        "_:id21": {
+            "prov:usedEntity": "dat:earnings_2013",
+            "prov:generation": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:generatedEntity": "dat:earnings_2013_combined",
+            "prov:usage": "log:a11d77307-8853-499d-948f-bc01671f29a8"
+        },
+        "_:id5": {
+            "prov:usedEntity": "bdp:54s2-yxpg",
+            "prov:generation": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
+            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
+            "prov:generatedEntity": "dat:earnings_2013",
+            "prov:usage": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05"
+        },
+        "_:id29": {
+            "prov:usedEntity": "dat:name_gender_lookup",
+            "prov:generation": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:generatedEntity": "dat:earnings_2014_combined",
+            "prov:usage": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677"
+        },
+        "_:id10": {
+            "prov:usedEntity": "bdp:ntv7-hwjm",
+            "prov:generation": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
+            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
+            "prov:generatedEntity": "dat:earnings_2014",
+            "prov:usage": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c"
+        },
+        "_:id15": {
+            "prov:usedEntity": "ssa:names",
+            "prov:generation": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
+            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
+            "prov:generatedEntity": "dat:name_gender_lookup",
+            "prov:usage": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197"
+        },
+        "_:id28": {
+            "prov:usedEntity": "dat:earnings_2014",
+            "prov:generation": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:generatedEntity": "dat:earnings_2014_combined",
+            "prov:usage": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677"
+        }
+    },
+    "entity": {
+        "ssa:names": {
+            "prov:label": "National Data on the relative frequency of given names",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "zip"
+        },
+        "dat:earnings_2013_avg_by_gender": {
+            "prov:label": "Average Salary Computed by Gender 2013",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:earnings_2014": [
+            {
+                "prov:label": "Earnings Report 2014",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Earnings Report 2014",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:earnings_2013_combined": [
+            {
+                "prov:label": "Average Salary Computed by Gender 2013",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Individual Salary by Gender 2013",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "bdp:ntv7-hwjm": {
+            "prov:label": "Employee Earnings Report 2014",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "bdp:54s2-yxpg": {
+            "prov:label": "Employee Earnings Report 2013",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:earnings_2014_combined": [
+            {
+                "prov:label": "Average Salary Computed by Gender 2014",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Individual Salary by Gender 2014",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:earnings_2014_avg_by_gender": {
+            "prov:label": "Average Salary Computed by Gender 2014",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:name_gender_lookup": [
+            {
+                "prov:label": "Name Gender Lookup",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Name Gender Lookup",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:earnings_2013": [
+            {
+                "prov:label": "Earnings Report 2013",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Earnings Report 2013",
+                "prov:type": "ont:DataSet"
+            }
+        ]
+    },
+    "used": {
+        "_:id31": {
+            "prov:time": "2016-03-01T17:37:53.327846",
+            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:earnings_2013_combined"
+        },
+        "_:id18": {
+            "prov:time": "2016-03-01T17:37:28.886145",
+            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:name_gender_lookup"
+        },
+        "_:id36": {
+            "prov:time": "2016-03-01T17:37:53.327846",
+            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:earnings_2014_combined"
+        },
+        "_:id17": {
+            "prov:time": "2016-03-01T17:37:28.886145",
+            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:earnings_2013"
+        },
+        "_:id12": {
+            "prov:time": "2016-03-01T17:37:10.993472",
+            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
+            "prov:entity": "ssa:names"
+        },
+        "_:id2": {
+            "prov:time": "2016-03-01T17:37:10.993472",
+            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
+            "prov:entity": "bdp:54s2-yxpg"
+        },
+        "_:id25": {
+            "prov:time": "2016-03-01T17:37:28.886145",
+            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:name_gender_lookup"
+        },
+        "_:id7": {
+            "prov:time": "2016-03-01T17:37:10.993472",
+            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
+            "prov:entity": "bdp:ntv7-hwjm"
+        },
+        "_:id24": {
+            "prov:time": "2016-03-01T17:37:28.886145",
+            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:earnings_2014"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id37": {
+            "prov:agent": "alg:sal_avg_by_gender",
+            "prov:entity": "dat:earnings_2014_avg_by_gender"
+        },
+        "_:id13": {
+            "prov:agent": "alg:gender_sal_data",
+            "prov:entity": "dat:name_gender_lookup"
+        },
+        "_:id32": {
+            "prov:agent": "alg:sal_avg_by_gender",
+            "prov:entity": "dat:earnings_2013_avg_by_gender"
+        },
+        "_:id26": {
+            "prov:agent": "alg:join_sal_gender",
+            "prov:entity": "dat:earnings_2014_combined"
+        },
+        "_:id3": {
+            "prov:agent": "alg:gender_sal_data",
+            "prov:entity": "dat:earnings_2013"
+        },
+        "_:id19": {
+            "prov:agent": "alg:join_sal_gender",
+            "prov:entity": "dat:earnings_2013_combined"
+        },
+        "_:id8": {
+            "prov:agent": "alg:gender_sal_data",
+            "prov:entity": "dat:earnings_2014"
+        }
+    },
+    "activity": {
+        "log:a710eec67-25b6-4e47-9360-fb92de70bd5a": {
+            "prov:endTime": "2016-03-01T17:37:55.439032",
+            "prov:label": "Compute Average Salary by Gender 2013",
+            "prov:startTime": "2016-03-01T17:37:53.327846",
+            "prov:type": "Computation"
+        },
+        "log:a11d77307-8853-499d-948f-bc01671f29a8": {
+            "prov:endTime": "2016-03-01T17:37:53.316920",
+            "prov:label": "Join Salary and Gender on Name 2013",
+            "prov:startTime": "2016-03-01T17:37:28.886145",
+            "prov:type": "Computation"
+        },
+        "log:a310f2f4b-b781-4e46-8040-5d0dc9652677": {
+            "prov:endTime": "2016-03-01T17:37:53.316920",
+            "prov:label": "Join Salary and Gender on Name 2014",
+            "prov:startTime": "2016-03-01T17:37:28.886145",
+            "prov:type": "Computation"
+        },
+        "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c": {
+            "prov:endTime": "2016-03-01T17:37:28.879538",
+            "prov:label": "Retrieve Earnings Report 2014",
+            "prov:startTime": "2016-03-01T17:37:10.993472",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197": {
+            "prov:endTime": "2016-03-01T17:37:28.879538",
+            "prov:startTime": "2016-03-01T17:37:10.993472",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0": {
+            "prov:endTime": "2016-03-01T17:37:55.439032",
+            "prov:label": "Compute Average Salary by Gender 2014",
+            "prov:startTime": "2016-03-01T17:37:53.327846",
+            "prov:type": "Computation"
+        },
+        "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05": {
+            "prov:endTime": "2016-03-01T17:37:28.879538",
+            "prov:startTime": "2016-03-01T17:37:10.993472",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id20": {
+            "prov:time": "2016-03-01T17:37:53.316920",
+            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+            "prov:entity": "dat:earnings_2013_combined"
+        },
+        "_:id4": {
+            "prov:time": "2016-03-01T17:37:28.879538",
+            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
+            "prov:entity": "dat:earnings_2013"
+        },
+        "_:id14": {
+            "prov:time": "2016-03-01T17:37:28.879538",
+            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
+            "prov:entity": "dat:name_gender_lookup"
+        },
+        "_:id33": {
+            "prov:time": "2016-03-01T17:37:55.439032",
+            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
+            "prov:entity": "dat:earnings_2013_avg_by_gender"
+        },
+        "_:id9": {
+            "prov:time": "2016-03-01T17:37:28.879538",
+            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
+            "prov:entity": "dat:earnings_2014"
+        },
+        "_:id27": {
+            "prov:time": "2016-03-01T17:37:53.316920",
+            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
+            "prov:entity": "dat:earnings_2014_combined"
+        },
+        "_:id38": {
+            "prov:time": "2016-03-01T17:37:55.439032",
+            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
+            "prov:entity": "dat:earnings_2014_avg_by_gender"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id30": {
+            "prov:agent": "alg:sal_avg_by_gender",
+            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a"
+        },
+        "_:id6": {
+            "prov:agent": "alg:gender_sal_data",
+            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c"
+        },
+        "_:id11": {
+            "prov:agent": "alg:gender_sal_data",
+            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197"
+        },
+        "_:id16": {
+            "prov:agent": "alg:join_sal_gender",
+            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8"
+        },
+        "_:id23": {
+            "prov:agent": "alg:join_sal_gender",
+            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677"
+        },
+        "_:id1": {
+            "prov:agent": "alg:gender_sal_data",
+            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05"
+        },
+        "_:id35": {
+            "prov:agent": "alg:sal_avg_by_gender",
+            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0"
+        }
+    },
+    "agent": {
+        "alg:join_sal_gender": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:sal_avg_by_gender": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:gender_sal_data": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    }
+}
