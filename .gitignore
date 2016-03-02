@@ -1,7 +1,13 @@
+data/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+api_token.txt
+auth.json
+provenance.json
+*.ipynb
 
 # C extensions
 *.so
@@ -76,3 +82,9 @@ pip-selfcheck.json
 
 # Directory-based project format:
 .idea/
+
+# Authentication Json File
+linshan_luoty/auth.json
+
+# Mongodb Folder
+db/*
