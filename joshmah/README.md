@@ -48,7 +48,7 @@ This file is currently creating a database that has the number of intersections 
 ```
 >db.joshmah.intersectionsJamAmbulances.find();
 ```
-This data is not as successful, because it includes all traffic jam data inside Boston, with no reference to where the ambulance is located. There are around 506 interesections out of a database of 1000, but this doesn't exactly reference where the ambulances are, as noted above.
+This data is not as successful, because it includes all traffic jam data inside Boston, with no reference to where the ambulance is located, but there are around 506 intersections out of a database of 1000. 
 
 The provenance for this is recorded in plan2.json
 
