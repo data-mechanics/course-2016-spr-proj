@@ -16,13 +16,12 @@ repo.authenticate('jtsliu_kmann', 'jtsliu_kmann')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = "https://data.cityofboston.gov/resource/hda6-fnsh.json"
+url = "https://data.cityofboston.gov/resource/hda6-fnsh.json?$limit=50000"
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
 repo.dropPermanent("liquor_license")
 repo.createPermanent("liquor_license")
-
 clean = []
 for elem in r:
 	if not 'location' in elem:

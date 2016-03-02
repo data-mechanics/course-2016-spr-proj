@@ -14,10 +14,19 @@ repo.authenticate('jtsliu_kmann', 'jtsliu_kmann')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = "https://data.cityofboston.gov/resource/qz7u-kb7x.json"
-response = urllib.request.urlopen(url).read().decode("utf-8")
-r = json.loads(response)
-s = json.dumps(r, sort_keys=True, indent=2)
 repo.dropPermanent("property_assessment")
 repo.createPermanent("property_assessment")
-repo['jtsliu_kmann.property_assessment'].insert_many(r)
+
+count = 50000
+iteration = 0
+while count == 50000:
+	url = "https://data.cityofboston.gov/resource/qz7u-kb7x.json?$limit=50000&$offset=" + str(50000 * iteration)
+	response = urllib.request.urlopen(url).read().decode("utf-8")
+	r = json.loads(response)
+	s = json.dumps(r, sort_keys=True, indent=2)
+	iteration += 1
+	count = len(r)
+	print("added", len(r), "records")
+	repo['jtsliu_kmann.property_assessment'].insert_many(r)
+
+
