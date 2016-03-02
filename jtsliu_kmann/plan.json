@@ -1,71 +1,231 @@
 {
-    "entity": {
-        "bdp:hda6-fnsh": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "Liquor Licenses"
-        },
-        "dat:liquor_license": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Liquor Licenses"
-        }
-    },
-    "prefix": {
-        "ont": "http://datamechanics.io/ontology#",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "log": "http://datamechanics.io/log#",
-        "dat": "http://datamechanics.io/data/alice_bob/",
-        "alg": "http://datamechanics.io/algorithm/alice_bob/"
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:activity": "log:a6163f907-16eb-4238-a2fe-0720d279ea44",
-            "prov:entity": "dat:liquor_license",
-            "prov:time": "2016-03-01T17:42:02.514731"
-        }
-    },
     "activity": {
-        "log:a6163f907-16eb-4238-a2fe-0720d279ea44": {
-            "prov:endTime": "2016-03-01T17:42:02.514731",
-            "prov:startTime": "2016-03-01T17:41:57.740127",
-            "prov:type": "ont:Retrieval"
+        "log:a863ca919-e44b-4e45-90da-84001dfaf184": {
+            "prov:type": "ont:Computation",
+            "prov:endTime": "2016-03-01T22:56:08.538669",
+            "prov:startTime": "2016-03-01T22:54:53.420173"
+        },
+        "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29": {
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?$limit=50000",
+            "prov:startTime": "2016-03-01T22:48:49.838751",
+            "prov:endTime": "2016-03-01T22:49:52.511800"
+        },
+        "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a": {
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?$limit=50000",
+            "prov:startTime": "2016-03-01T22:47:40.336908",
+            "prov:endTime": "2016-03-01T22:47:42.637717"
+        },
+        "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2": {
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?$limit=50000",
+            "prov:startTime": "2016-03-01T22:47:47.538563",
+            "prov:endTime": "2016-03-01T22:48:43.799078"
         }
     },
     "used": {
-        "_:id2": {
-            "prov:activity": "log:a6163f907-16eb-4238-a2fe-0720d279ea44",
-            "prov:entity": "bdp:hda6-fnsh",
-            "prov:time": "2016-03-01T17:41:57.740127"
-        }
-    },
-    "wasAssociatedWith": {
         "_:id1": {
-            "prov:activity": "log:a6163f907-16eb-4238-a2fe-0720d279ea44",
-            "prov:agent": "alg:fetch_liquor_data"
+            "prov:activity": "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29",
+            "prov:time": "2016-03-01T22:48:49.838751",
+            "prov:entity": "bdp:ufcx-3fdn"
+        },
+        "_:id2": {
+            "prov:activity": "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2",
+            "prov:time": "2016-03-01T22:47:47.538563",
+            "prov:entity": "bdp:qz7u-kb7x"
+        },
+        "_:id17": {
+            "prov:activity": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:time": "2016-03-01T22:54:53.420173",
+            "prov:entity": "dat:liquor_license"
+        },
+        "_:id3": {
+            "prov:activity": "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a",
+            "prov:time": "2016-03-01T22:47:40.336908",
+            "prov:entity": "bdp:hda6-fnsh"
+        },
+        "_:id18": {
+            "prov:activity": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:time": "2016-03-01T22:54:53.420173",
+            "prov:entity": "dat:property_assessment"
         }
     },
-    "wasAttributedTo": {
-        "_:id3": {
-            "prov:entity": "dat:liquor_license",
-            "prov:agent": "alg:fetch_liquor_data"
-        }
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/jtsliu_kmann/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/jtsliu_kmann/"
     },
     "agent": {
+        "alg:fetch_crime_data": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        },
+        "alg:fetch_property_assessment": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        },
         "alg:fetch_liquor_data": {
             "ont:Extension": "py",
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        },
+        "alg:create_zipcode_with_liquor_and_property_value": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             }
         }
     },
-    "wasDerivedFrom": {
+    "wasGeneratedBy": {
         "_:id5": {
-            "prov:activity": "log:a6163f907-16eb-4238-a2fe-0720d279ea44",
-            "prov:generatedEntity": "dat:liquor_license",
-            "prov:generation": "log:a6163f907-16eb-4238-a2fe-0720d279ea44",
+            "prov:activity": "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29",
+            "prov:time": "2016-03-01T22:49:52.511800",
+            "prov:entity": "dat:crime"
+        },
+        "_:id20": {
+            "prov:activity": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:time": "2016-03-01T22:56:08.538669",
+            "prov:entity": "dat:zipcode_liquor_property_info"
+        },
+        "_:id6": {
+            "prov:activity": "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a",
+            "prov:time": "2016-03-01T22:47:42.637717",
+            "prov:entity": "dat:liquor_license"
+        },
+        "_:id4": {
+            "prov:activity": "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2",
+            "prov:time": "2016-03-01T22:48:43.799078",
+            "prov:entity": "dat:property_assessment"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id9": {
+            "prov:usage": "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a",
+            "prov:activity": "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a",
+            "prov:generation": "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a",
             "prov:usedEntity": "bdp:hda6-fnsh",
-            "prov:usage": "log:a6163f907-16eb-4238-a2fe-0720d279ea44"
+            "prov:generatedEntity": "dat:liquor_license"
+        },
+        "_:id8": {
+            "prov:usage": "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2",
+            "prov:activity": "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2",
+            "prov:generation": "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2",
+            "prov:usedEntity": "bdp:qz7u-kb7x",
+            "prov:generatedEntity": "dat:property_assessment"
+        },
+        "_:id21": {
+            "prov:usage": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:activity": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:generation": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:usedEntity": "dat:liquor_license",
+            "prov:generatedEntity": "dat:zipcode_liquor_property_info"
+        },
+        "_:id22": {
+            "prov:usage": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:activity": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:generation": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:usedEntity": "dat:property_assessment",
+            "prov:generatedEntity": "dat:zipcode_liquor_property_info"
+        },
+        "_:id7": {
+            "prov:usage": "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29",
+            "prov:activity": "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29",
+            "prov:generation": "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29",
+            "prov:usedEntity": "bdp:ufcx-3fdn",
+            "prov:generatedEntity": "dat:crime"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id11": {
+            "prov:activity": "log:ab4ad5a3e-5c2a-4070-97c8-b7134e9198b2",
+            "prov:agent": "alg:fetch_property_assessment"
+        },
+        "_:id12": {
+            "prov:activity": "log:a6c2e5303-88ee-4bd2-85d0-5e269a491b29",
+            "prov:agent": "alg:fetch_crime_data"
+        },
+        "_:id16": {
+            "prov:activity": "log:a863ca919-e44b-4e45-90da-84001dfaf184",
+            "prov:agent": "alg:create_zipcode_with_liquor_and_property_value"
+        },
+        "_:id10": {
+            "prov:activity": "log:a18a62dad-fafd-4a0a-b25f-3050db1d9e7a",
+            "prov:agent": "alg:fetch_liquor_data"
+        }
+    },
+    "entity": {
+        "bdp:qz7u-kb7x": {
+            "ont:Extension": "json",
+            "prov:label": "Property Assessment 2014",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:property_assessment": [
+            {
+                "prov:label": "Property Assessment",
+                "prov:type": "ont:Dataset"
+            },
+            {
+                "prov:label": "Property Assessment",
+                "prov:type": "ont:Dataset"
+            }
+        ],
+        "bdp:hda6-fnsh": {
+            "ont:Extension": "json",
+            "prov:label": "Liquor Licenses",
+            "prov:type": "ont:DataResource"
+        },
+        "bdp:ufcx-3fdn": {
+            "ont:Extension": "json",
+            "prov:label": "Crime Incident Reports",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:crime": {
+            "prov:label": "Crime Incidents",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:zipcode_liquor_property_info": {
+            "prov:label": "Zipcode Liquor and Propery Data",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:liquor_license": [
+            {
+                "prov:label": "Liquor Licenses",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Liquor Licenses",
+                "prov:type": "ont:DataSet"
+            }
+        ]
+    },
+    "wasAttributedTo": {
+        "_:id13": {
+            "prov:entity": "dat:crime",
+            "prov:agent": "alg:fetch_crime_data"
+        },
+        "_:id19": {
+            "prov:entity": "dat:zipcode_liquor_property_info",
+            "prov:agent": "alg:create_zipcode_with_liquor_and_property_value"
+        },
+        "_:id14": {
+            "prov:entity": "dat:liquor_license",
+            "prov:agent": "alg:fetch_liquor_data"
+        },
+        "_:id15": {
+            "prov:entity": "dat:property_assessment",
+            "prov:agent": "alg:fetch_property_assessment"
         }
     }
 }

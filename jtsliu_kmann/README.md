@@ -27,15 +27,38 @@ Currently our transformations classify all of the data by zipcode, which is a fa
 Perhaps we could narrow it to locations in the future, but currently, we can try to classify zipcodes based on
 some interesting information.
 
+Running data retrieval
+----------------------
 
-TODO:
-Filter out data with invalid locations - done?
+Note: please run the fetch_liquor_data file first for fresh runs, as this generates the plan.json file
+again.
 
+To run files:
 
-Figure out what transformations to do on the data
-	crime data - generate a new dataset that contains the crime data with the zip code it occurs in
-		Using this, we can aggregate to get the number of crimes per zipcode
-	Property and liquor - transform to make a dataset of zipcode with average property assessment and 
-					number of liquor licenses
+$ python3 fetch_liquor_data.py
+$ python3 fetch_property_assessment.py
+$ python3 fetch_crime_data.py
+
+Dependencies: These files do not have any dependencies outside the expected ones (prov, pymongo, json, etc.)
+
+Transformations
+---------------
+
+We run the transformations as follows:
+
+$ python3 create_zipcode_with_liquor_and_property_value.py
+
+This file uses the liquor data and property data we collected as resources. From them, we derive a new data set that
+holds information about a zip code: how much the average tax per square foot is and how many liquor locations there are.
+
+The next transformation does have some problems. Mainly we are trying to work around reaching our request limit
+for geolocation services. We want to reverse geolocate the zipcode of a crime, so we can use the same metric we did above to 
+evaluate a zipcode. Currently we do not have the entirety of the data processed, but plan on implementing a different method
+
+$ python3 reverse_geocode.py
+
+Dependencies: Same as previous scripts with the addition of the geopy module (pip3 install geopy)
+We use this library for obtaining zipcodes
+
 Prov
 
