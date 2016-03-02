@@ -15,7 +15,7 @@ exec(open("mergesitesgeo.py").read())
 
 # info related to hospitals is retrieved and then combined with current sites
 exec(open("retrievehospitals.py").read())
-#exec(open("cleanhospitals.py").read())
+exec(open("cleanhospitals.py").read())
 #exec(open("mergedropoffhospitals.py").read())
 
 # k-means
