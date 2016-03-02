@@ -49,22 +49,34 @@ doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
 this_script = doc.agent('alg:example', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = doc.entity('bdp:wc8w-nujj', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'})
-doc.wasAssociatedWith(this_run, this_script)
-doc.used(this_run, resource, startTime)
+get_found = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_lost = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+doc.wasAssociatedWith(get_found, this_script)
+doc.wasAssociatedWith(get_lost, this_script)
+doc.usage(get_found, resource, startTime, None,
+        {prov.model.PROV_TYPE:'ont:Retrieval',
+         'ont:Query':'?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'
+        }
+    )
+doc.usage(get_lost, resource, startTime, None,
+        {prov.model.PROV_TYPE:'ont:Retrieval',
+         'ont:Query':'?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT'
+        }
+    )
 
 lost = doc.entity('dat:lost', {prov.model.PROV_LABEL:'Animals Lost', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(lost, this_script)
-doc.wasGeneratedBy(lost, this_run, endTime)
-doc.wasDerivedFrom(lost, resource, this_run, this_run, this_run)
+doc.wasGeneratedBy(lost, get_lost, endTime)
+doc.wasDerivedFrom(lost, resource, get_lost, get_lost, get_lost)
 
 found = doc.entity('dat:found', {prov.model.PROV_LABEL:'Animals Found', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(found, this_script)
-doc.wasGeneratedBy(found, this_run, endTime)
-doc.wasDerivedFrom(found, resource, this_run, this_run, this_run)
+doc.wasGeneratedBy(found, get_found, endTime)
+doc.wasDerivedFrom(found, resource, get_found, get_found, get_found)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
+open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
 

@@ -8,48 +8,84 @@
             }
         }
     },
-    "activity": {
-        "log:a*": {
-            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
-            "prov:type": "ont:Retrieval"
-        }
-    },
-    "used": {
-        "_:id2": {
-            "prov:activity": "log:a*",
-            "prov:entity": "bdp:wc8w-nujj"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:activity": "log:a*",
-            "prov:entity": "dat:lost"
-        },
-        "_:id7": {
-            "prov:activity": "log:a*",
-            "prov:entity": "dat:found"
-        }
-    },
     "wasAssociatedWith": {
         "_:id1": {
-            "prov:activity": "log:a*",
+            "prov:activity": "log:a1*",
+            "prov:agent": "alg:example"
+        },
+        "_:id2": {
+            "prov:activity": "log:a2*",
             "prov:agent": "alg:example"
         }
     },
-    "wasAttributedTo": {
-        "_:id3": {
-            "prov:agent": "alg:example",
+    "wasGeneratedBy": {
+        "_:id6": {
+            "prov:activity": "log:a2*",
+            "prov:time": "2016-02-28T15:04:14.882412",
             "prov:entity": "dat:lost"
         },
-        "_:id6": {
+        "_:id9": {
+            "prov:activity": "log:a1*",
+            "prov:time": "2016-02-28T15:04:14.882412",
+            "prov:entity": "dat:found"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:activity": "log:a1*",
+            "prov:time": "2016-02-28T15:04:12.954330",
+            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "bdp:wc8w-nujj"
+        },
+        "_:id4": {
+            "prov:activity": "log:a2*",
+            "prov:time": "2016-02-28T15:04:12.954330",
+            "ont:Query": "?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "bdp:wc8w-nujj"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:activity": "log:a1*",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generation": "log:a1*",
+            "prov:usage": "log:a1*",
+            "prov:generatedEntity": "dat:found"
+        },
+        "_:id7": {
+            "prov:activity": "log:a2*",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generation": "log:a2*",
+            "prov:usage": "log:a2*",
+            "prov:generatedEntity": "dat:lost"
+        }
+    },
+    "activity": {
+        "log:a2*": {
+            "prov:startTime": "2016-02-28T15:04:12.954330",
+            "prov:endTime": "2016-02-28T15:04:14.882412"
+        },
+        "log:a1*": {
+            "prov:startTime": "2016-02-28T15:04:12.954330",
+            "prov:endTime": "2016-02-28T15:04:14.882412"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id8": {
             "prov:agent": "alg:example",
             "prov:entity": "dat:found"
+        },
+        "_:id5": {
+            "prov:agent": "alg:example",
+            "prov:entity": "dat:lost"
         }
     },
     "entity": {
         "bdp:wc8w-nujj": {
-            "ont:Extension": "json",
             "prov:label": "311, Service Requests",
+            "ont:Extension": "json",
             "prov:type": "ont:DataResource"
         },
         "dat:lost": {
@@ -61,27 +97,11 @@
             "prov:type": "ont:DataSet"
         }
     },
-    "wasDerivedFrom": {
-        "_:id8": {
-            "prov:generatedEntity": "dat:found",
-            "prov:generation": "log:a*",
-            "prov:usage": "log:a*",
-            "prov:activity": "log:a*",
-            "prov:usedEntity": "bdp:wc8w-nujj"
-        },
-        "_:id5": {
-            "prov:generatedEntity": "dat:lost",
-            "prov:generation": "log:a*",
-            "prov:usage": "log:a*",
-            "prov:activity": "log:a*",
-            "prov:usedEntity": "bdp:wc8w-nujj"
-        }
-    },
     "prefix": {
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "ont": "http://datamechanics.io/ontology#",
         "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/",
         "alg": "http://datamechanics.io/algorithm/alice_bob/",
+        "ont": "http://datamechanics.io/ontology#",
         "dat": "http://datamechanics.io/data/alice_bob/"
     }
 }
