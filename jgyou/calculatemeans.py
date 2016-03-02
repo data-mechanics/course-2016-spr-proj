@@ -66,6 +66,7 @@ def scale(p, c):
     (x,y) = p
     return (x/c, y/c)
 
+# randomly generates means using original set of points
 P = [(float(point['longitude']), float(point['latitude'])) for point in repo[user + '.needle311'].find()]
 M = [P[random.randint(0, len(P) - 1)] for i in range(k)]
 
@@ -146,6 +147,8 @@ for i in arr:
 
 endTime = datetime.datetime.now()
 
+run_id = str(uuid.uuid4())
+
 provdoc = prov.model.ProvDocument()
 provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
 provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
@@ -154,7 +157,7 @@ provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 
 this_script = provdoc.agent('alg:calculatemeans', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = provdoc.entity('dat:needle311', {prov.model.PROV_LABEL:'Needle Program', prov.model.PROV_TYPE:'ont:DataSet'})
-this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+this_run = provdoc.activity('log:a'+ run_id, startTime, endTime)
 provdoc.wasAssociatedWith(this_run, this_script)
 provdoc.used(this_run, resource, startTime)
 
@@ -170,5 +173,38 @@ provdoc.wasDerivedFrom(requestsxy, resource, this_run, this_run, this_run)
 
 repo.record(provdoc.serialize()) # Record the provenance document.
 
+#########
+# plan
+
+provdoc2 = prov.model.ProvDocument()
+provdoc2.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+provdoc2.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+provdoc2.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+provdoc2.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+
+this_script = provdoc2.agent('alg:calculatemeans', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource = provdoc2.entity('dat:needle311', {prov.model.PROV_LABEL:'Needle Program', prov.model.PROV_TYPE:'ont:DataSet'})
+this_run = provdoc2.activity('log:a'+ run_id, startTime, endTime)
+provdoc2.wasAssociatedWith(this_run, this_script)
+provdoc2.used(this_run, resource, startTime)
+
+rqst = provdoc2.entity('dat:means', {prov.model.PROV_LABEL:'Request Centroids', prov.model.PROV_TYPE:'ont:DataSet'})
+provdoc2.wasAttributedTo(rqst, this_script)
+provdoc2.wasGeneratedBy(rqst, this_run, endTime)
+provdoc2.wasDerivedFrom(rqst, resource, this_run, this_run, this_run)
+
+requestsxy = provdoc2.entity('dat:requestsxy', {prov.model.PROV_LABEL:'Labeled request coordinates', prov.model.PROV_TYPE:'ont:DataSet'})
+provdoc2.wasAttributedTo(requestsxy, this_script)
+provdoc2.wasGeneratedBy(requestsxy, this_run, endTime)
+provdoc2.wasDerivedFrom(requestsxy, resource, this_run, this_run, this_run)
+
+plan = open('plan.json','r')
+docModel = prov.model.ProvDocument()
+doc2 = docModel.deserialize(plan)
+doc2.update(provdoc2)
+plan.close()
+plan = open('plan.json', 'w')
+plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
+plan.close()
 
 repo.logout()

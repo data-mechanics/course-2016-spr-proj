@@ -84,12 +84,28 @@ resource = provdoc.entity('ocd:geocode', {'prov:label':'OpenCage Data', prov.mod
 # output dataset
 sitecodesoutput = provdoc.entity('dat:sitegeocodes', {prov.model.PROV_LABEL:'Site Geocodes', prov.model.PROV_TYPE:'ont:DataSet'})
 
+provdoc2 = prov.model.ProvDocument()
+provdoc2.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+provdoc2.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+provdoc2.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+provdoc2.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+provdoc2.add_namespace('ocd', 'https://api.opencagedata.com/geocode/v1/')
+
+# activity = invocation of script, agent = script, entity = resource
+# agent
+this_script2 = provdoc2.agent('alg:retrievesitesgeo', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+# input data
+dropoffsites2 = provdoc2.entity('dat:currentsites', {prov.model.PROV_LABEL:'Current Drop-Off Sites', prov.model.PROV_TYPE:'ont:DataSet'})
+resource2 = provdoc2.entity('ocd:geocode', {'prov:label':'OpenCage Data', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'geojson'})
+
+# output dataset
+sitecodesoutput2 = provdoc2.entity('dat:sitegeocodes', {prov.model.PROV_LABEL:'Site Geocodes', prov.model.PROV_TYPE:'ont:DataSet'})
 
 # record provenance for each geocode query
 for i in param:
-	
-	this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
-	
+	runid = str(uuid.uuid4())
+	this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
 
 	provdoc.wasAssociatedWith(this_run, this_script)
 	
@@ -103,7 +119,31 @@ for i in param:
 	provdoc.wasDerivedFrom(sitecodesoutput, dropoffsites, this_run, this_run, this_run)
 	provdoc.wasAttributedTo(sitecodesoutput, this_script)
 
+	this_run2 = provdoc2.activity('log:a'+run_id)
+
+	provdoc2.wasAssociatedWith(this_run2, this_script2)
+	
+	provdoc2.used(this_run2, resource2, None, None,\
+		{prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'geojson?q=' + i + '&limit=1&countrycode=us'})
+	provdoc2.used(this_run2, dropoffsites2)
+	
+	provdoc2.wasGeneratedBy(sitecodesoutput2, this_run2)
+
+	provdoc2.wasDerivedFrom(sitecodesoutput2, resource2, this_run2, this_run2, this_run2)
+	provdoc2.wasDerivedFrom(sitecodesoutput2, dropoffsites2, this_run2, this_run2, this_run2)
+	provdoc2.wasAttributedTo(sitecodesoutput2, this_script2)
+
+
 repo.record(provdoc.serialize()) # Record the provenance document.
+
+plan = open('plan.json','r')
+docModel = prov.model.ProvDocument()
+doc2 = docModel.deserialize(plan)
+doc2.update(provdoc2)
+plan.close()
+plan = open('plan.json', 'w')
+plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
+plan.close()
 
 repo.logout()
 

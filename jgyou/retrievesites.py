@@ -101,10 +101,10 @@ provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension',
 provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 provdoc.add_namespace('bhpc', 'http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/')	# Boston Public Health website.
 
-
+runid = str(uuid.uuid4())
 this_script = provdoc.agent('alg:retrievesites', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = provdoc.entity('bhpc:safeneedle', {'prov:label':'Safe Needle and Syringe Disposal Webpage', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'aspx'})
-this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+this_run = provdoc.activity('log:a'+runid, startTime, endTime)
 provdoc.wasAssociatedWith(this_run, this_script)
 provdoc.used(this_run, resource, startTime, None, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'Safe-Needle-and-Syringe-Disposal.aspx'})
 
@@ -114,5 +114,35 @@ provdoc.wasGeneratedBy(dropoffsites, this_run, endTime)
 provdoc.wasDerivedFrom(dropoffsites, resource, this_run, this_run, this_run)
 
 repo.record(provdoc.serialize()) # Record the provenance document.
-#print(provdoc.get_provn())
+
+# add to plan.json
+
+provdoc2 = prov.model.ProvDocument()
+provdoc2.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+provdoc2.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+provdoc2.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+provdoc2.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+provdoc2.add_namespace('bhpc', 'http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/')	# Boston Public Health website.
+
+
+this_script = provdoc2.agent('alg:retrievesites', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource = provdoc2.entity('bhpc:safeneedle', {'prov:label':'Safe Needle and Syringe Disposal Webpage', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'aspx'})
+this_run = provdoc2.activity('log:a'+runid)
+provdoc2.wasAssociatedWith(this_run, this_script)
+provdoc2.used(this_run, resource, None, None, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'Safe-Needle-and-Syringe-Disposal.aspx'})
+
+dropoffsites = provdoc2.entity('dat:currentsites', {prov.model.PROV_LABEL:'Current Drop-Off Sites', prov.model.PROV_TYPE:'ont:DataSet'})
+provdoc2.wasAttributedTo(dropoffsites, this_script)
+provdoc2.wasGeneratedBy(dropoffsites, this_run)
+provdoc2.wasDerivedFrom(dropoffsites, resource, this_run, this_run, this_run)
+
+plan = open('plan.json','r')
+docModel = prov.model.ProvDocument()
+doc2 = docModel.deserialize(plan)
+doc2.update(provdoc2)
+plan.close()
+plan = open('plan.json', 'w')
+plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
+plan.close()
+
 repo.logout()

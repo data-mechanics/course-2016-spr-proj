@@ -23,3 +23,12 @@ exec(open("calculatemeans.py").read())
 
 # requires prov
 # cleanhospitals
+
+# included in plan.json
+#retrievedata - update
+#retrievesitesgeo
+#retrievesites
+# cleansitesgeo - update
+# mergesitesgeo - update
+# retrievehosp - update
+# calculatemeans - update

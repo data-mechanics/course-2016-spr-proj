@@ -15,7 +15,7 @@ The aim of this project is to determine whether current drop-off sites for needl
 
 The scripts first pull data associated with the Needle Program from the City of Boston's website and the list of drop-off sites from a BPHC webpage. The two resulting collections of data are a) MongoDB documents with data such as longitude/latitude of the request, start date of request, etc. of calls related to the needle program, and b) MongoDB documents with the location, name, contact information, etc. for each drop-off site. A few other scripts then iterate through the drop-off sites' addresses to retrieve approximate longitude and latitude coordinates from OpenCage Geocoder. The coordinates are merged with the information for the drop-off sites. 
 
-Next, information on hospitals is pulled from the Hospital Locations data set from the City of Boston website. Though hospitals are not generally advertised as public drop-off locations currently, they may also be useful in determining whether there is 
+Next, information on hospitals is pulled from the Hospital Locations data set from the City of Boston website. Though hospitals are not generally advertised as public drop-off locations currently, they may also be useful in determining whether they could serve as potential locations in the future.
 
 The location data associated with the requests from the needle program are clustered via k-means using k=6. This value of k was selected by subjective examination of scatterplots generated using scikit-learn's k-means++ method and the matplot library.  
 

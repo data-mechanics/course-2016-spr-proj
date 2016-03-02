@@ -48,6 +48,7 @@ repo[user + '.hospitals'].insert_many(r1)
 endTime = datetime.datetime.now()
 
 ###############
+run_id = str(uuid.uuid4())
 
 provdoc = prov.model.ProvDocument()
 provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
@@ -57,20 +58,44 @@ provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 provdoc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')		# city of boston data.
 
 
-this_script = provdoc.agent('alg:retrievedata', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = provdoc.agent('alg:retrievehospitals', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = provdoc.entity('bdp:u6fv-m8v4', {'prov:label':'Hospital Locations', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
 provdoc.wasAssociatedWith(this_run, this_script)
 provdoc.used(this_run, resource, startTime, None, {prov.model.PROV_TYPE:'ont:Retrieval', \
 	'ont:Query':'?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh'})
 
-needle311 = provdoc.entity('dat:hospitals', {prov.model.PROV_LABEL:'Hospitals', prov.model.PROV_TYPE:'ont:DataSet'})
-provdoc.wasAttributedTo(needle311, this_script)
-provdoc.wasGeneratedBy(needle311, this_run, endTime)
-provdoc.wasDerivedFrom(needle311, resource, this_run, this_run, this_run)
+hospitals = provdoc.entity('dat:hospitals', {prov.model.PROV_LABEL:'Hospitals', prov.model.PROV_TYPE:'ont:DataSet'})
+provdoc.wasAttributedTo(hospitals, this_script)
+provdoc.wasGeneratedBy(hospitals, this_run, endTime)
+provdoc.wasDerivedFrom(hospitals, resource, this_run, this_run, this_run)
 
-open('plan.json', 'w').write(json.dumps(json.loads(provdoc.serialize()), indent=4))
 repo.record(provdoc.serialize()) # Record the provenance document.
+
+##########
+provdoc2 = prov.model.ProvDocument()
+provdoc2.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+provdoc2.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+provdoc2.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+provdoc2.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+provdoc2.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')		# city of boston data.
+
+
+this_script = provdoc2.agent('alg:retrievehospitals', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource = provdoc2.entity('bdp:u6fv-m8v4', {'prov:label':'Hospital Locations', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_run = provdoc2.activity('log:a' + run_id)
+provdoc2.wasAssociatedWith(this_run, this_script)
+provdoc2.used(this_run, resource, None, None, {prov.model.PROV_TYPE:'ont:Retrieval', \
+	'ont:Query':'?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh'})
+
+hospitals = provdoc2.entity('dat:hospitals', {prov.model.PROV_LABEL:'Hospitals', prov.model.PROV_TYPE:'ont:DataSet'})
+provdoc2.wasAttributedTo(hospitals, this_script)
+provdoc2.wasGeneratedBy(hospitals, this_run)
+provdoc2.wasDerivedFrom(hospitals, resource, this_run, this_run, this_run)
+
+repo.record(provdoc2.serialize()) # Record the provenance document.
+
+
 
 #print(provdoc.get_provn())
 repo.logout()
