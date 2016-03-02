@@ -45,7 +45,11 @@ def request_get_json(source_lat, source_lon, dest_lat, dest_lon):
     url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins={},{}&destinations={},{}&mode=walking&units=imperial'.format(
         source_lat, source_lon, dest_lat, dest_lon)
     response = urllib.request.urlopen(url).read().decode("utf-8")
-    return json.loads(response)
+    ret = json.loads(response)
+    if(ret['status'] != 'OK'):
+        print('Error querying Google. API rate limiting? Exiting with failure code.')
+        sys.exit(1)
+    return ret
 
 def main():
     startTime = datetime.datetime.now()
@@ -88,7 +92,7 @@ def main():
 
             # We can only have 100 elements per request, and 100 per 10 seconds, so
             # need to rate limit this a bit.
-            time.sleep(1.5)
+            time.sleep(1.2)
 
     endTime = datetime.datetime.now()
 

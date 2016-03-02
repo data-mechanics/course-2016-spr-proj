@@ -37,7 +37,7 @@ This derived dataset uses Google API to get the walking distances to the next ne
 
 The provenance data does not list each URL queried, since they change for every combination of source and destination and are dependent on the combined data being used. We instead insert placeholders for the coordinates, e.g. "&lt;source_lat&gt;" for the source latitude.
 
-*NOTE: This will take a long time to generate because Google's API throttles the number of requests we can make (roughly 45 minutes running time currently).*
+*NOTE: This will take a long time to generate because Google's API throttles the number of requests we can make (roughly 45 minutes running time currently). If we get throttled, we'll exit with an error message and non-zero code (1).*
 
 ### 5. (derived) Time to nearest neighbor stop on same branch
 This derived dataset holds information regarding the nearest neighbor stop on the same branch, including the time it takes to get there from the previous stop. If the two stops are really close together, then that means that the current stop is less important and could potentially be removed.
