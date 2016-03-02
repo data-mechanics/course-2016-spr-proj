@@ -34,7 +34,6 @@ while count == 50000:
 
 	repo['jtsliu_kmann.crime'].insert_many(clean)
 
-print("CRIME", len(r))
 
 
 
