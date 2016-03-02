@@ -24,9 +24,7 @@ traffic jams. I noted that there are some hospitals on the same street, so some 
 
 
 
-The second data set can show is if there is a typical time that EMS times are dispatched, and if they are on a similar 
-
-time to traffic jam time. Maybe we can eventually show a correlation between ambulances and traffic jams issues.
+The second data set can show is if there is a typical time that EMS times are dispatched, and if they are on a similar time to traffic jam time. Maybe we can eventually show a correlation between ambulances and traffic jams issues.
 
 This needs to be approved, because currently, ambulances don't say where they are going, and there is so much traffic in
 Boston that it might be in another part of the city. One thing we can use this dataset is to see if ambulances are typical
