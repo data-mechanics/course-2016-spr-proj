@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+api_token.txt
+auth.json
+provenance.json
+*.ipynb
+
 # C extensions
 *.so
 

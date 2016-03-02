@@ -1,0 +1,15 @@
+# Data tools
+numpy==1.10.4
+pandas==0.17.1
+scikit-learn==0.16.1
+
+# Data documentation and visualization
+prov==1.4.0
+lxml==3.4.4
+decorator==4.0.9
+networkx==1.11
+pydotplus==2.0.2
+graphviz==0.4.9
+
+# Database management
+pymongo==3.2.1
