@@ -1,0 +1,110 @@
+{
+    "agent": {
+        "alg:inspection": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME", 
+                "$": "prov:SoftwareAgent"
+            }, 
+            "ont:Extension": "py"
+        }
+    }, 
+    "wasGeneratedBy": {
+        "_:id9": {
+            "prov:time": "2016-03-01T21:15:04.559576", 
+            "prov:activity": "log:ab8f504d6-22a9-4147-94b2-92c628197949", 
+            "prov:entity": "dat:inspection"
+        }
+    }, 
+    "activity": {
+        "log:ab8f504d6-22a9-4147-94b2-92c628197949": {
+            "prov:type": "ont:Computation", 
+            "prov:startTime": "2016-03-01T21:15:03.872536", 
+            "prov:endTime": "2016-03-01T21:15:04.559576"
+        }, 
+        "log:a186725f8-9a2a-425f-bf43-e9e411907b2e": {
+            "prov:type": "ont:Retrieval", 
+            "prov:startTime": "2016-03-01T21:15:03.872536", 
+            "prov:endTime": "2016-03-01T21:15:04.559576"
+        }, 
+        "log:a4d653fcd-71fa-4a5d-80aa-1c279666fa6f": {
+            "prov:type": "ont:Retrieval", 
+            "prov:startTime": "2016-03-01T21:15:03.872536", 
+            "prov:endTime": "2016-03-01T21:15:04.559576"
+        }
+    }, 
+    "entity": {
+        "dat:hotline": {
+            "prov:type": "ont:DataSet", 
+            "ont:Extension": "json", 
+            "prov:label": "inspection"
+        }, 
+        "dat:restaurant": {
+            "prov:type": "ont:DataSet", 
+            "ont:Extension": "json", 
+            "prov:label": "Restaurants"
+        }, 
+        "dat:inspection": {
+            "prov:type": "ont:DataSet", 
+            "ont:Extension": "json", 
+            "prov:label": "inspection"
+        }
+    }, 
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:inspection", 
+            "prov:activity": "log:a4d653fcd-71fa-4a5d-80aa-1c279666fa6f"
+        }, 
+        "_:id3": {
+            "prov:agent": "alg:inspection", 
+            "prov:activity": "log:a186725f8-9a2a-425f-bf43-e9e411907b2e"
+        }, 
+        "_:id5": {
+            "prov:agent": "alg:inspection", 
+            "prov:activity": "log:ab8f504d6-22a9-4147-94b2-92c628197949"
+        }
+    }, 
+    "wasAttributedTo": {
+        "_:id8": {
+            "prov:agent": "alg:inspection", 
+            "prov:entity": "dat:inspection"
+        }
+    }, 
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:usage": "log:ab8f504d6-22a9-4147-94b2-92c628197949", 
+            "prov:usedEntity": "dat:restaurant", 
+            "prov:activity": "log:ab8f504d6-22a9-4147-94b2-92c628197949", 
+            "prov:generation": "log:ab8f504d6-22a9-4147-94b2-92c628197949", 
+            "prov:generatedEntity": "dat:inspection"
+        }
+    }, 
+    "prefix": {
+        "log": "http://datamechanics.io/log#", 
+        "ont": "http://datamechanics.io/ontology#", 
+        "dat": "http://datamechanics.io/data/ekwivagg_yuzhou7/", 
+        "alg": "http://datamechanics.io/algorithm/ekwivagg_yuzhou7/", 
+        "bdp": "https://data.cityofboston.gov/resource/"
+    }, 
+    "used": {
+        "_:id2": {
+            "prov:time": "2016-03-01T21:15:03.872536", 
+            "prov:activity": "log:a4d653fcd-71fa-4a5d-80aa-1c279666fa6f", 
+            "prov:entity": "dat:restaurant"
+        }, 
+        "_:id4": {
+            "prov:time": "2016-03-01T21:15:03.872536", 
+            "prov:activity": "log:a186725f8-9a2a-425f-bf43-e9e411907b2e", 
+            "prov:entity": "dat:hotline"
+        }, 
+        "_:id7": {
+            "prov:time": "2016-03-01T21:15:03.872536", 
+            "prov:activity": "log:ab8f504d6-22a9-4147-94b2-92c628197949", 
+            "prov:entity": "dat:hotline"
+        }, 
+        "_:id6": {
+            "prov:time": "2016-03-01T21:15:03.872536", 
+            "prov:activity": "log:ab8f504d6-22a9-4147-94b2-92c628197949", 
+            "prov:entity": "dat:restaurant"
+        }
+    }
+}
