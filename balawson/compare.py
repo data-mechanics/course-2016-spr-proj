@@ -8,9 +8,8 @@ import pymongo, datetime, uuid
 import prov.model
 import random
 from scic_stat_tests import *
+exec(open('../pymongo_dm.py').read())
 
-##############################################################
-####   define functions
 ##############################################################
 ####   random sampler
 #stackoverflow.com/questions/6482889/get-random-sample-from-list-while-maintaining-ordering-of-items
@@ -46,16 +45,19 @@ t_test =  tweets.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,l
 ####    analyze the data       
 ###############################################################
 
-###### test similarity between datasets based on random geocoordinate samples
+###### test similarity between geocoordinates in datasets based on random samples
 print('calculating two sample, two dimensional (geocoordinates) ,kolmogoro-smirnov tests...')
 print('\tbetween Gowalla and Twitter: ',)
-print(ks2d2s(list(g_test.lat), list(g_test.lng), list(t_test.lat), list(t_test.lng)))
+g_t_results = (ks2d2s(list(g_test.lat), list(g_test.lng), list(t_test.lat), list(t_test.lng)))
 print('\tbetween Brightkite and Twitter: ',)
-print(ks2d2s(list(b_test.lat), list(b_test.lng), list(t_test.lat), list(t_test.lng)))
+b_t_results = (ks2d2s(list(b_test.lat), list(b_test.lng), list(t_test.lat), list(t_test.lng)))
 print('\tbetween Gowalla and Brightkite: ',)
-print(ks2d2s(list(g_test.lat), list(g_test.lng), list(b_test.lat), list(b_test.lng)))
+g_b_results = (ks2d2s(list(g_test.lat), list(g_test.lng), list(b_test.lat), list(b_test.lng)))
 
-###### test similarity between datasets based on random geocoordinate samples
+
+'''
+TODO: put the correct time collumn in (this compares between milisecond differences not hour/min differences
+###### test similarity between timestamps in datasets based on random samples
 print('calculating two sample, one dimensional (time),kolmogoro-smirnov tests...')
 print('\tbetween Gowalla and Twitter: ',)
 print(ks2d2s(list(g_test.time), list(t_test.time)))
@@ -63,8 +65,22 @@ print('\tbetween Brightkite and Twitter: ',)
 print(ks2d2s(list(b_test.time), list(t_test.time)))
 print('\tbetween Gowalla and Brightkite: ',)
 print(ks2d2s(list(g_test.time), list(t_test.time)))
+'''
+###############################################################
+####    save results       
+###############################################################
 
-
+records = {'gowalla_twitter' : g_t_results,
+           'brightkite_twitter' : b_t_results,
+           'gowalla_brightkite': g_b_results,
+     'date_created' : datetime.datetime.today()\
+          }
+collection_name = 'ks_test_results'
+# doing this because kmeans is random and we may want different results
+if not(repo[collection_name]):
+    repo.createPermanent(collection_name)
+#repo.dropPermanent(collection_name)
+repo['balawson.' + collection_name].insert(records)
 endTime = datetime.datetime.now()
 ###############################################################
 ####    record provanence       

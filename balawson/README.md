@@ -41,6 +41,7 @@ General descriptors of Twitter (filtered for posts in Boston):
 * Number of unqiue users: 39, 540 
 * Number of posts:       632, 990 
 * Average number of posts per user: 16
+* (note: I only make 1/6 of the posts available. Let me know if more is needed)
 
 Legend (TODO: fix crude legend):
 * Blue : Brightkite
@@ -71,6 +72,16 @@ Twitter: (still working on labeling which hour is shown)
 ![heatmap of tweets by the hour](/balawson/notebooks/twitter.gif)
 
 
+####Kolmogorov–Smirnov test
+######'a nonparametric test of the equality of continuous probability distributions' - [Wikipedia](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test)
+
+It is used to determine if two samples came from the same distrutibutions. I use this to compare the three datasets against each other, to see if they are similar. My native approach was to use a two-dimensional test to check if the geocoordinates are similar and a one-dimensional test to check if the psting times are similar. This is an effort to quatify the heatmaps. The code used is hosted [here](http://cs.marlboro.edu/courses/spring2014/jims_tutorials/ahernandez/Apr_25.attachments/scic_stat_tests.py)
+
+
+####k-means clustering
+
+Clustering this data represents locations that are very attractive. This means there is a large number of posts near these locations. Further clustering methods will incoroporate time of day, number of users, and posts per user. I choose k to be square root of n as a rule of thumb for determing k. This will be improved by one of the metrics described in the [Wikipedia article](https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)
+
 ##Setup
 code is for debian-based systems
 
@@ -84,10 +95,15 @@ virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-
+(note: this is build on an Anaconda stack and requirements.txt might be missing a few dependancies, TODO: update)
 ###To collect data
 ```
 python collect.py
+```
+###To compare and cluster
+```
+python compare.py
+python cluster.py
 ```
 ###To generate visualizations of data
 ```

@@ -3,8 +3,12 @@
 ####   import dependancies       
 ###############################################################
 import pandas as pd
-import pymongo, datetime, uuid
+import pymongo, datetime, uuid, math
 import prov.model
+from sklearn import cluster
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+exec(open('../pymongo_dm.py').read())
 ###############################################################
 ####    access the data       
 ###############################################################
@@ -17,10 +21,52 @@ tweets     = pd.DataFrame(list(repo.balawson.twitter.find()))
 gowalla    = pd.DataFrame(list(repo.balawson.gowalla.find()))
 brightkite = pd.DataFrame(list(repo.balawson.brightkite.find()))
 
+#naive merge all the data - need to figure a rhyme and reason
+# to explain why / why not
+df = pd.concat([tweets, brightkite, gowalla])
 ###############################################################
-####    analyze the data       
+####    cluster the data       
 ###############################################################
 
+ll_arr = np.asarray(list(zip(df['lat'],df['lng'])),dtype = 'float64')
+
+stdScaler = StandardScaler()
+ll_arr = stdScaler.fit_transform(ll_arr)
+
+k = int(math.sqrt(len(df.lat))) #rule of thumb, can do better choosing
+k_means = cluster.KMeans(n_clusters=k)
+k_means.fit_predict(ll_arr)
+k_means.fit_predict(ll_arr)
+
+data_labels = k_means.labels_
+data_cluster_centers = k_means.cluster_centers_
+data_cluster_centers = stdScaler.inverse_transform(k_means.cluster_centers_)
+n_clusters = len(data_cluster_centers)
+
+data_num_each_cluster = np.zeros((n_clusters,1))
+for i in range(n_clusters):
+    data_num_each_cluster[i,0] = (data_labels == i).sum()
+
+###############################################################
+####    save results       
+###############################################################
+
+records = {'labels'  : data_labels,\
+     'centers' : data_cluster_centers,\
+     'size'    :  data_num_each_cluster,\
+     'date_created' : datetime.datetime.today(),
+     'k'        : k
+          }
+  
+collection_name = 'kmeans_results'
+# doing this because kmeans is random and we may want different results
+if not(db[collection_name]):
+    repo.createPermanent(collection_name)
+#repo.dropPermanent(collection_name)
+
+repo['balawson.' + collection_name].insert(records)
+
+endTime  = datetime.datetime.now()
 
 ###############################################################
 ####    record provanence       
@@ -33,7 +79,7 @@ doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('snap', 'https://snap.stanford.edu/data/')
 doc.add_namespace('bal', 'http://people.bu.edu/balawson/')
 
-this_script = doc.agent('alg:compare', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:cluster', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 brightkite_resource = doc.entity('snap:brightkite', {'prov:label':'SNAP: Standford Network Analysis Project - Brightkite', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'txtgz'})
 gowalla_resource = doc.entity('snap:gowalla', {'prov:label':'SNAP: Standford Network Analysis Project - Gowalla', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'txtgz'})
 twitter_resource = doc.entity('bal:twitter', {'prov:label':'Sample of Curated Tweet', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'csv'})
