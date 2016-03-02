@@ -1,0 +1,95 @@
+{
+	this_script = doc.agent('alg:merge', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+	towed = doc.entity('dat:towed', {'prov:label':'Towed', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+	food_establishments = doc.entity('dat:food_establishments', {'prov:label':'Food Establishment Permits', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+	tickets = doc.entity('dat:tickets', {'prov:label':'Parking Tickets', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+	meters = doc.entity('dat:meters', {'prov:label':'Parking Meters', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+
+	merge_streetnames = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+	merge_street_stats = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+	count_towed = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Count Towed', prov.model.PROV_TYPE:'ont:Computation'})
+	count_meters = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Count Meters', prov.model.PROV_TYPE:'ont:Computation'})
+	count_tickets = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Count Tickets', prov.model.PROV_TYPE:'ont:Computation'})
+	count_food_establishments = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Count Food Establishments', prov.model.PROV_TYPE:'ont:Computation'})
+
+	doc.wasAssociatedWith(merge_streetnames, this_script)
+	doc.wasAssociatedWith(merge_street_stats, this_script)
+	doc.wasAssociatedWith(count_towed, this_script)
+	doc.wasAssociatedWith(count_meters, this_script)
+	doc.wasAssociatedWith(count_tickets, this_script)
+	doc.wasAssociatedWith(count_food_establishments, this_script)
+
+	doc.used(merge_streetnames, towed, startTime)
+	doc.used(merge_streetnames, food_establishments, startTime)
+	doc.used(merge_streetnames, tickets, startTime)
+	doc.used(merge_streetnames, meters, startTime)
+	doc.used(merge_street_stats, towed, startTime)
+	doc.used(merge_street_stats, food_establishments, startTime)
+	doc.used(merge_street_stats, tickets, startTime)
+	doc.used(merge_street_stats, meters, startTime)
+	doc.used(count_towed, towed, startTime)
+	doc.used(count_food_establishments, food_establishments, startTime)
+	doc.used(count_tickets, tickets, startTime)
+	doc.used(count_meters, meters, startTime)
+
+	db_towed = doc.entity('dat:towed', {prov.model.PROV_LABEL:'Towed', prov.model.PROV_TYPE:'ont:DataSet'})
+	doc.wasAttributedTo(db_towed, this_script)
+	doc.wasGeneratedBy(db_towed, get_towed, endTime)
+	doc.wasDerivedFrom(db_towed, towed, get_towed, get_towed, get_towed)
+
+	db_food_establishments = doc.entity('dat:food_establishments', {prov.model.PROV_LABEL:'Food Establishments Permits', prov.model.PROV_TYPE:'ont:DataSet'})
+	doc.wasAttributedTo(db_food_establishments, this_script)
+	doc.wasGeneratedBy(db_food_establishments, get_food_establishments, endTime)
+	doc.wasDerivedFrom(db_food_establishments, food_establishments, get_food_establishments, get_food_establishments, get_food_establishments)
+
+	db_tickets = doc.entity('dat:tickets', {prov.model.PROV_LABEL:'Parking Tickets', prov.model.PROV_TYPE:'ont:DataSet'})
+	doc.wasAttributedTo(db_tickets, this_script)
+	doc.wasGeneratedBy(db_tickets, get_tickets, endTime)
+	doc.wasDerivedFrom(db_tickets, tickets, get_tickets, get_tickets, get_tickets)
+
+	db_meters = doc.entity('dat:meters', {prov.model.PROV_LABEL:'Parking Meters', prov.model.PROV_TYPE:'ont:DataSet'})
+	doc.wasAttributedTo(db_meters, this_script)
+	doc.wasGeneratedBy(db_meters, get_meters, endTime)
+	doc.wasDerivedFrom(db_meters, meters, get_meters, get_meters, get_meters)
+
+	db_streetnames = doc.entity('dat:streetnames', {prov.model.PROV_LABEL:'Street Names', prov.model.PROV_TYPE:'ont:DataSet'})
+	doc.wasAttributedTo(db_streetnames, this_script)
+	doc.wasGeneratedBy(db_streetnames, merge_streetnames, endTime)
+	doc.wasDerivedFrom(db_streetnames, towed, merge_streetnames, merge_streetnames, merge_streetnames)
+	doc.wasDerivedFrom(db_streetnames, meters, merge_streetnames, merge_streetnames, merge_streetnames)
+	doc.wasDerivedFrom(db_streetnames, food_establishments, merge_streetnames, merge_streetnames, merge_streetnames)
+	doc.wasDerivedFrom(db_streetnames, tickets, merge_streetnames, merge_streetnames, merge_streetnames)
+
+	db_street_stats = doc.entity('dat:street_stats', {prov.model.PROV_LABEL:'Street Stats', prov.model.PROV_TYPE:'ont:DataSet'})
+	doc.wasAttributedTo(db_street_stats, this_script)
+	doc.wasGeneratedBy(db_street_stats, merge_street_stats, endTime)
+	doc.wasDerivedFrom(db_street_stats, towed, merge_street_stats, merge_street_stats, merge_street_stats)
+	doc.wasDerivedFrom(db_street_stats, meters, merge_street_stats, merge_street_stats, merge_street_stats)
+	doc.wasDerivedFrom(db_street_stats, food_establishments, merge_street_stats, merge_street_stats, merge_street_stats)
+	doc.wasDerivedFrom(db_street_stats, tickets, merge_street_stats, merge_street_stats, merge_street_stats)
+}
+
+this_script = doc.agent('alg:add_address', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+food_establishments = doc.entity('dat:food_establishments', {'prov:label':'Food Establishment Permits', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+meters = doc.entity('dat:meters', {'prov:label':'Parking Meters', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+
+address_meters = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Address Meters', prov.model.PROV_TYPE:'ont:Computation'})
+address_food_establishments = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Address Food Establishments', prov.model.PROV_TYPE:'ont:Computation'})
+
+doc.wasAssociatedWith(address_meters, this_script)
+doc.wasAssociatedWith(address_food_establishments, this_script)
+
+doc.used(address_food_establishments, food_establishments, startTime)
+doc.used(address_meters, meters, startTime)
+
+db_food_establishments = doc.entity('dat:food_establishments', {prov.model.PROV_LABEL:'Food Establishments Permits', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(db_food_establishments, this_script)
+doc.wasGeneratedBy(db_food_establishments, address_food_establishments, endTime)
+doc.wasDerivedFrom(db_food_establishments, food_establishments, address_food_establishments, address_food_establishments, address_food_establishments)
+
+db_meters = doc.entity('dat:meters', {prov.model.PROV_LABEL:'Parking Meters', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(db_meters, this_script)
+doc.wasGeneratedBy(db_meters, address_meters, endTime)
+doc.wasDerivedFrom(db_meters, meters, address_meters, address_meters, address_meters)
