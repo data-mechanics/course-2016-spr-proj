@@ -1,0 +1,232 @@
+{
+    "agent": {
+        "alg:dbProvOps": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "activity": {
+        "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05": {
+            "ont:Query": "?$limit=1000",
+            "prov:type": "ont:Retrieval",
+            "prov:startTime": "2016-03-01T15:38:00.794512",
+            "prov:endTime": "2016-03-01T15:38:01.794167"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:dbProvOps",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id11": {
+            "prov:entity": "dat:propertyvalues",
+            "prov:agent": "alg:dbProvOps"
+        },
+        "_:id8": {
+            "prov:entity": "dat:zipcarreservations",
+            "prov:agent": "alg:dbProvOps"
+        },
+        "_:id5": {
+            "prov:entity": "dat:zipcarmembers",
+            "prov:agent": "alg:dbProvOps"
+        }
+    },
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/jmuru1_tpacius/",
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "dat": "http://datamechanics.io/data/jmuru1_tpacius/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "wasGeneratedBy": {
+        "_:id12": {
+            "prov:entity": "dat:propertyvalues",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:time": "2016-03-01T15:38:01.794167"
+        },
+        "_:id6": {
+            "prov:entity": "dat:zipcarmembers",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:time": "2016-03-01T15:38:01.794167"
+        },
+        "_:id9": {
+            "prov:entity": "dat:zipcarreservations",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:time": "2016-03-01T15:38:01.794167"
+        }
+    },
+    "used": {
+        "_:id4": {
+            "prov:entity": "bdp:n7za-nsjh",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:time": "2016-03-01T15:38:00.794512"
+        },
+        "_:id2": {
+            "prov:entity": "bdp:78f5-5i4e",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:time": "2016-03-01T15:38:00.794512"
+        },
+        "_:id3": {
+            "prov:entity": "bdp:498g-jbmi",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:time": "2016-03-01T15:38:00.794512"
+        }
+    },
+    "entity": {
+        "dat:zipcarreservations": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Zipcar Reservations"
+        },
+        "bdp:498g-jbmi": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "Zipcar Boston Reservations"
+        },
+        "bdp:78f5-5i4e": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "Zipcar Member Counts By Zipcode"
+        },
+        "dat:propertyvalues": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Property Values"
+        },
+        "dat:zipcarmembers": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Zipcar Member Count"
+        },
+        "bdp:n7za-nsjh": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "Boston Property Values"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:generatedEntity": "dat:zipcarreservations",
+            "prov:generation": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:usedEntity": "bdp:498g-jbmi",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:usage": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05"
+        },
+        "_:id7": {
+            "prov:generatedEntity": "dat:zipcarmembers",
+            "prov:generation": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:usedEntity": "bdp:78f5-5i4e",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:usage": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05"
+        },
+        "_:id13": {
+            "prov:generatedEntity": "dat:propertyvalues",
+            "prov:generation": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:usedEntity": "bdp:n7za-nsjh",
+            "prov:activity": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05",
+            "prov:usage": "log:a3da61d64-05de-4f28-a0f8-2105b18f2b05"
+        }
+    }
+}{
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:time": "2016-03-01T15:38:09.515649",
+            "prov:entity": "dat:membersreduction"
+        },
+        "_:id3": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:time": "2016-03-01T15:38:09.515649",
+            "prov:entity": "dat:reservationsreduction"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id6": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:generatedEntity": "dat:membersreduction",
+            "prov:usage": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:generation": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:usedEntity": "dat:membersreduction"
+        },
+        "_:id9": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:generatedEntity": "dat:zipcarreduction",
+            "prov:usage": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:generation": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:usedEntity": "dat:reservationsreduction"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_tpacius/"
+    },
+    "entity": {
+        "dat:zipcarreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:membersreduction": [
+            {
+                "prov:label": "Members and Property Values Reduced By Zipcode",
+                "prov:type": "ont:Computation"
+            },
+            {
+                "prov:label": "Members and Property Values Reduced By Zipcode",
+                "prov:type": "ont:Computation"
+            }
+        ],
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "activity": {
+        "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c": {
+            "prov:startTime": "2016-03-01T15:38:09.515649",
+            "prov:endTime": "2016-03-01T15:38:10.344237",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id8": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:entity": "dat:zipcarreduction",
+            "prov:time": "2016-03-01T15:38:10.344237"
+        },
+        "_:id5": {
+            "prov:activity": "log:a6ba95003-5c2d-4ec1-a59c-ade92372a68c",
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-03-01T15:38:10.344237"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id7": {
+            "prov:entity": "dat:zipcarreduction",
+            "prov:agent": "alg:ElementaryOperations"
+        },
+        "_:id4": {
+            "prov:entity": "dat:membersreduction",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    }
+}
