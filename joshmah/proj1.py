@@ -92,9 +92,17 @@ for i in range(len(X)):
     Xnew.append(temp.upper())
 
 
+
+
 for i in range(len(x)):
-    Xnames.append((Xnew[i],x[i]['name']))
+    temp = (re.sub(r'\.','',x[i]['name']))
+    Xnames.append((Xnew[i],temp))
 Xnames2 = dict((x,y) for y, x in Xnames)
+print(Xnames2)
+
+repo.dropPermanent("intersectionsHospitalsStreets")
+repo.createPermanent("intersectionsHospitalsStreets")
+repo['joshmah.intersectionsHospitalsStreets'].insert_one(Xnames2)
 
 #Useful if you want to see which hospitals are on which streets.
 #print(Xnames2)
