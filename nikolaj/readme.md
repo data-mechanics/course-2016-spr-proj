@@ -21,11 +21,11 @@ https://www.ssa.gov/oact/babynames/names.zip
 
 Employee Earnings Report 2013: This data set contains income data of Boston City employees. Since employee gender is not included, I will use the first name records to cross-reference the previous data set to establish gender. 
 
-https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8
+https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg
 
 Employee Earnings Report 2014: Same as the previous dataset but for the year 2014.
 
-https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg
+https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8
 
 **Transformations**
 
