@@ -1,0 +1,394 @@
+{
+    "entity": {
+        "bdp:wc8w-nujj": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "311, Service Calls",
+            "ont:Extension": "json"
+        },
+        "dat:serviceCalls": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "311 Service Calls"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "311 Service Calls"
+            }
+        ],
+        "dat:construction": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Construction"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Construction"
+            }
+        ],
+        "dat:potholes": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Potholes"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Potholes"
+            }
+        ],
+        "dat:crimeReports": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Crime Reports"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Crime Reports"
+            }
+        ],
+        "dat:dangerLevels": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Danger Levels"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Danger Levels"
+            }
+        ],
+        "bdp:hx38-wur4": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Public Works Active Work Zones",
+            "ont:Extension": "json"
+        },
+        "dat:workZones": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Work Zones"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Public Works Zones"
+            }
+        ],
+        "bdp:ufcx-3fdn": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Crime Reports",
+            "ont:Extension": "json"
+        },
+        "dat:accidents": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Motor Accidents"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Motor Accidents"
+            }
+        ],
+        "dat:dangerZones": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Danger Zones"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id21": {
+            "prov:activity": "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48"
+        },
+        "_:id6": {
+            "prov:activity": "log:a776662ee-51cb-497c-961d-c2cc410e2ac4"
+        },
+        "_:id16": {
+            "prov:activity": "log:a08feb47e-28cd-445c-9f70-852313856383"
+        },
+        "_:id26": {
+            "prov:activity": "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847"
+        },
+        "_:id11": {
+            "prov:activity": "log:a4c26c074-75de-487e-bb13-569a48a39269"
+        },
+        "_:id1": {
+            "prov:activity": "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96"
+        },
+        "_:id31": {
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4"
+        },
+        "_:id40": {
+            "prov:activity": "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d"
+        }
+    },
+    "activity": {
+        "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d": {
+            "prov:label": "Find a cluster for each danger point of interest"
+        },
+        "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48": {
+            "prov:label": "Filter only motor vehicle accidents"
+        },
+        "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847": {
+            "prov:label": "Filter construction that has started"
+        },
+        "log:a776662ee-51cb-497c-961d-c2cc410e2ac4": {
+            "prov:label": "Fetch all public works zones"
+        },
+        "log:a08feb47e-28cd-445c-9f70-852313856383": {
+            "prov:label": "Filter only pothole requests"
+        },
+        "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96": {
+            "prov:label": "Fetch all service requests"
+        },
+        "log:a4c26c074-75de-487e-bb13-569a48a39269": {
+            "prov:label": "Fetch all crime reports"
+        },
+        "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4": {
+            "prov:label": "Map each point to a danger level"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/alice_bob/",
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/alice_bob/"
+    },
+    "wasGeneratedBy": {
+        "_:id43": {
+            "prov:entity": "dat:dangerZones",
+            "prov:activity": "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d"
+        },
+        "_:id4": {
+            "prov:entity": "dat:serviceCalls",
+            "prov:activity": "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96"
+        },
+        "_:id29": {
+            "prov:entity": "dat:construction",
+            "prov:activity": "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847"
+        },
+        "_:id36": {
+            "prov:entity": "dat:dangerLevels",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4"
+        },
+        "_:id24": {
+            "prov:entity": "dat:accidents",
+            "prov:activity": "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48"
+        },
+        "_:id9": {
+            "prov:entity": "dat:workZones",
+            "prov:activity": "log:a776662ee-51cb-497c-961d-c2cc410e2ac4"
+        },
+        "_:id14": {
+            "prov:entity": "dat:crimeReports",
+            "prov:activity": "log:a4c26c074-75de-487e-bb13-569a48a39269"
+        },
+        "_:id19": {
+            "prov:entity": "dat:potholes",
+            "prov:activity": "log:a08feb47e-28cd-445c-9f70-852313856383"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id38": {
+            "prov:generation": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:generatedEntity": "dat:dangerLevels",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:usedEntity": "dat:construction",
+            "prov:usage": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4"
+        },
+        "_:id5": {
+            "prov:generation": "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96",
+            "prov:generatedEntity": "dat:serviceCalls",
+            "prov:activity": "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96"
+        },
+        "_:id25": {
+            "prov:generation": "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48",
+            "prov:generatedEntity": "dat:accidents",
+            "prov:activity": "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48",
+            "prov:usedEntity": "dat:crimeReports",
+            "prov:usage": "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48"
+        },
+        "_:id15": {
+            "prov:generation": "log:a4c26c074-75de-487e-bb13-569a48a39269",
+            "prov:generatedEntity": "dat:crimeReports",
+            "prov:activity": "log:a4c26c074-75de-487e-bb13-569a48a39269",
+            "prov:usedEntity": "bdp:ufcx-3fdn",
+            "prov:usage": "log:a4c26c074-75de-487e-bb13-569a48a39269"
+        },
+        "_:id20": {
+            "prov:generation": "log:a08feb47e-28cd-445c-9f70-852313856383",
+            "prov:generatedEntity": "dat:potholes",
+            "prov:activity": "log:a08feb47e-28cd-445c-9f70-852313856383",
+            "prov:usedEntity": "dat:serviceCalls",
+            "prov:usage": "log:a08feb47e-28cd-445c-9f70-852313856383"
+        },
+        "_:id30": {
+            "prov:generation": "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847",
+            "prov:generatedEntity": "dat:construction",
+            "prov:activity": "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847",
+            "prov:usedEntity": "dat:workZones",
+            "prov:usage": "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847"
+        },
+        "_:id39": {
+            "prov:generation": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:generatedEntity": "dat:dangerLevels",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:usedEntity": "dat:accidents",
+            "prov:usage": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4"
+        },
+        "_:id10": {
+            "prov:generation": "log:a776662ee-51cb-497c-961d-c2cc410e2ac4",
+            "prov:generatedEntity": "dat:workZones",
+            "prov:activity": "log:a776662ee-51cb-497c-961d-c2cc410e2ac4",
+            "prov:usedEntity": "bdp:hx38-wur4",
+            "prov:usage": "log:a776662ee-51cb-497c-961d-c2cc410e2ac4"
+        },
+        "_:id44": {
+            "prov:generation": "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d",
+            "prov:generatedEntity": "dat:dangerZones",
+            "prov:activity": "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d",
+            "prov:usedEntity": "dat:dangerLevels",
+            "prov:usage": "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d"
+        },
+        "_:id37": {
+            "prov:generation": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:generatedEntity": "dat:dangerLevels",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:usedEntity": "dat:potholes",
+            "prov:usage": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4"
+        }
+    },
+    "used": {
+        "_:id34": {
+            "prov:entity": "dat:accidents",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:type": "ont:Computation"
+        },
+        "_:id2": {
+            "prov:entity": "bdp:wc8w-nujj",
+            "prov:activity": "log:a7aee67e0-6755-457e-b84a-bf811d9ddc96",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id12": {
+            "prov:entity": "bdp:ufcx-3fdn",
+            "prov:activity": "log:a4c26c074-75de-487e-bb13-569a48a39269",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id7": {
+            "prov:entity": "bdp:hx38-wur4",
+            "prov:activity": "log:a776662ee-51cb-497c-961d-c2cc410e2ac4",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id33": {
+            "prov:entity": "dat:construction",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:type": "ont:Computation"
+        },
+        "_:id41": {
+            "prov:entity": "dat:dangerLevels",
+            "prov:activity": "log:afca18842-d5d8-4b7e-87d3-d97c22fc296d",
+            "prov:type": "ont:Computation"
+        },
+        "_:id17": {
+            "prov:entity": "dat:serviceCalls",
+            "prov:activity": "log:a08feb47e-28cd-445c-9f70-852313856383",
+            "prov:type": "ont:Computation"
+        },
+        "_:id22": {
+            "prov:entity": "dat:crimeReports",
+            "prov:activity": "log:ab90cdfae-4f29-497e-8fa4-b42ad8357c48",
+            "prov:type": "ont:Computation"
+        },
+        "_:id32": {
+            "prov:entity": "dat:potholes",
+            "prov:activity": "log:a0ca80e61-8a9f-48bc-a4da-9deca56d36a4",
+            "prov:type": "ont:Computation"
+        },
+        "_:id27": {
+            "prov:entity": "dat:workZones",
+            "prov:activity": "log:a2fffb9fa-4e16-4d1a-a74c-d726083ca847",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id35": {
+            "prov:entity": "dat:dangerLevels"
+        },
+        "_:id42": {
+            "prov:entity": "dat:dangerZones"
+        },
+        "_:id3": {
+            "prov:entity": "dat:serviceCalls"
+        },
+        "_:id8": {
+            "prov:entity": "dat:workZones"
+        },
+        "_:id23": {
+            "prov:entity": "dat:accidents"
+        },
+        "_:id18": {
+            "prov:entity": "dat:potholes"
+        },
+        "_:id28": {
+            "prov:entity": "dat:construction"
+        },
+        "_:id13": {
+            "prov:entity": "dat:crimeReports"
+        }
+    },
+    "agent": {
+        "alg:potholeFilter": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "js"
+        },
+        "alg:constructionFilter": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "js"
+        },
+        "alg:311_requests": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:accidentFilter": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "js"
+        },
+        "alg:calculate_danger_levels": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:crime_reports": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:clusterDangerZones": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:work_zones": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    }
+}
