@@ -14,11 +14,18 @@ Determine if there is a gender based pay gap among Boston City Employees. This i
 
 **Datasets**
 
-SSA common names by gender: This dataset contains records of first name, gender, and frequency of name. I will use this dataset to infer the gender of each employee included in the following datasets.
+SSA common names by gender: This dataset contains records of first name, gender, and frequency of name. I will use this dataset to infer 
+the gender of each employee included in the following datasets. 
+
+https://www.ssa.gov/oact/babynames/names.zip
 
 Employee Earnings Report 2013: This data set contains income data of Boston City employees. Since employee gender is not included, I will use the first name records to cross-reference the previous data set to establish gender. 
 
+https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8
+
 Employee Earnings Report 2014: Same as the previous dataset but for the year 2014.
+
+https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg
 
 **Transformations**
 
