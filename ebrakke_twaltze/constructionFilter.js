@@ -12,7 +12,7 @@ dropPerm('construction');
 createPerm('construction');
 allWork.mapReduce(
 	function() {
-		if(this.status !== 'NO START' && this.location && this.location.coordinates !== [0,0]) {
+		if(this.status !== 'NO START' && this.location && this.location.coordinates[0] !== 0 && this.location.coordinates[1] !== 0) {
 			emit(this._id, {type: 'construction', latitude: this.location.coordinates[1], longitude: this.location.coordinates[0], expected_close_date: this.estimatedcompletiondate, num_road_plates: this.roadwayplatesinuse, num_sidewalk_plates:this.sidewalkplatesinuse});
 		}
 	},
