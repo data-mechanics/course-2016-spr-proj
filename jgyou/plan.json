@@ -1,0 +1,612 @@
+{
+    "wasGeneratedBy": {
+        "_:id5": [
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            }
+        ],
+        "_:id2": {
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:entity": "dat:sitecoordinates"
+        },
+        "_:id40": {
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:time": "2016-03-01T23:41:16.688282",
+            "prov:entity": "dat:means"
+        },
+        "_:id3": {
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id4": {
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id1": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "dat:needle311"
+        },
+        "_:id43": {
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:time": "2016-03-01T23:41:16.688282",
+            "prov:entity": "dat:requestsxy"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id7": {
+            "prov:agent": "alg:cleansitesgeo",
+            "prov:entity": "dat:sitecoordinates"
+        },
+        "_:id39": {
+            "prov:agent": "alg:calculatemeans",
+            "prov:entity": "dat:means"
+        },
+        "_:id10": {
+            "prov:agent": "alg:retrievesites",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id8": {
+            "prov:agent": "alg:mergesitesgeo",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id42": {
+            "prov:agent": "alg:calculatemeans",
+            "prov:entity": "dat:requestsxy"
+        },
+        "_:id6": {
+            "prov:agent": "alg:retrievedata",
+            "prov:entity": "dat:needle311"
+        },
+        "_:id9": [
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            }
+        ]
+    },
+    "wasDerivedFrom": {
+        "_:id11": {
+            "prov:usage": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:usedEntity": "bhpc:safeneedle",
+            "prov:generation": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:generatedEntity": "dat:currentsites"
+        },
+        "_:id15": {
+            "prov:usage": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:usedEntity": "dat:currentsites",
+            "prov:generation": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:generatedEntity": "dat:currentsites"
+        },
+        "_:id13": [
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            }
+        ],
+        "_:id44": {
+            "prov:usage": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:usedEntity": "dat:needle311",
+            "prov:generation": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:generatedEntity": "dat:requestsxy"
+        },
+        "_:id17": {
+            "prov:usage": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:usedEntity": "dat:sitegeocodes",
+            "prov:generation": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:generatedEntity": "dat:sitecoordinates"
+        },
+        "_:id14": {
+            "prov:usage": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:usedEntity": "dat:sitecoordinates",
+            "prov:generation": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:generatedEntity": "dat:currentsites"
+        },
+        "_:id16": {
+            "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:generatedEntity": "dat:needle311"
+        },
+        "_:id41": {
+            "prov:usage": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:usedEntity": "dat:needle311",
+            "prov:generation": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:generatedEntity": "dat:means"
+        },
+        "_:id12": [
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            }
+        ]
+    },
+    "used": {
+        "_:id21": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=409 Blue Hill Avenue,Dorchester, MA 02121-4309&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id18": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=21-23 Stanhope Street,Boston, MA 02116&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id23": {
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:entity": "dat:sitecoordinates"
+        },
+        "_:id27": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=105 Chauncy Street, 6th Floor,Boston, MA 02111&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id22": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=780 Albany Street,Boston, MA 02118&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id19": {
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:entity": "dat:sitegeocodes"
+        },
+        "_:id28": [
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            }
+        ],
+        "_:id20": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=35 Northampton Street,Boston, MA 02118&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id24": {
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "ont:Query": "Safe-Needle-and-Syringe-Disposal.aspx",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "bhpc:safeneedle"
+        },
+        "_:id26": {
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id30": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=398 Neponset Avenue,Dorchester, MA 02122&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id25": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "?type=Needle+Pickup&$select=longitude,latitude,location,geocoded_location,open_dt",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "bdp:wc8w-nujj"
+        },
+        "_:id29": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=1 Stoughton Street,Dorchester, MA 02125&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id38": {
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:time": "2016-03-01T23:40:37.896167",
+            "prov:entity": "dat:needle311"
+        },
+        "_:id31": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "ont:Query": "geojson?q=75 Amory Street,Boston, MA 02130&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "ocd:geocode"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/jgyou/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/jgyou/",
+        "ocd": "https://api.opencagedata.com/geocode/v1/",
+        "ont": "http://datamechanics.io/ontology#",
+        "bhpc": "http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/"
+    },
+    "agent": {
+        "alg:cleansitesgeo": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:retrievedata": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:calculatemeans": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:mergesitesgeo": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:retrievesitesgeo": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:retrievesites": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "entity": {
+        "dat:requestsxy": {
+            "prov:label": "Labeled request coordinates",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:sitegeocodes": [
+            {
+                "prov:label": "Site Geocodes",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Needle Program",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:means": {
+            "prov:label": "Request Centroids",
+            "prov:type": "ont:DataSet"
+        },
+        "bhpc:safeneedle": {
+            "prov:label": "Safe Needle and Syringe Disposal Webpage",
+            "ont:Extension": "aspx",
+            "prov:type": "ont:DataResource"
+        },
+        "ocd:geocode": {
+            "prov:label": "OpenCage Data",
+            "ont:Extension": "geojson",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:needle311": [
+            {
+                "prov:label": "Needle Program",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Needle Program",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:sitecoordinates": [
+            {
+                "prov:label": "X-Y Site Coordinates",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "X-Y Site Coordinates",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:currentsites": [
+            {
+                "prov:label": "Current Drop-Off Sites",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Current Drop-Off Sites",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Current Drop-Off Sites",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "bdp:wc8w-nujj": {
+            "prov:label": "311, Service Requests",
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id32": [
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            }
+        ],
+        "_:id33": [
+            {
+                "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+                "prov:agent": "alg:mergesitesgeo"
+            },
+            {
+                "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+                "prov:agent": "alg:mergesitesgeo"
+            }
+        ],
+        "_:id36": {
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:agent": "alg:cleansitesgeo"
+        },
+        "_:id35": {
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:agent": "alg:retrievesites"
+        },
+        "_:id34": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:agent": "alg:retrievedata"
+        },
+        "_:id37": {
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:agent": "alg:calculatemeans"
+        }
+    },
+    "activity": {
+        "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {}
+        ],
+        "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe": {
+            "prov:endTime": "2016-03-01T23:41:16.688282",
+            "prov:startTime": "2016-03-01T23:40:37.896167"
+        },
+        "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583": {
+            "prov:type": "ont:Computation"
+        },
+        "log:ad40a745f-00c2-462d-9993-4f61d9291561": {},
+        "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5": {
+            "prov:type": "ont:Computation"
+        }
+    }
+}
