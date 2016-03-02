@@ -13,23 +13,29 @@ Safe needle and syringe disposal is particularly relevant in Massachusetts, wher
 
 The aim of this project is to determine whether current drop-off sites for needles in the Boston area are located effectively relative to the geographic concentration of needle use/disposal. This project currently uses three sources of data - 311 Service Requests from the City of Boston, longitude/latitude data from OpenCage Geocoder, and a list of drop-off sites from the Boston Public Health Commission (BPHC).
 
-The scripts first pull data associated with the Needle Program from the City of Boston's website and the list of drop-off sites from a BPHC webpage. Unlike the constantly updated 311 Requests data, the list of drop-off sites would not need to be retrieved too often. Nonetheless, a script was created to ease data transfer. There is also flexibility for the BPHC webpage data to be substituted with other departmental listings. The two resulting collections of data are a) MongoDB documents with data such as longitude/latitude of the request, start date of request, etc. of calls related to the needle program, and b) MongoDB documents with the location, name, contact information, etc. for each drop-off site.
+The scripts first pull data associated with the Needle Program from the City of Boston's website and the list of drop-off sites from a BPHC webpage. The two resulting collections of data are a) MongoDB documents with data such as longitude/latitude of the request, start date of request, etc. of calls related to the needle program, and b) MongoDB documents with the location, name, contact information, etc. for each drop-off site. A few other scripts then iterate through the drop-off sites' addresses to retrieve approximate longitude and latitude coordinates from OpenCage Geocoder. The coordinates are merged with the information for the drop-off sites. 
 
-Iterating through the drop-off sites' addresses, approximate longitude and latitude coordinates are then pulled from OpenCage Geocoder.
+Next, information on hospitals is pulled from the Hospital Locations data set from the City of Boston website. Though hospitals are not generally advertised as public drop-off locations currently, they may also be useful in determining whether there is 
 
-The location data associated with the requests from the needle program are clustered with the k-means algorithm using various values of k. The output from the k-means clustering will then be compared to the longitude/latitude coordinates for the current sites.
+The location data associated with the requests from the needle program are clustered via k-means using k=6. This value of k was selected by subjective examination of scatterplots generated using scikit-learn's  
 
-### Further Considerations
+The means output from the k-means clustering will then be used to measure the approximate distance between the means and the longitude/latitude coordinates for the current sites and hospitals.
+
+### Further Considerations and Applications
 
 Data sets that are not currently part of this project/are not publicly available, but might help in driving further applications of this data, include:
 - a list of licensed pharmacies in the Boston area, which could serve as potential drop-off sites given their ubiquity
-- socioeconomic data
+- socioeconomic data by precinct/neighborhood
 - data on injuries incurred among workers exposed to sharps or on rate of illegally disposed sharps
 
 Considerations to expand the project include:
 - Determining accessibility of current drop-off sites by incorporating road distances instead of Euclidean distances.
+- Given a threshold for distance people are willing to travel, determining where drop-off sites would be placed.
+
+More tangential applications:
 - Given the data spans multiple years, analyzing data temporally for patterns in requests.
-- With the availability of other data sets, analyzing trends of injection drug use, which also includes opioid injection. This is relevant as [adolescent prescription opioid misuse] (http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3196821/) and other types of [opioid addiction] (https://www.drugabuse.gov/about-nida/legislative-activities/testimony-to-congress/2016/americas-addiction-to-opioids-heroin-prescription-drug-abuse) are increasing nationwide concerns. Specifically, data could help in determining whether there is a correlation between the density of concentration of needle use and crime rate, socioeconomic status, and other factors.
+- Analyzing trends of injection drug use, especially opioid injection. [Opioid addiction] (https://www.drugabuse.gov/about-nida/legislative-activities/testimony-to-congress/2016/americas-addiction-to-opioids-heroin-prescription-drug-abuse) and [adolescent prescription opioid misuse] (http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3196821/) are increasing nationwide concerns. Having data such as socioeconomic data, reports of opioid use/overdose by neighborhood, etc. could help in determining whether there is a correlation between the density of concentration of needle use and factors such as socioeconomic status, crime rate, average age, etc. A concern is that publicly available data on opioid addiction in [Massachusetts] (http://www.mass.gov/eohhs/gov/departments/dph/stop-addiction/current-statistics.html) is fairly aggregated and may not be as useful in this context.
+
 
 ## Dependencies/Requirements
 
@@ -38,6 +44,9 @@ Considerations to expand the project include:
   - [Beautiful Soup 4] (http://www.crummy.com/software/BeautifulSoup/) `bs4`
   - [PyMongo] (https://api.mongodb.org/python/current/) `pymongo`
   - [Prov] (https://pypi.python.org/pypi/prov) `prov`
+  - [NumPy] (http://www.numpy.org/)
+  - [Scikit-learn] (http://scikit-learn.org/stable/)
+  - [Matplotlib] (http://matplotlib.org/index.html)
 - MongoDB 3.2
 
 ### Accounts required
@@ -46,13 +55,32 @@ Considerations to expand the project include:
 
 ## Original Data Sets
 - [City of Boston, 311, Service Requests] (https://data.cityofboston.gov/City-Services/311-Service-Requests/awu8-dc52)
+- [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
 - [OpenCage Geocoder] (https://geocoder.opencagedata.com/)
 - [Boston Public Health Commission] (http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/Safe-Needle-and-Syringe-Disposal.aspx)
 
 ## Instructions
 
-Run `runscripts.py` to run all relevant scripts at once. Requires auth.json file with following fields.
+Run `python runscripts.py` to run all relevant scripts at once.
 
-Pending details about credentials. 
+`auth.json` file must be included in directory to run files. Fields are as follows:
 
-## Miscellaneous
+```
+{"user": DB_USER,
+"service": {
+	  	"cityofbostondataportal": {
+            "service": "https://data.cityofboston.gov/",
+            "username": "USER",
+            "password": "PASSWORD",
+            "token": "TOKEN",
+        },  
+        "opencagegeo": {
+          "service": "https://geocoder.opencagedata.com/",
+          "username": "USER",
+          "password": "PASSWORD",
+          "key": "TOKEN"
+        }
+}
+```
+
+Note that DB_USER should be "jgyou" for the purposes of this project.

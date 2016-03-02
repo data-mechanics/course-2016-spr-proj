@@ -33,7 +33,7 @@ repo.authenticate(auth['user'], auth['user'])
 
 
 # authorization key
-key = auth['opencage-geo']['key'] 
+key = auth['service']['opencagegeo']['key'] 
 
 repo.dropPermanent("sitegeocodes")
 repo.createPermanent("sitegeocodes")
@@ -88,13 +88,13 @@ sitecodesoutput = provdoc.entity('dat:sitegeocodes', {prov.model.PROV_LABEL:'Sit
 # record provenance for each geocode query
 for i in param:
 	
-	this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, \
-		{prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'geojson?q=' + i + '&limit=1&countrycode=us'})
+	this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
 	
 
 	provdoc.wasAssociatedWith(this_run, this_script)
 	
-	provdoc.used(this_run, resource, startTime)
+	provdoc.used(this_run, resource, startTime, None,\
+		{prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'geojson?q=' + i + '&limit=1&countrycode=us'})
 	provdoc.used(this_run, dropoffsites, startTime)
 	
 	provdoc.wasGeneratedBy(sitecodesoutput, this_run, endTime)

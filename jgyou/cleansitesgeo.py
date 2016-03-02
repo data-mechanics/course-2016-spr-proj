@@ -36,14 +36,6 @@ startTime = datetime.datetime.now()
 
 ##########
 
-'''
-# ideally copy collection first, then collect
-flatten(repo, user + ".sitegeocodes", "features")
-deletefield(repo, user + ".sitegeocodes", ["properties", "type"])
-flatten(repo, user + ".sitegeocodes", "geometry")
-'''
-
-
 repo.dropPermanent("sitecoordinates")
 repo.createPermanent("sitecoordinates")
 
@@ -54,7 +46,8 @@ repo.createPermanent("sitecoordinates")
 for code in repo[user + '.sitegeocodes'].find():
 	siteid = code['siteid']
 	[x, y] = code['features'][0]['geometry']['coordinates']
-	repo[user + '.sitecoordinates'].insert({'siteid': siteid, 'coordinates': [x, y], 'latitude': y, 'longitude': x})
+	geo = code['features'][0]['geometry']
+	repo[user + '.sitecoordinates'].insert({'siteid': siteid, 'coordinates': [x, y], 'latitude': y, 'longitude': x, 'geocoded_location': geo})
 
 
 ###########
@@ -70,7 +63,7 @@ provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 
 this_script = provdoc.agent('alg:cleansitesgeo', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = provdoc.entity('dat:sitegeocodes', {prov.model.PROV_LABEL:'Needle Program', prov.model.PROV_TYPE:'ont:DataSet'})
-this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Extension'})
+this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
 provdoc.wasAssociatedWith(this_run, this_script)
 provdoc.used(this_run, resource, startTime)
 

@@ -104,9 +104,9 @@ provdoc.add_namespace('bhpc', 'http://www.bphc.org/whatwedo/Addiction-Services/s
 
 this_script = provdoc.agent('alg:retrievesites', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = provdoc.entity('bhpc:safeneedle', {'prov:label':'Safe Needle and Syringe Disposal Webpage', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'aspx'})
-this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'Safe-Needle-and-Syringe-Disposal.aspx'})
+this_run = provdoc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
 provdoc.wasAssociatedWith(this_run, this_script)
-provdoc.used(this_run, resource, startTime)
+provdoc.used(this_run, resource, startTime, None, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'Safe-Needle-and-Syringe-Disposal.aspx'})
 
 dropoffsites = provdoc.entity('dat:currentsites', {prov.model.PROV_LABEL:'Current Drop-Off Sites', prov.model.PROV_TYPE:'ont:DataSet'})
 provdoc.wasAttributedTo(dropoffsites, this_script)
