@@ -1,6 +1,6 @@
 import datetime
 import math;
-from DangerZone import DangerZone
+from .DangerZone import DangerZone
 
 class Construction(DangerZone):
     baseLevel = 25

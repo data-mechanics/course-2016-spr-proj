@@ -1,12 +1,12 @@
-from Pothole import Pothole
-from Accident import Accident
-from Construction import Construction
+from DangerZones import Pothole
+from DangerZones import Accident
+from DangerZones import Construction
 
 import pymongo
 import prov.model
 import sys
 
-exec(open('../../pymongo_dm.py').read())
+exec(open('../pymongo_dm.py').read())
 
 client = pymongo.MongoClient()
 repo = client.repo
@@ -17,7 +17,7 @@ collection = 'dangerLevels'
 repo.dropPermanent(collection)
 repo.createPermanent(collection)
 
-datasets = sys.argv[1:]
+datasets = ['potholes', 'construction', 'accidents']
 data = []
 for dataset in datasets:
     dataset = repo['ebrakke_twaltze.' + dataset].find()
@@ -31,7 +31,7 @@ for dataset in datasets:
         elif dangerZoneType == 'construction':
             dangerZone = Construction(d.get('latitude'), d.get('longitude'), d.get('expected_close_date'), d.get('num_sidewalk_plates'), d.get('num_road_plates'))
         elif dangerZoneType == 'accident':
-            dangerZone = Accident(d.get('latitude'), d.get('longitude'), d.get('createdAt'))
+            dangerZone = Accident(d.get('latitude'), d.get('longitude'), d.get('report_dt'))
 
         # Get the danger level for this data point
         dangerLevel = dangerZone.calculateDangerLevel()
