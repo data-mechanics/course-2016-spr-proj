@@ -1,0 +1,113 @@
+{
+    "entity": {
+        "dat:crime_totals": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Crime Around Bars"
+        },
+        "bdp:hda6-fnsh": {
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource",
+            "prov:label": "Liquor Licenses"
+        },
+        "bdp:7cdf-6fgx": {
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource",
+            "prov:label": "Crime Incident Reports"
+        },
+        "dat:jam_totals": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Jam Around Bars"
+        },
+        "bdp:yqgx-2ktq": {
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource",
+            "prov:label": "Waze Jam Data"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id2": {
+            "prov:activity": "log:ac8c71abc-14e0-4289-9ed2-754b528f2d4b",
+            "prov:agent": "alg:initialize"
+        },
+        "_:id1": {
+            "prov:activity": "log:adc853996-9af4-4648-9182-32b300045604",
+            "prov:agent": "alg:initialize"
+        }
+    },
+    "prefix": {
+        "ont": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/ontology#",
+        "log": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/log#",
+        "alg": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/data_process.py",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "dat": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/data"
+    },
+    "agent": {
+        "alg:initialize": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "used": {
+        "_:id4": {
+            "prov:time": "2016-03-01T19:59:14.494108",
+            "prov:activity": "log:ac8c71abc-14e0-4289-9ed2-754b528f2d4b",
+            "prov:entity": "bdp:yqgx-2ktq"
+        },
+        "_:id3": {
+            "prov:time": "2016-03-01T19:59:14.494108",
+            "prov:activity": "log:adc853996-9af4-4648-9182-32b300045604",
+            "prov:entity": "bdp:7cdf-6fgx"
+        }
+    },
+    "activity": {
+        "log:adc853996-9af4-4648-9182-32b300045604": {
+            "prov:endTime": "2016-03-01T19:59:20.125335",
+            "ont:Query": "?year=2015&$select=streetname,day_week,location",
+            "prov:startTime": "2016-03-01T19:59:14.494108",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:ac8c71abc-14e0-4289-9ed2-754b528f2d4b": {
+            "prov:endTime": "2016-03-01T19:59:20.125335",
+            "ont:Query": "?$select=street",
+            "prov:startTime": "2016-03-01T19:59:14.494108",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id7": {
+            "prov:generatedEntity": "dat:crime_totals",
+            "prov:activity": "bdp:hda6-fnsh",
+            "prov:usedEntity": "bdp:7cdf-6fgx"
+        },
+        "_:id10": {
+            "prov:generatedEntity": "dat:jam_totals",
+            "prov:activity": "bdp:hda6-fnsh",
+            "prov:usedEntity": "bdp:yqgx-2ktq"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id5": {
+            "prov:entity": "dat:crime_totals",
+            "prov:agent": "alg:initialize"
+        },
+        "_:id8": {
+            "prov:entity": "dat:jam_totals",
+            "prov:agent": "alg:initialize"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id9": {
+            "prov:time": "2016-03-01T19:59:20.125335",
+            "prov:activity": "log:ac8c71abc-14e0-4289-9ed2-754b528f2d4b",
+            "prov:entity": "dat:jam_totals"
+        },
+        "_:id6": {
+            "prov:time": "2016-03-01T19:59:20.125335",
+            "prov:activity": "log:adc853996-9af4-4648-9182-32b300045604",
+            "prov:entity": "dat:crime_totals"
+        }
+    }
+}
