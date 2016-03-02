@@ -121,6 +121,7 @@ python cluster.py
 ```
 python data-viz.py
 ```
+(note: this script only generates the gifs. The other pictures in this README were saved from the interactive notebook, TODO add this)
 ####To interact with data visualization
 ```
 ipython notebook data-viz.ipynb
