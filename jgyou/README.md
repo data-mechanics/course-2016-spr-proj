@@ -17,7 +17,7 @@ The scripts first pull data associated with the Needle Program from the City of 
 
 Next, information on hospitals is pulled from the Hospital Locations data set from the City of Boston website. Though hospitals are not generally advertised as public drop-off locations currently, they may also be useful in determining whether there is 
 
-The location data associated with the requests from the needle program are clustered via k-means using k=6. This value of k was selected by subjective examination of scatterplots generated using scikit-learn's  
+The location data associated with the requests from the needle program are clustered via k-means using k=6. This value of k was selected by subjective examination of scatterplots generated using scikit-learn's k-means++ method and the matplot library.  
 
 The means output from the k-means clustering will then be used to measure the approximate distance between the means and the longitude/latitude coordinates for the current sites and hospitals.
 
@@ -44,9 +44,9 @@ More tangential applications:
   - [Beautiful Soup 4] (http://www.crummy.com/software/BeautifulSoup/) `bs4`
   - [PyMongo] (https://api.mongodb.org/python/current/) `pymongo`
   - [Prov] (https://pypi.python.org/pypi/prov) `prov`
-  - [NumPy] (http://www.numpy.org/)
-  - [Scikit-learn] (http://scikit-learn.org/stable/)
-  - [Matplotlib] (http://matplotlib.org/index.html)
+  - [NumPy] (http://www.numpy.org/) `numpy`
+  - [Scikit-learn] (http://scikit-learn.org/stable/) `scikit-learn`
+  - [Matplotlib] (http://matplotlib.org/index.html) `matplot-lib`
 - MongoDB 3.2
 
 ### Accounts required
