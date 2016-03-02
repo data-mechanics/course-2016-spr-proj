@@ -60,5 +60,12 @@ $ python3 reverse_geocode.py
 Dependencies: Same as previous scripts with the addition of the geopy module (pip3 install geopy)
 We use this library for obtaining zipcodes
 
-Prov
+IMPORTANT: when running this script for the first time, uncomment lines 34 and 35 to 
+properly add the data to the repo; however, due to the current limitations, we comment this
+out since subsequent runs result in dropping the database with no way to regenerate the data because
+we lack the requests in our api key.
+
+Notes: we would like to construct a full data set for the latter script, and hope to do so soon.
+When generating the provenance for the transformations, any dataset we used for the transformation
+was added as a resource that the new dataset was derived from
 

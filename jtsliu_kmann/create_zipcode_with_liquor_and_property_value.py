@@ -1,3 +1,7 @@
+# Kyle Mann and Jonathan Liu (jtsliu_kmann)
+# CS591
+# This script generates zipcode data that contains the average tax dollar per square foot
+# of a zipcode in addition to the number of liquor selling locations in that zipcode
 import datetime
 import json
 import prov.model
@@ -115,6 +119,7 @@ doc.wasAssociatedWith(this_run, this_script)
 doc.used(this_run, resource1, startTime)
 doc.used(this_run, resource2, startTime)
 
+# This was derived from 2 different data sets!
 zipcode_data = doc.entity('dat:zipcode_liquor_property_info', {prov.model.PROV_LABEL:'Zipcode Liquor and Propery Data', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(zipcode_data, this_script)
 doc.wasGeneratedBy(zipcode_data, this_run, endTime)
