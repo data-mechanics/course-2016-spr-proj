@@ -20,7 +20,7 @@ EMS 911 Dispatch time compared to Waze Jam time, and the number of counts that h
 
 My goal is to answer the location of nearby hospitals and their relationship to traffic jams, attempting to create
 a more efficient way of getting to hospitals. This will see if there are certain hospitals that are more likely to cause
-traffic jams. I noted that there are some hospitals on the same street, so some of these are research institutes.
+traffic jams. I noted that there are some hospitals on the same street, so this is also a database that I created (inside proj1.py) that just notes which streets have multiple hospitals.
 
 
 
