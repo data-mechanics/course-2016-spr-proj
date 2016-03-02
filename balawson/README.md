@@ -71,6 +71,18 @@ Gowalla: (still working on labeling which hour is shown)
 Twitter: (still working on labeling which hour is shown)
 ![heatmap of tweets by the hour](/balawson/notebooks/twitter.gif)
 
+#####zoomed into downtown
+for some reason I only have them doing one loop. Begins at 0:00 (12am) and ends at 23:00 (the hour preceding midnight). You can click on the image to replay it (open image in new tab).
+
+Brightkite: (still working on labeling which hour is shown)
+![heatmap of tweets by the hour](/balawson/notebooks/brightkite_zoom.gif)
+
+Gowalla: (still working on labeling which hour is shown)
+![heatmap of tweets by the hour](/balawson/notebooks/gowalla_zoom.gif)
+
+Twitter: (still working on labeling which hour is shown)
+![heatmap of tweets by the hour](/balawson/notebooks/twitter_zoom.gif)
+
 
 ####Kolmogorov–Smirnov test
 ######'a nonparametric test of the equality of continuous probability distributions' - [Wikipedia](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test)
