@@ -24,8 +24,8 @@ def getCollection(dbName):
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-repo.dropPermanent("zipcode_liquor_property")
-repo.createPermanent("zipcode_liquor_property")
+repo.dropPermanent("zipcode_liquor_property_info")
+repo.createPermanent("zipcode_liquor_property_info")
 
 repo.createTemporary("zipcode_liquor_count")
 repo.createTemporary("zipcode_tax_count")
@@ -71,5 +71,16 @@ pipeline2 = [
 	{ "$project" : {"avg_tax_per_sf": {"$divide": ["$tax_per_sf_sum", "$number_properties"]}, "number_properties": 1} }
 ]
 
-test = list(repo['jtsliu_kmann.zipcode_tax_count'].aggregate(pipeline2))
-print(test)
+zipcode_avg_prop_tax = list(repo['jtsliu_kmann.zipcode_tax_count'].aggregate(pipeline2))
+
+for location in zipcode_avg_prop_tax:
+	desired = None
+	for other in zipcode_liquor_locations:
+		if location["_id"] == other["_id"]:
+			desired = other
+			break
+	if not desired is None:
+		location["liquor_locations"] = desired["liquor_locations"]
+
+repo['jtsliu_kmann.zipcode_liquor_property_info'].insert_many(zipcode_avg_prop_tax)
+

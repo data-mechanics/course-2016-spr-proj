@@ -17,12 +17,16 @@ This dataset is a bit of an experiment. Perhaps it is the case that in areas wit
 available alcohol, there is high crime rate. In particular, violent crime related to
 alcohol - this would be a cause of a neighborhood becoming more dangerous potentially.
 
-3. Property Assessment 
+3. Property Assessment: https://data.cityofboston.gov/resource/qz7u-kb7x
 
+This dataset was chosen to see if we could learn anything about the value of an area based on the assessment
+from the census. Ideally this, combined with some other data such as poverty, crime, or homelessness (can you measure that?),
+would yield interesting metrics on the gentrification of an area.
 
+Currently our transformations classify all of the data by zipcode, which is a fairly large geospacial area.
+Perhaps we could narrow it to locations in the future, but currently, we can try to classify zipcodes based on
+some interesting information.
 
-
-http://zipcode.org/city/MA/BOSTON - 37 zipcodes
 
 TODO:
 Filter out data with invalid locations - done?
