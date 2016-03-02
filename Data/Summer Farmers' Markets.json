@@ -1,0 +1,936 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "rww2-sqpe",
+      "name" : "Summer Farmers' Markets",
+      "attribution" : "Mayor's Office of Food Initiatives",
+      "attributionLink" : "http://cityofboston.gov/food",
+      "averageRating" : 0,
+      "createdAt" : 1352483858,
+      "description" : "Operation details for summer farmers' market in Boston. Subject to change in future; information listed is accurate as of Spring 2013. All markets have at least one vendor who accepts WIC/Senior FMNP benefits; many, but not all, markets also accept SNAP and EBT/Boston Bounty Bucks benefits.",
+      "displayType" : "table",
+      "downloadCount" : 404,
+      "indexUpdatedAt" : 1414540089,
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 3238092,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1371678397,
+      "publicationGroup" : 490533,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "rowsUpdatedAt" : 1371678320,
+      "rowsUpdatedBy" : "qyzb-duix",
+      "tableId" : 802623,
+      "totalTimesRated" : 0,
+      "viewCount" : 436,
+      "viewLastModified" : 1371678397,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 58689781,
+        "name" : "Name",
+        "dataTypeName" : "text",
+        "fieldName" : "name",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5113179,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "Allston Harvard",
+          "null" : 0,
+          "largest" : "SoWa",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Allston Harvard"
+          }, {
+            "count" : 19,
+            "item" : "Allston Village/Union Square"
+          }, {
+            "count" : 18,
+            "item" : "Ashmont/Peabody"
+          }, {
+            "count" : 17,
+            "item" : "Beth Israel Deaconess"
+          }, {
+            "count" : 16,
+            "item" : "Boston City Hall"
+          }, {
+            "count" : 15,
+            "item" : "Boston Medical Center"
+          }, {
+            "count" : 14,
+            "item" : "Boston University"
+          }, {
+            "count" : 13,
+            "item" : "Bowdoin Geneva"
+          }, {
+            "count" : 12,
+            "item" : "Charlestown"
+          }, {
+            "count" : 11,
+            "item" : "Codman Square"
+          }, {
+            "count" : 10,
+            "item" : "Copley Square"
+          }, {
+            "count" : 9,
+            "item" : "Corey St"
+          }, {
+            "count" : 8,
+            "item" : "Dewey Square"
+          }, {
+            "count" : 7,
+            "item" : "Dorchester House"
+          }, {
+            "count" : 6,
+            "item" : "Dudley Town"
+          }, {
+            "count" : 5,
+            "item" : "East Boston"
+          }, {
+            "count" : 4,
+            "item" : "Egleston"
+          }, {
+            "count" : 3,
+            "item" : "Field's Corner"
+          }, {
+            "count" : 2,
+            "item" : "Jamaica Plain"
+          }, {
+            "count" : 1,
+            "item" : "Loring-Greenough House"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 58689782,
+        "name" : "Location",
+        "dataTypeName" : "text",
+        "fieldName" : "location",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5113180,
+        "width" : 158,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "1062 Blue Hill Ave. ",
+          "null" : 0,
+          "largest" : "W 446 W. Broadway St. ",
+          "top" : [ {
+            "count" : 20,
+            "item" : "200 North Harvard St."
+          }, {
+            "count" : 19,
+            "item" : "500 Cambridge St."
+          }, {
+            "count" : 18,
+            "item" : "1900 Dorchester Ave."
+          }, {
+            "count" : 17,
+            "item" : "330 Brookline Ave"
+          }, {
+            "count" : 16,
+            "item" : "1 City Hall Plaza "
+          }, {
+            "count" : 15,
+            "item" : "850 Harrison Ave. "
+          }, {
+            "count" : 14,
+            "item" : "775 Commonwealth Ave."
+          }, {
+            "count" : 13,
+            "item" : "230 Bowdoin St."
+          }, {
+            "count" : 12,
+            "item" : "1 Thompson Sq."
+          }, {
+            "count" : 11,
+            "item" : "6 Norfolk St."
+          }, {
+            "count" : 10,
+            "item" : "261 Dartmouth St."
+          }, {
+            "count" : 9,
+            "item" : "120 Corey St"
+          }, {
+            "count" : 8,
+            "item" : "200 Atlantic Ave."
+          }, {
+            "count" : 7,
+            "item" : "1353 Dorchester Ave. "
+          }, {
+            "count" : 6,
+            "item" : "390 Dudley St."
+          }, {
+            "count" : 5,
+            "item" : "230 Meridian St."
+          }, {
+            "count" : 4,
+            "item" : "45 Brookside Ave"
+          }, {
+            "count" : 3,
+            "item" : "1520 Dorchester Ave."
+          }, {
+            "count" : 2,
+            "item" : "677 Centre St. "
+          }, {
+            "count" : 1,
+            "item" : "12 South St."
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 58689783,
+        "name" : "Area",
+        "dataTypeName" : "text",
+        "fieldName" : "area",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5113181,
+        "width" : 127,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "Allston",
+          "null" : 0,
+          "largest" : "West Roxbury",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Allston"
+          }, {
+            "count" : 19,
+            "item" : "Dorchester"
+          }, {
+            "count" : 18,
+            "item" : "Boston"
+          }, {
+            "count" : 17,
+            "item" : "Charlestown"
+          }, {
+            "count" : 16,
+            "item" : "West Roxbury"
+          }, {
+            "count" : 15,
+            "item" : "East Boston"
+          }, {
+            "count" : 14,
+            "item" : "Jamaica Plain"
+          }, {
+            "count" : 13,
+            "item" : "Mattapan"
+          }, {
+            "count" : 12,
+            "item" : "Mission Hill"
+          }, {
+            "count" : 11,
+            "item" : "Roslindale"
+          }, {
+            "count" : 10,
+            "item" : "South Boston"
+          }, {
+            "count" : 9,
+            "item" : "South End"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 58689784,
+        "name" : "Zip Code",
+        "dataTypeName" : "text",
+        "fieldName" : "zip_code",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5113182,
+        "width" : 106,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "2108",
+          "null" : 0,
+          "largest" : "2215",
+          "top" : [ {
+            "count" : 20,
+            "item" : "2134"
+          }, {
+            "count" : 19,
+            "item" : "2124"
+          }, {
+            "count" : 18,
+            "item" : "2215"
+          }, {
+            "count" : 17,
+            "item" : "2108"
+          }, {
+            "count" : 16,
+            "item" : "2118"
+          }, {
+            "count" : 15,
+            "item" : "2122"
+          }, {
+            "count" : 14,
+            "item" : "2129"
+          }, {
+            "count" : 13,
+            "item" : "2116"
+          }, {
+            "count" : 12,
+            "item" : "2132"
+          }, {
+            "count" : 11,
+            "item" : "2109"
+          }, {
+            "count" : 10,
+            "item" : "2119"
+          }, {
+            "count" : 9,
+            "item" : "2128"
+          }, {
+            "count" : 8,
+            "item" : "2130"
+          }, {
+            "count" : 7,
+            "item" : "2126"
+          }, {
+            "count" : 6,
+            "item" : "2115"
+          }, {
+            "count" : 5,
+            "item" : "2120"
+          }, {
+            "count" : 4,
+            "item" : "2199"
+          }, {
+            "count" : 3,
+            "item" : "2131"
+          }, {
+            "count" : 2,
+            "item" : "2127"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 60506865,
+        "name" : "Open/Close Dates",
+        "dataTypeName" : "text",
+        "description" : "Dates that the market opens and closes for the season.",
+        "fieldName" : "open_close_dates",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 9804982,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "July 11 - Oct 17",
+          "null" : 0,
+          "largest" : "Sept 5 -  Oct 24",
+          "top" : [ {
+            "count" : 20,
+            "item" : "June 14 - Oct 25"
+          }, {
+            "count" : 19,
+            "item" : "May 15 - Oct 26"
+          }, {
+            "count" : 18,
+            "item" : "June 21 - Oct 18"
+          }, {
+            "count" : 17,
+            "item" : "June 12 - Oct 23"
+          }, {
+            "count" : 16,
+            "item" : "May 20 - Nov 27"
+          }, {
+            "count" : 15,
+            "item" : "Sept 5 -  Oct 24"
+          }, {
+            "count" : 14,
+            "item" : "June 20 - Oct 31"
+          }, {
+            "count" : 13,
+            "item" : "July - Oct"
+          }, {
+            "count" : 12,
+            "item" : "June 20 - Oct 24"
+          }, {
+            "count" : 11,
+            "item" : "May 14- Nov 26"
+          }, {
+            "count" : 10,
+            "item" : "June 23 - Oct 26"
+          }, {
+            "count" : 9,
+            "item" : "May 21 - Nov 26"
+          }, {
+            "count" : 8,
+            "item" : "June 25 - Oct 8"
+          }, {
+            "count" : 7,
+            "item" : "June 4 - Oct 29"
+          }, {
+            "count" : 6,
+            "item" : "July 11 - Oct 17"
+          }, {
+            "count" : 5,
+            "item" : "June 2 - Oct 12"
+          }, {
+            "count" : 4,
+            "item" : "July 6 - Oct 23"
+          }, {
+            "count" : 3,
+            "item" : "June - Thanksgiving"
+          }, {
+            "count" : 2,
+            "item" : "July 13 - Oct 12"
+          }, {
+            "count" : 1,
+            "item" : "June 20 - Nov 21"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 58689785,
+        "name" : "Day",
+        "dataTypeName" : "text",
+        "description" : "Day or days market operates",
+        "fieldName" : "day",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5113183,
+        "width" : 166,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "Friday ",
+          "null" : 0,
+          "largest" : "Wednesday",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Fridays"
+          }, {
+            "count" : 19,
+            "item" : "Saturdays"
+          }, {
+            "count" : 18,
+            "item" : "Wednesday"
+          }, {
+            "count" : 17,
+            "item" : "Monday and Wednesday"
+          }, {
+            "count" : 16,
+            "item" : "Friday "
+          }, {
+            "count" : 15,
+            "item" : "Thursday"
+          }, {
+            "count" : 14,
+            "item" : "Tuesday and Friday"
+          }, {
+            "count" : 13,
+            "item" : "Sundays"
+          }, {
+            "count" : 12,
+            "item" : "Tuesday and Thursday"
+          }, {
+            "count" : 11,
+            "item" : "Tuesday  "
+          }, {
+            "count" : 10,
+            "item" : "Tuesdays"
+          }, {
+            "count" : 9,
+            "item" : "Saturday"
+          }, {
+            "count" : 8,
+            "item" : "Tuesday"
+          }, {
+            "count" : 7,
+            "item" : "Thurs, Fri and Sat"
+          }, {
+            "count" : 6,
+            "item" : "Monday"
+          }, {
+            "count" : 5,
+            "item" : "Sunday"
+          } ]
+        },
+        "format" : {
+          "align" : "left"
+        }
+      }, {
+        "id" : 60501507,
+        "name" : "Time",
+        "dataTypeName" : "text",
+        "description" : "Time that market operates",
+        "fieldName" : "time",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 9804542,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "10am - 2pm",
+          "null" : 0,
+          "largest" : "9am - 12pm",
+          "top" : [ {
+            "count" : 20,
+            "item" : "3-7pm"
+          }, {
+            "count" : 19,
+            "item" : "11am-3pm"
+          }, {
+            "count" : 18,
+            "item" : "3pm-7pm"
+          }, {
+            "count" : 17,
+            "item" : "12pm-3:30 pm"
+          }, {
+            "count" : 16,
+            "item" : "11am - 6pm"
+          }, {
+            "count" : 15,
+            "item" : "11:30am -2:30 pm"
+          }, {
+            "count" : 14,
+            "item" : "2:30pm -6:30 pm"
+          }, {
+            "count" : 13,
+            "item" : "2:00pm - 7pm"
+          }, {
+            "count" : 12,
+            "item" : "1pm - 6pm"
+          }, {
+            "count" : 11,
+            "item" : "11am - 3pm"
+          }, {
+            "count" : 10,
+            "item" : "11:30am - 6:30pm"
+          }, {
+            "count" : 9,
+            "item" : "11:30am - 2pm"
+          }, {
+            "count" : 8,
+            "item" : "3pm - 7pm"
+          }, {
+            "count" : 7,
+            "item" : "3pm - 6:30pm"
+          }, {
+            "count" : 6,
+            "item" : "10am - 2pm"
+          }, {
+            "count" : 5,
+            "item" : "9am - 12pm"
+          }, {
+            "count" : 4,
+            "item" : "12pm - 5pm"
+          }, {
+            "count" : 3,
+            "item" : "2 pm - dusk"
+          }, {
+            "count" : 2,
+            "item" : "2pm - 7pm"
+          }, {
+            "count" : 1,
+            "item" : "2-6pm, Sat 10am - 1pm"
+          } ]
+        },
+        "format" : {
+          "align" : "left"
+        }
+      }, {
+        "id" : 60501508,
+        "name" : "EBT/Boston Bounty Bucks",
+        "dataTypeName" : "text",
+        "description" : "If EBT/Boston Bounty Bucks  food assistance benefits are accepted at this market.",
+        "fieldName" : "ebt_bbb",
+        "position" : 8,
+        "renderTypeName" : "text",
+        "tableColumnId" : 9804543,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "No",
+          "null" : 0,
+          "largest" : "Yes",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Yes"
+          }, {
+            "count" : 19,
+            "item" : "No"
+          } ]
+        },
+        "format" : {
+          "align" : "left"
+        }
+      }, {
+        "id" : 58689786,
+        "name" : "SNAP",
+        "dataTypeName" : "text",
+        "description" : "If SNAP benefits are available at this location",
+        "fieldName" : "snap",
+        "position" : 9,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5113184,
+        "width" : 106,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : "No",
+          "null" : 0,
+          "largest" : "Yes",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Yes"
+          }, {
+            "count" : 19,
+            "item" : "No"
+          } ]
+        },
+        "format" : {
+          "align" : "left"
+        }
+      }, {
+        "id" : 58689787,
+        "name" : "Map Location",
+        "dataTypeName" : "location",
+        "fieldName" : "map_location",
+        "position" : 10,
+        "renderTypeName" : "location",
+        "tableColumnId" : 8589469,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 28,
+          "smallest" : {
+            "human_address" : "{\"address\":\"1 9 Cummins Highway Roslindale\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+          },
+          "null" : 0,
+          "largest" : {
+            "human_address" : "{\"address\":\"850 Harrison Ave &nbsp; Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "human_address" : "{\"address\":\"200 Harvard St Allston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 19,
+            "item" : {
+              "human_address" : "{\"address\":\"500 Cambridge St Allston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 18,
+            "item" : {
+              "human_address" : "{\"address\":\"1900 Dorchester Ave Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 17,
+            "item" : {
+              "human_address" : "{\"address\":\"330 Brookline Ave Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 16,
+            "item" : {
+              "human_address" : "{\"address\":\"1 City Hall Plaza&nbsp; Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 15,
+            "item" : {
+              "human_address" : "{\"address\":\"850 Harrison Ave &nbsp; Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 14,
+            "item" : {
+              "human_address" : "{\"address\":\"775 Commonwealth Ave Allston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 13,
+            "item" : {
+              "human_address" : "{\"address\":\"230 Bowdoin St Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 12,
+            "item" : {
+              "human_address" : "{\"address\":\"1 Thompson Sq Charlestown\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 11,
+            "item" : {
+              "human_address" : "{\"address\":\"6 Norfolk St Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 10,
+            "item" : {
+              "human_address" : "{\"address\":\"261 Dartmouth St Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 9,
+            "item" : {
+              "human_address" : "{\"address\":\"120 Corey St West Roxbury\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 8,
+            "item" : {
+              "human_address" : "{\"address\":\"200 Atlantic Ave Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 7,
+            "item" : {
+              "human_address" : "{\"address\":\"1353 Dorchester Ave &nbsp; Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 6,
+            "item" : {
+              "human_address" : "{\"address\":\"390 Dudley St Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 5,
+            "item" : {
+              "human_address" : "{\"address\":\"230 Meridian St East Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 4,
+            "item" : {
+              "human_address" : "{\"address\":\"45 Brookside Ave Jamaica Plain\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 3,
+            "item" : {
+              "human_address" : "{\"address\":\"1520 Dorchester Ave Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 2,
+            "item" : {
+              "human_address" : "{\"address\":\"677 Centre St &nbsp; Jamaica Plain\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}"
+            }
+          }, {
+            "count" : 1,
+            "item" : {
+              "human_address" : "{\"address\":\"12 South St\",\"city\":\"Jamaica\",\"state\":\"Plain\",\"zip\":\"\"}"
+            }
+          } ]
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      }, {
+        "id" : 75180288,
+        "name" : "Vendors",
+        "dataTypeName" : "text",
+        "description" : "Who's at the market?",
+        "fieldName" : "vendors",
+        "position" : 11,
+        "renderTypeName" : "text",
+        "tableColumnId" : 11485892,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 27,
+          "smallest" : "Allandale Farm, Brookwood Community Farm, Henwyn Farm, Hickory Nut Farm, John Crow Farm, Lawtons Family Farm/Foxborough Cheese, MacArthur Farm, Neighborhood Farm, Nutting Farm, Sweetgrass Herbals, Two Field Farm, Alex’s Ugly Sauce, A.K.A Marvelicious, The Cupcakory, DOOS P.K. - The Caviar of Vegan Treats, Fastashi, Follow The Honey, Inc., Fornax Bread Company, Gay Grace Teas, Heirloom Kitchen, Le Petit Goute, McCrea’s Candies, Mykl’s Coffee Company, NoLa’s Fresh Foods, Purely Pears, Samira’s Homemade, Soluna Garden Farm, Soula’s Homemade Salsa, Sprouted Raw Foods, Stir it up Cuisine, Taza Chocolate, Tony’s Market, Two Girls Toffee, Walters Specialty Foods, Violette Gluten Free Bakery, Vision’s Sown ",
+          "null" : 1,
+          "largest" : "Ward’s Berry Farm, Danish Pastry House, Marshall’s Farm Stand, Taza Chocolate, Q’s Nuts,  Follow the Honey, AKA Marvelicious",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Silvia Farms, Red's Best, Aruna's Granola, Sweet Lydia's Marshmallows, Soluna Gardens  "
+          }, {
+            "count" : 19,
+            "item" : "Marshalls Farms Stand"
+          }, {
+            "count" : 18,
+            "item" : "Langwater Farm, Spring Brook Farm, Cedar Grove Gardens, Red's Best Fish"
+          }, {
+            "count" : 17,
+            "item" : "Wards Berry Farm"
+          }, {
+            "count" : 16,
+            "item" : "Danish Pastry House, Fastachi Nuts, Freitas Farm,  MacArthur Farm, Noquochoke Orchards, Pain D'Avignon, Q's Nuts, Red's Best Seafood, Seta’s Mediterranean Foods,  Silverbrook Farm, Stillman's Greenhouses & Farmstand, Valicenti Organico, When Pigs Fly Bakery, Union Square Donuts, Spindrift Soda"
+          }, {
+            "count" : 15,
+            "item" : "Farmer Dave's"
+          }, {
+            "count" : 14,
+            "item" : "Ward’s Berry Farm, Danish Pastry House, Marshall’s Farm Stand, Taza Chocolate, Q’s Nuts,  Follow the Honey, AKA Marvelicious"
+          }, {
+            "count" : 13,
+            "item" : "Powisset Farm, Red's Best"
+          }, {
+            "count" : 12,
+            "item" : "Stillman's Farm"
+          }, {
+            "count" : 11,
+            "item" : "Silverbrook Farm; Ferrera Greenhouse; Great Cape Baking Co.; Cape Cod Fish Share; Mother’s Juice; Looking Good; Prime Taste of Africa"
+          }, {
+            "count" : 10,
+            "item" : "Atlas Farm, Cape Cod Fish, Cook's Farm Orchard, Crystal Brook Farm, Danish Pastry House, Dick's Market Garden, Fastachi, Fiore di Nonno, Foppema's Farm, Gilson Herbs, Grass Roots Farm, Hamilton Orchards, Hickory Nut Farm, Iggy's Bread Ltd., MacArthur Farm, Maine Homestead, Narragansett Creamery, Nella Pasta, New Breadsong Corner Bakery, Red's Best, Siena Farms, Seta's Mediterranean Foods, Silverbrook Farm, Sofra, Sprouted Raw Foods, Stillman's at the Turkey Farm, Stow Greenhouses, Valicenti Organico, Violette"
+          }, {
+            "count" : 9,
+            "item" : "Silverbrook Farm"
+          }, {
+            "count" : 8,
+            "item" : "Craquelines, Cuisine en Locale, Culinary Cruisers, Freitas Farm, Kimball Fruit Farm,  Lawton’s Family Farm, Lilac Hedge Farm, Pain D’Avignon, Q’s Nuts, Red’s Best Seafood, Red Fire Farm, Seacoast Butters, Sprouted Raw Foods, Swissbakers, Valicenti Organico, When Pigs Fly Bread, Baking With Joy, Culinary Cruisers, Lilac Hedge Farm, Matt’s Amazing Smokehouse, Pleasant Valley Gardens, Q’s Nuts, Seta’s Mediterranean Foods, Stow Greenhouses, Violette Gluten Free"
+          }, {
+            "count" : 7,
+            "item" : "ReVision House, Noons Farm"
+          }, {
+            "count" : 6,
+            "item" : "The Food Project"
+          }, {
+            "count" : 5,
+            "item" : "Stillman's"
+          }, {
+            "count" : 4,
+            "item" : "Asulia Foods, The Buckle Farm, The Cupcakory, The Food Project, Foxboro Cheese Co., The Dining Car, Doves and Figs, Great Cape Baking Co., Hickory Nut Farm, John Crow Farm, Mei-Mei Street Kitchen, Nola’s Fresh Foods, Red’s Best Fish, Siena Farms, Simpson Spring, Soluna Garden Farm, Urban Hydr-O Farmers, Velma’s Kettle Corn, Westport Rivers Winery "
+          }, {
+            "count" : 3,
+            "item" : "Berberian Farm,  Song V Yang Farm,  Lang Her Farm"
+          }, {
+            "count" : 2,
+            "item" : "Stillman’s Farm, Alex’s Ugly Sauce, Stillman’s at the Turkey Farm, Golden Rule Apiary, Still Life Farm, The Cupcakory, Flats Mentor Farm."
+          }, {
+            "count" : 1,
+            "item" : "Stillman's Farm, Stillman's at the Turkey Farm, Buckle Farm"
+          } ]
+        },
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Data Owner" : {
+            "Owner" : "Office of the Mayor"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0",
+        "rowIdentifier" : "0",
+        "rdfClass" : ""
+      },
+      "owner" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "query" : {
+        "orderBys" : [ {
+          "ascending" : true,
+          "expression" : {
+            "columnId" : 58689781,
+            "type" : "column"
+          }
+        } ]
+      },
+      "rights" : [ "read" ],
+      "sortBys" : [ {
+        "id" : 0,
+        "viewColumnId" : 58689781,
+        "flags" : [ "asc" ]
+      } ],
+      "tableAuthor" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "tags" : [ "food", "food initiatives", "farmers markets", "retail", "food access", "food security", "fresh food", "local food" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 1, "87E006D4-0630-40E1-B0E0-1DB0EF79B290", 1, 1366826470, "699782", 1371676435, "699782", "{}", "Allston Harvard", "200 North Harvard St.", "Allston", "2134", "June 14 - Oct 25", "Fridays", "3-7pm", "Yes", "Yes", [ "{\"address\":\"200 Harvard St Allston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Silvia Farms, Red's Best, Aruna's Granola, Sweet Lydia's Marshmallows, Soluna Gardens  " ]
+, [ 2, "CC776EF0-BFB4-427E-9357-579A4D26265F", 2, 1366826470, "699782", 1371676598, "699782", "{}", "Allston Village/Union Square", "500 Cambridge St.", "Allston", "2134", "May 15 - Oct 26", "Saturdays", "11am-3pm", "Yes", "Yes", [ "{\"address\":\"500 Cambridge St Allston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Marshalls Farms Stand" ]
+, [ 3, "45398A68-8AF1-4FA5-8BD0-9CF16520DF51", 3, 1366826470, "699782", 1371676258, "699782", "{}", "Ashmont/Peabody", "1900 Dorchester Ave.", "Dorchester", "2124", "June 21 - Oct 18", "Fridays", "3pm-7pm", "Yes", "Yes", [ "{\"address\":\"1900 Dorchester Ave Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Langwater Farm, Spring Brook Farm, Cedar Grove Gardens, Red's Best Fish" ]
+, [ 4, "1B64042B-0EFB-4338-871F-D87E8CFAE0BD", 4, 1366826470, "699782", 1371676539, "699782", "{}", "Beth Israel Deaconess", "330 Brookline Ave", "Boston", "2215", "June 12 - Oct 23", "Wednesday", "12pm-3:30 pm", "No", "No", [ "{\"address\":\"330 Brookline Ave Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Wards Berry Farm" ]
+, [ 5, "90370032-28A4-426E-ADB7-CCA3D8028B05", 5, 1366826470, "699782", 1371676794, "699782", "{}", "Boston City Hall", "1 City Hall Plaza ", "Boston", "2108", "May 20 - Nov 27", "Monday and Wednesday", "11am - 6pm", "Yes", "Yes", [ "{\"address\":\"1 City Hall Plaza&nbsp; Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Danish Pastry House, Fastachi Nuts, Freitas Farm,  MacArthur Farm, Noquochoke Orchards, Pain D'Avignon, Q's Nuts, Red's Best Seafood, Seta’s Mediterranean Foods,  Silverbrook Farm, Stillman's Greenhouses & Farmstand, Valicenti Organico, When Pigs Fly Bakery, Union Square Donuts, Spindrift Soda" ]
+, [ 6, "E007261E-BD86-4A19-8CAD-B99D07C29D70", 6, 1366826470, "699782", 1371676842, "699782", "{}", "Boston Medical Center", "850 Harrison Ave. ", "Boston", "2118", "June 14 - Oct 25", "Friday ", "11:30am -2:30 pm", "Yes", "Yes", [ "{\"address\":\"850 Harrison Ave &nbsp; Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Farmer Dave's" ]
+, [ 7, "95517D62-1932-4680-AFE1-6C12A1BEEBE4", 7, 1366826470, "699782", 1371676918, "699782", "{}", "Boston University", "775 Commonwealth Ave.", "Allston", "2215", "Sept 5 -  Oct 24", "Thursday", "11am-3pm", "No", "No", [ "{\"address\":\"775 Commonwealth Ave Allston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Ward’s Berry Farm, Danish Pastry House, Marshall’s Farm Stand, Taza Chocolate, Q’s Nuts,  Follow the Honey, AKA Marvelicious" ]
+, [ 8, "8067DCA6-1883-4435-B45A-7794ADBE97D4", 8, 1366826470, "699782", 1371676975, "699782", "{}", "Bowdoin Geneva", "230 Bowdoin St.", "Dorchester", "2122", "June 20 - Oct 31", "Thursday", "2:30pm -6:30 pm", "Yes", "Yes", [ "{\"address\":\"230 Bowdoin St Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Powisset Farm, Red's Best" ]
+, [ 9, "C59C57E5-0BE2-4C3D-8248-A280FECD26AD", 9, 1366826470, "699782", 1371677013, "699782", "{}", "Charlestown", "1 Thompson Sq.", "Charlestown", "2129", "July - Oct", "Wednesday", "2:00pm - 7pm", "No", "No", [ "{\"address\":\"1 Thompson Sq Charlestown\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Stillman's Farm" ]
+, [ 10, "8F6F6025-33E5-4CFD-9EEA-5102BDC68BEE", 10, 1366826470, "699782", 1371677045, "699782", "{}", "Codman Square", "6 Norfolk St.", "Dorchester", "2124", "June 20 - Oct 24", "Thursday", "1pm - 6pm", "Yes", "Yes", [ "{\"address\":\"6 Norfolk St Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Silverbrook Farm; Ferrera Greenhouse; Great Cape Baking Co.; Cape Cod Fish Share; Mother’s Juice; Looking Good; Prime Taste of Africa" ]
+, [ 11, "861D138D-4DBD-49AE-BD9B-09FA45E7D59F", 11, 1366826470, "699782", 1371677335, "699782", "{}", "Copley Square", "261 Dartmouth St.", "Boston", "2116", "May 14- Nov 26", "Tuesday and Friday", "11am - 6pm", "Yes", "Yes", [ "{\"address\":\"261 Dartmouth St Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Atlas Farm, Cape Cod Fish, Cook's Farm Orchard, Crystal Brook Farm, Danish Pastry House, Dick's Market Garden, Fastachi, Fiore di Nonno, Foppema's Farm, Gilson Herbs, Grass Roots Farm, Hamilton Orchards, Hickory Nut Farm, Iggy's Bread Ltd., MacArthur Farm, Maine Homestead, Narragansett Creamery, Nella Pasta, New Breadsong Corner Bakery, Red's Best, Siena Farms, Seta's Mediterranean Foods, Silverbrook Farm, Sofra, Sprouted Raw Foods, Stillman's at the Turkey Farm, Stow Greenhouses, Valicenti Organico, Violette" ]
+, [ 12, "089CC2C3-0D1A-466F-9D4B-BDE6A7D97999", 12, 1366826470, "699782", 1371677365, "699782", "{}", "Corey St", "120 Corey St", "West Roxbury", "2132", "June 23 - Oct 26", "Sundays", "11am - 3pm", "No", "No", [ "{\"address\":\"120 Corey St West Roxbury\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Silverbrook Farm" ]
+, [ 13, "41229C4F-73D9-4DAF-9308-0A10B0BF6DB4", 13, 1366826470, "699782", 1371677536, "699782", "{}", "Dewey Square", "200 Atlantic Ave.", "Boston", "2109", "May 21 - Nov 26", "Tuesday and Thursday", "11:30am - 6:30pm", "Yes", "Yes", [ "{\"address\":\"200 Atlantic Ave Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Craquelines, Cuisine en Locale, Culinary Cruisers, Freitas Farm, Kimball Fruit Farm,  Lawton’s Family Farm, Lilac Hedge Farm, Pain D’Avignon, Q’s Nuts, Red’s Best Seafood, Red Fire Farm, Seacoast Butters, Sprouted Raw Foods, Swissbakers, Valicenti Organico, When Pigs Fly Bread, Baking With Joy, Culinary Cruisers, Lilac Hedge Farm, Matt’s Amazing Smokehouse, Pleasant Valley Gardens, Q’s Nuts, Seta’s Mediterranean Foods, Stow Greenhouses, Violette Gluten Free" ]
+, [ 14, "F2C32FBA-9435-4AD5-9CE6-2EE8F52A456F", 14, 1366826470, "699782", 1371676166, "699782", "{}", "Dorchester House", "1353 Dorchester Ave. ", "Dorchester", "2122", "June 25 - Oct 8", "Tuesday  ", "11:30am - 2pm", "Yes", "Yes", [ "{\"address\":\"1353 Dorchester Ave &nbsp; Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "ReVision House, Noons Farm" ]
+, [ 15, "C568672D-4F4A-4903-B7EF-B797D82A1B3D", 15, 1366826470, "699782", 1371677568, "699782", "{}", "Dudley Town", "390 Dudley St.", "Dorchester", "2119", "June 4 - Oct 29", "Tuesdays", "3pm - 7pm", "Yes", "Yes", [ "{\"address\":\"390 Dudley St Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "The Food Project" ]
+, [ 16, "8C7BA3C2-E4A6-4DBC-83E6-3D3713F39BF1", 16, 1366826470, "699782", 1371677578, "699782", "{}", "East Boston", "230 Meridian St.", "East Boston", "2128", "July 11 - Oct 17", "Thursday", "3pm - 6:30pm", "Yes", "Yes", [ "{\"address\":\"230 Meridian St East Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Stillman's" ]
+, [ 17, "86E7C3BB-42E0-46D6-847F-8B32A97CDBB3", 17, 1366826470, "699782", 1371677793, "699782", "{}", "Egleston", "45 Brookside Ave", "Jamaica Plain", "2130", "June 2 - Oct 12", "Saturday", "10am - 2pm", "Yes", "Yes", [ "{\"address\":\"45 Brookside Ave Jamaica Plain\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Asulia Foods, The Buckle Farm, The Cupcakory, The Food Project, Foxboro Cheese Co., The Dining Car, Doves and Figs, Great Cape Baking Co., Hickory Nut Farm, John Crow Farm, Mei-Mei Street Kitchen, Nola’s Fresh Foods, Red’s Best Fish, Siena Farms, Simpson Spring, Soluna Garden Farm, Urban Hydr-O Farmers, Velma’s Kettle Corn, Westport Rivers Winery " ]
+, [ 18, "AFF00274-9C9F-48AB-8155-8996CA2255D4", 18, 1366826470, "699782", 1371676199, "699782", "{}", "Field's Corner", "1520 Dorchester Ave.", "Dorchester", "2122", "July 6 - Oct 23", "Saturday", "9am - 12pm", "Yes", "Yes", [ "{\"address\":\"1520 Dorchester Ave Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Berberian Farm,  Song V Yang Farm,  Lang Her Farm" ]
+, [ 19, "065F2A11-E859-4B1B-8D9C-F531F2551C50", 19, 1366826470, "699782", 1371677857, "699782", "{}", "Jamaica Plain", "677 Centre St. ", "Jamaica Plain", "2130", "June - Thanksgiving", "Tuesday", "12pm - 5pm", "No", "No", [ "{\"address\":\"677 Centre St &nbsp; Jamaica Plain\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Stillman’s Farm, Alex’s Ugly Sauce, Stillman’s at the Turkey Farm, Golden Rule Apiary, Still Life Farm, The Cupcakory, Flats Mentor Farm." ]
+, [ 20, "3AD4742E-5647-455A-9E80-A1B61AAD66A1", 20, 1366826470, "699782", 1371677924, "699782", "{}", "Loring-Greenough House", "12 South St.", "Jamaica Plain", "2130", "June - Thanksgiving", "Thursday", "2 pm - dusk", "No", "No", [ "{\"address\":\"12 South St\",\"city\":\"Jamaica\",\"state\":\"Plain\",\"zip\":\"\"}", null, null, null, true ], "Stillman's Farm, Stillman's at the Turkey Farm, Buckle Farm" ]
+, [ 21, "DBC7D93D-C98F-4FC2-9409-406265F09F0A", 21, 1366826470, "699782", 1371676331, "699782", "{}", "Mattapan", "525 River St. ", "Mattapan", "2126", "July 13 - Oct 12", "Saturday", "10am - 2pm", "Yes", "Yes", [ "{\"address\":\"525 River St &nbsp; Mattapan\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Reds Best, SBA Family Farms, City Harvest, Pioneer Valley/New England Growers Co-OP, Pink’s Pastries, Ancient Baking Company, Inc, Prime “A Taste of Africa”" ]
+, [ 22, "077AB778-210A-49E3-BE13-3A9D393C883B", 22, 1366826470, "699782", 1371678034, "699782", "{}", "Mission Hill - Brigham Circle", "720 Huntington Ave.", "Mission Hill", "2115", "June 20 - Nov 21", "Thursday", "11am - 6pm", "Yes", "Yes", [ "{\"address\":\"720 Huntington Ave Mission Hill\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Gary's Two, MacArthur Farm" ]
+, [ 23, "B3F6BFBB-470F-4AF4-979C-3A0881E28D9E", 23, 1366826470, "699782", 1371678029, "699782", "{}", "Mission Hill - Roxbury Crossing", "1420 Tremont St", "Mission Hill", "2120", "June 18 - Nov 26", "Tuesday", "2pm - 7pm", "Yes", "Yes", [ "{\"address\":\"1420 Tremont St Mission Hill\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Gary's Two, MacArthur Farm, Red's Best Seafood" ]
+, [ 24, "874FFFD4-1014-4FF6-9E9E-873CABF3CB8C", 24, 1366826470, "699782", 1371678090, "699782", "{}", "Prudential Center", "800 Boylston St.", "Boston", "2199", "May 16 - Oct 24", "Thursday", "11am - 6pm", "Yes", "Yes", [ "{\"address\":\"800 Boylston St Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Gilson's (The Herb Lyceum), MacArthur Farm, Q's Nuts, Swiss Bakers" ]
+, [ 25, "AC98DC4C-4A94-4EEA-8E91-4C3A2709F9C7", 25, 1366826470, "699782", 1371678099, "699782", "{}", "ReVision Urban Farm Stand", "1062 Blue Hill Ave. ", "Dorchester", "2124", "July 5 - Oct 12", "Thurs, Fri and Sat", "2-6pm, Sat 10am - 1pm", "Yes", "Yes", [ "{\"address\":\"1062 Blue Hill Ave &nbsp; Dorchester\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "ReVision Urban Farm" ]
+, [ 26, "36A01F09-C095-47D7-8238-BA2DB7341EBC", 26, 1366826470, "699782", 1371678294, "699782", "{}", "Roslindale", "1-9 Cummins Highway", "Roslindale", "2131", "June 1 - Nov 23", "Saturday", "9am - 1:30pm", "Yes", "Yes", [ "{\"address\":\"1 9 Cummins Highway Roslindale\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Allandale Farm, Brookwood Community Farm, Henwyn Farm, Hickory Nut Farm, John Crow Farm, Lawtons Family Farm/Foxborough Cheese, MacArthur Farm, Neighborhood Farm, Nutting Farm, Sweetgrass Herbals, Two Field Farm, Alex’s Ugly Sauce, A.K.A Marvelicious, The Cupcakory, DOOS P.K. - The Caviar of Vegan Treats, Fastashi, Follow The Honey, Inc., Fornax Bread Company, Gay Grace Teas, Heirloom Kitchen, Le Petit Goute, McCrea’s Candies, Mykl’s Coffee Company, NoLa’s Fresh Foods, Purely Pears, Samira’s Homemade, Soluna Garden Farm, Soula’s Homemade Salsa, Sprouted Raw Foods, Stir it up Cuisine, Taza Chocolate, Tony’s Market, Two Girls Toffee, Walters Specialty Foods, Violette Gluten Free Bakery, Vision’s Sown " ]
+, [ 27, "C9E5614E-18F8-4AF1-9930-6234AD0C85DA", 27, 1366826470, "699782", 1371678319, "699782", "{}", "South Boston", "W 446 W. Broadway St. ", "South Boston", "2127", "May 13 - Nov 19", "Monday", "12pm-6pm", "Yes", "Yes", [ "{\"address\":\"446 Broadway St &nbsp; South Boston\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], "Springbrook Farm, Freitas Farm" ]
+, [ 28, "90292FFF-ADB7-49A4-A180-9A78361A86CC", 28, 1366826470, "699782", 1366826470, "699782", "{\n}", "SoWa", "485 Harrison Ave.", "South End", "2118", "May 5 - Oct 27", "Sunday", "10am - 4pm", "No", "No", [ "{\"address\":\"485 Harrison Ave South End\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", null, null, null, true ], null ]
+ ]
+}

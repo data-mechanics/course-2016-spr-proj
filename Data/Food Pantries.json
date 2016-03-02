@@ -1,0 +1,500 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "vjvb-2kg6",
+      "name" : "Food Pantries",
+      "attribution" : "Mayor's Office of Food Initiatives",
+      "attributionLink" : "http://cityofboston.gov/food",
+      "averageRating" : 0,
+      "category" : "Health",
+      "createdAt" : 1352319370,
+      "description" : "Food banks and food pantries in the city of Boston and surrounding areas that are partially supplied with local produce. Accurate as of August 2012. Inaccurate information? Let us know!",
+      "displayType" : "table",
+      "downloadCount" : 1107,
+      "indexUpdatedAt" : 1414539054,
+      "licenseId" : "CC0_10",
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 1587854,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1352319502,
+      "publicationGroup" : 486782,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "rowsUpdatedAt" : 1352319377,
+      "rowsUpdatedBy" : "qyzb-duix",
+      "tableId" : 486782,
+      "totalTimesRated" : 0,
+      "viewCount" : 911,
+      "viewLastModified" : 1354723779,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 27228000,
+        "name" : "Site number",
+        "dataTypeName" : "text",
+        "fieldName" : "site_number",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055880,
+        "width" : 232,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : "FB1",
+          "null" : 0,
+          "largest" : "FB9",
+          "top" : [ {
+            "count" : 20,
+            "item" : "FB83"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 27228001,
+        "name" : "Name",
+        "dataTypeName" : "text",
+        "fieldName" : "name",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055881,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : "ABC/ People's Baptist Church Food Pantry",
+          "null" : 0,
+          "largest" : "WIC (Women, Infants and Children) Program",
+          "top" : [ {
+            "count" : 20,
+            "item" : "St Anthony Shrine/Franciscan Food Center"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 27228002,
+        "name" : "Location",
+        "dataTypeName" : "text",
+        "fieldName" : "location",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055882,
+        "width" : 196,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : "100 Arch St",
+          "null" : 0,
+          "largest" : "One Milk St",
+          "top" : [ {
+            "count" : 20,
+            "item" : "100 Arch St"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 27228006,
+        "name" : "Location 1",
+        "dataTypeName" : "location",
+        "fieldName" : "location_1",
+        "position" : 4,
+        "renderTypeName" : "location",
+        "tableColumnId" : 5055886,
+        "width" : 220,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : {
+            "longitude" : "-71.12253841377998",
+            "latitude" : "42.39639921595813",
+            "human_address" : "{\"address\":\"1 Davis Square\",\"city\":\"Somerville\",\"state\":\"MA\",\"zip\":\"02144\"}"
+          },
+          "null" : 0,
+          "largest" : {
+            "longitude" : "-71.054675573449",
+            "latitude" : "42.35749454497062",
+            "human_address" : "{\"address\":\"One Milk St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02109\"}"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "longitude" : "-71.05852229533832",
+              "latitude" : "42.354832615122675",
+              "human_address" : "{\"address\":\"100 Arch St\",\"city\":\"\",\"state\":\"MA\",\"zip\":\"02110\"}"
+            }
+          } ]
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      }, {
+        "id" : 27228003,
+        "name" : "Area",
+        "dataTypeName" : "text",
+        "fieldName" : "area",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055883,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 82,
+          "smallest" : "Boston",
+          "null" : 1,
+          "largest" : "South End",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Boston"
+          }, {
+            "count" : 19,
+            "item" : "Boston "
+          }, {
+            "count" : 18,
+            "item" : "Brighton"
+          }, {
+            "count" : 17,
+            "item" : "Cambridge"
+          }, {
+            "count" : 16,
+            "item" : "Charlestown"
+          }, {
+            "count" : 15,
+            "item" : "Dorchester"
+          }, {
+            "count" : 14,
+            "item" : "East Boston"
+          }, {
+            "count" : 13,
+            "item" : "Jamaica Plain"
+          }, {
+            "count" : 12,
+            "item" : "Mattapan"
+          }, {
+            "count" : 11,
+            "item" : "Roslindale"
+          }, {
+            "count" : 10,
+            "item" : "Roxbury"
+          }, {
+            "count" : 9,
+            "item" : "Roxbury "
+          }, {
+            "count" : 8,
+            "item" : "Somerville"
+          }, {
+            "count" : 7,
+            "item" : "South Boston"
+          }, {
+            "count" : 6,
+            "item" : "South End"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 27228007,
+        "name" : "Zip Code",
+        "dataTypeName" : "text",
+        "fieldName" : "zip_code",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055887,
+        "width" : 196,
+        "cachedContents" : {
+          "non_null" : 83,
+          "smallest" : "02108",
+          "null" : 0,
+          "largest" : "21178",
+          "top" : [ {
+            "count" : 20,
+            "item" : "02118"
+          }, {
+            "count" : 19,
+            "item" : "02109"
+          }, {
+            "count" : 18,
+            "item" : "02111"
+          }, {
+            "count" : 17,
+            "item" : "02112"
+          }, {
+            "count" : 16,
+            "item" : "02113"
+          }, {
+            "count" : 15,
+            "item" : "02116"
+          }, {
+            "count" : 14,
+            "item" : "02108"
+          }, {
+            "count" : 13,
+            "item" : "02135"
+          }, {
+            "count" : 12,
+            "item" : "02124"
+          }, {
+            "count" : 11,
+            "item" : "02139"
+          }, {
+            "count" : 10,
+            "item" : "02140"
+          }, {
+            "count" : 9,
+            "item" : "02138"
+          }, {
+            "count" : 8,
+            "item" : "02141"
+          }, {
+            "count" : 7,
+            "item" : "02129"
+          }, {
+            "count" : 6,
+            "item" : "02122"
+          }, {
+            "count" : 5,
+            "item" : "02125"
+          }, {
+            "count" : 4,
+            "item" : "02128"
+          }, {
+            "count" : 3,
+            "item" : "02130"
+          }, {
+            "count" : 2,
+            "item" : "02131"
+          }, {
+            "count" : 1,
+            "item" : "02119"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 27228004,
+        "name" : "Hours",
+        "dataTypeName" : "text",
+        "fieldName" : "hours",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055884,
+        "width" : 160,
+        "cachedContents" : {
+          "non_null" : 41,
+          "smallest" : "2nd Tuesday of the month 2:30 – 3:30 PM",
+          "null" : 42,
+          "largest" : "Wednesdays 5:00-7:00 p.m.; Thursdays,Fridays, and Saturdays 9:00 a.m.- 12:00 p.m."
+        },
+        "format" : { }
+      }, {
+        "id" : 27228005,
+        "name" : "Source",
+        "dataTypeName" : "text",
+        "fieldName" : "source",
+        "position" : 8,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5055885,
+        "width" : 172,
+        "cachedContents" : {
+          "non_null" : 58,
+          "smallest" : "http://www.fairfoods.org/dollarbag.html",
+          "null" : 25,
+          "largest" : "http://www.somervillehomelesscoalition.org/programs/Project%20Soup.html",
+          "top" : [ {
+            "count" : 20,
+            "item" : "http://www.fairfoods.org/dollarbag.html"
+          }, {
+            "count" : 19,
+            "item" : "http://www.gbfb.org/need-food/index.php"
+          }, {
+            "count" : 18,
+            "item" : "http://www.somervillehomelesscoalition.org/programs/Project%20Soup.html"
+          } ]
+        },
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "license" : {
+        "name" : "Creative Commons 1.0 Universal (Public Domain Dedication)",
+        "logoUrl" : "images/licenses/ccZero.png",
+        "termsLink" : "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+      },
+      "metadata" : {
+        "custom_fields" : {
+          "Data Owner" : {
+            "Owner" : "Office of the Mayor"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0",
+        "rowIdentifier" : "0",
+        "rdfClass" : ""
+      },
+      "owner" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "tags" : [ "food", "food initiatives", "hunger", "food access" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 1, "4C6974E7-52F4-4E77-B39F-F888AB45756B", 1, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB1", "Boston Medical Center Elders Living at Home Program Yawkey Ambulatory Care Center 4th Floor, Room 4S-18", "850 Harrison Avenue", [ "{\"address\":\"850 Harrison Avenue\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.33517814576012", "-71.07473087474541", null, false ], "Boston", "02118", null, null ]
+, [ 2, "8077BAA2-725D-4BA7-AFD1-0BC6ED123F3E", 2, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB2", "Rosie's Place", "889 Harrison Ave", [ "{\"address\":\"889 Harrison Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.333806402718835", "-71.07676292248863", null, false ], "Boston", "02118", null, null ]
+, [ 3, "A34CFB33-1B32-4FB0-9E61-0EF2073DA591", 3, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB3", "Blackstone Park", "50 W. Brookline St.", [ "{\"address\":\"50 W. Brookline St.\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.34009510427125", "-71.07318024029308", null, false ], "Boston", "02118", "Tuesdays 2:30 - 3:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 4, "2F994874-6254-4A5C-BFB8-8C1922BC3444", 4, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB4", "International Institute of Boston Pantry", "One Milk St", [ "{\"address\":\"One Milk St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02109\"}", "42.35749454497062", "-71.054675573449", null, false ], "Boston", "02109", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 5, "E6073E2D-560F-45CD-98EC-E274440840B1", 5, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB5", "Boston Rescue Mission / Pantry", "39 Kingston st", [ "{\"address\":\"39 Kingston st\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02111\"}", "42.35346558227934", "-71.05929808867961", null, false ], "Boston", "02111", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 6, "A7EBD51F-9D85-43D7-A308-C1DC5BE4A4D0", 6, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB6", "St. Francis House", "39 Boylston St.", [ "{\"address\":\"39 Boylston St.\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02112\"}", "42.35234142974275", "-71.06362382764053", null, false ], "Boston", "02112", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 7, "6B450E78-8BBD-4DD8-9969-783667B76840", 7, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB7", "ABCD N. End/W.End Pantry", "1 Michelangelo Street", [ "{\"address\":\"1 Michelangelo Street\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02113\"}", "42.367237880649334", "-71.05477224310822", null, false ], "Boston", "02113", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 8, "6F0BF0D7-A30E-4417-9237-77D5B3750A2D", 8, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB8", "Rice Sticks and Tea: Asian Food Pantry", "110 Arlington St", [ "{\"address\":\"110 Arlington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02116\"}", "42.34960147745332", "-71.06963225511386", null, false ], "Boston", "02116", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 9, "08F57E94-8B11-4C2A-A8AF-E474B7F1BDB2", 9, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB9", "Church of the Covenant", "67 Newbury St", [ "{\"address\":\"67 Newbury St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02116\"}", "42.35186793762062", "-71.07424991826197", null, false ], "Boston", "02116", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 10, "1A0B3DF7-169B-436F-AFC3-3DE05AAEB32C", 10, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB10", "Haley House Food Pantry", "23 Dartmouth St", [ "{\"address\":\"23 Dartmouth St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02116\"}", "42.34366297215996", "-71.07411891572247", null, false ], "Boston", "02116", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 11, "4A4BD8C7-7C76-468B-AA18-80421501E04B", 11, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB11", "Salvation Army/South End Food Pantry", "1500 Washington St", [ "{\"address\":\"1500 Washington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.339961401567834", "-71.07182297572585", null, false ], "Boston", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 12, "549E6F1E-ECC2-4148-82A8-D0A7D875C07C", 12, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB12", "American Red Cross/Boston Pantry", "1033 Massachusetts Ave", [ "{\"address\":\"1033 Massachusetts Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.327322290887594", "-71.06735601406211", null, false ], "Boston", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 13, "89FB76C4-7AFD-45F2-BA5C-691A9660F355", 13, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB13", "Paulist Center", "5 Park St", [ "{\"address\":\"5 Park St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"02108\"}", "42.356979474996415", "-71.0624364689066", null, false ], "Boston ", "02108", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 14, "44E51BA9-505D-4A0F-A6F5-8E94C848234F", 14, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB14", "Allston-Brighton Food Pantry", "404 Washington Street", [ "{\"address\":\"404 Washington Street\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"02135\"}", "42.349063598414055", "-71.15514414438195", null, false ], "Brighton", "02135", "Saturday 10-1pm", null ]
+, [ 15, "3CC6CDD5-CE82-4C7D-B3F1-90331684F91C", 15, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB15", "East End House", "105 Spring St.", [ "{\"address\":\"105 Spring St.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.36932062965593", "-71.08300421737192", null, false ], "Cambridge", "02124", null, null ]
+, [ 16, "BCA21DC6-B399-403B-8D95-8504DEB46B78", 16, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB16", "Cambridge Economic Opportunity Committee Bread & Justice Food Pantry", "11 Inman St.", [ "{\"address\":\"11 Inman St.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.36721621610735", "-71.10500163420863", null, false ], "Cambridge", "02139", "Hours: Mondays & Wednesdays 4:00-6:00 p.m.; Tuesdays 12:00 - 2:00 p.m.; Thursdays 11:00 a.m.-1:00 p.m. ", null ]
+, [ 17, "D5ADD7EC-F229-4C14-9AAB-CE0CF96DA949", 17, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB17", "WIC (Women, Infants and Children) Program", "119 Windsor St. ", [ "{\"address\":\"119 Windsor St.&nbsp;\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.364608182222355", "-71.09637713594765", null, false ], "Cambridge", "02139", null, null ]
+, [ 18, "3C75833B-14FC-492A-A032-A45FA4539B33", 18, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB18", "Massachusetts Avenue Baptist Church Project Manna", "146 Hampshire St.", [ "{\"address\":\"146 Hampshire St.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.371083300833334", "-71.09767215966986", null, false ], "Cambridge", "02139", "Usually Fourth Saturday of the month opening at 8:00 a.m", null ]
+, [ 19, "E24E0163-658C-4E92-8679-4BB98D236B7A", 19, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB19", "Helping Hands - St. James Church", "1493 Cambridge Street ", [ "{\"address\":\"1493 Cambridge Street\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02140\"}", "42.39176999988575", "-71.12860999995138", null, false ], "Cambridge", "02140", "Tuesday’s 6:00 - 8:00, Thursday’s 11:00 - 1:00,Saturday’s 10:00 - 12:00  ", null ]
+, [ 20, "B31FB6D6-11A8-42C0-B9A7-780162286505", 20, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB20", "St James Episcopal Church Helping Hand Pantry", "1991 Massachusetts Ave.", [ "{\"address\":\"1991 Massachusetts Ave.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02140\"}", "42.390535636327115", "-71.1213692951419", null, false ], "Cambridge", "02140", "Tuesday 6:00-8:00 p.m.; Thursday 11:00 a.m.-1:00 p.m.; Saturday 10:00 a.m.-12:00 p.m.", null ]
+, [ 21, "67EE9DD9-C6A7-488E-BA8D-B6187D7773D9", 21, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB21", "St. Paul R.C. Church Dollar-A-Bag", "29 Mt. Auburn St. ", [ "{\"address\":\"29 Mt. Auburn St.&nbsp;\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02138\"}", "42.37080451100428", "-71.11528088500353", null, false ], "Cambridge", "02138", "Saturday 11:00 a.m.-12:00 p.m.", null ]
+, [ 22, "5BD33EAA-2D42-4D6C-A58D-0FB8A7589556", 22, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB22", "Western Ave. Baptist Church", "299 Western Ave.", [ "{\"address\":\"299 Western Ave.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.364608182222355", "-71.11268184433885", null, false ], "Cambridge", "02139", "Second Wednesday of each month 10:00 a.m.-12:00 p.m.", null ]
+, [ 23, "5C6FB7C2-B6CD-4D44-85D3-0C9A96BF43B7", 23, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB23", "Salvation Army ", "402 Mass. Ave. ", [ "{\"address\":\"402 Mass. Ave.&nbsp;\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.36545999977932", "-71.10424999983746", null, false ], "Cambridge", "02139", null, null ]
+, [ 24, "5BA6FFB9-216C-4497-9D41-F25B7BECAF4B", 24, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB24", "Cambridgeport Baptist Church The Harvest", "459 Putnam Ave", [ "{\"address\":\"459 Putnam Ave\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.35881654835367", "-71.11059541723085", null, false ], "Cambridge", "02139", " First and Third Saturdays of each month 9:15 - 11:30 a.m.", null ]
+, [ 25, "12E144DE-E356-4C2B-870D-8241C7B75CDD", 25, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB25", "Margaret Fuller Neighborhood House Food Pantry", "71 Cherry St.", [ "{\"address\":\"71 Cherry St.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.36458120256151", "-71.0973124308581", null, false ], "Cambridge", "02139", "Wednesdays 5:00-7:00 p.m.; Thursdays,Fridays, and Saturdays 9:00 a.m.- 12:00 p.m.", null ]
+, [ 26, "E8A473A5-CD89-4289-ACE1-FA3BFE36A8E0", 26, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB26", "Pentecostal Tabernacle Church Pantry", "77 Columbia St.", [ "{\"address\":\"77 Columbia St.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.3653186466255", "-71.09885926474851", null, false ], "Cambridge", "02139", null, null ]
+, [ 27, "457824DB-149C-42BD-BDFE-A86BE09B81F7", 27, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB27", "Cambridge Senior Center", "806 Mass. Ave.", [ "{\"address\":\"806 Mass. Ave.\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.36545999977932", "-71.10424999983746", null, false ], "Cambridge", "02139", "Tuesday & Thursday 12:00-2:00 p.m.", null ]
+, [ 28, "6D46D659-15C9-4F94-B820-7FCED3B426D2", 28, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB28", "Common Cares/ St. Peter's", "838 Massachusetts Avenue ", [ "{\"address\":\"838 Massachusetts Avenue\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.36726544575182", "-71.10688595953474", null, false ], "Cambridge", "02139", null, null ]
+, [ 29, "9AF3B58D-CD76-4172-8424-F65B3187F6B4", 29, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB29", "St. Paul A.M.E. Church Food Pantry", "85 Bishop Allen Drive ", [ "{\"address\":\"85 Bishop Allen Drive&nbsp;\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02139\"}", "42.36545999977932", "-71.10424999983746", null, false ], "Cambridge", "02139", "Wednesday 12:00-2:00 p.m.; Saturday 10:00 a.m.-12:00 p.m.", null ]
+, [ 30, "397CEC6D-1D21-4DAE-BA3D-A9453A1EA2DB", 30, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB30", "WIC (Women, Infants and Children) Program", "9 Jefferson Pk", [ "{\"address\":\"9 Jefferson Pk\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02140\"}", "42.39347985238418", "-71.13524811959776", null, false ], "Cambridge", "02140", null, null ]
+, [ 31, "9535CDB3-42FF-42E4-9DB9-AD41B341CC28", 31, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB31", "Haitian American Cultural Council", "One Jackson Place ", [ "{\"address\":\"One Jackson Place\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02140\"}", "42.393579841445344", "-71.13524811959776", null, false ], "Cambridge", "02140", "Tuesdays 12:00-5:00 ", null ]
+, [ 32, "F1CF68D7-B1B3-4947-81BE-3B36C2DC9DB9", 32, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB32", "Transition House", "1035 Cambridge St # B10", [ "{\"address\":\"1035 Cambridge St # B10\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02141\"}", "42.372944660026846", "-71.09429526800025", null, false ], "Cambridge", "02141", null, null ]
+, [ 33, "631DD7E1-70E7-479B-8651-51937E02A28F", 33, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB33", "Harvard Square Homeless Shelter", "66 Winthrop Street", [ "{\"address\":\"66 Winthrop Street\",\"city\":\"Cambridge\",\"state\":\"MA\",\"zip\":\"02138\"}", "42.37165137603692", "-71.11956535048354", null, false ], "Cambridge", "02138", null, null ]
+, [ 34, "0CF29885-8750-4535-B3DE-94D07EA4A6B9", 34, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB34", "The Harvest on Vine", "49 Vine St", [ "{\"address\":\"49 Vine St\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"02129\"}", "42.37709077198906", "-71.05687891242076", null, false ], "Charlestown", "02129", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 35, "13E5D89B-8C30-4F2C-B2E5-158D00630012", 35, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB35", "Adams Templeton", "455 Adams St", [ "{\"address\":\"455 Adams St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02122\"}", "42.29366358654271", "-71.05716925917729", null, false ], "Dorchester", "02122", "Fridays 1:30 - 2:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 36, "D910272D-E8E3-477B-A70A-B1CE61935DE3", 36, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB36", "Bellflower Apartments", "24 Bellflower St.", [ "{\"address\":\"24 Bellflower St.\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02125\"}", "42.32456137225762", "-71.05861460393731", null, false ], "Dorchester", "02125", "Alternating Fridays 12 – 1 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 37, "9252F62D-8D52-4C54-99D5-06D088B90089", 37, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB37", "Blue Hill Boys & Girls Club", "15 Talbot Ave.", [ "{\"address\":\"15 Talbot Ave.\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.29454348812644", "-71.0869486318462", null, false ], "Dorchester", "02124", "Tuesdays 5:00 - 6:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 38, "EF9B8E4F-13D1-4358-96E1-ABCCA8F66F0E", 38, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB38", "Cardinal Medeiros Manor", "11 Woodcliff St", [ "{\"address\":\"11 Woodcliff St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02125\"}", "42.31607177230103", "-71.07756331909468", null, false ], "Dorchester", "02125", "Alternating Thurs 1:30 - 2:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 39, "95EBCD92-B190-427D-A0A4-62B0065EE61E", 39, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB39", "Franklin Hill/Wayne Apartments", "140 American Legion Highway", [ "{\"address\":\"140 American Legion Highway\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.2956841418968", "-71.0923122003752", null, false ], "Dorchester", "02124", "Alternating Wed. 1:00-2:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 40, "B13D6F28-C837-4362-8C48-EEF9EF2EE863", 40, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB40", "Codman Global Ministries", "675 Washington St.", [ "{\"address\":\"675 Washington St.\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.28806688430865", "-71.07120511234751", null, false ], "Dorchester", "02124", "Saturdays 12:30 - 2:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 41, "82B74188-AE6C-48BB-AA65-A830707348FD", 41, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB41", "Lower Mills Apartments", "2262 Dorchester Ave.", [ "{\"address\":\"2262 Dorchester Ave.\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.27307366113336", "-71.06778540244754", null, false ], "Dorchester", "02124", "Alt. Wed. 3:30 – 4:30 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 42, "8C7F1F3B-5730-4823-A4C6-339F8E931CEC", 42, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB42", "Pasciucco Development", "330 Bowdoin St.", [ "{\"address\":\"330 Bowdoin St.\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02122\"}", "42.30836168284333", "-71.06485709148812", null, false ], "Dorchester", "02122", "Fridays 5:30 - 6:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 43, "CCAACAAE-A3D2-4C42-BB17-9A5F52EF295B", 43, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB43", "Cleveland Middle School", "11 Charles St", [ "{\"address\":\"11 Charles St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02122\"}", "42.300657414511114", "-71.0612289865104", null, false ], "Dorchester", "02122", "Thursdays 5:30 - 6:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 44, "70AC37A0-FF1B-4B50-B9E7-01DDAC3E7AB9", 44, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB44", "Kelly House/Dot House", "1363 Dorchester Ave", [ "{\"address\":\"1363 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02122\"}", "42.30414945688383", "-71.0592810080873", null, false ], "Dorchester", "02122", "Fridays 3:30- 4:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 45, "849CEF79-19DE-4CCA-8314-CA5BC90A7F39", 45, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB45", "Vietnamese Comm. Center", "42 Charles St.", [ "{\"address\":\"42 Charles St.\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02122\"}", "42.29996491475629", "-71.06392959713048", null, false ], "Dorchester", "02122", "Alt. Wed. 10:30 – 11:30 AM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 46, "6BEC49A0-5F75-458F-8A22-E6F435742C20", 46, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB46", "Boston Jubilee house", "10 Melville Ave", [ "{\"address\":\"10 Melville Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.293786572415", "-71.07017089201383", null, false ], "Dorchester", "02124", null, null ]
+, [ 47, "941A0D3A-6EED-4FEB-93EB-111E376E9403", 47, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB47", "Holy Redeemer Church/Our Daily Bread Pantry", "56 Havre St", [ "{\"address\":\"56 Havre St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"02128\"}", "42.371131322622404", "-71.04002667746747", null, false ], "East Boston", "02128", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 48, "2A4F8E05-A6DD-45E6-8273-79D956263A13", 48, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB48", "Amory St. Building", "125 Amory St.", [ "{\"address\":\"125 Amory St.\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"02130\"}", "42.31823909171389", "-71.1013017050047", null, false ], "Jamaica Plain", "02130", "Thursdays 3 – 4 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 49, "A2343305-3DC2-4890-B5E1-4CB2BAED6BFE", 49, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB49", "Back of the Hill Apts.", "100 S. Huntington Ave.", [ "{\"address\":\"100 S. Huntington Ave.\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"02130\"}", "42.329372745114426", "-71.11092816638171", null, false ], "Jamaica Plain", "02130", "Alt. Fri. 11:30 – 12:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 50, "2FC27576-59F1-4D63-881A-8C211B45028E", 50, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB50", "Franklin Park Villa Co-Op", "131 Morton St.", [ "{\"address\":\"131 Morton St.\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"02130\"}", "42.30014746857162", "-71.10766936054615", null, false ], "Jamaica Plain", "02130", "Fridays 10:30 – 11:30 AM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 51, "177740D4-2A91-4AF1-B615-0F5EA32BE388", 51, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB51", "Nate Smith House", "155 Lamartine St.", [ "{\"address\":\"155 Lamartine St.\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"02130\"}", "42.318091567957964", "-71.1042851896607", null, false ], "Jamaica Plain", "02130", "Alt. Wed. 11 – 12", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 52, "9DADE29B-8C56-4542-8094-3458E42ABC3D", 52, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB52", "Pond St./M.M. Collins Apts.", "29 Pond St.", [ "{\"address\":\"29 Pond St.\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"02130\"}", "42.31510557889898", "-71.11544923524681", null, false ], "Jamaica Plain", "02130", "2nd Tuesday of the month 2:30 – 3:30 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 53, "B4283D20-AAE1-4171-9B27-876720354FF2", 53, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB53", "Simco's on the Bridge", "1500 Blue Hill Ave", [ "{\"address\":\"1500 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"02124\"}", "42.28752000014805", "-71.07255000028215", null, false ], "Mattapan", "02124", "Saturdays 3:00- 5:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 54, "F86F86D4-41BF-4C95-8DBC-9E76448A9081", 54, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB54", "ABCD Headstart", "19 Corinth St", [ "{\"address\":\"19 Corinth St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"02131\"}", "42.286268240250024", "-71.12995782052172", null, false ], "Roslindale", "02131", "Alt Wed. 3:00-4:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 55, "80584B5A-E45F-4B1B-9EA0-6139FE7DAD5C", 55, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB55", "Hawthorne Youth Center", "9 Fulda St.", [ "{\"address\":\"9 Fulda St.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02119\"}", "42.323190711148904", "-71.09234234432954", null, false ], "Roxbury", "02119", "Alt. Fri. 5:30 – 6:30 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 56, "77B167FF-F85C-4D99-A6F8-519658729798", 56, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB56", "Warren Gardens", "45 Walnut Ave.", [ "{\"address\":\"45 Walnut Ave.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02119\"}", "42.32310165373741", "-71.08450330393256", null, false ], "Roxbury", "02119", "Alt. Wed. 5:30 - 6:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 57, "3685AD84-012D-4F0B-B135-2C74D96AEF1C", 57, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB57", "Marcus Garvey Apts.", "44 John Eliot Sq.", [ "{\"address\":\"44 John Eliot Sq.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02119\"}", "42.32991084780463", "-71.09121051408968", null, false ], "Roxbury", "02119", "Alt. Thurs 1:30 - 2:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 58, "3B3D4F75-3E34-4966-85BC-12D10E941084", 58, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB58", "Walnut Park Senior Bldg.", "1990 Columbus Ave.", [ "{\"address\":\"1990 Columbus Ave.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02119\"}", "42.31512748417026", "-71.09745632238281", null, false ], "Roxbury", "02119", "Fridays 5 – 6 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 59, "BB5FA987-2AE2-47F0-A3D4-B455660AF298", 59, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB59", "Whittier St Apartments ", "180 Ruggles St ", [ "{\"address\":\"180 Ruggles St&nbsp;\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02120\"}", "42.33310000036488", "-71.09609000035306", null, false ], "Roxbury", "02120", "Thursdays 3:30 - 4:30", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 60, "2B8C0D83-C2ED-44EF-94B5-825421438870", 60, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB60", "Catholic Charities/El Centro del Cardenal", "76 Union Park Street", [ "{\"address\":\"76 Union Park Street\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.34069123519564", "-71.06798345819712", null, false ], "Roxbury", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 61, "097055ED-CCBC-4572-9F22-35B06E133318", 61, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB61", "Boston Medical Center Food Pantry", "818 Harrison Ave", [ "{\"address\":\"818 Harrison Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.335925371008436", "-71.07378404269969", null, false ], "Roxbury", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 62, "973D9EE1-0282-41D5-A696-E1D7BB73DAE2", 62, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB62", "ABCD/South End Neighborhood Action Prgrm", "554 Columbus Avenue", [ "{\"address\":\"554 Columbus Avenue\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.34130674844323", "-71.08081886484075", null, false ], "Roxbury", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 63, "F85EB8A9-68B3-416D-AA69-1B2C1AC7BF23", 63, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB63", "Outreach Van Project", "72 E. Concord Street", [ "{\"address\":\"72 E. Concord Street\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.33604401221202", "-71.07260574594766", null, false ], "Roxbury", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 64, "D4B6C91E-ECAA-4B3F-B13C-01CA53FAC20E", 64, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB64", "ABC/ People's Baptist Church Food Pantry", "134 Camden Street", [ "{\"address\":\"134 Camden Street\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.33824905354362", "-71.08176315297152", null, false ], "Roxbury", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 65, "8C5DFD48-E3C2-4781-BF33-C66106185822", 65, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB65", "Grant A.M.E./Self-Help", "1906 Washington St", [ "{\"address\":\"1906 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.33456183322346", "-71.0793619631533", null, false ], "Roxbury", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 66, "EF2D506D-1EC4-4DCD-8987-C0E0B432C670", 66, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB66", "United Emmanuel Holiness Church", "65 Windsor St.", [ "{\"address\":\"65 Windsor St.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02119\"}", "42.32383000005461", "-71.0855000003246", null, false ], "Roxbury", "02119", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 67, "0D425A27-F43F-47EA-883F-B3F83A47B967", 67, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB67", "USCC/ Warwick House-St. Katherine Drexel", "175 Ruggles St.", [ "{\"address\":\"175 Ruggles St.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02120\"}", "42.33447680086803", "-71.08799143865089", null, false ], "Roxbury", "02120", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 68, "D90C8336-3B99-46FE-B0DE-CB3F31C7BE3E", 68, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB68", "Resurrection Lutheran Church", "94 Warren St", [ "{\"address\":\"94 Warren St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02119\"}", "42.32727732478611", "-71.08306716991399", null, false ], "Roxbury", "02119", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 69, "3919110F-4DEB-448F-9558-8F70F58B7BE9", 69, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB69", "Union United Methodist Church Food Pntry", "485 Columbus Ave.", [ "{\"address\":\"485 Columbus Ave.\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"02118\"}", "42.342944036107355", "-71.07891369296694", null, false ], "Roxbury ", "02118", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 70, "120D34ED-7130-4F91-AE93-C2E449092F1F", 70, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB70", "The Elizabeth Peabody House", "275-277 Broadway", [ "{\"address\":\"275-277 Broadway\",\"city\":\"Somerville\",\"state\":\"MA\",\"zip\":\"02145\"}", "42.39646784104286", "-71.10106183293396", null, false ], "Somerville", "02145", null, null ]
+, [ 71, "02D69141-CA59-40B8-9414-F73D04A13644", 71, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB71", "Cobble Hill Apts", "74 Washington St", [ "{\"address\":\"74 Washington St\",\"city\":\"Somerville\",\"state\":\"MA\",\"zip\":\"02143\"}", "42.38151164506479", "-71.08469253433829", null, false ], "Somerville", "02143", "Alt. Wed. 12:30 – 1:30 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 72, "F9C30D08-A0E2-43B8-9268-2EFBC7D2DC73", 72, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB72", "The Welcome Project", "530 Mystic Ave, #111", [ "{\"address\":\"530 Mystic Ave, #111\",\"city\":\"Somerville\",\"state\":\"MA\",\"zip\":\"02145\"}", "42.39749565645202", "-71.09171796070771", null, false ], "Somerville", "02145", null, null ]
+, [ 73, "66FF41B2-65DA-41EA-B80E-ECA6BEA99517", 73, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB73", "PROJECT SOUP at Saint Benedict’s Church", "15 Franklin Street", [ "{\"address\":\"15 Franklin Street\",\"city\":\"Somerville\",\"state\":\"MA\",\"zip\":\"02145\"}", "42.386118617694024", "-71.0831447634141", null, false ], "Somerville", "02145", null, "http://www.somervillehomelesscoalition.org/programs/Project%20Soup.html" ]
+, [ 74, "B1D644A6-19B4-4DFA-892B-2F911A7FB545", 74, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB74", "Project Soup West Pantry", "1 Davis Square", [ "{\"address\":\"1 Davis Square\",\"city\":\"Somerville\",\"state\":\"MA\",\"zip\":\"02144\"}", "42.39639921595813", "-71.12253841377998", null, false ], "Somerville", "02144", null, "http://www.somervillehomelesscoalition.org/programs/Project%20Soup.html" ]
+, [ 75, "6359AC31-2C63-4DDF-8C78-1502575802F2", 75, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB75", "Mary Ellen McCormack", "345 Old Colony Ave.", [ "{\"address\":\"345 Old Colony Ave.\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"02125\"}", "42.31652000019801", "-71.06013000039906", null, false ], "South Boston", "02125", "Fridays 2:00– 3:00 PM", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 76, "1B3C9409-54E1-4569-9CA7-2A2CFE215ED0", 76, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB76", "West Broadway Task Force", "115 Orton Marotta Way", [ "{\"address\":\"115 Orton Marotta Way\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"02127\"}", "42.337470811620584", "-71.0541923730528", null, false ], "South Boston", "02127", "Tuesdays 1:00 - 2:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 77, "EF4EAEAB-39C3-42CE-807C-60635D0A6792", 77, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB77", "SUSCC/St Vincent DePaul Parish", "363 E Street", [ "{\"address\":\"363 E Street\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"02127\"}", "42.338816186780896", "-71.04799881719399", null, false ], "South Boston", "02127", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 78, "C99A348F-B0A6-4D32-995F-29BDA91A775E", 78, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB78", "South Boston Community Health Center", "409 West Broadway", [ "{\"address\":\"409 West Broadway\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"02127\"}", "42.337070941685226", "-71.04818246839744", null, false ], "South Boston", "02127", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 79, "40990AE7-E79E-4D6F-995B-16FA1AB3246A", 79, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB79", "TTGAOP/Fourth Church Food Pantry", "340 Dorchester St.", [ "{\"address\":\"340 Dorchester St.\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"02127\"}", "42.3309015925642", "-71.05420792599375", null, false ], "South Boston", "02127", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 80, "3597D657-E767-41D5-BF41-EA23B03EAE2C", 80, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB80", "St. Augustine's Food Pantry", "70 Devine Way", [ "{\"address\":\"70 Devine Way\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"02127\"}", "42.3286173146098", "-71.05401906836761", null, false ], "South Boston", "02127", null, "http://www.gbfb.org/need-food/index.php" ]
+, [ 81, "F87DD444-D3CA-488A-9561-8EADD3D02555", 81, 1352319372, "699782", 1352319372, "699782", "{\n}", "FB81", "Grant Manor", "1860 Washington St", [ "{\"address\":\"1860 Washington St\",\"city\":\"South End\",\"state\":\"MA\",\"zip\":\"21178\"}", null, null, null, true ], "South End", "21178", "Saturdays 10:30 - 12:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 82, "209BF134-B4CC-461A-97CB-F2B277B53071", 82, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB82", "St. Botolph House", "70 St. Botolph St.", [ "{\"address\":\"70 St. Botolph St.\",\"city\":\"South End\",\"state\":\"MA\",\"zip\":\"02116\"}", "42.34563216076179", "-71.07981021097142", null, false ], "South End", "02116", "Thursday 1:00 - 2:00", "http://www.fairfoods.org/dollarbag.html" ]
+, [ 83, "1E702367-A305-4750-B4F3-D4C0AE274C00", 83, 1352319372, "699782", 1352319377, "699782", "{\n}", "FB83", "St Anthony Shrine/Franciscan Food Center", "100 Arch St", [ "{\"address\":\"100 Arch St\",\"city\":\"\",\"state\":\"MA\",\"zip\":\"02110\"}", "42.354832615122675", "-71.05852229533832", null, false ], null, "02110", null, "http://www.gbfb.org/need-food/index.php" ]
+ ]
+}

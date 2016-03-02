@@ -1,0 +1,831 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "4vcu-nshu",
+      "name" : "Corner Stores",
+      "attribution" : "Mayor's Office of Food Initiatives",
+      "averageRating" : 0,
+      "createdAt" : 1359570109,
+      "description" : "Corner store locations in Boston",
+      "displayType" : "table",
+      "downloadCount" : 662,
+      "indexUpdatedAt" : 1414539665,
+      "licenseId" : "CC0_10",
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 2385640,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1359573961,
+      "publicationGroup" : 646466,
+      "publicationStage" : "published",
+      "rowsUpdatedAt" : 1359573943,
+      "rowsUpdatedBy" : "qyzb-duix",
+      "tableId" : 646567,
+      "totalTimesRated" : 0,
+      "viewCount" : 520,
+      "viewLastModified" : 1359573961,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 42089806,
+        "name" : "Site",
+        "dataTypeName" : "text",
+        "fieldName" : "site",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 7405436,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 242,
+          "smallest" : "777 Convenience Store",
+          "null" : 0,
+          "largest" : "Worlds Best Food Market",
+          "top" : [ {
+            "count" : 20,
+            "item" : "7-Eleven"
+          }, {
+            "count" : 19,
+            "item" : "Store 24"
+          }, {
+            "count" : 18,
+            "item" : "White Hen Pantry"
+          }, {
+            "count" : 17,
+            "item" : "Tedeschi Food Shops"
+          }, {
+            "count" : 16,
+            "item" : "Tedeschi Food Stores"
+          }, {
+            "count" : 15,
+            "item" : "Bolster Service Inc"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 42089807,
+        "name" : "Address",
+        "dataTypeName" : "text",
+        "fieldName" : "address",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 7405437,
+        "width" : 184,
+        "cachedContents" : {
+          "non_null" : 242,
+          "smallest" : "1002 Dorchester Ave",
+          "null" : 0,
+          "largest" : "9 Meridian St",
+          "top" : [ {
+            "count" : 20,
+            "item" : "1300 Blue Hill Ave"
+          }, {
+            "count" : 19,
+            "item" : "609 Walk Hill St"
+          }, {
+            "count" : 18,
+            "item" : "229 Florence St"
+          }, {
+            "count" : 17,
+            "item" : "290 Cummins Hwy"
+          }, {
+            "count" : 16,
+            "item" : "878 South St"
+          }, {
+            "count" : 15,
+            "item" : "4254 Washington St"
+          }, {
+            "count" : 14,
+            "item" : "4545 Washington St"
+          }, {
+            "count" : 13,
+            "item" : "137 Blue Hill Ave # B"
+          }, {
+            "count" : 12,
+            "item" : "718 Shawmut Ave"
+          }, {
+            "count" : 11,
+            "item" : "41 Burrell St"
+          }, {
+            "count" : 10,
+            "item" : "218 Blue Hill Ave"
+          }, {
+            "count" : 9,
+            "item" : "2251 Washington St"
+          }, {
+            "count" : 8,
+            "item" : "3055 Washington St"
+          }, {
+            "count" : 7,
+            "item" : "624 Columbus Ave"
+          }, {
+            "count" : 6,
+            "item" : "3 Blue Hill Ave"
+          }, {
+            "count" : 5,
+            "item" : "249 Blue Hill Ave"
+          }, {
+            "count" : 4,
+            "item" : "64 Blue Hill Ave"
+          }, {
+            "count" : 3,
+            "item" : "2359 Washington St"
+          }, {
+            "count" : 2,
+            "item" : "305 Dudley St"
+          }, {
+            "count" : 1,
+            "item" : "85 Southampton St"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 42089808,
+        "name" : "Area",
+        "dataTypeName" : "text",
+        "fieldName" : "area",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 7405438,
+        "width" : 148,
+        "cachedContents" : {
+          "non_null" : 242,
+          "smallest" : "Allston",
+          "null" : 0,
+          "largest" : "Winthrop",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Dorchester"
+          }, {
+            "count" : 19,
+            "item" : "East Boston"
+          }, {
+            "count" : 18,
+            "item" : "Mattapan"
+          }, {
+            "count" : 17,
+            "item" : "Allston"
+          }, {
+            "count" : 16,
+            "item" : "Boston"
+          }, {
+            "count" : 15,
+            "item" : "Brighton"
+          }, {
+            "count" : 14,
+            "item" : "Charlestown"
+          }, {
+            "count" : 13,
+            "item" : "Chelsea"
+          }, {
+            "count" : 12,
+            "item" : "Dorchester Ctr"
+          }, {
+            "count" : 11,
+            "item" : "Hyde Park"
+          }, {
+            "count" : 10,
+            "item" : "Jamaica Plain"
+          }, {
+            "count" : 9,
+            "item" : "Roslindale"
+          }, {
+            "count" : 8,
+            "item" : "Roxbury"
+          }, {
+            "count" : 7,
+            "item" : "Roxbury Crossing"
+          }, {
+            "count" : 6,
+            "item" : "South Boston"
+          }, {
+            "count" : 5,
+            "item" : "West Roxbury"
+          }, {
+            "count" : 4,
+            "item" : "Winthrop"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 42089809,
+        "name" : "State",
+        "dataTypeName" : "text",
+        "fieldName" : "state",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 7405439,
+        "width" : 160,
+        "cachedContents" : {
+          "non_null" : 242,
+          "smallest" : "MA",
+          "null" : 0,
+          "largest" : "MA",
+          "top" : [ {
+            "count" : 20,
+            "item" : "MA"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 42089810,
+        "name" : "Zip",
+        "dataTypeName" : "number",
+        "fieldName" : "zip",
+        "position" : 5,
+        "renderTypeName" : "number",
+        "tableColumnId" : 7405440,
+        "width" : 136,
+        "cachedContents" : {
+          "non_null" : 242,
+          "smallest" : "2108",
+          "sum" : "515315",
+          "null" : 0,
+          "average" : "2129.400826446281",
+          "largest" : "2222",
+          "top" : [ {
+            "count" : 20,
+            "item" : "2122"
+          }, {
+            "count" : 19,
+            "item" : "2128"
+          }, {
+            "count" : 18,
+            "item" : "2126"
+          }, {
+            "count" : 17,
+            "item" : "2134"
+          }, {
+            "count" : 16,
+            "item" : "2108"
+          }, {
+            "count" : 15,
+            "item" : "2110"
+          }, {
+            "count" : 14,
+            "item" : "2113"
+          }, {
+            "count" : 13,
+            "item" : "2114"
+          }, {
+            "count" : 12,
+            "item" : "2115"
+          }, {
+            "count" : 11,
+            "item" : "2116"
+          }, {
+            "count" : 10,
+            "item" : "2118"
+          }, {
+            "count" : 9,
+            "item" : "2127"
+          }, {
+            "count" : 8,
+            "item" : "2210"
+          }, {
+            "count" : 7,
+            "item" : "2215"
+          }, {
+            "count" : 6,
+            "item" : "2109"
+          }, {
+            "count" : 5,
+            "item" : "2111"
+          }, {
+            "count" : 4,
+            "item" : "2222"
+          }, {
+            "count" : 3,
+            "item" : "2135"
+          }, {
+            "count" : 2,
+            "item" : "2129"
+          }, {
+            "count" : 1,
+            "item" : "2150"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 42089923,
+        "name" : "Map Location",
+        "dataTypeName" : "location",
+        "description" : "map",
+        "fieldName" : "map_location",
+        "position" : 6,
+        "renderTypeName" : "location",
+        "tableColumnId" : 7406836,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 242,
+          "smallest" : {
+            "longitude" : "-71.05678194632321",
+            "latitude" : "42.37355881866903",
+            "human_address" : "{\"address\":\"1 1st Ave # 7\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}"
+          },
+          "null" : 0,
+          "largest" : {
+            "longitude" : "-71.1210905053128",
+            "latitude" : "42.265565847135576",
+            "human_address" : "{\"address\":\"994 Hyde Park Ave\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "longitude" : "-71.09293273257543",
+              "latitude" : "42.279379433505596",
+              "human_address" : "{\"address\":\"1300 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}"
+            }
+          }, {
+            "count" : 19,
+            "item" : {
+              "longitude" : "-71.09781605119451",
+              "latitude" : "42.28107015892067",
+              "human_address" : "{\"address\":\"609 Walk Hill St\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}"
+            }
+          }, {
+            "count" : 18,
+            "item" : {
+              "longitude" : "-71.12015521040234",
+              "latitude" : "42.28562072838895",
+              "human_address" : "{\"address\":\"229 Florence St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}"
+            }
+          }, {
+            "count" : 17,
+            "item" : {
+              "longitude" : "-71.11791589854937",
+              "latitude" : "42.279568291131795",
+              "human_address" : "{\"address\":\"290 Cummins Hwy\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}"
+            }
+          }, {
+            "count" : 16,
+            "item" : {
+              "longitude" : "-71.13385188490855",
+              "latitude" : "42.28878634193211",
+              "human_address" : "{\"address\":\"878 South St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}"
+            }
+          }, {
+            "count" : 15,
+            "item" : {
+              "longitude" : "-71.12909959035171",
+              "latitude" : "42.28545450938999",
+              "human_address" : "{\"address\":\"4254 Washington St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}"
+            }
+          }, {
+            "count" : 14,
+            "item" : {
+              "longitude" : "-71.13723739125055",
+              "latitude" : "42.278175816233826",
+              "human_address" : "{\"address\":\"4545 Washington St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}"
+            }
+          }, {
+            "count" : 13,
+            "item" : {
+              "longitude" : "-71.07781512926289",
+              "latitude" : "42.32019966041554",
+              "human_address" : "{\"address\":\"137 Blue Hill Ave # B\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 12,
+            "item" : {
+              "longitude" : "-71.08314810889664",
+              "latitude" : "42.33305996543453",
+              "human_address" : "{\"address\":\"718 Shawmut Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 11,
+            "item" : {
+              "longitude" : "-71.07036188835214",
+              "latitude" : "42.32299168897712",
+              "human_address" : "{\"address\":\"41 Burrell St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 10,
+            "item" : {
+              "longitude" : "-71.07801298010935",
+              "latitude" : "42.31703404687238",
+              "human_address" : "{\"address\":\"218 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 9,
+            "item" : {
+              "longitude" : "-71.0832564186872",
+              "latitude" : "42.33069559042983",
+              "human_address" : "{\"address\":\"2251 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 8,
+            "item" : {
+              "longitude" : "-71.09782504441483",
+              "latitude" : "42.31632358246924",
+              "human_address" : "{\"address\":\"3055 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 7,
+            "item" : {
+              "longitude" : "-71.08322926745511",
+              "latitude" : "42.339295494795365",
+              "human_address" : "{\"address\":\"624 Columbus Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2118\"}"
+            }
+          }, {
+            "count" : 6,
+            "item" : {
+              "longitude" : "-71.07512159010693",
+              "latitude" : "42.32523288394556",
+              "human_address" : "{\"address\":\"3 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 5,
+            "item" : {
+              "longitude" : "-71.07823781061666",
+              "latitude" : "42.31609875196193",
+              "human_address" : "{\"address\":\"249 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 4,
+            "item" : {
+              "longitude" : "-71.07659205130307",
+              "latitude" : "42.32294259260493",
+              "human_address" : "{\"address\":\"64 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 3,
+            "item" : {
+              "longitude" : "-71.0847489021088",
+              "latitude" : "42.329444690876755",
+              "human_address" : "{\"address\":\"2359 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 2,
+            "item" : {
+              "longitude" : "-71.07759029875558",
+              "latitude" : "42.32782591122401",
+              "human_address" : "{\"address\":\"305 Dudley St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}"
+            }
+          }, {
+            "count" : 1,
+            "item" : {
+              "longitude" : "-71.07055805784337",
+              "latitude" : "42.33213469829626",
+              "human_address" : "{\"address\":\"85 Southampton St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2118\"}"
+            }
+          } ]
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "license" : {
+        "name" : "Creative Commons 1.0 Universal (Public Domain Dedication)",
+        "logoUrl" : "images/licenses/ccZero.png",
+        "termsLink" : "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+      },
+      "metadata" : {
+        "custom_fields" : {
+          "Data Owner" : {
+            "Owner" : "Office of the Mayor"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "page" : true,
+            "table" : true
+          },
+          "active" : {
+            "page" : {
+              "id" : "19"
+            }
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+      },
+      "owner" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "qyzb-duix",
+        "displayName" : "GGoldleaf",
+        "roleName" : "publisher",
+        "screenName" : "GGoldleaf",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_nominations", "approve_nominations", "moderate_comments", "manage_stories", "feature_items", "change_configurations", "view_domain", "view_others_datasets", "create_pages", "edit_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "manage_provenance", "view_story", "view_unpublished_story", "view_all_dataset_status_logs" ]
+      },
+      "tags" : [ "corner stores", "retail", "food", "food access", "food initiatives" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 3, "D8087EC2-68CA-4318-A0F4-30E7D025E526", 3, 1359570111, "699782", 1359573940, "699782", "{\n}", "Ramirez Grocery", "481 Geneva Avenue", "Dorchester", "MA", "2122", [ "{\"address\":\"481 Geneva Avenue\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.299392257759465", "-71.06481870122053", null, false ] ]
+, [ 4, "30BB88A3-0A0B-48FD-A11E-EB213BCC5EB4", 4, 1359570111, "699782", 1359573924, "699782", "{\n}", "Sobrino Market", "416 Geneva Avenue", "Dorchester", "MA", "2122", [ "{\"address\":\"416 Geneva Avenue\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.30084625034499", "-71.06706823101274", null, false ] ]
+, [ 5, "60C47C19-4B0A-4BD6-98FD-7B7555299263", 5, 1359570111, "699782", 1359573930, "699782", "{\n}", "Cruz Market", "237 Bowdoin Street", "Dorchester", "MA", "2122", [ "{\"address\":\"237 Bowdoin Street\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.305972983667644", "-71.06723352015074", null, false ] ]
+, [ 6, "B9FEC3F2-62AB-450E-9741-C6E28481A5B7", 6, 1359570111, "699782", 1359573936, "699782", "{\n}", "Tio Supermarket", "9 Meridian St", "East Boston", "MA", "2128", [ "{\"address\":\"9 Meridian St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.370489748294005", "-71.03891045827538", null, false ] ]
+, [ 7, "A2C1589B-8BC2-4FC3-8574-CA7392D1EFFA", 7, 1359570111, "699782", 1359573935, "699782", "{\n}", "Million Market", "99 Chelsea St", "East Boston", "MA", "2128", [ "{\"address\":\"99 Chelsea St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.372405304216386", "-71.03582578371487", null, false ] ]
+, [ 8, "FA3FCFC8-4E37-4F16-A506-0C9160970640", 8, 1359570111, "699782", 1359573943, "699782", "{\n}", "El Paisa Butchery", "1010 Bennington St", "East Boston", "MA", "2128", [ "{\"address\":\"1010 Bennington St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.386848530463546", "-71.00637235627349", null, false ] ]
+, [ 9, "EA97B75F-B3DD-46E6-91F9-01DBA4A511AD", 9, 1359570111, "699782", 1359573941, "699782", "{\n}", "Two Brothers Market", "75 Marion St", "East Boston", "MA", "2128", [ "{\"address\":\"75 Marion St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37840378215185", "-71.03748053624878", null, false ] ]
+, [ 10, "0BAF265B-0B4D-45F9-930E-D0F2B6E51951", 10, 1359570111, "699782", 1359573921, "699782", "{\n}", "Raymond Market", "351 Meridian St", "East Boston", "MA", "2128", [ "{\"address\":\"351 Meridian St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.378529687235925", "-71.03915327522327", null, false ] ]
+, [ 11, "22F0CF64-C420-4FC9-A269-7E2A48C3E12C", 11, 1359570111, "699782", 1359573923, "699782", "{\n}", "Mi Tierra Market", "71 Meridian St", "East Boston", "MA", "2128", [ "{\"address\":\"71 Meridian St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.371782749757934", "-71.03892842022054", null, false ] ]
+, [ 12, "248B72EA-BB39-4331-9A9C-A2C1288AD662", 12, 1359570111, "699782", 1359573923, "699782", "{\n}", "Condor Market East Boston", " 655 Saratoga Street", "East Boston", "MA", "2128", [ "{\"address\":\"655 Saratoga Street\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38236979230106", "-71.0208610651473", null, false ] ]
+, [ 13, "1EAAA386-C75C-4850-882C-E20182567758", 13, 1359570111, "699782", 1359573923, "699782", "{\n}", "Las Costas Market", "184 Bremen Street", "East Boston", "MA", "2128", [ "{\"address\":\"184 Bremen Street\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37297187709487", "-71.03417103118096", null, false ] ]
+, [ 14, "AA4282C7-1BE9-41AE-90C0-D21584DC14E1", 14, 1359570111, "699782", 1359573936, "699782", "{\n}", "Mama Supermarket", "1178 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1178 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.28399295551594", "-71.0914038851256", null, false ] ]
+, [ 15, "208233FD-4029-49F4-AB6A-F787A9BE08BB", 15, 1359570111, "699782", 1359573923, "699782", "{\n}", "Essential Body Herbs", "1282 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1282 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.28020680977255", "-71.09266293596664", null, false ] ]
+, [ 16, "94F6B591-0E32-45B8-A4CE-EFE34F640907", 16, 1359570111, "699782", 1359573934, "699782", "{\n}", "Worlds Best Food Market", "645 River St", "Mattapan", "MA", "2126", [ "{\"address\":\"645 River St\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.264945314935346", "-71.09953375627049", null, false ] ]
+, [ 17, "B44156A0-A2E5-4913-8DA7-E09FF8BC48FF", 17, 1359570111, "699782", 1359573936, "699782", "{\n}", "Mattapan Square Mobile", "1556 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1556 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.27026030812851", "-71.09355326477566", null, false ] ]
+, [ 20, "6BBC3ADC-4A5A-44F3-9F98-F9AB945554F7", 20, 1359570111, "699782", 1359573930, "699782", "{\n}", "7-Eleven", "204 N Harvard St", "Allston", "MA", "2134", [ "{\"address\":\"204 N Harvard St\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.36287915195058", "-71.1299621267734", null, false ] ]
+, [ 21, "73EE76CE-19DB-41AB-AE72-A667B8BEF866", 21, 1359570111, "699782", 1359573931, "699782", "{\n}", "Allston Convenience Store", "165 Allston St", "Allston", "MA", "2134", [ "{\"address\":\"165 Allston St\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.347836614649275", "-71.13814411252383", null, false ] ]
+, [ 22, "3F7B5F62-8838-4FBC-9C5D-7162BDD2ADB3", 22, 1359570111, "699782", 1359573926, "699782", "{\n}", "Brazilian Corner", "192 Brighton Ave", "Allston", "MA", "2134", [ "{\"address\":\"192 Brighton Ave\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.35322276533145", "-71.13419362727973", null, false ] ]
+, [ 23, "9C3A68C2-3F99-40EC-AB44-B0105C2FDA5F", 23, 1359570111, "699782", 1359573934, "699782", "{\n}", "La Favorita Market", "66 Harvard Ave", "Allston", "MA", "2134", [ "{\"address\":\"66 Harvard Ave\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.353933229734594", "-71.13227807135729", null, false ] ]
+, [ 24, "FBFD7486-7552-423D-A8C5-FBAE65FE4942", 24, 1359570111, "699782", 1359573943, "699782", "{\n}", "Medina Market", "72 Brighton Ave", "Allston", "MA", "2134", [ "{\"address\":\"72 Brighton Ave\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.352542531490414", "-71.12872144410521", null, false ] ]
+, [ 25, "ED6549F2-702D-48AC-851F-7A0CEC75B719", 25, 1359570111, "699782", 1359573941, "699782", "{\n}", "Neighborhood Market", "57 Franklin St", "Allston", "MA", "2134", [ "{\"address\":\"57 Franklin St\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.35756649073295", "-71.13297054931985", null, false ] ]
+, [ 26, "414092B3-1609-48B4-AA36-65ABB27DBB84", 26, 1359570111, "699782", 1359573926, "699782", "{\n}", "Store 24", "1219 Commonwealth Ave", "Allston", "MA", "2134", [ "{\"address\":\"1219 Commonwealth Ave\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.350709905888216", "-71.13062400024394", null, false ] ]
+, [ 27, "F1BCE5FD-AFB4-488A-824B-49EA4CFD6612", 27, 1359570111, "699782", 1359573942, "699782", "{\n}", "Store 24", "157 Brighton Ave", "Allston", "MA", "2134", [ "{\"address\":\"157 Brighton Ave\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.353054289646714", "-71.13209718767884", null, false ] ]
+, [ 28, "2C6E3CC6-2C19-4CF0-95C3-28376E5E9767", 28, 1359570111, "699782", 1359573924, "699782", "{\n}", "Super Stop & Shop", "60 Everett St", "Allston", "MA", "2134", [ "{\"address\":\"60 Everett St\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.35598279983284", "-71.13857259073886", null, false ] ]
+, [ 29, "EF0257F0-8433-43C9-892B-2729972F30CE", 29, 1359570111, "699782", 1359573941, "699782", "{\n}", "T & S Convenience Store", "4 Brighton Ave", "Allston", "MA", "2134", [ "{\"address\":\"4 Brighton Ave\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.35216156533687", "-71.12534429851138", null, false ] ]
+, [ 30, "21FBC5D3-97C3-4D7E-B0D6-F1070305BE2F", 30, 1359570111, "699782", 1359573923, "699782", "{\n}", "Tedeschi Food Shops", "509 Cambridge St", "Allston", "MA", "2134", [ "{\"address\":\"509 Cambridge St\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.35322276533145", "-71.13833950183476", null, false ] ]
+, [ 31, "6D50859E-4969-43F0-8543-1833D750B582", 31, 1359570111, "699782", 1359573931, "699782", "{\n}", "Van Mini Market", "109 Franklin St", "Allston", "MA", "2134", [ "{\"address\":\"109 Franklin St\",\"city\":\"Allston\",\"state\":\"MA\",\"zip\":\"2134\"}", "42.359791515776024", "-71.13293739164449", null, false ] ]
+, [ 32, "F02DD614-F601-48AD-B829-8F616A4EB016", 32, 1359570111, "699782", 1359573942, "699782", "{\n}", "777 Convenience Store", "215 Trenton St", "Boston", "MA", "2128", [ "{\"address\":\"215 Trenton St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.380876917732394", "-71.03107736340019", null, false ] ]
+, [ 33, "4B724CDD-0FF2-408E-BE67-EFF094DC312C", 33, 1359570111, "699782", 1359573927, "699782", "{\n}", "7-Eleven", "10 Milk St", "Boston", "MA", "2108", [ "{\"address\":\"10 Milk St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2108\"}", "42.35676376546663", "-71.05800728414965", null, false ] ]
+, [ 34, "138A0BEA-2963-4E1C-9301-E4A92A463452", 34, 1359570111, "699782", 1359573921, "699782", "{\n}", "7-Eleven", "125 Tremont St", "Boston", "MA", "2108", [ "{\"address\":\"125 Tremont St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2108\"}", "42.3567236987566", "-71.06178868150944", null, false ] ]
+, [ 35, "37121966-D5F6-4A1E-BCDF-757DC3D15ED8", 35, 1359570111, "699782", 1359573926, "699782", "{\n}", "7-Eleven", "50 Summer St", "Boston", "MA", "2110", [ "{\"address\":\"50 Summer St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2110\"}", "42.35449980261302", "-71.05920815647664", null, false ] ]
+, [ 36, "13A997D1-E827-4933-A726-0F9130850124", 36, 1359570111, "699782", 1359573922, "699782", "{\n}", "7-Eleven", "70 E India Row", "Boston", "MA", "2110", [ "{\"address\":\"70 E India Row\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2110\"}", "42.357980178866455", "-71.05081748194328", null, false ] ]
+, [ 37, "BC0F37F6-8EC2-479F-A964-CC714D77CB54", 37, 1359570111, "699782", 1359573936, "699782", "{\n}", "7-Eleven", "464 Hanover St # 17", "Boston", "MA", "2113", [ "{\"address\":\"464 Hanover St # 17\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2113\"}", "42.366982392379725", "-71.05259813956133", null, false ] ]
+, [ 38, "BDBE8329-465A-468C-BE2A-D6A0EA7BC8D0", 38, 1359570111, "699782", 1359573938, "699782", "{\n}", "7-Eleven", "91 Causeway St", "Boston", "MA", "2114", [ "{\"address\":\"91 Causeway St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.364849317579676", "-71.06226540590795", null, false ] ]
+, [ 39, "D1365A89-303A-4DBA-AD4E-883B6E7DE9CD", 39, 1359570111, "699782", 1359573939, "699782", "{\n}", "7-Eleven", "722 Huntington Ave", "Boston", "MA", "2115", [ "{\"address\":\"722 Huntington Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.334247070513186", "-71.10439009522872", null, false ] ]
+, [ 40, "D068E736-E9E6-49A6-B66A-33217B4E9B90", 40, 1359570111, "699782", 1359573939, "699782", "{\n}", "7-Eleven", "252 W Newton St # 1", "Boston", "MA", "2116", [ "{\"address\":\"252 W Newton St # 1\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.34483209079809", "-71.0810347021278", null, false ] ]
+, [ 41, "B8DD3792-C288-48F3-AD66-08249A504CA9", 41, 1359570111, "699782", 1359573936, "699782", "{\n}", "7-Eleven", "261 Dartmouth St", "Boston", "MA", "2116", [ "{\"address\":\"261 Dartmouth St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.35037907261797", "-71.07743885250946", null, false ] ]
+, [ 42, "4FA2A0CA-8B6A-4A62-80B8-53B72D37C889", 42, 1359570111, "699782", 1359573928, "699782", "{\n}", "7-Eleven", "55 Berkeley St", "Boston", "MA", "2116", [ "{\"address\":\"55 Berkeley St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.346404298406995", "-71.07059747308705", null, false ] ]
+, [ 43, "95B098E0-2BA7-4AAD-A80E-0FC1F47F62C6", 43, 1359570111, "699782", 1359573934, "699782", "{\n}", "7-Eleven", "8 Park Plz", "Boston", "MA", "2116", [ "{\"address\":\"8 Park Plz\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.35203932460155", "-71.06724744451978", null, false ] ]
+, [ 44, "D4013C90-C4FD-44C3-829D-740A9A2D92C4", 44, 1359570111, "699782", 1359573939, "699782", "{\n}", "7-Eleven", "1306 Washington St", "Boston", "MA", "2118", [ "{\"address\":\"1306 Washington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.34215211115077", "-71.0679225869406", null, false ] ]
+, [ 45, "68C73B51-0C57-4C93-BD06-31EA6879E015", 45, 1359570111, "699782", 1359573930, "699782", "{\n}", "7-Eleven", "1747 Washington St", "Boston", "MA", "2118", [ "{\"address\":\"1747 Washington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.33665725355172", "-71.0768888275727", null, false ] ]
+, [ 46, "3B34E6D7-C666-4815-B1A7-605948F14C73", 46, 1359570111, "699782", 1359573926, "699782", "{\n}", "7-Eleven", "673 E BRd.way", "Boston", "MA", "2127", [ "{\"address\":\"673 E BRd.way\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.35862999957499", "-71.05669999960514", null, false ] ]
+, [ 47, "816A1E2F-E37E-4A96-9229-0623267F2BA3", 47, 1359570111, "699782", 1359573932, "699782", "{\n}", "7-Eleven", "200 Seaport Blvd # 3", "Boston", "MA", "2210", [ "{\"address\":\"200 Seaport Blvd # 3\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2210\"}", "42.350058771020294", "-71.04165461474597", null, false ] ]
+, [ 48, "2C80B727-EF06-4BCB-ADF1-BC301320C09C", 48, 1359570111, "699782", 1359573924, "699782", "{\n}", "7-Eleven", "121 Jersey St", "Boston", "MA", "2215", [ "{\"address\":\"121 Jersey St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.3427309376654", "-71.09700270945415", null, false ] ]
+, [ 49, "24016ABE-AC8D-4297-BAE3-0955E424C161", 49, 1359570111, "699782", 1359573923, "699782", "{\n}", "7-Eleven", "508 Park Dr", "Boston", "MA", "2215", [ "{\"address\":\"508 Park Dr\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.347555753891584", "-71.1056310775135", null, false ] ]
+, [ 50, "591B2878-2D64-4252-BB27-D60D0AAB09B2", 50, 1359570111, "699782", 1359573929, "699782", "{\n}", "7-Eleven", "532 Commonwealth Ave", "Boston", "MA", "2215", [ "{\"address\":\"532 Commonwealth Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.34875313484582", "-71.09620626476209", null, false ] ]
+, [ 51, "046A64D2-60A5-490A-87D1-833BE737A08E", 51, 1359570111, "699782", 1359573919, "699782", "{\n}", "A & R Food Svc", "253 Summer St", "Boston", "MA", "2210", [ "{\"address\":\"253 Summer St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2210\"}", "42.351535753550934", "-71.05311686501481", null, false ] ]
+, [ 52, "26A0ABAF-EAB5-4117-98E1-C301F2AC834A", 52, 1359570111, "699782", 1359573923, "699782", "{\n}", "Anthony Market", "407 Meridian St", "Boston", "MA", "2128", [ "{\"address\":\"407 Meridian St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38044800470189", "-71.03918520466857", null, false ] ]
+, [ 53, "D0AE05FA-055F-4F76-A9CB-0FAC433CB823", 53, 1359570111, "699782", 1359573939, "699782", "{\n}", "Berkeley St. Market", "56 Berkeley St", "Boston", "MA", "2116", [ "{\"address\":\"56 Berkeley St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.34647785011168", "-71.07073746489232", null, false ] ]
+, [ 54, "AE4C2F7E-7C12-4AD8-A195-423DC62CBD8B", 54, 1359570111, "699782", 1359573936, "699782", "{\n}", "Boston Mart", "42 Court St", "Boston", "MA", "2108", [ "{\"address\":\"42 Court St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2108\"}", "42.35900400362382", "-71.0590582114012", null, false ] ]
+, [ 55, "B9B1C449-DC2D-4213-9783-204D9E30803F", 55, 1359570111, "699782", 1359573936, "699782", "{\n}", "Boston Variety", "59 Causeway St", "Boston", "MA", "2114", [ "{\"address\":\"59 Causeway St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.364437311036795", "-71.06299430222003", null, false ] ]
+, [ 56, "A0A32668-F888-4EC7-9E00-721CC64D7C43", 56, 1359570111, "699782", 1359573935, "699782", "{\n}", "Brothers Mini Market", "802 Tremont St", "Boston", "MA", "2118", [ "{\"address\":\"802 Tremont St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.33867173489739", "-71.08146637670183", null, false ] ]
+, [ 57, "4D1F392F-B9CD-4E0B-ACDA-8867D03C2BF8", 57, 1359570111, "699782", 1359573928, "699782", "{\n}", "Campus Convenience", "700 Albany St", "Boston", "MA", "2118", [ "{\"address\":\"700 Albany St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.335667999319526", "-71.07039572252114", null, false ] ]
+, [ 58, "52723854-1960-40FF-8953-F2E514A632C0", 58, 1359570111, "699782", 1359573928, "699782", "{\n}", "Campus Convenience", "275 Babcock St", "Boston", "MA", "2215", [ "{\"address\":\"275 Babcock St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.352824652023536", "-71.1209473200311", null, false ] ]
+, [ 59, "417A1975-048A-4B17-B585-C736D38D7DD0", 59, 1359570111, "699782", 1359573926, "699782", "{\n}", "Campus Convenience", "541 Commonwealth Ave", "Boston", "MA", "2215", [ "{\"address\":\"541 Commonwealth Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.34899595179371", "-71.0969796817073", null, false ] ]
+, [ 60, "F534F85A-FC83-4E0F-8781-50BC4B2C3EC3", 60, 1359570111, "699782", 1359573943, "699782", "{\n}", "Campus Convenience", "702 Commonwealth Ave", "Boston", "MA", "2215", [ "{\"address\":\"702 Commonwealth Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.3496922011122", "-71.10498198925507", null, false ] ]
+, [ 61, "DDC13FC3-E7D5-4A93-9E21-8C82C68CBD00", 61, 1359570111, "699782", 1359573940, "699782", "{\n}", "Christy's Markets Inc", "508 Park Dr", "Boston", "MA", "2215", [ "{\"address\":\"508 Park Dr\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.347555753891584", "-71.1056310775135", null, false ] ]
+, [ 62, "A03A41BB-2E2B-44F3-8BB3-53DFEFCFEFFF", 62, 1359570111, "699782", 1359573935, "699782", "{\n}", "City Convenience", "23 Beacon St", "Boston", "MA", "2108", [ "{\"address\":\"23 Beacon St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2108\"}", "42.35807011106937", "-71.0623467903589", null, false ] ]
+, [ 63, "43ADE8CA-0A0F-4BB4-AFC8-286A4D17EE6F", 63, 1359570111, "699782", 1359573927, "699782", "{\n}", "City Convenience", "130 Dartmouth St", "Boston", "MA", "2116", [ "{\"address\":\"130 Dartmouth St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.3465319379282", "-71.07570178208314", null, false ] ]
+, [ 64, "B3A1E365-4B2E-4959-9C15-BFBADBF0C0B3", 64, 1359570111, "699782", 1359573936, "699782", "{\n}", "College Convenience", "281 Huntington Ave", "Boston", "MA", "2115", [ "{\"address\":\"281 Huntington Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.3417024501361", "-71.0863766749818", null, false ] ]
+, [ 65, "CD46F3D7-7CF6-4335-AACE-CB49F42BBDC4", 65, 1359570111, "699782", 1359573939, "699782", "{\n}", "Corner Store", "270 Hanover St", "Boston", "MA", "2113", [ "{\"address\":\"270 Hanover St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2113\"}", "42.36376281951482", "-71.05460362768667", null, false ] ]
+, [ 66, "84F70845-6986-4B96-B095-035F909D27A4", 66, 1359570111, "699782", 1359573932, "699782", "{\n}", "Dello Di Inc", "372 Commercial St", "Boston", "MA", "2109", [ "{\"address\":\"372 Commercial St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2109\"}", "42.36616400933309", "-71.0513211022797", null, false ] ]
+, [ 67, "5EF0437A-10CC-4FCC-8EE2-736E47BFE400", 67, 1359570111, "699782", 1359573929, "699782", "{\n}", "Dollar Convenience", "55 Temple Pl", "Boston", "MA", "2111", [ "{\"address\":\"55 Temple Pl\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2111\"}", "42.35493147718711", "-71.06168129205724", null, false ] ]
+, [ 68, "6B867948-D932-4BB9-9D2A-EF63A4C3A540", 68, 1359570111, "699782", 1359573930, "699782", "{\n}", "Downtown Convenience", "40 Boylston St", "Boston", "MA", "2116", [ "{\"address\":\"40 Boylston St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.35230545686153", "-71.06383966492757", null, false ] ]
+, [ 69, "F3F265DC-826B-4E1B-A76D-787F04BE684E", 69, 1359570111, "699782", 1359573942, "699782", "{\n}", "Downtown Convenience Two", "1100 Boylston St", "Boston", "MA", "2215", [ "{\"address\":\"1100 Boylston St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.347044422990166", "-71.08855303429272", null, false ] ]
+, [ 70, "6C677FD8-3A81-46C1-8870-CB0E0EFBD379", 70, 1359570111, "699782", 1359573931, "699782", "{\n}", "E S Variety", "3 Gladstone St", "Boston", "MA", "2128", [ "{\"address\":\"3 Gladstone St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38913064376083", "-70.99968078696207", null, false ] ]
+, [ 71, "B4F808AA-74A3-4F18-9733-E9FFC18F3399", 71, 1359570111, "699782", 1359573936, "699782", "{\n}", "Express Depot", "145 Dartmouth St # 1", "Boston", "MA", "2116", [ "{\"address\":\"145 Dartmouth St # 1\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.34730522637864", "-71.07596252588252", null, false ] ]
+, [ 72, "4D520AB0-C9AB-48D5-A665-3B5B6F5198C3", 72, 1359570111, "699782", 1359573928, "699782", "{\n}", "Fenway Convenience", "76 Kilmarnock St", "Boston", "MA", "2215", [ "{\"address\":\"76 Kilmarnock St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.34272038533916", "-71.09932903049359", null, false ] ]
+, [ 73, "E2977207-8DD3-47C7-AB28-543E33D3B858", 73, 1359570111, "699782", 1359573940, "699782", "{\n}", "First Tennessee Capital Mrkts", "99 Summer St", "Boston", "MA", "2110", [ "{\"address\":\"99 Summer St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2110\"}", "42.3537983314302", "-71.05823688868503", null, false ] ]
+, [ 74, "7FCA9257-EB27-4235-8EE9-0142E28AC45C", 74, 1359570111, "699782", 1359573932, "699782", "{\n}", "Food Basket", "563 Columbus Ave # 1", "Boston", "MA", "2118", [ "{\"address\":\"563 Columbus Ave # 1\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.340991985732956", "-71.08131349195685", null, false ] ]
+, [ 75, "505AB8EE-CE93-4EB0-98D1-C86DC1B1177F", 75, 1359570111, "699782", 1359573928, "699782", "{\n}", "Gateway Newstand", "1 Faneuil Hall Market Pl", "Boston", "MA", "2109", [ "{\"address\":\"1 Faneuil Hall Market Pl\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2109\"}", "42.35993170767", "-71.05579073276533", null, false ] ]
+, [ 76, "90ADD181-ADAD-4515-B04B-F952B49ACD84", 76, 1359570111, "699782", 1359573933, "699782", "{\n}", "Golden Goose", "179 Commercial St", "Boston", "MA", "2109", [ "{\"address\":\"179 Commercial St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2109\"}", "42.36297062078698", "-71.05170270872829", null, false ] ]
+, [ 77, "DEC441C4-9706-4923-B848-57B32062DD34", 77, 1359570111, "699782", 1359573940, "699782", "{\n}", "Gulf", "1420 Boylston St", "Boston", "MA", "2215", [ "{\"address\":\"1420 Boylston St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2215\"}", "42.34331182725526", "-71.10223297417795", null, false ] ]
+, [ 78, "F4571F93-0284-4C6C-961E-D684F857757D", 78, 1359570111, "699782", 1359573942, "699782", "{\n}", "Hemenway Variety", "95 Westland Ave", "Boston", "MA", "2115", [ "{\"address\":\"95 Westland Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.343977447950074", "-71.08965307841545", null, false ] ]
+, [ 79, "5839DF1E-41F5-43C9-AFEE-C660A3AA1F52", 79, 1359570111, "699782", 1359573928, "699782", "{\n}", "Jen's Place", "10 Park Plz", "Boston", "MA", "2116", [ "{\"address\":\"10 Park Plz\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.35188927272095", "-71.06719249594379", null, false ] ]
+, [ 80, "F23D4068-D8A1-4F85-9C4C-7109A01BC8B8", 80, 1359570111, "699782", 1359573942, "699782", "{\n}", "Karen Food Market", "41 Bennington St", "Boston", "MA", "2128", [ "{\"address\":\"41 Bennington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37542702623483", "-71.03739959726613", null, false ] ]
+, [ 81, "AC9C4A6D-3243-4DB1-8105-4A65170387CF", 81, 1359570111, "699782", 1359573936, "699782", "{\n}", "Lanzilli's Grocery", "931 Bennington St", "Boston", "MA", "2128", [ "{\"address\":\"931 Bennington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38582318889354", "-71.00923283130845", null, false ] ]
+, [ 82, "9785AED5-E641-41A2-9025-F9AF4FD1CC8E", 82, 1359570111, "699782", 1359573934, "699782", "{\n}", "Mass Food Market", "603 Massachusetts Ave", "Boston", "MA", "2118", [ "{\"address\":\"603 Massachusetts Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.337223826430204", "-71.07801298010935", null, false ] ]
+, [ 83, "AB8516DB-6E7F-49E1-B3F6-D258665F7262", 83, 1359570111, "699782", 1359573936, "699782", "{\n}", "Medina's Market Inc", "611 Tremont St", "Boston", "MA", "2118", [ "{\"address\":\"611 Tremont St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.34272767724951", "-71.07399301063839", null, false ] ]
+, [ 84, "15D029E8-9F23-48CD-9CD6-A310E73851B3", 84, 1359570111, "699782", 1359573922, "699782", "{\n}", "Monica's Mercato", "130 Salem St", "Boston", "MA", "2113", [ "{\"address\":\"130 Salem St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2113\"}", "42.36510280933851", "-71.05552992937686", null, false ] ]
+, [ 85, "A53150F4-2AB3-4308-9A2C-09AA1F655CD6", 85, 1359570111, "699782", 1359573935, "699782", "{\n}", "Nora's Convenient Store", "303 Newbury St", "Boston", "MA", "2115", [ "{\"address\":\"303 Newbury St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.34882508060815", "-71.0854683597322", null, false ] ]
+, [ 86, "7E892CBF-F482-4D89-8F6B-6365ACD4B193", 86, 1359570111, "699782", 1359573932, "699782", "{\n}", "O'Connell's Convenience Plus", "40 Worcester Sq", "Boston", "MA", "2118", [ "{\"address\":\"40 Worcester Sq\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.33611766033414", "-71.07400200385865", null, false ] ]
+, [ 87, "4390B476-A7A8-4D7B-BBF5-A07820235FF9", 87, 1359570111, "699782", 1359573927, "699782", "{\n}", "One Stop Convenience", "664 Tremont St", "Boston", "MA", "2118", [ "{\"address\":\"664 Tremont St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.3415945314926", "-71.07598950554342", null, false ] ]
+, [ 88, "110D8288-0B9C-4029-AF07-EB416A39F0F9", 88, 1359570111, "699782", 1359573921, "699782", "{\n}", "Primo's Convenience Store", "24 Joy St", "Boston", "MA", "2114", [ "{\"address\":\"24 Joy St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.35932916191041", "-71.06506274288739", null, false ] ]
+, [ 89, "0CA91EAB-84F9-4132-8D98-153EE00FA890", 89, 1359570111, "699782", 1359573921, "699782", "{\n}", "Priya Food Market", "399 Saratoga St", "Boston", "MA", "2128", [ "{\"address\":\"399 Saratoga St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.379047252285524", "-71.02972119705177", null, false ] ]
+, [ 90, "6DA9B468-851A-4E83-8971-72555B88073F", 90, 1359570111, "699782", 1359573931, "699782", "{\n}", "Quality Mart", "21 Massachusetts Ave", "Boston", "MA", "2115", [ "{\"address\":\"21 Massachusetts Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.350827063131234", "-71.08957078690993", null, false ] ]
+, [ 91, "FAF8B7B3-3694-434C-9B10-B93D5B06114F", 91, 1359570111, "699782", 1359573943, "699782", "{\n}", "Seaport Convenience", "451 D St", "Boston", "MA", "2210", [ "{\"address\":\"451 D St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2210\"}", "42.345704433166475", "-71.04272358367962", null, false ] ]
+, [ 92, "9A314D16-67F4-4C19-84EF-D91388B5A182", 92, 1359570111, "699782", 1359573934, "699782", "{\n}", "Shop MFI Market", "170 Salem St", "Boston", "MA", "2113", [ "{\"address\":\"170 Salem St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2113\"}", "42.366190988993935", "-71.05490040395631", null, false ] ]
+, [ 93, "DDFF1268-53FE-442E-8C70-CCA4AD162123", 93, 1359570111, "699782", 1359573940, "699782", "{\n}", "Snack N' Play", "19 Staniford St", "Boston", "MA", "2114", [ "{\"address\":\"19 Staniford St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.36191730464997", "-71.06374745507058", null, false ] ]
+, [ 94, "285DD478-A60C-4500-B342-219BECC94EF5", 94, 1359570111, "699782", 1359573923, "699782", "{\n}", "Store 24", "177 State St # A", "Boston", "MA", "2109", [ "{\"address\":\"177 State St # A\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2109\"}", "42.359341980573895", "-71.05316659277749", null, false ] ]
+, [ 95, "38402DE4-21BD-40A1-94B3-3A6B938C3E5D", 95, 1359570111, "699782", 1359573926, "699782", "{\n}", "Store 24", "122 Cambridge St", "Boston", "MA", "2114", [ "{\"address\":\"122 Cambridge St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.36112694251017", "-71.06349346320631", null, false ] ]
+, [ 96, "ACA88019-ABCB-4EC1-AB44-BD730A37A401", 96, 1359570111, "699782", 1359573936, "699782", "{\n}", "Store 24", "141 Massachusetts Ave", "Boston", "MA", "2115", [ "{\"address\":\"141 Massachusetts Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.346936504346615", "-71.08757277328078", null, false ] ]
+, [ 97, "912C4563-C6EF-4B27-986E-35829E76E673", 97, 1359570111, "699782", 1359573933, "699782", "{\n}", "Store 24", "717 Boylston St", "Boston", "MA", "2116", [ "{\"address\":\"717 Boylston St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2116\"}", "42.349382660266315", "-71.07997350213321", null, false ] ]
+, [ 98, "2C6A60B9-7172-4E7C-8DFD-6F79A1F84ADF", 98, 1359570111, "699782", 1359573924, "699782", "{\n}", "Sulgrave Inc", "60 State St", "Boston", "MA", "2109", [ "{\"address\":\"60 State St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2109\"}", "42.35892446699722", "-71.05622240733942", null, false ] ]
+, [ 99, "66F3645A-0B28-4B05-8AC3-EADB316CC344", 99, 1359570111, "699782", 1359573930, "699782", "{\n}", "Sulgrave News", "6 Milk St", "Boston", "MA", "2108", [ "{\"address\":\"6 Milk St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2108\"}", "42.3567660941269", "-71.05818292936328", null, false ] ]
+, [ 100, "49412FD5-FF01-4504-92BA-EDC789223AF4", 100, 1359570111, "699782", 1359573927, "699782", "{\n}", "Symphony Market II Nghbrhd", "291 Huntington Ave", "Boston", "MA", "2115", [ "{\"address\":\"291 Huntington Ave\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2115\"}", "42.34151032328361", "-71.08663877499849", null, false ] ]
+, [ 101, "408C4465-84B6-46A9-90CF-BA4CDE79E0D7", 101, 1359570111, "699782", 1359573926, "699782", "{\n}", "Tedeschi Food Shops", "50 Staniford St", "Boston", "MA", "2114", [ "{\"address\":\"50 Staniford St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.36260771511021", "-71.06391412228886", null, false ] ]
+, [ 102, "0C584E70-854A-4D1B-9FCB-D8A164F3EA3E", 102, 1359570111, "699782", 1359573921, "699782", "{\n}", "Val's Place", "10 Causeway St", "Boston", "MA", "2222", [ "{\"address\":\"10 Causeway St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2222\"}", "42.364426269502104", "-71.06318792395918", null, false ] ]
+, [ 103, "23289538-1709-446D-BF0D-6974C72F2790", 103, 1359570111, "699782", 1359573923, "699782", "{\n}", "Value 2000", "507 Washington St", "Boston", "MA", "2111", [ "{\"address\":\"507 Washington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2111\"}", "42.35440987041011", "-71.06159135985433", null, false ] ]
+, [ 104, "D957BE69-DA1E-457F-80B1-D8006F5B958D", 104, 1359570111, "699782", 1359573940, "699782", "{\n}", "Visham & Son", "449 Washington St", "Boston", "MA", "2111", [ "{\"address\":\"449 Washington St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2111\"}", "42.355255233117646", "-71.06068304460473", null, false ] ]
+, [ 105, "B3CD8B2A-48C7-407C-AAD6-5CCD281013D0", 105, 1359570111, "699782", 1359573936, "699782", "{\n}", "White Hen Pantry", "342 Hanover St", "Boston", "MA", "2113", [ "{\"address\":\"342 Hanover St\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2113\"}", "42.36486898561088", "-71.05343450904854", null, false ] ]
+, [ 106, "AB1BABB8-2F54-4994-A5DB-54EF2D1E4628", 106, 1359570111, "699782", 1359573936, "699782", "{\n}", "White Hen Pantry", "250 Cambridge St # 3", "Boston", "MA", "2114", [ "{\"address\":\"250 Cambridge St # 3\",\"city\":\"Boston\",\"state\":\"MA\",\"zip\":\"2114\"}", "42.361109819528394", "-71.06748191914625", null, false ] ]
+, [ 107, "F5D17BCD-F329-4718-9EA0-CCC6628B1967", 107, 1359570111, "699782", 1359573943, "699782", "{\n}", "7-Eleven", "1610 Commonwealth Ave", "Brighton", "MA", "2135", [ "{\"address\":\"1610 Commonwealth Ave\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.343429148432335", "-71.14275517299865", null, false ] ]
+, [ 108, "C7C4FA02-BC21-4DC2-A25A-53529CF091FE", 108, 1359570111, "699782", 1359573939, "699782", "{\n}", "7-Eleven", "2002 Beacon St", "Brighton", "MA", "2135", [ "{\"address\":\"2002 Beacon St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.33630080638474", "-71.15075055747413", null, false ] ]
+, [ 109, "059B2EA2-CB20-4537-8DA9-5EC02ED30C40", 109, 1359570111, "699782", 1359573919, "699782", "{\n}", "7-Eleven", "584 Washington St", "Brighton", "MA", "2135", [ "{\"address\":\"584 Washington St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.35029097551592", "-71.16571486440665", null, false ] ]
+, [ 110, "934FA752-2DBA-4B3A-826F-03E786FFDF4D", 110, 1359570111, "699782", 1359573933, "699782", "{\n}", "Brighton Super Market", "572 Washington St", "Brighton", "MA", "2135", [ "{\"address\":\"572 Washington St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.35012010433036", "-71.165049366105", null, false ] ]
+, [ 111, "E8B6DB5E-3763-4B2E-B600-DF80F441AF94", 111, 1359570111, "699782", 1359573941, "699782", "{\n}", "Chansky Super Market", "161 Sutherland Rd", "Brighton", "MA", "2135", [ "{\"address\":\"161 Sutherland Rd\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.3408351640262", "-71.147243500566", null, false ] ]
+, [ 112, "C0F86152-08CB-4EE8-806A-5ED417A2949E", 112, 1359570111, "699782", 1359573938, "699782", "{\n}", "Cumberland Farms", "148 Chestnut Hill Ave", "Brighton", "MA", "2135", [ "{\"address\":\"148 Chestnut Hill Ave\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.342125131489865", "-71.1541136102287", null, false ] ]
+, [ 113, "F6F977D8-B752-4E97-8516-3D9522BF9EA5", 113, 1359570111, "699782", 1359573943, "699782", "{\n}", "Huntington Market", "1795 Commonwealth Ave", "Brighton", "MA", "2135", [ "{\"address\":\"1795 Commonwealth Ave\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.34048836539654", "-71.15135269159873", null, false ] ]
+, [ 114, "A6038B3D-6D16-47A6-9F7A-28E7B7BF6AE6", 114, 1359570111, "699782", 1359573936, "699782", "{\n}", "Kiki's Kwik-Mart", "236 Faneuil St", "Brighton", "MA", "2135", [ "{\"address\":\"236 Faneuil St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.35284887782766", "-71.15975674942047", null, false ] ]
+, [ 115, "1A6871FA-6E72-4863-A90E-B85E056C7BB8", 115, 1359570111, "699782", 1359573922, "699782", "{\n}", "Lee's Market", "1585 Commonwealth Ave", "Brighton", "MA", "2135", [ "{\"address\":\"1585 Commonwealth Ave\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.34445040424109", "-71.1428195261644", null, false ] ]
+, [ 116, "A4B4F8E0-30A8-474E-97B6-2D782D108A24", 116, 1359570111, "699782", 1359573935, "699782", "{\n}", "Maddie's Market", "2195 Commonwealth Ave", "Brighton", "MA", "2135", [ "{\"address\":\"2195 Commonwealth Ave\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.340128805115185", "-71.16624497449827", null, false ] ]
+, [ 117, "1D5854AF-2E4D-4882-A8B3-820FC91089F5", 117, 1359570111, "699782", 1359573922, "699782", "{\n}", "Market St. Gulf", "195 Market St", "Brighton", "MA", "2135", [ "{\"address\":\"195 Market St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.356019656842534", "-71.14921230516899", null, false ] ]
+, [ 118, "E0EEE64C-DD93-4FBA-B741-E29363274365", 118, 1359570111, "699782", 1359573940, "699782", "{\n}", "Store 24", "1912 Beacon St", "Brighton", "MA", "2135", [ "{\"address\":\"1912 Beacon St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.33650018595136", "-71.14871569824254", null, false ] ]
+, [ 119, "FA2E177D-4050-43F5-B44F-D5D7883CE536", 119, 1359570111, "699782", 1359573943, "699782", "{\n}", "Store 24", "241 Market St", "Brighton", "MA", "2135", [ "{\"address\":\"241 Market St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.35452678227392", "-71.15015659329976", null, false ] ]
+, [ 120, "3F8196F4-26E8-4BE1-8807-D5658307ADC9", 120, 1359570111, "699782", 1359573926, "699782", "{\n}", "White Hen Pantry", "462 Washington St", "Brighton", "MA", "2135", [ "{\"address\":\"462 Washington St\",\"city\":\"Brighton\",\"state\":\"MA\",\"zip\":\"2135\"}", "42.34891501281106", "-71.15883505088254", null, false ] ]
+, [ 121, "5B172F7F-5E93-4727-8117-DB6547470400", 121, 1359570111, "699782", 1359573929, "699782", "{\n}", "Bunker Hill Market", "180 Bunker Hill St", "Charlestown", "MA", "2129", [ "{\"address\":\"180 Bunker Hill St\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}", "42.378637605879476", "-71.06164531917608", null, false ] ]
+, [ 122, "92146F8C-0CEF-404F-B493-D76A5FE4F9DD", 122, 1359570111, "699782", 1359573933, "699782", "{\n}", "Newtowne Foodmart", "87 Medford St", "Charlestown", "MA", "2129", [ "{\"address\":\"87 Medford St\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}", "42.37918401385763", "-71.05596744548801", null, false ] ]
+, [ 123, "0A8C7B03-D7CD-45A8-ABC7-59B0D80CD293", 123, 1359570111, "699782", 1359573919, "699782", "{\n}", "Store 24", "1 1st Ave # 7", "Charlestown", "MA", "2129", [ "{\"address\":\"1 1st Ave # 7\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}", "42.37355881866903", "-71.05678194632321", null, false ] ]
+, [ 124, "3CB5C700-5D3C-424C-875E-50B9CFFD8A5D", 124, 1359570111, "699782", 1359573926, "699782", "{\n}", "Store 24", "140 Main St", "Charlestown", "MA", "2129", [ "{\"address\":\"140 Main St\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}", "42.374950385559316", "-71.06398355645223", null, false ] ]
+, [ 125, "183D0A56-546D-4173-B16B-F6399077AEC1", 125, 1359570111, "699782", 1359573922, "699782", "{\n}", "Sullivan's Store", "2 Sullivan St", "Charlestown", "MA", "2129", [ "{\"address\":\"2 Sullivan St\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}", "42.377817621972895", "-71.06730610171155", null, false ] ]
+, [ 126, "5E856F6F-CB09-4DB3-A286-AD3475B51B75", 126, 1359570111, "699782", 1359573929, "699782", "{\n}", "United National Market", "134 Bunker Hill St", "Charlestown", "MA", "2129", [ "{\"address\":\"134 Bunker Hill St\",\"city\":\"Charlestown\",\"state\":\"MA\",\"zip\":\"2129\"}", "42.37795412113718", "-71.0597027835928", null, false ] ]
+, [ 127, "53BCC128-13E1-4756-924C-69D24DC89A1D", 127, 1359570111, "699782", 1359573928, "699782", "{\n}", "Pezzi Service Ctr", "571 Washington Ave", "Chelsea", "MA", "2150", [ "{\"address\":\"571 Washington Ave\",\"city\":\"Chelsea\",\"state\":\"MA\",\"zip\":\"2150\"}", "42.409772134533796", "-71.03009710238825", null, false ] ]
+, [ 128, "0C0181D8-FFD1-4DF3-AD21-876FDC33E2B0", 128, 1359570111, "699782", 1359573921, "699782", "{\n}", "7-Eleven", "730 William T Morrissey Blvd", "Dorchester", "MA", "2122", [ "{\"address\":\"730 William T Morrissey Blvd\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.296196755453536", "-71.04806555653363", null, false ] ]
+, [ 129, "1874BFB6-1953-458B-8558-0843B8BB7B92", 129, 1359570111, "699782", 1359573922, "699782", "{\n}", "Adam's Convenience Store", "295 Adams St", "Dorchester", "MA", "2122", [ "{\"address\":\"295 Adams St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.29916026259752", "-71.05805971458462", null, false ] ]
+, [ 130, "4B304474-C725-4C61-8B00-9F280EBC8E7A", 130, 1359570111, "699782", 1359573927, "699782", "{\n}", "Adams Market", "365 Adams St", "Dorchester", "MA", "2122", [ "{\"address\":\"365 Adams St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.2971140639234", "-71.05663609547287", null, false ] ]
+, [ 131, "86DF2A67-9324-4FF5-BD9D-DCFDF31CEA21", 131, 1359570111, "699782", 1359573933, "699782", "{\n}", "Bostonian Convenience Store", "1464 Dorchester Ave", "Dorchester", "MA", "2122", [ "{\"address\":\"1464 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.300727726675014", "-71.0599387438387", null, false ] ]
+, [ 132, "BC3811C5-402F-483A-98FF-E1879CA41862", 132, 1359570111, "699782", 1359573936, "699782", "{\n}", "Braulios Market", "237 Bowdoin St", "Dorchester", "MA", "2122", [ "{\"address\":\"237 Bowdoin St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.305972983667644", "-71.06723352015074", null, false ] ]
+, [ 133, "D87D2E09-88EA-4AC4-8F1D-289AACE8B457", 133, 1359570111, "699782", 1359573940, "699782", "{\n}", "Cappy's Convenience Store Inc", "949 Dorchester Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"949 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.31863484008454", "-71.05677099377726", null, false ] ]
+, [ 134, "8EBF498D-3ADC-4740-9BDA-C79C8C4FCF19", 134, 1359570111, "699782", 1359573933, "699782", "{\n}", "Chamas Market", "198 Humboldt Ave", "Dorchester", "MA", "2121", [ "{\"address\":\"198 Humboldt Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.31284493935739", "-71.08965126825034", null, false ] ]
+, [ 135, "C8A7CC4B-77FB-495A-9B31-80AAC06CED3F", 135, 1359570111, "699782", 1359573939, "699782", "{\n}", "Columbia Rd. Market II", "387 Columbia Rd", "Dorchester", "MA", "2125", [ "{\"address\":\"387 Columbia Rd\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.31110628015811", "-71.07022705430786", null, false ] ]
+, [ 136, "A09B0E9D-32EE-40F7-BFDE-011BE82D2DD3", 136, 1359570111, "699782", 1359573935, "699782", "{\n}", "Convenience Corner", "1688 Dorchester Ave", "Dorchester", "MA", "2122", [ "{\"address\":\"1688 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.29255775535865", "-71.06233524472087", null, false ] ]
+, [ 137, "61F1BB61-4256-4D7C-86E2-A63AC43C60E2", 137, 1359570111, "699782", 1359573930, "699782", "{\n}", "Country Store", "316 Bowdoin St", "Dorchester", "MA", "2122", [ "{\"address\":\"316 Bowdoin St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.307923914715616", "-71.06526958695417", null, false ] ]
+, [ 138, "4640DD69-B67A-4A83-856E-7B5D151E0D6E", 138, 1359570111, "699782", 1359573927, "699782", "{\n}", "D & D Convenience Store", "734 Blue Hill Ave", "Dorchester", "MA", "2121", [ "{\"address\":\"734 Blue Hill Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.299783775920034", "-71.08616988748513", null, false ] ]
+, [ 139, "2CB1BD7C-077D-431F-8974-2FE8E6D95C55", 139, 1359570111, "699782", 1359573924, "699782", "{\n}", "D & D Convenience Store", "1002 Dorchester Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"1002 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.3165079916044", "-71.05660927439871", null, false ] ]
+, [ 140, "2F105AD8-A929-42BD-9B7D-CC3D1FB00079", 140, 1359570111, "699782", 1359573924, "699782", "{\n}", "Five Corners Mini Mart", "1246 Dorchester Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"1246 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.308036000782806", "-71.0582674092296", null, false ] ]
+, [ 141, "F0302180-4F35-4EC9-B693-63D0FA847230", 141, 1359570111, "699782", 1359573942, "699782", "{\n}", "Gomez Convenience Store", "285 Washington St", "Dorchester", "MA", "2121", [ "{\"address\":\"285 Washington St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.30072034526091", "-71.07571071571431", null, false ] ]
+, [ 142, "008AAAB2-98B1-4F5A-8879-422CF1ECEA02", 142, 1359570111, "699782", 1359573919, "699782", "{\n}", "Grove Hill Convenience Market", "479 Blue Hill Ave", "Dorchester", "MA", "2121", [ "{\"address\":\"479 Blue Hill Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.30866118751336", "-71.08314919016571", null, false ] ]
+, [ 143, "5ADE5160-15F1-43D5-9E39-CFD24FFD4D5A", 143, 1359570111, "699782", 1359573929, "699782", "{\n}", "Happy Superette", "122 Seaver St", "Dorchester", "MA", "2121", [ "{\"address\":\"122 Seaver St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.3097045723336", "-71.09171864783588", null, false ] ]
+, [ 144, "6983174A-2894-44FC-9BB5-BACE4204D7AE", 144, 1359570111, "699782", 1359573930, "699782", "{\n}", "Hillside Spa Cardoza Brothers", "26 Hancock St", "Dorchester", "MA", "2125", [ "{\"address\":\"26 Hancock St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.31503755196735", "-71.06590810559493", null, false ] ]
+, [ 145, "3C68F2A3-6A55-4722-A066-B1907D84A3A7", 145, 1359570111, "699782", 1359573926, "699782", "{\n}", "Lee's Store", "982 Dorchester Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"982 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.317099517516155", "-71.0566249062072", null, false ] ]
+, [ 146, "F13C83F4-A4AE-4F9A-A70B-62AD70BE7957", 146, 1359570111, "699782", 1359573942, "699782", "{\n}", "Lynch's Everyday", "626 Adams St", "Dorchester", "MA", "2122", [ "{\"address\":\"626 Adams St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.28834279890216", "-71.05533638136261", null, false ] ]
+, [ 147, "5024DAE5-252D-4462-9CB5-0C7D509FC1CE", 147, 1359570111, "699782", 1359573928, "699782", "{\n}", "Maria's Store", "777 Dorchester Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"777 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.32394162621778", "-71.05691081765069", null, false ] ]
+, [ 148, "82A6DAEC-E58F-4CE1-9DC6-3787A424FE46", 148, 1359570111, "699782", 1359573932, "699782", "{\n}", "Mutual Oil Co Inc", "529 Geneva Ave", "Dorchester", "MA", "2122", [ "{\"address\":\"529 Geneva Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.29833714188328", "-71.06295832933887", null, false ] ]
+, [ 149, "88059A6B-5727-476C-AC8C-7D3DFECBDE9D", 149, 1359570111, "699782", 1359573933, "699782", "{\n}", "New Store On the Block", "847 Dorchester Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"847 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.3218004536277", "-71.05684293953959", null, false ] ]
+, [ 150, "BE4D4729-3F2C-40E0-B531-9707A1132817", 150, 1359570111, "699782", 1359573938, "699782", "{\n}", "Our Neighborhood Variety Store", "185 Howard Ave", "Dorchester", "MA", "2125", [ "{\"address\":\"185 Howard Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.31393138587134", "-71.07529702758086", null, false ] ]
+, [ 151, "93E90648-CE98-429C-8355-41818D897E43", 151, 1359570111, "699782", 1359573934, "699782", "{\n}", "S K B's", "156 Washington St", "Dorchester", "MA", "2121", [ "{\"address\":\"156 Washington St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.304047836769314", "-71.07899324112128", null, false ] ]
+, [ 152, "9419717D-02EF-4B5C-9BCB-4CB690F21186", 152, 1359570111, "699782", 1359573934, "699782", "{\n}", "Stop N Save", "310 Blue Hill Ave", "Dorchester", "MA", "2121", [ "{\"address\":\"310 Blue Hill Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.314012324853934", "-71.07916411230684", null, false ] ]
+, [ 153, "BCD61257-5723-42AC-AA9A-BC5CFAA4FCB9", 153, 1359570111, "699782", 1359573938, "699782", "{\n}", "Store 24", "187 E Cottage St", "Dorchester", "MA", "2125", [ "{\"address\":\"187 E Cottage St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.32001979600966", "-71.06106975307733", null, false ] ]
+, [ 154, "6E84C10A-B8F5-4EC9-976D-FBE92AE00624", 154, 1359570111, "699782", 1359573931, "699782", "{\n}", "Super Stop & Shop", "460 Blue Hill Ave", "Dorchester", "MA", "2121", [ "{\"address\":\"460 Blue Hill Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.309137229079376", "-71.08275736736316", null, false ] ]
+, [ 155, "9E07EA11-8788-44FE-8AC5-EF33012AEC32", 155, 1359570111, "699782", 1359573934, "699782", "{\n}", "Tedeschi Food Shops", "1420 Dorchester Ave", "Dorchester", "MA", "2122", [ "{\"address\":\"1420 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.30244535577849", "-71.05951859295128", null, false ] ]
+, [ 156, "2B8651D6-B86E-4759-88B7-EB20B8099B8F", 156, 1359570111, "699782", 1359573924, "699782", "{\n}", "Tedeschi Food Shops", "1580 Dorchester Ave", "Dorchester", "MA", "2122", [ "{\"address\":\"1580 Dorchester Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.29668720377279", "-71.06111873390283", null, false ] ]
+, [ 157, "F0C2A39B-D01B-4ABE-BDEF-6C8572BCF40E", 157, 1359570111, "699782", 1359573942, "699782", "{\n}", "Tedeschi Food Shops", "320 Neponset Ave", "Dorchester", "MA", "2122", [ "{\"address\":\"320 Neponset Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2122\"}", "42.288399633459505", "-71.04704932264053", null, false ] ]
+, [ 158, "A5E15D7C-5AF9-4634-9405-E459ECF128AF", 158, 1359570111, "699782", 1359573935, "699782", "{\n}", "Tropical Grocery Store", "67 Hancock St", "Dorchester", "MA", "2125", [ "{\"address\":\"67 Hancock St\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2125\"}", "42.31337380621318", "-71.06515267509036", null, false ] ]
+, [ 159, "E632C8AA-63FB-490D-9A77-E5DF8D1CAB0B", 159, 1359570111, "699782", 1359573940, "699782", "{\n}", "Vange Variety", "434 Blue Hill Ave", "Dorchester", "MA", "2121", [ "{\"address\":\"434 Blue Hill Ave\",\"city\":\"Dorchester\",\"state\":\"MA\",\"zip\":\"2121\"}", "42.31017221978885", "-71.08202395635999", null, false ] ]
+, [ 160, "F0E5959B-78D9-49A2-8C66-8126C5EC1D64", 160, 1359570111, "699782", 1359573942, "699782", "{\n}", "Ada's Tropical Inc", "118 Norfolk St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"118 Norfolk St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.28817480295214", "-71.07693379367419", null, false ] ]
+, [ 161, "C69BEA4C-323F-41EE-9290-013DA3C80AAA", 161, 1359570111, "699782", 1359573938, "699782", "{\n}", "Ashmont Convenience Store", "1996 Dorchester Ave", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"1996 Dorchester Ave\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.282615374622594", "-71.06511594797291", null, false ] ]
+, [ 162, "10592F79-8BF5-42DC-A822-14E2978067AB", 162, 1359570111, "699782", 1359573921, "699782", "{\n}", "Blue Hill Market", "766 Blue Hill Ave", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"766 Blue Hill Ave\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29854135987861", "-71.086617565403", null, false ] ]
+, [ 163, "207BE343-8A78-4739-ACC4-4C8C59689FE5", 163, 1359570111, "699782", 1359573923, "699782", "{\n}", "Codman Square Mkt Grocery Stor", "573 Washington St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"573 Washington St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29164618598526", "-71.07175369878541", null, false ] ]
+, [ 164, "E6407215-9674-448E-8E24-8417A80CBB30", 164, 1359570111, "699782", 1359573940, "699782", "{\n}", "Dominican Grocery Store", "710 Washington St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"710 Washington St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.28666394194295", "-71.07115115302577", null, false ] ]
+, [ 165, "F77F5415-C556-4422-AB76-43D2F43920D6", 165, 1359570111, "699782", 1359573943, "699782", "{\n}", "Mass Food Mart", "1732 Dorchester Ave", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"1732 Dorchester Ave\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29084534932588", "-71.06280798308995", null, false ] ]
+, [ 166, "1286EB10-24BF-4BB1-B6DC-F0BDC16E2411", 166, 1359570111, "699782", 1359573921, "699782", "{\n}", "Matos Market", "140 Norfolk St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"140 Norfolk St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.287878026682506", "-71.07801298010935", null, false ] ]
+, [ 167, "CB037E3B-9490-41E2-A74D-AAD3CAE21B5C", 167, 1359570111, "699782", 1359573939, "699782", "{\n}", "Meli Mello Market", "542 Washington St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"542 Washington St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29282429784365", "-71.07178067844626", null, false ] ]
+, [ 168, "024D21EF-0BFF-456B-8277-D06F81249DF5", 168, 1359570111, "699782", 1359573919, "699782", "{\n}", "Our Neighborhood Mini Mart", "482 Washington St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"482 Washington St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29458781253953", "-71.07191572292744", null, false ] ]
+, [ 169, "8FE4F191-0E2D-4004-8B5C-6535A8DB5C4D", 169, 1359570111, "699782", 1359573933, "699782", "{\n}", "Rosedale Grocery", "547 Washington St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"547 Washington St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29254550801454", "-71.07182564454774", null, false ] ]
+, [ 170, "5D81390E-15A0-460E-A831-8C6E5C940E2F", 170, 1359570111, "699782", 1359573929, "699782", "{\n}", "Salcedos Market", "302 Norfolk St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"302 Norfolk St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.283489335179524", "-71.08308515635457", null, false ] ]
+, [ 171, "31670FB3-F3B0-49DF-A9EE-A3F45F2332AC", 171, 1359570111, "699782", 1359573924, "699782", "{\n}", "Stop N Gas Inc", "970 Washington St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"970 Washington St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.279118630117125", "-71.06965827845715", null, false ] ]
+, [ 172, "C0A05362-886D-4A8B-84C5-31014432E829", 172, 1359570111, "699782", 1359573938, "699782", "{\n}", "Store 24", "1886 Dorchester Ave", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"1886 Dorchester Ave\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.286407837426154", "-71.06400965932689", null, false ] ]
+, [ 173, "31E87EE9-D087-48B1-87CF-5730BC486C07", 173, 1359570111, "699782", 1359573924, "699782", "{\n}", "T & J Convenience Store", "80 Welles Ave", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"80 Welles Ave\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.289173261369555", "-71.06687420038683", null, false ] ]
+, [ 174, "08E26EDD-393F-488A-B8B0-0EED03B1E1BB", 174, 1359570111, "699782", 1359573919, "699782", "{\n}", "Upbeat Convenience", "613 Park St", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"613 Park St\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.29447905037756", "-71.07791405468612", null, false ] ]
+, [ 175, "A142DF2A-0296-44D4-B07E-C20FC02030CE", 175, 1359570111, "699782", 1359573935, "699782", "{\n}", "Viet Huong Market", "1826 Dorchester Ave", "Dorchester Ctr", "MA", "2124", [ "{\"address\":\"1826 Dorchester Ave\",\"city\":\"Dorchester Ctr\",\"state\":\"MA\",\"zip\":\"2124\"}", "42.28851654532332", "-71.06348892933613", null, false ] ]
+, [ 176, "5188B709-9ACE-47DB-BA7C-AFF48077636C", 176, 1359570111, "699782", 1359573928, "699782", "{\n}", "Cumberland Farms", "464 Chelsea St", "East Boston", "MA", "2128", [ "{\"address\":\"464 Chelsea St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38184885379028", "-71.02498470821692", null, false ] ]
+, [ 177, "DC65E570-B6E9-4B17-8F59-04FBA8099537", 177, 1359570111, "699782", 1359573940, "699782", "{\n}", "El Condor Market", "337 Paris St", "East Boston", "MA", "2128", [ "{\"address\":\"337 Paris St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.377576405884895", "-71.0316619227192", null, false ] ]
+, [ 178, "18448227-D3E4-452E-8863-E50E079C082E", 178, 1359570111, "699782", 1359573922, "699782", "{\n}", "Franco's Place", "160 Trenton St", "East Boston", "MA", "2128", [ "{\"address\":\"160 Trenton St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.380101188977534", "-71.03338023355548", null, false ] ]
+, [ 179, "D0430C7A-36BE-49B0-96A5-40072EE9A6D6", 179, 1359570111, "699782", 1359573939, "699782", "{\n}", "Los Paisanos Market LLC", "11 Meridian St", "East Boston", "MA", "2128", [ "{\"address\":\"11 Meridian St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37054370761575", "-71.03891945149564", null, false ] ]
+, [ 180, "EC03CE1D-68CB-4A10-A178-EC8DC7E338DA", 180, 1359570111, "699782", 1359573941, "699782", "{\n}", "Neptune Convenience & Liquor", "3 Neptune Rd", "East Boston", "MA", "2128", [ "{\"address\":\"3 Neptune Rd\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37996126014139", "-71.02551589006805", null, false ] ]
+, [ 181, "445F7BD9-DAA2-4CDB-A973-C5C95B9905CE", 181, 1359570111, "699782", 1359573927, "699782", "{\n}", "Neptune Launderette", "944 Bennington St", "East Boston", "MA", "2128", [ "{\"address\":\"944 Bennington St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38624819757985", "-71.00823603306657", null, false ] ]
+, [ 182, "A30F3158-13DF-458E-983D-D7BFFC5F8B6A", 182, 1359570111, "699782", 1359573935, "699782", "{\n}", "Store 24", "14 Maverick Sq", "East Boston", "MA", "2128", [ "{\"address\":\"14 Maverick Sq\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.369396327769316", "-71.03962464580405", null, false ] ]
+, [ 183, "96C8209E-F67C-444A-81EB-203669C1F4BB", 183, 1359570111, "699782", 1359573934, "699782", "{\n}", "Sumner Market Inc", "345 Sumner St", "East Boston", "MA", "2128", [ "{\"address\":\"345 Sumner St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.366910446617396", "-71.03543907524227", null, false ] ]
+, [ 184, "C622AE34-8FB7-4181-9472-F49B35C3EAA9", 184, 1359570111, "699782", 1359573938, "699782", "{\n}", "Tesoro Market", "188 Chelsea St", "East Boston", "MA", "2128", [ "{\"address\":\"188 Chelsea St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37443893118786", "-71.03358995670017", null, false ] ]
+, [ 185, "AEC29E3E-0788-4EB3-BD02-77471E71F96C", 185, 1359570111, "699782", 1359573936, "699782", "{\n}", "Todisco's Mobil", "470 Meridian St", "East Boston", "MA", "2128", [ "{\"address\":\"470 Meridian St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.382718041084324", "-71.03938370816641", null, false ] ]
+, [ 186, "451612AA-BCC9-44B7-9EB8-C26D87DB9381", 186, 1359570111, "699782", 1359573927, "699782", "{\n}", "Two Brothers Market", "51 Trenton St", "East Boston", "MA", "2128", [ "{\"address\":\"51 Trenton St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.37839269773639", "-71.03764021354458", null, false ] ]
+, [ 187, "BE81DC48-6026-4903-9E82-0E079FC223AA", 187, 1359570111, "699782", 1359573938, "699782", "{\n}", "Varied Dades Amy", "178 Bennington St", "East Boston", "MA", "2128", [ "{\"address\":\"178 Bennington St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.377306609276104", "-71.03261520407028", null, false ] ]
+, [ 188, "8A6AD75A-8EBE-4CF6-8071-40B0A67D0C5F", 188, 1359570111, "699782", 1359573933, "699782", "{\n}", "White Hen Pantry", "120 Byron St", "East Boston", "MA", "2128", [ "{\"address\":\"120 Byron St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.38382705192493", "-71.01644849764489", null, false ] ]
+, [ 189, "7748C621-DC8D-4906-9613-8F8A6744F3CA", 189, 1359570111, "699782", 1359573931, "699782", "{\n}", "White Hen Pantry", "205 Maverick St", "East Boston", "MA", "2128", [ "{\"address\":\"205 Maverick St\",\"city\":\"East Boston\",\"state\":\"MA\",\"zip\":\"2128\"}", "42.36881502802967", "-71.03609047137489", null, false ] ]
+, [ 190, "690FFFF6-E231-4844-A334-D88C1D4FE998", 190, 1359570111, "699782", 1359573930, "699782", "{\n}", "Liriano Grocery", "1503 River St", "Hyde Park", "MA", "2136", [ "{\"address\":\"1503 River St\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.25042126416213", "-71.13092908831334", null, false ] ]
+, [ 191, "1A42D2CA-2B30-4391-8F36-EE18ACE89E45", 191, 1359570111, "699782", 1359573922, "699782", "{\n}", "Neighborhood Convenience Str", "994 Hyde Park Ave", "Hyde Park", "MA", "2136", [ "{\"address\":\"994 Hyde Park Ave\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.265565847135576", "-71.1210905053128", null, false ] ]
+, [ 192, "E08DFD17-B69C-4952-B40A-5FCC975DAE04", 192, 1359570111, "699782", 1359573940, "699782", "{\n}", "Riddhi Corp", "171 Wolcott Sq", "Hyde Park", "MA", "2136", [ "{\"address\":\"171 Wolcott Sq\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.23719587516264", "-71.13202130726548", null, false ] ]
+, [ 193, "59A07AED-2543-4B81-990C-0CC7EC188712", 193, 1359570111, "699782", 1359573929, "699782", "{\n}", "Riverwood Gas & Convenience", "869 River St", "Hyde Park", "MA", "2136", [ "{\"address\":\"869 River St\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.262310301389505", "-71.10883274605345", null, false ] ]
+, [ 194, "760C1268-DA8C-41C8-A9E4-77AA99BF3D16", 194, 1359570111, "699782", 1359573931, "699782", "{\n}", "Store 24", "1187 Hyde Park Ave", "Hyde Park", "MA", "2136", [ "{\"address\":\"1187 Hyde Park Ave\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.2580744946315", "-71.12360860699482", null, false ] ]
+, [ 195, "D97AD7F4-38C9-467D-90FD-460BDFA24049", 195, 1359570111, "699782", 1359573940, "699782", "{\n}", "Tedeschi Food Shops", "1239 River St", "Hyde Park", "MA", "2136", [ "{\"address\":\"1239 River St\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.255943101422076", "-71.12321290530195", null, false ] ]
+, [ 196, "49B12653-6D7C-429B-80E5-8879A109E355", 196, 1359570111, "699782", 1359573927, "699782", "{\n}", "Tedeschi Food Shops", "695 Truman Hwy", "Hyde Park", "MA", "2136", [ "{\"address\":\"695 Truman Hwy\",\"city\":\"Hyde Park\",\"state\":\"MA\",\"zip\":\"2136\"}", "42.252246887881654", "-71.11879723413807", null, false ] ]
+, [ 197, "5EB8BDFD-1FFA-47BE-A59E-2024CA037ED8", 197, 1359570111, "699782", 1359573929, "699782", "{\n}", "Botanica Anaiza's", "610 Centre St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"610 Centre St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.314461985868604", "-71.11406680026397", null, false ] ]
+, [ 198, "E315B148-675D-4B70-963B-43BC2A92D324", 198, 1359570111, "699782", 1359573940, "699782", "{\n}", "D & R Supermarkets", "180 Hyde Park Ave", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"180 Hyde Park Ave\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.29467690122402", "-71.11695362397802", null, false ] ]
+, [ 199, "85951C9A-2F64-44F9-B15E-C2AB8E3AC928", 199, 1359570111, "699782", 1359573932, "699782", "{\n}", "Green Elm", "536 Centre St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"536 Centre St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.316935121449205", "-71.11341029518258", null, false ] ]
+, [ 200, "6CAC86BB-6B63-4A11-92A7-7E00690C79C6", 200, 1359570111, "699782", 1359573931, "699782", "{\n}", "J & G's Market", "274 Hyde Park Ave", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"274 Hyde Park Ave\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.29201404749895", "-71.1177121873278", null, false ] ]
+, [ 201, "EDF5E033-87D8-44C2-9A0E-80B5FD01990F", 201, 1359570111, "699782", 1359573941, "699782", "{\n}", "J P Variety Store", "162 South St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"162 South St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.30411078931138", "-71.11464236636272", null, false ] ]
+, [ 202, "E9901DD4-C9CD-44CC-A228-C8E6129ED235", 202, 1359570111, "699782", 1359573941, "699782", "{\n}", "Perez Severiano", "207 Boylston St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"207 Boylston St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.31393138587134", "-71.1011885088044", null, false ] ]
+, [ 203, "6FAAB0DC-97D9-4934-9F7F-0AC4FC5DD3DE", 203, 1359570111, "699782", 1359573931, "699782", "{\n}", "Store 24", "684 Centre St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"684 Centre St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.3119722838793", "-71.11417609921867", null, false ] ]
+, [ 204, "07616869-8081-4B79-8BBF-A18C6D75A9F0", 204, 1359570111, "699782", 1359573919, "699782", "{\n}", "Super Stop & Shop", "301 Centre St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"301 Centre St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.32291651507302", "-71.10371343753673", null, false ] ]
+, [ 205, "5CFBC260-10C7-4482-9491-F1EED8F9BC6F", 205, 1359570111, "699782", 1359573929, "699782", "{\n}", "Tedeschi Food Shops", "779 Centre St", "Jamaica Plain", "MA", "2130", [ "{\"address\":\"779 Centre St\",\"city\":\"Jamaica Plain\",\"state\":\"MA\",\"zip\":\"2130\"}", "42.30979313809442", "-71.1154587346798", null, false ] ]
+, [ 206, "751D3D27-E66E-428C-B2B3-B13F54A6594C", 206, 1359570111, "699782", 1359573931, "699782", "{\n}", "Gonzalez Market", "1178 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1178 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.28399295551594", "-71.0914038851256", null, false ] ]
+, [ 207, "7F93ACE4-14C6-4AA7-B0DD-21277E129FD3", 207, 1359570111, "699782", 1359573932, "699782", "{\n}", "Hyde Park Market", "853 River St", "Mattapan", "MA", "2126", [ "{\"address\":\"853 River St\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.262720469966574", "-71.1083559069662", null, false ] ]
+, [ 208, "92E35753-283E-4124-AFCD-AD1CB5E61F05", 208, 1359570111, "699782", 1359573933, "699782", "{\n}", "La Poula Conveniences", "1330 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1330 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.27811034825854", "-71.09326436146752", null, false ] ]
+, [ 209, "82F6DBB8-48FB-4007-A8F3-8C6561910A74", 209, 1359570111, "699782", 1359573932, "699782", "{\n}", "Lili's Market", "1286 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1286 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.279971216786656", "-71.09270747186721", null, false ] ]
+, [ 210, "59E8097B-346B-448F-9387-3085BDE74680", 210, 1359570111, "699782", 1359573929, "699782", "{\n}", "No Name Deli & Grocerytwo", "1300 Blue Hill Ave", "Mattapan", "MA", "2126", [ "{\"address\":\"1300 Blue Hill Ave\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.279379433505596", "-71.09293273257543", null, false ] ]
+, [ 211, "84AC482E-A3A1-44C2-9444-F982D46C6CDD", 211, 1359570111, "699782", 1359573932, "699782", "{\n}", "Step N Out Mart", "609 Walk Hill St", "Mattapan", "MA", "2126", [ "{\"address\":\"609 Walk Hill St\",\"city\":\"Mattapan\",\"state\":\"MA\",\"zip\":\"2126\"}", "42.28107015892067", "-71.09781605119451", null, false ] ]
+, [ 212, "AE26CAB5-34E3-4EE4-8D12-46DE4552393E", 212, 1359570111, "699782", 1359573936, "699782", "{\n}", "Budget Mart", "229 Florence St", "Roslindale", "MA", "2131", [ "{\"address\":\"229 Florence St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}", "42.28562072838895", "-71.12015521040234", null, false ] ]
+, [ 213, "9E123C0E-ACA7-4A0C-88E0-13DBFAF0DD19", 213, 1359570111, "699782", 1359573934, "699782", "{\n}", "Cummins Fruits & Vegetables", "290 Cummins Hwy", "Roslindale", "MA", "2131", [ "{\"address\":\"290 Cummins Hwy\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}", "42.279568291131795", "-71.11791589854937", null, false ] ]
+, [ 214, "015BC092-3B12-496D-B891-D672D780BBFA", 214, 1359570111, "699782", 1359573919, "699782", "{\n}", "Downtown Brazil", "878 South St", "Roslindale", "MA", "2131", [ "{\"address\":\"878 South St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}", "42.28878634193211", "-71.13385188490855", null, false ] ]
+, [ 215, "EF1193D4-F721-40FF-9A5F-16A47C2413F4", 215, 1359570111, "699782", 1359573941, "699782", "{\n}", "El Chavo Mexican Products", "4254 Washington St", "Roslindale", "MA", "2131", [ "{\"address\":\"4254 Washington St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}", "42.28545450938999", "-71.12909959035171", null, false ] ]
+, [ 216, "09B4ACAD-0C6B-4AE8-8B1F-5B83AF48210E", 216, 1359570111, "699782", 1359573919, "699782", "{\n}", "T & D Market", "4545 Washington St", "Roslindale", "MA", "2131", [ "{\"address\":\"4545 Washington St\",\"city\":\"Roslindale\",\"state\":\"MA\",\"zip\":\"2131\"}", "42.278175816233826", "-71.13723739125055", null, false ] ]
+, [ 217, "CD5F28E2-F7A5-451B-9FA3-0D847689EFC2", 217, 1359570111, "699782", 1359573939, "699782", "{\n}", "Blue Hill Convenience", "137 Blue Hill Ave # B", "Roxbury", "MA", "2119", [ "{\"address\":\"137 Blue Hill Ave # B\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.32019966041554", "-71.07781512926289", null, false ] ]
+, [ 218, "E8E9F925-4D00-406F-833B-B4808878FD59", 218, 1359570111, "699782", 1359573941, "699782", "{\n}", "Bohio Grocery & Snacks", "718 Shawmut Ave", "Roxbury", "MA", "2119", [ "{\"address\":\"718 Shawmut Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.33305996543453", "-71.08314810889664", null, false ] ]
+, [ 219, "FF6BAF77-CED6-4A27-B761-EB2E1B1751F5", 219, 1359570111, "699782", 1359573943, "699782", "{\n}", "Casa Blanca Convenience Store", "41 Burrell St", "Roxbury", "MA", "2119", [ "{\"address\":\"41 Burrell St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.32299168897712", "-71.07036188835214", null, false ] ]
+, [ 220, "519837DC-39B2-4BDB-9765-3D1F31064B74", 220, 1359570111, "699782", 1359573928, "699782", "{\n}", "Central Convenience", "218 Blue Hill Ave", "Roxbury", "MA", "2119", [ "{\"address\":\"218 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.31703404687238", "-71.07801298010935", null, false ] ]
+, [ 221, "B8F79E9E-55E0-43D8-809A-34C37F6ACCC7", 221, 1359570111, "699782", 1359573936, "699782", "{\n}", "Chi Chi Produce Market", "2251 Washington St", "Roxbury", "MA", "2119", [ "{\"address\":\"2251 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.33069559042983", "-71.0832564186872", null, false ] ]
+, [ 222, "F66E827E-06DF-4590-A4B0-EDE837A7A156", 222, 1359570111, "699782", 1359573943, "699782", "{\n}", "Egleston Square Citgo", "3055 Washington St", "Roxbury", "MA", "2119", [ "{\"address\":\"3055 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.31632358246924", "-71.09782504441483", null, false ] ]
+, [ 223, "E53B7227-EC0F-40ED-8F1A-96E66E5C1A75", 223, 1359570111, "699782", 1359573940, "699782", "{\n}", "Giovanni's Market", "624 Columbus Ave", "Roxbury", "MA", "2118", [ "{\"address\":\"624 Columbus Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.339295494795365", "-71.08322926745511", null, false ] ]
+, [ 224, "B69E778D-E36D-4EBB-8400-82B9B678373A", 224, 1359570111, "699782", 1359573936, "699782", "{\n}", "La Plazita", "3 Blue Hill Ave", "Roxbury", "MA", "2119", [ "{\"address\":\"3 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.32523288394556", "-71.07512159010693", null, false ] ]
+, [ 225, "E4D0845F-321A-478C-90B8-D1476A36F1F5", 225, 1359570111, "699782", 1359573940, "699782", "{\n}", "Market Maywood", "249 Blue Hill Ave", "Roxbury", "MA", "2119", [ "{\"address\":\"249 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.31609875196193", "-71.07823781061666", null, false ] ]
+, [ 226, "79FC7457-B4EE-4476-B1C4-0C3E16DB683D", 226, 1359570111, "699782", 1359573932, "699782", "{\n}", "Mini Market", "64 Blue Hill Ave", "Roxbury", "MA", "2119", [ "{\"address\":\"64 Blue Hill Ave\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.32294259260493", "-71.07659205130307", null, false ] ]
+, [ 227, "333966D5-339B-4AA3-B6FB-C19AAC2750C1", 227, 1359570111, "699782", 1359573924, "699782", "{\n}", "N & M Market", "2359 Washington St", "Roxbury", "MA", "2119", [ "{\"address\":\"2359 Washington St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.329444690876755", "-71.0847489021088", null, false ] ]
+, [ 228, "EF4882BE-2B51-4866-AAD4-2C2D86546282", 228, 1359570111, "699782", 1359573941, "699782", "{\n}", "Nunez Mini Mart", "305 Dudley St", "Roxbury", "MA", "2119", [ "{\"address\":\"305 Dudley St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.32782591122401", "-71.07759029875558", null, false ] ]
+, [ 229, "174BBC80-8F80-439E-8F42-99BCE7747699", 229, 1359570111, "699782", 1359573922, "699782", "{\n}", "On the Run", "85 Southampton St", "Roxbury", "MA", "2118", [ "{\"address\":\"85 Southampton St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2118\"}", "42.33213469829626", "-71.07055805784337", null, false ] ]
+, [ 230, "D8DE3D72-CD98-42C0-B759-B64968E2AEB3", 230, 1359570111, "699782", 1359573940, "699782", "{\n}", "Quick Stop", "338 Warren St", "Roxbury", "MA", "2119", [ "{\"address\":\"338 Warren St\",\"city\":\"Roxbury\",\"state\":\"MA\",\"zip\":\"2119\"}", "42.31924637906451", "-71.0813944309395", null, false ] ]
+, [ 231, "0AFC4A27-3B4B-4B5E-A83D-6E1F5B36E619", 231, 1359570111, "699782", 1359573921, "699782", "{\n}", "Grocery Associates", "82 Hillside St", "Roxbury Crossing", "MA", "2120", [ "{\"address\":\"82 Hillside St\",\"city\":\"Roxbury Crossing\",\"state\":\"MA\",\"zip\":\"2120\"}", "42.33044842713316", "-71.10303802994673", null, false ] ]
+, [ 232, "04C43317-8033-4DB4-AFDC-AC4573B80F6C", 232, 1359570111, "699782", 1359573919, "699782", "{\n}", "Penas Market", "1055 Tremont St", "Roxbury Crossing", "MA", "2120", [ "{\"address\":\"1055 Tremont St\",\"city\":\"Roxbury Crossing\",\"state\":\"MA\",\"zip\":\"2120\"}", "42.336261551858854", "-71.08586406142513", null, false ] ]
+, [ 233, "0BFE4030-23CD-4742-8293-C392CB86891B", 233, 1359570111, "699782", 1359573921, "699782", "{\n}", "Andrew Square Convenience", "390 Dorchester St # A", "South Boston", "MA", "2127", [ "{\"address\":\"390 Dorchester St # A\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.32984039256962", "-71.05646522428731", null, false ] ]
+, [ 234, "E1CD87D5-13CF-4C34-9F2A-FBBAA9104A44", 234, 1359570111, "699782", 1359573940, "699782", "{\n}", "Cumberland Farms", "628 E 5th St", "South Boston", "MA", "2127", [ "{\"address\":\"628 E 5th St\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.333986267124715", "-71.0355110210046", null, false ] ]
+, [ 235, "FD1683AE-6809-4F0C-A188-82C68F370A7F", 235, 1359570111, "699782", 1359573943, "699782", "{\n}", "EVS Mini Mart", "334 Dorchester St", "South Boston", "MA", "2127", [ "{\"address\":\"334 Dorchester St\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.33098253154685", "-71.05402806158793", null, false ] ]
+, [ 236, "6681E18F-90E6-41ED-9F5B-F66672A87E3D", 236, 1359570111, "699782", 1359573930, "699782", "{\n}", "J & J Discount Mini Mart", "131 W BRd.way", "South Boston", "MA", "2127", [ "{\"address\":\"131 W BRd.way\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.337950000092576", "-71.04948000030163", null, false ] ]
+, [ 237, "1D2BC46E-7487-417E-94FC-C26C1ADE16A1", 237, 1359570111, "699782", 1359573922, "699782", "{\n}", "Mirisolas", "200 L St", "South Boston", "MA", "2127", [ "{\"address\":\"200 L St\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.331369240019455", "-71.03522323795522", null, false ] ]
+, [ 238, "DA2797D5-DE8A-4734-B987-89FC8CC1D98C", 238, 1359570111, "699782", 1359573940, "699782", "{\n}", "Store 24", "405 W BRd.way", "South Boston", "MA", "2127", [ "{\"address\":\"405 W BRd.way\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.337950000092576", "-71.04948000030163", null, false ] ]
+, [ 239, "64BD4838-40C3-42A1-ADDE-A829FD3D076E", 239, 1359570111, "699782", 1359573930, "699782", "{\n}", "Store 24", "555 E BRd.way", "South Boston", "MA", "2127", [ "{\"address\":\"555 E BRd.way\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.337950000092576", "-71.04948000030163", null, false ] ]
+, [ 240, "4382EBD6-557B-4818-AD09-5185CDEDDF54", 240, 1359570111, "699782", 1359573927, "699782", "{\n}", "Tedeschi Food Shops", "566 Dorchester Ave", "South Boston", "MA", "2127", [ "{\"address\":\"566 Dorchester Ave\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.330308040024875", "-71.05690589208166", null, false ] ]
+, [ 241, "A37DC7F6-6253-4E18-B442-FE04DBD51CBC", 241, 1359570111, "699782", 1359573935, "699782", "{\n}", "Three D's", "249 E St", "South Boston", "MA", "2127", [ "{\"address\":\"249 E St\",\"city\":\"South Boston\",\"state\":\"MA\",\"zip\":\"2127\"}", "42.33586585016593", "-71.05159089888849", null, false ] ]
+, [ 242, "C6A392E2-694E-483D-961A-64163584570D", 242, 1359570111, "699782", 1359573938, "699782", "{\n}", "Charley Market", "604 Weld St", "West Roxbury", "MA", "2132", [ "{\"address\":\"604 Weld St\",\"city\":\"West Roxbury\",\"state\":\"MA\",\"zip\":\"2132\"}", "42.29164618598526", "-71.15780083054881", null, false ] ]
+, [ 243, "E6B1BCE1-F7BD-49B0-A5A5-93978E90288B", 243, 1359570111, "699782", 1359573940, "699782", "{\n}", "Speedy Market", "4899 Washington St", "West Roxbury", "MA", "2132", [ "{\"address\":\"4899 Washington St\",\"city\":\"West Roxbury\",\"state\":\"MA\",\"zip\":\"2132\"}", "42.269307409207606", "-71.1483792159798", null, false ] ]
+, [ 244, "F90CD7DE-3B4A-4FEE-AA07-F8D226263C53", 244, 1359570111, "699782", 1359573943, "699782", "{\n}", "Spring St. Petroleum", "167 Spring St", "West Roxbury", "MA", "2132", [ "{\"address\":\"167 Spring St\",\"city\":\"West Roxbury\",\"state\":\"MA\",\"zip\":\"2132\"}", "42.27576415894782", "-71.16726169829707", null, false ] ]
+, [ 245, "F19AFAB4-4034-482A-8EA0-65CE7A96D902", 245, 1359570111, "699782", 1359573942, "699782", "{\n}", "Tedeschi Food Stores", "7 Spring St", "West Roxbury", "MA", "2132", [ "{\"address\":\"7 Spring St\",\"city\":\"West Roxbury\",\"state\":\"MA\",\"zip\":\"2132\"}", "42.27817434198636", "-71.16035490511206", null, false ] ]
+, [ 246, "BF6E86B6-4110-41D7-BF5E-87DF7B31BC49", 246, 1359570111, "699782", 1359573938, "699782", "{\n}", "Bolster Service Inc", "81 Veterans Rd", "Winthrop", "MA", "2152", [ "{\"address\":\"81 Veterans Rd\",\"city\":\"Winthrop\",\"state\":\"MA\",\"zip\":\"2152\"}", "42.380804971970065", "-70.97576905859819", null, false ] ]
+ ]
+}

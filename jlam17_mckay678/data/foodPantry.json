@@ -1,0 +1,842 @@
+[
+  {
+    "FIELD1":"Site number",
+    "FIELD2":"Name",
+    "FIELD3":"Location",
+    "FIELD4":"Location 1",
+    "FIELD5":"Area",
+    "FIELD6":"Zip Code",
+    "FIELD7":"Hours",
+    "FIELD8":"Source"
+  },
+  {
+    "FIELD1":"FB1",
+    "FIELD2":"Boston Medical Center Elders Living at Home Program Yawkey Ambulatory Care Center 4th Floor, Room 4S-18",
+    "FIELD3":"850 Harrison Avenue",
+    "FIELD4":"850 Harrison Avenue\nBoston, MA 02118\n(42.33517814576012, -71.07473087474541)",
+    "FIELD5":"Boston",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB2",
+    "FIELD2":"Rosie's Place",
+    "FIELD3":"889 Harrison Ave",
+    "FIELD4":"889 Harrison Ave\nBoston, MA 02118\n(42.333806402718835, -71.07676292248863)",
+    "FIELD5":"Boston",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB3",
+    "FIELD2":"Blackstone Park",
+    "FIELD3":"50 W. Brookline St.",
+    "FIELD4":"50 W. Brookline St.\nBoston, MA 02118\n(42.34009510427125, -71.07318024029308)",
+    "FIELD5":"Boston",
+    "FIELD6":"02118",
+    "FIELD7":"Tuesdays 2:30 - 3:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB4",
+    "FIELD2":"International Institute of Boston Pantry",
+    "FIELD3":"One Milk St",
+    "FIELD4":"One Milk St\nBoston, MA 02109\n(42.35749454497062, -71.054675573449)",
+    "FIELD5":"Boston",
+    "FIELD6":"02109",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB5",
+    "FIELD2":"Boston Rescue Mission / Pantry",
+    "FIELD3":"39 Kingston st",
+    "FIELD4":"39 Kingston st\nBoston, MA 02111\n(42.35346558227934, -71.05929808867961)",
+    "FIELD5":"Boston",
+    "FIELD6":"02111",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB6",
+    "FIELD2":"St. Francis House",
+    "FIELD3":"39 Boylston St.",
+    "FIELD4":"39 Boylston St.\nBoston, MA 02112\n(42.35234142974275, -71.06362382764053)",
+    "FIELD5":"Boston",
+    "FIELD6":"02112",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB7",
+    "FIELD2":"ABCD N. End/W.End Pantry",
+    "FIELD3":"1 Michelangelo Street",
+    "FIELD4":"1 Michelangelo Street\nBoston, MA 02113\n(42.367237880649334, -71.05477224310822)",
+    "FIELD5":"Boston",
+    "FIELD6":"02113",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB8",
+    "FIELD2":"Rice Sticks and Tea: Asian Food Pantry",
+    "FIELD3":"110 Arlington St",
+    "FIELD4":"110 Arlington St\nBoston, MA 02116\n(42.34960147745332, -71.06963225511386)",
+    "FIELD5":"Boston",
+    "FIELD6":"02116",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB9",
+    "FIELD2":"Church of the Covenant",
+    "FIELD3":"67 Newbury St",
+    "FIELD4":"67 Newbury St\nBoston, MA 02116\n(42.35186793762062, -71.07424991826197)",
+    "FIELD5":"Boston",
+    "FIELD6":"02116",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB10",
+    "FIELD2":"Haley House Food Pantry",
+    "FIELD3":"23 Dartmouth St",
+    "FIELD4":"23 Dartmouth St\nBoston, MA 02116\n(42.34366297215996, -71.07411891572247)",
+    "FIELD5":"Boston",
+    "FIELD6":"02116",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB11",
+    "FIELD2":"Salvation Army/South End Food Pantry",
+    "FIELD3":"1500 Washington St",
+    "FIELD4":"1500 Washington St\nBoston, MA 02118\n(42.339961401567834, -71.07182297572585)",
+    "FIELD5":"Boston",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB12",
+    "FIELD2":"American Red Cross/Boston Pantry",
+    "FIELD3":"1033 Massachusetts Ave",
+    "FIELD4":"1033 Massachusetts Ave\nBoston, MA 02118\n(42.327322290887594, -71.06735601406211)",
+    "FIELD5":"Boston",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB13",
+    "FIELD2":"Paulist Center",
+    "FIELD3":"5 Park St",
+    "FIELD4":"5 Park St\nBoston, MA 02108\n(42.356979474996415, -71.0624364689066)",
+    "FIELD5":"Boston ",
+    "FIELD6":"02108",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB14",
+    "FIELD2":"Allston-Brighton Food Pantry",
+    "FIELD3":"404 Washington Street",
+    "FIELD4":"404 Washington Street\nBrighton, MA 02135\n(42.349063598414055, -71.15514414438195)",
+    "FIELD5":"Brighton",
+    "FIELD6":"02135",
+    "FIELD7":"Saturday 10-1pm",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB15",
+    "FIELD2":"East End House",
+    "FIELD3":"105 Spring St.",
+    "FIELD4":"105 Spring St.\nCambridge, MA 02124\n(42.36932062965593, -71.08300421737192)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02124",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB16",
+    "FIELD2":"Cambridge Economic Opportunity Committee Bread & Justice Food Pantry",
+    "FIELD3":"11 Inman St.",
+    "FIELD4":"11 Inman St.\nCambridge, MA 02139\n(42.36721621610735, -71.10500163420863)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"Hours: Mondays & Wednesdays 4:00-6:00 p.m.; Tuesdays 12:00 - 2:00 p.m.; Thursdays 11:00 a.m.-1:00 p.m. ",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB17",
+    "FIELD2":"WIC (Women, Infants and Children) Program",
+    "FIELD3":"119 Windsor St. ",
+    "FIELD4":"119 Windsor St.&nbsp;\nCambridge, MA 02139\n(42.364608182222355, -71.09637713594765)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB18",
+    "FIELD2":"Massachusetts Avenue Baptist Church Project Manna",
+    "FIELD3":"146 Hampshire St.",
+    "FIELD4":"146 Hampshire St.\nCambridge, MA 02139\n(42.371083300833334, -71.09767215966986)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"Usually Fourth Saturday of the month opening at 8:00 a.m",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB19",
+    "FIELD2":"Helping Hands - St. James Church",
+    "FIELD3":"1493 Cambridge Street ",
+    "FIELD4":"1493 Cambridge Street\nCambridge, MA 02140\n(42.39176999988575, -71.12860999995138)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02140",
+    "FIELD7":"Tuesday’s 6:00 - 8:00, Thursday’s 11:00 - 1:00,Saturday’s 10:00 - 12:00  ",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB20",
+    "FIELD2":"St James Episcopal Church Helping Hand Pantry",
+    "FIELD3":"1991 Massachusetts Ave.",
+    "FIELD4":"1991 Massachusetts Ave.\nCambridge, MA 02140\n(42.390535636327115, -71.1213692951419)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02140",
+    "FIELD7":"Tuesday 6:00-8:00 p.m.; Thursday 11:00 a.m.-1:00 p.m.; Saturday 10:00 a.m.-12:00 p.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB21",
+    "FIELD2":"St. Paul R.C. Church Dollar-A-Bag",
+    "FIELD3":"29 Mt. Auburn St. ",
+    "FIELD4":"29 Mt. Auburn St.&nbsp;\nCambridge, MA 02138\n(42.37080451100428, -71.11528088500353)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02138",
+    "FIELD7":"Saturday 11:00 a.m.-12:00 p.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB22",
+    "FIELD2":"Western Ave. Baptist Church",
+    "FIELD3":"299 Western Ave.",
+    "FIELD4":"299 Western Ave.\nCambridge, MA 02139\n(42.364608182222355, -71.11268184433885)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"Second Wednesday of each month 10:00 a.m.-12:00 p.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB23",
+    "FIELD2":"Salvation Army ",
+    "FIELD3":"402 Mass. Ave. ",
+    "FIELD4":"402 Mass. Ave.&nbsp;\nCambridge, MA 02139\n(42.36545999977932, -71.10424999983746)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB24",
+    "FIELD2":"Cambridgeport Baptist Church The Harvest",
+    "FIELD3":"459 Putnam Ave",
+    "FIELD4":"459 Putnam Ave\nCambridge, MA 02139\n(42.35881654835367, -71.11059541723085)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":" First and Third Saturdays of each month 9:15 - 11:30 a.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB25",
+    "FIELD2":"Margaret Fuller Neighborhood House Food Pantry",
+    "FIELD3":"71 Cherry St.",
+    "FIELD4":"71 Cherry St.\nCambridge, MA 02139\n(42.36458120256151, -71.0973124308581)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"Wednesdays 5:00-7:00 p.m.; Thursdays,Fridays, and Saturdays 9:00 a.m.- 12:00 p.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB26",
+    "FIELD2":"Pentecostal Tabernacle Church Pantry",
+    "FIELD3":"77 Columbia St.",
+    "FIELD4":"77 Columbia St.\nCambridge, MA 02139\n(42.3653186466255, -71.09885926474851)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB27",
+    "FIELD2":"Cambridge Senior Center",
+    "FIELD3":"806 Mass. Ave.",
+    "FIELD4":"806 Mass. Ave.\nCambridge, MA 02139\n(42.36545999977932, -71.10424999983746)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"Tuesday & Thursday 12:00-2:00 p.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB28",
+    "FIELD2":"Common Cares/ St. Peter's",
+    "FIELD3":"838 Massachusetts Avenue ",
+    "FIELD4":"838 Massachusetts Avenue\nCambridge, MA 02139\n(42.36726544575182, -71.10688595953474)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB29",
+    "FIELD2":"St. Paul A.M.E. Church Food Pantry",
+    "FIELD3":"85 Bishop Allen Drive ",
+    "FIELD4":"85 Bishop Allen Drive&nbsp;\nCambridge, MA 02139\n(42.36545999977932, -71.10424999983746)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02139",
+    "FIELD7":"Wednesday 12:00-2:00 p.m.; Saturday 10:00 a.m.-12:00 p.m.",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB30",
+    "FIELD2":"WIC (Women, Infants and Children) Program",
+    "FIELD3":"9 Jefferson Pk",
+    "FIELD4":"9 Jefferson Pk\nCambridge, MA 02140\n(42.39347985238418, -71.13524811959776)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02140",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB31",
+    "FIELD2":"Haitian American Cultural Council",
+    "FIELD3":"One Jackson Place ",
+    "FIELD4":"One Jackson Place\nCambridge, MA 02140\n(42.393579841445344, -71.13524811959776)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02140",
+    "FIELD7":"Tuesdays 12:00-5:00 ",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB32",
+    "FIELD2":"Transition House",
+    "FIELD3":"1035 Cambridge St # B10",
+    "FIELD4":"1035 Cambridge St # B10\nCambridge, MA 02141\n(42.372944660026846, -71.09429526800025)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02141",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB33",
+    "FIELD2":"Harvard Square Homeless Shelter",
+    "FIELD3":"66 Winthrop Street",
+    "FIELD4":"66 Winthrop Street\nCambridge, MA 02138\n(42.37165137603692, -71.11956535048354)",
+    "FIELD5":"Cambridge",
+    "FIELD6":"02138",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB34",
+    "FIELD2":"The Harvest on Vine",
+    "FIELD3":"49 Vine St",
+    "FIELD4":"49 Vine St\nCharlestown, MA 02129\n(42.37709077198906, -71.05687891242076)",
+    "FIELD5":"Charlestown",
+    "FIELD6":"02129",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB35",
+    "FIELD2":"Adams Templeton",
+    "FIELD3":"455 Adams St",
+    "FIELD4":"455 Adams St\nDorchester, MA 02122\n(42.29366358654271, -71.05716925917729)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02122",
+    "FIELD7":"Fridays 1:30 - 2:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB36",
+    "FIELD2":"Bellflower Apartments",
+    "FIELD3":"24 Bellflower St.",
+    "FIELD4":"24 Bellflower St.\nDorchester, MA 02125\n(42.32456137225762, -71.05861460393731)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02125",
+    "FIELD7":"Alternating Fridays 12 – 1 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB37",
+    "FIELD2":"Blue Hill Boys & Girls Club",
+    "FIELD3":"15 Talbot Ave.",
+    "FIELD4":"15 Talbot Ave.\nDorchester, MA 02124\n(42.29454348812644, -71.0869486318462)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02124",
+    "FIELD7":"Tuesdays 5:00 - 6:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB38",
+    "FIELD2":"Cardinal Medeiros Manor",
+    "FIELD3":"11 Woodcliff St",
+    "FIELD4":"11 Woodcliff St\nDorchester, MA 02125\n(42.31607177230103, -71.07756331909468)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02125",
+    "FIELD7":"Alternating Thurs 1:30 - 2:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB39",
+    "FIELD2":"Franklin Hill/Wayne Apartments",
+    "FIELD3":"140 American Legion Highway",
+    "FIELD4":"140 American Legion Highway\nDorchester, MA 02124\n(42.2956841418968, -71.0923122003752)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02124",
+    "FIELD7":"Alternating Wed. 1:00-2:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB40",
+    "FIELD2":"Codman Global Ministries",
+    "FIELD3":"675 Washington St.",
+    "FIELD4":"675 Washington St.\nDorchester, MA 02124\n(42.28806688430865, -71.07120511234751)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02124",
+    "FIELD7":"Saturdays 12:30 - 2:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB41",
+    "FIELD2":"Lower Mills Apartments",
+    "FIELD3":"2262 Dorchester Ave.",
+    "FIELD4":"2262 Dorchester Ave.\nDorchester, MA 02124\n(42.27307366113336, -71.06778540244754)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02124",
+    "FIELD7":"Alt. Wed. 3:30 – 4:30 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB42",
+    "FIELD2":"Pasciucco Development",
+    "FIELD3":"330 Bowdoin St.",
+    "FIELD4":"330 Bowdoin St.\nDorchester, MA 02122\n(42.30836168284333, -71.06485709148812)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02122",
+    "FIELD7":"Fridays 5:30 - 6:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB43",
+    "FIELD2":"Cleveland Middle School",
+    "FIELD3":"11 Charles St",
+    "FIELD4":"11 Charles St\nDorchester, MA 02122\n(42.300657414511114, -71.0612289865104)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02122",
+    "FIELD7":"Thursdays 5:30 - 6:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB44",
+    "FIELD2":"Kelly House/Dot House",
+    "FIELD3":"1363 Dorchester Ave",
+    "FIELD4":"1363 Dorchester Ave\nDorchester, MA 02122\n(42.30414945688383, -71.0592810080873)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02122",
+    "FIELD7":"Fridays 3:30- 4:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB45",
+    "FIELD2":"Vietnamese Comm. Center",
+    "FIELD3":"42 Charles St.",
+    "FIELD4":"42 Charles St.\nDorchester, MA 02122\n(42.29996491475629, -71.06392959713048)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02122",
+    "FIELD7":"Alt. Wed. 10:30 – 11:30 AM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB46",
+    "FIELD2":"Boston Jubilee house",
+    "FIELD3":"10 Melville Ave",
+    "FIELD4":"10 Melville Ave\nDorchester, MA 02124\n(42.293786572415, -71.07017089201383)",
+    "FIELD5":"Dorchester",
+    "FIELD6":"02124",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB47",
+    "FIELD2":"Holy Redeemer Church/Our Daily Bread Pantry",
+    "FIELD3":"56 Havre St",
+    "FIELD4":"56 Havre St\nEast Boston, MA 02128\n(42.371131322622404, -71.04002667746747)",
+    "FIELD5":"East Boston",
+    "FIELD6":"02128",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB48",
+    "FIELD2":"Amory St. Building",
+    "FIELD3":"125 Amory St.",
+    "FIELD4":"125 Amory St.\nJamaica Plain, MA 02130\n(42.31823909171389, -71.1013017050047)",
+    "FIELD5":"Jamaica Plain",
+    "FIELD6":"02130",
+    "FIELD7":"Thursdays 3 – 4 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB49",
+    "FIELD2":"Back of the Hill Apts.",
+    "FIELD3":"100 S. Huntington Ave.",
+    "FIELD4":"100 S. Huntington Ave.\nJamaica Plain, MA 02130\n(42.329372745114426, -71.11092816638171)",
+    "FIELD5":"Jamaica Plain",
+    "FIELD6":"02130",
+    "FIELD7":"Alt. Fri. 11:30 – 12:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB50",
+    "FIELD2":"Franklin Park Villa Co-Op",
+    "FIELD3":"131 Morton St.",
+    "FIELD4":"131 Morton St.\nJamaica Plain, MA 02130\n(42.30014746857162, -71.10766936054615)",
+    "FIELD5":"Jamaica Plain",
+    "FIELD6":"02130",
+    "FIELD7":"Fridays 10:30 – 11:30 AM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB51",
+    "FIELD2":"Nate Smith House",
+    "FIELD3":"155 Lamartine St.",
+    "FIELD4":"155 Lamartine St.\nJamaica Plain, MA 02130\n(42.318091567957964, -71.1042851896607)",
+    "FIELD5":"Jamaica Plain",
+    "FIELD6":"02130",
+    "FIELD7":"Alt. Wed. 11 – 12",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB52",
+    "FIELD2":"Pond St./M.M. Collins Apts.",
+    "FIELD3":"29 Pond St.",
+    "FIELD4":"29 Pond St.\nJamaica Plain, MA 02130\n(42.31510557889898, -71.11544923524681)",
+    "FIELD5":"Jamaica Plain",
+    "FIELD6":"02130",
+    "FIELD7":"2nd Tuesday of the month 2:30 – 3:30 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB53",
+    "FIELD2":"Simco's on the Bridge",
+    "FIELD3":"1500 Blue Hill Ave",
+    "FIELD4":"1500 Blue Hill Ave\nMattapan, MA 02124\n(42.28752000014805, -71.07255000028215)",
+    "FIELD5":"Mattapan",
+    "FIELD6":"02124",
+    "FIELD7":"Saturdays 3:00- 5:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB54",
+    "FIELD2":"ABCD Headstart",
+    "FIELD3":"19 Corinth St",
+    "FIELD4":"19 Corinth St\nRoslindale, MA 02131\n(42.286268240250024, -71.12995782052172)",
+    "FIELD5":"Roslindale",
+    "FIELD6":"02131",
+    "FIELD7":"Alt Wed. 3:00-4:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB55",
+    "FIELD2":"Hawthorne Youth Center",
+    "FIELD3":"9 Fulda St.",
+    "FIELD4":"9 Fulda St.\nRoxbury, MA 02119\n(42.323190711148904, -71.09234234432954)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02119",
+    "FIELD7":"Alt. Fri. 5:30 – 6:30 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB56",
+    "FIELD2":"Warren Gardens",
+    "FIELD3":"45 Walnut Ave.",
+    "FIELD4":"45 Walnut Ave.\nRoxbury, MA 02119\n(42.32310165373741, -71.08450330393256)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02119",
+    "FIELD7":"Alt. Wed. 5:30 - 6:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB57",
+    "FIELD2":"Marcus Garvey Apts.",
+    "FIELD3":"44 John Eliot Sq.",
+    "FIELD4":"44 John Eliot Sq.\nRoxbury, MA 02119\n(42.32991084780463, -71.09121051408968)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02119",
+    "FIELD7":"Alt. Thurs 1:30 - 2:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB58",
+    "FIELD2":"Walnut Park Senior Bldg.",
+    "FIELD3":"1990 Columbus Ave.",
+    "FIELD4":"1990 Columbus Ave.\nRoxbury, MA 02119\n(42.31512748417026, -71.09745632238281)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02119",
+    "FIELD7":"Fridays 5 – 6 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB59",
+    "FIELD2":"Whittier St Apartments ",
+    "FIELD3":"180 Ruggles St ",
+    "FIELD4":"180 Ruggles St&nbsp;\nRoxbury, MA 02120\n(42.33310000036488, -71.09609000035306)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02120",
+    "FIELD7":"Thursdays 3:30 - 4:30",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB60",
+    "FIELD2":"Catholic Charities/El Centro del Cardenal",
+    "FIELD3":"76 Union Park Street",
+    "FIELD4":"76 Union Park Street\nRoxbury, MA 02118\n(42.34069123519564, -71.06798345819712)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB61",
+    "FIELD2":"Boston Medical Center Food Pantry",
+    "FIELD3":"818 Harrison Ave",
+    "FIELD4":"818 Harrison Ave\nRoxbury, MA 02118\n(42.335925371008436, -71.07378404269969)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB62",
+    "FIELD2":"ABCD/South End Neighborhood Action Prgrm",
+    "FIELD3":"554 Columbus Avenue",
+    "FIELD4":"554 Columbus Avenue\nRoxbury, MA 02118\n(42.34130674844323, -71.08081886484075)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB63",
+    "FIELD2":"Outreach Van Project",
+    "FIELD3":"72 E. Concord Street",
+    "FIELD4":"72 E. Concord Street\nRoxbury, MA 02118\n(42.33604401221202, -71.07260574594766)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB64",
+    "FIELD2":"ABC/ People's Baptist Church Food Pantry",
+    "FIELD3":"134 Camden Street",
+    "FIELD4":"134 Camden Street\nRoxbury, MA 02118\n(42.33824905354362, -71.08176315297152)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB65",
+    "FIELD2":"Grant A.M.E./Self-Help",
+    "FIELD3":"1906 Washington St",
+    "FIELD4":"1906 Washington St\nRoxbury, MA 02118\n(42.33456183322346, -71.0793619631533)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB66",
+    "FIELD2":"United Emmanuel Holiness Church",
+    "FIELD3":"65 Windsor St.",
+    "FIELD4":"65 Windsor St.\nRoxbury, MA 02119\n(42.32383000005461, -71.0855000003246)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02119",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB67",
+    "FIELD2":"USCC/ Warwick House-St. Katherine Drexel",
+    "FIELD3":"175 Ruggles St.",
+    "FIELD4":"175 Ruggles St.\nRoxbury, MA 02120\n(42.33447680086803, -71.08799143865089)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02120",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB68",
+    "FIELD2":"Resurrection Lutheran Church",
+    "FIELD3":"94 Warren St",
+    "FIELD4":"94 Warren St\nRoxbury, MA 02119\n(42.32727732478611, -71.08306716991399)",
+    "FIELD5":"Roxbury",
+    "FIELD6":"02119",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB69",
+    "FIELD2":"Union United Methodist Church Food Pntry",
+    "FIELD3":"485 Columbus Ave.",
+    "FIELD4":"485 Columbus Ave.\nRoxbury, MA 02118\n(42.342944036107355, -71.07891369296694)",
+    "FIELD5":"Roxbury ",
+    "FIELD6":"02118",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB70",
+    "FIELD2":"The Elizabeth Peabody House",
+    "FIELD3":"275-277 Broadway",
+    "FIELD4":"275-277 Broadway\nSomerville, MA 02145\n(42.39646784104286, -71.10106183293396)",
+    "FIELD5":"Somerville",
+    "FIELD6":"02145",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB71",
+    "FIELD2":"Cobble Hill Apts",
+    "FIELD3":"74 Washington St",
+    "FIELD4":"74 Washington St\nSomerville, MA 02143\n(42.38151164506479, -71.08469253433829)",
+    "FIELD5":"Somerville",
+    "FIELD6":"02143",
+    "FIELD7":"Alt. Wed. 12:30 – 1:30 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB72",
+    "FIELD2":"The Welcome Project",
+    "FIELD3":"530 Mystic Ave, #111",
+    "FIELD4":"530 Mystic Ave, #111\nSomerville, MA 02145\n(42.39749565645202, -71.09171796070771)",
+    "FIELD5":"Somerville",
+    "FIELD6":"02145",
+    "FIELD7":"",
+    "FIELD8":""
+  },
+  {
+    "FIELD1":"FB73",
+    "FIELD2":"PROJECT SOUP at Saint Benedict’s Church",
+    "FIELD3":"15 Franklin Street",
+    "FIELD4":"15 Franklin Street\nSomerville, MA 02145\n(42.386118617694024, -71.0831447634141)",
+    "FIELD5":"Somerville",
+    "FIELD6":"02145",
+    "FIELD7":"",
+    "FIELD8":"http://www.somervillehomelesscoalition.org/programs/Project%20Soup.html"
+  },
+  {
+    "FIELD1":"FB74",
+    "FIELD2":"Project Soup West Pantry",
+    "FIELD3":"1 Davis Square",
+    "FIELD4":"1 Davis Square\nSomerville, MA 02144\n(42.39639921595813, -71.12253841377998)",
+    "FIELD5":"Somerville",
+    "FIELD6":"02144",
+    "FIELD7":"",
+    "FIELD8":"http://www.somervillehomelesscoalition.org/programs/Project%20Soup.html"
+  },
+  {
+    "FIELD1":"FB75",
+    "FIELD2":"Mary Ellen McCormack",
+    "FIELD3":"345 Old Colony Ave.",
+    "FIELD4":"345 Old Colony Ave.\nSouth Boston, MA 02125\n(42.31652000019801, -71.06013000039906)",
+    "FIELD5":"South Boston",
+    "FIELD6":"02125",
+    "FIELD7":"Fridays 2:00– 3:00 PM",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB76",
+    "FIELD2":"West Broadway Task Force",
+    "FIELD3":"115 Orton Marotta Way",
+    "FIELD4":"115 Orton Marotta Way\nSouth Boston, MA 02127\n(42.337470811620584, -71.0541923730528)",
+    "FIELD5":"South Boston",
+    "FIELD6":"02127",
+    "FIELD7":"Tuesdays 1:00 - 2:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB77",
+    "FIELD2":"SUSCC/St Vincent DePaul Parish",
+    "FIELD3":"363 E Street",
+    "FIELD4":"363 E Street\nSouth Boston, MA 02127\n(42.338816186780896, -71.04799881719399)",
+    "FIELD5":"South Boston",
+    "FIELD6":"02127",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB78",
+    "FIELD2":"South Boston Community Health Center",
+    "FIELD3":"409 West Broadway",
+    "FIELD4":"409 West Broadway\nSouth Boston, MA 02127\n(42.337070941685226, -71.04818246839744)",
+    "FIELD5":"South Boston",
+    "FIELD6":"02127",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB79",
+    "FIELD2":"TTGAOP/Fourth Church Food Pantry",
+    "FIELD3":"340 Dorchester St.",
+    "FIELD4":"340 Dorchester St.\nSouth Boston, MA 02127\n(42.3309015925642, -71.05420792599375)",
+    "FIELD5":"South Boston",
+    "FIELD6":"02127",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB80",
+    "FIELD2":"St. Augustine's Food Pantry",
+    "FIELD3":"70 Devine Way",
+    "FIELD4":"70 Devine Way\nSouth Boston, MA 02127\n(42.3286173146098, -71.05401906836761)",
+    "FIELD5":"South Boston",
+    "FIELD6":"02127",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  },
+  {
+    "FIELD1":"FB81",
+    "FIELD2":"Grant Manor",
+    "FIELD3":"1860 Washington St",
+    "FIELD4":"1860 Washington St\nSouth End, MA 21178\n",
+    "FIELD5":"South End",
+    "FIELD6":"21178",
+    "FIELD7":"Saturdays 10:30 - 12:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB82",
+    "FIELD2":"St. Botolph House",
+    "FIELD3":"70 St. Botolph St.",
+    "FIELD4":"70 St. Botolph St.\nSouth End, MA 02116\n(42.34563216076179, -71.07981021097142)",
+    "FIELD5":"South End",
+    "FIELD6":"02116",
+    "FIELD7":"Thursday 1:00 - 2:00",
+    "FIELD8":"http://www.fairfoods.org/dollarbag.html"
+  },
+  {
+    "FIELD1":"FB83",
+    "FIELD2":"St Anthony Shrine/Franciscan Food Center",
+    "FIELD3":"100 Arch St",
+    "FIELD4":"100 Arch St\nMA 02110\n(42.354832615122675, -71.05852229533832)",
+    "FIELD5":"",
+    "FIELD6":"02110",
+    "FIELD7":"",
+    "FIELD8":"http://www.gbfb.org/need-food/index.php"
+  }
+]
