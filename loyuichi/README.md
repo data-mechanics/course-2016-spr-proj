@@ -19,3 +19,7 @@ When trying to find somewhere to eat, online reviews offer great feedback for cu
 
 Additional Tools:
 - Geopy: Geocoding library used to obtain addresses in add_address.py
+
+Transformations:
+- Aggregating counts of parking tickets, tows, parking meters, and restaurants based on streets
+- Aggregating lists of violations(tickets/tows) based on the day of the week and hour of the day
