@@ -1,0 +1,153 @@
+{
+    "prefix": {
+        "dat": "http://datamechanics.io/data/tbeaudry/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/tbeaudry/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "wasAssociatedWith": {
+        "_:id5": {
+            "prov:activity": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:agent": "alg:gather"
+        },
+        "_:id4": {
+            "prov:activity": "log:a325d6983-6b95-4244-9e4e-27b6f345faba",
+            "prov:agent": "alg:gather"
+        },
+        "_:id6": {
+            "prov:activity": "log:aa84e8e24-4a32-4667-9c30-14e4a83786b6",
+            "prov:agent": "alg:gather"
+        }
+    },
+    "entity": {
+        "dat:HS_LOC": {
+            "prov:label": "Hospital Locations",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:23yb-cufe": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Boston Police District Stations",
+            "ont:Extension": "json"
+        },
+        "bdp:46f7-2snz": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Hospital Locations",
+            "ont:Extension": "json"
+        },
+        "bdp:uea6-pfmm": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Boston Police Department 911",
+            "ont:Extension": "json"
+        },
+        "dat:PS_LOC": {
+            "prov:label": "Boston Police District Stations",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:P_911": {
+            "prov:label": "Boston Police Department 911",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "activity": {
+        "log:a325d6983-6b95-4244-9e4e-27b6f345faba": {
+            "prov:startTime": "2016-03-02T23:41:02.734245",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-03-02T23:41:11.338312",
+            "ont:Query": "?"
+        },
+        "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b": {
+            "prov:startTime": "2016-03-02T23:41:02.734245",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-03-02T23:41:11.338312",
+            "ont:Query": "?"
+        },
+        "log:aa84e8e24-4a32-4667-9c30-14e4a83786b6": {
+            "prov:startTime": "2016-03-02T23:41:02.734245",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-03-02T23:41:11.338312",
+            "ont:Query": "?$limit=50000&$select=latitude,longitude,cad_event_type,start_standard_time,udo_event_location_full_street_address"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id11": {
+            "prov:time": "2016-03-02T23:41:11.338312",
+            "prov:entity": "dat:HS_LOC",
+            "prov:activity": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b"
+        },
+        "_:id8": {
+            "prov:time": "2016-03-02T23:41:11.338312",
+            "prov:entity": "dat:PS_LOC",
+            "prov:activity": "log:a325d6983-6b95-4244-9e4e-27b6f345faba"
+        },
+        "_:id14": {
+            "prov:time": "2016-03-02T23:41:11.338312",
+            "prov:entity": "dat:P_911",
+            "prov:activity": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b"
+        }
+    },
+    "agent": {
+        "alg:gather": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "used": {
+        "_:id1": {
+            "prov:time": "2016-03-02T23:41:02.734245",
+            "prov:entity": "bdp:23yb-cufe",
+            "prov:activity": "log:a325d6983-6b95-4244-9e4e-27b6f345faba"
+        },
+        "_:id2": {
+            "prov:time": "2016-03-02T23:41:02.734245",
+            "prov:entity": "bdp:46f7-2snz",
+            "prov:activity": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b"
+        },
+        "_:id3": {
+            "prov:time": "2016-03-02T23:41:02.734245",
+            "prov:entity": "bdp:uea6-pfmm",
+            "prov:activity": "log:aa84e8e24-4a32-4667-9c30-14e4a83786b6"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id12": {
+            "prov:usedEntity": "bdp:46f7-2snz",
+            "prov:usage": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:generation": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:activity": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:generatedEntity": "dat:HS_LOC"
+        },
+        "_:id15": {
+            "prov:usedEntity": "bdp:46f7-2snz",
+            "prov:usage": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:generation": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:activity": "log:ae113d3b5-d7cb-48e7-9ded-f7234e94886b",
+            "prov:generatedEntity": "dat:P_911"
+        },
+        "_:id9": {
+            "prov:usedEntity": "bdp:23yb-cufe",
+            "prov:usage": "log:a325d6983-6b95-4244-9e4e-27b6f345faba",
+            "prov:generation": "log:a325d6983-6b95-4244-9e4e-27b6f345faba",
+            "prov:activity": "log:a325d6983-6b95-4244-9e4e-27b6f345faba",
+            "prov:generatedEntity": "dat:PS_LOC"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id13": {
+            "prov:entity": "dat:P_911",
+            "prov:agent": "alg:gather"
+        },
+        "_:id10": {
+            "prov:entity": "dat:HS_LOC",
+            "prov:agent": "alg:gather"
+        },
+        "_:id7": {
+            "prov:entity": "dat:PS_LOC",
+            "prov:agent": "alg:gather"
+        }
+    }
+}
+
