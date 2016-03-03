@@ -83,8 +83,4 @@ pip-selfcheck.json
 # Directory-based project format:
 .idea/
 
-# Authentication Json File
-linshan_luoty/auth.json
-
-# Mongodb Folder
-db/*
+alice_bob/plan.json
