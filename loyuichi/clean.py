@@ -73,15 +73,14 @@ doc.used(clean_tickets, tickets, startTime)
 
 db_food_establishments = doc.entity('dat:food_establishments', {prov.model.PROV_LABEL:'Food Establishments Permits', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(db_food_establishments, this_script)
-doc.wasGeneratedBy(db_food_establishments, get_food_establishments, endTime)
-doc.wasDerivedFrom(db_food_establishments, food_establishments, get_food_establishments, get_food_establishments, get_food_establishments)
+doc.wasGeneratedBy(db_food_establishments, clean_food_establishments, endTime)
+doc.wasDerivedFrom(db_food_establishments, food_establishments, clean_food_establishments, clean_food_establishments, clean_food_establishments)
 
 db_tickets = doc.entity('dat:tickets', {prov.model.PROV_LABEL:'Parking Tickets', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(db_tickets, this_script)
-doc.wasGeneratedBy(db_tickets, get_tickets, endTime)
-doc.wasDerivedFrom(db_tickets, tickets, get_tickets, get_tickets, get_tickets)
+doc.wasGeneratedBy(db_tickets, clean_tickets, endTime)
+doc.wasDerivedFrom(db_tickets, tickets, clean_tickets, clean_tickets, clean_tickets)
 
-doc.used()
 #repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
 #open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
