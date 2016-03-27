@@ -12,7 +12,7 @@ exec(open('../pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
-repo.authenticate('alice_bob', 'alice_bob')
+repo.authenticate('billguo', 'billguo')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
