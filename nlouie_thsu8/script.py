@@ -21,6 +21,9 @@ import datetime
 import uuid
 import urllib
 
+# Until a library is created, we just use the script directly.
+exec(open('../pymongo_dm.py').read())
+
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
 
