@@ -44,3 +44,12 @@ This derived dataset holds information regarding the nearest neighbor stop on th
 
 ### 6. (derived) Utility measurement based on passenger saved time
 In this derived dataset, we create a measurement called "people-seconds" to gauge the utility of each stop. This is a score that uses both popularity and walking time to the next nearest stop, and provides a weight for each stop. A low score is good; this means that the stop is valued and saves the greatest amount of time for the collective commuting group. This score will let us perform a weighted *k*-means to find the optimal *k* stops.
+
+# Visualizations
+The visualizations are viewable in a web browser. These visualizations need access to the database from the browser, which can't be directly obtained. So we use a small Flask application to act as a middle-man to facilitate this access.
+
+1 - Start the web app for the database API (`pip3 install flask` if not already available).
+
+    cd vis/; python3 restful.py
+
+2 - Point your favorite browser to 127.0.0.1:5000/stops.

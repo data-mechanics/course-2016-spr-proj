@@ -24,10 +24,9 @@ def loadmap():
 @app.route('/get/<collection>')
 def getthings(collection):
     '''Query the database from js in browser.'''
-    fltr = {}
-    for key in request.args.keys():
-        fltr[key] = request.args[key]
-    all_stops = repo['{}.{}'.format(teamname, collection)].find(fltr)
+    # If you have a collection with 'name':<name> in the documents, filter
+    # on a name with query args like /collection?name=<name>
+    all_stops = repo['{}.{}'.format(teamname, collection)].find(request.args)
     return dumps(all_stops)
 
 if __name__ == '__main__':
