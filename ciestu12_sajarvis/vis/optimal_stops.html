@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Optimal Green Line MBTA Stops</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+</head>
+<body>
+  <div id="map" style="width: 800px; height: 600px"></div>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+  <script>
+
+    // load the openstreetmap
+    var map = L.map('map').setView([42.35, -71.11], 13);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+      maxZoom: 30,
+      // credit our tools
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(map);
+
+    // draw a point for all stops
+    var branches = [{'line':'GLB','clr':'red'}, {'line':'GLC','clr':'blue'}, {'line':'GLD','clr':'green'}, {'line':'GLE','clr':'orange'}];
+    branches.forEach(function(branch) {
+      // find the id for all stops on this line
+      $.getJSON('http://127.0.0.1:5000/get/t_branch_info?line='.concat(branch.line), function(stops) {
+        // stops is the JSON string
+        // now get the coordinates for that stop id to draw it
+        stops.forEach(function(stop) {
+          $.getJSON('http://127.0.0.1:5000/get/t_stop_locations?stop_id='.concat(stop.stop_id), function(points) {
+            L.circle([points[0].stop_lat, points[0].stop_lon], 25, {
+              color: branch.clr,
+              fillColor: branch.clr,
+              fillOpacity: 0.5
+            }).addTo(map).bindPopup(stop.pretty_name);
+          });
+        });
+      });
+    });
+
+    // TODO Then draw/interact with the k-means, once we calculate them.
+
+  </script>
+</body>
+</html>
