@@ -43,9 +43,7 @@ for x in pol_events:
             lon=y['longitude']
         elif 'udo_event_location_full_street_address' in y:
             '''
-
             continue here to run quick version
-
             '''
             loc=y['udo_event_location_full_street_address']+" Boston"
             loc2=geolocator.geocode(loc)
@@ -77,9 +75,7 @@ for x in med_events:
             lon=y['longitude']
         elif 'udo_event_location_full_street_address' in y:
             '''
-
             continue here to run quick version
-
             '''
             loc=y['udo_event_location_full_street_address']+" Boston"
             loc2=geolocator.geocode(loc)
@@ -238,11 +234,3 @@ plan.close()
 #print(doc.get_provn())
 repo.logout()
 
-
-
-
-
-
-
-    
-    
