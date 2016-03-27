@@ -108,8 +108,8 @@ endTime = datetime.datetime.now()
 # and "replay" everything. The old documents will also act as a
 # log.
 doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'http://datamechanics.io/algorithm/alice_bob/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'http://datamechanics.io/data/alice_bob/') # The data sets in <user>/<collection> format.
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/billguo/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/billguo/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
