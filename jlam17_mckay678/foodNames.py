@@ -18,40 +18,40 @@ exec(open('../pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
-#repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
+repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-filen = 'http://upload.datamechanics.org/?prefix=jlam17_mckay678/data/activeFood.json'
+filen = 'data/activeFood.json'
 res = open(filen, 'r')
 r = json.load(res)
 repo.dropPermanent("foodEst")
 repo.createPermanent("foodEst")
 repo['jlam17_mckay678.foodEst'].insert_many(r)
 
-filen = 'http://upload.datamechanics.org/?prefix=jlam17_mckay678/data/cornerStores.json'
+filen = 'data/cornerStores.json'
 res = open(filen, 'r')
 r2 = json.load(res)
 repo.dropPermanent("cornerStore")
 repo.createPermanent("cornerStore")
 repo['jlam17_mckay678.cornerStore'].insert_many(r2)
 
-filen = 'http://upload.datamechanics.org/?prefix=jlam17_mckay678/data/foodPantry.json'
+filen = 'data/foodPantry.json'
 res = open(filen, 'r')
 r3 = json.load(res)
 repo.dropPermanent("foodPantry")
 repo.createPermanent("foodPantry")
 repo['jlam17_mckay678.foodPantry'].insert_many(r3)
 
-filen = 'http://upload.datamechanics.org/?prefix=jlam17_mckay678/data/summerFM.json'
+filen = 'data/summerFM.json'
 res = open(filen, encoding="utf8")
 r4 = json.load(res)
 repo.dropPermanent("summerFM")
 repo.createPermanent("summerFM")
 repo['jlam17_mckay678.summerFM'].insert_many(r4)
 
-filen = 'http://upload.datamechanics.org/?prefix=jlam17_mckay678/data/retailBakery.json'
+filen = 'data/retailBakery.json'
 res = open(filen, encoding="utf8")
 r5 = json.load(res)
 repo.dropPermanent("retailBakery")
@@ -147,9 +147,9 @@ doc.wasGeneratedBy(retailBakery, this_run, endTime)
 doc.wasDerivedFrom(retailBakery, resource, this_run, this_run, this_run)
 
 repo.record(doc.serialize()) # Record the provenance document.
-provEx = open('http://upload.datamechanics.org/?prefix=jlam17_mckay678/provFoodNames.json', 'w')
+provEx = open('provFoodNames.json', 'w')
 provEx.write(json.dumps(json.loads(doc.serialize()), indent=4))
-prov2 = open('http://upload.datamechanics.org/?prefix=jlam17_mckay678/planFoodNames.json', 'w')
+prov2 = open('planFoodNames.json', 'w')
 provEx.write(doc.get_provn())
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
 # print(doc.get_provn())
