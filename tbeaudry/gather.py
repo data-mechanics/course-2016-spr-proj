@@ -87,8 +87,8 @@ doc.wasDerivedFrom(HS_LOC, resource_hs, get_hs, get_hs, get_hs)
 
 P_911  = doc.entity('dat:P_911', {prov.model.PROV_LABEL:'Boston Police Department 911', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(P_911, this_script)
-doc.wasGeneratedBy(P_911, get_hs, endTime)
-doc.wasDerivedFrom(P_911, resource_hs, get_hs, get_hs, get_hs)
+doc.wasGeneratedBy(P_911, get_911, endTime)
+doc.wasDerivedFrom(P_911, resource_hs, get_911, get_911, get_911)
 
 repo.record(doc.serialize()) # Record the provenance document.
 ##print(json.dumps(json.loads(doc.serialize()), indent=4))

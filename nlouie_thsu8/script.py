@@ -21,6 +21,9 @@ import datetime
 import uuid
 import urllib
 
+# Until a library is created, we just use the script directly.
+exec(open('../pymongo_dm.py').read())
+
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
 
@@ -58,9 +61,20 @@ def insert_to_db(repo, s):
     url = 'https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data/' + s + '.json'
     response = urllib.request.urlopen(url).read().decode("utf-8")
     r = json.loads(response)
-    s = json.dumps(r, sort_keys=True, indent=2)
+    
+    # The line below was causing an error.
+    #r = json.dumps(r, sort_keys=True, indent=2)
+
     repo.dropPermanent(s)
     repo.createPermanent(s)
+
+    # Convert to valid JSON dictionary if necessary.
+    for i in range(len(r)):
+        if type(r[i]) == list:
+            d = {}
+            d[r[i][0]] = r[i][1]
+            r[i] = d
+
     repo['nlouie_thsu8.' + s].insert_many(r)
 
 # add to mongo database and generate prov

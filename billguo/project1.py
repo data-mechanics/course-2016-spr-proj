@@ -12,7 +12,7 @@ exec(open('../pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
-repo.authenticate('alice_bob', 'alice_bob')
+repo.authenticate('billguo', 'billguo')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
@@ -108,13 +108,13 @@ endTime = datetime.datetime.now()
 # and "replay" everything. The old documents will also act as a
 # log.
 doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'http://datamechanics.io/algorithm/alice_bob/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'http://datamechanics.io/data/alice_bob/') # The data sets in <user>/<collection> format.
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/billguo/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/billguo/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:project1', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})t
+this_script = doc.agent('alg:project1', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource = doc.entity('bdp:effb-uspk', {'prov:label':'Employee Earnings Report 2012', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 resource2 = doc.entity('bdp:54s2-yxpg', {'prov:label':'Employee Earnings Report 2013', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 resource3 = doc.entity('bdp:qz7u-kb7x', {'prov:label':'Employee Earnings Report 2014', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
