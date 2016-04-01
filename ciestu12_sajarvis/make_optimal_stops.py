@@ -2,7 +2,7 @@
 Calculate the optimal stops based on the calculated score with a weighted
 k-means algorithm.
 
-Relies on normal_ppl_sec_util, t_branch_info, t_stop_locations, datasets.
+Relies on normal_ppl_sec_util, t_stop_locations, datasets.
 """
 import pymongo
 import prov.model
@@ -36,52 +36,61 @@ def scale(p, c):
     (x,y) = p
     return (x/c, y/c)
 
+def times(p, c):
+    (x,y) = p
+    return (x*c, y*c)
+
 def aggregate(s, f):
     keys = {k[0] for k in s}
     return [(key, f([v for k,v in s if k == key])) for key in keys]
 
 def main():
-    out_coll = 'green_optimal_stops'
+    out_coll = 'optimal_green_stops'
     repo.dropPermanent(out_coll)
     repo.createPermanent(out_coll)
 
     startTime = datetime.datetime.now()
 
-    # Get all the points and utility measurements.
-    stop_weights = repo['{}.{}'.format(teamname, 'normal_ppl_sec_util')].find({})
-    lines = repo['{}.{}'.format(teamname, 't_branch_info')].find({})
-    stops = repo['{}.{}'.format(teamname, 't_stop_locations')].find({})
+    # Get all utility measurements.
+    sws = repo['{}.{}'.format(teamname, 'normal_ppl_sec_util')].find({})
+    ss = repo['{}.{}'.format(teamname, 't_stop_locations')].find({})
 
-    points = [(s['stop_lat'], s['stop_lon']) for s in stops]
+    # Get some tuples from the cursors to start with.
+    stop_weights = [(s['stop'], s['ppl-secs'], s['line']) for s in sws]
+    # Remove duplicate points, for those on multiple branches.
+    stops = set([(s['stop_lat'], s['stop_lon'], s['stop_id']) for s in ss])
+
+    # Need to get GPS coordinates added to the stop and weight information.
+    joined = [(s,w,b,lat,lon) for s,w,b in stop_weights for lat,lon,si in stops if s == si]
+
     # Some coords are empty, so filter those out, but where did those
-    # come from?? Guess this is why we prov.
-    points = [(float(lat), float(lon)) for lat,lon in points if lat and lon]
+    # come from?? Guess this is why we prov. And project and cast.
+    points = [(si, (w, b, float(lat), float(lon))) for (si,w,b,lat,lon) in joined if lat and lon]
 
     # We can find which x stops to remove from each branch by finding k x fewer
     # than the number of existing.
-    for branch, num_stops in aggregate([(b['line'], 1) for b in lines], sum):
-        k = 1
-        while k < num_stops:
-            print("{} has {} stops currently, let's find {} optimal.".format(
-                branch, num_stops, k))
-            means = points[:k]
+    for branch, num_stops in aggregate([(l, 1) for s,p,l in stop_weights], sum):
 
-            for i in range(5): # As an alternative to trying for convergence.
-                # Since we just select some points as means to start, some will have
-                # distance of 0. Select those out.
-                point_distances = [(a,(b,dist(a,b))) for a in points for b in means if dist(a,b) != 0]
+        for k in range(2, num_stops):
+            print("{} has {} stops currently, finding {} optimal.".format(
+                branch, num_stops, k))
+            # Filter points on branch.
+            branch_points = [((lat,lon),w) for (si,(w,b,lat,lon)) in points if b == branch]
+            # Make the first k points means to start
+            means = [(lat,lon) for ((lat,lon),w) in branch_points[:k]]
+
+            for i in range(7): # As an alternative to trying for convergence.
+                point_distances = [(a,(b,dist(a,b),w)) for a,w in branch_points for b in means]
                 point_min_distances = aggregate(point_distances, lambda x: min(x, key=lambda k:k[1]))
                 # Average the points for each mean
-                sums = aggregate([(b,a) for (a,(b,d)) in point_min_distances], plus)
-                counts = aggregate([(b,1) for (a,(b,d)) in point_min_distances], sum)
+                sums = aggregate([(b,times(a,w)) for (a,(b,d,w)) in point_min_distances], plus)
+                counts = aggregate([(b,w) for (a,(b,d,w)) in point_min_distances], sum)
                 means = sorted([scale(b,d) for a,b in sums for c,d in counts if a == c])
 
-            for lat,lon in means:
-                elements = {'k':k, 'stop_lat':lat, 'stop_lon':lon, 'line':branch}
-                print(elements)
-                repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
-
-            k += 1
+            crds = [{'stop_lat':lat, 'stop_lon':lon} for lat,lon in means]
+            elements = {'k':k, 'line':branch, 'coords':crds}
+            print(elements)
+            repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
 
     endTime = datetime.datetime.now()
 
