@@ -53,3 +53,5 @@ The visualizations are viewable in a web browser. These visualizations need acce
     cd vis/; python3 restful.py
 
 2 - Point your favorite browser to 127.0.0.1:5000/stops.
+
+![map example](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/optimal-stops-map.png)
