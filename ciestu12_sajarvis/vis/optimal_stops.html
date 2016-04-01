@@ -36,14 +36,36 @@
             L.circle([points[0].stop_lat, points[0].stop_lon], 25, {
               color: branch.clr,
               fillColor: branch.clr,
-              fillOpacity: 0.5
+              fillOpacity: 0.4
             }).addTo(map).bindPopup(stop.pretty_name);
           });
         });
       });
     });
 
-    // TODO Then draw/interact with the k-means, once we calculate them.
+    function drawkmeans(k) {
+      var branches = [{'line':'GLB','clr':'red'}, {'line':'GLC','clr':'blue'}, {'line':'GLD','clr':'green'}, {'line':'GLE','clr':'orange'}];
+      branches.forEach(function(branch) {
+        // find the id for all stops on this line
+        $.getJSON('http://127.0.0.1:5000/get/optimal_green_stops?line='.concat(branch.line).concat('&k=').concat(k), function(means) {
+          means.forEach(function(mean) {
+            mean.coords.forEach(function(crds) {
+              L.circle([crds.stop_lat, crds.stop_lon], 35, {
+                stroke: true,
+                color: branch.clr,
+                fillColor: 'black',
+                fillOpacity: 0.9
+              }).addTo(map).bindPopup('Optimal Stop');
+            });
+          });
+        });
+      });
+    }
+
+    // Then draw/interact with the k-means, once we calculate them.
+    // TODO make 'k' configurable and interactive, like with a slider or something here
+    var k = 9
+    drawkmeans(9)
 
   </script>
 </body>

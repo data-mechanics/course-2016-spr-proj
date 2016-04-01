@@ -26,7 +26,14 @@ def getthings(collection):
     '''Query the database from js in browser.'''
     # If you have a collection with 'name':<name> in the documents, filter
     # on a name with query args like /collection?name=<name>
-    all_stops = repo['{}.{}'.format(teamname, collection)].find(request.args)
+    args = {}
+    for k in request.args.keys():
+        try:
+            # Mongo will not be flexible with types
+            args[k] = int(request.args[k])
+        except ValueError:
+            args[k] = request.args[k]
+    all_stops = repo['{}.{}'.format(teamname, collection)].find(args)
     return dumps(all_stops)
 
 if __name__ == '__main__':
