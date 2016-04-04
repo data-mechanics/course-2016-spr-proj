@@ -68,6 +68,8 @@ class BDPQuery:
 
         if limit is not None:
             query_url += '$limit=%s' % limit
+        else:
+            query_url += '$limit=1000'
 
         if order is not None:
             assert isinstance(order, str)

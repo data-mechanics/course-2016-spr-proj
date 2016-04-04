@@ -16,8 +16,8 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from mjclawar_rarshad.reference.dir_info import plan_json
-from mjclawar_rarshad.processing import crime_centroids, hospital_distances
-from mjclawar_rarshad.sources import crime, property_assessment, boston_public_schools, hospital_locations
+from mjclawar_rarshad.sources.tier1 import crime_centroids, hospital_distances, crime_knn
+from mjclawar_rarshad.sources.tier0 import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
 
 
@@ -41,6 +41,7 @@ def main(auth_json_path, full_provenance=False):
     setup_hospital_locations(database_helper, bdp_api, full_provenance=full_provenance)
     setup_crime_centroids(database_helper, full_provenance=full_provenance)
     setup_hospital_distances(database_helper, full_provenance=full_provenance)
+    setup_crime_knn(database_helper, full_provenance=full_provenance)
 
 
 def setup_crime_incidents(database_helper, bdp_api, full_provenance=False):
@@ -73,6 +74,12 @@ def setup_crime_centroids(database_helper, full_provenance=False):
         run_processor(full_provenance=full_provenance)
 
 
+def setup_crime_knn(database_helper, full_provenance=False):
+    crime_knn_settings = crime_knn.CrimeKNNSettings()
+    crime_knn.CrimeKNNProcessor(crime_knn_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
 def setup_hospital_distances(database_helper, full_provenance=False):
     hospital_distances_settings = hospital_distances.HospitalDistancesSettings()
     hospital_distances.HospitalLocationsProcessor(hospital_distances_settings, database_helper).\
@@ -82,8 +89,8 @@ def setup_hospital_distances(database_helper, full_provenance=False):
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
     if len(sys.argv) == 1:
-        # main('auth.json', full_provenance=True)
-        raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
+        main('auth.json', full_provenance=True)
+        # raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
     else:
         print(sys.argv)
         main(sys.argv[1])

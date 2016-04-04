@@ -123,8 +123,8 @@ class CrimeAPIQuery(APIQuery):
                                                       select=['fromdate', 'naturecode', 'weapontype',
                                                               'shooting', 'domestic', 'year', 'month',
                                                               'day_week', 'location'],
-                                                      where='year = 2015',
-                                                      order='fromdate')
+                                                      where='year=2015',
+                                                      order='fromdate', limit=50000)
 
         self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
 
