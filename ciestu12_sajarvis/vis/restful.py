@@ -14,12 +14,24 @@ client = pymongo.MongoClient()
 repo = client.repo
 repo.authenticate(teamname, teamname)
 
+@app.route('/')
+def index():
+    return """Nothing here, try
+        <a href=\"./stops\">/stops</a> or
+        <a href=\"./utility\">/utility</a>.
+        """
+
 @app.route('/stops')
 def loadmap():
-    '''Load the main file. To change the visualization change the
-    js file.'''
+    '''Load the static file. To change the visualization change the js file.'''
     d = os.path.dirname(os.getcwd())
     return send_from_directory(os.path.join(d, 'vis'), 'optimal_stops.html')
+
+@app.route('/utility')
+def loadutil():
+    '''Load the static file. To change the visualization change the js file.'''
+    d = os.path.dirname(os.getcwd())
+    return send_from_directory(os.path.join(d, 'vis'), 'utility.html')
 
 @app.route('/get/<collection>')
 def getthings(collection):

@@ -1,6 +1,6 @@
 """
 Calculates p score for each stop - based on how important we think the
-	stop is and if it is handicap accessible. 
+	stop is and if it is handicap accessible.
 
 Relies on normal_ppl_sec_util, t_stop_locations datasets
 """
@@ -72,10 +72,10 @@ def main():
 	ss = repo['{}.{}'.format(teamname, 't_stop_locations')].find({})
 
 	# Get some tuples from the cursors to start with.
-	stop_weights = [(s['stop'], s['ppl-secs'], s['line']) for s in sws]
+	stop_weights = [(s['stop'], s['ppl_secs'], s['line']) for s in sws]
 	# Remove duplicate points, for those on multiple branches.
 	stops = set([(s['stop_name'], s['stop_id'], s['wheelchair_boarding']) for s in ss])
-	
+
 
 	# 'wheelchair_boarding' = 0 means the information is unavailable
 	# 'wheelchair_boarding' = 2 means the stop is not wheelchair accessible
@@ -86,8 +86,8 @@ def main():
 	# combines updated_stops and stops sets if 'stop' and 'stop_id' are the same
 	joined_stops = [(i, (n, int(w), int(ppl), l)) for n, i, w in updated_stops for s, ppl, l in stop_weights if s == i]
 
-	
-	
+
+
 	sums = aggregate([((i,w),ppl) for (i,(n,w,ppl,l)) in joined_stops], sum)
 	counts = aggregate([(i,1) for (i,(n,w,ppl,l)) in joined_stops], sum)
 	means = ([(w,b/d) for ((x,w),b) in sums for y,d in counts if x == y])
@@ -111,6 +111,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-
-
-

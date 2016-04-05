@@ -68,7 +68,7 @@ def main():
         max(normalized_scores, key = lambda x: x[0])))
 
     for p,s,l in normalized_scores:
-        elements = {'ppl-secs':p, 'stop':s, 'line':l}
+        elements = {'ppl_secs':p, 'stop':s, 'line':l}
         print(elements)
         repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
 

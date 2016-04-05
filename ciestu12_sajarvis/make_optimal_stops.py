@@ -56,7 +56,7 @@ def main():
     ss = repo['{}.{}'.format(teamname, 't_stop_locations')].find({})
 
     # Get some tuples from the cursors to start with.
-    stop_weights = [(s['stop'], s['ppl-secs'], s['line']) for s in sws]
+    stop_weights = [(s['stop'], s['ppl_secs'], s['line']) for s in sws]
     # Remove duplicate points, for those on multiple branches.
     stops = set([(s['stop_lat'], s['stop_lon'], s['stop_id']) for s in ss])
 

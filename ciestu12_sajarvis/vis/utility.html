@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Optimal Green Line MBTA Stops</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  </style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script>
+    // Credit for the core of this to https://bl.ocks.org/mbostock/3231298
+    // Licensed GPLv3
+
+    var width = 960,
+        height = 600;
+
+    var colors = {'GLB':'red', 'GLC':'green', 'GLD':'brown', 'GLE':'blue'};
+
+    function branch_color(branch) {
+      return colors[branch];
+    }
+
+    function scale(radius) {
+      // This just looks kinda good.
+      return (Math.log(radius) + 2) * 3;
+    }
+
+    $.getJSON('http://127.0.0.1:5000/get/normal_ppl_sec_util', function(pplsecs) {
+      // pplsecs is the JSON string
+
+      var nodes = pplsecs.map(
+        function(pplsec) {
+           return {color: branch_color(pplsec.line), radius: scale(pplsec.ppl_secs), name: pplsec.stop.split('-')[1]};
+         }),
+          root = nodes[0],
+          color = d3.scale.category10();
+      console.log(nodes)
+
+      root.radius = 0;
+      root.fixed = true;
+
+      var force = d3.layout.force()
+          .gravity(0.03)
+          .charge(function(d, i) { return i ? 0 : -1000; })
+          .nodes(nodes)
+          .size([width, height]);
+
+      force.start();
+
+      var svg = d3.select("body").append("svg")
+          .attr("width", width)
+          .attr("height", height);
+
+      svg.selectAll("circle")
+          .data(nodes.slice(1))
+        .enter().append("circle")
+          .attr("r", function(d) { return d.radius; })
+          .style("fill", function(d, i) { return d.color; });
+
+      force.on("tick", function(e) {
+        var q = d3.geom.quadtree(nodes),
+            i = 0,
+            n = nodes.length;
+
+        while (++i < n) q.visit(collide(nodes[i]));
+
+        svg.selectAll("circle")
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+      });
+
+      svg.on("mousemove", function() {
+        var p1 = d3.mouse(this);
+        root.px = p1[0];
+        root.py = p1[1];
+        force.resume();
+      });
+
+      function collide(node) {
+        var r = node.radius + 16,
+            nx1 = node.x - r,
+            nx2 = node.x + r,
+            ny1 = node.y - r,
+            ny2 = node.y + r;
+        return function(quad, x1, y1, x2, y2) {
+          if (quad.point && (quad.point !== node)) {
+            var x = node.x - quad.point.x,
+                y = node.y - quad.point.y,
+                l = Math.sqrt(x * x + y * y),
+                r = node.radius + quad.point.radius;
+            if (l < r) {
+              l = (l - r) / l * .5;
+              node.x -= x *= l;
+              node.y -= y *= l;
+              quad.point.x += x;
+              quad.point.y += y;
+            }
+          }
+          return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+        };
+      }
+    });
+  </script>
+</body>
+</html>
