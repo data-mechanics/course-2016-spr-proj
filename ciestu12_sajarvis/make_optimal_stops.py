@@ -71,7 +71,7 @@ def main():
     # than the number of existing.
     for branch, num_stops in aggregate([(l, 1) for s,p,l in stop_weights], sum):
 
-        for k in range(2, num_stops):
+        for k in range(1, num_stops):
             print("{} has {} stops currently, finding {} optimal.".format(
                 branch, num_stops, k))
             # Filter points on branch.
@@ -88,7 +88,7 @@ def main():
                 means = sorted([scale(b,d) for a,b in sums for c,d in counts if a == c])
 
             crds = [{'stop_lat':lat, 'stop_lon':lon} for lat,lon in means]
-            elements = {'k':k, 'line':branch, 'coords':crds}
+            elements = {'max': num_stops, 'k':k, 'line':branch, 'coords':crds}
             print(elements)
             repo['{}.{}'.format(teamname, out_coll)].insert_one(elements)
 
