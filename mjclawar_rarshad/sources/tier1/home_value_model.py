@@ -1,7 +1,7 @@
 """
-File: crime_knn.py
+File: home_value_model.py
 
-Description: Classifying crime areas of Boston with k-nearest neighbors
+Description: Using k-nearest neighbors regression to map home prices across Boston
 Author(s): Raaid Arshad and Michael Clawar
 
 Notes:
@@ -24,14 +24,14 @@ import matplotlib.pyplot as plt
 import mplleaflet
 
 
-class CrimeKNNSettings(MCRASSettings):
+class HomeValueModelSettings(MCRASSettings):
     @property
     def data_namespace(self):
         return mcras.DAT_NAMESPACE
 
     @property
     def data_entity(self):
-        return 'crime_knn'
+        return 'home_value_model'
 
     @property
     def agent(self):
@@ -39,16 +39,16 @@ class CrimeKNNSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'crime_knn'
+        return 'home_value_model'
 
     @property
     def resource_properties(self):
-        return 'crime_incidents'
+        return 'property_assessment'
 
 
-class CrimeKNNProvenance(MCRASProvenance):
+class HomeValueModelProvenance(MCRASProvenance):
     def __init__(self, settings, database_helper):
-        assert isinstance(settings, CrimeKNNSettings)
+        assert isinstance(settings, HomeValueModelSettings)
         assert isinstance(database_helper, DatabaseHelper)
         self.settings = settings
         self.database_helper = database_helper
@@ -70,11 +70,12 @@ class CrimeKNNProvenance(MCRASProvenance):
         prov_doc = prov_obj.prov_doc
         this_script = prov_doc.agent(self.settings.agent, mcras.PROVENANCE_PYTHON_SCRIPT)
 
-        resource = prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.base_url))
+        resource_properties = \
+            prov_doc.entity('%s:%s' % (self.settings.data_namespace.name, self.settings.resource_properties))
 
         if full_provenance:
             this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())))
-            prov_doc.used(this_run, resource)
+            prov_doc.used(this_run, resource_properties)
         else:
             this_run = prov_doc.activity('%s:a%s' % (mcras.LOG_NAMESPACE.name, str(uuid.uuid4())), start_time, end_time,
                                          {prov.model.PROV_TYPE: mcras.PROV_ONT_EXTENSION})
@@ -82,7 +83,7 @@ class CrimeKNNProvenance(MCRASProvenance):
         prov_doc.wasAssociatedWith(this_run, this_script)
 
         data_doc = prov_doc.entity('%s:%s' % (mcras.DAT_NAMESPACE.name, self.settings.data_entity),
-                                   {prov.model.PROV_LABEL: 'Crime KNN',
+                                   {prov.model.PROV_LABEL: 'Home Value Model',
                                     prov.model.PROV_TYPE: mcras.PROV_ONT_DATASET})
 
         prov_doc.wasAttributedTo(data_doc, this_script)
@@ -91,7 +92,7 @@ class CrimeKNNProvenance(MCRASProvenance):
         else:
             prov_doc.wasGeneratedBy(data_doc, this_run, end_time)
 
-        prov_doc.wasDerivedFrom(data_doc, resource, this_run)
+        prov_doc.wasDerivedFrom(data_doc, resource_properties, this_run)
 
         if full_provenance:
             prov_obj.write_provenance_json()
@@ -99,9 +100,9 @@ class CrimeKNNProvenance(MCRASProvenance):
             self.database_helper.record(prov_doc.serialize())
 
 
-class CrimeKNNProcessor(MCRASProcessor):
+class HomeValueModelProcessor(MCRASProcessor):
     def __init__(self, settings, database_helper):
-        assert isinstance(settings, CrimeKNNSettings)
+        assert isinstance(settings, HomeValueModelSettings)
         assert isinstance(database_helper, DatabaseHelper)
         self.settings = settings
         self.database_helper = database_helper
@@ -118,8 +119,8 @@ class CrimeKNNProcessor(MCRASProcessor):
         df = df[(df['LONGITUDE'] < x_max) & (df['LONGITUDE'] > x_min) &
                 (df['LATITUDE'] < y_max) & (df['LATITUDE'] > y_min)].copy()
 
-        html_plot = self._knn_weekday_analysis(df, bounds)
-        with open('knn_crimes_weekday.html', 'w') as f:
+        html_plot = self._knn_property_values(df, bounds)
+        with open('home_value_model.html', 'w') as f:
             f.write(html_plot)
 
         # TODO write to database
@@ -127,62 +128,65 @@ class CrimeKNNProcessor(MCRASProcessor):
 
         end_time = datetime.datetime.now()
 
-        crime_provenance = \
-            CrimeKNNProvenance(self.settings, database_helper=self.database_helper)
-        crime_provenance.\
+        home_value_provenance = \
+            HomeValueModelProvenance(self.settings, database_helper=self.database_helper)
+        home_value_provenance.\
             update_provenance(full_provenance=full_provenance, start_time=start_time, end_time=end_time)
 
     def _load_prep_df(self):
-        """
-        Reads the pandas.DataFrame from the MongoDB collection, cleans it up, and returns it
+        df = self.database_helper.load_permanent_pandas(
+            'property_assessment',
+            cols=['location', 'av_total', 'living_area']
+        )
 
-        Returns
-        -------
-        pandas.DataFrame
-        """
-        df = self.database_helper.load_permanent_pandas('crime_incidents', cols=['location', 'day_week'])
-        df = df.merge(df['location'].apply(lambda x: pandas.Series({'NEEDS_RECODE': x['needs_recoding'],
-                                                                    'LONGITUDE': float(x['longitude']),
-                                                                    'LATITUDE': float(x['latitude'])})),
-                      left_index=True, right_index=True)
-        df = df[(df['LONGITUDE'] != 0) & (df['LATITUDE'] != 0)].copy()
+        df_list = []
+        for i in range(len(df)):
+            df_row = df.iloc[i, :]
+            try:
+                lat = float(df_row['location'].split(',')[0][1:])
+                long = float(df_row['location'].split(',')[1][0:-1])
+                av_total = float(df_row['av_total'])
+                living_area = float(df_row['living_area'])
+                df_list.append((lat, long, av_total, living_area))
+            except:
+                pass
+
+        df = pandas.DataFrame(df_list)
+        assert isinstance(df, pandas.DataFrame)
+
+        df.columns = ['LATITUDE', 'LONGITUDE', 'AV_TOTAL', 'LIVING_AREA']
+        df = df[df['LATITUDE'] != 0]
+        df = df[df['LONGITUDE'] != 0]
+        df = df[df['AVG_TOTAL'] != 0]
+        df = df[df['LIVING_AREA'] != 0]
+        df['PPSQFT'] = df['AV_TOTAL'] / df['LIVING_AREA']
+        df = df[(df['PPSQFT'] < 500) & (df['PPSQFT'] >= 50)]
 
         return df
 
     @staticmethod
-    def _knn_weekday_analysis(df, bounds):
-        X = df[['LONGITUDE', 'LATITUDE']].values
-        y = df['day_week'].isin(['Friday', 'Saturday', 'Sunday'])
+    def _knn_property_values(df, bounds):
+        clf = neighbors.KNeighborsRegressor(n_neighbors=5, weights='distance')
+        X = df[['LATITUDE', 'LONGITUDE']].values
+        y = df['PPSQFT']
 
-        neighbors_numbers = np.arange(10, 55, 1)
-        clf = neighbors.KNeighborsClassifier(10, weights='distance')
-        max_score = 0
-        for n_neighbors in neighbors_numbers:
-            clf = neighbors.KNeighborsClassifier(n_neighbors, weights='distance')
-            clf.fit(X, y)
-            if max_score + .001 > clf.score(X, y):
-                break
+        clf.fit(X, y)
 
-        h = .0001  # step size in the mesh
-
-        # Create color maps
-        cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
-        cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
+        h = .001  # step size in the mesh
 
         # Plot the decision boundary. For that, we will assign a color to each
         # point in the mesh [x_min, m_max]x[y_min, y_max].
-        xx, yy = np.meshgrid(np.arange(bounds[0][0], bounds[1][0], h),
+        yy, xx = np.meshgrid(np.arange(bounds[0][0], bounds[1][0], h),
                              np.arange(bounds[0][1], bounds[1][1], h))
+        clf.fit(X, y)
         Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
 
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
         plt.figure()
-        plt.pcolormesh(xx, yy, Z, cmap=cmap_bold, alpha=2)
-        # Plot also the training points
-        plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_light)
+        plt.pcolormesh(yy, xx, Z, cmap='RdBu_r', alpha=2)
         plt.xlim(bounds[0][0], bounds[1][0])
         plt.ylim(bounds[0][1], bounds[1][1])
-        html = mplleaflet.fig_to_html()
 
+        html = mplleaflet.fig_to_html(tiles='cartodb_positron')
         return html

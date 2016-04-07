@@ -149,10 +149,21 @@ class HospitalLocationsProcessor(MCRASProcessor):
         pandas.DataFrame
         """
         df_prop = self.database_helper.load_permanent_pandas('property_assessment', cols=['location'])
-        df_prop = df_prop.merge(df_prop['location'].
-                                apply(lambda x: pandas.Series({'LATITUDE': float(x.split(',')[0][1:]),
-                                                               'LONGITUDE': float(x.split(',')[1][0:-1])})),
-                                left_index=True, right_index=True)
+        df_list = []
+        for i in range(len(df_prop)):
+            df_row = df_prop.iloc[i, :]
+            try:
+                lat = float(df_row['location'].split(',')[0][1:])
+                long = float(df_row['location'].split(',')[1][0:-1])
+                av_total = float(df_row['av_total'])
+                living_area = float(df_row['living_area'])
+                df_list.append((lat, long, av_total, living_area))
+            except:
+                pass
+
+        df_prop = pandas.DataFrame(df_list)
+        assert isinstance(df_prop, pandas.DataFrame)
+
         df_prop = df_prop[(df_prop['LONGITUDE'] != 0) & (df_prop['LATITUDE'] != 0)].copy()
 
         return df_prop

@@ -117,11 +117,19 @@ class PropertyAssessmentAPIQuery(APIQuery):
         """
         start_time = datetime.datetime.now()
         api_url = self.settings.data_namespace.link + self.settings.base_url + '.json'
-        data_json, api_query = self.bdp_api.api_query(base_url=api_url,
-                                                      select=['av_total', 'living_area', 'gross_tax', 'location'],
-                                                      limit=25000)
 
-        self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
+        api_query = ''
+        for i in range(4):
+            data_json, api_query = self.bdp_api.api_query(base_url=api_url,
+                                                          order=':id',
+                                                          select=['av_total', 'living_area', 'gross_tax', 'location'],
+                                                          limit=50000,
+                                                          offset=i * 50000)
+
+            if i == 0:
+                self.database_helper.insert_permanent_collection(self.settings.data_entity, data_json)
+            else:
+                self.database_helper.append_permanent_collection(self.settings.data_entity, data_json)
 
         end_time = datetime.datetime.now()
 

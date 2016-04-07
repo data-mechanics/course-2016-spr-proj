@@ -12,10 +12,13 @@ import pymongo
 import sys
 import os
 
+from prov.dot import prov_to_dot
+from prov.model import ProvDocument
+
 # Make sure the system path is valid for running from command line
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from mjclawar_rarshad.reference.dir_info import plan_json
+from mjclawar_rarshad.reference.dir_info import plan_json, prov_svg
 from mjclawar_rarshad.sources.tier1 import crime_centroids, hospital_distances, crime_knn
 from mjclawar_rarshad.sources.tier0 import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
@@ -42,6 +45,11 @@ def main(auth_json_path, full_provenance=False):
     setup_crime_centroids(database_helper, full_provenance=full_provenance)
     setup_hospital_distances(database_helper, full_provenance=full_provenance)
     setup_crime_knn(database_helper, full_provenance=full_provenance)
+
+    if full_provenance:
+        prov_doc = ProvDocument.deserialize(plan_json)
+        dot = prov_to_dot(prov_doc)
+        dot.write_png(prov_svg)
 
 
 def setup_crime_incidents(database_helper, bdp_api, full_provenance=False):
