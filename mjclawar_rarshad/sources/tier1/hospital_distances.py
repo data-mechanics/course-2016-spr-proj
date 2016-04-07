@@ -199,5 +199,5 @@ class HospitalLocationsProcessor(MCRASProcessor):
         hosp_names = df_hosp['name'].values
         df_prop['NEAREST_HOSPITAL'] = hosp_names[min_indices]
         df_prop['MIN_DISTANCE'] = min_distances
-        df_prop = df_prop[['LONGITUDE', 'LATITUDE', 'NEAREST_HOSPITAL', 'MIN_DISTANCE']].copy()
+        df_prop = df_prop[['LONGITUDE', 'LATITUDE', 'NEAREST_HOSPITAL', 'MIN_DISTANCE', 'av_total', 'living_area']].copy()
         return df_prop
