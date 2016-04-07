@@ -15,7 +15,7 @@ exec(open('../pymongo_dm.py').read())
 ###############################################################
 
 def to_xml(df, filename=None, mode='w'):
-    print df.columns
+    #print df.columns
     res = '''<?xml version="1.0"?>
 <ROWSET>
 <ROW FIELD1="" FIELD2="user_id" FIELD3="lng" FIELD4="lat" FIELD5="time" ></ROW> 

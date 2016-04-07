@@ -51,6 +51,7 @@ public class RoadNetwork {
 	static private List<Long> roadIntersect;
 	static private List<String> nameIntersect;
 	static private List<String> typeIntersect;
+
 	static private HashMap<Long, List<Long>> mapInterSectCodes = new HashMap<Long, List<Long>>();
 	static private HashMap<Long, List<String>> mapInterSectNames = new HashMap<Long, List<String>>();
 	static private HashMap<Long, List<String>> mapInterSectTypes = new HashMap<Long, List<String>>();
@@ -70,8 +71,8 @@ public class RoadNetwork {
 	static private List<Float> queryY;
 	static private List<String> personType;
 
-        static public final String path = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
-        static public final String shortPath = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson";
+        static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
         //static public final String path = "/home/abel/dev/scope/BostonNetwork";
         //static public final String shortPath = "/home/abel/dev/scope";
 
@@ -273,7 +274,6 @@ public class RoadNetwork {
 		 * in order to create complete map
 		 */
 		
-	        /*	
 		for (int i = 0; i < nodeListWays2.getLength(); i++) { // TODO
 				org.w3c.dom.Node nNode = nodeListWays2.item(i); // nodeListNodes
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -525,10 +525,28 @@ public class RoadNetwork {
 
 				}
 			}
-                */
 		System.out.println(".");
                 //end comment HERE TODO
-                  
+                
+                /* save output to file so we don't have to run a bunch of times
+                */
+
+                FileOutputStream fos1 = new FileOutputStream("mapWayRef.ser");
+                ObjectOutputStream oos1 = new ObjectOutputStream(fos1);
+                oos1.writeObject(RoadNetwork.mapWayRef); 
+                oos1.close();
+
+                FileOutputStream fos2 = new FileOutputStream("mapNameRef.ser");
+                ObjectOutputStream oos2 = new ObjectOutputStream(fos2);
+                oos2.writeObject(RoadNetwork.mapNameRef); 
+                oos2.close();
+
+                FileOutputStream fos3 = new FileOutputStream("mapTypeRef.ser");
+                ObjectOutputStream oos3 = new ObjectOutputStream(fos3);
+                oos3.writeObject(RoadNetwork.mapTypeRef); 
+                oos3.close();
+
+
 		long tEnd1 = System.currentTimeMillis();
 		long tDelta1 = tEnd1 - tStart1;
 		double elapsedSeconds1 = tDelta1 / 1000.0;
@@ -536,13 +554,31 @@ public class RoadNetwork {
 				"Elapsed Time to Create the hash map of Road Ids and Events that happen along them: " + elapsedSeconds1 + " (sec)");
 	}
 
+        private static void LoadExtractedRoads() throws FileNotFoundException, IOException, ClassNotFoundException{
+		System.out.println( "Loading hash map of Road Ids and Events that happend along them");
+                FileInputStream fis1 = new FileInputStream("mapWayRef.ser");
+                ObjectInputStream ois1 = new ObjectInputStream(fis1);
+                RoadNetwork.mapWayRef = (HashMap) ois1.readObject(); 
+                ois1.close();
+
+                FileInputStream fis2 = new FileInputStream("mapNameRef.ser");
+                ObjectInputStream ois2 = new ObjectInputStream(fis2);
+                RoadNetwork.mapNameRef = (HashMap) ois2.readObject(); 
+                ois2.close();
+
+                FileInputStream fis3 = new FileInputStream("mapTypeRef.ser");
+                ObjectInputStream ois3 = new ObjectInputStream(fis3);
+                RoadNetwork.mapTypeRef = (HashMap) ois3.readObject(); 
+                ois3.close();
+        }
+
 	/* RoadIntersections() finds the intersections between different roads. In order to do so it compares the
 	 * event lists between two roads and if it identifies that two roads share the same event this means that an 
 	 * intersection is found. The complete information about the intersection is stored in three separate hash
 	 * maps. The key of each hash map is the intersection's id number. The hash maps store the name of the roads
 	 * , the type of the roads and the road ids that form the intersection. 
 	 */
-	private static void RoadIntersections() {
+	private static void RoadIntersections() throws FileNotFoundException, IOException{
 		Long keyH = (long) 0;
 		System.out.println("Finding intersections between roads.");
 		long tStart2 = System.currentTimeMillis();
@@ -608,6 +644,23 @@ public class RoadNetwork {
 		double elapsedSeconds2 = tDelta2 / 1000.0;
 		System.out.println("Elapsed Time to Find Intersections between Roads: "
 				+ elapsedSeconds2 + " (sec)");
+
+
+                FileOutputStream fos1 = new FileOutputStream("mapInterSectCodes.ser");
+                ObjectOutputStream oos1 = new ObjectOutputStream(fos1);
+                oos1.writeObject(RoadNetwork.mapInterSectCodes); 
+                oos1.close();
+
+                FileOutputStream fos2 = new FileOutputStream("mapInterSectNames.ser");
+                ObjectOutputStream oos2 = new ObjectOutputStream(fos2);
+                oos2.writeObject(RoadNetwork.mapInterSectNames); 
+                oos2.close();
+
+                FileOutputStream fos3 = new FileOutputStream("mapInterSectTypes.ser");
+                ObjectOutputStream oos3 = new ObjectOutputStream(fos3);
+                oos3.writeObject(RoadNetwork.mapInterSectTypes); 
+                oos3.close();
+
 		try {
 			PrintStream out = new PrintStream(new FileOutputStream(path + "/outputs/intersectionsOutput_all-type.txt"));
 			for (Entry<Long, List<Long>> entry : mapInterSectCodes.entrySet()) {
@@ -644,6 +697,49 @@ public class RoadNetwork {
 			retrieveEl++;
 		}
 	}
+
+        private static void LoadIntersections() throws FileNotFoundException, IOException, ClassNotFoundException{
+		System.out.println( "Loading hash map of Intersections");
+                
+                FileInputStream fis1 = new FileInputStream("mapInterSectCodes.ser");
+                ObjectInputStream ois1 = new ObjectInputStream(fis1);
+                RoadNetwork.mapInterSectCodes = (HashMap) ois1.readObject(); 
+                ois1.close();
+
+                FileInputStream fis2 = new FileInputStream("mapInterSectNames.ser");
+                ObjectInputStream ois2 = new ObjectInputStream(fis2);
+                RoadNetwork.mapInterSectNames = (HashMap) ois2.readObject(); 
+                ois2.close();
+
+                FileInputStream fis3 = new FileInputStream("mapInterSectTypes.ser");
+                ObjectInputStream ois3 = new ObjectInputStream(fis3);
+                RoadNetwork.mapTypeRef = (HashMap) ois3.readObject(); 
+                ois3.close();
+
+		int retrieveEl = 0;
+		int nodeIndex = 0;
+
+		finalX = new ArrayList<Float>();
+		finalY = new ArrayList<Float>();
+
+		for (Entry<Long, List<Long>> entry : mapInterSectCodes.entrySet()) {
+			List<Long> val = entry.getValue();
+			Long key = entry.getKey();
+
+			for (int i = 0; i < val.size(); i++) {
+				for (int j = 0; j < nodeIds.size(); j++) {
+					if (key.equals(nodeIds.get(j))) {
+						nodeIndex = j;
+						break;
+					}
+				}
+			}
+			// intersect2D.add(assignPoint);
+			finalX.add(retrieveEl, nodeLat.get(nodeIndex));
+			finalY.add(retrieveEl, nodeLong.get(nodeIndex));
+			retrieveEl++;
+                }
+        }
 	/* AssignPeopleToNodes() assigns people to nodes/intersections. Given the query location of a person
 	 * this function finds the shortest intersection location and assigns that person to that intersection.
 	 * It stores in touristAssignment and localAssignment hash maps the number of locals and tourists for a given
@@ -817,11 +913,20 @@ public class RoadNetwork {
 		double elapsedSeconds3 = tDelta3 / 1000.0;
 		System.out.println("Elapsed Time to Create XML Boston Network: " + elapsedSeconds3 + " (sec)");
 	}
-	public static void main(String[] args) throws NumberFormatException, IOException, XPathExpressionException, ParserConfigurationException, SAXException, TransformerException {
+	public static void main(String[] args) throws NumberFormatException, IOException, XPathExpressionException, ParserConfigurationException, SAXException, TransformerException , ClassNotFoundException{
 	
 		RoadNetwork.IntersectionIDs();
 		RoadNetwork.PersonQuery();
-		RoadNetwork.ExtractingRoads();
+                File f = new File("mapNameRef.ser"); //check for cached version
+                if (f.exists() && !f.isDirectory()){
+                     RoadNetwork.LoadExtractedRoads();
+                } else {
+		     RoadNetwork.ExtractingRoads();
+                }
+                File f2 = new File("mapInterSectNames.ser"); //check for cached version
+                if (f2.exists() && !f2.isDirectory()){
+                     RoadNetwork.LoadIntersections();
+                }
 		RoadNetwork.RoadIntersections();
 		RoadNetwork.AssignPeopleToNodes();
 		RoadNetwork.CreateFinalNetwork();
