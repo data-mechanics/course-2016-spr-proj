@@ -71,10 +71,10 @@ public class RoadNetwork {
 	static private List<Float> queryY;
 	static private List<String> personType;
 
-        static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
-        static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
-        //static public final String path = "/home/abel/dev/scope/BostonNetwork";
-        //static public final String shortPath = "/home/abel/dev/scope";
+        //static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        //static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
+        static public final String path = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        static public final String shortPath = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson";
 
 	/* IntersectionIDs function stores in separate lists the node ids, their respective latitude 
 	 * and their respective longitude (3 lists) these lists are nodeIds, nodeLat and nodeLong. The 
@@ -713,8 +713,16 @@ public class RoadNetwork {
 
                 FileInputStream fis3 = new FileInputStream("mapInterSectTypes.ser");
                 ObjectInputStream ois3 = new ObjectInputStream(fis3);
-                RoadNetwork.mapTypeRef = (HashMap) ois3.readObject(); 
+                RoadNetwork.mapInterSectTypes = (HashMap) ois3.readObject(); 
                 ois3.close();
+                
+                //System.out.println("|--------------------------------------------|");
+                //System.out.println(RoadNetwork.mapInterSectCodes);
+                //System.out.println("|--------------------------------------------|");
+                //System.out.println(RoadNetwork.mapInterSectNames);
+                //System.out.println("|--------------------------------------------|");
+                //System.out.println(RoadNetwork.mapInterSectTypes);
+                //System.out.println("|--------------------------------------------|");
 
 		int retrieveEl = 0;
 		int nodeIndex = 0;
@@ -926,8 +934,9 @@ public class RoadNetwork {
                 File f2 = new File("mapInterSectNames.ser"); //check for cached version
                 if (f2.exists() && !f2.isDirectory()){
                      RoadNetwork.LoadIntersections();
-                }
+                } else {
 		RoadNetwork.RoadIntersections();
+                }
 		RoadNetwork.AssignPeopleToNodes();
 		RoadNetwork.CreateFinalNetwork();
 
