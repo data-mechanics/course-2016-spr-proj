@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-1.5.1.min.js"></script>
+    <script>
+
+        layout = {
+            xaxis: {
+                title: 'Distance from nearest hospital (miles)'
+            },
+            yaxis: {
+                title: 'Price per square foot in 2015 ($)'
+            },
+            title: 'Price per square foot against distance from hospital, 2015 in City of Boston'
+        };
+
+        d3.json('hospital_scatter.json', function(json) {
+            Plotly.plot(document.getElementById('test'), [json], layout);
+        });
+
+    </script>
+</head>
+<body>
+    <div id="test" style="width: 750px; height: 500px;"></div>
+</body>
+</html>

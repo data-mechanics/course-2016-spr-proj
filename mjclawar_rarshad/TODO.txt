@@ -1,14 +1,6 @@
-TODO: 
 
-Possibly 2 more data sets relating to neighborhood quality
-
-Plot k-means data of crimes by type
-Popups with info on crime
-
-Assessor's value per sqft
-	# of crimes committed within x miles of the place
-	Location of nearest hospital
-	Location of nearest school
-
-Regression of X on y
-Viz: Plot data points and predicted values
+Add distance from school data
+Random selection of points to plot for hospital scatter
+README update
+Documentation update
+requirements.txt update

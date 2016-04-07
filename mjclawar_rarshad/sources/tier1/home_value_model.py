@@ -157,7 +157,7 @@ class HomeValueModelProcessor(MCRASProcessor):
         df.columns = ['LATITUDE', 'LONGITUDE', 'AV_TOTAL', 'LIVING_AREA']
         df = df[df['LATITUDE'] != 0]
         df = df[df['LONGITUDE'] != 0]
-        df = df[df['AVG_TOTAL'] != 0]
+        df = df[df['AV_TOTAL'] != 0]
         df = df[df['LIVING_AREA'] != 0]
         df['PPSQFT'] = df['AV_TOTAL'] / df['LIVING_AREA']
         df = df[(df['PPSQFT'] < 500) & (df['PPSQFT'] >= 50)]

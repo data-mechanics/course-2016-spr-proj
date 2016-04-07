@@ -113,15 +113,16 @@ class HospitalScatterProcessor(MCRASProcessor):
 
     def _generate_trace(self):
 
-        df = self.database_helper.load_permanent_pandas('hospital_distances', cols=['av_total', 'living_area', 'MIN_DISTANCE'])
+        df = self.database_helper.load_permanent_pandas('hospital_distances', cols=['AV_TOTAL', 'LIVING_AREA',
+                                                                                    'MIN_DISTANCE'])
 
-        df['av_total'] = df['av_total'].astype(float)
-        df['living_area'] = df['living_area'].astype(float)
-        df = df[(df['av_total'] != 0) | (df['living_area'] != 0)]
+        df['AV_TOTAL'] = df['AV_TOTAL'].astype(float)
+        df['LIVING_AREA'] = df['LIVING_AREA'].astype(float)
+        df = df[(df['AV_TOTAL'] != 0) & (df['LIVING_AREA'] != 0)]
 
-        df['per_sqft'] = df['av_total']/df['living_area']
-        df = df[df['per_sqft'] < 500]
+        df['PER_SQFT'] = df['AV_TOTAL'] / df['LIVING_AREA']
+        df = df[df['PER_SQFT'] < 500]
+        df = df[df['PER_SQFT'] >= 50]
 
-        trace = gobjs.Scatter(x=df['MIN_DISTANCE'], y=df['per_sqft'], mode='markers')
-
+        trace = gobjs.Scatter(x=list(df['MIN_DISTANCE'].values), y=list(df['PER_SQFT'].values), mode='markers')
         return trace

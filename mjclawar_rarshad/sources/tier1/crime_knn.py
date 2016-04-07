@@ -39,10 +39,6 @@ class CrimeKNNSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'crime_knn'
-
-    @property
-    def resource_properties(self):
         return 'crime_incidents'
 
 
@@ -107,6 +103,7 @@ class CrimeKNNProcessor(MCRASProcessor):
         self.database_helper = database_helper
 
     def run_processor(self, full_provenance=False):
+        print('Estimating knn for crime data')
         start_time = datetime.datetime.now()
         df = self._load_prep_df()
 
@@ -131,6 +128,8 @@ class CrimeKNNProcessor(MCRASProcessor):
             CrimeKNNProvenance(self.settings, database_helper=self.database_helper)
         crime_provenance.\
             update_provenance(full_provenance=full_provenance, start_time=start_time, end_time=end_time)
+
+        print('Done estimating knn for crime data')
 
     def _load_prep_df(self):
         """

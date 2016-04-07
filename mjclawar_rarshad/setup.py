@@ -19,7 +19,8 @@ from prov.model import ProvDocument
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from mjclawar_rarshad.reference.dir_info import plan_json, prov_svg
-from mjclawar_rarshad.sources.tier1 import crime_centroids, hospital_distances, crime_knn
+from mjclawar_rarshad.sources.tier1 import crime_centroids, hospital_distances, crime_knn, home_value_model, \
+    hospital_scatter
 from mjclawar_rarshad.sources.tier0 import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
 
@@ -45,11 +46,14 @@ def main(auth_json_path, full_provenance=False):
     setup_crime_centroids(database_helper, full_provenance=full_provenance)
     setup_hospital_distances(database_helper, full_provenance=full_provenance)
     setup_crime_knn(database_helper, full_provenance=full_provenance)
+    setup_home_value_model(database_helper, full_provenance=full_provenance)
+    setup_hospital_scatter(database_helper, full_provenance=full_provenance)
 
     if full_provenance:
-        prov_doc = ProvDocument.deserialize(plan_json)
-        dot = prov_to_dot(prov_doc)
-        dot.write_png(prov_svg)
+        with open(plan_json, 'r') as f:
+            prov_doc = ProvDocument.deserialize(f)
+            dot = prov_to_dot(prov_doc)
+            dot.write_svg(prov_svg)
 
 
 def setup_crime_incidents(database_helper, bdp_api, full_provenance=False):
@@ -88,9 +92,21 @@ def setup_crime_knn(database_helper, full_provenance=False):
         run_processor(full_provenance=full_provenance)
 
 
+def setup_home_value_model(database_helper, full_provenance=False):
+    home_value_model_settings = home_value_model.HomeValueModelSettings()
+    home_value_model.HomeValueModelProcessor(home_value_model_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
 def setup_hospital_distances(database_helper, full_provenance=False):
     hospital_distances_settings = hospital_distances.HospitalDistancesSettings()
     hospital_distances.HospitalLocationsProcessor(hospital_distances_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
+def setup_hospital_scatter(database_helper, full_provenance=False):
+    hospital_scatter_settings = hospital_scatter.HospitalScatterSettings()
+    hospital_scatter.HospitalScatterProcessor(hospital_scatter_settings, database_helper).\
         run_processor(full_provenance=full_provenance)
 
 

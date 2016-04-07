@@ -120,6 +120,7 @@ class CrimeCentroidsProcessor(MCRASProcessor):
         self.database_helper = database_helper
 
     def run_processor(self, full_provenance=False):
+        print('Estimating crime centroids')
         start_time = datetime.datetime.now()
         df = self._load_prep_df()
         df_groups = self._kmeans_fit_predict(df, n_groups=15)
@@ -132,6 +133,8 @@ class CrimeCentroidsProcessor(MCRASProcessor):
             CrimeCentroidsProvenance(self.settings, database_helper=self.database_helper)
         crime_provenance.\
             update_provenance(full_provenance=full_provenance, start_time=start_time, end_time=end_time)
+
+        print('Done estimating crime centroids')
 
     def _load_prep_df(self):
         """
