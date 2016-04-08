@@ -49,6 +49,8 @@ In this derived dataset, we create a measurement called "people-seconds" to gaug
 
 ### 8. (derived) Weighted k-means optimization for each branch of Green Line
 
+### 8. (derived) Correlation and p-value of utility ratings vs. handicap access of stops
+
 # Visualizations
 The visualizations are viewable in a web browser. These visualizations need access to the database from the browser, which can't be directly obtained. So we use a small Flask application to act as a middle-man to facilitate this access.
 
@@ -59,3 +61,7 @@ The visualizations are viewable in a web browser. These visualizations need acce
 2 - Point your favorite browser to 127.0.0.1:5000/stops.
 
 ![map example](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/optimal-stops-map.png)
+
+2 - Also try 127.0.0.1:5000/utility.
+
+![utility example](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/utility.png)

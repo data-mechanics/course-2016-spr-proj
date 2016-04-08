@@ -18,6 +18,7 @@
     // Credit for most of this to examples at https://bl.ocks.org/mbostock/3231298 and
     // https://bl.ocks.org/mbostock/4063269. Force and texty bubbles.
     // Each licensed GPLv3
+    // Still pretty customized and unique, though... JavaScript is tricky.
 
     var width = 960,
         height = 600;
@@ -27,9 +28,10 @@
 
     function scale(radius) {
       // This just looks kinda good.
-      return (Math.log(radius) + 1.5) * 4;
+      return Math.sqrt(radius) * 1.5
     }
 
+    // The force layout for d3
     var force = d3.layout.force()
         .gravity(0.02)
         .charge(0.0)
@@ -51,6 +53,7 @@
       // Add the nodes to the force layout.
       force.nodes(data).start();
 
+      // To have both circles and text we need group tags for each node.
       var node = svg.selectAll(".node")
           .data(data)
         .enter().append("g") // Need a group to include text with the circles.
@@ -61,9 +64,19 @@
         .attr("r", function(d) { return d.radius; })
         .style("fill", function(d) { return colors[d.line]; });
 
-      node.append("title")
-        .text(function(d) { return "Utility: " + d.ppl_secs; });
+      // Add the "pretty name" and utility of each score to show on mouseover.
+      // I'm guessing this is not the most efficient way to do this, but given
+      // the asynchronous nature of the d3.json call it seems most reliable to
+      // nest the closures.
+      d3.json('http://127.0.0.1:5000/get/t_branch_info', function(stops) {
+        node.append("title").text(function(d) {
+          return stops.filter(function(s,i,a) {
+            return s.stop_id == d.stop;
+          })[0].pretty_name + "\nUtility: " + d.ppl_secs;
+        });
+      });
 
+      // Show the "id" style stop in the circle.
       node.append("text")
         .attr("dy", ".3em")
         .style("text-anchor", "middle")
