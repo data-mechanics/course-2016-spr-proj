@@ -20,6 +20,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays; //add by Ben (to print stringArray)
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -56,8 +57,6 @@ public class RoadNetwork {
 	static private HashMap<Long, List<String>> mapInterSectNames = new HashMap<Long, List<String>>();
 	static private HashMap<Long, List<String>> mapInterSectTypes = new HashMap<Long, List<String>>();
 
-	static private HashMap<String, Integer> touristAssignment = new HashMap<String, Integer>();
-	static private HashMap<String, Integer> localAssignment = new HashMap<String, Integer>();
 	static private HashMap<String, Integer> populationAssignment = new HashMap<String, Integer>();
 
 	static private List<Long> nodeIds;
@@ -69,12 +68,11 @@ public class RoadNetwork {
 
 	static private List<Float> queryX;
 	static private List<Float> queryY;
-	static private List<String> personType;
 
-        //static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
-        //static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
-        static public final String path = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
-        static public final String shortPath = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson";
+        static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
+        //static public final String path = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        //static public final String shortPath = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson";
 
 	/* IntersectionIDs function stores in separate lists the node ids, their respective latitude 
 	 * and their respective longitude (3 lists) these lists are nodeIds, nodeLat and nodeLong. The 
@@ -121,12 +119,13 @@ public class RoadNetwork {
 	 * the latitude and the longitude position of the person respectively.
 	 * The third array personType contains the type of person to whom the position query corresponds to
 	 * and can either be Tourist or Local. */
+
+        //NOTE: this filters out posts that are at the exact same geocoordiate. These posts will be condensed into 1 post.
 	private static void PersonQuery() throws NumberFormatException, IOException {
 		long tStartid = System.currentTimeMillis();
 		System.out.println("Creating the Locations of People in Boston");
 		BufferedReader bufRead;
 		String myLine = null;
-		personType = new ArrayList<String>();
 		FileReader inputTourists = new FileReader(
                                   shortPath  + "/twitter.xml");
 				//shortPath  + "/2015-12-28.xml");
@@ -138,33 +137,25 @@ public class RoadNetwork {
 		queryY = new ArrayList<Float>();
 		while ((myLine = bufRead.readLine()) != null) {
 			array = myLine.split(
-					"loca|lng|lat|local|\">|</ROW>|<ROW|<?xml version=\"1.0\"?>|<ROWSET>|FIELD5=\"|FIELD6=\"|FIELD1=\"|FIELD2=\"|FIELD3=\"|FIELD4=\"|\" ");
-             
+					" |loca|lng|lat|local|\">|</ROW>|<ROW|<?xml version=\"1.0\"?>|<ROWSET>|FIELD5=\"|FIELD6=\"|FIELD1=\"|FIELD2=\"|FIELD3=\"|FIELD4=\"|\" ");
+                        //System.out.println(Arrays.toString(array)); 
 			for (int i = 0; i < array.length; i++) {
-				if (array[i].equals("False") || array[i].equals("True")) {
-					if (queryY.contains(Float.parseFloat(array[6])) && queryX.contains(Float.parseFloat(array[8]))) {
-						if (!(queryY.indexOf(Float.parseFloat(array[6])) == queryX
-								.indexOf(Float.parseFloat(array[8])))) {
-							queryY.add(Float.parseFloat(array[6]));
-							queryX.add(Float.parseFloat(array[8]));
-							if (array[i].equals("False")) {
-								personType.add("Tourist");
-							} else {
-								personType.add("Local");
-							}
-						}
-
-					} else {
-						queryY.add(Float.parseFloat(array[6]));
-						queryX.add(Float.parseFloat(array[8]));
-						if (array[i].equals("False")) {
-							personType.add("Tourist");
-						} else {
-							personType.add("Local");
-						}
-					}
-				}
-			}
+				//if (array[i].equals("False") || array[i].equals("True")) {
+                                        try {
+					    if (queryY.contains(Float.parseFloat(array[7])) && queryX.contains(Float.parseFloat(array[9]))) {
+						    if (!(queryY.indexOf(Float.parseFloat(array[7])) == queryX
+								    .indexOf(Float.parseFloat(array[0])))) {
+							    queryY.add(Float.parseFloat(array[7]));
+							    queryX.add(Float.parseFloat(array[9]));
+						    }
+					    } else {
+						    queryY.add(Float.parseFloat(array[7]));
+						    queryX.add(Float.parseFloat(array[9]));
+					    }
+                                        }
+                                        catch (Exception e) {
+                                        } 
+                                }
 
 		}
 
@@ -236,9 +227,9 @@ public class RoadNetwork {
 		/* TODO remove comments to consider all residential roads
 		 * experiment using 50 roads to evaluate results.
 		 */
-		for (int i = 0; i < nodeListWays.getLength(); i++) { 
+		//for (int i = 0; i < nodeListWays.getLength(); i++) { 
                 
-		//for (int i = 0; i < 50; i++) { 
+		for (int i = 0; i < 50; i++) { 
 			org.w3c.dom.Node nNode = nodeListWays.item(i); // nodeListNodes
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				org.w3c.dom.Node eElement = nNode;
@@ -662,7 +653,7 @@ public class RoadNetwork {
                 oos3.close();
 
 		try {
-			PrintStream out = new PrintStream(new FileOutputStream(path + "/outputs/intersectionsOutput_all-type.txt"));
+			PrintStream out = new PrintStream(new FileOutputStream(path + "/outputs/intersectionsOutput.txt"));
 			for (Entry<Long, List<Long>> entry : mapInterSectCodes.entrySet()) {
 				List<Long> val = entry.getValue();
 				Long key = entry.getKey();
@@ -716,14 +707,6 @@ public class RoadNetwork {
                 RoadNetwork.mapInterSectTypes = (HashMap) ois3.readObject(); 
                 ois3.close();
                 
-                //System.out.println("|--------------------------------------------|");
-                //System.out.println(RoadNetwork.mapInterSectCodes);
-                //System.out.println("|--------------------------------------------|");
-                //System.out.println(RoadNetwork.mapInterSectNames);
-                //System.out.println("|--------------------------------------------|");
-                //System.out.println(RoadNetwork.mapInterSectTypes);
-                //System.out.println("|--------------------------------------------|");
-
 		int retrieveEl = 0;
 		int nodeIndex = 0;
 
@@ -783,28 +766,6 @@ public class RoadNetwork {
 			} else {
 			    populationAssignment.put(keyM, 1);
                         }
-                        //start comment here
-			if (personType.get(j).equals("Tourist")) {
-
-				if (touristAssignment.containsKey(keyM)) {
-					int num = touristAssignment.get(keyM);
-					num = num + 1;
-					touristAssignment.put(keyM, num);
-				} else {
-					touristAssignment.put(keyM, 1);
-				}
-			} else if (personType.get(j).equals("Local")) {
-				if (localAssignment.containsKey(keyM)) {
-					int num = localAssignment.get(keyM);
-					num = num + 1;
-					localAssignment.put(keyM, num);
-				} else {
-					localAssignment.put(keyM, 1);
-				}
-			} else {
-				System.out.println("Shouldn't be here");
-			}
-                        //end comment here
 			minDistance = Double.MAX_VALUE;
 		}
 		long tEnd4 = System.currentTimeMillis();
@@ -831,8 +792,7 @@ public class RoadNetwork {
 		doc.appendChild(rootElement);
 		org.w3c.dom.Element intersectElement = doc.createElement("intersection");
 		org.w3c.dom.Element road = doc.createElement("road");
-		org.w3c.dom.Element numtourists = doc.createElement("numtourists");
-		org.w3c.dom.Element numlocals = doc.createElement("numlocals");
+		org.w3c.dom.Element numPopulation = doc.createElement("population");
 		for (Entry<Long, List<Long>> entry : mapInterSectCodes.entrySet()) {
 			List<Long> val = entry.getValue();
 			Long key = entry.getKey();
@@ -871,32 +831,15 @@ public class RoadNetwork {
 				road.setAttributeNode(type);
 				road = doc.createElement("road");
 
-				Attr num = doc.createAttribute("num");
-				if (touristAssignment.containsKey(keyF)) {
-					num.setValue(touristAssignment.get(keyF).toString());
+                                Attr num = doc.createAttribute("num");
+				if (populationAssignment.containsKey(keyF)) {
+					num.setValue(populationAssignment.get(keyF).toString());
 				} else {
 					num.setValue("0");
-				}
-				if (touristAssignment.containsKey(keyF)) {
-					num.setValue(touristAssignment.get(keyF).toString());
-				} else {
-					num.setValue("0");
-				}
-				numtourists.setAttributeNode(num);
-				intersectElement.appendChild(numtourists);
-				num = doc.createAttribute("num");
-				if (localAssignment.containsKey(keyF)) {
-					num.setValue(localAssignment.get(keyF).toString());
-				} else {
-					num.setValue("0");
-				}
-				if (localAssignment.containsKey(keyF)) {
-					num.setValue(localAssignment.get(keyF).toString());
-				} else {
-					num.setValue("0");
-				}
-				numlocals.setAttributeNode(num);
-				intersectElement.appendChild(numlocals);
+                                }
+				numPopulation.setAttributeNode(num);
+				intersectElement.appendChild(numPopulation);
+
 				index++;
 
 			}
@@ -906,15 +849,16 @@ public class RoadNetwork {
 
 			rootElement.appendChild(intersectElement);
 			intersectElement = doc.createElement("intersection");
-			numtourists = doc.createElement("numtourists");
-			numlocals = doc.createElement("numlocals");
+			//numtourists = doc.createElement("numtourists");
+			//numlocals = doc.createElement("numlocals");
+			numPopulation = doc.createElement("population");
 			retrieveEl++;
 		}
 		// write the content into xml file
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File(path + "/outputs/roadnetwork_all-type.xml"));
+		StreamResult result = new StreamResult(new File(path + "/outputs/roadnetwork.xml"));
 		transformer.transform(source, result);
 		long tEnd3 = System.currentTimeMillis();
 		long tDelta3 = tEnd3 - tStart3;
@@ -939,6 +883,5 @@ public class RoadNetwork {
                 }
 		RoadNetwork.AssignPeopleToNodes();
 		RoadNetwork.CreateFinalNetwork();
-
 	}
 }
