@@ -107,7 +107,7 @@
 
     $("#bslider").slider({
       range: "max",
-      value: 10,
+      value: 0,
       min: 0,
       max: 23,
       slide: function(event, ui) {
@@ -115,12 +115,12 @@
         $( "#bsliderval" ).text(ui.value);
       }
     });
-    drawkmeans(10, 'GLB'); // init
-    $( "#bsliderval" ).text(10);
+    drawkmeans(0, 'GLB'); // init
+    $( "#bsliderval" ).text(0);
 
     $("#cslider").slider({
       range: "max",
-      value: 9,
+      value: 0,
       min: 0,
       max: 21,
       slide: function(event, ui) {
@@ -128,12 +128,12 @@
         $( "#csliderval" ).text(ui.value);
       }
     });
-    drawkmeans(9, 'GLC'); // init
-    $( "#csliderval" ).text(9);
+    drawkmeans(0, 'GLC'); // init
+    $( "#csliderval" ).text(0);
 
     $("#dslider").slider({
       range: "max",
-      value: 6,
+      value: 0,
       min: 0,
       max: 18,
       slide: function(event, ui) {
@@ -141,12 +141,12 @@
         $( "#dsliderval" ).text(ui.value);
       }
     });
-    drawkmeans(6, 'GLD'); // init
-    $( "#dsliderval" ).text(6);
+    drawkmeans(0, 'GLD'); // init
+    $( "#dsliderval" ).text(0);
 
     $("#eslider").slider({
       range: "max",
-      value: 8,
+      value: 0,
       min: 0,
       max: 19,
       slide: function(event, ui) {
@@ -154,8 +154,8 @@
         $( "#esliderval" ).text(ui.value);
       }
     });
-    drawkmeans(8, 'GLE'); // init
-    $( "#esliderval" ).text(8);
+    drawkmeans(0, 'GLE'); // init
+    $( "#esliderval" ).text(0);
 
   </script>
 </body>
