@@ -7,6 +7,8 @@ By using *k-means* and setting *k* to be *x* fewer than the number of existing s
 
 To do this, we need to know the walking distances to nearest T stop alternatives, as well as the popularity of each stop.
 
+As a metric to (hopefully) help establish our utility measurement as a desirable one, we also calculate the correlation of that score against availability of handicap access at stops.
+
 Here are the specific data sets we have to help solve this problem, along with how they will help solve the problem.
 
 # The Data Sets Involved
@@ -46,10 +48,13 @@ This derived dataset holds information regarding the nearest neighbor stop on th
 In this derived dataset, we create a measurement called "people-seconds" to gauge the utility of each stop. This is a score that uses both popularity and walking time to the next nearest stop, and provides a weight for each stop. A low score is good; this means that the stop is valued and saves the greatest amount of time for the collective commuting group. This score will let us perform a weighted *k*-means to find the optimal *k* stops.
 
 ### 7. (derived) Normalized utility measurement
+The people second measure is not directly usable as a weight to k-means, this translates it into a measure usable in k-means.
 
 ### 8. (derived) Weighted k-means optimization for each branch of Green Line
+Coordinates of the optimal stops for varying values of *k* on each branch.
 
-### 8. (derived) Correlation and p-value of utility ratings vs. handicap access of stops
+### 9. (derived) Correlation and p-value of utility ratings vs. handicap access of stops
+Correlation coefficient and p-value of the correlation between our utility score (ppl seconds) and wheelchair access at each stop.
 
 # Visualizations
 The visualizations are viewable in a web browser. These visualizations need access to the database from the browser, which can't be directly obtained. So we use a small Flask application to act as a middle-man to facilitate this access.
@@ -62,6 +67,6 @@ The visualizations are viewable in a web browser. These visualizations need acce
 
 ![map example](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/optimal-stops-map.png)
 
-2 - Also try 127.0.0.1:5000/utility.
+2 - Then check out 127.0.0.1:5000/utility.
 
 ![utility example](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/utility.png)
