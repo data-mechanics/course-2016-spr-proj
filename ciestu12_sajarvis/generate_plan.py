@@ -17,12 +17,17 @@ import make_stop_gps_db
 import make_walk_dist_db
 import make_nearest_stops
 import make_people_seconds
+import make_normalized_people_seconds
+import make_optimal_stops
+import make_p_score
 
 # Don't need time and won't keep it, but the individual methods expect it.
 time = datetime.datetime.now()
 
 master_doc = prov.model.ProvDocument()
-for mod in [get_boarding_info, get_green_line_branch_info, make_stop_gps_db, make_walk_dist_db, make_nearest_stops, make_people_seconds]:
+for mod in [get_boarding_info, get_green_line_branch_info, make_stop_gps_db,
+            make_walk_dist_db, make_nearest_stops, make_people_seconds,
+            make_normalized_people_seconds, make_optimal_stops, make_p_score]:
     doc = mod.create_prov(time, time)
     master_doc.update(doc)
 

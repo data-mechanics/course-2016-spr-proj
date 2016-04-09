@@ -95,11 +95,57 @@ def main():
     endTime = datetime.datetime.now()
 
     # Record the provenance document.
-    #doc = create_prov(startTime, endTime)
-    #repo.record(doc.serialize())
-    #print(doc.get_provn())
+    doc = create_prov(startTime, endTime)
+    repo.record(doc.serialize())
+    print(doc.get_provn())
 
     repo.logout()
+
+def create_prov(startTime, endTime):
+    '''Create the provenance document for file.'''
+    # Create provenance data and recording
+    doc = prov.model.ProvDocument()
+    doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ciestu12_sajarvis/') # The scripts in <folder>/<filename> format.
+    doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
+    doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+    doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+
+    # This run has an agent (the script), entities (the sources), and an activity (execution)
+    this_script = doc.agent('alg:make_optimal_stops',
+                            {
+                                prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'],
+                                'ont:Extension':'py'})
+    normalized_resource = doc.entity('dat:normal_ppl_sec_util',
+                                     {
+                                         'prov:label':'Normalized People Second Utility Rating',
+                                         prov.model.PROV_TYPE:'ont:DataSet'})
+    stop_location_resource = doc.entity('dat:t_stop_locations',
+                                        {
+                                            'prov:label':'Locations for all MBTA Stops',
+                                            prov.model.PROV_TYPE:'ont:DataSet'})
+    this_run = doc.activity('log:a'+str(uuid.uuid4()),
+                            startTime, endTime,
+                            { prov.model.PROV_LABEL:'Compute Optimal Stop Locations for Each Line',
+                              prov.model.PROV_TYPE:'ont:Computation' })
+    doc.wasAssociatedWith(this_run, this_script)
+    doc.usage(this_run, normalized_resource, startTime, None,
+              { prov.model.PROV_TYPE:'ont:Retrieval',
+                'ont:Query':'db.ciestu12_sajarvis.normal_ppl_sec_util.find({})'})
+    doc.usage(this_run, stop_location_resource, startTime, None,
+              { prov.model.PROV_TYPE:'ont:Retrieval',
+                'ont:Query':'db.ciestu12_sajarvis.t_stop_locations.find({})'})
+
+    # Now define entity for the dataset we obtained.
+    optimal_stops = doc.entity('dat:optimal_green_stops',
+                               {
+                                   prov.model.PROV_LABEL:'Optimal Green Line Stop Locations for Each Branch',
+                                   prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(optimal_stops, this_script)
+    doc.wasGeneratedBy(optimal_stops, this_run, endTime)
+    doc.wasDerivedFrom(optimal_stops, normalized_resource, this_run, this_run, this_run)
+    doc.wasDerivedFrom(optimal_stops, stop_location_resource, this_run, this_run, this_run)
+
+    return doc
 
 
 if __name__ == '__main__':

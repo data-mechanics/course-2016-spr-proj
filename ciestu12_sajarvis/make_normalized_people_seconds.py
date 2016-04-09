@@ -75,11 +75,49 @@ def main():
     endTime = datetime.datetime.now()
 
     # Record the provenance document.
-    #doc = create_prov(startTime, endTime)
-    #repo.record(doc.serialize())
-    #print(doc.get_provn())
+    doc = create_prov(startTime, endTime)
+    repo.record(doc.serialize())
+    print(doc.get_provn())
 
     repo.logout()
+
+def create_prov(startTime, endTime):
+    '''Create the provenance document for file.'''
+    # Create provenance data and recording
+    doc = prov.model.ProvDocument()
+    doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ciestu12_sajarvis/') # The scripts in <folder>/<filename> format.
+    doc.add_namespace('dat', 'http://datamechanics.io/data/ciestu12_sajarvis/') # The data sets in <user>/<collection> format.
+    doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+    doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+
+    # This run has an agent (the script), entities (the sources), and an activity (execution)
+    this_script = doc.agent('alg:make_normalized_people_seconds',
+                            {
+                                prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'],
+                                'ont:Extension':'py'})
+    pplsec_resource = doc.entity('dat:people_second_utility',
+                                 {
+                                     'prov:label':'Measure of Utility Per Stop for Collective Riders',
+                                     prov.model.PROV_TYPE:'ont:DataSet'})
+    this_run = doc.activity('log:a'+str(uuid.uuid4()),
+                            startTime, endTime,
+                            { prov.model.PROV_LABEL:'Compute Normalized Utility Based',
+                              prov.model.PROV_TYPE:'ont:Computation' })
+    doc.wasAssociatedWith(this_run, this_script)
+    doc.usage(this_run, pplsec_resource, startTime, None,
+            { prov.model.PROV_TYPE:'ont:Retrieval',
+              'ont:Query':'db.ciestu12_sajarvis.people_second_utility.find({})'})
+
+    # Now define entity for the dataset we obtained.
+    normal_ppl_seconds = doc.entity('dat:normal_ppl_sec_util',
+                                    {
+                                        prov.model.PROV_LABEL:'Normalized People Second Utility Rating',
+                                        prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(normal_ppl_seconds, this_script)
+    doc.wasGeneratedBy(normal_ppl_seconds, this_run, endTime)
+    doc.wasDerivedFrom(normal_ppl_seconds, pplsec_resource, this_run, this_run, this_run)
+
+    return doc
 
 
 if __name__ == '__main__':
