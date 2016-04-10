@@ -38,12 +38,12 @@
     <br>
     <br>
     <h3>Optimal Stops</h3>
-    <p> This visual shows optimal stops based on different calculated <i>k</i>-means scores. The <i>k</i>-means scores are
-    calculated using our utility measurement.  Initally, the map shows the current existing Green Line stops, where <i>k</i> = 0.
-    You can play with the sliders to increase the value of <i>k</i> for each branch, which will show the optimal stops based on
-    that <i>k</i> value. </p>
+    <p> This visual shows optimal stops based on different calculated <i>k</i>-means scores. We use a variant of the <i>k</i>-means clustering algorithm that also takes into account a given weight for each point. The weight, in this case, will be a function of the stop's popularity and the proximity to the nearest alternative.
+    
+    <p>Initally, the map shows the current existing Green Line stops, where <i>k</i> = 0. By playing with the sliders and changing the value of <i>k</i>, you can see the optimal <i>k</i> stops for that. </p>
 
     <p>Each of the original stops is represented by a transparent circle of corresponding color (see left-hand corner). Each optimal stop will appear as a solid circle of corresponding color with a black border. </p>
+
   </div>
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
