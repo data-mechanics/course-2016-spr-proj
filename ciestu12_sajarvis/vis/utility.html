@@ -12,7 +12,22 @@
 <body>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <div id="colorkey" style="margin-top:20px">
-      &nbsp;&nbsp;&nbsp;&nbsp; <font color="#AA3939">GLB</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#AA6C39">GLC</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#226666">GLD</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#2D882D">GLC</font>
+      &nbsp;&nbsp;&nbsp;&nbsp; <font color="#AA3939">GLB</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#AA6C39">GLC</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#226666">GLD</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#2D882D">GLE</font>
+  </div>
+  <div id="container" style="float:left"></div>
+  <div id="description" style="margin-left:920px">
+    <h3>Utility Measurement</h3>
+    Our utility measurement is a score that uses both the popularity of each stop and the walking time to the next nearest
+      stop. A high score is good; this means that the stop is valued and saves the greatest amount of time for the collective commuting group. The measurement is scaled from 1 to 1000. 
+</p>
+  <p>The size of the bubble corresponds to the utility measurement; the larger the bubble, the greater the utility measurement. 
+    The bubbles are labeled with their stop-id, and colored by line (see key in left-hand corner). If you hover your mouse over
+    the bubbles, a tooltip will appear showing the stop name and utility measurement for that stop.
+  </p>
+  <p>
+    You may notice that some stops are repeated with different utility scores. This is because each of these stops may have a
+    different importance based on the branch. 
+  </p>
   </div>
   <script>
     // Credit for most of this to examples at https://bl.ocks.org/mbostock/3231298 and
@@ -20,7 +35,7 @@
     // Each licensed GPLv3
     // Still pretty customized and unique, though... JavaScript is tricky.
 
-    var width = 960,
+    var width = 920,
         height = 600;
 
     // These are just four colors from a recommended palette on the Internet.
@@ -37,7 +52,7 @@
         .charge(0.0)
         .size([width, height]);
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#container").append("svg")
         .attr("width", width)
         .attr("height", height)
         .attr("class", "force");
