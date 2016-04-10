@@ -11,10 +11,14 @@
 </head>
 
 <body>
+  <div id="colorkey" style="margin-top:20px">
+     &nbsp;&nbsp;&nbsp;&nbsp; <font color="red">GLB</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="green">GLC</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="brown">GLD</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">GLE</font>
+ </div>
+ <br>
   <div id="map" style="width: 800px; height: 600px"></div>
   <div style='position:absolute; top:16px; right:32px; width:380px'>
     <!-- slider divs -->
-    <p><i>k</i> sliders</p>
+    <h3><i>k</i> Sliders</h3>
     <div style='margin-top:10px; height:30px'>
       <div id='bslider' style='background:red; width:340px; float:right'></div>
       <div id='bsliderval' style='width:40px; float:left'></div>
@@ -31,6 +35,15 @@
       <div id='eslider' style='background:blue;  width:340px; float:right'></div>
       <div id='esliderval' style='width:40px; float:left'></div>
     </div>
+    <br>
+    <br>
+    <h3>Optimal Stops</h3>
+    <p> This visual shows optimal stops based on different calculated <i>k</i>-means scores. The <i>k</i>-means scores are
+    calculated using our utility measurement.  Initally, the map shows the current existing Green Line stops, where <i>k</i> = 0.
+    You can play with the sliders to increase the value of <i>k</i> for each branch, which will show the optimal stops based on
+    that <i>k</i> value. </p>
+
+    <p>Each of the original stops is represented by a transparent circle of corresponding color (see left-hand corner). Each optimal stop will appear as a solid circle of corresponding color with a black border. </p>
   </div>
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
