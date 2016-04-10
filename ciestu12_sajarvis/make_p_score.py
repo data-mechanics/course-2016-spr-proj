@@ -26,34 +26,10 @@ client = pymongo.MongoClient()
 repo = client.repo
 repo.authenticate(teamname, teamname)
 
-def permute(k,x):
-	shuffled = x[k:] + x[:k]
-	return shuffled
-
-def avg(x): # Average
-	return sum(x)/len(x)
-
-def stddev(x): # Standard deviation.
-	m = avg(x)
-	return sqrt(sum([(xi-m)**2 for xi in x])/len(x))
-
-def cov(x, y): # Covariance.
-	return sum([(xi-avg(x))*(yi-avg(y)) for (xi,yi) in zip(x,y)])/len(x)
-
-def corr(x, y): # Correlation coefficient.
-	if stddev(x)*stddev(y) != 0:
-		return cov(x, y)/(stddev(x)*stddev(y))
-
-def p(x, y):
-	c0 = corr(x, y)
-	print(c0)
-	corrs = []
-	for k in range(0, len(y)):
-		y_permuted = permute(k,y)
-		corrs.append(corr(x, y_permuted))
-	print(corrs)
-	return len([c for c in corrs if abs(c) > c0])/len(corrs)
-
+# 'wheelchair_boarding' = 0 means the information is unavailable
+# 'wheelchair_boarding' = 2 means the stop is not wheelchair accessible
+# change 'wheelchair_boarding' values from 2 to 0 (to make it easier for p-value calc)
+# for more info on these values, see:  https://developers.google.com/transit/gtfs/reference#stopstxt
 def changeWheelchairValue(l):
 	return [(n,i,1) if (b == '1') else (n,i,0) for (n,i,b) in l]
 
@@ -76,26 +52,21 @@ def main():
 	# Remove duplicate points, for those on multiple branches.
 	stops = set([(s['stop_name'], s['stop_id'], s['wheelchair_boarding']) for s in ss])
 
-
-	# 'wheelchair_boarding' = 0 means the information is unavailable
-	# 'wheelchair_boarding' = 2 means the stop is not wheelchair accessible
-	# change 'wheelchair_boarding' values from 2 to 0 (to make it easier for p-value calc)
 	updated_stops = changeWheelchairValue(stops)
 
 
 	# combines updated_stops and stops sets if 'stop' and 'stop_id' are the same
 	joined_stops = [(i, (n, int(w), int(ppl), l)) for n, i, w in updated_stops for s, ppl, l in stop_weights if s == i]
 
-
-
 	sums = aggregate([((i,w),ppl) for (i,(n,w,ppl,l)) in joined_stops], sum)
 	counts = aggregate([(i,1) for (i,(n,w,ppl,l)) in joined_stops], sum)
 	means = ([(w,b/d) for ((x,w),b) in sums for y,d in counts if x == y])
 
-
+	# use scipy to calcualte p-value and correlation coefficient
 	(coefficient, pValue) = scipy.stats.pearsonr([w for w,ppl in means], [ppl for w,ppl in means])
 	print(pValue)
 
+	# store correlation coefficient and p-value
 	repo['{}.{}'.format(teamname, out_coll)].insert_one({'coefficient':coefficient, 'pValue':pValue})
 
 
