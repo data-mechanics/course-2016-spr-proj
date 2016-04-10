@@ -9,7 +9,7 @@ To do this, we need to know the walking distances to nearest T stop alternatives
 
 As a metric to (hopefully) help establish our utility measurement as a desirable one, we also calculate the correlation of that score against availability of handicap access at stops.
 
-Here are the specific data sets we have to help solve this problem, along with how they will help solve the problem.
+These metrics provide a strong starting point to determining which Green Line T stops are most valuable to the commuting community.
 
 # The Data Sets Involved
 
@@ -56,10 +56,12 @@ Coordinates of the optimal stops for varying values of *k* on each branch.
 ### 9. (derived) Correlation and p-value of utility ratings vs. handicap access of stops
 Correlation coefficient and p-value of the correlation between our utility score (ppl seconds) and wheelchair access at each stop.
 
+*NOTE: Requires the [scipy](https://www.scipy.org/) library for Python3.*
+
 # Visualizations
 The visualizations are viewable in a web browser. These visualizations need access to the database from the browser, which can't be directly obtained. So we use a small Flask application to act as a middle-man to facilitate this access.
 
-1 - Start the web app for the database API (`pip3 install flask` if not already available).
+1 - Start the web app for the database API (requires [flask](http://flask.pocoo.org/), `pip3 install flask` if not already available).
 
     cd vis/; python3 restful.py
 
