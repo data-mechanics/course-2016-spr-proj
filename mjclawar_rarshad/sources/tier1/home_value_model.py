@@ -17,6 +17,7 @@ from mjclawar_rarshad.reference import mcra_structures as mcras
 from mjclawar_rarshad.reference.mcra_structures import MCRASProcessor, MCRASSettings, MCRASProvenance
 from mjclawar_rarshad.tools.database_helpers import DatabaseHelper
 from mjclawar_rarshad.tools.provenance import ProjectProvenance
+from mjclawar_rarshad.tools.mcras_plotting import MCRASPlotting
 
 from sklearn import neighbors
 from matplotlib.colors import ListedColormap
@@ -119,9 +120,7 @@ class HomeValueModelProcessor(MCRASProcessor):
         df = df[(df['LONGITUDE'] < x_max) & (df['LONGITUDE'] > x_min) &
                 (df['LATITUDE'] < y_max) & (df['LATITUDE'] > y_min)].copy()
 
-        html_plot = self._knn_property_values(df, bounds)
-        with open('home_value_model.html', 'w') as f:
-            f.write(html_plot)
+        self._knn_property_values(df, bounds)
 
         # TODO write to database
         # self.database_helper.insert_permanent_collection(self.settings.data_entity, html_json)
@@ -183,10 +182,4 @@ class HomeValueModelProcessor(MCRASProcessor):
 
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
-        plt.figure()
-        plt.pcolormesh(yy, xx, Z, cmap='RdBu_r', alpha=2)
-        plt.xlim(bounds[0][0], bounds[1][0])
-        plt.ylim(bounds[0][1], bounds[1][1])
-
-        html = mplleaflet.fig_to_html(tiles='cartodb_positron')
-        return html
+        MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='home_value_model.html')

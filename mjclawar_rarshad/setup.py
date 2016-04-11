@@ -39,13 +39,13 @@ def main(auth_json_path, full_provenance=False):
         with open(plan_json, 'w') as f:
             f.write(json.dumps({}))
 
-    setup_crime_incidents(database_helper, bdp_api, full_provenance=full_provenance)
-    setup_property_assessment(database_helper, bdp_api, full_provenance=full_provenance)
-    setup_boston_public_schools(database_helper, bdp_api, full_provenance=full_provenance)
-    setup_hospital_locations(database_helper, bdp_api, full_provenance=full_provenance)
-    setup_crime_centroids(database_helper, full_provenance=full_provenance)
-    setup_hospital_distances(database_helper, full_provenance=full_provenance)
-    setup_crime_knn(database_helper, full_provenance=full_provenance)
+    # setup_crime_incidents(database_helper, bdp_api, full_provenance=full_provenance)
+    # setup_property_assessment(database_helper, bdp_api, full_provenance=full_provenance)
+    # setup_boston_public_schools(database_helper, bdp_api, full_provenance=full_provenance)
+    # setup_hospital_locations(database_helper, bdp_api, full_provenance=full_provenance)
+    # setup_crime_centroids(database_helper, full_provenance=full_provenance)
+    # setup_hospital_distances(database_helper, full_provenance=full_provenance)
+    # setup_crime_knn(database_helper, full_provenance=full_provenance)
     setup_home_value_model(database_helper, full_provenance=full_provenance)
     setup_hospital_scatter(database_helper, full_provenance=full_provenance)
 
