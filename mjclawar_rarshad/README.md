@@ -60,9 +60,23 @@ the following:
 
     - What parameters strongly influence property value?
     - How well does our model agree with actual property data?
-    
-For this project, we start building the foundation for neighborhood evaluation. In particular, we find "crime centroids",
+
+In a previous version of this project, we began building the foundation for neighborhood evaluation. In particular,
+we found "crime centroids",
 about which clusters of crime tend to have occurred in 2015: `processing/crime_centroids.py`
 - The "optimal" number of crime centers is estimated using a naive rule of a 1% change in the Bayesian Information Criterion (BIC)
 
-We also estimate the distance between properties in Boston and the nearest hospital using a spherical approximation: `processing/hospital_distances.py`
+We also estimated the distance between properties in Boston and the nearest hospital using a spherical approximation:
+ `processing/hospital_distances.py`
+
+In this iteration, we used k-nearest neighbors regression with latitude and longitude as the design matrix for
+predicting smoothed housing values per square foot across Boston.
+
+We also extend the crime centroids analysis by again using k-nearest neighbors regression
+on latitude and longitude to predict whether crimes at a given location are
+more likely to occur on weekends (Fridays to Sunday) or on weekdays (Monday to Thursday).
+
+We plot both the housing values and crime classifications using Leaflet
+and OpenStreetMap and CartoDB map layers with an extended version of the excellent `mplleaflet` package.
+To view the home values data, run the package using `setup.py` and open `home_value_model.html` in a browser.
+Similarly for the crime predictions, open `knn_crimes_weekday.html` in a web browser.

@@ -3,4 +3,5 @@ Add distance from school data
 Random selection of points to plot for hospital scatter
 README update
 Documentation update
-requirements.txt update
+
+ADD LEGEND TO MPLLEAFLET PLOTS

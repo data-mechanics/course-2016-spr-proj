@@ -172,7 +172,7 @@ class HomeValueModelProcessor(MCRASProcessor):
 
         clf.fit(X, y)
 
-        h = .001  # step size in the mesh
+        h = .0005  # step size in the mesh
 
         # Plot the decision boundary. For that, we will assign a color to each
         # point in the mesh [x_min, m_max]x[y_min, y_max].

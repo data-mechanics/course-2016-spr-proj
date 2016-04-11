@@ -162,7 +162,7 @@ class CrimeKNNProcessor(MCRASProcessor):
             if max_score + .001 > clf.score(X, y):
                 break
 
-        h = .0001  # step size in the mesh
+        h = .0005  # step size in the mesh
 
         # Create color maps
         cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
