@@ -121,7 +121,7 @@ class SchoolLocationsProcessor(MCRASProcessor):
 
         school_distances_provenance = SchoolDistancesProvenance(self.settings, database_helper=self.database_helper)
         school_distances_provenance.update_provenance(full_provenance=full_provenance, start_time=start_time,
-                                                        end_time=end_time)
+                                                      end_time=end_time)
 
     def _load_prep_df_school(self):
         """
@@ -148,11 +148,26 @@ class SchoolLocationsProcessor(MCRASProcessor):
         -------
         pandas.DataFrame
         """
-        df_prop = self.database_helper.load_permanent_pandas('property_assessment', cols=['location'])
-        df_prop = df_prop.merge(df_prop['location'].
-                                apply(lambda x: pandas.Series({'LATITUDE': float(x.split(',')[0][1:]),
-                                                               'LONGITUDE': float(x.split(',')[1][0:-1])})),
-                                left_index=True, right_index=True)
+
+        df_prop = self.database_helper.load_permanent_pandas(
+            'property_assessment', cols=['location', 'av_total', 'living_area']
+        )
+        df_list = []
+        for i in range(len(df_prop)):
+            df_row = df_prop.iloc[i, :]
+            try:
+                lat = float(df_row['location'].split(',')[0][1:])
+                long = float(df_row['location'].split(',')[1][0:-1])
+                av_total = float(df_row['av_total'])
+                living_area = float(df_row['living_area'])
+                df_list.append((lat, long, av_total, living_area))
+            except:
+                pass
+
+        df_prop = pandas.DataFrame(df_list)
+        assert isinstance(df_prop, pandas.DataFrame)
+        df_prop.columns = ['LATITUDE', 'LONGITUDE', 'AV_TOTAL', 'LIVING_AREA']
+
         df_prop = df_prop[(df_prop['LONGITUDE'] != 0) & (df_prop['LATITUDE'] != 0)].copy()
 
         return df_prop
@@ -188,5 +203,6 @@ class SchoolLocationsProcessor(MCRASProcessor):
         school_names = df_school['sch_name'].values
         df_prop['NEAREST_SCHOOL'] = school_names[min_indices]
         df_prop['MIN_DISTANCE'] = min_distances
-        df_prop = df_prop[['LONGITUDE', 'LATITUDE', 'NEAREST_SCHOOL', 'MIN_DISTANCE']].copy()
+        df_prop = df_prop[['LONGITUDE', 'LATITUDE', 'NEAREST_SCHOOL', 'MIN_DISTANCE', 'AV_TOTAL',
+                           'LIVING_AREA']].copy()
         return df_prop
