@@ -45,9 +45,9 @@ def main(auth_json_path, full_provenance=False):
     # setup_hospital_locations(database_helper, bdp_api, full_provenance=full_provenance)
     # setup_crime_centroids(database_helper, full_provenance=full_provenance)
     # setup_hospital_distances(database_helper, full_provenance=full_provenance)
-    # setup_crime_knn(database_helper, full_provenance=full_provenance)
-    setup_home_value_model(database_helper, full_provenance=full_provenance)
-    setup_hospital_scatter(database_helper, full_provenance=full_provenance)
+    setup_crime_knn(database_helper, full_provenance=full_provenance)
+    # setup_home_value_model(database_helper, full_provenance=full_provenance)
+    # setup_hospital_scatter(database_helper, full_provenance=full_provenance)
 
     if full_provenance:
         with open(plan_json, 'r') as f:

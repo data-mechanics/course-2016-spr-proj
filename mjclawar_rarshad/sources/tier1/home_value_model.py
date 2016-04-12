@@ -182,4 +182,5 @@ class HomeValueModelProcessor(MCRASProcessor):
 
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
-        MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='home_value_model.html')
+        MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='home_value_model.html',
+                                      legend_text='Estimated value per square foot of home ($)')

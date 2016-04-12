@@ -37,11 +37,9 @@ class MCRASPlotting:
         """
 
         plt.figure()
-        plt.pcolormesh(yy, xx, Z, cmap='YlGnBu', alpha=2)
+        plt.pcolormesh(yy, xx, Z, cmap='YlGnBu', alpha=1)
         plt.xlim(bounds[0][0], bounds[1][0])
         plt.ylim(bounds[0][1], bounds[1][1])
-
-        html = mplleaflet.fig_to_html(tiles='cartodb_positron')
 
         vmin = Z.min()
         vmax = Z.max()
@@ -65,7 +63,7 @@ class MCRASPlotting:
                         continue
                     line = line.replace('var map', 'var mymap').replace('(map)', '(mymap)').\
                         replace('map.fitBounds', 'mymap.fitBounds').replace('map.setView', 'mymap.setView')
-                html_out += line.replace('"opacity": 1', '"opacity": 1, "fillOpacity": 0.65')
+                html_out += line.replace('"opacity": 1', '"opacity": 1, "fillOpacity": 0.55')
 
         html_out += '\n'
         html_out += 'var color_map = {};\n'

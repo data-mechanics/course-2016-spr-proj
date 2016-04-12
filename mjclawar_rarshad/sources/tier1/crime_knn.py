@@ -17,6 +17,7 @@ from mjclawar_rarshad.reference import mcra_structures as mcras
 from mjclawar_rarshad.reference.mcra_structures import MCRASProcessor, MCRASSettings, MCRASProvenance
 from mjclawar_rarshad.tools.database_helpers import DatabaseHelper
 from mjclawar_rarshad.tools.provenance import ProjectProvenance
+from mjclawar_rarshad.tools.mcras_plotting import MCRASPlotting
 
 from sklearn import neighbors
 from matplotlib.colors import ListedColormap
@@ -115,9 +116,7 @@ class CrimeKNNProcessor(MCRASProcessor):
         df = df[(df['LONGITUDE'] < x_max) & (df['LONGITUDE'] > x_min) &
                 (df['LATITUDE'] < y_max) & (df['LATITUDE'] > y_min)].copy()
 
-        html_plot = self._knn_weekday_analysis(df, bounds)
-        with open('knn_crimes_weekday.html', 'w') as f:
-            f.write(html_plot)
+        self._knn_weekday_analysis(df, bounds)
 
         # TODO write to database
         # self.database_helper.insert_permanent_collection(self.settings.data_entity, html_json)
@@ -150,8 +149,8 @@ class CrimeKNNProcessor(MCRASProcessor):
 
     @staticmethod
     def _knn_weekday_analysis(df, bounds):
-        X = df[['LONGITUDE', 'LATITUDE']].values
-        y = df['day_week'].isin(['Friday', 'Saturday', 'Sunday'])
+        X = df[['LATITUDE', 'LONGITUDE']].values
+        y = df['day_week'].isin(['Friday', 'Saturday', 'Sunday']).astype(int)
 
         neighbors_numbers = np.arange(10, 55, 1)
         clf = neighbors.KNeighborsClassifier(10, weights='distance')
@@ -164,10 +163,6 @@ class CrimeKNNProcessor(MCRASProcessor):
 
         h = .0005  # step size in the mesh
 
-        # Create color maps
-        cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
-        cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
-
         # Plot the decision boundary. For that, we will assign a color to each
         # point in the mesh [x_min, m_max]x[y_min, y_max].
         xx, yy = np.meshgrid(np.arange(bounds[0][0], bounds[1][0], h),
@@ -176,12 +171,6 @@ class CrimeKNNProcessor(MCRASProcessor):
 
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
-        plt.figure()
-        plt.pcolormesh(xx, yy, Z, cmap=cmap_bold, alpha=2)
-        # Plot also the training points
-        plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_light)
-        plt.xlim(bounds[0][0], bounds[1][0])
-        plt.ylim(bounds[0][1], bounds[1][1])
-        html = mplleaflet.fig_to_html()
 
-        return html
+        MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='crime_knn_weekday.html',
+                                      legend_text='Weekend (1) vs Weekday (0)')
