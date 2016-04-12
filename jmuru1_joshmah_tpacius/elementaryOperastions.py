@@ -5,14 +5,14 @@ import prov.model
 import datetime
 import uuid
 import re
-import apitest as apitest
+import apiTest as apiTest
 
 # Until a library is created, we just use the script directly.
 exec(open('pymongo_dm.py').read())
 # Set up the database connection.
 client = pymongo.MongoClient()
 repo = client.repo
-repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
+repo.authenticate('jmuru1_joshmah_tpacius', 'jmuru1_joshmah_tpacius')
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
@@ -58,29 +58,39 @@ def getCollection(dbName):
 	temp = []
 	if type(dbName) != str:
 		return "Error: please input a string"
-	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
+	for elem in repo['jmuru1_joshmah_tpacius.' + dbName].find({}):
 		temp.append(elem)
 	return temp
 
 # regex that extracts street names from streetjams
-Xnew = set()
-Xnew2 = []
-for i in range(len(X)):
-    temp = (re.sub(r'[A-Z]', '', X[i]))
-    temp = (re.sub(r"\s+", "", temp))
-    Xnew.add(temp)
-for i in range(len(X)):
-    temp = (re.sub(r'[A-Z]', '', X[i]))
-    temp = (re.sub(r"\s+", "", temp))
-    temp = temp[0:5]
-    Xnew2.append(temp)
-Xnew2 = sorted(Xnew2)
+# Xnew = set()
+# Xnew2 = []
+# for i in range(len(X)):
+#     temp = (re.sub(r'[A-Z]', '', X[i]))
+#     temp = (re.sub(r"\s+", "", temp))
+#     Xnew.add(temp)
+# for i in range(len(X)):
+#     temp = (re.sub(r'[A-Z]', '', X[i]))
+#     temp = (re.sub(r"\s+", "", temp))
+#     temp = temp[0:5]
+#     Xnew2.append(temp)
+# Xnew2 = sorted(Xnew2)
 
 # regex extracting zipcodes from the hospital database
 # ========================query database functions end =================================
 
 # ===========================Perform ops on collections==============================
 propertyValues = getCollection("propertyvalue")
+hospitalCollection = getCollection("hospitals")
+
+print(hospitalCollection)
+#reduce the property value collection onto zipcar collections
+# def collectionsReduce(a, compareCollection=propertyValues):
+#     h = [(hospiZip[])]
+#     c = [(propertyPostal['zipcode'], propertyPostal) for propertyPostal in compareCollection] #property values
+#      #reduceNoFunction declaration within the elementary ops section
+#      #return reduction between propery values ans hospitals
+#     return
 
 
 def getKeys(propList):
