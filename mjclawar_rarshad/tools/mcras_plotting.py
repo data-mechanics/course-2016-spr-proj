@@ -43,6 +43,21 @@ class MCRASPlotting:
 
         vmin = Z.min()
         vmax = Z.max()
+
+        if tiles == 'cartodb_positron':
+            tiles = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+            attr = '&copy; <a href="http://cartodb.com/attributions">CartoDB</a> | ' \
+                   '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> | ' \
+                   '&copy; Michael Clawar & Raaid Arshad'
+            tiles = (tiles, attr)
+        elif tiles == 'osm_mapnik':
+            tiles = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> | ' \
+                   '&copy; Michael Clawar & Raaid Arshad</a>'
+            tiles = (tiles, attr)
+        else:
+            raise ValueError
+
         mplleaflet.save_html(fileobj=map_path, tiles=tiles)
         html_out = ''
 

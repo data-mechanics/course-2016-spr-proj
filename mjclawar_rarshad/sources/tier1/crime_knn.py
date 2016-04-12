@@ -150,7 +150,7 @@ class CrimeKNNProcessor(MCRASProcessor):
     @staticmethod
     def _knn_weekday_analysis(df, bounds):
         X = df[['LATITUDE', 'LONGITUDE']].values
-        y = df['day_week'].isin(['Friday', 'Saturday', 'Sunday']).astype(int)
+        y = (1 * df['day_week'].isin(['Friday', 'Saturday', 'Sunday'])).astype(int)
 
         neighbors_numbers = np.arange(10, 55, 1)
         clf = neighbors.KNeighborsClassifier(10, weights='distance')
@@ -165,7 +165,7 @@ class CrimeKNNProcessor(MCRASProcessor):
 
         # Plot the decision boundary. For that, we will assign a color to each
         # point in the mesh [x_min, m_max]x[y_min, y_max].
-        xx, yy = np.meshgrid(np.arange(bounds[0][0], bounds[1][0], h),
+        yy, xx = np.meshgrid(np.arange(bounds[0][0], bounds[1][0], h),
                              np.arange(bounds[0][1], bounds[1][1], h))
         Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
 
@@ -173,4 +173,4 @@ class CrimeKNNProcessor(MCRASProcessor):
         Z = Z.reshape(xx.shape)
 
         MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='crime_knn_weekday.html',
-                                      legend_text='Weekend (1) vs Weekday (0)')
+                                      legend_text='Weekend (1) vs Weekday (0)', tiles='osm_mapnik')

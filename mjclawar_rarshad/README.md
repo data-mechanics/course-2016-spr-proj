@@ -80,3 +80,4 @@ We plot both the housing values and crime classifications using Leaflet
 and OpenStreetMap and CartoDB map layers with an extended version of the excellent `mplleaflet` package.
 To view the home values data, run the package using `setup.py` and open `home_value_model.html` in a browser.
 Similarly for the crime predictions, open `knn_crimes_weekday.html` in a web browser.
+
