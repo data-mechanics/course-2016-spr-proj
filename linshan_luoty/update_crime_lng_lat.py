@@ -24,7 +24,7 @@ for document in db.find():
 		i = latitude.find('.')
 		if i != -1:
 			latitude = latitude[:i+4]	# rounded to three decimals
-		db.update_one({'_id':document['_id']}, {'$set': {'location': {'longitude': longitude, 'latitude': latitude}}})
+		db.update_one({'_id':document['_id']}, {'$set': {'location': {'longitude': float(longitude), 'latitude': float(latitude)}}})
 
 endTime = datetime.datetime.now()
 	

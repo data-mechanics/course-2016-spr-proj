@@ -38,8 +38,8 @@ for document in db.find():
 			latitude = latitude[:i+4]	# rounded to three decimals
 		zl = {
 			'zip': 			zipcode,
-			'longitude':	longitude,
-			'latitude':		latitude
+			'longitude':	float(longitude),
+			'latitude':		float(latitude)
 		}
 
 		zips_locations.append(zl)
