@@ -43,8 +43,8 @@ def calculate_danger_levels():
 
             # Insert into db
             data.append({
-                'lat': d.get('latitude'),
-                'lng': d.get('longitude'),
+                'lat': float(d.get('latitude')),
+                'lng': float(d.get('longitude')),
                 'dangerLevel': dangerLevel,
                 'type': d.get('type')
             })
