@@ -74,6 +74,17 @@ def addZero(hz):
 propertyValues = getCollection("propertyvalue")
 hospitalCollection = getCollection("hospitals")
 
+def extractHosptialLocations(collection):
+    dbInsert = {}
+    for elem in collection:
+        name = elem['name']
+        if name == "St. Elizabeth's Hospital":
+            name = "St Elizabeth's Hospital"
+        if name == "St. Margaret's Hospital For Women":
+            name = "St Margaret's Hospital For Women"
+        dbInsert[name] = (elem['location']['longitude'], elem['location']['latitude'])
+    return dbInsert
+
 # reduce the property value collection onto zipcar collections
 
 def collectionsReduce(a, compareCollection=propertyValues):
@@ -155,6 +166,12 @@ repo.dropPermanent("avg_property_values")
 repo.createPermanent("avg_property_values")
 repo['jmuru1_joshmah_tpacius.avg_property_values'].insert_one(avg_property_values)
 # print(propertyAvg(hospitals_property_sums,hospitals_property_counts))
+
+hospital_lat_lon = extractHosptialLocations(hospitalCollection)
+# print(hospital_lat_lon)
+repo.dropPermanent("hospital_lat_lon")
+repo.createPermanent("hospital_lat_lon")
+repo['jmuru1_joshmah_tpacius.hospital_lat_lon'].insert_one(hospital_lat_lon)
 
 # ===========================Perform ops on collections end==============================
 endTime = datetime.datetime.now()
