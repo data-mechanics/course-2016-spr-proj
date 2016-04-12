@@ -1,62 +1,658 @@
 {
+    "wasDerivedFrom": {
+        "_:id5": {
+            "prov:usage": "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116",
+            "prov:generatedEntity": "dat:propertyvalues",
+            "prov:generation": "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116",
+            "prov:usedEntity": "bdp:n7za-nsjh",
+            "prov:activity": "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116"
+        },
+        "_:id12": {
+            "prov:usage": "log:ad294e114-ddfe-467e-896d-5f66164142a9",
+            "prov:generatedEntity": "dat:hospitals",
+            "prov:generation": "log:ad294e114-ddfe-467e-896d-5f66164142a9",
+            "prov:usedEntity": "bdp:46f7-2snz",
+            "prov:activity": "log:ad294e114-ddfe-467e-896d-5f66164142a9"
+        },
+        "_:id15": {
+            "prov:usage": "log:a17ba5879-84b8-4670-95ec-44574130663e",
+            "prov:generatedEntity": "dat:streetjams",
+            "prov:generation": "log:a17ba5879-84b8-4670-95ec-44574130663e",
+            "prov:usedEntity": "bdp:yqgx-2ktq",
+            "prov:activity": "log:a17ba5879-84b8-4670-95ec-44574130663e"
+        }
+    },
+    "agent": {
+        "alg:dbProvOps": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:proj1": [
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        ]
+    },
     "activity": {
-        "log:a2de90db9-fe33-4006-bb14-6af0c1e0259b": {
-            "prov:endTime": "2016-04-12T14:18:58.647997",
-            "prov:type": "ont:Computation",
-            "prov:startTime": "2016-04-12T14:18:57.756549"
+        "log:a17ba5879-84b8-4670-95ec-44574130663e": {
+            "prov:startTime": "2016-04-12T14:28:32.932633",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-12T14:28:34.205340",
+            "ont:Query": "?$select=endnode"
+        },
+        "log:ad294e114-ddfe-467e-896d-5f66164142a9": {
+            "prov:startTime": "2016-04-12T14:28:32.932633",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-12T14:28:34.205340",
+            "ont:Query": "?type=ad&?$select=ad,name"
+        },
+        "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116": {
+            "prov:startTime": "2016-04-12T14:28:32.932633",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-12T14:28:34.205340",
+            "ont:Query": "?$limit=1000"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id6": {
+            "prov:activity": "log:ad294e114-ddfe-467e-896d-5f66164142a9",
+            "prov:agent": "alg:proj1"
+        },
+        "_:id1": {
+            "prov:activity": "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116",
+            "prov:agent": "alg:dbProvOps"
+        },
+        "_:id7": {
+            "prov:activity": "log:a17ba5879-84b8-4670-95ec-44574130663e",
+            "prov:agent": "alg:proj1"
+        }
+    },
+    "entity": {
+        "bdp:n7za-nsjh": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "Boston Property Values"
+        },
+        "bdp:yqgx-2ktq": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests"
+        },
+        "dat:streetjams": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "street"
+        },
+        "bdp:46f7-2snz": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests"
+        },
+        "dat:propertyvalues": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Property Values"
+        },
+        "dat:hospitals": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "ad"
+        }
+    },
+    "used": {
+        "_:id9": {
+            "prov:time": "2016-04-12T14:28:32.932633",
+            "prov:activity": "log:ad294e114-ddfe-467e-896d-5f66164142a9",
+            "prov:entity": "bdp:46f7-2snz"
+        },
+        "_:id2": {
+            "prov:time": "2016-04-12T14:28:32.932633",
+            "prov:activity": "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116",
+            "prov:entity": "bdp:n7za-nsjh"
+        },
+        "_:id8": {
+            "prov:time": "2016-04-12T14:28:32.932633",
+            "prov:activity": "log:a17ba5879-84b8-4670-95ec-44574130663e",
+            "prov:entity": "bdp:yqgx-2ktq"
         }
     },
     "prefix": {
         "log": "http://datamechanics.io/log#",
         "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
-        "bdp": "https://data.cityofboston.gov/resource/",
         "ont": "http://datamechanics.io/ontology#",
-        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/"
     },
+    "wasAttributedTo": {
+        "_:id10": {
+            "prov:agent": "alg:proj1",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id3": {
+            "prov:agent": "alg:dbProvOps",
+            "prov:entity": "dat:propertyvalues"
+        },
+        "_:id13": {
+            "prov:agent": "alg:proj1",
+            "prov:entity": "dat:streetjams"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id4": {
+            "prov:time": "2016-04-12T14:28:34.205340",
+            "prov:activity": "log:a1ce647f1-5d31-447b-8dd5-1bcec185f116",
+            "prov:entity": "dat:propertyvalues"
+        },
+        "_:id14": {
+            "prov:time": "2016-04-12T14:28:34.205340",
+            "prov:activity": "log:a17ba5879-84b8-4670-95ec-44574130663e",
+            "prov:entity": "dat:streetjams"
+        },
+        "_:id11": {
+            "prov:time": "2016-04-12T14:28:34.205340",
+            "prov:activity": "log:ad294e114-ddfe-467e-896d-5f66164142a9",
+            "prov:entity": "dat:hospitals"
+        }
+    }
+}{
     "wasAssociatedWith": {
         "_:id1": {
-            "prov:activity": "log:a2de90db9-fe33-4006-bb14-6af0c1e0259b",
-            "prov:agent": "alg:databaseIntersectionOp"
+            "prov:activity": "log:a292d1c14-d89a-44c2-a508-b3055a9b9356",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "ont": "http://datamechanics.io/ontology#",
+        "bdp": "https://data.cityofboston.gov/resource/"
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
         }
     },
     "used": {
         "_:id2": {
-            "prov:activity": "log:a2de90db9-fe33-4006-bb14-6af0c1e0259b",
-            "prov:entity": "dat:intersectionsHospitalsStreets",
-            "prov:time": "2016-04-12T14:18:57.756549"
+            "prov:entity": "dat:hospital_reduction",
+            "prov:time": "2016-04-12T15:37:45.889956",
+            "prov:activity": "log:a292d1c14-d89a-44c2-a508-b3055a9b9356"
         },
         "_:id4": {
-            "prov:activity": "log:a2de90db9-fe33-4006-bb14-6af0c1e0259b",
-            "prov:entity": "dat:hospital_jams_count",
-            "prov:time": "2016-04-12T14:18:57.756549"
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:time": "2016-04-12T15:37:45.889956",
+            "prov:activity": "log:a292d1c14-d89a-44c2-a508-b3055a9b9356"
         },
         "_:id3": {
-            "prov:activity": "log:a2de90db9-fe33-4006-bb14-6af0c1e0259b",
-            "prov:entity": "dat:intersectionsJamsHospitals",
-            "prov:time": "2016-04-12T14:18:57.756549"
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:time": "2016-04-12T15:37:45.889956",
+            "prov:activity": "log:a292d1c14-d89a-44c2-a508-b3055a9b9356"
+        },
+        "_:id5": {
+            "prov:entity": "dat:avg_property_values",
+            "prov:time": "2016-04-12T15:37:45.889956",
+            "prov:activity": "log:a292d1c14-d89a-44c2-a508-b3055a9b9356"
         }
     },
     "entity": {
-        "dat:intersectionsHospitalsStreets": {
-            "prov:label": "Hospitals Addresses and Traffic Intersections Reduced by Street",
+        "dat:hospitals_property_sums": {
+            "prov:label": "Total Property Value by Zipcode",
             "prov:type": "ont:Computation"
         },
-        "dat:hospital_jams_count": {
-            "prov:label": "Hospitals and Nearby Traffic Jam Counts",
+        "dat:avg_property_values": {
+            "prov:label": "Average Property Value by Zipcode",
             "prov:type": "ont:Computation"
         },
-        "dat:intersectionsJamsHospitals": {
-            "prov:label": "Traffic Jams and Hospitals Addresses Reduced by Street",
+        "dat:hospital_reduction": {
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:hospitals_property_counts": {
+            "prov:label": "Total Property Count by Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "activity": {
+        "log:a292d1c14-d89a-44c2-a508-b3055a9b9356": {
+            "prov:endTime": "2016-04-12T15:37:45.908844",
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-12T15:37:45.889956"
+        }
+    }
+}{
+    "entity": {
+        "dat:avg_property_values": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Average Property Value by Zipcode"
+        },
+        "dat:hospital_reduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode"
+        },
+        "dat:hospitals_property_sums": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Value by Zipcode"
+        },
+        "dat:hospitals_property_counts": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Count by Zipcode"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a542d1d52-c24b-4c01-8eab-25968c001cb9",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+    },
+    "activity": {
+        "log:a542d1d52-c24b-4c01-8eab-25968c001cb9": {
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-12T15:38:03.851414",
+            "prov:endTime": "2016-04-12T15:38:03.867987"
+        }
+    },
+    "used": {
+        "_:id5": {
+            "prov:entity": "dat:avg_property_values",
+            "prov:activity": "log:a542d1d52-c24b-4c01-8eab-25968c001cb9",
+            "prov:time": "2016-04-12T15:38:03.851414"
+        },
+        "_:id3": {
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:activity": "log:a542d1d52-c24b-4c01-8eab-25968c001cb9",
+            "prov:time": "2016-04-12T15:38:03.851414"
+        },
+        "_:id2": {
+            "prov:entity": "dat:hospital_reduction",
+            "prov:activity": "log:a542d1d52-c24b-4c01-8eab-25968c001cb9",
+            "prov:time": "2016-04-12T15:38:03.851414"
+        },
+        "_:id4": {
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:activity": "log:a542d1d52-c24b-4c01-8eab-25968c001cb9",
+            "prov:time": "2016-04-12T15:38:03.851414"
+        }
+    }
+}{
+    "used": {
+        "_:id4": {
+            "prov:time": "2016-04-12T15:46:02.230154",
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:activity": "log:a17d67e9a-caf6-4adb-9bd8-7a0e1eeb5451"
+        },
+        "_:id5": {
+            "prov:time": "2016-04-12T15:46:02.230154",
+            "prov:entity": "dat:avg_property_values",
+            "prov:activity": "log:a17d67e9a-caf6-4adb-9bd8-7a0e1eeb5451"
+        },
+        "_:id3": {
+            "prov:time": "2016-04-12T15:46:02.230154",
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:activity": "log:a17d67e9a-caf6-4adb-9bd8-7a0e1eeb5451"
+        },
+        "_:id2": {
+            "prov:time": "2016-04-12T15:46:02.230154",
+            "prov:entity": "dat:hospital_reduction",
+            "prov:activity": "log:a17d67e9a-caf6-4adb-9bd8-7a0e1eeb5451"
+        }
+    },
+    "entity": {
+        "dat:hospitals_property_sums": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Value by Zipcode"
+        },
+        "dat:hospitals_property_counts": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Count by Zipcode"
+        },
+        "dat:hospital_reduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode"
+        },
+        "dat:avg_property_values": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Average Property Value by Zipcode"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a17d67e9a-caf6-4adb-9bd8-7a0e1eeb5451"
+        }
+    },
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "activity": {
+        "log:a17d67e9a-caf6-4adb-9bd8-7a0e1eeb5451": {
+            "prov:startTime": "2016-04-12T15:46:02.230154",
+            "prov:endTime": "2016-04-12T15:46:02.248368",
+            "prov:type": "ont:Computation"
+        }
+    }
+}{
+    "used": {
+        "_:id3": {
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:time": "2016-04-12T15:46:15.272953",
+            "prov:activity": "log:ae2d21e66-9f33-45a9-ac95-cecbf32f58c1"
+        },
+        "_:id2": {
+            "prov:entity": "dat:hospital_reduction",
+            "prov:time": "2016-04-12T15:46:15.272953",
+            "prov:activity": "log:ae2d21e66-9f33-45a9-ac95-cecbf32f58c1"
+        },
+        "_:id5": {
+            "prov:entity": "dat:avg_property_values",
+            "prov:time": "2016-04-12T15:46:15.272953",
+            "prov:activity": "log:ae2d21e66-9f33-45a9-ac95-cecbf32f58c1"
+        },
+        "_:id4": {
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:time": "2016-04-12T15:46:15.272953",
+            "prov:activity": "log:ae2d21e66-9f33-45a9-ac95-cecbf32f58c1"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "bdp": "https://data.cityofboston.gov/resource/"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:ae2d21e66-9f33-45a9-ac95-cecbf32f58c1"
+        }
+    },
+    "entity": {
+        "dat:hospitals_property_counts": {
+            "prov:label": "Total Property Count by Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:hospitals_property_sums": {
+            "prov:label": "Total Property Value by Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:hospital_reduction": {
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:avg_property_values": {
+            "prov:label": "Average Property Value by Zipcode",
             "prov:type": "ont:Computation"
         }
     },
     "agent": {
-        "alg:databaseIntersectionOp": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "activity": {
+        "log:ae2d21e66-9f33-45a9-ac95-cecbf32f58c1": {
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-12T15:46:15.272953",
+            "prov:endTime": "2016-04-12T15:46:15.289744"
+        }
+    }
+}{
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "entity": {
+        "dat:hospital_reduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode"
+        },
+        "dat:avg_property_values": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Average Property Value by Zipcode"
+        },
+        "dat:hospitals_property_sums": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Value by Zipcode"
+        },
+        "dat:hospitals_property_counts": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Count by Zipcode"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:aaa9b8f15-1d1e-4f17-aef6-833b53765837",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "used": {
+        "_:id5": {
+            "prov:time": "2016-04-12T15:47:39.346405",
+            "prov:entity": "dat:avg_property_values",
+            "prov:activity": "log:aaa9b8f15-1d1e-4f17-aef6-833b53765837"
+        },
+        "_:id2": {
+            "prov:time": "2016-04-12T15:47:39.346405",
+            "prov:entity": "dat:hospital_reduction",
+            "prov:activity": "log:aaa9b8f15-1d1e-4f17-aef6-833b53765837"
+        },
+        "_:id3": {
+            "prov:time": "2016-04-12T15:47:39.346405",
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:activity": "log:aaa9b8f15-1d1e-4f17-aef6-833b53765837"
+        },
+        "_:id4": {
+            "prov:time": "2016-04-12T15:47:39.346405",
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:activity": "log:aaa9b8f15-1d1e-4f17-aef6-833b53765837"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
             "prov:type": {
                 "type": "prov:QUALIFIED_NAME",
                 "$": "prov:SoftwareAgent"
             },
             "ont:Extension": "py"
         }
+    },
+    "activity": {
+        "log:aaa9b8f15-1d1e-4f17-aef6-833b53765837": {
+            "prov:endTime": "2016-04-12T15:47:39.375014",
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-12T15:47:39.346405"
+        }
+    }
+}{
+    "entity": {
+        "dat:hospitals_property_sums": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Value by Zipcode"
+        },
+        "dat:hospital_reduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode"
+        },
+        "dat:hospitals_property_counts": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Total Property Count by Zipcode"
+        },
+        "dat:avg_property_values": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Average Property Value by Zipcode"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:ac4b8ba4f-0dba-4a41-a872-42ed8ee84f3f",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#"
+    },
+    "activity": {
+        "log:ac4b8ba4f-0dba-4a41-a872-42ed8ee84f3f": {
+            "prov:endTime": "2016-04-12T15:48:11.206270",
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-12T15:48:11.179191"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:entity": "dat:hospital_reduction",
+            "prov:activity": "log:ac4b8ba4f-0dba-4a41-a872-42ed8ee84f3f",
+            "prov:time": "2016-04-12T15:48:11.179191"
+        },
+        "_:id4": {
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:activity": "log:ac4b8ba4f-0dba-4a41-a872-42ed8ee84f3f",
+            "prov:time": "2016-04-12T15:48:11.179191"
+        },
+        "_:id3": {
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:activity": "log:ac4b8ba4f-0dba-4a41-a872-42ed8ee84f3f",
+            "prov:time": "2016-04-12T15:48:11.179191"
+        },
+        "_:id5": {
+            "prov:entity": "dat:avg_property_values",
+            "prov:activity": "log:ac4b8ba4f-0dba-4a41-a872-42ed8ee84f3f",
+            "prov:time": "2016-04-12T15:48:11.179191"
+        }
+    }
+}{
+    "used": {
+        "_:id2": {
+            "prov:entity": "dat:hospital_reduction",
+            "prov:time": "2016-04-12T15:48:28.886589",
+            "prov:activity": "log:a111dd166-2aeb-4924-81a5-9615359ce693"
+        },
+        "_:id4": {
+            "prov:entity": "dat:hospitals_property_counts",
+            "prov:time": "2016-04-12T15:48:28.886589",
+            "prov:activity": "log:a111dd166-2aeb-4924-81a5-9615359ce693"
+        },
+        "_:id3": {
+            "prov:entity": "dat:hospitals_property_sums",
+            "prov:time": "2016-04-12T15:48:28.886589",
+            "prov:activity": "log:a111dd166-2aeb-4924-81a5-9615359ce693"
+        },
+        "_:id5": {
+            "prov:entity": "dat:avg_property_values",
+            "prov:time": "2016-04-12T15:48:28.886589",
+            "prov:activity": "log:a111dd166-2aeb-4924-81a5-9615359ce693"
+        }
+    },
+    "entity": {
+        "dat:hospitals_property_counts": {
+            "prov:label": "Total Property Count by Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:avg_property_values": {
+            "prov:label": "Average Property Value by Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:hospital_reduction": {
+            "prov:label": "Hospitals and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:hospitals_property_sums": {
+            "prov:label": "Total Property Value by Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "activity": {
+        "log:a111dd166-2aeb-4924-81a5-9615359ce693": {
+            "prov:startTime": "2016-04-12T15:48:28.886589",
+            "prov:endTime": "2016-04-12T15:48:28.913881",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a111dd166-2aeb-4924-81a5-9615359ce693"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
     }
 }

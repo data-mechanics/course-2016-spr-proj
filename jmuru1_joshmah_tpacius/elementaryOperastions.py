@@ -62,17 +62,13 @@ def getCollection(dbName):
 	for elem in repo['jmuru1_joshmah_tpacius.' + dbName].find({}):
 		temp.append(elem)
 	return temp
-
-def addZero(hz):
-    temp = '0' + hz
-    return temp
-
-
 # ========================query database functions end =================================
 
 # ===========================Perform ops on collections==============================
 propertyValues = getCollection("propertyvalue")
 hospitalCollection = getCollection("hospitals")
+streetJamCollection = getCollection("streetjams")
+
 
 def extractHosptialLocations(collection):
     dbInsert = {}
@@ -86,6 +82,10 @@ def extractHosptialLocations(collection):
     return dbInsert
 
 # reduce the property value collection onto zipcar collections
+
+def addZero(hz):
+    temp = '0' + hz
+    return temp
 
 def collectionsReduce(a, compareCollection=propertyValues):
     h = [(addZero(hospiZip["zipcode"]), hospiZip) for hospiZip in a] # get hospital zips
@@ -143,37 +143,43 @@ def propertyAvg(proplist1, proplist2):
                 dbInsert[key1] = ceil(value1/value2)
     return dbInsert
 
-hospitalReduction = collectionsReduce(hospitalCollection)
-repo.dropPermanent("hospitals_reduction")
-repo.createPermanent("hospitals_reduction")
+# ===========================Perform ops on collections End==============================
 
-for elem in hospitalReduction:
-    d = {elem[0]: elem[1]}
-    repo['jmuru1_joshmah_tpacius.hospitals_reduction'].insert_one(d)
+#--------------------------------------- creating collections -------------------------------------
 
-hospitals_property_sums = zipcodeAggregate(getCollection('hospitals_reduction'))
-repo.dropPermanent("hospitals_property_sums")
-repo.createPermanent("hospitals_property_sums")
-repo['jmuru1_joshmah_tpacius.hospitals_property_sums'].insert_one(hospitals_property_sums)
+# hospitalReduction = collectionsReduce(hospitalCollection)
+# repo.dropPermanent("hospitals_reduction")
+# repo.createPermanent("hospitals_reduction")
 
-hospitals_property_counts = zipcodeLengthAggregate(getCollection('hospitals_reduction'))
-repo.dropPermanent("hospitals_property_counts")
-repo.createPermanent("hospitals_property_counts")
-repo['jmuru1_joshmah_tpacius.hospitals_property_counts'].insert_one(hospitals_property_counts)
+# for elem in hospitalReduction:
+#     d = {elem[0]: elem[1]}
+#     repo['jmuru1_joshmah_tpacius.hospitals_reduction'].insert_one(d)
 
-avg_property_values = propertyAvg(hospitals_property_sums,hospitals_property_counts)
-repo.dropPermanent("avg_property_values")
-repo.createPermanent("avg_property_values")
-repo['jmuru1_joshmah_tpacius.avg_property_values'].insert_one(avg_property_values)
-# print(propertyAvg(hospitals_property_sums,hospitals_property_counts))
+# hospitals_property_sums = zipcodeAggregate(getCollection('hospitals_reduction'))
+# repo.dropPermanent("hospitals_property_sums")
+# repo.createPermanent("hospitals_property_sums")
+# repo['jmuru1_joshmah_tpacius.hospitals_property_sums'].insert_one(hospitals_property_sums)
+#
+# hospitals_property_counts = zipcodeLengthAggregate(getCollection('hospitals_reduction'))
+# repo.dropPermanent("hospitals_property_counts")
+# repo.createPermanent("hospitals_property_counts")
+# repo['jmuru1_joshmah_tpacius.hospitals_property_counts'].insert_one(hospitals_property_counts)
+#
+# avg_property_values = propertyAvg(hospitals_property_sums,hospitals_property_counts)
+# repo.dropPermanent("avg_property_values")
+# repo.createPermanent("avg_property_values")
+# repo['jmuru1_joshmah_tpacius.avg_property_values'].insert_one(avg_property_values)
+# # print(propertyAvg(hospitals_property_sums,hospitals_property_counts))
+#
+# hospital_lat_lon = extractHosptialLocations(hospitalCollection)
+# # print(hospital_lat_lon)
+# repo.dropPermanent("hospital_lat_lon")
+# repo.createPermanent("hospital_lat_lon")
+# repo['jmuru1_joshmah_tpacius.hospital_lat_lon'].insert_one(hospital_lat_lon)
 
-hospital_lat_lon = extractHosptialLocations(hospitalCollection)
-# print(hospital_lat_lon)
-repo.dropPermanent("hospital_lat_lon")
-repo.createPermanent("hospital_lat_lon")
-repo['jmuru1_joshmah_tpacius.hospital_lat_lon'].insert_one(hospital_lat_lon)
+#--------------------------------------- creating collections end ---------------------------------------
 
-# ===========================Perform ops on collections end==============================
+# ===========================Prov==============================
 endTime = datetime.datetime.now()
 
 doc = prov.model.ProvDocument()
@@ -201,3 +207,4 @@ repo.record(doc.serialize()) # Record the provenance document.
 open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
 # print(doc.get_provn())
 repo.logout()
+# ===========================Prov End==============================

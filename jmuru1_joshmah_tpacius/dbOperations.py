@@ -16,26 +16,6 @@ repo.authenticate('jmuru1_joshmah_tpacius', 'jmuru1_joshmah_tpacius')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-#Josh Stuff ===========================================================
-repo.dropPermanent("streetjams")
-repo.createPermanent("streetjams")
-repo['jmuru1_joshmah_tpacius.streetjams'].insert_many(apiTest.streetJams)
-# x = repo['joshmah.streetjams'].find({});
-
-repo.dropPermanent("hospitals")
-repo.createPermanent("hospitals")
-repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(apiTest.hospitals)
-
-repo.dropPermanent("emsdeparture")
-repo.createPermanent("emsdeparture")
-repo['jmuru1_joshmah_tpacius.emsdeparture'].insert_many(apiTest.emsDeparture)
-#Josh Stuff end =============================================================
-
-repo.dropPermanent("propertyvalue")
-repo.createPermanent("propertyvalue")
-repo['jmuru1_joshmah_tpacius.propertyvalue'].insert_many(apiTest.propertyvalue)
-# ========================query database=================================
-
 
 def getCollection(dbName):
 	temp = []
@@ -44,7 +24,29 @@ def getCollection(dbName):
 	for elem in repo['jmuru1_joshmah_tpacius.' + dbName].find({}):
 		temp.append(elem)
 	return temp
+# ========================query database end=================================
+#Josh Stuff ===========================================================
+# repo.dropPermanent("streetjams")
+# repo.createPermanent("streetjams")
+# repo['jmuru1_joshmah_tpacius.streetjams'].insert_many(apiTest.streetJams)
+# # x = repo['joshmah.streetjams'].find({});
+#
+# repo.dropPermanent("hospitals")
+# repo.createPermanent("hospitals")
+# repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(apiTest.hospitals)
+#
+# repo.dropPermanent("emsdeparture")
+# repo.createPermanent("emsdeparture")
+# repo['jmuru1_joshmah_tpacius.emsdeparture'].insert_many(apiTest.emsDeparture)
+#
+#
+# repo.dropPermanent("propertyvalue")
+# repo.createPermanent("propertyvalue")
+# repo['jmuru1_joshmah_tpacius.propertyvalue'].insert_many(apiTest.propertyvalue)
 
+# ========================query database=================================
+
+#================================ Prov ===================================
 
 endTime = datetime.datetime.now()
 
@@ -102,3 +104,4 @@ repo.record(doc.serialize()) # Record the provenance document.
 open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
+#================================ Prov End ===================================
