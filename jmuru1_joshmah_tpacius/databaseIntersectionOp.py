@@ -18,35 +18,7 @@ repo = client.repo
 repo.authenticate('jmuru1_joshmah_tpacius', 'jmuru1_joshmah_tpacius')
 startTime = datetime.datetime.now()
 
-#Json file for Waze Jam Data
-#url = 'https://data.cityofboston.gov/api/views/yqgx-2ktq/rows.json'
-
-url = 'https://data.cityofboston.gov/resource/yqgx-2ktq.json?'
-response = urllib.request.urlopen(url).read().decode("utf-8")
-
-r = json.loads(response)
-s = json.dumps(r, sort_keys=True, indent=2)
-
-repo.dropPermanent("streetjams")
-repo.createPermanent("streetjams")
-repo['jmuru1_joshmah_tpacius.streetjams'].insert_many(r)
-x = repo['jmuru1_joshmah_tpacius.streetjams'].find({});
-
-# Location of Hospitals
-#url = https://data.cityofboston.gov/api/views/46f7-2snz/rows.json
-
-url = "https://data.cityofboston.gov/resource/46f7-2snz.json?"
-response = urllib.request.urlopen(url).read().decode("utf-8")
-r = json.loads(response)
-s = json.dumps(r, sort_keys=True, indent=2)
-
-
-repo.dropPermanent("hospitals")
-repo.createPermanent("hospitals")
-repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(r)
-
-
-#Parse through dataases and put it into a temporary list.
+#Parse through databases and put it into a temporary list.
 def getCollection(dbName):
 	temp = []
 	for elem in repo['jmuru1_joshmah_tpacius.' + dbName].find({}):
@@ -145,9 +117,6 @@ def patternMatchRoads(R, S):
 Z = dict(patternMatchRoads(Xnames, Y))
 # print(Z)
 
-
-
-
 #Insert into a new database.
 
 repo.dropPermanent("intersectionsJamsHospitals")
@@ -170,39 +139,26 @@ endTime = datetime.datetime.now()
 # and "replay" everything. The old documents will also act as a
 # log.
 
-# Taken from example.py, chaning alice_bob to joshmah
+# Taken from example.py, chaning alice_bob to joshmah'jmuru1_joshmah_tpacius'
 doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'http://datamechanics.io/algorithm/joshmah/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'http://datamechanics.io/data/joshmah/') # The data sets in <user>/<collection> format.
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/jmuru1_joshmah_tpacius/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
 
 
-this_script = doc.agent('alg:proj1', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-resourceHospitals = doc.entity('bdp:46f7-2snz', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_script = doc.agent('alg:databaseIntersectionOp', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource1 = doc.entity('dat:intersectionsHospitalsStreets', {'prov:label':'Hospitals Addresses and Traffic Intersections Reduced by Street', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource2 = doc.entity('dat:intersectionsJamsHospitals', {'prov:label':'Traffic Jams and Hospitals Addresses Reduced by Street', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource3 = doc.entity('dat:hospital_jams_count', {'prov:label':'Hospitals and Nearby Traffic Jam Counts', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(this_run, this_script)
 
-this_script = doc.agent('alg:proj1', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-resourceStreetjams = doc.entity('bdp:yqgx-2ktq', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-
-get_hospitals = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=ad&?$select=ad,name'})
-get_streetjams = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?$select=endnode'})
-doc.wasAssociatedWith(get_hospitals, this_script)
-doc.wasAssociatedWith(get_streetjams, this_script)
-doc.used(get_streetjams, resourceStreetjams, startTime)
-doc.used(get_hospitals, resourceHospitals, startTime)
-
-hospitals = doc.entity('dat:hospitals', {prov.model.PROV_LABEL:'ad', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(hospitals, this_script)
-doc.wasGeneratedBy(hospitals, get_hospitals, endTime)
-doc.wasDerivedFrom(hospitals, resourceHospitals, get_hospitals, get_hospitals, get_hospitals)
-
-streetjams = doc.entity('dat:streetjams', {prov.model.PROV_LABEL:'street', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(streetjams, this_script)
-doc.wasGeneratedBy(streetjams, get_streetjams, endTime)
-doc.wasDerivedFrom(streetjams, resourceStreetjams, get_streetjams, get_streetjams, get_streetjams)
-
+doc.used(this_run, resource1, startTime)
+doc.used(this_run, resource2, startTime)
+doc.used(this_run, resource3, startTime)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
