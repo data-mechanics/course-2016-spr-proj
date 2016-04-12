@@ -1,0 +1,121 @@
+{
+    "wasGeneratedBy": {
+        "_:id6": {
+            "prov:entity": "dat:hospitals",
+            "prov:activity": "log:ae3609e86-3189-4a89-9578-1c989f70d469",
+            "prov:time": "2016-04-11T20:54:28.188768"
+        },
+        "_:id9": {
+            "prov:entity": "dat:streetjams",
+            "prov:activity": "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8",
+            "prov:time": "2016-04-11T20:54:28.188768"
+        }
+    },
+    "agent": {
+        "alg:proj1": [
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        ]
+    },
+    "activity": {
+        "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8": {
+            "prov:startTime": "2016-04-11T20:54:24.846165",
+            "ont:Query": "?$select=endnode",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-11T20:54:28.188768"
+        },
+        "log:ae3609e86-3189-4a89-9578-1c989f70d469": {
+            "prov:startTime": "2016-04-11T20:54:24.846165",
+            "ont:Query": "?type=ad&?$select=ad,name",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-11T20:54:28.188768"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id2": {
+            "prov:activity": "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8",
+            "prov:agent": "alg:proj1"
+        },
+        "_:id1": {
+            "prov:activity": "log:ae3609e86-3189-4a89-9578-1c989f70d469",
+            "prov:agent": "alg:proj1"
+        }
+    },
+    "used": {
+        "_:id4": {
+            "prov:entity": "bdp:46f7-2snz",
+            "prov:activity": "log:ae3609e86-3189-4a89-9578-1c989f70d469",
+            "prov:time": "2016-04-11T20:54:24.846165"
+        },
+        "_:id3": {
+            "prov:entity": "bdp:yqgx-2ktq",
+            "prov:activity": "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8",
+            "prov:time": "2016-04-11T20:54:24.846165"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:usedEntity": "bdp:yqgx-2ktq",
+            "prov:generatedEntity": "dat:streetjams",
+            "prov:activity": "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8",
+            "prov:usage": "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8",
+            "prov:generation": "log:a12b268e7-4f0f-418f-b50c-b3f64c0129c8"
+        },
+        "_:id7": {
+            "prov:usedEntity": "bdp:46f7-2snz",
+            "prov:generatedEntity": "dat:hospitals",
+            "prov:activity": "log:ae3609e86-3189-4a89-9578-1c989f70d469",
+            "prov:usage": "log:ae3609e86-3189-4a89-9578-1c989f70d469",
+            "prov:generation": "log:ae3609e86-3189-4a89-9578-1c989f70d469"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/joshmah/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/joshmah/"
+    },
+    "entity": {
+        "bdp:yqgx-2ktq": {
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:hospitals": {
+            "prov:label": "ad",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:streetjams": {
+            "prov:label": "street",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:46f7-2snz": {
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id5": {
+            "prov:entity": "dat:hospitals",
+            "prov:agent": "alg:proj1"
+        },
+        "_:id8": {
+            "prov:entity": "dat:streetjams",
+            "prov:agent": "alg:proj1"
+        }
+    }
+}

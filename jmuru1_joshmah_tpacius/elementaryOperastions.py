@@ -4,6 +4,7 @@ import pymongo
 import prov.model
 import datetime
 import uuid
+import re
 import apitest as apitest
 
 # Until a library is created, we just use the script directly.
@@ -60,6 +61,22 @@ def getCollection(dbName):
 	for elem in repo['jmuru1_tpacius.' + dbName].find({}):
 		temp.append(elem)
 	return temp
+
+# regex that extracts street names from streetjams
+Xnew = set()
+Xnew2 = []
+for i in range(len(X)):
+    temp = (re.sub(r'[A-Z]', '', X[i]))
+    temp = (re.sub(r"\s+", "", temp))
+    Xnew.add(temp)
+for i in range(len(X)):
+    temp = (re.sub(r'[A-Z]', '', X[i]))
+    temp = (re.sub(r"\s+", "", temp))
+    temp = temp[0:5]
+    Xnew2.append(temp)
+Xnew2 = sorted(Xnew2)
+
+# regex extracting zipcodes from the hospital database
 # ========================query database functions end =================================
 
 # ===========================Perform ops on collections==============================

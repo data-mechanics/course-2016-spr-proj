@@ -1,0 +1,121 @@
+{
+    "used": {
+        "_:id4": {
+            "prov:activity": "log:a75a6c340-25ec-407a-b7a6-f935e61050a5",
+            "prov:entity": "bdp:ak6k-a5up",
+            "prov:time": "2016-04-11T20:54:47.745991"
+        },
+        "_:id3": {
+            "prov:activity": "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae",
+            "prov:entity": "bdp:yqgx-2ktq",
+            "prov:time": "2016-04-11T20:54:47.745991"
+        }
+    },
+    "prefix": {
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/joshmah/",
+        "dat": "http://datamechanics.io/data/joshmah/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#"
+    },
+    "wasAssociatedWith": {
+        "_:id2": {
+            "prov:activity": "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae",
+            "prov:agent": "alg:proj1partb"
+        },
+        "_:id1": {
+            "prov:activity": "log:a75a6c340-25ec-407a-b7a6-f935e61050a5",
+            "prov:agent": "alg:proj1partb"
+        }
+    },
+    "entity": {
+        "bdp:ak6k-a5up": {
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:streetjams": {
+            "prov:label": "starttime",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:yqgx-2ktq": {
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:emsdepartures": {
+            "prov:label": "start_standard_time",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "agent": {
+        "alg:proj1partb": [
+            {
+                "ont:Extension": "py",
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "ont:Extension": "py",
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            }
+        ]
+    },
+    "activity": {
+        "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae": {
+            "ont:Query": "?$select=endnode",
+            "prov:startTime": "2016-04-11T20:54:47.745991",
+            "prov:endTime": "2016-04-11T20:54:51.149441",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a75a6c340-25ec-407a-b7a6-f935e61050a5": {
+            "ont:Query": "?type=ad&?$select=ad,name",
+            "prov:startTime": "2016-04-11T20:54:47.745991",
+            "prov:endTime": "2016-04-11T20:54:51.149441",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:activity": "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae",
+            "prov:usedEntity": "bdp:yqgx-2ktq",
+            "prov:generatedEntity": "dat:streetjams",
+            "prov:usage": "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae",
+            "prov:generation": "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae"
+        },
+        "_:id7": {
+            "prov:activity": "log:a75a6c340-25ec-407a-b7a6-f935e61050a5",
+            "prov:usedEntity": "bdp:ak6k-a5up",
+            "prov:generatedEntity": "dat:emsdepartures",
+            "prov:usage": "log:a75a6c340-25ec-407a-b7a6-f935e61050a5",
+            "prov:generation": "log:a75a6c340-25ec-407a-b7a6-f935e61050a5"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id8": {
+            "prov:entity": "dat:streetjams",
+            "prov:agent": "alg:proj1partb"
+        },
+        "_:id5": {
+            "prov:entity": "dat:emsdepartures",
+            "prov:agent": "alg:proj1partb"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id6": {
+            "prov:activity": "log:a75a6c340-25ec-407a-b7a6-f935e61050a5",
+            "prov:entity": "dat:emsdepartures",
+            "prov:time": "2016-04-11T20:54:51.149441"
+        },
+        "_:id9": {
+            "prov:activity": "log:a675cbd6c-a2d2-4b3f-99a8-693e20aa20ae",
+            "prov:entity": "dat:streetjams",
+            "prov:time": "2016-04-11T20:54:51.149441"
+        }
+    }
+}
