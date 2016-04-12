@@ -109,12 +109,13 @@ class HomeValueModelProcessor(MCRASProcessor):
         self.database_helper = database_helper
 
     def run_processor(self, full_provenance=False):
+        print('Estimating knn for home values')
         start_time = datetime.datetime.now()
         df = self._load_prep_df()
 
         # Boundaries for subset of Boston
-        x_min, x_max = -71.0725, -71.05
-        y_min, y_max = 42.35, 42.368
+        x_min, x_max = -71.1, -71.0475
+        y_min, y_max = 42.34, 42.369
         bounds = ((x_min, y_min), (x_max, y_max))
 
         df = df[(df['LONGITUDE'] < x_max) & (df['LONGITUDE'] > x_min) &
@@ -122,15 +123,13 @@ class HomeValueModelProcessor(MCRASProcessor):
 
         self._knn_property_values(df, bounds)
 
-        # TODO write to database
-        # self.database_helper.insert_permanent_collection(self.settings.data_entity, html_json)
-
         end_time = datetime.datetime.now()
 
         home_value_provenance = \
             HomeValueModelProvenance(self.settings, database_helper=self.database_helper)
         home_value_provenance.\
             update_provenance(full_provenance=full_provenance, start_time=start_time, end_time=end_time)
+        print('Done estimating knn for home values')
 
     def _load_prep_df(self):
         df = self.database_helper.load_permanent_pandas(
@@ -165,13 +164,13 @@ class HomeValueModelProcessor(MCRASProcessor):
 
     @staticmethod
     def _knn_property_values(df, bounds):
-        clf = neighbors.KNeighborsRegressor(n_neighbors=5, weights='distance')
+        clf = neighbors.KNeighborsRegressor(n_neighbors=10, weights='distance')
         X = df[['LATITUDE', 'LONGITUDE']].values
         y = df['PPSQFT']
 
         clf.fit(X, y)
 
-        h = .0005  # step size in the mesh
+        h = .0003  # step size in the mesh
 
         # Plot the decision boundary. For that, we will assign a color to each
         # point in the mesh [x_min, m_max]x[y_min, y_max].
@@ -183,4 +182,13 @@ class HomeValueModelProcessor(MCRASProcessor):
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
         MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='home_value_model.html',
-                                      legend_text='Estimated value per square foot of home ($)')
+                                      legend_text='Estimated value per square foot of home ($)',
+                                      description_title='Predicting home values in Boston',
+                                      description_text='Using <a target="_blank" '
+                                                       'href="http://scikit-learn.org/stable/modules/generated/'
+                                                       'sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.'
+                                                       'KNeighborsRegressor">k-nearest '
+                                                       'neighbors regression</a>, we fit a model over '
+                                                       'the area of downtown Boston with latitude and longitude as '
+                                                       'predictors and home values from 2015 assessors data to '
+                                                       'create a spatial model of home prices across the city.')

@@ -109,17 +109,14 @@ class CrimeKNNProcessor(MCRASProcessor):
         df = self._load_prep_df()
 
         # Boundaries for subset of Boston
-        x_min, x_max = -71.0725, -71.05
-        y_min, y_max = 42.35, 42.368
+        x_min, x_max = -71.1, -71.0475
+        y_min, y_max = 42.34, 42.369
         bounds = ((x_min, y_min), (x_max, y_max))
 
         df = df[(df['LONGITUDE'] < x_max) & (df['LONGITUDE'] > x_min) &
                 (df['LATITUDE'] < y_max) & (df['LATITUDE'] > y_min)].copy()
 
         self._knn_weekday_analysis(df, bounds)
-
-        # TODO write to database
-        # self.database_helper.insert_permanent_collection(self.settings.data_entity, html_json)
 
         end_time = datetime.datetime.now()
 
@@ -161,7 +158,7 @@ class CrimeKNNProcessor(MCRASProcessor):
             if max_score + .001 > clf.score(X, y):
                 break
 
-        h = .0005  # step size in the mesh
+        h = .0003  # step size in the mesh
 
         # Plot the decision boundary. For that, we will assign a color to each
         # point in the mesh [x_min, m_max]x[y_min, y_max].
@@ -173,4 +170,12 @@ class CrimeKNNProcessor(MCRASProcessor):
         Z = Z.reshape(xx.shape)
 
         MCRASPlotting.leaflet_heatmap(yy=yy, xx=xx, Z=Z, bounds=bounds, map_path='crime_knn_weekday.html',
-                                      legend_text='Weekend (1) vs Weekday (0)', tiles='osm_mapnik')
+                                      legend_text='Weekday (0) vs Weekend (1)', tiles='osm_mapnik',
+                                      description_title='Predicting weekend vs weekday crimes in Boston',
+                                      description_text='Using <a target="_blank" '
+                                                       'href="http://scikit-learn.org/stable/modules/generated'
+                                                       '/sklearn.neighbors.KNeighborsClassifier.html">k-nearest '
+                                                       'neighbors classification</a>, we fit a model over '
+                                                       'the area of downtown Boston with latitude and longitude as '
+                                                       'predictors and all crimes from January to August 2015, '
+                                                       'flagged with day of the week they were committed.')
