@@ -6,6 +6,7 @@ import datetime
 import uuid
 import re
 import apiTest as apiTest
+from math import ceil
 
 # Until a library is created, we just use the script directly.
 exec(open('pymongo_dm.py').read())
@@ -122,16 +123,38 @@ def zipcodeLengthAggregate(propList):
     return dbInsert
 
 def propertyAvg(proplist1, proplist2):
-    props1 = proplist1[0]
-    props2 = proplist2[0]
+    props1 = proplist1
+    props2 = proplist2
     dbInsert = {}
     for key1, value1 in props1.items():
         for key2, value2 in props2.items():
             if key1 == key2 and isinstance(value1, int) and isinstance(value2,int) and value1 != 0 :
-                dbInsert[key1] = value1/value2
+                dbInsert[key1] = ceil(value1/value2)
     return dbInsert
 
+hospitalReduction = collectionsReduce(hospitalCollection)
+repo.dropPermanent("hospitals_reduction")
+repo.createPermanent("hospitals_reduction")
 
+for elem in hospitalReduction:
+    d = {elem[0]: elem[1]}
+    repo['jmuru1_joshmah_tpacius.hospitals_reduction'].insert_one(d)
+
+hospitals_property_sums = zipcodeAggregate(getCollection('hospitals_reduction'))
+repo.dropPermanent("hospitals_property_sums")
+repo.createPermanent("hospitals_property_sums")
+repo['jmuru1_joshmah_tpacius.hospitals_property_sums'].insert_one(hospitals_property_sums)
+
+hospitals_property_counts = zipcodeLengthAggregate(getCollection('hospitals_reduction'))
+repo.dropPermanent("hospitals_property_counts")
+repo.createPermanent("hospitals_property_counts")
+repo['jmuru1_joshmah_tpacius.hospitals_property_counts'].insert_one(hospitals_property_counts)
+
+avg_property_values = propertyAvg(hospitals_property_sums,hospitals_property_counts)
+repo.dropPermanent("avg_property_values")
+repo.createPermanent("avg_property_values")
+repo['jmuru1_joshmah_tpacius.avg_property_values'].insert_one(avg_property_values)
+# print(propertyAvg(hospitals_property_sums,hospitals_property_counts))
 
 # ===========================Perform ops on collections end==============================
 endTime = datetime.datetime.now()
