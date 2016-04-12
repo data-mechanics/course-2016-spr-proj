@@ -98,7 +98,7 @@ for i in range(len(x)):
     temp = (re.sub(r'\.','',x[i]['name']))
     Xnames.append((Xnew[i],temp))
 Xnames2 = dict((x,y) for y, x in Xnames)
-print(Xnames2)
+# print(Xnames2)
 
 repo.dropPermanent("intersectionsHospitalsStreets")
 repo.createPermanent("intersectionsHospitalsStreets")
@@ -107,7 +107,7 @@ repo['jmuru1_joshmah_tpacius.intersectionsHospitalsStreets'].insert_one(Xnames2)
 #Useful if you want to see which hospitals are on which streets.
 #print(Xnames2)
 
-#print(Xnames)
+# print(Xnames)
 
 #Capitalizing everything for streetjams address
 Ynew = []
@@ -123,11 +123,27 @@ Y = intersect(Ynew,Xnew)
 
 #Number of hospitals on streets that have intersections
 X = dict((x,X.count(x)) for x in set(X))
-print(X)
+# print(X)
 
 #Put it into the dict with a count of how many intersections occur.
 Y = dict((x,Y.count(x)) for x in Y)
-print(Y)
+# print(Y)
+
+#Intersection over hospital street names and counts
+
+#Match traffic jam count to hospital names
+def patternMatchRoads(R, S):
+    result = []
+    for elem in R:
+        (k1,v1) = elem
+        for k2, v2 in S.items():
+            if k1 == k2:
+                result.append((v1,v2))
+    return result
+
+
+Z = dict(patternMatchRoads(Xnames, Y))
+# print(Z)
 
 
 
@@ -137,6 +153,11 @@ print(Y)
 repo.dropPermanent("intersectionsJamsHospitals")
 repo.createPermanent("intersectionsJamsHospitals")
 repo['jmuru1_joshmah_tpacius.intersectionsJamsHospitals'].insert_one(Y)
+
+#ADD PROVENANCE!?
+repo.dropPermanent("hospital_jams_count")
+repo.createPermanent("hospital_jams_count")
+repo['jmuru1_joshmah_tpacius.hospital_jams_count'].insert_one(Z)
 
 
 endTime = datetime.datetime.now()
