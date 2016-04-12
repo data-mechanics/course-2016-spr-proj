@@ -167,13 +167,17 @@ doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
 this_script = doc.agent('alg:ElementaryOperations', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-resource1 = doc.entity('dat:membersreduction', {'prov:label':'Members and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
-resource2 = doc.entity('dat:reservationsreduction', {'prov:label':'Reservations and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource1 = doc.entity('dat:hospital_reduction', {'prov:label':'Hospitals and Property Values Reduced By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource2 = doc.entity('dat:hospitals_property_sums', {'prov:label':'Total Property Value by Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource3 = doc.entity('dat:hospitals_property_counts', {'prov:label':'Total Property Count by Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource4 = doc.entity('dat:avg_property_values', {'prov:label':'Average Property Value by Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
 this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', prov.model.PROV_TYPE:'ont:Computation'})
 doc.wasAssociatedWith(this_run, this_script)
 
 doc.used(this_run, resource1, startTime)
 doc.used(this_run, resource2, startTime)
+doc.used(this_run, resource3, startTime)
+doc.used(this_run, resource4, startTime)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
