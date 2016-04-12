@@ -23,4 +23,6 @@ propertyvalue = request(propertyUrl)[0]
 streetJams = request(streetJamsUrl)[0]
 hospitals = request(hospitalsUrl)[0]
 emsDeparture = request(emsDepartureUrl)[0]
+#
+# print(propertyvalue)
 #eof

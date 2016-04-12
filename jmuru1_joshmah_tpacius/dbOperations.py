@@ -17,18 +17,18 @@ repo.authenticate('jmuru1_joshmah_tpacius', 'jmuru1_joshmah_tpacius')
 startTime = datetime.datetime.now()
 
 #Josh Stuff ===========================================================
-# repo.dropPermanent("streetjams")
-# repo.createPermanent("streetjams")
-# repo['jmuru1_joshmah_tpacius.streetjams'].insert_many(apiTest.streetJams)
-# # x = repo['joshmah.streetjams'].find({});
-#
-# repo.dropPermanent("hospitals")
-# repo.createPermanent("hospitals")
-# repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(apiTest.hospitals)
-#
-# repo.dropPermanent("emsdeparture")
-# repo.createPermanent("emsdeparture")
-# repo['jmuru1_joshmah_tpacius.emsdeparture'].insert_many(apiTest.emsDeparture)
+repo.dropPermanent("streetjams")
+repo.createPermanent("streetjams")
+repo['jmuru1_joshmah_tpacius.streetjams'].insert_many(apiTest.streetJams)
+# x = repo['joshmah.streetjams'].find({});
+
+repo.dropPermanent("hospitals")
+repo.createPermanent("hospitals")
+repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(apiTest.hospitals)
+
+repo.dropPermanent("emsdeparture")
+repo.createPermanent("emsdeparture")
+repo['jmuru1_joshmah_tpacius.emsdeparture'].insert_many(apiTest.emsDeparture)
 #Josh Stuff end =============================================================
 
 repo.dropPermanent("propertyvalue")
@@ -97,7 +97,7 @@ doc.wasAttributedTo(streetjams, this_script)
 doc.wasGeneratedBy(streetjams, get_streetjams, endTime)
 doc.wasDerivedFrom(streetjams, resourceStreetjams, get_streetjams, get_streetjams, get_streetjams)
 
-# repo.record(doc.serialize()) # Record the provenance document.
+repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
 open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
