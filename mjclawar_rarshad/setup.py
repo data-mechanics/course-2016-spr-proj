@@ -20,7 +20,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from mjclawar_rarshad.reference.dir_info import plan_json, prov_svg
 from mjclawar_rarshad.sources.tier1 import crime_centroids, hospital_distances, crime_knn, home_value_model, \
-    hospital_scatter
+    hospital_scatter, school_distances, school_scatter
 from mjclawar_rarshad.sources.tier0 import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
 
@@ -48,6 +48,8 @@ def main(auth_json_path, full_provenance=False):
     setup_crime_knn(database_helper, full_provenance=full_provenance)
     setup_home_value_model(database_helper, full_provenance=full_provenance)
     setup_hospital_scatter(database_helper, full_provenance=full_provenance)
+    setup_school_distances(database_helper, full_provenance=full_provenance)
+    setup_school_scatter(database_helper, full_provenance=full_provenance)
 
     if full_provenance:
         with open(plan_json, 'r') as f:
@@ -107,6 +109,17 @@ def setup_hospital_distances(database_helper, full_provenance=False):
 def setup_hospital_scatter(database_helper, full_provenance=False):
     hospital_scatter_settings = hospital_scatter.HospitalScatterSettings()
     hospital_scatter.HospitalScatterProcessor(hospital_scatter_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+def setup_school_distances(database_helper, full_provenance=False):
+    school_distances_settings = school_distances.SchoolDistancesSettings()
+    school_distances.SchoolLocationsProcessor(school_distances_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
+def setup_school_scatter(database_helper, full_provenance=False):
+    school_scatter_settings = school_scatter.SchoolScatterSettings()
+    school_scatter.SchoolScatterProcessor(school_scatter_settings, database_helper).\
         run_processor(full_provenance=full_provenance)
 
 
