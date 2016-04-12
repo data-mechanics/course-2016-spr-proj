@@ -85,6 +85,11 @@ def extractHosptialLocations(collection):
 <<<<<<< HEAD
 # reduce the property value collection onto hospital zipcodes
 def collectionsReducePropsByZip(a, compareCollection=propertyValues):
+    h = [(addZero(hospiZip["zipcode"]), hospiZip) for hospiZip in a] # get hospital zips
+    c = [(propertyPostal['zipcode'], propertyPostal) for propertyPostal in compareCollection] #property values
+    reduction = reduceNoFunction(h,c)
+     #return reduction between propery values ans hospitals
+    return reduction
 =======
 # reduce the property value collection onto zipcar collections
 
