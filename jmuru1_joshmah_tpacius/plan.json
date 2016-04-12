@@ -222,4 +222,680 @@
             "prov:time": "2016-04-11T21:17:15.039387"
         }
     }
+}{
+    "entity": {
+        "dat:reservationsreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Reservations and Property Values Reduced By Zipcode"
+        },
+        "dat:membersreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Members and Property Values Reduced By Zipcode"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:activity": "log:afdcd0f16-4070-4212-8a4c-a1810116375f",
+            "prov:entity": "dat:reservationsreduction",
+            "prov:time": "2016-04-11T21:29:55.982793"
+        },
+        "_:id2": {
+            "prov:activity": "log:afdcd0f16-4070-4212-8a4c-a1810116375f",
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-04-11T21:29:55.982793"
+        }
+    },
+    "activity": {
+        "log:afdcd0f16-4070-4212-8a4c-a1810116375f": {
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-11T21:29:55.982793",
+            "prov:endTime": "2016-04-11T21:29:56.001604"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:afdcd0f16-4070-4212-8a4c-a1810116375f",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    }
+}{
+    "activity": {
+        "log:a2ec08f3f-492d-4b97-9d51-3b69b57044c8": {
+            "prov:startTime": "2016-04-11T21:31:29.376711",
+            "prov:endTime": "2016-04-11T21:31:29.403091",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a2ec08f3f-492d-4b97-9d51-3b69b57044c8",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:time": "2016-04-11T21:31:29.376711",
+            "prov:activity": "log:a2ec08f3f-492d-4b97-9d51-3b69b57044c8",
+            "prov:entity": "dat:membersreduction"
+        },
+        "_:id3": {
+            "prov:time": "2016-04-11T21:31:29.376711",
+            "prov:activity": "log:a2ec08f3f-492d-4b97-9d51-3b69b57044c8",
+            "prov:entity": "dat:reservationsreduction"
+        }
+    },
+    "entity": {
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    }
+}{
+    "activity": {
+        "log:a7cc5b82f-8688-4563-ba38-c2b4814b4726": {
+            "prov:endTime": "2016-04-11T21:31:46.917793",
+            "prov:startTime": "2016-04-11T21:31:46.897546",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a7cc5b82f-8688-4563-ba38-c2b4814b4726"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-04-11T21:31:46.897546",
+            "prov:activity": "log:a7cc5b82f-8688-4563-ba38-c2b4814b4726"
+        },
+        "_:id3": {
+            "prov:entity": "dat:reservationsreduction",
+            "prov:time": "2016-04-11T21:31:46.897546",
+            "prov:activity": "log:a7cc5b82f-8688-4563-ba38-c2b4814b4726"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+    },
+    "entity": {
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    }
+}{
+    "activity": {
+        "log:a40e9227b-6391-4b2d-9af1-8f9a34e90791": {
+            "prov:startTime": "2016-04-11T21:32:06.761924",
+            "prov:type": "ont:Computation",
+            "prov:endTime": "2016-04-11T21:32:06.786194"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a40e9227b-6391-4b2d-9af1-8f9a34e90791",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/"
+    },
+    "entity": {
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:a40e9227b-6391-4b2d-9af1-8f9a34e90791",
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-04-11T21:32:06.761924"
+        },
+        "_:id3": {
+            "prov:activity": "log:a40e9227b-6391-4b2d-9af1-8f9a34e90791",
+            "prov:entity": "dat:reservationsreduction",
+            "prov:time": "2016-04-11T21:32:06.761924"
+        }
+    }
+}{
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:entity": "dat:reservationsreduction",
+            "prov:activity": "log:a541ef017-d450-4bbd-b736-f64e0c7e7ac6",
+            "prov:time": "2016-04-11T21:33:38.658507"
+        },
+        "_:id2": {
+            "prov:entity": "dat:membersreduction",
+            "prov:activity": "log:a541ef017-d450-4bbd-b736-f64e0c7e7ac6",
+            "prov:time": "2016-04-11T21:33:38.658507"
+        }
+    },
+    "activity": {
+        "log:a541ef017-d450-4bbd-b736-f64e0c7e7ac6": {
+            "prov:startTime": "2016-04-11T21:33:38.658507",
+            "prov:type": "ont:Computation",
+            "prov:endTime": "2016-04-11T21:33:38.877725"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a541ef017-d450-4bbd-b736-f64e0c7e7ac6"
+        }
+    },
+    "entity": {
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    }
+}{
+    "used": {
+        "_:id2": {
+            "prov:entity": "dat:membersreduction",
+            "prov:activity": "log:a0af47040-007b-4866-8e21-b1b151caefb5",
+            "prov:time": "2016-04-11T21:33:54.281765"
+        },
+        "_:id3": {
+            "prov:entity": "dat:reservationsreduction",
+            "prov:activity": "log:a0af47040-007b-4866-8e21-b1b151caefb5",
+            "prov:time": "2016-04-11T21:33:54.281765"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a0af47040-007b-4866-8e21-b1b151caefb5",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "entity": {
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "activity": {
+        "log:a0af47040-007b-4866-8e21-b1b151caefb5": {
+            "prov:endTime": "2016-04-11T21:33:54.310131",
+            "prov:startTime": "2016-04-11T21:33:54.281765",
+            "prov:type": "ont:Computation"
+        }
+    }
+}{
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:time": "2016-04-11T21:34:20.753816",
+            "prov:entity": "dat:membersreduction",
+            "prov:activity": "log:a427cbf15-5315-488b-99c1-eceaf0eeeba8"
+        },
+        "_:id3": {
+            "prov:time": "2016-04-11T21:34:20.753816",
+            "prov:entity": "dat:reservationsreduction",
+            "prov:activity": "log:a427cbf15-5315-488b-99c1-eceaf0eeeba8"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a427cbf15-5315-488b-99c1-eceaf0eeeba8",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "entity": {
+        "dat:membersreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Members and Property Values Reduced By Zipcode"
+        },
+        "dat:reservationsreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Reservations and Property Values Reduced By Zipcode"
+        }
+    },
+    "activity": {
+        "log:a427cbf15-5315-488b-99c1-eceaf0eeeba8": {
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-11T21:34:20.753816",
+            "prov:endTime": "2016-04-11T21:34:20.778734"
+        }
+    }
+}{
+    "entity": {
+        "dat:membersreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Members and Property Values Reduced By Zipcode"
+        },
+        "dat:reservationsreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Reservations and Property Values Reduced By Zipcode"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/"
+    },
+    "activity": {
+        "log:aea43a227-0daf-41b8-adfe-67167f740f0e": {
+            "prov:startTime": "2016-04-11T21:35:24.402398",
+            "prov:type": "ont:Computation",
+            "prov:endTime": "2016-04-11T21:35:24.428212"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:aea43a227-0daf-41b8-adfe-67167f740f0e",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:time": "2016-04-11T21:35:24.402398",
+            "prov:activity": "log:aea43a227-0daf-41b8-adfe-67167f740f0e",
+            "prov:entity": "dat:reservationsreduction"
+        },
+        "_:id2": {
+            "prov:time": "2016-04-11T21:35:24.402398",
+            "prov:activity": "log:aea43a227-0daf-41b8-adfe-67167f740f0e",
+            "prov:entity": "dat:membersreduction"
+        }
+    }
+}{
+    "activity": {
+        "log:a49c74259-6ffc-4d67-835e-7ae364cc0824": {
+            "prov:endTime": "2016-04-11T21:35:42.875901",
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-11T21:35:42.850259"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-04-11T21:35:42.850259",
+            "prov:activity": "log:a49c74259-6ffc-4d67-835e-7ae364cc0824"
+        },
+        "_:id3": {
+            "prov:entity": "dat:reservationsreduction",
+            "prov:time": "2016-04-11T21:35:42.850259",
+            "prov:activity": "log:a49c74259-6ffc-4d67-835e-7ae364cc0824"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "entity": {
+        "dat:membersreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Members and Property Values Reduced By Zipcode"
+        },
+        "dat:reservationsreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Reservations and Property Values Reduced By Zipcode"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a49c74259-6ffc-4d67-835e-7ae364cc0824"
+        }
+    }
+}{
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "bdp": "https://data.cityofboston.gov/resource/"
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "entity": {
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "activity": {
+        "log:a11245120-9d16-44ef-836f-08707ba5fc4b": {
+            "prov:startTime": "2016-04-11T21:36:01.137398",
+            "prov:endTime": "2016-04-11T21:36:01.162042",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a11245120-9d16-44ef-836f-08707ba5fc4b"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:time": "2016-04-11T21:36:01.137398",
+            "prov:activity": "log:a11245120-9d16-44ef-836f-08707ba5fc4b",
+            "prov:entity": "dat:reservationsreduction"
+        },
+        "_:id2": {
+            "prov:time": "2016-04-11T21:36:01.137398",
+            "prov:activity": "log:a11245120-9d16-44ef-836f-08707ba5fc4b",
+            "prov:entity": "dat:membersreduction"
+        }
+    }
+}{
+    "prefix": {
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:af58358ea-a0d3-402a-8f79-333f27861933",
+            "prov:agent": "alg:ElementaryOperations"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:activity": "log:af58358ea-a0d3-402a-8f79-333f27861933",
+            "prov:entity": "dat:reservationsreduction",
+            "prov:time": "2016-04-11T21:36:40.381054"
+        },
+        "_:id2": {
+            "prov:activity": "log:af58358ea-a0d3-402a-8f79-333f27861933",
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-04-11T21:36:40.381054"
+        }
+    },
+    "entity": {
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "activity": {
+        "log:af58358ea-a0d3-402a-8f79-333f27861933": {
+            "prov:startTime": "2016-04-11T21:36:40.381054",
+            "prov:type": "ont:Computation",
+            "prov:endTime": "2016-04-11T21:36:40.408393"
+        }
+    }
+}{
+    "entity": {
+        "dat:membersreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Members and Property Values Reduced By Zipcode"
+        },
+        "dat:reservationsreduction": {
+            "prov:type": "ont:Computation",
+            "prov:label": "Reservations and Property Values Reduced By Zipcode"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:time": "2016-04-11T21:37:00.355089",
+            "prov:entity": "dat:membersreduction",
+            "prov:activity": "log:acee386cf-5ba6-4b34-8ab8-c3bc0152e49f"
+        },
+        "_:id3": {
+            "prov:time": "2016-04-11T21:37:00.355089",
+            "prov:entity": "dat:reservationsreduction",
+            "prov:activity": "log:acee386cf-5ba6-4b34-8ab8-c3bc0152e49f"
+        }
+    },
+    "activity": {
+        "log:acee386cf-5ba6-4b34-8ab8-c3bc0152e49f": {
+            "prov:endTime": "2016-04-11T21:37:00.380126",
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-04-11T21:37:00.355089"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "ont": "http://datamechanics.io/ontology#",
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:acee386cf-5ba6-4b34-8ab8-c3bc0152e49f"
+        }
+    },
+    "agent": {
+        "alg:ElementaryOperations": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    }
+}{
+    "agent": {
+        "alg:ElementaryOperations": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:ElementaryOperations",
+            "prov:activity": "log:a0be1cae3-8480-451a-beea-e1b7ab8b3e07"
+        }
+    },
+    "used": {
+        "_:id3": {
+            "prov:entity": "dat:reservationsreduction",
+            "prov:time": "2016-04-11T21:37:56.497255",
+            "prov:activity": "log:a0be1cae3-8480-451a-beea-e1b7ab8b3e07"
+        },
+        "_:id2": {
+            "prov:entity": "dat:membersreduction",
+            "prov:time": "2016-04-11T21:37:56.497255",
+            "prov:activity": "log:a0be1cae3-8480-451a-beea-e1b7ab8b3e07"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jmuru1_joshmah_tpacius/",
+        "alg": "http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "activity": {
+        "log:a0be1cae3-8480-451a-beea-e1b7ab8b3e07": {
+            "prov:startTime": "2016-04-11T21:37:56.497255",
+            "prov:endTime": "2016-04-11T21:37:56.522742",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "entity": {
+        "dat:reservationsreduction": {
+            "prov:label": "Reservations and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        },
+        "dat:membersreduction": {
+            "prov:label": "Members and Property Values Reduced By Zipcode",
+            "prov:type": "ont:Computation"
+        }
+    }
 }

@@ -62,36 +62,25 @@ def getCollection(dbName):
 		temp.append(elem)
 	return temp
 
-# regex that extracts street names from streetjams
-# Xnew = set()
-# Xnew2 = []
-# for i in range(len(X)):
-#     temp = (re.sub(r'[A-Z]', '', X[i]))
-#     temp = (re.sub(r"\s+", "", temp))
-#     Xnew.add(temp)
-# for i in range(len(X)):
-#     temp = (re.sub(r'[A-Z]', '', X[i]))
-#     temp = (re.sub(r"\s+", "", temp))
-#     temp = temp[0:5]
-#     Xnew2.append(temp)
-# Xnew2 = sorted(Xnew2)
+def addZero(hz):
+    temp = '0' + hz
+    return temp
 
-# regex extracting zipcodes from the hospital database
+
 # ========================query database functions end =================================
 
 # ===========================Perform ops on collections==============================
 propertyValues = getCollection("propertyvalue")
 hospitalCollection = getCollection("hospitals")
 
-print(hospitalCollection)
-#reduce the property value collection onto zipcar collections
-# def collectionsReduce(a, compareCollection=propertyValues):
-#     h = [(hospiZip[])]
-#     c = [(propertyPostal['zipcode'], propertyPostal) for propertyPostal in compareCollection] #property values
-#      #reduceNoFunction declaration within the elementary ops section
-#      #return reduction between propery values ans hospitals
-#     return
+# reduce the property value collection onto zipcar collections
 
+def collectionsReduce(a, compareCollection=propertyValues):
+    h = [(addZero(hospiZip["zipcode"]), hospiZip) for hospiZip in a] # get hospital zips
+    c = [(propertyPostal['zipcode'], propertyPostal) for propertyPostal in compareCollection] #property values
+    reduction = reduceNoFunction(h,c)
+     #return reduction between propery values ans hospitals
+    return reduction
 
 def getKeys(propList):
     kk = [key for key, value in propList if key != "_id"]
