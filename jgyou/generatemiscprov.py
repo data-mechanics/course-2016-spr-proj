@@ -46,7 +46,7 @@ provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The
 provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 provdoc.add_namespace('madir', 'http://www.directoryma.com/')		# MA Directory
-provdoc.add_namespace('aws', 'https://data-mechanics.s3.amazonaws.com/')   # Amazon Web Services
+#provdoc.add_namespace('aws', 'https://data-mechanics.s3.amazonaws.com/')   # Amazon Web Services
  
 
 this_script = provdoc.agent('dat:' + 'jgyou', {prov.model.PROV_TYPE:prov.model.PROV['Person']})
@@ -56,7 +56,7 @@ provdoc.wasAssociatedWith(this_run, this_script)
 
 provdoc.used(this_run, resource, startTime, None, {prov.model.PROV_TYPE:'ont:Retrieval'})
 
-zipcodes = provdoc.entity('aws:jgyou/zipcodes', {prov.model.PROV_LABEL:'Boston Zipcodes', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'json'})
+zipcodes = provdoc.entity('dat:zipcodes', {prov.model.PROV_LABEL:'Boston Zipcodes', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'json'})
 provdoc.wasAttributedTo(zipcodes, this_script)
 provdoc.wasGeneratedBy(zipcodes, this_run, endTime)
 provdoc.wasDerivedFrom(zipcodes, resource, this_run, this_run, this_run)
@@ -82,7 +82,7 @@ provdoc2.wasAssociatedWith(this_run2, this_script2)
 
 provdoc2.used(this_run2, resource2, startTime, None, {prov.model.PROV_TYPE:'ont:Retrieval'})
 
-zipcodes2 = provdoc2.entity('aws:jgyou/zipcodes', {prov.model.PROV_LABEL:'Boston Zipcodes', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'json'})
+zipcodes2 = provdoc2.entity('dat:zipcodes', {prov.model.PROV_LABEL:'Boston Zipcodes', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'json'})
 provdoc2.wasAttributedTo(zipcodes2, this_script2)
 provdoc2.wasGeneratedBy(zipcodes2, this_run2, endTime)
 provdoc2.wasDerivedFrom(zipcodes2, resource2, this_run2, this_run2, this_run2)

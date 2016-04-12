@@ -5,7 +5,7 @@ A Metric for Age-Friendly/Accessible Neighborhoods in Boston
 
 TBD
 
-Projections from the City of Boston's 2014 report on ["Aging in Boston"] (https://www.cityofboston.gov/images_documents/4-14%20UMASS%20Aging%20Report_tcm3-44127.pdf) indicate that by 2030, about 20% of Bostonian residents will be age 60 or older. 
+Projections from the City of Boston's 2014 report on ["Aging in Boston"] (https://www.cityofboston.gov/images_documents/4-14%20UMASS%20Aging%20Report_tcm3-44127.pdf) indicate that by 2030, about 20% of Bostonian residents will be age 60 or older. Boston has demonstrated its commitment to its older residents by [joining] (http://www.cityofboston.gov/news/default.aspx?id=6600) the World Health Organization's Age Friendly Cities Network.
 
 The 2015 United States of Aging Survey, conducted by the National Council on Aging, found that [concerns] (https://www.ncoa.org/news/usoa-survey/2015-results/) among adults aged 60 and older and the professionals who worked with them included physical health, affordable housing, and mental wellbeing.
 
@@ -13,15 +13,15 @@ The 2015 United States of Aging Survey, conducted by the National Council on Agi
 ##Project Description
 
 Factors to potentially be taken in consideration for scoring include:
-1. Nearest MBTA bus/subway/other stop
-2. Community centers
-3. General neighborhood affordability, as measured by median property value in that zipcode
-4. Distance to nearest hospital
-5. Distance to nearest park
-6. Grocery store/supermarket/food markets
-7. Pharmacies
-8. Libraries
-9. Locations of church/faith-based groups
+1. Nearest MBTA bus/subway/other stop  
+2. Community centers  
+3. General neighborhood affordability, as measured by median property value in that zipcode  
+4. Distance to nearest hospital  
+5. Distance to nearest park  
+6. Grocery store/supermarket/food markets  
+7. Pharmacies  
+8. Libraries  
+9. Locations of church/faith-based groups  
 10. Other art/cultural sites
 
 ### Further Considerations and Applications
