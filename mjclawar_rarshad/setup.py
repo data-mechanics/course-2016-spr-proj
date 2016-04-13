@@ -127,8 +127,8 @@ def setup_school_scatter(database_helper, full_provenance=False):
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
     if len(sys.argv) == 1:
-        main('auth.json', full_provenance=True)
-        # raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
+        # main('auth.json', full_provenance=True)
+        raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
     else:
         print(sys.argv)
         main(sys.argv[1])
