@@ -143,6 +143,9 @@ var renderAll = function() {
       .style("fill", function(d) { return 'gray'; })
       .on("mouseover", function(d) { 
         var neighs = d.neighs;
+        sorted_node.filter(function(n) {return d.id == n.id})
+          .style("fill", "black")
+          .attr("r", function(d) { return d.large*d.rank; });
         node.filter(function(n, i) { return (neighs.indexOf(n.id) !== -1) || (n.id == d.id); })
             .style("fill", "black")
             .attr("r", function(d) { return d.large*magnify(d.rank); });
@@ -151,6 +154,8 @@ var renderAll = function() {
       .on("mouseout", function(d) { 
         node.style("fill", "gray")
             .attr("r", function(d) { return d.small*magnify(d.rank); });
+        sorted_node.style("fill", "gray")
+            .attr("r", function(d) { return d.small*d.rank; });
         info_text.text("Hover over station.");
       })
       
@@ -206,7 +211,7 @@ var renderAll = function() {
         d3.select(this).style("fill", "black");
         node.filter(function(n) {return d.id == n.id})
           .style("fill", "black")
-          .attr("r", function(d) { return d.large*magnify(d.rank); });
+          .attr("r", function(d) { return 10; });
         info_text.text(d.name + ": " + Math.round(d.rank * 100) / 100);
       })
       .on("mouseout", function(d) {
@@ -259,7 +264,7 @@ var renderAll = function() {
 }
 
 var magnify = function(r) {
-    return Math.pow(r, 1.0);
+    return Math.pow(r, 1.0); // play around with this later
 }
 
 </script>
