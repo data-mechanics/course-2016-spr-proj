@@ -8,31 +8,36 @@ import uuid
 exec(open('../pymongo_dm.py').read())
 exec(open('get_repo.py').read())
 
-crime_zips_db		 = repo[auth['admin']['name']+'.'+'crime_zips']
-zip_avg_earnings_db	 = repo[auth['admin']['name']+'.'+'zip_avg_earnings']
+zip_location_crimes_db	= repo[auth['admin']['name']+'.'+'zip_location_crimes']
+zip_avg_earnings_db		= repo[auth['admin']['name']+'.'+'zip_avg_earnings']
 
 startTime = datetime.datetime.now()
 
-# count the number of crime incidents for each zipcode
-pipeline = [{"$group": {"_id": "$zip", "number_crime_incidents": {"$sum": 1}}}]
+zip_location_crimes = zip_location_crimes_db.find({},{
+	'_id': False,
+	'zip': True,
+	'crimes': True,
+	'longitude': True,
+	'latitude': True,
+	'region': True,
+	})
 
-zip_crimes = list(crime_zips_db.aggregate(pipeline))
-# replace '_id' with 'zip'
-zip_crimes = [ {'zip': d['_id'], 'number_crime_incidents': d['number_crime_incidents']} for d in zip_crimes ]
-
-zip_crime_earnings = []
-for document in zip_crimes:
+zip_location_crimes_earnings = []
+for document in zip_location_crimes:
 	avg_earning = zip_avg_earnings_db.find_one({'zip': document['zip']}, {'_id': False, 'avg_earning': True})
 	if avg_earning is None: 
 		document['avg_earning'] = 0
 	else:
 		document['avg_earning'] = avg_earning['avg_earning']
-	zip_crime_earnings.append(document)
+	zip_location_crimes_earnings.append(document)
 
-# save it to a temporary folder
-repo.dropPermanent("zip_crime_earnings")
-repo.createPermanent("zip_crime_earnings")
-repo['linshan_luoty.zip_crime_earnings'].insert_many(zip_crime_earnings)
+# export zip_location_crimes_earnings to JSON
+open('zip_location_crimes_earnings.json','w').write(json.dumps(zip_location_crimes_earnings, indent=4))
+
+# save it to a permanent folder
+repo.dropPermanent("zip_location_crimes_earnings")
+repo.createPermanent("zip_location_crimes_earnings")
+repo['linshan_luoty.zip_location_crimes_earnings'].insert_many(zip_location_crimes_earnings)
 
 endTime = datetime.datetime.now()
 
@@ -52,12 +57,12 @@ doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
 this_script = doc.agent('alg:merge_zip_crime_earnings', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
-crime_zip = doc.entity('dat:crime_zips', {prov.model.PROV_LABEL:'Crime Zips', prov.model.PROV_TYPE:'ont:DataSet'})
+zip_location_crimes = doc.entity('dat:zip_location_crimes', {prov.model.PROV_LABEL:'Zip Location Crimes', prov.model.PROV_TYPE:'ont:DataSet'})
 zip_avg_earning = doc.entity('dat:zip_avg_earnings', {prov.model.PROV_LABEL:'Zips Average Earnings', prov.model.PROV_TYPE:'ont:DataSet'})
 
 merge_zip_crime_earnings = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
 doc.wasAssociatedWith(merge_zip_crime_earnings, this_script)
-doc.usage(merge_zip_crime_earnings, crime_zip, startTime, None,
+doc.usage(merge_zip_crime_earnings, zip_location_crimes, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'
         }
     )
@@ -66,11 +71,11 @@ doc.usage(merge_zip_crime_earnings, zip_avg_earning, startTime, None,
         }
     )
 
-zip_crime_earning = doc.entity('dat:zip_crime_earnings', {prov.model.PROV_LABEL:'Zips with Crime and Earnings', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(zip_crime_earning, this_script)
-doc.wasGeneratedBy(zip_crime_earning, merge_zip_crime_earnings, endTime)
-doc.wasDerivedFrom(zip_crime_earning, crime_zip, merge_zip_crime_earnings, merge_zip_crime_earnings, merge_zip_crime_earnings)
-doc.wasDerivedFrom(zip_crime_earning, zip_avg_earning, merge_zip_crime_earnings, merge_zip_crime_earnings, merge_zip_crime_earnings)
+zip_location_crimes_earnings = doc.entity('dat:zip_location_crimes_earnings', {prov.model.PROV_LABEL:'Zips with Crime and Earnings', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(zip_location_crimes_earnings, this_script)
+doc.wasGeneratedBy(zip_location_crimes_earnings, merge_zip_crime_earnings, endTime)
+doc.wasDerivedFrom(zip_location_crimes_earnings, zip_location_crimes, merge_zip_crime_earnings, merge_zip_crime_earnings, merge_zip_crime_earnings)
+doc.wasDerivedFrom(zip_location_crimes_earnings, zip_avg_earning, merge_zip_crime_earnings, merge_zip_crime_earnings, merge_zip_crime_earnings)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))

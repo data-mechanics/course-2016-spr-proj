@@ -46,7 +46,7 @@ zip_location_crimes = list(db.aggregate(pipeline))
 # 						} for d in zip_location_crimes ]
 zip_location_crimes = [{
 						'zip': d['_id'], 
-						'total_crimes': d['total_crimes'],
+						'crimes': d['total_crimes'],
 						'longitude': d['total_lng']/d['total_crimes'],
 						'latitude': d['total_lat']/d['total_crimes'],
 						'region': d['total_crimes'],
