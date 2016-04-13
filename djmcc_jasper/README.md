@@ -15,14 +15,15 @@ To run, start the MongoDB server and run project.py auth.json from the command l
    - compute_ratio.py
    - comp_vit.py
 
-To view the visualization for Assessment vs Rent, open djmcc_jasper/part1/index.html. 
+To view the visualization for Assessment vs Rent, open djmcc_jasper/part1/index.html.
+
 To view the visualization for Composition vs Vitality, open djmcc_jasper/part2/index.html
 
-Datasets in JSON format are generated at the end of each execution. We uploaded these datasets under the same names to https://datamechanics.io/djmcc_jasper/. This is the url referenced by the two main.js Javascript files supporting each visualization.
+Two datasets (assessment_rent_data.json and comp_vit_data.json) are generated at the end of each execution. We uploaded these datasets under the same names to https://datamechanics.io/djmcc_jasper/. This is the url referenced by the each Javascript file supporting each visualization.
 
 ###### Notes
 
-Running comp_vit.py requries access to the Yelp API and the installation of the rauth python module. You will need to create your own auth.json file with your Yelp API key. The prov python module, for generating provenance documents, is the only other non-standard requirement.
+Running comp_vit.py requries access to the Yelp API and the installation of the rauth python module. You will need to create your own auth.json file with your Yelp API key. The prov python module, for generating provenance documents, is the only other non-standard library.
 
 ## Abstract
 
@@ -32,15 +33,15 @@ In this project, our aim was to learn more about Boston neighborhoods (or more f
 
 In an effort to characterize Boston neighborhoods we decided to take a closer look at the available data on the rental market and combine it with the property assessment data made public by the city. The city’s assessing website describes three approaches to determining an assessed value. Our focus is on the Income Approach, which employs data to determine what a property might earn. One of our main objectives is to reduce the uncertainty inherent in the word might. In a city like Boston, where nearly 40% of all households rent and rental vacancy has decreased year over year for the past decade towards 3%, the data necessary to support the Income Approach is widely available.
 
-The code scrapes real time rental market data from PadMapper in the form of markers. Markers are aggregated on location, preserving the mean rent, under the assumption that two listings with the exact same latitude and longitude have the same address. Each marker is passed back to PadMapper to obtain a string containing address information. Assessments are also aggregated to produce an assessed value per unit for each strictly residential property. Finally assessment data and rental data are joined on the address attribute to produce the final data set.
+The code scrapes real time rental market data from PadMapper in the form of markers. Markers are aggregated on location, preserving the mean rent, under the assumption that two listings with the exact same latitude and longitude have the same address. Each marker is passed back to PadMapper to obtain a string containing address information. The city's assessment data is also aggregated to produce an assessed value per unit for each strictly residential property. Finally assessment data and rental data are joined on the address attribute to produce the final data set.
 
 ###### Data Resources
 
-Boston's Property Assessment 2015
+Boston's Property Assessment 2015:
 ```
 https://data.cityofboston.gov/Permitting/Property-Assessment-2015/yv8c-t43q
 ```
-PadMapper
+PadMapper:
 ```
 https://www.padmapper.com/
 ```
@@ -53,7 +54,7 @@ We then had to define a vitality score for the y-axis. We define the vitality as
 
 ###### Data Resources
 
-Boston's Property Assessment 2015
+Boston's Property Assessment 2015:
 ```
 https://data.cityofboston.gov/Permitting/Property-Assessment-2015/yv8c-t43q
 ```
