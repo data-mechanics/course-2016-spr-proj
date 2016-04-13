@@ -111,6 +111,7 @@ def setup_hospital_scatter(database_helper, full_provenance=False):
     hospital_scatter.HospitalScatterProcessor(hospital_scatter_settings, database_helper).\
         run_processor(full_provenance=full_provenance)
 
+
 def setup_school_distances(database_helper, full_provenance=False):
     school_distances_settings = school_distances.SchoolDistancesSettings()
     school_distances.SchoolLocationsProcessor(school_distances_settings, database_helper).\
@@ -126,8 +127,8 @@ def setup_school_scatter(database_helper, full_provenance=False):
 if __name__ == '__main__':
     exec(open('../pymongo_dm.py').read())
     if len(sys.argv) == 1:
-        main('auth.json', full_provenance=True)
-        # raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
+        # main('auth.json', full_provenance=True)
+        raise ValueError('Please pass in a path to a valid authorization json file meeting the specs in README.md')
     else:
         print(sys.argv)
         main(sys.argv[1])

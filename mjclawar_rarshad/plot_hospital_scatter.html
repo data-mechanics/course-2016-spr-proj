@@ -18,12 +18,15 @@
         };
 
         d3.json('hospital_scatter.json', function(json) {
-            Plotly.plot(document.getElementById('test'), [json], layout);
+            Plotly.plot(document.getElementById('hospital-scatter'), [json], layout);
+        });
+        d3.json('hospital_scatter.json', function(json) {
+            Plotly.plot(document.getElementById('hospital-scatter'), [json], layout);
         });
 
     </script>
 </head>
 <body>
-    <div id="test" style="width: 750px; height: 500px;"></div>
+    <div id="hospital-scatter" style="width: 750px; height: 500px;"></div>
 </body>
 </html>

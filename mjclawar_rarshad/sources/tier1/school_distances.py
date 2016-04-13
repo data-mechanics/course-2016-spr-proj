@@ -131,11 +131,15 @@ class SchoolLocationsProcessor(MCRASProcessor):
         -------
         pandas.DataFrame
         """
-        df_school = self.database_helper.load_permanent_pandas('school_locations', cols=['sch_name', 'location'])
-        df_school = df_school.merge(df_school['location'].apply(lambda x: pandas.Series({'NEEDS_RECODE': x['needs_recoding'],
-                                                                                   'LONGITUDE': float(x['longitude']),
-                                                                                   'LATITUDE': float(x['latitude'])})),
-                                left_index=True, right_index=True)
+        df_school = self.database_helper.load_permanent_pandas('boston_public_schools', cols=['sch_name', 'location'])
+        df_school = df_school.merge(
+            df_school['location'].apply(lambda x: pandas.Series(
+                {'NEEDS_RECODE': x['needs_recoding'],
+                 'LONGITUDE': float(x['longitude']),
+                 'LATITUDE': float(x['latitude'])
+                 }
+            )), left_index=True, right_index=True
+        )
         df_school = df_school[(df_school['LONGITUDE'] != 0) & (df_school['LATITUDE'] != 0)].copy()
 
         return df_school

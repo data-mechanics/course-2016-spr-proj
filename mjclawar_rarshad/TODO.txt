@@ -1,7 +1,0 @@
-
-README update
-Documentation update
-
-
-ADD TEXTBOX TO MPLLEAFLET PLOTS
-    - Description of how the data was calculated
