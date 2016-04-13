@@ -4,7 +4,7 @@ by Daren McCulley and Jasper Burns
 
 ## Execution
 
-To run, start the MongoDB server and run project.py from the command line, which does nothing more than connect to the database and execute the following scripts in succession:
+To run, start the MongoDB server and run project.py auth.json from the command line, which does nothing more than connect to the database and execute the following scripts in succession:
    - reset.py
    - get_apartments.py
    - collapse_apartments.py
@@ -22,7 +22,7 @@ Datasets in JSON format are generated at the end of each execution. We uploaded 
 
 ###### Notes
 
-Running comp_vit.py requries access to the Yelp API and the installation of the rauth python module. The prov python module, for generating provenance documents, is the only other non-standard requirement. Generating the data.json file used for the visualization in Part 1 requires running generateJSON.py on the database following a successful run of project.py. This script is located in djmcc_jasper/tools directory.
+Running comp_vit.py requries access to the Yelp API and the installation of the rauth python module. You will need to create your own auth.json file with your Yelp API key. The prov python module, for generating provenance documents, is the only other non-standard requirement.
 
 ## Abstract
 
