@@ -37,7 +37,7 @@ def find_directions():
     repo.dropPermanent('randomDirections')
     repo.createPermanent('randomDirections')
     start_time = datetime.datetime.now()
-    random_routes = generate_routes(100)
+    random_routes = generate_routes(300)
 
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin={}&destination={}&mode=bicycling&alternatives=true'
     for (s,f) in random_routes:
