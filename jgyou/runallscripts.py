@@ -4,14 +4,23 @@ runallscripts.py
 '''
 
 
-import random.uniform
+from random import uniform
 
-exec(open("convertcoordinates.py").read())
+# supplementary functions
+exec(open("convertcoordinates.py").read()) # also needs prov
+exec(open("findnearest.py").read())		# needs prov
+exec(open("generatemiscprov.py").read())
+exec(open('../pymongo_dm.py').read())
+
+
+# get some data sets
 exec(open("retrievehospitals.py").read())
 exec(open("cleanhospitals.py").read())
 exec(open("inputmbta.py").read())
-exec(open("findnearest.py").read())
-exec(open('../pymongo_dm.py').read())
+#exec(open("retrievepharmacies.py").read())		# needs to be changed to find nearest X pharmacies
+exec(open("retrievezillow.py").read())			# currently have not figured out way to incorporate into score
+
+
 
 #exec(open("inputcommcenters.py").read())
 
@@ -46,10 +55,11 @@ def generatePoints(n):
 
 	x1 = min(topLeftLon, bottomLeftLon)
 	x2 = max(topRightLon, bottomRightLon)
-	y1 = min(bottomRightLon, bottomLeftLon)
+	y1 = min(bottomRightLat, bottomLeftLat)
 	y2 = max(topRightLat, topLeftLat)
 
-	return [(random.uniform(y1, y2), random.uniform(x1, x2)) for x in range(n)]
+	# 5-decimal place lat-long coordinates randomly created
+	return [(round(uniform(y1, y2), 5), round(uniform(x1, x2), 5)) for x in range(n)]
 
 
 
@@ -74,7 +84,9 @@ with open("auth.json") as f:
 		fip = getCensus(startLocation)
 		(addr, neigh, zipcode) = getAddress(startLocation)
 
-		distHospital = findClosestCoordinate(repo, user + ".hospitals", startLocation) 
+		distHospital = findClosestCoordinate(repo, user + ".hospitals", startLocation)
+
+		# when scoring mbta stops, should "reward" stops that have wheelchair access
 
 
 

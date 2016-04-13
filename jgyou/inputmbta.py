@@ -19,6 +19,49 @@ import io
 
 exec(open('../pymongo_dm.py').read())
 
+def make_provdoc(repo, runids, starttime, endtime):
+	provdoc = prov.model.ProvDocument()
+	provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+	provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+	provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+	provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+	provdoc.add_namespace('mbta', 'http://www.mbta.com/uploadedfiles') # mbta website
+
+	# activity = invocation of script, agent = script, entity = resource
+	# agent
+	this_script = provdoc.agent('alg:inputmbta', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+	# input data
+	mbtazip = provdoc.entity('mbta:gtfs', {prov.model.PROV_LABEL:'MBTA_GTFS', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'zip'})
+
+	# output data
+	output = provdoc.entity('dat:mbtaStops', {prov.model.PROV_LABEL:'MBTA Stops', prov.model.PROV_TYPE:'ont:DataSet'})
+
+	if len(runids) == 1:
+		run_id = runids[0]
+
+	this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
+	provdoc.wasAssociatedWith(this_run, this_script)
+	provdoc.used(this_run, mbtazip)
+
+	provdoc.wasAttributedTo(output, this_script)
+	provdoc.wasGeneratedBy(output, this_run)
+
+	provdoc.wasDerivedFrom(output, mbtazip)
+
+	if starttime == None:
+		plan = open('plan.json','r')
+		docModel = prov.model.ProvDocument()
+		doc = docModel.deserialize(plan)
+		doc.update(provdoc)
+		plan.close()
+		plan = open('plan.json', 'w')
+		plan.write(json.dumps(json.loads(doc.serialize()), indent=4))
+		plan.close()
+	else:
+		repo.record(provdoc.serialize())
+
+
 client = pymongo.MongoClient()
 repo = client.repo
 
@@ -26,6 +69,7 @@ repo = client.repo
 
 
 startTime = datetime.datetime.now()
+
 
 with open("auth.json") as a:
 	f = a.read()
@@ -55,13 +99,18 @@ with open("auth.json") as a:
 							try:
 								stop_lat = float(allstr[4])
 							except ValueError:
-								print(allstr[4])
-								stop_lat = "NA"
+								continue
+								#print(allstr[4])
+								#stop_lat = "NA"
 							try:
 								stop_lon = float(allstr[5])	
 							except ValueError:
-								stop_lat = "NA"
-							wheelchair = allstr[10]
+								continue
+							temp = allstr[10].strip()
+							if str.isdigit(temp):
+								wheelchair = int(temp)
+							else:
+								wheelchair = 0
 							mbtainfo.append({"stop_id": stop_id, "stop_name": stop_name, \
 								"longitude": stop_long, "latitude": stop_lat, "wheelchair": wheelchair})
 
@@ -73,8 +122,12 @@ with open("auth.json") as a:
 
 
 						endTime = datetime.datetime.now()
-	###########
 
+						run_id = str(uuid.uuid4())
+						make_provdoc(repo, [run_id], startTime, endTime)
+						make_provdoc(repo, [run_id], None, None)
+
+						repo.logout()
 
 
 

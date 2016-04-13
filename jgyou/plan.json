@@ -1,600 +1,864 @@
 {
-    "agent": {
-        "dat:jgyou": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:Person"
-            }
-        },
-        "alg:mergesitesgeo": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        },
-        "alg:retrievesitesgeo": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        },
-        "alg:retrievedata": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        },
-        "alg:retrievesites": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        },
-        "alg:calculatemeans": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        },
-        "alg:cleansitesgeo": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        },
-        "alg:retrievezillow": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id6": {
-            "prov:entity": "dat:currentsites",
-            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561"
-        },
-        "_:id53": {
-            "prov:entity": "dat:medianrentalvalues",
-            "prov:activity": "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc"
-        },
-        "_:id8": {
-            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:entity": "dat:means",
-            "prov:time": "2016-03-01T23:41:16.688282"
-        },
-        "_:id2": {
-            "prov:entity": "dat:currentsites",
-            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
-        },
-        "_:id7": {
-            "prov:entity": "dat:sitecoordinates",
-            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583"
-        },
-        "_:id1": {
-            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:entity": "dat:requestsxy",
-            "prov:time": "2016-03-01T23:41:16.688282"
-        },
-        "_:id68": {
-            "prov:entity": "dat:medianpropertyvalues",
-            "prov:activity": "log:a2073fbeb-ae06-4510-9199-4d22270335cb"
-        },
-        "_:id3": [
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:sitegeocodes",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            }
-        ],
-        "_:id5": {
-            "prov:entity": "dat:needle311",
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-        },
-        "_:id4": {
-            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
-            "prov:entity": "aws:jgyou/zipcodes",
-            "prov:time": "2016-04-03T12:53:39.429805"
-        },
-        "_:id58": {
-            "prov:entity": "dat:medianrentalvalues",
-            "prov:activity": "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81"
-        },
-        "_:id63": {
-            "prov:entity": "dat:medianpropertyvalues",
-            "prov:activity": "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66"
-        }
-    },
     "prefix": {
         "log": "http://datamechanics.io/log#",
         "dat": "http://datamechanics.io/data/jgyou/",
         "bhpc": "http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/",
-        "ont": "http://datamechanics.io/ontology#",
-        "madir": "http://www.directoryma.com/",
         "zillow": "http://files.zillowstatic.com/research/public",
-        "alg": "http://datamechanics.io/algorithm/jgyou/",
         "aws": "https://data-mechanics.s3.amazonaws.com/",
         "bdp": "https://data.cityofboston.gov/resource/",
-        "ocd": "https://api.opencagedata.com/geocode/v1/"
-    },
-    "wasDerivedFrom": {
-        "_:id18": [
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "dat:currentsites",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            }
-        ],
-        "_:id11": {
-            "prov:usage": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:generatedEntity": "dat:requestsxy",
-            "prov:usedEntity": "dat:needle311",
-            "prov:generation": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe"
-        },
-        "_:id14": {
-            "prov:usage": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:generatedEntity": "dat:means",
-            "prov:usedEntity": "dat:needle311",
-            "prov:generation": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe"
-        },
-        "_:id12": [
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-                "prov:generatedEntity": "dat:sitegeocodes",
-                "prov:usedEntity": "ocd:geocode",
-                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            }
-        ],
-        "_:id55": [
-            {
-                "prov:generatedEntity": "dat:medianrentalvalues",
-                "prov:usedEntity": "dat:zipcodes"
-            },
-            {
-                "prov:generatedEntity": "dat:medianrentalvalues",
-                "prov:usedEntity": "dat:zipcodes"
-            }
-        ],
-        "_:id9": {
-            "prov:usage": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
-            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
-            "prov:generatedEntity": "dat:sitecoordinates",
-            "prov:usedEntity": "dat:sitegeocodes",
-            "prov:generation": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583"
-        },
-        "_:id17": {
-            "prov:usage": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
-            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
-            "prov:generatedEntity": "aws:jgyou/zipcodes",
-            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
-            "prov:generation": "log:a472f8685-0e17-46b6-a915-af22524ee7b9"
-        },
-        "_:id13": {
-            "prov:usage": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
-            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
-            "prov:generatedEntity": "dat:currentsites",
-            "prov:usedEntity": "dat:currentsites",
-            "prov:generation": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
-        },
-        "_:id59": {
-            "prov:generatedEntity": "dat:medianrentalvalues",
-            "prov:usedEntity": "zillow:zipzri"
-        },
-        "_:id10": {
-            "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:generatedEntity": "dat:needle311",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-        },
-        "_:id16": {
-            "prov:usage": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
-            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
-            "prov:generatedEntity": "dat:currentsites",
-            "prov:usedEntity": "bhpc:safeneedle",
-            "prov:generation": "log:ad40a745f-00c2-462d-9993-4f61d9291561"
-        },
-        "_:id54": {
-            "prov:generatedEntity": "dat:medianrentalvalues",
-            "prov:usedEntity": "zillow:neighzri"
-        },
-        "_:id69": {
-            "prov:generatedEntity": "dat:medianpropertyvalues",
-            "prov:usedEntity": "zillow:zipzhvi"
-        },
-        "_:id65": [
-            {
-                "prov:generatedEntity": "dat:medianpropertyvalues",
-                "prov:usedEntity": "dat:zipcodes"
-            },
-            {
-                "prov:generatedEntity": "dat:medianpropertyvalues",
-                "prov:usedEntity": "dat:zipcodes"
-            }
-        ],
-        "_:id64": {
-            "prov:generatedEntity": "dat:medianpropertyvalues",
-            "prov:usedEntity": "zillow:neighzhvi"
-        },
-        "_:id15": {
-            "prov:usage": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
-            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
-            "prov:generatedEntity": "dat:currentsites",
-            "prov:usedEntity": "dat:sitecoordinates",
-            "prov:generation": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
-        }
-    },
-    "activity": {
-        "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5": {
-            "prov:type": "ont:Computation"
-        },
-        "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583": {
-            "prov:type": "ont:Computation"
-        },
-        "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2": [
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {}
-        ],
-        "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc": {
-            "prov:endTime": "2016-04-10T18:18:21.171928",
-            "prov:startTime": "2016-04-10T18:16:58.920685"
-        },
-        "log:a2073fbeb-ae06-4510-9199-4d22270335cb": {
-            "prov:endTime": "2016-04-10T18:18:21.171928",
-            "prov:startTime": "2016-04-10T18:16:58.920685"
-        },
-        "log:ad40a745f-00c2-462d-9993-4f61d9291561": {},
-        "log:a472f8685-0e17-46b6-a915-af22524ee7b9": {
-            "prov:endTime": "2016-04-03T12:53:39.429805",
-            "prov:startTime": "2016-04-03T12:53:39.429805"
-        },
-        "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81": {
-            "prov:endTime": "2016-04-10T18:18:21.171928",
-            "prov:startTime": "2016-04-10T18:16:58.920685"
-        },
-        "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66": {
-            "prov:endTime": "2016-04-10T18:18:21.171928",
-            "prov:startTime": "2016-04-10T18:16:58.920685"
-        },
-        "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe": {
-            "prov:endTime": "2016-03-01T23:41:16.688282",
-            "prov:startTime": "2016-03-01T23:40:37.896167"
-        }
+        "mbta": "http://www.mbta.com/uploadedfiles",
+        "madir": "http://www.directoryma.com/",
+        "ocd": "https://api.opencagedata.com/geocode/v1/",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jgyou/"
     },
     "wasAssociatedWith": {
-        "_:id21": {
-            "prov:agent": "alg:retrievesites",
-            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561"
+        "_:id7": {
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:agent": "alg:cleansitesgeo"
         },
-        "_:id66": {
-            "prov:agent": "alg:retrievezillow",
-            "prov:activity": "log:a2073fbeb-ae06-4510-9199-4d22270335cb"
+        "_:id47": {
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:agent": "alg:retrievesites"
         },
-        "_:id20": {
-            "prov:agent": "alg:cleansitesgeo",
-            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583"
-        },
-        "_:id60": {
-            "prov:agent": "alg:retrievezillow",
-            "prov:activity": "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66"
+        "_:id10": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:agent": "alg:retrievedata"
         },
         "_:id50": {
-            "prov:agent": "alg:retrievezillow",
-            "prov:activity": "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc"
+            "prov:activity": "log:a4aff388b-d071-4fd4-8b59-d4fecd2063c3",
+            "prov:agent": "alg:retrievezillow"
         },
-        "_:id24": {
-            "prov:agent": "alg:retrievedata",
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
+        "_:id52": {
+            "prov:activity": "log:ace109da1-c1ab-4b77-9038-6bfcf2e7c012",
+            "prov:agent": "alg:inputmbta"
         },
-        "_:id25": [
+        "_:id4": {
+            "prov:activity": "log:a18dcc222-0fba-454b-a276-f3f7539298e7",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id20": {
+            "prov:activity": "log:a24dc6a59-4c4f-4f4f-aea8-14d311e0a7ce",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id57": {
+            "prov:activity": "log:a107090fa-5fcf-4537-a2c7-5a41be23c4bb",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id64": {
+            "prov:activity": "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id19": {
+            "prov:activity": "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id39": [
             {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:agent": "alg:retrievehospitals"
             },
             {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:agent": "alg:retrievehospitals"
             }
         ],
-        "_:id22": {
-            "prov:agent": "alg:calculatemeans",
-            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe"
+        "_:id33": {
+            "prov:activity": "log:a140e1fab-7e88-412c-b8cd-1bfe054f5a47",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id3": {
+            "prov:activity": "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3",
+            "prov:agent": "dat:jgyou"
         },
         "_:id56": {
-            "prov:agent": "alg:retrievezillow",
-            "prov:activity": "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81"
-        },
-        "_:id23": [
-            {
-                "prov:agent": "alg:mergesitesgeo",
-                "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
-            },
-            {
-                "prov:agent": "alg:mergesitesgeo",
-                "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
-            }
-        ],
-        "_:id19": {
-            "prov:agent": "dat:jgyou",
-            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id27": [
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            },
-            {
-                "prov:agent": "alg:retrievesitesgeo",
-                "prov:entity": "dat:sitegeocodes"
-            }
-        ],
-        "_:id52": [
-            {
-                "prov:agent": "alg:retrievezillow",
-                "prov:entity": "dat:medianrentalvalues"
-            },
-            {
-                "prov:agent": "alg:retrievezillow",
-                "prov:entity": "dat:medianrentalvalues"
-            }
-        ],
-        "_:id32": {
-            "prov:agent": "alg:calculatemeans",
-            "prov:entity": "dat:requestsxy"
-        },
-        "_:id29": {
-            "prov:agent": "alg:cleansitesgeo",
-            "prov:entity": "dat:sitecoordinates"
-        },
-        "_:id28": {
-            "prov:agent": "alg:mergesitesgeo",
-            "prov:entity": "dat:currentsites"
+            "prov:activity": "log:afb4a248c-c8b5-4798-8366-fdd99f0db143",
+            "prov:agent": "dat:jgyou"
         },
         "_:id26": {
-            "prov:agent": "alg:retrievedata",
-            "prov:entity": "dat:needle311"
+            "prov:activity": "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id55": {
+            "prov:activity": "log:a0fa87311-3484-48af-a926-7ef2e96b031a",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id43": {
+            "prov:activity": "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id13": {
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:agent": "alg:calculatemeans"
+        },
+        "_:id59": {
+            "prov:activity": "log:a3eb6c1e0-f9ab-43eb-9d1b-6cd56b6346d8",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id34": {
+            "prov:activity": "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id15": {
+            "prov:activity": "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id24": {
+            "prov:activity": "log:a4fd3081d-ceae-499b-8c06-c62398f6af29",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id63": [
+            {
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id22": [
+            {
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id27": {
+            "prov:activity": "log:ae5f08f3b-80ab-48a8-bfe1-5601d94e62b4",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id38": {
+            "prov:activity": "log:adb071a40-b594-412e-928f-4f467359ce32",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id17": {
+            "prov:activity": "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id30": [
+            {
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id264": {
+            "prov:activity": "log:abf27ed9b-8dda-4fd1-9cb1-0138dfc20a11",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id6": {
+            "prov:activity": "log:a65a84db3-f835-46ef-89ce-46293ee976b3",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id1": {
+            "prov:activity": "log:a485531bb-f266-4e12-9678-f300652e6b53",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id45": [
+            {
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id14": {
+            "prov:activity": "log:a0b4b6405-799a-49b8-ba70-6a42a13642fe",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id28": {
+            "prov:activity": "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id53": {
+            "prov:activity": "log:a2d2878b2-59cb-4526-9f19-1c5a323f1f23",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id46": {
+            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id12": {
+            "prov:activity": "log:a8676bb18-0c04-4503-92b9-64ece8213d78",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id23": {
+            "prov:activity": "log:a8e49e3d5-e033-411f-87d5-b6743a15a272",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id5": {
+            "prov:activity": "log:a19043872-f5b3-4b28-89ef-a835bc262773",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id41": [
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:agent": "alg:retrievesitesgeo"
+            }
+        ],
+        "_:id42": [
+            {
+                "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+                "prov:agent": "alg:mergesitesgeo"
+            },
+            {
+                "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+                "prov:agent": "alg:mergesitesgeo"
+            }
+        ],
+        "_:id8": {
+            "prov:activity": "log:a180066e6-265e-473a-ac98-e6c57961aefa",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id51": {
+            "prov:activity": "log:aac43de5e-f1d7-482f-a798-c60406cc9145",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id270": {
+            "prov:activity": "log:ad8e55ff4-976a-44a3-b0f9-a62744862275",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id261": {
+            "prov:activity": "log:aa03fa4fc-15aa-4b2f-a2f6-1d202a723e25",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id44": [
+            {
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id16": {
+            "prov:activity": "log:ab85c1366-f38d-4e75-a949-bd53d607817e",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id36": {
+            "prov:activity": "log:a2073fbeb-ae06-4510-9199-4d22270335cb",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id37": {
+            "prov:activity": "log:ae606452e-bd4e-47ba-9487-b4b221b06f29",
+            "prov:agent": "dat:jgyou"
+        },
+        "_:id29": {
+            "prov:activity": "log:a0c1c8bc0-c2c1-4b7e-86bf-9bd1958e7f6b",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id32": {
+            "prov:activity": "log:a8104ef80-1fee-4935-8360-6e22a3355785",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id40": [
+            {
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id54": {
+            "prov:activity": "log:a50a489fb-433e-4857-a2bf-1496c30518da",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id35": {
+            "prov:activity": "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id21": {
+            "prov:activity": "log:a4f1da9c1-7896-4bca-9923-cfa2dbb17e12",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id60": {
+            "prov:activity": "log:a5318191a-5322-445e-a26f-d4a3f24ce360",
+            "prov:agent": "alg:cleanhospitals"
+        },
+        "_:id61": {
+            "prov:activity": "log:ab7bf8e10-8556-4add-abde-417294637564",
+            "prov:agent": "alg:retrievezillow"
         },
         "_:id62": [
             {
-                "prov:agent": "alg:retrievezillow",
-                "prov:entity": "dat:medianpropertyvalues"
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:agent": "alg:retrievehospitals"
             },
             {
-                "prov:agent": "alg:retrievezillow",
-                "prov:entity": "dat:medianpropertyvalues"
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:agent": "alg:retrievehospitals"
             }
         ],
+        "_:id9": {
+            "prov:activity": "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id25": {
+            "prov:activity": "log:a5d24fe4d-eadf-4dec-bf1a-12e78978c825",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id11": [
+            {
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:agent": "alg:retrievehospitals"
+            },
+            {
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:agent": "alg:retrievehospitals"
+            }
+        ],
+        "_:id49": {
+            "prov:activity": "log:a927bdd53-2699-4730-b547-0a6c0464724d",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id2": {
+            "prov:activity": "log:a42b840aa-8272-44b2-b6d7-93bb943bd754",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id48": {
+            "prov:activity": "log:ac45aa0f2-b7bd-4bfa-8608-2400e3412367",
+            "prov:agent": "alg:inputmbta"
+        },
+        "_:id18": {
+            "prov:activity": "log:a9f0d0c52-26eb-4e78-accc-03a9d3b14d1f",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id267": {
+            "prov:activity": "log:a120f673a-9f47-4a84-bb7f-02c8016c7d81",
+            "prov:agent": "alg:retrievezillow"
+        },
+        "_:id58": {
+            "prov:activity": "log:afff7ece9-4365-4854-abd0-39d7bf87d561",
+            "prov:agent": "alg:retrievezillow"
+        },
         "_:id31": {
+            "prov:activity": "log:a231434dd-ad6f-469d-9f42-09a7b99e8ad6",
+            "prov:agent": "alg:retrievezillow"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id70": {
             "prov:agent": "alg:retrievesites",
             "prov:entity": "dat:currentsites"
         },
-        "_:id30": {
+        "_:id67": [
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:agent": "alg:retrievesitesgeo",
+                "prov:entity": "dat:sitegeocodes"
+            }
+        ],
+        "_:id74": [
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianpropertyvalues"
+            }
+        ],
+        "_:id73": [
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:cleanhospitals",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id66": {
             "prov:agent": "dat:jgyou",
             "prov:entity": "aws:jgyou/zipcodes"
         },
-        "_:id33": {
+        "_:id72": [
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:agent": "alg:retrievehospitals",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id65": {
+            "prov:agent": "alg:mergesitesgeo",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id71": {
             "prov:agent": "alg:calculatemeans",
             "prov:entity": "dat:means"
+        },
+        "_:id76": {
+            "prov:agent": "alg:calculatemeans",
+            "prov:entity": "dat:requestsxy"
+        },
+        "_:id75": {
+            "prov:agent": "alg:cleansitesgeo",
+            "prov:entity": "dat:sitecoordinates"
+        },
+        "_:id68": [
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:agent": "alg:retrievezillow",
+                "prov:entity": "dat:medianrentalvalues"
+            }
+        ],
+        "_:id78": [
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            },
+            {
+                "prov:agent": "alg:inputmbta",
+                "prov:entity": "dat:mbtaStops"
+            }
+        ],
+        "_:id69": [
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            },
+            {
+                "prov:agent": "dat:jgyou",
+                "prov:entity": "dat:zipcodes"
+            }
+        ],
+        "_:id77": {
+            "prov:agent": "alg:retrievedata",
+            "prov:entity": "dat:needle311"
         }
     },
     "entity": {
-        "bhpc:safeneedle": {
-            "ont:Extension": "aspx",
-            "prov:label": "Safe Needle and Syringe Disposal Webpage",
-            "prov:type": "ont:DataResource"
-        },
-        "dat:requestsxy": {
-            "prov:label": "Labeled request coordinates",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:needle311": [
+        "zillow:neighzri": [
             {
-                "prov:label": "Needle Program",
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            }
+        ],
+        "dat:sitecoordinates": [
+            {
+                "prov:label": "X-Y Site Coordinates",
                 "prov:type": "ont:DataSet"
             },
             {
-                "prov:label": "Needle Program",
+                "prov:label": "X-Y Site Coordinates",
                 "prov:type": "ont:DataSet"
             }
         ],
-        "dat:means": {
-            "prov:label": "Request Centroids",
-            "prov:type": "ont:DataSet"
-        },
+        "zillow:zipzhvi": [
+            {
+                "prov:label": "Zillow ZHVI By Zipcode",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Zipcode",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Zipcode",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Zipcode",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Zipcode",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Zipcode",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            }
+        ],
+        "madir:MAReferenceDesk/MassachusettsZipCodes": [
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            },
+            {
+                "prov:label": "MA Zip Codes",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "html"
+            }
+        ],
         "dat:currentsites": [
             {
                 "prov:label": "Current Drop-Off Sites",
@@ -609,29 +873,10 @@
                 "prov:type": "ont:DataSet"
             }
         ],
-        "madir:MAReferenceDesk/MassachusettsZipCodes": {
-            "ont:Extension": "html",
-            "prov:label": "MA Zip Codes",
-            "prov:type": "ont:DataResource"
-        },
-        "dat:sitecoordinates": [
-            {
-                "prov:label": "X-Y Site Coordinates",
-                "prov:type": "ont:DataSet"
-            },
-            {
-                "prov:label": "X-Y Site Coordinates",
-                "prov:type": "ont:DataSet"
-            }
-        ],
-        "dat:medianrentalvalues": {
-            "prov:label": "Boston Median Rental Values",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:zipcodes": {
-            "ont:Extension": "json",
-            "prov:label": "Boston Zipcodes",
-            "prov:type": "ont:DataSet"
+        "bhpc:safeneedle": {
+            "prov:label": "Safe Needle and Syringe Disposal Webpage",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "aspx"
         },
         "dat:sitegeocodes": [
             {
@@ -643,179 +888,2740 @@
                 "prov:type": "ont:DataSet"
             }
         ],
-        "zillow:zipzhvi": {
-            "ont:Extension": "csv",
-            "prov:label": "Zillow ZHVI By Zipcode",
-            "prov:type": "ont:DataSet"
-        },
-        "bdp:wc8w-nujj": {
-            "ont:Extension": "json",
-            "prov:label": "311, Service Requests",
-            "prov:type": "ont:DataResource"
-        },
-        "ocd:geocode": {
-            "ont:Extension": "geojson",
-            "prov:label": "OpenCage Data",
-            "prov:type": "ont:DataResource"
-        },
-        "zillow:zipzri": {
-            "ont:Extension": "csv",
-            "prov:label": "Zillow ZRI By Neighborhood",
-            "prov:type": "ont:DataSet"
-        },
-        "zillow:neighzri": {
-            "ont:Extension": "csv",
-            "prov:label": "Zillow ZRI By Neighborhood",
-            "prov:type": "ont:DataSet"
-        },
+        "dat:mbtaStops": [
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "MBTA Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:medianrentalvalues": [
+            {
+                "prov:label": "Boston Median Rental Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Rental Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Rental Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Rental Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Rental Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Rental Values",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:hospitals": [
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Hospitals",
+                "prov:type": "ont:DataSet"
+            }
+        ],
         "aws:jgyou/zipcodes": {
-            "ont:Extension": "json",
             "prov:label": "Boston Zipcodes",
+            "prov:type": "ont:DataSet",
+            "ont:Extension": "json"
+        },
+        "mbta:gtfs": [
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            },
+            {
+                "prov:label": "MBTA_GTFS",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "zip"
+            }
+        ],
+        "dat:needle311": [
+            {
+                "prov:label": "Needle Program",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Needle Program",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:zipcodes": [
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Boston Zipcodes",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "json"
+            }
+        ],
+        "bdp:wc8w-nujj": {
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "bdp:u6fv-m8v4": [
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            },
+            {
+                "prov:label": "Hospital Locations",
+                "prov:type": "ont:DataResource",
+                "ont:Extension": "json"
+            }
+        ],
+        "dat:means": {
+            "prov:label": "Request Centroids",
             "prov:type": "ont:DataSet"
         },
-        "dat:medianpropertyvalues": {
-            "prov:label": "Boston Median Property Values",
-            "prov:type": "ont:DataSet"
+        "dat:medianpropertyvalues": [
+            {
+                "prov:label": "Boston Median Property Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Property Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Property Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Property Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Property Values",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boston Median Property Values",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "zillow:neighzhvi": [
+            {
+                "prov:label": "Zillow ZHVI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZHVI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            }
+        ],
+        "zillow:zipzri": [
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            },
+            {
+                "prov:label": "Zillow ZRI By Neighborhood",
+                "prov:type": "ont:DataSet",
+                "ont:Extension": "csv"
+            }
+        ],
+        "ocd:geocode": {
+            "prov:label": "OpenCage Data",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "geojson"
         },
-        "zillow:neighzhvi": {
-            "ont:Extension": "csv",
-            "prov:label": "Zillow ZHVI By Neighborhood",
+        "dat:requestsxy": {
+            "prov:label": "Labeled request coordinates",
             "prov:type": "ont:DataSet"
         }
     },
-    "used": {
-        "_:id35": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=105 Chauncy Street, 6th Floor,Boston, MA 02111&limit=1&countrycode=us"
+    "wasGeneratedBy": {
+        "_:id109": {
+            "prov:activity": "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc",
+            "prov:entity": "dat:medianrentalvalues"
         },
-        "_:id42": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=398 Neponset Avenue,Dorchester, MA 02122&limit=1&countrycode=us"
+        "_:id108": {
+            "prov:activity": "log:a3eb6c1e0-f9ab-43eb-9d1b-6cd56b6346d8",
+            "prov:entity": "dat:mbtaStops"
         },
-        "_:id37": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=409 Blue Hill Avenue,Dorchester, MA 02121-4309&limit=1&countrycode=us"
+        "_:id93": {
+            "prov:activity": "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81",
+            "prov:entity": "dat:medianrentalvalues"
         },
-        "_:id45": {
-            "prov:entity": "dat:sitegeocodes",
-            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583"
+        "_:id135": {
+            "prov:activity": "log:a5d24fe4d-eadf-4dec-bf1a-12e78978c825",
+            "prov:entity": "dat:mbtaStops"
         },
-        "_:id39": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=21-23 Stanhope Street,Boston, MA 02116&limit=1&countrycode=us"
+        "_:id92": {
+            "prov:activity": "log:ab85c1366-f38d-4e75-a949-bd53d607817e",
+            "prov:entity": "dat:medianrentalvalues"
         },
-        "_:id34": {
-            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
-            "prov:entity": "bhpc:safeneedle",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "Safe-Needle-and-Syringe-Disposal.aspx"
+        "_:id86": {
+            "prov:time": "2016-04-13T14:34:21.018742",
+            "prov:activity": "log:a65a84db3-f835-46ef-89ce-46293ee976b3",
+            "prov:entity": "dat:zipcodes"
         },
-        "_:id48": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "bdp:wc8w-nujj",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "?type=Needle+Pickup&$select=longitude,latitude,location,geocoded_location,open_dt"
+        "_:id83": {
+            "prov:activity": "log:a19043872-f5b3-4b28-89ef-a835bc262773",
+            "prov:entity": "dat:hospitals"
         },
-        "_:id44": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=780 Albany Street,Boston, MA 02118&limit=1&countrycode=us"
+        "_:id81": {
+            "prov:activity": "log:a24dc6a59-4c4f-4f4f-aea8-14d311e0a7ce",
+            "prov:entity": "dat:medianpropertyvalues"
         },
-        "_:id41": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=75 Amory Street,Boston, MA 02130&limit=1&countrycode=us"
+        "_:id89": {
+            "prov:activity": "log:ab7bf8e10-8556-4add-abde-417294637564",
+            "prov:entity": "dat:medianpropertyvalues"
         },
-        "_:id47": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=35 Northampton Street,Boston, MA 02118&limit=1&countrycode=us"
+        "_:id116": {
+            "prov:activity": "log:a927bdd53-2699-4730-b547-0a6c0464724d",
+            "prov:entity": "dat:medianpropertyvalues"
         },
-        "_:id57": {
-            "prov:entity": "zillow:zipzri",
-            "prov:activity": "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81"
+        "_:id121": {
+            "prov:activity": "log:a0c1c8bc0-c2c1-4b7e-86bf-9bd1958e7f6b",
+            "prov:entity": "dat:medianrentalvalues"
         },
-        "_:id51": {
-            "prov:entity": "zillow:neighzri",
-            "prov:activity": "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc"
-        },
-        "_:id46": {
-            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
-            "prov:entity": "dat:needle311",
-            "prov:time": "2016-03-01T23:40:37.896167"
-        },
-        "_:id38": {
-            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
-            "prov:entity": "ocd:geocode",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "geojson?q=1 Stoughton Street,Dorchester, MA 02125&limit=1&countrycode=us"
-        },
-        "_:id43": {
-            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
-            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes",
-            "prov:time": "2016-04-03T12:53:39.429805",
-            "prov:type": "ont:Retrieval"
-        },
-        "_:id40": {
-            "prov:entity": "dat:sitecoordinates",
-            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
-        },
-        "_:id61": {
-            "prov:entity": "zillow:neighzhvi",
-            "prov:activity": "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66"
-        },
-        "_:id67": {
-            "prov:entity": "zillow:zipzhvi",
-            "prov:activity": "log:a2073fbeb-ae06-4510-9199-4d22270335cb"
-        },
-        "_:id36": [
+        "_:id99": [
             {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:entity": "dat:hospitals"
             },
             {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
-            },
-            {
-                "prov:entity": "dat:currentsites",
-                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2"
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:entity": "dat:hospitals"
             }
         ],
-        "_:id49": {
-            "prov:entity": "dat:currentsites",
-            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5"
+        "_:id79": {
+            "prov:activity": "log:a18dcc222-0fba-454b-a276-f3f7539298e7",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id101": {
+            "prov:activity": "log:afff7ece9-4365-4854-abd0-39d7bf87d561",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id118": {
+            "prov:activity": "log:a50a489fb-433e-4857-a2bf-1496c30518da",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id128": {
+            "prov:activity": "log:ace109da1-c1ab-4b77-9038-6bfcf2e7c012",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id82": [
+            {
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id103": {
+            "prov:time": "2016-04-13T14:49:08.550551",
+            "prov:activity": "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id88": {
+            "prov:activity": "log:a2073fbeb-ae06-4510-9199-4d22270335cb",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id130": {
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id120": [
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:sitegeocodes"
+            }
+        ],
+        "_:id91": {
+            "prov:activity": "log:aac43de5e-f1d7-482f-a798-c60406cc9145",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id106": {
+            "prov:activity": "log:a0fa87311-3484-48af-a926-7ef2e96b031a",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id129": {
+            "prov:time": "2016-04-13T14:07:08.745074",
+            "prov:activity": "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id110": {
+            "prov:activity": "log:a180066e6-265e-473a-ac98-e6c57961aefa",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id124": {
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:entity": "dat:sitecoordinates"
+        },
+        "_:id112": {
+            "prov:activity": "log:a42b840aa-8272-44b2-b6d7-93bb943bd754",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id97": {
+            "prov:activity": "log:a8104ef80-1fee-4935-8360-6e22a3355785",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id123": {
+            "prov:activity": "log:ae5f08f3b-80ab-48a8-bfe1-5601d94e62b4",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id119": {
+            "prov:time": "2016-03-01T23:41:16.688282",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:entity": "dat:means"
+        },
+        "_:id134": {
+            "prov:time": "2016-04-03T12:53:39.429805",
+            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
+            "prov:entity": "aws:jgyou/zipcodes"
+        },
+        "_:id98": {
+            "prov:activity": "log:a9f0d0c52-26eb-4e78-accc-03a9d3b14d1f",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id104": {
+            "prov:time": "2016-04-13T14:38:33.482756",
+            "prov:activity": "log:adb071a40-b594-412e-928f-4f467359ce32",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id114": {
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "dat:needle311"
+        },
+        "_:id126": {
+            "prov:time": "2016-04-13T14:20:04.648995",
+            "prov:activity": "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id111": {
+            "prov:activity": "log:a485531bb-f266-4e12-9678-f300652e6b53",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id95": {
+            "prov:activity": "log:a231434dd-ad6f-469d-9f42-09a7b99e8ad6",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id133": {
+            "prov:activity": "log:a107090fa-5fcf-4537-a2c7-5a41be23c4bb",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id127": [
+            {
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id140": [
+            {
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id80": {
+            "prov:activity": "log:a8676bb18-0c04-4503-92b9-64ece8213d78",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id100": {
+            "prov:activity": "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id107": [
+            {
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id105": {
+            "prov:activity": "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id85": {
+            "prov:activity": "log:ac45aa0f2-b7bd-4bfa-8608-2400e3412367",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id115": {
+            "prov:activity": "log:a4fd3081d-ceae-499b-8c06-c62398f6af29",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id143": [
+            {
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id139": {
+            "prov:activity": "log:a2d2878b2-59cb-4526-9f19-1c5a323f1f23",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id90": {
+            "prov:activity": "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id102": [
+            {
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id266": {
+            "prov:activity": "log:abf27ed9b-8dda-4fd1-9cb1-0138dfc20a11",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id136": {
+            "prov:time": "2016-04-13T14:39:17.354624",
+            "prov:activity": "log:afb4a248c-c8b5-4798-8366-fdd99f0db143",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id117": {
+            "prov:time": "2016-03-01T23:41:16.688282",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:entity": "dat:requestsxy"
+        },
+        "_:id84": [
+            {
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id96": {
+            "prov:activity": "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id87": {
+            "prov:activity": "log:a140e1fab-7e88-412c-b8cd-1bfe054f5a47",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id263": {
+            "prov:activity": "log:aa03fa4fc-15aa-4b2f-a2f6-1d202a723e25",
+            "prov:entity": "dat:medianrentalvalues"
+        },
+        "_:id113": {
+            "prov:activity": "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id272": {
+            "prov:activity": "log:ad8e55ff4-976a-44a3-b0f9-a62744862275",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id141": {
+            "prov:activity": "log:a0b4b6405-799a-49b8-ba70-6a42a13642fe",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id137": {
+            "prov:time": "2016-04-13T14:49:38.196196",
+            "prov:activity": "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id142": {
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id138": {
+            "prov:activity": "log:a4f1da9c1-7896-4bca-9923-cfa2dbb17e12",
+            "prov:entity": "dat:mbtaStops"
+        },
+        "_:id131": [
+            {
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:entity": "dat:hospitals"
+            },
+            {
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:entity": "dat:hospitals"
+            }
+        ],
+        "_:id122": {
+            "prov:time": "2016-04-13T14:29:07.630067",
+            "prov:activity": "log:a8e49e3d5-e033-411f-87d5-b6743a15a272",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id269": {
+            "prov:activity": "log:a120f673a-9f47-4a84-bb7f-02c8016c7d81",
+            "prov:entity": "dat:medianpropertyvalues"
+        },
+        "_:id94": {
+            "prov:time": "2016-04-13T14:44:48.926268",
+            "prov:activity": "log:ae606452e-bd4e-47ba-9487-b4b221b06f29",
+            "prov:entity": "dat:zipcodes"
+        },
+        "_:id125": {
+            "prov:activity": "log:a5318191a-5322-445e-a26f-d4a3f24ce360",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id132": {
+            "prov:activity": "log:a4aff388b-d071-4fd4-8b59-d4fecd2063c3",
+            "prov:entity": "dat:medianrentalvalues"
+        }
+    },
+    "agent": {
+        "alg:cleanhospitals": [
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        ],
+        "dat:jgyou": [
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "prov:type": {
+                    "$": "prov:Person",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            }
+        ],
+        "alg:retrievesitesgeo": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:retrievedata": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:inputmbta": [
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        ],
+        "alg:retrievesites": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:calculatemeans": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:retrievehospitals": [
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        ],
+        "alg:mergesitesgeo": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:retrievezillow": [
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                },
+                "ont:Extension": "py"
+            }
+        ],
+        "alg:cleansitesgeo": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "activity": {
+        "log:a3eb6c1e0-f9ab-43eb-9d1b-6cd56b6346d8": {
+            "prov:startTime": "2016-04-13T14:07:11.300179",
+            "prov:endTime": "2016-04-13T14:07:20.575473"
+        },
+        "log:ac45aa0f2-b7bd-4bfa-8608-2400e3412367": {
+            "prov:startTime": "2016-04-13T14:29:09.133120",
+            "prov:endTime": "2016-04-13T14:29:24.635233"
+        },
+        "log:adb071a40-b594-412e-928f-4f467359ce32": {
+            "prov:startTime": "2016-04-13T14:38:33.482756",
+            "prov:endTime": "2016-04-13T14:38:33.482756"
+        },
+        "log:a5318191a-5322-445e-a26f-d4a3f24ce360": {
+            "prov:type": "ont:Computation"
+        },
+        "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19": [
+            {},
+            {}
+        ],
+        "log:a180066e6-265e-473a-ac98-e6c57961aefa": {
+            "prov:startTime": "2016-04-13T14:34:32.424972",
+            "prov:endTime": "2016-04-13T14:35:00.896816"
+        },
+        "log:a140e1fab-7e88-412c-b8cd-1bfe054f5a47": {
+            "prov:startTime": "2016-04-13T14:34:32.424972",
+            "prov:endTime": "2016-04-13T14:35:00.896816"
+        },
+        "log:a0b4b6405-799a-49b8-ba70-6a42a13642fe": {
+            "prov:startTime": "2016-04-13T14:04:27.736503",
+            "prov:endTime": "2016-04-13T14:04:37.117254"
+        },
+        "log:a50a489fb-433e-4857-a2bf-1496c30518da": {
+            "prov:startTime": "2016-04-13T14:45:03.170821",
+            "prov:endTime": "2016-04-13T14:45:35.463179"
+        },
+        "log:a65a84db3-f835-46ef-89ce-46293ee976b3": {
+            "prov:startTime": "2016-04-13T14:34:21.018742",
+            "prov:endTime": "2016-04-13T14:34:21.018742"
+        },
+        "log:a9f0d0c52-26eb-4e78-accc-03a9d3b14d1f": {
+            "prov:startTime": "2016-04-13T14:39:27.493782",
+            "prov:endTime": "2016-04-13T14:39:56.547045"
+        },
+        "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66": {
+            "prov:startTime": "2016-04-10T18:16:58.920685",
+            "prov:endTime": "2016-04-10T18:18:21.171928"
+        },
+        "log:aab0419e3-8abd-4f48-b631-66b70a89a703": [
+            {},
+            {}
+        ],
+        "log:a485531bb-f266-4e12-9678-f300652e6b53": {
+            "prov:type": "ont:Computation"
+        },
+        "log:ab7bf8e10-8556-4add-abde-417294637564": {
+            "prov:startTime": "2016-04-13T14:45:03.170821",
+            "prov:endTime": "2016-04-13T14:45:35.463179"
+        },
+        "log:a42b840aa-8272-44b2-b6d7-93bb943bd754": {
+            "prov:startTime": "2016-04-13T14:38:35.010612",
+            "prov:endTime": "2016-04-13T14:38:49.262254"
+        },
+        "log:a0fa87311-3484-48af-a926-7ef2e96b031a": {
+            "prov:type": "ont:Computation"
+        },
+        "log:afb4a248c-c8b5-4798-8366-fdd99f0db143": {
+            "prov:startTime": "2016-04-13T14:39:17.354624",
+            "prov:endTime": "2016-04-13T14:39:17.354624"
+        },
+        "log:a4fd3081d-ceae-499b-8c06-c62398f6af29": {
+            "prov:startTime": "2016-04-13T14:39:27.493782",
+            "prov:endTime": "2016-04-13T14:39:56.547045"
+        },
+        "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5": {
+            "prov:type": "ont:Computation"
+        },
+        "log:a8104ef80-1fee-4935-8360-6e22a3355785": {
+            "prov:startTime": "2016-04-13T14:29:24.930909",
+            "prov:endTime": "2016-04-13T14:29:54.483166"
+        },
+        "log:a516214d3-f095-4d80-921a-091d2455d602": [
+            {},
+            {}
+        ],
+        "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3": {
+            "prov:startTime": "2016-04-13T14:20:04.648995",
+            "prov:endTime": "2016-04-13T14:20:04.648995"
+        },
+        "log:a2073fbeb-ae06-4510-9199-4d22270335cb": {
+            "prov:startTime": "2016-04-10T18:16:58.920685",
+            "prov:endTime": "2016-04-10T18:18:21.171928"
+        },
+        "log:aac43de5e-f1d7-482f-a798-c60406cc9145": {
+            "prov:type": "ont:Computation"
+        },
+        "log:ae606452e-bd4e-47ba-9487-b4b221b06f29": {
+            "prov:startTime": "2016-04-13T14:44:48.926268",
+            "prov:endTime": "2016-04-13T14:44:48.926268"
+        },
+        "log:a8676bb18-0c04-4503-92b9-64ece8213d78": {
+            "prov:startTime": "2016-04-13T14:49:39.852679",
+            "prov:endTime": "2016-04-13T14:49:50.341970"
+        },
+        "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {}
+        ],
+        "log:a0c1c8bc0-c2c1-4b7e-86bf-9bd1958e7f6b": {
+            "prov:startTime": "2016-04-13T14:29:24.930909",
+            "prov:endTime": "2016-04-13T14:29:54.483166"
+        },
+        "log:a8e49e3d5-e033-411f-87d5-b6743a15a272": {
+            "prov:startTime": "2016-04-13T14:29:07.630067",
+            "prov:endTime": "2016-04-13T14:29:07.630067"
+        },
+        "log:ace109da1-c1ab-4b77-9038-6bfcf2e7c012": {
+            "prov:startTime": "2016-04-13T13:54:13.716987",
+            "prov:endTime": "2016-04-13T13:54:42.226146"
+        },
+        "log:a2d2878b2-59cb-4526-9f19-1c5a323f1f23": {
+            "prov:startTime": "2016-04-13T14:34:32.424972",
+            "prov:endTime": "2016-04-13T14:35:00.896816"
+        },
+        "log:a120f673a-9f47-4a84-bb7f-02c8016c7d81": {
+            "prov:startTime": "2016-04-13T14:49:50.590342",
+            "prov:endTime": "2016-04-13T14:50:19.878493"
+        },
+        "log:a4f1da9c1-7896-4bca-9923-cfa2dbb17e12": {
+            "prov:startTime": "2016-04-13T14:20:06.127085",
+            "prov:endTime": "2016-04-13T14:20:23.630661"
+        },
+        "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa": {
+            "prov:type": "ont:Computation"
+        },
+        "log:a5d24fe4d-eadf-4dec-bf1a-12e78978c825": {
+            "prov:startTime": "2016-04-13T14:34:22.558864",
+            "prov:endTime": "2016-04-13T14:34:32.229849"
+        },
+        "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e": {
+            "prov:startTime": "2016-04-13T14:49:38.195196",
+            "prov:endTime": "2016-04-13T14:49:38.196196"
+        },
+        "log:ac05c1b1c-350f-4237-85cf-255c094253b9": [
+            {},
+            {}
+        ],
+        "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361": {
+            "prov:type": "ont:Computation"
+        },
+        "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec": {
+            "prov:type": "ont:Computation"
+        },
+        "log:a4aff388b-d071-4fd4-8b59-d4fecd2063c3": {
+            "prov:startTime": "2016-04-13T14:45:03.170821",
+            "prov:endTime": "2016-04-13T14:45:35.463179"
+        },
+        "log:a231434dd-ad6f-469d-9f42-09a7b99e8ad6": {
+            "prov:startTime": "2016-04-13T14:39:27.493782",
+            "prov:endTime": "2016-04-13T14:39:56.547045"
+        },
+        "log:a24dc6a59-4c4f-4f4f-aea8-14d311e0a7ce": {
+            "prov:startTime": "2016-04-13T14:29:24.930909",
+            "prov:endTime": "2016-04-13T14:29:54.483166"
+        },
+        "log:ae5f08f3b-80ab-48a8-bfe1-5601d94e62b4": {
+            "prov:startTime": "2016-04-13T14:44:50.546409",
+            "prov:endTime": "2016-04-13T14:45:02.946581"
+        },
+        "log:a18dcc222-0fba-454b-a276-f3f7539298e7": {
+            "prov:startTime": "2016-04-13T14:45:03.170821",
+            "prov:endTime": "2016-04-13T14:45:35.463179"
+        },
+        "log:ad8e55ff4-976a-44a3-b0f9-a62744862275": {
+            "prov:startTime": "2016-04-13T14:49:50.590342",
+            "prov:endTime": "2016-04-13T14:50:19.878493"
+        },
+        "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745": [
+            {},
+            {}
+        ],
+        "log:ae592e961-adcd-4b66-a8ad-8496db409931": [
+            {},
+            {}
+        ],
+        "log:a916d7c05-e1b1-47a1-be07-8f10d1197726": [
+            {},
+            {}
+        ],
+        "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0": {
+            "prov:startTime": "2016-04-13T14:49:08.550551",
+            "prov:endTime": "2016-04-13T14:49:08.550551"
+        },
+        "log:ab85c1366-f38d-4e75-a949-bd53d607817e": {
+            "prov:startTime": "2016-04-13T14:29:24.930909",
+            "prov:endTime": "2016-04-13T14:29:54.483166"
+        },
+        "log:abf27ed9b-8dda-4fd1-9cb1-0138dfc20a11": {
+            "prov:startTime": "2016-04-13T14:49:50.590342",
+            "prov:endTime": "2016-04-13T14:50:19.878493"
+        },
+        "log:aa03fa4fc-15aa-4b2f-a2f6-1d202a723e25": {
+            "prov:startTime": "2016-04-13T14:49:50.590342",
+            "prov:endTime": "2016-04-13T14:50:19.878493"
+        },
+        "log:afff7ece9-4365-4854-abd0-39d7bf87d561": {
+            "prov:startTime": "2016-04-13T14:34:32.424972",
+            "prov:endTime": "2016-04-13T14:35:00.896816"
+        },
+        "log:a927bdd53-2699-4730-b547-0a6c0464724d": {
+            "prov:startTime": "2016-04-13T14:39:27.493782",
+            "prov:endTime": "2016-04-13T14:39:56.547045"
+        },
+        "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7": {
+            "prov:startTime": "2016-04-13T14:07:08.745074",
+            "prov:endTime": "2016-04-13T14:07:08.745074"
+        },
+        "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47": {
+            "prov:type": "ont:Computation"
+        },
+        "log:ad40a745f-00c2-462d-9993-4f61d9291561": {},
+        "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583": {
+            "prov:type": "ont:Computation"
+        },
+        "log:a19043872-f5b3-4b28-89ef-a835bc262773": {
+            "prov:type": "ont:Computation"
+        },
+        "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe": {
+            "prov:startTime": "2016-03-01T23:40:37.896167",
+            "prov:endTime": "2016-03-01T23:41:16.688282"
+        },
+        "log:a472f8685-0e17-46b6-a915-af22524ee7b9": {
+            "prov:startTime": "2016-04-03T12:53:39.429805",
+            "prov:endTime": "2016-04-03T12:53:39.429805"
+        },
+        "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc": {
+            "prov:startTime": "2016-04-10T18:16:58.920685",
+            "prov:endTime": "2016-04-10T18:18:21.171928"
+        },
+        "log:a41035dd3-b23f-49d9-af75-12773cda6616": [
+            {},
+            {}
+        ],
+        "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81": {
+            "prov:startTime": "2016-04-10T18:16:58.920685",
+            "prov:endTime": "2016-04-10T18:18:21.171928"
+        },
+        "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b": [
+            {},
+            {}
+        ],
+        "log:a107090fa-5fcf-4537-a2c7-5a41be23c4bb": {
+            "prov:startTime": "2016-04-13T14:39:19.036196",
+            "prov:endTime": "2016-04-13T14:39:27.260646"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id176": {
+            "prov:generation": "log:ae606452e-bd4e-47ba-9487-b4b221b06f29",
+            "prov:usage": "log:ae606452e-bd4e-47ba-9487-b4b221b06f29",
+            "prov:activity": "log:ae606452e-bd4e-47ba-9487-b4b221b06f29",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id152": {
+            "prov:generation": "log:a19043872-f5b3-4b28-89ef-a835bc262773",
+            "prov:usage": "log:a19043872-f5b3-4b28-89ef-a835bc262773",
+            "prov:activity": "log:a19043872-f5b3-4b28-89ef-a835bc262773",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id171": {
+            "prov:generation": "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec",
+            "prov:usage": "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec",
+            "prov:activity": "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id174": {
+            "prov:generation": "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e",
+            "prov:usage": "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e",
+            "prov:activity": "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id155": [
+            {
+                "prov:usedEntity": "zillow:neighzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            }
+        ],
+        "_:id182": {
+            "prov:generation": "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7",
+            "prov:usage": "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7",
+            "prov:activity": "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id146": {
+            "prov:generation": "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa",
+            "prov:usage": "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa",
+            "prov:activity": "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id151": [
+            {
+                "prov:generation": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:usage": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:usage": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id165": [
+            {
+                "prov:generation": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:usage": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:usage": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id179": [
+            {
+                "prov:generation": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:usage": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:usage": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id166": [
+            {
+                "prov:generation": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:usage": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:usage": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id187": {
+            "prov:generation": "log:a8e49e3d5-e033-411f-87d5-b6743a15a272",
+            "prov:usage": "log:a8e49e3d5-e033-411f-87d5-b6743a15a272",
+            "prov:activity": "log:a8e49e3d5-e033-411f-87d5-b6743a15a272",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id161": {
+            "prov:generation": "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361",
+            "prov:usage": "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361",
+            "prov:activity": "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id173": {
+            "prov:generation": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:usage": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:usedEntity": "dat:sitecoordinates",
+            "prov:generatedEntity": "dat:currentsites"
+        },
+        "_:id153": {
+            "prov:generation": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:usage": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:usedEntity": "dat:needle311",
+            "prov:generatedEntity": "dat:requestsxy"
+        },
+        "_:id175": [
+            {
+                "prov:usedEntity": "zillow:zipzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            }
+        ],
+        "_:id160": {
+            "prov:generation": "log:a5318191a-5322-445e-a26f-d4a3f24ce360",
+            "prov:usage": "log:a5318191a-5322-445e-a26f-d4a3f24ce360",
+            "prov:activity": "log:a5318191a-5322-445e-a26f-d4a3f24ce360",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id150": [
+            {
+                "prov:generation": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:usage": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:usage": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id149": [
+            {
+                "prov:generation": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:usage": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:usage": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id183": {
+            "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:needle311"
+        },
+        "_:id157": {
+            "prov:generation": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
+            "prov:usage": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
+            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "aws:jgyou/zipcodes"
+        },
+        "_:id180": {
+            "prov:generation": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:usage": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:usedEntity": "bhpc:safeneedle",
+            "prov:generatedEntity": "dat:currentsites"
+        },
+        "_:id145": [
+            {
+                "prov:generation": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:usage": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:usage": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id178": {
+            "prov:generation": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:usage": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:usedEntity": "dat:sitegeocodes",
+            "prov:generatedEntity": "dat:sitecoordinates"
+        },
+        "_:id148": {
+            "prov:generation": "log:a65a84db3-f835-46ef-89ce-46293ee976b3",
+            "prov:usage": "log:a65a84db3-f835-46ef-89ce-46293ee976b3",
+            "prov:activity": "log:a65a84db3-f835-46ef-89ce-46293ee976b3",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id158": [
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "ocd:geocode",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            }
+        ],
+        "_:id163": [
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            },
+            {
+                "prov:usedEntity": "mbta:gtfs",
+                "prov:generatedEntity": "dat:mbtaStops"
+            }
+        ],
+        "_:id162": {
+            "prov:generation": "log:afb4a248c-c8b5-4798-8366-fdd99f0db143",
+            "prov:usage": "log:afb4a248c-c8b5-4798-8366-fdd99f0db143",
+            "prov:activity": "log:afb4a248c-c8b5-4798-8366-fdd99f0db143",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id159": {
+            "prov:generation": "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3",
+            "prov:usage": "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3",
+            "prov:activity": "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id167": {
+            "prov:generation": "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47",
+            "prov:usage": "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47",
+            "prov:activity": "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id156": {
+            "prov:generation": "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0",
+            "prov:usage": "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0",
+            "prov:activity": "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id168": {
+            "prov:generation": "log:a0fa87311-3484-48af-a926-7ef2e96b031a",
+            "prov:usage": "log:a0fa87311-3484-48af-a926-7ef2e96b031a",
+            "prov:activity": "log:a0fa87311-3484-48af-a926-7ef2e96b031a",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id147": [
+            {
+                "prov:usedEntity": "zillow:neighzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:neighzri",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            }
+        ],
+        "_:id181": [
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianrentalvalues"
+            }
+        ],
+        "_:id184": {
+            "prov:generation": "log:aac43de5e-f1d7-482f-a798-c60406cc9145",
+            "prov:usage": "log:aac43de5e-f1d7-482f-a798-c60406cc9145",
+            "prov:activity": "log:aac43de5e-f1d7-482f-a798-c60406cc9145",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id154": [
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "dat:zipcodes",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            }
+        ],
+        "_:id185": {
+            "prov:generation": "log:a485531bb-f266-4e12-9678-f300652e6b53",
+            "prov:usage": "log:a485531bb-f266-4e12-9678-f300652e6b53",
+            "prov:activity": "log:a485531bb-f266-4e12-9678-f300652e6b53",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:generatedEntity": "dat:hospitals"
+        },
+        "_:id177": {
+            "prov:generation": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:usage": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:usedEntity": "dat:needle311",
+            "prov:generatedEntity": "dat:means"
+        },
+        "_:id169": {
+            "prov:generation": "log:adb071a40-b594-412e-928f-4f467359ce32",
+            "prov:usage": "log:adb071a40-b594-412e-928f-4f467359ce32",
+            "prov:activity": "log:adb071a40-b594-412e-928f-4f467359ce32",
+            "prov:usedEntity": "madir:MAReferenceDesk/MassachusettsZipCodes",
+            "prov:generatedEntity": "dat:zipcodes"
+        },
+        "_:id144": [
+            {
+                "prov:generation": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:usage": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:usage": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id164": [
+            {
+                "prov:generation": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:usage": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            },
+            {
+                "prov:generation": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:usage": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:usedEntity": "bdp:u6fv-m8v4",
+                "prov:generatedEntity": "dat:hospitals"
+            }
+        ],
+        "_:id172": {
+            "prov:generation": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:usage": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:usedEntity": "dat:currentsites",
+            "prov:generatedEntity": "dat:currentsites"
+        },
+        "_:id170": [
+            {
+                "prov:usedEntity": "zillow:zipzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            },
+            {
+                "prov:usedEntity": "zillow:zipzhvi",
+                "prov:generatedEntity": "dat:medianpropertyvalues"
+            }
+        ],
+        "_:id186": [
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            },
+            {
+                "prov:generation": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usage": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:usedEntity": "dat:currentsites",
+                "prov:generatedEntity": "dat:sitegeocodes"
+            }
+        ]
+    },
+    "used": {
+        "_:id218": {
+            "ont:Query": "geojson?q=21-23 Stanhope Street,Boston, MA 02116&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id242": {
+            "prov:activity": "log:a24dc6a59-4c4f-4f4f-aea8-14d311e0a7ce",
+            "prov:entity": "zillow:neighzhvi"
+        },
+        "_:id260": {
+            "prov:time": "2016-04-13T14:49:38.195196",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:afd7afed0-f9be-4076-b6c6-b89d1f2fe63e",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id228": {
+            "prov:activity": "log:a0c1c8bc0-c2c1-4b7e-86bf-9bd1958e7f6b",
+            "prov:entity": "zillow:zipzri"
+        },
+        "_:id216": {
+            "prov:activity": "log:a0fe610c9-e0fe-4040-8b03-5c345aea7361",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id255": {
+            "prov:activity": "log:a8676bb18-0c04-4503-92b9-64ece8213d78",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id191": {
+            "prov:time": "2016-04-13T14:44:48.926268",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:ae606452e-bd4e-47ba-9487-b4b221b06f29",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id203": {
+            "prov:activity": "log:ab7bf8e10-8556-4add-abde-417294637564",
+            "prov:entity": "zillow:neighzhvi"
+        },
+        "_:id214": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a9c51aaef-34da-442a-bd47-be38b83b4b5b",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id222": {
+            "prov:activity": "log:ac78cde39-fd4a-44a4-83f8-9d544f1c6d66",
+            "prov:entity": "zillow:neighzhvi"
+        },
+        "_:id227": {
+            "prov:activity": "log:ae5f08f3b-80ab-48a8-bfe1-5601d94e62b4",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id257": {
+            "prov:activity": "log:a231434dd-ad6f-469d-9f42-09a7b99e8ad6",
+            "prov:entity": "zillow:neighzri"
+        },
+        "_:id237": {
+            "prov:activity": "log:ae9b0ec42-029d-4d6a-8888-9b861dafb3ec",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id207": {
+            "prov:activity": "log:ac455d31d-5b9b-40f2-abe2-127b697e70bc",
+            "prov:entity": "zillow:neighzri"
+        },
+        "_:id215": {
+            "prov:activity": "log:a4a7e5d8d-84ec-4378-8071-53cadf0da583",
+            "prov:entity": "dat:sitegeocodes"
+        },
+        "_:id195": {
+            "prov:activity": "log:ac7ef6804-a1fa-451f-bf6d-fc6fe56d1daa",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id189": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a516214d3-f095-4d80-921a-091d2455d602",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id271": {
+            "prov:activity": "log:ad8e55ff4-976a-44a3-b0f9-a62744862275",
+            "prov:entity": "zillow:zipzhvi"
+        },
+        "_:id188": {
+            "prov:time": "2016-04-13T14:39:17.354624",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:afb4a248c-c8b5-4798-8366-fdd99f0db143",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id233": {
+            "prov:activity": "log:a4aff388b-d071-4fd4-8b59-d4fecd2063c3",
+            "prov:entity": "zillow:zipzri"
+        },
+        "_:id208": {
+            "prov:activity": "log:a2073fbeb-ae06-4510-9199-4d22270335cb",
+            "prov:entity": "zillow:zipzhvi"
+        },
+        "_:id211": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:ac05c1b1c-350f-4237-85cf-255c094253b9",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id223": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:aab0419e3-8abd-4f48-b631-66b70a89a703",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id220": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:ae592e961-adcd-4b66-a8ad-8496db409931",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id229": {
+            "prov:activity": "log:a180066e6-265e-473a-ac98-e6c57961aefa",
+            "prov:entity": "zillow:neighzri"
+        },
+        "_:id194": {
+            "ont:Query": "geojson?q=780 Albany Street,Boston, MA 02118&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id196": {
+            "prov:time": "2016-04-13T14:49:08.550551",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:a4ac7a2ef-a875-478b-8f10-24a9dbdd22a0",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id201": {
+            "prov:activity": "log:a19043872-f5b3-4b28-89ef-a835bc262773",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id265": {
+            "prov:activity": "log:abf27ed9b-8dda-4fd1-9cb1-0138dfc20a11",
+            "prov:entity": "zillow:zipzri"
+        },
+        "_:id192": {
+            "prov:activity": "log:aa814721d-9430-4ad5-b5a9-89d9bf4aef81",
+            "prov:entity": "zillow:zipzri"
+        },
+        "_:id243": [
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            },
+            {
+                "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+                "prov:entity": "dat:currentsites"
+            }
+        ],
+        "_:id232": {
+            "prov:activity": "log:a485531bb-f266-4e12-9678-f300652e6b53",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id252": {
+            "prov:activity": "log:ace109da1-c1ab-4b77-9038-6bfcf2e7c012",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id200": {
+            "prov:activity": "log:ac45aa0f2-b7bd-4bfa-8608-2400e3412367",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id221": {
+            "ont:Query": "geojson?q=409 Blue Hill Avenue,Dorchester, MA 02121-4309&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id202": {
+            "ont:Query": "Safe-Needle-and-Syringe-Disposal.aspx",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:ad40a745f-00c2-462d-9993-4f61d9291561",
+            "prov:entity": "bhpc:safeneedle"
+        },
+        "_:id213": {
+            "prov:activity": "log:a8104ef80-1fee-4935-8360-6e22a3355785",
+            "prov:entity": "zillow:zipzhvi"
+        },
+        "_:id230": {
+            "prov:activity": "log:a18dcc222-0fba-454b-a276-f3f7539298e7",
+            "prov:entity": "zillow:zipzhvi"
+        },
+        "_:id198": {
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:entity": "dat:sitecoordinates"
+        },
+        "_:id217": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a916d7c05-e1b1-47a1-be07-8f10d1197726",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id224": {
+            "prov:activity": "log:ab85c1366-f38d-4e75-a949-bd53d607817e",
+            "prov:entity": "zillow:neighzri"
+        },
+        "_:id205": {
+            "prov:activity": "log:a50a489fb-433e-4857-a2bf-1496c30518da",
+            "prov:entity": "zillow:neighzri"
+        },
+        "_:id250": {
+            "prov:activity": "log:a3eb6c1e0-f9ab-43eb-9d1b-6cd56b6346d8",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id226": {
+            "prov:activity": "log:a5d24fe4d-eadf-4dec-bf1a-12e78978c825",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id258": {
+            "prov:time": "2016-04-13T14:34:21.018742",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:a65a84db3-f835-46ef-89ce-46293ee976b3",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id244": {
+            "prov:activity": "log:a4fd3081d-ceae-499b-8c06-c62398f6af29",
+            "prov:entity": "zillow:zipzri"
+        },
+        "_:id219": {
+            "prov:activity": "log:a0fa87311-3484-48af-a926-7ef2e96b031a",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id253": {
+            "ont:Query": "geojson?q=1 Stoughton Street,Dorchester, MA 02125&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id236": {
+            "prov:time": "2016-04-13T14:38:33.482756",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:adb071a40-b594-412e-928f-4f467359ce32",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id246": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:ae2e1d27d-14d8-45b8-a87f-f0fd61a10a19",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id210": {
+            "prov:time": "2016-04-03T12:53:39.429805",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:a472f8685-0e17-46b6-a915-af22524ee7b9",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id231": {
+            "prov:activity": "log:a9f0d0c52-26eb-4e78-accc-03a9d3b14d1f",
+            "prov:entity": "zillow:zipzhvi"
+        },
+        "_:id239": {
+            "prov:activity": "log:a2b4783fb-e7bf-436f-85a8-0c47298f4dc5",
+            "prov:entity": "dat:currentsites"
+        },
+        "_:id262": {
+            "prov:activity": "log:aa03fa4fc-15aa-4b2f-a2f6-1d202a723e25",
+            "prov:entity": "zillow:neighzri"
+        },
+        "_:id268": {
+            "prov:activity": "log:a120f673a-9f47-4a84-bb7f-02c8016c7d81",
+            "prov:entity": "zillow:neighzhvi"
+        },
+        "_:id238": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a41035dd3-b23f-49d9-af75-12773cda6616",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id225": {
+            "prov:activity": "log:a583166f4-fb32-46c8-938b-d8a5bfa6ad47",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id245": {
+            "ont:Query": "geojson?q=398 Neponset Avenue,Dorchester, MA 02122&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id251": {
+            "ont:Query": "geojson?q=105 Chauncy Street, 6th Floor,Boston, MA 02111&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id193": {
+            "ont:Query": "geojson?q=75 Amory Street,Boston, MA 02130&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id206": {
+            "ont:Query": "?type=Needle+Pickup&$select=longitude,latitude,location,geocoded_location,open_dt",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "bdp:wc8w-nujj"
+        },
+        "_:id240": [
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:entity": "bdp:u6fv-m8v4"
+            },
+            {
+                "ont:Query": "?select=name%2C+ad%2C+location_zip%2C+location%2C+neigh",
+                "prov:type": "ont:Retrieval",
+                "prov:activity": "log:a4bb4abc5-91d3-45e5-866e-f8947dc9d745",
+                "prov:entity": "bdp:u6fv-m8v4"
+            }
+        ],
+        "_:id235": {
+            "prov:activity": "log:a140e1fab-7e88-412c-b8cd-1bfe054f5a47",
+            "prov:entity": "zillow:neighzhvi"
+        },
+        "_:id234": {
+            "prov:activity": "log:a4f1da9c1-7896-4bca-9923-cfa2dbb17e12",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id241": {
+            "prov:activity": "log:afff7ece9-4365-4854-abd0-39d7bf87d561",
+            "prov:entity": "zillow:zipzhvi"
+        },
+        "_:id199": {
+            "prov:activity": "log:a0b4b6405-799a-49b8-ba70-6a42a13642fe",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id212": {
+            "prov:activity": "log:aac43de5e-f1d7-482f-a798-c60406cc9145",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id249": {
+            "prov:time": "2016-03-01T23:40:37.896167",
+            "prov:activity": "log:aea356e08-bbcd-4721-af20-6a4a604cd1fe",
+            "prov:entity": "dat:needle311"
+        },
+        "_:id209": {
+            "prov:activity": "log:a5318191a-5322-445e-a26f-d4a3f24ce360",
+            "prov:entity": "dat:hospitals"
+        },
+        "_:id197": {
+            "prov:activity": "log:a107090fa-5fcf-4537-a2c7-5a41be23c4bb",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id247": {
+            "prov:time": "2016-04-13T14:20:04.648995",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:ac1c3c3c6-7a59-4fa4-bb02-4c83c18626a3",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id256": {
+            "prov:time": "2016-04-13T14:29:07.630067",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:a8e49e3d5-e033-411f-87d5-b6743a15a272",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id259": {
+            "prov:time": "2016-04-13T14:07:08.745074",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:a5ab48b63-cafd-4488-82e2-6a71f4af7de7",
+            "prov:entity": "madir:MAReferenceDesk/MassachusettsZipCodes"
+        },
+        "_:id190": {
+            "prov:activity": "log:a42b840aa-8272-44b2-b6d7-93bb943bd754",
+            "prov:entity": "mbta:gtfs"
+        },
+        "_:id204": {
+            "ont:Query": "geojson?q=35 Northampton Street,Boston, MA 02118&limit=1&countrycode=us",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:aa2cc2e67-58b8-419d-a590-0ef01add89d2",
+            "prov:entity": "ocd:geocode"
+        },
+        "_:id254": {
+            "prov:activity": "log:a2d2878b2-59cb-4526-9f19-1c5a323f1f23",
+            "prov:entity": "zillow:zipzri"
+        },
+        "_:id248": {
+            "prov:activity": "log:a927bdd53-2699-4730-b547-0a6c0464724d",
+            "prov:entity": "zillow:neighzhvi"
         }
     }
 }

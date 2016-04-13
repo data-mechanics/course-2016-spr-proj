@@ -10,20 +10,26 @@ exec(open('../pymongo_dm.py').read())
 
 # assumes startlocation = x-y, long-lat
 # given x-y coordinates, finds approximate address using opencage geocoder
+
+# get Address not working
 def getAddress(startlocation):
-  (lat, lon) = startLocation
-  # note geocode takes in lat-long
-  query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + str(lat) \
-  	 + "," + "+" + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
+  with open("auth.json") as f:
+    auth = json.loads(f.read())
+    key = auth['service']['mapquest']['key']
+    (lat, lon) = startLocation
+    # note geocode takes in lat-long
+    query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + "+" + str(lat) \
+    	 + "," + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
 
-  response = request.urlopen(query).read().decode("utf-8")
-  addresults = json.loads(response)
+    #print(query)
+    response = request.urlopen(query).read().decode("utf-8")
+    addresults = json.loads(response)
 
-  startzip = addresults['results'][0]['components']['postcode']
-  neighborhood = addresults['results'][0]['components']['suburb']
-  formatted = addresults['results'][0]['formatted']
+    startzip = addresults['results'][0]['components']['postcode']
+    neighborhood = addresults['results'][0]['components']['suburb']
+    formatted = addresults['results'][0]['formatted']
 
-  return (formatted, neighborhood, startzip)
+    return (formatted, neighborhood, startzip)
 
 
 # also takes in long-lat

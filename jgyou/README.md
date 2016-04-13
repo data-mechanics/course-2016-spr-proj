@@ -31,6 +31,8 @@ Other factors currently not included but potentially be taken in consideration f
 
 Sites will either be retrieved from the City of Boston website or from the Yelp API.
 
+Some of the files in this directory pertain to the previous version of this project on a different subject matter and are not used in this version of the project. However they are stored here in the event they are useful.
+
 ### Further Considerations and Applications
 
 TBD
@@ -61,10 +63,12 @@ The scores by neighborhood/region could then be compared to the current distribu
 - [Yelp] (https://www.yelp.com/developers/)
 
 ## Original Data Sets
-- [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
 - [OpenCage Geocoder] (https://geocoder.opencagedata.com/)
-- [Census Block Conversions API] (https://www.fcc.gov/general/census-block-conversions-api)
+- [FCC Census Block API] (https://www.fcc.gov/general/census-block-conversions-api)
+- [MA Zipcodes] (http://www.directoryma.com/MAReferenceDesk/MassachusettsZipCodes.html)
 - [MBTA Schedules and Trip Planning Data] (http://www.mbta.com/rider_tools/developers/default.asp?id=21895)
+- [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
+
 
 ## Instructions
 

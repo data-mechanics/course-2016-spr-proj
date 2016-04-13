@@ -37,7 +37,7 @@ def findClosestCoordinate(repo, collec, startLocation):
 	for document in cursor:
 		endLocation = (document["latitude"], document["longitude"])
 
-		dist = findClosestCoordinate(startLocation, endLocation)
+		dist = findDistance(startLocation, endLocation)
 
 		alldist.append([endLocation, dist])
 
@@ -45,11 +45,21 @@ def findClosestCoordinate(repo, collec, startLocation):
 
 	return dist
 
+def boundedRadius(repo, collec, startLocation, bound):
+	cursor = repo[collec].find({""})
+	object_ids = []
+	for document in cursor:
+		endLocation = (document["latitude"], document["longitude"])
+		dist = vincenty(startLocation, endLocation).miles
+
+
+
+
 client = pymongo.MongoClient()
 repo = client.repo
 
 
-print(findDistance((42.3604, -71.0580),  (42.3600, -71.0562)))
+#print(findDistance((42.3604, -71.0580),  (42.3600, -71.0562)))
 
 
 

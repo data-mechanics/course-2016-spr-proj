@@ -12,8 +12,6 @@ import prov.model
 import datetime
 import uuid
 import time
-from yelp.client import Client
-from yelp.oauth1_authenticator import Oauth1Authenticator
 
 exec(open('../pymongo_dm.py').read())
 
@@ -63,7 +61,7 @@ provdoc.wasDerivedFrom(zipcodes, resource, this_run, this_run, this_run)
 
 repo.record(provdoc.serialize()) # Record the provenance document.
 
-print(provdoc.get_provn())
+#print(provdoc.get_provn())
 
 ##########
 provdoc2 = prov.model.ProvDocument()
