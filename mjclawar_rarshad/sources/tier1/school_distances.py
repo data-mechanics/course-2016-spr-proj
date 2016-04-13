@@ -37,7 +37,7 @@ class SchoolDistancesSettings(MCRASSettings):
 
     @property
     def base_url(self):
-        return 'school_locations'
+        return 'boston_public_schools'
 
     @property
     def resource_properties(self):
