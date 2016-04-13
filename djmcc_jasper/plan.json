@@ -1,0 +1,668 @@
+[{
+        "activity" : {
+                "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf" : {
+                        "prov:endTime" : "2016-04-10T19:51:57.052676",
+                        "prov:startTime" : "2016-04-10T19:44:12.507106",
+                        "ont:Query" : "?dogs=false&southLat=42.2273878&searchTerms=&rltr=true&imagesOnly=false&cl=true&showHidden=false&cats=false&eastLong=-70.9224046&maxTime=0&favsOnly=false&showSubs=true&showNonSubs=true&showRooms=false&noFee=false&am=false&limit=3000&phoneReq=false&pl=true&showPOI=false&ood=true&aptsrch=true&showVac=false&maxBR=10&userId=-1&westLong=-71.1951745&minBA=1&onlyHQ=true&workplaceLong=0&rnt=true&airbnb=false&maxPricePerBedroom=6000&af=true&minBR=0&cities=false&workplaceLat=0&northLat=42.4351936&maxAge=7&zoom=15minRent=<minRent>&maxRent=<maxRent>",
+                        "prov:type" : "ont:Retrieval"
+                }
+        },
+        "used" : {
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T19:44:12.507106",
+                        "prov:entity" : "pdm:reloadMarkersJSON",
+                        "prov:activity" : "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf",
+                        "prov:agent" : "alg:get_apartments"
+                }
+        },
+        "entity" : {
+                "pdm:reloadMarkersJSON" : {
+                        "ont:Extension" : "php",
+                        "prov:label" : "Markers",
+                        "prov:type" : "ont:DataResource"
+                },
+                "dat:apartments" : {
+                        "prov:label" : "Apartments",
+                        "prov:type" : "ont:DataSet"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id5" : {
+                        "prov:generation" : "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf",
+                        "prov:activity" : "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf",
+                        "prov:generatedEntity" : "dat:apartments",
+                        "prov:usage" : "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf",
+                        "prov:usedEntity" : "pdm:reloadMarkersJSON"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id4" : {
+                        "prov:time" : "2016-04-10T19:51:57.052676",
+                        "prov:entity" : "dat:apartments",
+                        "prov:activity" : "log:aab58bb69-5560-4b9b-ac7a-e3e559085dbf"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "pdm" : "https://www.padmapper.com/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:get_apartments" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id3" : {
+                        "prov:entity" : "dat:apartments",
+                        "prov:agent" : "alg:get_apartments"
+                }
+        }
+},
+{
+        "activity" : {
+                "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a" : {
+                        "prov:endTime" : "2016-04-10T19:57:45.654615",
+                        "prov:startTime" : "2016-04-10T19:51:57.533704",
+                        "prov:type" : "ont:Computation"
+                }
+        },
+        "used" : {
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T19:51:57.533704",
+                        "prov:entity" : "dat:apartments",
+                        "prov:activity" : "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a",
+                        "prov:agent" : "alg:collapse_apartments"
+                }
+        },
+        "entity" : {
+                "dat:collapsed_apartments" : {
+                        "prov:label" : "Collapsed Apartments",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:apartments" : {
+                        "prov:label" : "Apartments",
+                        "prov:type" : "ont:DataSet"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id5" : {
+                        "prov:generation" : "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a",
+                        "prov:activity" : "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a",
+                        "prov:generatedEntity" : "dat:collapsed_apartments",
+                        "prov:usage" : "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a",
+                        "prov:usedEntity" : "dat:apartments"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id4" : {
+                        "prov:time" : "2016-04-10T19:57:45.654615",
+                        "prov:entity" : "dat:collapsed_apartments",
+                        "prov:activity" : "log:a0b8ddead-d851-4972-a13a-a3e3f164e55a"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:collapse_apartments" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id3" : {
+                        "prov:entity" : "dat:collapsed_apartments",
+                        "prov:agent" : "alg:collapse_apartments"
+                }
+        }
+},
+{
+        "activity" : {
+                "log:a51cd4757-94ba-431f-8a83-419640326595" : {
+                        "prov:endTime" : "2016-04-10T21:42:31.758159",
+                        "prov:startTime" : "2016-04-10T19:57:45.744620",
+                        "prov:type" : "ont:Computation"
+                },
+                "log:ab69ce15f-0467-4395-984d-47167655cd58" : {
+                        "prov:endTime" : "2016-04-10T21:42:31.758159",
+                        "prov:startTime" : "2016-04-10T19:57:45.744620",
+                        "ont:Query" : "?id=<id>",
+                        "prov:type" : "ont:Retrieval"
+                }
+        },
+        "used" : {
+                "_:id4" : {
+                        "prov:time" : "2016-04-10T19:57:45.744620",
+                        "prov:entity" : "dat:collapsed_apartments",
+                        "prov:activity" : "log:a51cd4757-94ba-431f-8a83-419640326595"
+                },
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T19:57:45.744620",
+                        "prov:entity" : "pdm:show",
+                        "prov:activity" : "log:ab69ce15f-0467-4395-984d-47167655cd58"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:ab69ce15f-0467-4395-984d-47167655cd58",
+                        "prov:agent" : "alg:clean_apartments"
+                },
+                "_:id3" : {
+                        "prov:activity" : "log:a51cd4757-94ba-431f-8a83-419640326595",
+                        "prov:agent" : "alg:clean_apartments"
+                }
+        },
+        "entity" : {
+                "dat:filtered_apartments" : {
+                        "prov:label" : "Filtered Apartments",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:collapsed_apartments" : {
+                        "prov:label" : "Collapsed Apartments",
+                        "prov:type" : "ont:DataSet"
+                },
+                "pdm:show" : {
+                        "ont:Extension" : "php",
+                        "prov:label" : "Markers",
+                        "prov:type" : "ont:DataResource"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id8" : {
+                        "prov:generation" : "log:ab69ce15f-0467-4395-984d-47167655cd58",
+                        "prov:activity" : "log:ab69ce15f-0467-4395-984d-47167655cd58",
+                        "prov:generatedEntity" : "dat:filtered_apartments",
+                        "prov:usage" : "log:ab69ce15f-0467-4395-984d-47167655cd58",
+                        "prov:usedEntity" : "pdm:show"
+                },
+                "_:id9" : {
+                        "prov:generation" : "log:a51cd4757-94ba-431f-8a83-419640326595",
+                        "prov:activity" : "log:a51cd4757-94ba-431f-8a83-419640326595",
+                        "prov:generatedEntity" : "dat:filtered_apartments",
+                        "prov:usage" : "log:a51cd4757-94ba-431f-8a83-419640326595",
+                        "prov:usedEntity" : "dat:collapsed_apartments"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id6" : {
+                        "prov:time" : "2016-04-10T21:42:31.758159",
+                        "prov:entity" : "dat:filtered_apartments",
+                        "prov:activity" : "log:ab69ce15f-0467-4395-984d-47167655cd58"
+                },
+                "_:id7" : {
+                        "prov:time" : "2016-04-10T21:42:31.758159",
+                        "prov:entity" : "dat:filtered_apartments",
+                        "prov:activity" : "log:a51cd4757-94ba-431f-8a83-419640326595"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "pdm" : "https://www.padmapper.com/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:clean_apartments" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id5" : {
+                        "prov:entity" : "dat:filtered_apartments",
+                        "prov:agent" : "alg:clean_apartments"
+                }
+        }
+},
+{
+        "activity" : {
+                "log:a80918f9c-d817-4b18-b350-35c6c04078a7" : {
+                        "prov:endTime" : "2016-04-10T21:43:01.465859",
+                        "prov:startTime" : "2016-04-10T21:42:31.872166",
+                        "ont:Query" : "?$select=ptype,pid,st_num,st_name,st_name_suf,zipcode,av_total,av_bldg,av_land,living_area",
+                        "prov:type" : "ont:Retrieval"
+                }
+        },
+        "used" : {
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T21:42:31.872166",
+                        "prov:entity" : "bdp:yv8c-t43q",
+                        "prov:activity" : "log:a80918f9c-d817-4b18-b350-35c6c04078a7"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:a80918f9c-d817-4b18-b350-35c6c04078a7",
+                        "prov:agent" : "alg:get_assessments"
+                }
+        },
+        "entity" : {
+                "dat:assessments" : {
+                        "prov:label" : "Property Assessments 2015",
+                        "prov:type" : "ont:DataSet"
+                },
+                "bdp:yv8c-t43q" : {
+                        "ont:Extension" : "json",
+                        "prov:label" : "Property Assessments 2015",
+                        "prov:type" : "ont:DataResource"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id5" : {
+                        "prov:generation" : "log:a80918f9c-d817-4b18-b350-35c6c04078a7",
+                        "prov:activity" : "log:a80918f9c-d817-4b18-b350-35c6c04078a7",
+                        "prov:generatedEntity" : "dat:assessments",
+                        "prov:usage" : "log:a80918f9c-d817-4b18-b350-35c6c04078a7",
+                        "prov:usedEntity" : "bdp:yv8c-t43q"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id4" : {
+                        "prov:time" : "2016-04-10T21:43:01.465859",
+                        "prov:entity" : "dat:assessments",
+                        "prov:activity" : "log:a80918f9c-d817-4b18-b350-35c6c04078a7"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "bdp" : "https://data.cityofboston.gov/resource/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:get_assessments" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id3" : {
+                        "prov:entity" : "dat:assessments",
+                        "prov:agent" : "alg:get_assessments"
+                }
+        }
+},
+{
+        "activity" : {
+                "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18" : {
+                        "prov:endTime" : "2016-04-10T23:34:31.073482",
+                        "prov:startTime" : "2016-04-10T21:43:01.561864",
+                        "prov:type" : "ont:Computation"
+                }
+        },
+        "used" : {
+                "_:id3" : {
+                        "prov:time" : "2016-04-10T21:43:01.561864",
+                        "prov:entity" : "dat:filtered_assessments",
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18"
+                },
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T21:43:01.561864",
+                        "prov:entity" : "dat:assessments",
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:agent" : "alg:clean_assessments"
+                }
+        },
+        "entity" : {
+                "dat:merged_assessments" : {
+                        "prov:label" : "Merged Assessments",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:filtered_assessments" : {
+                        "prov:label" : "Filtered Assessments",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:assessments" : {
+                        "prov:label" : "Property Assessments 2015",
+                        "prov:type" : "ont:DataSet"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id6" : {
+                        "prov:generation" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:generatedEntity" : "dat:filtered_assessments",
+                        "prov:usage" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:usedEntity" : "dat:assessments"
+                },
+                "_:id9" : {
+                        "prov:generation" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:generatedEntity" : "dat:merged_assessments",
+                        "prov:usage" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18",
+                        "prov:usedEntity" : "dat:filtered_assessments"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id5" : {
+                        "prov:time" : "2016-04-10T23:34:31.073482",
+                        "prov:entity" : "dat:filtered_assessments",
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18"
+                },
+                "_:id8" : {
+                        "prov:time" : "2016-04-10T23:34:31.073482",
+                        "prov:entity" : "dat:merged_assessments",
+                        "prov:activity" : "log:af1c2ba1a-6731-47c8-9faf-9fee22bf1c18"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:clean_assessments" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id7" : {
+                        "prov:entity" : "dat:merged_assessments",
+                        "prov:agent" : "alg:clean_assessments"
+                },
+                "_:id4" : {
+                        "prov:entity" : "dat:filtered_assessments",
+                        "prov:agent" : "alg:clean_assessments"
+                }
+        }
+},
+{
+        "activity" : {
+                "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac" : {
+                        "prov:endTime" : "2016-04-10T23:36:18.362619",
+                        "prov:startTime" : "2016-04-10T23:34:31.167488",
+                        "prov:type" : "ont:Computation"
+                }
+        },
+        "used" : {
+                "_:id3" : {
+                        "prov:time" : "2016-04-10T23:34:31.167488",
+                        "prov:entity" : "dat:filtered_apartments",
+                        "prov:activity" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac"
+                },
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T23:34:31.167488",
+                        "prov:entity" : "dat:assessments",
+                        "prov:activity" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:agent" : "alg:join"
+                }
+        },
+        "entity" : {
+                "dat:filtered_apartments" : {
+                        "prov:label" : "Filtered Apartments",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:assessments" : {
+                        "prov:label" : "Property Assessments 2015",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:joined" : {
+                        "prov:label" : "Joined",
+                        "prov:type" : "ont:DataSet"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id6" : {
+                        "prov:generation" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:activity" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:generatedEntity" : "dat:joined",
+                        "prov:usage" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:usedEntity" : "dat:assessments"
+                },
+                "_:id7" : {
+                        "prov:generation" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:activity" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:generatedEntity" : "dat:joined",
+                        "prov:usage" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac",
+                        "prov:usedEntity" : "dat:filtered_apartments"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id5" : {
+                        "prov:time" : "2016-04-10T23:36:18.362619",
+                        "prov:entity" : "dat:joined",
+                        "prov:activity" : "log:a0acf5e76-ba49-4e0c-9d5c-d7ff2195c9ac"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:join" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id4" : {
+                        "prov:entity" : "dat:joined",
+                        "prov:agent" : "alg:join"
+                }
+        }
+},
+{
+        "activity" : {
+                "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102" : {
+                        "prov:endTime" : "2016-04-10T23:36:18.933652",
+                        "prov:startTime" : "2016-04-10T23:36:18.450624",
+                        "prov:type" : "ont:Computation"
+                }
+        },
+        "used" : {
+                "_:id2" : {
+                        "prov:time" : "2016-04-10T23:36:18.450624",
+                        "prov:entity" : "dat:joined",
+                        "prov:activity" : "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102"
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102",
+                        "prov:agent" : "alg:compute_ratio"
+                }
+        },
+        "entity" : {
+                "dat:joined" : [
+                        {
+                                "prov:label" : "Joined",
+                                "prov:type" : "ont:DataSet"
+                        },
+                        {
+                                "prov:label" : "Joined",
+                                "prov:type" : "ont:DataSet"
+                        }
+                ]
+        },
+        "wasDerivedFrom" : {
+                "_:id5" : {
+                        "prov:generation" : "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102",
+                        "prov:activity" : "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102",
+                        "prov:generatedEntity" : "dat:joined",
+                        "prov:usage" : "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102",
+                        "prov:usedEntity" : "dat:joined"
+                }
+        },
+        "wasGeneratedBy" : {
+                "_:id4" : {
+                        "prov:time" : "2016-04-10T23:36:18.933652",
+                        "prov:entity" : "dat:joined",
+                        "prov:activity" : "log:aab2684f6-d3c8-42fd-adb0-4072d9ade102"
+                }
+        },
+        "prefix" : {
+                "ont" : "http://datamechanics.io/ontology#",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "log" : "http://datamechanics.io/log#"
+        },
+        "agent" : {
+                "alg:compute_ratio" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id3" : {
+                        "prov:entity" : "dat:joined",
+                        "prov:agent" : "alg:compute_ratio"
+                }
+        }
+},
+{
+        "prefix" : {
+                "alg" : "http://datamechanics.io/algorithm/djmcc_jasper/",
+                "dat" : "http://datamechanics.io/data/djmcc_jasper/",
+                "ylp" : "http://api.yelp.com/v2/",
+                "bdp" : "https://data.cityofboston.gov/resource/",
+                "log" : "http://datamechanics.io/log#",
+                "ont" : "http://datamechanics.io/ontology#"
+        },
+        "wasGeneratedBy" : {
+                "_:id7" : {
+                        "prov:activity" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:time" : "2016-04-12T20:40:50.984253",
+                        "prov:entity" : "dat:web_data"
+                }
+        },
+        "activity" : {
+                "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83" : {
+                        "prov:endTime" : "2016-04-12T20:40:50.984253",
+                        "prov:startTime" : "2016-04-12T20:36:01.108527",
+                        "prov:type" : "ont:Computation"
+                },
+                "log:afd20e009-1dd4-463c-8df8-8adaaef0074d" : {
+                        "prov:endTime" : "2016-04-12T20:40:50.984253",
+                        "prov:startTime" : "2016-04-12T20:36:01.108527",
+                        "prov:type" : "ont:Retrieval"
+                }
+        },
+        "wasAttributedTo" : {
+                "_:id6" : {
+                        "prov:agent" : "alg:comp_vit",
+                        "prov:entity" : "dat:web_data"
+                }
+        },
+        "used" : {
+                "_:id5" : {
+                        "prov:activity" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:time" : "2016-04-12T20:36:01.108527",
+                        "prov:entity" : "ylp:search"
+                },
+                "_:id2" : {
+                        "prov:activity" : "log:afd20e009-1dd4-463c-8df8-8adaaef0074d",
+                        "prov:time" : "2016-04-12T20:36:01.108527",
+                        "prov:entity" : "ylp:search"
+                },
+                "_:id4" : {
+                        "prov:activity" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:time" : "2016-04-12T20:36:01.108527",
+                        "prov:entity" : "dat:assessments"
+                }
+        },
+        "agent" : {
+                "alg:comp_vit" : {
+                        "ont:Extension" : "py",
+                        "prov:type" : {
+                                "@" : "prov:SoftwareAgent",
+                                "type" : "prov:QUALIFIED_NAME"
+                        }
+                }
+        },
+        "wasAssociatedWith" : {
+                "_:id1" : {
+                        "prov:activity" : "log:afd20e009-1dd4-463c-8df8-8adaaef0074d",
+                        "prov:agent" : "alg:comp_vit"
+                },
+                "_:id3" : {
+                        "prov:activity" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:agent" : "alg:comp_vit"
+                }
+        },
+        "entity" : {
+                "ylp:search" : {
+                        "ont:Extension" : "json",
+                        "prov:label" : "Yelp API",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:web_data" : {
+                        "prov:label" : "Composition and Vitality Data",
+                        "prov:type" : "ont:DataSet"
+                },
+                "dat:assessments" : {
+                        "ont:Extension" : "json",
+                        "prov:label" : "Property Assessments 2015",
+                        "prov:type" : "ont:DataSet"
+                }
+        },
+        "wasDerivedFrom" : {
+                "_:id9" : {
+                        "prov:activity" : "log:afd20e009-1dd4-463c-8df8-8adaaef0074d",
+                        "prov:usage" : "log:afd20e009-1dd4-463c-8df8-8adaaef0074d",
+                        "prov:generation" : "log:afd20e009-1dd4-463c-8df8-8adaaef0074d",
+                        "prov:usedEntity" : "ylp:search",
+                        "prov:generatedEntity" : "dat:web_data"
+                },
+                "_:id8" : {
+                        "prov:activity" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:usage" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:generation" : "log:a36dcfd8f-9e38-4fb6-986c-bc0bd349db83",
+                        "prov:usedEntity" : "dat:assessments",
+                        "prov:generatedEntity" : "dat:web_data"
+                }
+        }
+}]

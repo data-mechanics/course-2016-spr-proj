@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html xmlns:xlink="http://www.w3.org/1999/xlink"></html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <title>Rent &amp; Assessment</title>
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="css/svg.css">
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="chart">
+			</div>
+
+			<div id="title">
+				<h1>Rent &amp; Assessment</h1>
+			</div>
+
+			<div id="about">
+				<!-- <h4>About</h4> -->
+				<p><strong>How well does the rental market conform to property assessments in Boston?</strong></p>
+				<p>This scatterplot shows the rent and assessed value for over 1,000 Boston properties. 
+					<br><br> - Click each zipcode to filter the data.
+					<br><br> - Mouse over any datapoint to disply more information. 
+					<br><br> - Click any datapoint to link directly to Boston's assessing data.</p>
+				<p>Assessment data was sourced from the city of Boston's <a href="https://data.cityofboston.gov" target="_blank">Data Portal</a> and the rental data was sourced from <a href="https://www.padmapper.com/?viewType=MAP&amp;lat=42.316801&amp;lng=-71.057157&amp;zoom=11&amp;minRent=200&amp;maxRent=10000&amp;minBR=0&amp;maxBR=10&amp;minBA=1&amp;cats=false&amp;dogs=false" target="_blank">PadMapper</a>.</p>
+				<p>Built by:
+					<br>Jasper Burns and Daren McCulley
+				  <br>for Boston University's
+				  <br><a href="http://datamechanics.org/" target="_blank">Urban Data Mechanics</a> (CS 591)</p>
+			</div>
+	    
+	    <div id="menu">
+<!-- 		<h2>&uarr; Y axis</h2>
+				<ul id="y-axis-menu"></ul>
+				<h2>&rarr; X axis</h2>
+ -->		<ul id="zipcodes"></ul>
+			</div>
+		</div>
+
+		<script src="js/d3.v3.min.js"></script>
+		<script src="js/underscore-min.js"></script>
+		<script src="js/main.js"></script>
+		
+	</body>
+</html>
