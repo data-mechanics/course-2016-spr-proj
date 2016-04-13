@@ -71,7 +71,6 @@ def read_stops_from_file(baseurl):
         with urllib.request.urlopen(baseurl + fn) as loaded:
             route = fn.split('.')[0]
             html = loaded.read().decode("utf-8")
-            print(html)
             all_stops.extend(add_neighbors(parse_html(html, route)))
     return all_stops
 
@@ -82,8 +81,9 @@ def add_coords(stops, lookup):
         stop['coords'] = {'type': 'Point', 'coordinates': [float(lng), float(lat)]}
     return stops
 
-repo = get_auth_repo('nikolaj', 'nikolaj')
-lookup = coords_by_id(read_raw_stops('http://datamechanics.io/data/nikolaj/stops.txt'))
-stops = read_stops_from_file('http://datamechanics.io/data/nikolaj/')
-json_stops = add_coords(stops, lookup)
-store_stations(repo, json_stops)
+def run():
+    repo = get_auth_repo('nikolaj', 'nikolaj')
+    lookup = coords_by_id(read_raw_stops('http://datamechanics.io/data/nikolaj/stops.txt'))
+    stops = read_stops_from_file('http://datamechanics.io/data/nikolaj/')
+    json_stops = add_coords(stops, lookup)
+    store_stations(repo, json_stops)

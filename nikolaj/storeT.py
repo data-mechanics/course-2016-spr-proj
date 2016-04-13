@@ -59,9 +59,8 @@ def get_stations():
     # TODO: might want to postprocess for green line
     return stations
 
-# g = read_graph('http://datamechanics.io/data/nikolaj/graph.json')
-# print(g)
-repo = get_auth_repo('nikolaj', 'nikolaj')
-json_stations = get_stations()
-drop_all_collections(repo)
-store_stations(repo, json_stations)
+def run():
+    repo = get_auth_repo('nikolaj', 'nikolaj')
+    json_stations = get_stations()
+    drop_all_collections(repo)
+    store_stations(repo, json_stations)
