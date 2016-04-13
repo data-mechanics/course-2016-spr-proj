@@ -44,6 +44,10 @@ def getCollection(dbName):
 # repo.createPermanent("propertyvalue")
 # repo['jmuru1_joshmah_tpacius.propertyvalue'].insert_many(apiTest.propertyvalue)
 
+repo.dropPermanent("propertyvalue2")
+repo.createPermanent("propertyvalue2")
+repo['jmuru1_joshmah_tpacius.propertyvalue2'].insert_many(apiTest.propertyvalue2)
+
 # ========================query database=================================
 
 #================================ Prov ===================================

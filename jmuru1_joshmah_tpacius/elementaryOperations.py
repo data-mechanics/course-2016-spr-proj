@@ -70,6 +70,7 @@ hospitalCollection = getCollection("hospitals")
 streetJamCollection = getCollection("streetjams")
 intersectHJ = getCollection("hospital_jams_count")
 
+propertyValues2 = getCollection("propertyvalue2")
 
 #Gets Hospital name and long/lat
 def extractHosptialLocations(collection):
@@ -238,7 +239,52 @@ def zipcodeNameAggregate(propList):
 # repo['jmuru1_joshmah_tpacius.hospital_lat_lon'].insert_one(hospital_lat_lon)
 
 #======================================== save to database code =====================================
+#Larger sample test==================================================================================
+property_zips_reduction2 = collectionsReducePropsByZip(hospitalCollection, propertyValues2)
+repo.dropPermanent("property_zips_reduction2")
+repo.createPermanent("property_zips_reduction2")
 
+for elem in property_zips_reduction2:
+    d = {elem[0]: elem[1]}
+    repo['jmuru1_joshmah_tpacius.property_zips_reduction2'].insert_one(d)
+
+# Hospitals reduced by zipcode, Intermediate collection to find hospital names by zip
+hospital_zips_reduction2 = collectionsReduceHopsByZip(hospitalCollection, propertyValues2)
+repo.dropPermanent("hospital_zips_reduction2")
+repo.createPermanent("hospital_zips_reduction2")
+for elem in hospital_zips_reduction2:
+    d = {elem[0]: elem[1]}
+    repo['jmuru1_joshmah_tpacius.hospital_zips_reduction2'].insert_one(d)
+
+# print(hospital_zips_reduction2)
+
+#Hospitals by Zipcode
+hospitals_by_zip2 = zipcodeNameAggregate(hospital_zips_reduction2)
+repo.dropPermanent("hospitals_by_zip2")
+repo.createPermanent("hospitals_by_zip2")
+repo['jmuru1_joshmah_tpacius.hospitals_by_zip2'].insert_one(hospitals_by_zip2)
+# print(hospitals_by_zip2)
+
+# Sums of property values; Intermediate Collection to get avg property values
+hospitals_property_sums2 = zipcodeAggregate(getCollection('property_zips_reduction2'))
+repo.dropPermanent("hospitals_property_sums2")
+repo.createPermanent("hospitals_property_sums2")
+repo['jmuru1_joshmah_tpacius.hospitals_property_sums2'].insert_one(hospitals_property_sums2)
+
+# Counts of properties in specific zip code; Intermediate collection to get avg property value
+hospitals_property_counts2 = zipcodeLengthAggregate(getCollection('property_zips_reduction2'))
+repo.dropPermanent("hospitals_property_counts2")
+repo.createPermanent("hospitals_property_counts2")
+repo['jmuru1_joshmah_tpacius.hospitals_property_counts2'].insert_one(hospitals_property_counts2)
+
+# Average property value by zipcode
+avg_property_values2 = propertyAvg(hospitals_property_sums2,hospitals_property_counts2)
+repo.dropPermanent("avg_property_values2")
+repo.createPermanent("avg_property_values2")
+repo['jmuru1_joshmah_tpacius.avg_property_values2'].insert_one(avg_property_values2)
+# print(propertyAvg(hospitals_property_sums2,hospitals_property_counts2))
+
+#End Larger sample test=============================================================
 # ===========================Prov==============================
 endTime = datetime.datetime.now()
 
