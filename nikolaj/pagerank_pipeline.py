@@ -58,7 +58,13 @@ t_500walk_params = [
     { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk" }
 ]
 
-job_param_queue = [t_only_params, t_500walk_params]
+t_500walk_bus_params = [
+    { "id" : "geoagg", "maxDistance" : 500, "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+    { "id" : "combine_t_bus", "cols_to_combine" : [ "nikolaj.raw_t_stops", "nikolaj.raw_bus_stops" ] },
+    { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk_bus" }
+]
+
+job_param_queue = [t_only_params, t_500walk_params, t_500walk_bus_params]
 repo = get_auth_repo('nikolaj', 'nikolaj')
 for job_param in job_param_queue:
     run_job_with_params(repo, job_param)

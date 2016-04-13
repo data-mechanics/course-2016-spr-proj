@@ -41,7 +41,7 @@ db[input_col].find().forEach(function(st) {
     db.nikolaj.ranks.insert( { node: st.id, id: st.id, rank: 1.0 } );
 });
 
-var NUM_ITERATIONS = 40;
+var NUM_ITERATIONS = 10;
 // TODO: add convergence check instead of running for fixed number of iterations
 for (var i = 0; i < NUM_ITERATIONS; i++) {
     print(i);

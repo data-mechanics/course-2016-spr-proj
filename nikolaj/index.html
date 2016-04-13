@@ -83,6 +83,7 @@ var pagerank_order = d3.select("body").select("#sortedbypr").append("svg")
 
 var t_only = d3.select("body").select("#selectiondiv").select("#ttrig");
 var t_walk = d3.select("body").select("#selectiondiv").select("#walktrig");
+var t_walk_bus = d3.select("body").select("#selectiondiv").select("#bustrig");
 var info_text = d3.select("body").select('#selectiondiv').select('#stationinfo');
 
 var renderAll = function() {
@@ -95,12 +96,14 @@ var renderAll = function() {
   graph.nodes.forEach(function(n) {
     n.x = spider[n.id][0];
     n.y = spider[n.id][1];
-    n.small = 5;
-    n.large = 6;
+    n.small = 4;
+    n.large = 5;
     n.t = {rank: station_lookup[n.id]["pagerank_result_t_only"].rank,
            neighs: station_lookup[n.id]["pagerank_result_t_only"].neighs};
     n.walk = {rank: station_lookup[n.id]["pagerank_result_t_500walk"].rank,
               neighs: station_lookup[n.id]["pagerank_result_t_500walk"].neighs};
+    n.bus = {rank: station_lookup[n.id]["pagerank_result_t_500walk_bus"].rank,
+              neighs: station_lookup[n.id]["pagerank_result_t_500walk_bus"].neighs};
     n.rank = n.t.rank;
     n.neighs = n.t.neighs;
   });
@@ -166,9 +169,11 @@ var renderAll = function() {
   var xSpace = 1;
   var ySpace = 1;
   
+  // TODO: need to handle different states more gracefully
+  // below should be a function call from a loop
   var simple_nodes = graph.nodes.map(function(n) {
-    n.small = 5;
-    n.large = 6;
+    n.small = 4;
+    n.large = 5;
     return n;
   })
     .sort(function(a, b) {return b.t.rank - a.t.rank;})
@@ -185,6 +190,13 @@ var renderAll = function() {
       d.walk.y = (Math.floor(i / per_row))*ySpace;
     }
   );  
+  simple_nodes.sort(function(a, b) {return b.bus.rank - a.bus.rank;})
+  simple_nodes.forEach(
+    function(d, i) {
+      d.bus.x = (i % per_row)*xSpace;
+      d.bus.y = (Math.floor(i / per_row))*ySpace;
+    }
+  );
 
   var pagerank_order_xScale = d3.scale.linear()
          .domain([0, d3.max(simple_nodes, function(n) { return n.t.x; })])
@@ -258,6 +270,26 @@ var renderAll = function() {
         })
         .attr("cy", function(d, i) { 
           return pagerank_order_yScale(d.t.y);
+        })
+  });
+
+  t_walk_bus.on("click", function() {
+    node.transition()
+        .attr("r", function(d) {
+          d.rank = d.bus.rank;
+          d.neighs = d.bus.neighs;
+          return d.small*magnify(d.rank);
+        })
+    sorted_node.transition()
+        .attr("r", function(d) {
+          d.rank = d.bus.rank;
+          return d.rank * d.small;
+        })
+        .attr("cx", function(d, i) {    
+          return pagerank_order_xScale(d.bus.x); 
+        })
+        .attr("cy", function(d, i) { 
+          return pagerank_order_yScale(d.bus.y);
         })
   });
 

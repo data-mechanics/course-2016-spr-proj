@@ -1,6 +1,6 @@
 db.loadServerScripts();
 
-var input_cols = ["pagerank_result_t_500walk", "pagerank_result_t_only"]
+var input_cols = ["pagerank_result_t_500walk", "pagerank_result_t_only", "pagerank_result_t_500walk_bus"]
 var output_col = "nikolaj.pagerank_result"
 
 dropPerm(output_col)
