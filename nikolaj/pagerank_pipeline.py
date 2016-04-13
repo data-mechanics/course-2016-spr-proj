@@ -3,6 +3,8 @@ import pymongo
 import storeT
 import storeBus
 import combine_t_bus
+import geoagg
+import pagerank
 exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
@@ -14,7 +16,7 @@ def get_auth_repo(uname, pwd):
 def store_json(repo, target_col_name, raw_json):
     repo.dropPerm(target_col_name)
     repo.createPerm(target_col_name)
-    repo['nikolaj.' + target_col_name].insert_many(raw_json)
+    repo[target_col_name].insert_many(raw_json)
 
 def drop_all_collections(repo):
     repo.dropPerm('nikolaj.contribs')
@@ -36,11 +38,13 @@ def combine_and_export():
 
 def run_job_with_params(repo, job_params):
     drop_all_collections(repo)
-    store_json(repo, 'params', job_params)
+    store_json(repo, 'nikolaj.params', job_params)
 
     storeT.run()
     storeBus.run()
     combine_t_bus.run()
+    geoagg.run()
+    pagerank.run()
 
     # store_T = "python3.4 storeT.py"
     # store_bus = "python3.4 storeBus.py"
@@ -58,7 +62,7 @@ def run_job_with_params(repo, job_params):
 t_only_params = [
     { "id" : "geoagg", "maxDistance" : 0, "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
     { "id" : "combine_t_bus", "cols_to_combine" : [ "nikolaj.raw_t_stops" ] },
-    { "id" : "pagerank_params", "output_col_name" : "pagerank_result_t_only" }
+    { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_only" }
 ]
 
 # t_500walk_params = [
