@@ -2,6 +2,29 @@
 <meta charset="utf-8">
 <style>
 
+html, body { height:100%; margin:0; color:#333333; font-family:'Open Sans',sans-serif; }
+
+/*a.nav-link:link
+{
+   color: #fb3f00;
+   text-decoration: none;
+}
+a.nav-link:visited
+{
+   color: #fb3f00;
+   text-decoration: none;
+}
+a.nav-link:hover
+{
+   color: #fb3f00;
+   text-decoration: none;
+}
+a.nav-link:active
+{
+   color: #fb3f00;
+   text-decoration: none;
+}
+*/
 .node {
   stroke: #fff;
   stroke-width: 1.5px;
@@ -12,17 +35,28 @@
   stroke-opacity: .6;
 }
 
+b:hover { 
+  text-decoration: underline;
+}
+
+.noIbar {
+  cursor:default;
+}
+
 </style>
 <body>
 <div id="tmap-annot" align="center">
-<h2>Exploring the T via the Random Commuter Model</h2>
-Below is a depiction of the <a href="">PageRank</a> computed over the graph represeting the MBTA network.
+<h2>The T and the Random Commuter</h2>
+<p class="noIbar">
+Below is a depiction of the PageRank computed over the graph represeting the MBTA network.
 All in all we computed three different versions of PageRank. For the simplest case, we only considered edges arising
-from <a href="">direct connections</a> between stations. Secondly, we considered <a href="">geo-adjacency</a>, i.e., 
+from <b id="ttrig" style="color:#003366">direct connections</b> between stations. Secondly, we considered 
+<b id="walktrig" style="color:#003366">geo-adjacency</b>, i.e., 
 in addition to edges resulting from direct connections we add edges between stops that are within 500m from
-each other. Lastly, we have have added several <a href="">bus lines</a> to the graph. Please click on the highlighted
-links in the text to view the different PageRank values. Hover over the nodes to view their neighbors under the selected 
+each other. Lastly, we have consider the transporation graph when <b id="bustrig" style="color:#003366">bus lines</b> are included. Please click on the highlighted
+text to display the corresponding PageRank values below. Hover over the nodes to view their neighbors under the selected 
 interpretation.
+</p>
 </div>
 <div id="tmap" align="center">
 </div>
@@ -60,11 +94,9 @@ var svg = d3.select("body").select("#tmap").append("svg")
     .attr("width", w)
     .attr("height", h);
 
-var t_only = d3.select("body").select("#tmap-annot").append("p")
-    .text("T Only");
-    
-var t_walk = d3.select("body").select("#tmap-annot").append("p")
-    .text("T & 500m By Foot");
+var t_only = d3.select("body").select("#tmap-annot").select("#ttrig");
+var t_walk = d3.select("body").select("#tmap-annot").select("#walktrig")
+console.log(t_walk);
 
 var renderAll = function() {
   var station_lookup = {}
@@ -77,12 +109,11 @@ var renderAll = function() {
     n.x = spider[n.id][0];
     n.y = spider[n.id][1];
     n.t = {rank: station_lookup[n.id]["pagerank_result_t_only"].rank,
-              neighs: station_lookup[n.id]["pagerank_result_t_only"].neighs};
+           neighs: station_lookup[n.id]["pagerank_result_t_only"].neighs};
     n.walk = {rank: station_lookup[n.id]["pagerank_result_t_500walk"].rank,
-                 neighs: station_lookup[n.id]["pagerank_result_t_500walk"].neighs};
+              neighs: station_lookup[n.id]["pagerank_result_t_500walk"].neighs};
     n.rank = n.t.rank;
     n.neighs = n.t.neighs;
-    console.log(n);
   });
   
   graph.links.forEach(function (link) {
@@ -90,6 +121,10 @@ var renderAll = function() {
     link.target = graph.nodes[link.target];
   });
   
+  var magnify = function(r) {
+    return Math.pow(r, 1.2);
+  }
+
   var xScale = d3.scale.linear()
          .domain([0, d3.max(graph.nodes, function(n) { return n.x; })])
          .range([xPadding, w - xPadding]);
@@ -107,7 +142,6 @@ var renderAll = function() {
       .attr("x2", function(d) { return xScale(d.target.x); })
       .attr("y2", function(d) { return yScale(d.target.y); })
       .style("stroke", function(d) { 
-        console.log(d.color);
         return '#'.concat(d.color); 
       })
       .style("stroke-width", function(d) { return 3; });
@@ -119,7 +153,7 @@ var renderAll = function() {
       .attr("r", function(d) { 
         d.small = 5;
         d.large = 6;
-        return d.small*d.rank;
+        return d.small*magnify(d.rank);
       })
       .attr("cx", function(d) { return xScale(d.x) })
       .attr("cy", function(d) { return yScale(d.y) })
@@ -128,11 +162,11 @@ var renderAll = function() {
         var neighs = d.neighs;
         node.filter(function(n, i) { return (neighs.indexOf(n.id) !== -1) || (n.id == d.id); })
             .style("fill", "black")
-            .attr("r", function(d) { return d.large*d.rank; });
+            .attr("r", function(d) { return d.large*magnify(d.rank); });
        })
       .on("mouseout", function(d) { 
         node.style("fill", "gray")
-            .attr("r", function(d) { return d.small*d.rank; });
+            .attr("r", function(d) { return d.small*magnify(d.rank); });
       })
       
   node.append("title")
@@ -146,13 +180,13 @@ var renderAll = function() {
           return d.small*d.rank;
         })
   });
-
+  
   t_only.on("click", function() {
     node.transition()
         .attr("r", function(d) {
           d.rank = d.t.rank;
           d.neighs = d.t.neighs;
-          return d.small*d.rank;
+          return d.small*magnify(d.rank);
         })
   });
 }
