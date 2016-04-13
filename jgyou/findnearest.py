@@ -41,9 +41,12 @@ def findClosestCoordinate(repo, collec, startLocation):
 
 		alldist.append([endLocation, dist])
 
-	m = min([b for [a, b] in alldist])
 
-	return dist
+	print(alldist)
+	alldist2 = [b for [a, b] in alldist]
+	mindist = min(alldist2)
+
+	return mindist
 
 def boundedRadius(repo, collec, startLocation, bound):
 	cursor = repo[collec].find({""})

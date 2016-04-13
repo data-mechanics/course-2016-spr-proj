@@ -53,7 +53,7 @@ with open("auth.json") as f:
 	for h in repo[user + '.hospitals'].find():
 		lon = h["location"]["coordinates"][0]
 		lat = h["location"]["coordinates"][1]
-		repo[user + '.hospitals'].update({"_id": h["_id"]}, {"longitude": lon, "latitude": lat, "location_type": "hospital"})
+		repo[user + '.hospitals'].update({"_id": h["_id"]}, {"$set": {"longitude": lon, "latitude": lat, "location_type": "hospital"}})
 
 
 	endTime = datetime.datetime.now()

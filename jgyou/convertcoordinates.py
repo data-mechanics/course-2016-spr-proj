@@ -6,6 +6,8 @@ import prov.model
 import datetime
 import uuid
 
+#from geopy.geocoders import Nominatim
+
 exec(open('../pymongo_dm.py').read())
 
 # assumes startlocation = x-y, long-lat
@@ -15,7 +17,7 @@ exec(open('../pymongo_dm.py').read())
 def getAddress(startlocation):
   with open("auth.json") as f:
     auth = json.loads(f.read())
-    key = auth['service']['mapquest']['key']
+    key = auth['service']['opencagegeo']['key']
     (lat, lon) = startLocation
     # note geocode takes in lat-long
     query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + "+" + str(lat) \
@@ -50,8 +52,50 @@ def getCensus(startLocation):
 
 
 # provenance info
-def makeProv():
+def makeProvCensus(repo, runids, starttime, endtime):
   return  
+
+def makeProvOpencage(repo, runids, starttime, endtime):
+  provdoc = prov.model.ProvDocument()
+  provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+  provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+  provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+  provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+  provdoc.add_namespace('ocd', 'https://api.opencagedata.com/geocode/v1/')
+
+  # activity = invocation of script, agent = script, entity = resource
+  # agent
+  this_script = provdoc.agent('alg:convertcoordinates', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+  # input data
+  mbtazip = provdoc.entity('mbta:gtfs', {prov.model.PROV_LABEL:'MBTA_GTFS', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'zip'})
+
+  # output data
+  output = provdoc.entity('dat:mbtaStops', {prov.model.PROV_LABEL:'MBTA Stops', prov.model.PROV_TYPE:'ont:DataSet'})
+
+  if len(runids) == 1:
+    run_id = runids[0]
+
+  this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
+  provdoc.wasAssociatedWith(this_run, this_script)
+  provdoc.used(this_run, mbtazip)
+
+  provdoc.wasAttributedTo(output, this_script)
+  provdoc.wasGeneratedBy(output, this_run)
+
+  provdoc.wasDerivedFrom(output, mbtazip)
+
+  if starttime == None:
+    plan = open('plan.json','r')
+    docModel = prov.model.ProvDocument()
+    doc = docModel.deserialize(plan)
+    doc.update(provdoc)
+    plan.close()
+    plan = open('plan.json', 'w')
+    plan.write(json.dumps(json.loads(doc.serialize()), indent=4))
+    plan.close()
+  else:
+    repo.record(provdoc.serialize())  
 
 
 
