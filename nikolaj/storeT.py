@@ -3,6 +3,8 @@ import pymongo
 import copy
 import ast
 import urllib.request
+import prov.model
+import uuid
 exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
@@ -64,3 +66,38 @@ def run():
     json_stations = get_stations()
     drop_all_collections(repo)
     store_stations(repo, json_stations)
+
+def to_prov(startTime, endTime):
+    doc = prov.model.ProvDocument()
+    doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nikolaj/') # The scripts in <folder>/<filename> format.
+    doc.add_namespace('dat', 'http://datamechanics.io/data/nikolaj/') # The data sets in <user>/<collection> format.
+    doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+    doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+    doc.add_namespace('mbt', 'https://github.com/mbtaviz/mbtaviz.github.io/tree/master/data')
+    
+    this_script = doc.agent('alg:storeT', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+    # station_network
+    station_network_resource = doc.entity('mbt:station-network', {'prov:label':'MBTA Station Network', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+    get_station_network = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL:'Retrieve MBTA Station Network', prov.model.PROV_TYPE:'ont:Retrieval'})
+
+    doc.wasAssociatedWith(get_station_network, this_script)
+    doc.used(get_station_network, station_network_resource, startTime)
+
+    # spider for visualization
+    spider_resource = doc.entity('mbt:spider', {'prov:label':'Graphical representation of MBTA network', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+    get_spider = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval'})
+
+    doc.wasAssociatedWith(get_spider, this_script)
+    doc.used(get_spider, spider_resource, startTime)
+
+    station_network = doc.entity('dat:raw_t_stops', {prov.model.PROV_LABEL:'Derived T Stations', prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(station_network, this_script)
+    doc.wasGeneratedBy(station_network, get_station_network, endTime)
+    doc.wasDerivedFrom(station_network, station_network_resource, get_station_network, get_station_network, get_station_network)
+    doc.wasGeneratedBy(station_network, get_spider, endTime)
+    doc.wasDerivedFrom(station_network, spider_resource, get_spider, get_spider, get_spider)
+    return doc
+
+if __name__ == "__main__":
+    print(json.dumps(json.loads(to_prov(None, None).serialize()), indent=4))

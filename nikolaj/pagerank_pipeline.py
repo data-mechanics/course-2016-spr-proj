@@ -7,6 +7,7 @@ import geoagg
 import pagerank
 import combineforviz
 import export_pagerank
+import prov.model
 exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
@@ -64,8 +65,9 @@ t_500walk_bus_params = [
     { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk_bus" }
 ]
 
-job_param_queue = [t_only_params, t_500walk_params, t_500walk_bus_params]
-repo = get_auth_repo('nikolaj', 'nikolaj')
-for job_param in job_param_queue:
-    run_job_with_params(repo, job_param)
-combine_and_export()
+if __name__ == "__main__":
+    job_param_queue = [t_only_params, t_500walk_params, t_500walk_bus_params]
+    repo = get_auth_repo('nikolaj', 'nikolaj')
+    for job_param in job_param_queue:
+        run_job_with_params(repo, job_param)
+    combine_and_export()

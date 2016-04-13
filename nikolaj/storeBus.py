@@ -2,6 +2,8 @@ from os import listdir
 from os.path import isfile, join
 from bs4 import BeautifulSoup
 import urllib.request
+import prov.model
+import uuid
 import pymongo
 exec(open('../pymongo_dm.py').read())
 
@@ -87,3 +89,32 @@ def run():
     stops = read_stops_from_file('http://datamechanics.io/data/nikolaj/')
     json_stops = add_coords(stops, lookup)
     store_stations(repo, json_stops)
+
+def to_prov(startTime, endTime):
+    doc = prov.model.ProvDocument()
+    doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nikolaj/') # The scripts in <folder>/<filename> format.
+    doc.add_namespace('dat', 'http://datamechanics.io/data/nikolaj/') # The data sets in <user>/<collection> format.
+    doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+    doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+    doc.add_namespace('mbt', 'http://www.mbtainfo.com/')
+    
+    this_script = doc.agent('alg:storeBus', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+    # stops
+    stops = ['1', '101', '105', '116', '16', '23', '39', '57', '66', '70', '83', '86', '89']
+    raw_bus_stops = doc.entity('dat:raw_bus_stops', {prov.model.PROV_LABEL:'Combined Bus Stations', prov.model.PROV_TYPE:'ont:DataSet'})
+    doc.wasAttributedTo(raw_bus_stops, this_script)
+    for stop in stops:
+        stop_resource = doc.entity('mbt:' + stop , {'prov:label':'MBTA Bus Stop ' + stop, prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'html'})
+        get_stop = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL:'MBTA Bus Stop ' + stop, prov.model.PROV_TYPE:'ont:Retrieval'})
+
+        doc.wasAssociatedWith(get_stop, this_script)
+        doc.used(get_stop, stop_resource, startTime)
+
+        doc.wasGeneratedBy(raw_bus_stops, get_stop, endTime)
+        doc.wasDerivedFrom(raw_bus_stops, stop_resource, get_stop, get_stop, get_stop)
+    return doc
+
+if __name__ == "__main__":
+    print(json.dumps(json.loads(to_prov(None, None).serialize()), indent=4))
+
