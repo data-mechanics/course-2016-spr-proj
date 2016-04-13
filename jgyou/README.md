@@ -1,4 +1,4 @@
-A Metric for Age-Friendly/Accessible Neighborhoods in Boston
+Scoring Age-Friendly Neighborhoods in Boston
 ==============================
 
 ## Introduction
@@ -12,30 +12,32 @@ The 2015 United States of Aging Survey, conducted by the National Council on Agi
 
 ##Project Description
 
-Factors that are currently to be incorporated into the accessibility subscore include:
-1. Distance to nearest MBTA stop
-2. Distance to nearest community center 
-3. Distance to nearest hospital
+This project aims to find a way to compute how "age-friendly" a location is, using mostly distance-based metrics that act as a proxy for convenience in accessing important locations for older adults. Factors that are currently to be incorporated into the score include:
+1. Distance to nearest MBTA stop  
+2. Distance to nearest community center   
+3. Distance to nearest hospital  
 
-Affordability subscore taken from 
+For a given location, this score is plotted against the HUD and DOT's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block tract.
 
-
-
-Other factors to potentially be taken in consideration for scoring include:
-1. Median property value in that zipcode from Zillow
-2. Median rental value for latest available month for given zipcode from Zillow
+Other factors currently not included but potentially be taken in consideration for scoring include:
+1. Median property value in that zipcode from Zillow  
+2. Median rental value for latest available month for given zipcode from Zillow  
 3. Distance to nearest park  
-4. Grocery store/supermarket/food markets  
-5. Pharmacies  
-6. Libraries  
-7. Locations of church/faith-based groups  
-8. Other art/cultural sites
+4. Distance to grocery store/supermarket/food markets  
+5. Distance to pharmacies  
+6. Distance to libraries  
+7. Distance to locations of church/faith-based groups  
+8. Distance to other art/cultural sites
+
+Sites will either be retrieved from the City of Boston website or from the Yelp API.
 
 ### Further Considerations and Applications
 
 TBD
 
-This scoring system could be used to randomly select points in a particular neighborhood and calculate an average score for the region. This could then be compared to the current distribution of adults age 60 and older throughout different neighborhoods in Boston.
+This scoring system could be used to randomly select points in a particular neighborhood and calculate an average score for the region. Point selection could occur by using geojson polygon data [here] (http://maptimeboston.github.io/leaflet-intro/neighborhoods.geojson) in combination with a polygon library such as the `shapely` [package] (http://toblerity.org/shapely/shapely.html).
+
+The scores by neighborhood/region could then be compared to the current distribution of adults age 60 and older throughout different neighborhoods in Boston. 
 
 
 ## Dependencies/Requirements
@@ -55,6 +57,8 @@ This scoring system could be used to randomly select points in a particular neig
 ### Accounts required
 - [OpenCage Geocoder] (https://geocoder.opencagedata.com/)
 - [Data Boston - City of Boston] (https://data.cityofboston.gov/)
+- [Mapquest Developer] (http://www.mapquestapi.com/directions/)
+- [Yelp] (https://www.yelp.com/developers/)
 
 ## Original Data Sets
 - [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
@@ -64,7 +68,7 @@ This scoring system could be used to randomly select points in a particular neig
 
 ## Instructions
 
-Run `python runscripts.py` to run all relevant scripts at once.
+Run `python runallscripts.py` to run all relevant scripts at once.
 
 `auth.json` file must be included in directory to run files. Fields are as follows:
 
@@ -82,6 +86,19 @@ Run `python runscripts.py` to run all relevant scripts at once.
           "username": "USER",
           "password": "PASSWORD",
           "key": "TOKEN"
+        },
+        "yelp": {
+          "service": "https://api.yelp.com/v2/",
+          "username": "USER",
+          "consumer_key": "CONSUMERKEY",
+          "consumer_secret": "CONSUMERSECRET",
+          "token": "TOKEN",
+          "token_secret": "TOKENSECRET"
+        },
+        "mapquest": {
+          "service": "http://www.mapquestapi.com/directions/v2/route",
+          "key": "KEY",
+          "secret": "SECRET"
         }
 }
 ```

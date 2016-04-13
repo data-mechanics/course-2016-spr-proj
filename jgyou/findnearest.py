@@ -8,7 +8,7 @@ from urllib import request, parse
 import json
 from geopy.distance import vincenty
 
-def findClosestCoordinate(startLocation, endLocation):
+def findDistance(startLocation, endLocation):
 	(startlat, startlon) = startLocation
 	(endlat, endlon) = endLocation
 
@@ -31,20 +31,25 @@ def findClosestCoordinate(startLocation, endLocation):
 		return dist
 
 
-def check(repo, collec, startLocation):
+def findClosestCoordinate(repo, collec, startLocation):
 	cursor = repo[collec].find()
+	alldist = []
 	for document in cursor:
 		endLocation = (document["latitude"], document["longitude"])
 
 		dist = findClosestCoordinate(startLocation, endLocation)
 
-		print(dist)
+		alldist.append([endLocation, dist])
+
+	m = min([b for [a, b] in alldist])
+
+	return dist
 
 client = pymongo.MongoClient()
 repo = client.repo
 
 
-print(findClosestCoordinate((42.3604, -71.0580),  (42.3600, -71.0562)))
+print(findDistance((42.3604, -71.0580),  (42.3600, -71.0562)))
 
 
 

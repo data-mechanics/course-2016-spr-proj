@@ -13,7 +13,11 @@ import pymongo
 import prov.model
 import datetime
 import uuid
+import zipfile
+import io
 
+
+exec(open('../pymongo_dm.py').read())
 
 client = pymongo.MongoClient()
 repo = client.repo
@@ -23,36 +27,53 @@ repo = client.repo
 
 startTime = datetime.datetime.now()
 
-f = open("auth.json").read()
+with open("auth.json") as a:
+	f = a.read()
 
-auth = loads(f)
-user = auth['user']
+	auth = loads(f)
+	user = auth['user']
 
-repo.authenticate(auth['user'], auth['user'])
-
-mbtatext = request.urlopen("http://datamechanics.io/data/jgyou/stops.txt").read()
-
-mbtainfo = []
-
-for stop in mbtatext:
-	allstr = stop.replace('"', "").split(",")
-	stop_id = allstr[0]
-	stop_name = allstr[2]
-	stop_lat = float(allstr[4])
-	stop_long = float(allstr[5])
-	wheelchair = allstr[10]
-	mbtainfo.append({"stop_id": stop_id, "stop_name": stop_name, \
-		"longitude": stop_long, "latitude": stop_lat, "wheelchair": wheelchair})
-
-repo.dropPermanent("mbtaStops")
-repo.createPermanent("mbtaStops")
+	repo.authenticate(auth['user'], auth['user'])
 
 
-repo[user + '.mbtaStops'].insert_many(mbtainfo)
+	with request.urlopen("http://www.mbta.com/uploadedfiles/MBTA_GTFS.zip") as resp:
+		response = resp.read()
+		with zipfile.ZipFile(io.BytesIO(response)) as z:
+			for file in z.namelist():
+				if file in ['stops.txt']:
+					with z.open(file,"r") as f2:
+						mbtatextfile = f2.readlines()
+						#mbtatext = request.urlopen("http://datamechanics.io/data/jgyou/stops.txt").read()
+
+						mbtainfo = []
+
+						for stop in mbtatextfile[1:]:
+							#print(stop)
+							allstr = stop.decode("utf-8").replace('"', "").split(",")
+							stop_id = allstr[0]
+							stop_name = allstr[2]
+							try:
+								stop_lat = float(allstr[4])
+							except ValueError:
+								print(allstr[4])
+								stop_lat = "NA"
+							try:
+								stop_lon = float(allstr[5])	
+							except ValueError:
+								stop_lat = "NA"
+							wheelchair = allstr[10]
+							mbtainfo.append({"stop_id": stop_id, "stop_name": stop_name, \
+								"longitude": stop_long, "latitude": stop_lat, "wheelchair": wheelchair})
+
+						repo.dropPermanent("mbtaStops")
+						repo.createPermanent("mbtaStops")
 
 
-endTime = datetime.datetime.now()
-###########3
+						repo[user + '.mbtaStops'].insert_many(mbtainfo)
+
+
+						endTime = datetime.datetime.now()
+	###########
 
 
 

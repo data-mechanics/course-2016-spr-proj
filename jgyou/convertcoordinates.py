@@ -11,9 +11,10 @@ exec(open('../pymongo_dm.py').read())
 # assumes startlocation = x-y, long-lat
 # given x-y coordinates, finds approximate address using opencage geocoder
 def getAddress(startlocation):
+  (lat, lon) = startLocation
   # note geocode takes in lat-long
-  query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + str(startlocation[1]) \
-  	 + "," + "+" + str(startlocation[0]) + "&pretty=1" + "&countrycode=us" + "&key=" + key
+  query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + str(lat) \
+  	 + "," + "+" + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
 
   response = request.urlopen(query).read().decode("utf-8")
   addresults = json.loads(response)
@@ -29,7 +30,7 @@ def getAddress(startlocation):
 # returns 15-digit FIPS, the census block
 # fips explained: http://www.policymap.com/blog/2012/08/tips-on-fips-a-quick-guide-to-geographic-place-codes-part-iii/
 def getCensus(startLocation):
-  (lon,lat) = (str(startLocation[0]), str(startLocation[1]))
+  (lat, lon) = (str(startLocation[0]), str(startLocation[1]))
   query = "http://data.fcc.gov/api/block/find?latitude=" + lat +"&longitude="+ \
     lon +"&showall=true" + "&format=json"
 
