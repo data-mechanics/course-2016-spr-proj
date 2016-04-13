@@ -134,7 +134,7 @@ var renderAll = function() {
   var node = station_map.selectAll(".node")
       .data(graph.nodes)
     .enter().append("circle")
-      .attr("class", "node")
+      // .attr("class", "node")
       .attr("r", function(d) { 
         return d.small*magnify(d.rank);
       })
@@ -167,8 +167,8 @@ var renderAll = function() {
   var ySpace = 1;
   
   var simple_nodes = graph.nodes.map(function(n) {
-    n.small = 4;
-    n.large = 5;
+    n.small = 5;
+    n.large = 6;
     return n;
   })
     .sort(function(a, b) {return b.t.rank - a.t.rank;})
@@ -218,7 +218,7 @@ var renderAll = function() {
         d3.select(this).style("fill", "gray");
         info_text.text("Hover over station.");
         node.style("fill", "gray")
-        .attr("r", function(d) { return d.small*magnify(d.rank); });
+        .attr("r", function(n) { return n.small*magnify(n.rank); });
       })
 
   t_walk.on("click", function() {
