@@ -7,7 +7,7 @@ By using *k-means* and setting *k* to be *x* fewer than the number of existing s
 
 To do this, we need to know the walking distances to nearest T stop alternatives, as well as the popularity of each stop.
 
-As a metric to (hopefully) help establish our utility measurement as a desirable one, we also calculate the correlation of that score against availability of handicap access at stops.
+As a metric to (hopefully) help establish our utility measurement as a desirable and positive one, we also calculate the correlation of that utility score against the availability of handicap access at stops.
 
 These metrics provide a strong starting point to determining which Green Line T stops are most valuable to the commuting community.
 
@@ -48,20 +48,20 @@ This derived dataset holds information regarding the nearest neighbor stop on th
 In this derived dataset, we create a measurement called "people-seconds" to gauge the utility of each stop. This is a score that uses both popularity and walking time to the next nearest stop, and provides a weight for each stop. A low score is good; this means that the stop is valued and saves the greatest amount of time for the collective commuting group. This score will let us perform a weighted *k*-means to find the optimal *k* stops.
 
 ### 7. (derived) Normalized utility measurement
-The people second measure is not directly usable as a weight to k-means, this translates it into a measure usable in k-means.
+The people second measure is not directly usable as a weight to k-means, this translates it into a measure directly usable by the k-means optimization.
 
 ### 8. (derived) Weighted k-means optimization for each branch of Green Line
-Coordinates of the optimal stops for varying values of *k* on each branch.
+Stores the coordinates of the optimal stops, as computed by *k*-means, for varying values of *k* on each branch of the Green Line.
 
 ### 9. (derived) Correlation and p-value of utility ratings vs. handicap access of stops
-Correlation coefficient and p-value of the correlation between our utility score (ppl seconds) and wheelchair access at each stop.
+Correlation coefficient and p-value of the correlation between our utility score (ppl seconds) and the availability of wheelchair access at each stop.
 
 *NOTE: Requires the [scipy](https://www.scipy.org/) library for Python3.*
 
 # Visualizations
-The visualizations are viewable in a web browser. These visualizations need access to the database from the browser, which can't be directly obtained. So we use a small Flask application to act as a middle-man to facilitate this access.
+The visualizations are viewable in a web browser. These visualizations need access to the database from the browser, which can't be directly obtained. So we use a small Flask application to act as a middle-man to facilitate this access. This requires [flask](http://flask.pocoo.org/).
 
-1 - Start the web app for the database API (requires [flask](http://flask.pocoo.org/), `pip3 install flask` if not already available).
+1 - With the mongo daemon running, start the web app for the database API (`pip3 install flask` if not already available).
 
     cd vis/; python3 restful.py
 
