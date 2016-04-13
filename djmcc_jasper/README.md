@@ -2,32 +2,66 @@
 
 by Daren McCulley and Jasper Burns
 
-## Runnning
+## Execution
 
-To run, execute project.py.
+To run, start the MongoDB server and run project.py from the command line, which does nothing more than connect to the database and execute the following scripts in succession:
+   - reset.py
+   - get_apartments.py
+   - collapse_apartments.py
+   - clean_apartments.py
+   - get_assessments.py
+   - clean_assessments.py
+   - join.py
+   - compute_ratio.py
+   - comp_vit.py
 
-## Notes
+To view the visualization for Assessment vs Rent, open djmcc_jasper/part1/index.html. 
+To view the visualization for Composition vs Vitality, open djmcc_jasper/part2/index.html
 
-Three data resources are pulled from Boston’s Datasets, however we had to handtype a json file in order to understand what property codes stored in each of Property Assessments 2014 and Property Assessments 2015 were. This file, ptype.json, is based off of the following website:
-```
-https://www.cityofboston.gov/images_documents/MA_OCCcodes_tcm3-16189.pdf
-```
+Datasets in JSON format are generated at the end of each execution. We uploaded these datasets under the same names to https://datamechanics.io/djmcc_jasper/. This is the url referenced by the two main.js Javascript files supporting each visualization.
+
+###### Notes
+
+Running comp_vit.py requries access to the Yelp API and the installation of the rauth python module. The prov python module, for generating provenance documents, is the only other non-standard requirement. Generating the data.json file used for the visualization in Part 1 requires running generateJSON.py on the database following a successful run of project.py. This script is located in djmcc_jasper/tools directory.
 
 ## Abstract
 
-We decided to tackle the problem of characterizing neighborhoods for economic condition and gentrification, one of the issues raised in discussions with the City of Boston.For this first project, we started by looking at what we could glean from different property data. We pulled from three City of Boston data sets (1) Property Assessments 2014 (2) Property Assessments 2015 and (3) Approved Building Permits. Additionally, we hand-typed a fourth resource: a json file that translates building codes to building uses which we use to help our computations. These sets together allow us to categorize neighborhoods by type of buildings (Residential, Commercial, Industrial, etc), how these types changed year to year, and where building permits were being applied for to determine the trajectory of these neighborhood’s property demographics.We created three seperate data sets. The first, neighborhood_zoning, aggregates the data in Property Assessments 2014 and Property Assessments 2015 to provide us with counts of buildings of each usetype (Multiuse, Residential, Apartment Commercial, Industrial, Exempt) for every zipcode for each year, and additionally computes the percentage of that zipcode that each usetype takes up. This data is then outputted into neighborhood_zoning as a collection of documents, one for each zipcode with the counts and percents stored inside.The second and third dataset are related; they run a k-means algorithm on the Approved Building Permits dataset to see in which areas of each zipcode the most construction is occuring, and stores in two seperate collections, one for residential and one for commercial. For each parent zip code there is at most three documents in each residential_centers and commercial_centers collections. These documents store the means for each usetype as lat,long as well as street address (which it pulls from geonames.com).As we move forward into future projects, this data will help us categorize neighborhoods using each zip code’s current properties as well as potential trends given how the usetypes for these properties change over time.
+In this project, our aim was to learn more about Boston neighborhoods (or more functionally, zip codes) in relation to each other and the city as a whole. We did so in two ways:
 
-## Boston Data Resources
+#### Part I - Assessed Value vs Rent
 
-Property Assessment 2014
-```
-https://data.cityofboston.gov/dataset/Property-Assessment-2014/qz7u-kb7x
-```
-Property Assessment 2015
+In an effort to characterize Boston neighborhoods we decided to take a closer look at the available data on the rental market and combine it with the property assessment data made public by the city. The city’s assessing website describes three approaches to determining an assessed value. Our focus is on the Income Approach, which employs data to determine what a property might earn. One of our main objectives is to reduce the uncertainty inherent in the word might. In a city like Boston, where nearly 40% of all households rent and rental vacancy has decreased year over year for the past decade towards 3%, the data necessary to support the Income Approach is widely available.
+
+The code scrapes real time rental market data from PadMapper in the form of markers. Markers are aggregated on location, preserving the mean rent, under the assumption that two listings with the exact same latitude and longitude have the same address. Each marker is passed back to PadMapper to obtain a string containing address information. Assessments are also aggregated to produce an assessed value per unit for each strictly residential property. Finally assessment data and rental data are joined on the address attribute to produce the final data set.
+
+###### Data Resources
+
+Boston's Property Assessment 2015
 ```
 https://data.cityofboston.gov/Permitting/Property-Assessment-2015/yv8c-t43q
 ```
-Approved Building Permits
+PadMapper
 ```
-https://data.cityofboston.gov/Permitting/Approved-Building-Permits/msk6-43c6
-```
+https://www.padmapper.com/
+```
+
+#### Part II - Composition vs Vitality
+
+The second thing we did draws inspiration from [an existing study](https://www.technologyreview.com/s/601107/data-mining-reveals-the-four-urban-conditions-that-create-vibrant-city-life/#/set/id/601103/), which examined the relationship between the vitality of neighborhoods compared to the diversity of their composition (in terms of commercial or residential zoning). So we did the same: by analyzing Boston’s 2015 Property Assessment Data, we were able to assign each zipcode a diversity score, which we said was equal to the percent commercial of a neighborhood (Commercial Units / (Commercial Units + Residential Units)).
+
+We then had to define a vitality score for the y-axis. We define the vitality as the average reviews per business for the top ranked 300 businesses in that zipcode in Yelp’s API. The thinking here was that vitality implies a lot of visitation to local businesses, and the more visitations implies more people writing reviews. By making it an average *per business*, this helps normalize for the fact that zipcodes with greater percent commercial would have had more total reviews. Future development, if given greater access to more revealing datasets, could simply rewrite the vitality function in comp_vit.py to further qualify what it means to be of "high vitality."
+
+###### Data Resources
+
+Boston's Property Assessment 2015
+```
+https://data.cityofboston.gov/Permitting/Property-Assessment-2015/yv8c-t43q
+```
+Yelp Search API
+```
+https://www.yelp.com/developers/documentation/v2/search_api
+```
+
+## Credits
+
+The visualizations for this project are built upon preexisting code by [Peter Cook](http://animateddata.co.uk) from his project [What makes us happy?](http://charts.animateddata.co.uk/whatmakesushappy/).
