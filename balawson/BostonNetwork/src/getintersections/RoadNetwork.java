@@ -127,7 +127,7 @@ public class RoadNetwork {
 		BufferedReader bufRead;
 		String myLine = null;
 		FileReader inputTourists = new FileReader(
-                                  shortPath  + "/twitter.xml");
+                                  shortPath  + "/big_twitter.xml");
 				//shortPath  + "/2015-12-28.xml");
 				//shortPath  + "/sample2.xml");
 		bufRead = new BufferedReader(inputTourists);
@@ -227,9 +227,9 @@ public class RoadNetwork {
 		/* TODO remove comments to consider all residential roads
 		 * experiment using 50 roads to evaluate results.
 		 */
-		//for (int i = 0; i < nodeListWays.getLength(); i++) { 
+		for (int i = 0; i < nodeListWays.getLength(); i++) { 
                 
-		for (int i = 0; i < 50; i++) { 
+		//for (int i = 0; i < 50; i++) { 
 			org.w3c.dom.Node nNode = nodeListWays.item(i); // nodeListNodes
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				org.w3c.dom.Node eElement = nNode;
