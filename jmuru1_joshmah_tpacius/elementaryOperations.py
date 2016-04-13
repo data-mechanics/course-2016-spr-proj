@@ -68,6 +68,7 @@ def getCollection(dbName):
 propertyValues = getCollection("propertyvalue")
 hospitalCollection = getCollection("hospitals")
 streetJamCollection = getCollection("streetjams")
+intersectHJ = getCollection("hospital_jams_count")
 
 
 #Gets Hospital name and long/lat
@@ -184,6 +185,8 @@ def zipcodeNameAggregate(propList):
     return dbInsert
 
 # Properties reduced by zipcode; Intermediate collection to find avg property value
+
+#======================================== save to database code =====================================
 # property_zips_reduction = collectionsReducePropsByZip(hospitalCollection)
 # repo.dropPermanent("property_zips_reduction")
 # repo.createPermanent("property_zips_reduction")
@@ -234,8 +237,7 @@ def zipcodeNameAggregate(propList):
 # repo.createPermanent("hospital_lat_lon")
 # repo['jmuru1_joshmah_tpacius.hospital_lat_lon'].insert_one(hospital_lat_lon)
 
-# ===========================Perform ops on collections end==============================
-
+#======================================== save to database code =====================================
 
 # ===========================Prov==============================
 endTime = datetime.datetime.now()
