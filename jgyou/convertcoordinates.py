@@ -27,6 +27,7 @@ def getAddress(startlocation):
 
 # also takes in long-lat
 # returns 15-digit FIPS, the census block
+# fips explained: http://www.policymap.com/blog/2012/08/tips-on-fips-a-quick-guide-to-geographic-place-codes-part-iii/
 def getCensus(startLocation):
   (lon,lat) = (str(startLocation[0]), str(startLocation[1]))
   query = "http://data.fcc.gov/api/block/find?latitude=" + lat +"&longitude="+ \

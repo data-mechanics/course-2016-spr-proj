@@ -12,17 +12,24 @@ The 2015 United States of Aging Survey, conducted by the National Council on Agi
 
 ##Project Description
 
-Factors to potentially be taken in consideration for scoring include:
-1. Nearest MBTA bus/subway/other stop  
-2. Community centers  
-3. General neighborhood affordability, as measured by median property value in that zipcode  
-4. Distance to nearest hospital  
-5. Distance to nearest park  
-6. Grocery store/supermarket/food markets  
-7. Pharmacies  
-8. Libraries  
-9. Locations of church/faith-based groups  
-10. Other art/cultural sites
+Factors that are currently to be incorporated into the accessibility subscore include:
+1. Distance to nearest MBTA stop
+2. Distance to nearest community center 
+3. Distance to nearest hospital
+
+Affordability subscore taken from 
+
+
+
+Other factors to potentially be taken in consideration for scoring include:
+1. Median property value in that zipcode from Zillow
+2. Median rental value for latest available month for given zipcode from Zillow
+3. Distance to nearest park  
+4. Grocery store/supermarket/food markets  
+5. Pharmacies  
+6. Libraries  
+7. Locations of church/faith-based groups  
+8. Other art/cultural sites
 
 ### Further Considerations and Applications
 
@@ -42,6 +49,7 @@ This scoring system could be used to randomly select points in a particular neig
   - [NumPy] (http://www.numpy.org/) `numpy`
   - [Scikit-learn] (http://scikit-learn.org/stable/) `scikit-learn`
   - [Matplotlib] (http://matplotlib.org/index.html) `matplot-lib`
+  - [GeoPy] (https://github.com/geopy/geopy)
 - MongoDB 3.2
 
 ### Accounts required
@@ -51,7 +59,8 @@ This scoring system could be used to randomly select points in a particular neig
 ## Original Data Sets
 - [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
 - [OpenCage Geocoder] (https://geocoder.opencagedata.com/)
-- [Boston Public Health Commission] (http://www.bphc.org/whatwedo/Addiction-Services/services-for-active-users/Pages/Safe-Needle-and-Syringe-Disposal.aspx)
+- [Census Block Conversions API] (https://www.fcc.gov/general/census-block-conversions-api)
+- [MBTA Schedules and Trip Planning Data] (http://www.mbta.com/rider_tools/developers/default.asp?id=21895)
 
 ## Instructions
 
