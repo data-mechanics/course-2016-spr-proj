@@ -1,0 +1,4823 @@
+var example = {
+  "crs": {
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    },
+    "type": "name"
+  },
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0535339,
+            42.3639572
+          ],
+          [
+            -71.0535451,
+            42.3639343
+          ],
+          [
+            -71.0535387,
+            42.3639339
+          ],
+          [
+            -71.05353109999999,
+            42.3639343
+          ],
+          [
+            -71.0535268,
+            42.3639388
+          ],
+          [
+            -71.0535248,
+            42.3639444
+          ],
+          [
+            -71.0535253,
+            42.3639481
+          ],
+          [
+            -71.0535265,
+            42.3639524
+          ],
+          [
+            -71.0535306,
+            42.3639554
+          ],
+          [
+            -71.0535339,
+            42.3639572
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": null,
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 240378681.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"building:part\"=>\"yes\", \"building:colour\"=>\"green\", \"building:levels\"=>\"5\", \"building:material\"=>\"wood\", \"building:min_level\"=>\"1\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1491551,
+            42.4056418
+          ],
+          [
+            -71.1488838,
+            42.405738
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Spy Pond Parkway",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8654295.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": "unpaved",
+        "tags": "\"lanes\"=>\"1\", \"condition\"=>\"deficient\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"200344\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "6.1",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1203142,
+            42.299931
+          ],
+          [
+            -71.1202163,
+            42.2999749
+          ],
+          [
+            -71.1201317,
+            42.3000044
+          ],
+          [
+            -71.1200561,
+            42.3000447
+          ],
+          [
+            -71.1199942,
+            42.3000736
+          ],
+          [
+            -71.119921,
+            42.3000953
+          ],
+          [
+            -71.1198541,
+            42.3001056
+          ],
+          [
+            -71.1198018,
+            42.3001158
+          ],
+          [
+            -71.1197372,
+            42.300118
+          ],
+          [
+            -71.1196776,
+            42.3001136
+          ],
+          [
+            -71.1196376,
+            42.300095
+          ],
+          [
+            -71.1195911,
+            42.300066
+          ],
+          [
+            -71.11955,
+            42.3000359
+          ],
+          [
+            -71.1192538,
+            42.300067
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "footway",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 102710227.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1664108,
+            42.286751
+          ],
+          [
+            -71.1670378,
+            42.287262
+          ],
+          [
+            -71.1674278,
+            42.287575
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Albright Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8646790.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"116917\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1330318,
+            42.38104
+          ],
+          [
+            -71.1328328,
+            42.381025
+          ],
+          [
+            -71.1327408,
+            42.381025
+          ],
+          [
+            -71.1326558,
+            42.381034
+          ],
+          [
+            -71.1325828,
+            42.381048
+          ],
+          [
+            -71.1323808,
+            42.381095
+          ],
+          [
+            -71.1319968,
+            42.381194
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Wyman Road",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8614898.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"156433\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "7.6",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0985925,
+            42.337219
+          ],
+          [
+            -71.0985104,
+            42.337218
+          ],
+          [
+            -71.0984461,
+            42.3372338
+          ],
+          [
+            -71.0983683,
+            42.3372893
+          ],
+          [
+            -71.0982569,
+            42.3373746
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 87890607.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0824714,
+            42.3399986
+          ],
+          [
+            -71.08281829999999,
+            42.3402826
+          ],
+          [
+            -71.0830568,
+            42.3404818
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Northampton Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8638470.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"179736\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "16.5",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1349398,
+            42.30677
+          ],
+          [
+            -71.1345828,
+            42.307193
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8650984.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"35\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -70.9798998,
+            42.26324
+          ],
+          [
+            -70.9790198,
+            42.26302
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Mallard Road",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 9504671.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"deficient\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"108252\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "10.7",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.05537639999999,
+            42.3431132
+          ],
+          [
+            -71.0546025,
+            42.3426063
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "West Third Street",
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 8640068.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"181743\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "14.9",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1709859,
+            42.272897
+          ],
+          [
+            -71.1703139,
+            42.272431
+          ],
+          [
+            -71.1696099,
+            42.271925
+          ],
+          [
+            -71.1693569,
+            42.271745
+          ],
+          [
+            -71.1691359,
+            42.271641
+          ],
+          [
+            -71.1689019,
+            42.27157
+          ],
+          [
+            -71.1684069,
+            42.27143
+          ],
+          [
+            -71.1680628,
+            42.271337
+          ],
+          [
+            -71.1677698,
+            42.271284
+          ],
+          [
+            -71.1672928,
+            42.271222
+          ],
+          [
+            -71.1668738,
+            42.271168
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Gould Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8640436.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"143349\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.5",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1793658,
+            42.291931
+          ],
+          [
+            -71.1800738,
+            42.292535
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8651234.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"35\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0601956,
+            42.3748149
+          ],
+          [
+            -71.060199,
+            42.3749043
+          ],
+          [
+            -71.0602109,
+            42.3750167
+          ],
+          [
+            -71.0602266,
+            42.3751078
+          ],
+          [
+            -71.0602638,
+            42.3751866
+          ],
+          [
+            -71.060328,
+            42.3752665
+          ],
+          [
+            -71.0604038,
+            42.3753662
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Winthrop Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8650715.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"188616\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -70.9910124,
+            42.3894579
+          ],
+          [
+            -70.9907158,
+            42.3892439
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": "yes",
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "footway",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": "1",
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 249847884.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 20.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0362592,
+            42.3643683
+          ],
+          [
+            -71.0367034,
+            42.3637652
+          ],
+          [
+            -71.036597,
+            42.3636912
+          ],
+          [
+            -71.0368567,
+            42.3633466
+          ],
+          [
+            -71.0370476,
+            42.3633801
+          ],
+          [
+            -71.0371469,
+            42.3634693
+          ],
+          [
+            -71.0368652,
+            42.3638082
+          ],
+          [
+            -71.0367034,
+            42.3637652
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": null,
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": -2778684.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": "hiking",
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lwn\"=>\"yes\", \"network\"=>\"lwn\", \"route_name\"=>\"Boston HarborWalk\", \"route_pref_color\"=>\"0\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -70.92672969999998,
+            42.2436929
+          ],
+          [
+            -70.9267837,
+            42.2437431
+          ],
+          [
+            -70.9268283,
+            42.2437943
+          ],
+          [
+            -70.9268664,
+            42.2438647
+          ],
+          [
+            -70.9269084,
+            42.2439948
+          ],
+          [
+            -70.9269476,
+            42.2441147
+          ],
+          [
+            -70.9270287,
+            42.2442976
+          ],
+          [
+            -70.9271011,
+            42.2444454
+          ],
+          [
+            -70.9271711,
+            42.2446203
+          ],
+          [
+            -70.9272249,
+            42.2447226
+          ],
+          [
+            -70.9273029,
+            42.244829
+          ],
+          [
+            -70.92737949999999,
+            42.2449443
+          ],
+          [
+            -70.9274168,
+            42.2450184
+          ],
+          [
+            -70.9275251,
+            42.2452027
+          ],
+          [
+            -70.9275558,
+            42.2452547
+          ],
+          [
+            -70.927634,
+            42.2453262
+          ],
+          [
+            -70.9277978,
+            42.2454731
+          ],
+          [
+            -70.9279115,
+            42.2455926
+          ],
+          [
+            -70.9280662,
+            42.2457123
+          ],
+          [
+            -70.9282012,
+            42.2457736
+          ],
+          [
+            -70.9283295,
+            42.2457927
+          ],
+          [
+            -70.9285543,
+            42.2457945
+          ],
+          [
+            -70.9286652,
+            42.2458196
+          ],
+          [
+            -70.9287706,
+            42.2458703
+          ],
+          [
+            -70.92882979999999,
+            42.245929
+          ],
+          [
+            -70.928897,
+            42.2460387
+          ],
+          [
+            -70.9289483,
+            42.2462817
+          ],
+          [
+            -70.9289319,
+            42.2463451
+          ],
+          [
+            -70.9288951,
+            42.2464
+          ],
+          [
+            -70.928859,
+            42.2464877
+          ],
+          [
+            -70.928817,
+            42.2466098
+          ],
+          [
+            -70.9288115,
+            42.2467381
+          ],
+          [
+            -70.9288341,
+            42.2469692
+          ],
+          [
+            -70.9288333,
+            42.2470898
+          ],
+          [
+            -70.9288074,
+            42.2471846
+          ],
+          [
+            -70.9286918,
+            42.2472941
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": "yes",
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": "yes",
+        "harbour": null,
+        "highway": "track",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 32740365.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": "gravel",
+        "tags": "\"motor_vehicle\"=>\"no\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1336099,
+            42.2445189
+          ],
+          [
+            -71.1330394,
+            42.2443687
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Damon Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8637677.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"121801\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.05759179999998,
+            42.405653
+          ],
+          [
+            -71.05754679999998,
+            42.405583
+          ],
+          [
+            -71.0570958,
+            42.405341
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Corey Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 9080227.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"154245\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "13.7",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0414177,
+            42.3301733
+          ],
+          [
+            -71.0414233,
+            42.3300792
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": "yes",
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "footway",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 75917543.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1582668,
+            42.275274
+          ],
+          [
+            -71.1577298,
+            42.275636
+          ],
+          [
+            -71.1573088,
+            42.275487
+          ],
+          [
+            -71.157159,
+            42.2753973
+          ],
+          [
+            -71.1570268,
+            42.275318
+          ],
+          [
+            -71.1568338,
+            42.275155
+          ],
+          [
+            -71.1566968,
+            42.275023
+          ],
+          [
+            -71.1558348,
+            42.274666
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8646418.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"35\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0775068,
+            42.3434597
+          ],
+          [
+            -71.0775933,
+            42.3433953
+          ],
+          [
+            -71.0781417,
+            42.3432668
+          ],
+          [
+            -71.0782012,
+            42.3432667
+          ],
+          [
+            -71.0783372,
+            42.3433522
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Columbus Square",
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 8645969.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"35\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0726539,
+            42.357292
+          ],
+          [
+            -71.0723345,
+            42.3573536
+          ],
+          [
+            -71.07199389999998,
+            42.3574273
+          ],
+          [
+            -71.0713678,
+            42.357565
+          ],
+          [
+            -71.0708006,
+            42.3576902
+          ],
+          [
+            -71.0707532,
+            42.3576965
+          ],
+          [
+            -71.0707067,
+            42.3576957
+          ],
+          [
+            -71.0706566,
+            42.3576915
+          ],
+          [
+            -71.0706026,
+            42.3576959
+          ],
+          [
+            -71.07028,
+            42.3577809
+          ],
+          [
+            -71.0702044,
+            42.3577985
+          ],
+          [
+            -71.0698563,
+            42.3578484
+          ],
+          [
+            -71.0694768,
+            42.3578964
+          ],
+          [
+            -71.0687872,
+            42.3579771
+          ],
+          [
+            -71.0685145,
+            42.3580075
+          ],
+          [
+            -71.066559,
+            42.3582767
+          ],
+          [
+            -71.0662841,
+            42.3583066
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Mount Vernon Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8639923.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"117251\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "14.0",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1442779,
+            42.346241
+          ],
+          [
+            -71.1443269,
+            42.346332
+          ],
+          [
+            -71.1443369,
+            42.3464
+          ],
+          [
+            -71.14429889999998,
+            42.34648
+          ],
+          [
+            -71.1441579,
+            42.346739
+          ],
+          [
+            -71.1440339,
+            42.346942
+          ],
+          [
+            -71.1439689,
+            42.346998
+          ],
+          [
+            -71.1438829,
+            42.347026
+          ],
+          [
+            -71.1437969,
+            42.347033
+          ],
+          [
+            -71.1436149,
+            42.346989
+          ],
+          [
+            -71.1428709,
+            42.346723
+          ],
+          [
+            -71.1427689,
+            42.346678
+          ],
+          [
+            -71.1430718,
+            42.346224
+          ],
+          [
+            -71.1433528,
+            42.345826
+          ],
+          [
+            -71.14341279999998,
+            42.345758
+          ],
+          [
+            -71.1435098,
+            42.34568
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Jette Court",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8650213.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"good\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"159727\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.060375,
+            42.3710639
+          ],
+          [
+            -71.0600599,
+            42.370693
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 353840250.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": "driveway",
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1140744,
+            42.3576784
+          ],
+          [
+            -71.114026,
+            42.3575719
+          ],
+          [
+            -71.1139607,
+            42.3574509
+          ],
+          [
+            -71.1138802,
+            42.3573183
+          ],
+          [
+            -71.1138035,
+            42.3571998
+          ],
+          [
+            -71.11372,
+            42.3570758
+          ],
+          [
+            -71.1136408,
+            42.3569709
+          ],
+          [
+            -71.113558,
+            42.3568683
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 262476547.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"good\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"138802\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "15.2",
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0560168,
+            42.409369
+          ],
+          [
+            -71.0555288,
+            42.409188
+          ],
+          [
+            -71.0549008,
+            42.408857
+          ],
+          [
+            -71.0541888,
+            42.408496
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Webster Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 9080217.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"118184\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "15.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1296798,
+            42.34429
+          ],
+          [
+            -71.12768979999998,
+            42.34585
+          ],
+          [
+            -71.1275478,
+            42.345961
+          ],
+          [
+            -71.1273918,
+            42.346126
+          ],
+          [
+            -71.1272198,
+            42.346304
+          ],
+          [
+            -71.1270198,
+            42.34655
+          ],
+          [
+            -71.1265898,
+            42.34716
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Coolidge Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8814483.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"145762\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1265319,
+            42.3701968
+          ],
+          [
+            -71.1266717,
+            42.3702178
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 261313531.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1722208,
+            42.304059
+          ],
+          [
+            -71.1720728,
+            42.304352
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 9126631.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"noname\"=>\"yes\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"190850\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "13.7",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -70.9520174,
+            42.2309375
+          ],
+          [
+            -70.9521596,
+            42.2311154
+          ],
+          [
+            -70.9522481,
+            42.2312537
+          ],
+          [
+            -70.952433,
+            42.2315276
+          ],
+          [
+            -70.9525294,
+            42.2316092
+          ],
+          [
+            -70.9526038,
+            42.231627
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": "yes",
+        "harbour": null,
+        "highway": "path",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 49303439.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": "unpaved",
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0567919,
+            42.3588367
+          ],
+          [
+            -71.05678489999998,
+            42.3588846
+          ],
+          [
+            -71.0567946,
+            42.358937
+          ],
+          [
+            -71.0568047,
+            42.3589852
+          ],
+          [
+            -71.0568879,
+            42.359251
+          ],
+          [
+            -71.0569098,
+            42.3593433
+          ],
+          [
+            -71.0569492,
+            42.3595349
+          ],
+          [
+            -71.0569701,
+            42.3596174
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "primary",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Congress Street",
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 8638352.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"good\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:ref\"=>\"0 N384\", \"massgis:way_id\"=>\"182899\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "30.2",
+        "wood": null,
+        "z_order": 7.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1209658,
+            42.377854
+          ],
+          [
+            -71.1210018,
+            42.3788253
+          ],
+          [
+            -71.1210224,
+            42.3788576
+          ],
+          [
+            -71.121052,
+            42.3788728
+          ],
+          [
+            -71.1210854,
+            42.3788785
+          ],
+          [
+            -71.12112269999999,
+            42.3788766
+          ],
+          [
+            -71.1232995,
+            42.3782675
+          ],
+          [
+            -71.1233278,
+            42.3782523
+          ],
+          [
+            -71.12335219999999,
+            42.3782256
+          ],
+          [
+            -71.1233548,
+            42.37819
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Follen Street",
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 8614813.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"122141\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "12.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -70.9886675,
+            42.2382727
+          ],
+          [
+            -70.9887821,
+            42.2382323
+          ],
+          [
+            -70.9888775,
+            42.2381928
+          ],
+          [
+            -70.988968,
+            42.2381471
+          ],
+          [
+            -70.989039,
+            42.2380749
+          ],
+          [
+            -70.9890914,
+            42.2379931
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 92613970.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": "driveway",
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"1\", \"condition\"=>\"good\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"243\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.125545,
+            42.3830837
+          ],
+          [
+            -71.12562349999999,
+            42.3832173
+          ],
+          [
+            -71.1256388,
+            42.3832435
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": "permissive",
+        "harbour": null,
+        "highway": "footway",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 52868690.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0887878,
+            42.324218
+          ],
+          [
+            -71.0886318,
+            42.324146
+          ],
+          [
+            -71.0885628,
+            42.324128
+          ],
+          [
+            -71.0884888,
+            42.324161
+          ],
+          [
+            -71.0882848,
+            42.324399
+          ],
+          [
+            -71.0881888,
+            42.324563
+          ],
+          [
+            -71.0879678,
+            42.325058
+          ],
+          [
+            -71.0879678,
+            42.325113
+          ],
+          [
+            -71.0880218,
+            42.32515
+          ],
+          [
+            -71.0881338,
+            42.325194
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Crispus Attucks Place",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8650395.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"deficient\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"186294\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "9.1",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -70.9634028,
+            42.324323
+          ],
+          [
+            -70.9631688,
+            42.324567
+          ],
+          [
+            -70.9628078,
+            42.32489
+          ],
+          [
+            -70.9624698,
+            42.325206
+          ],
+          [
+            -70.9622228,
+            42.325447
+          ],
+          [
+            -70.9620448,
+            42.325581
+          ],
+          [
+            -70.9619048,
+            42.325673
+          ],
+          [
+            -70.9617638,
+            42.325687
+          ],
+          [
+            -70.9616268,
+            42.325658
+          ],
+          [
+            -70.9614031,
+            42.325522
+          ],
+          [
+            -70.9609908,
+            42.325279
+          ],
+          [
+            -70.9606968,
+            42.325579
+          ],
+          [
+            -70.9606898,
+            42.325586
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": "private",
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "unclassified",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8649805.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"35\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0860603,
+            42.3432117
+          ],
+          [
+            -71.0860598,
+            42.3432119
+          ],
+          [
+            -71.0860592,
+            42.3432119
+          ],
+          [
+            -71.0860586,
+            42.3432118
+          ],
+          [
+            -71.0860582,
+            42.3432116
+          ],
+          [
+            -71.0860579,
+            42.3432112
+          ],
+          [
+            -71.0860578,
+            42.3432108
+          ],
+          [
+            -71.086058,
+            42.3432103
+          ],
+          [
+            -71.0860584,
+            42.34321
+          ],
+          [
+            -71.0860589,
+            42.3432098
+          ],
+          [
+            -71.0860594,
+            42.3432097
+          ],
+          [
+            -71.08606,
+            42.3432099
+          ],
+          [
+            -71.0860604,
+            42.3432101
+          ],
+          [
+            -71.0860607,
+            42.3432105
+          ],
+          [
+            -71.0860608,
+            42.3432109
+          ],
+          [
+            -71.0860606,
+            42.3432113
+          ],
+          [
+            -71.0860603,
+            42.3432117
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": null,
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 240473996.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"building:part\"=>\"yes\", \"building:colour\"=>\"white\", \"building:levels\"=>\"1\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0793585,
+            42.4157315
+          ],
+          [
+            -71.0793529,
+            42.4156782
+          ],
+          [
+            -71.0793268,
+            42.4154332
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 137368109.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": "parking_aisle",
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.090336,
+            42.2542084
+          ],
+          [
+            -71.0903562,
+            42.2542459
+          ],
+          [
+            -71.0903698,
+            42.25429
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "path",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 127435017.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1412565,
+            42.3947076
+          ],
+          [
+            -71.141252,
+            42.3946307
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 93991720.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1180476,
+            42.3215402
+          ],
+          [
+            -71.1178704,
+            42.3214802
+          ],
+          [
+            -71.11767959999999,
+            42.3214512
+          ],
+          [
+            -71.1174592,
+            42.3215124
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "footway",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 402703223.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0458069,
+            42.388608
+          ],
+          [
+            -71.04600189999998,
+            42.38884
+          ],
+          [
+            -71.0460929,
+            42.389208
+          ],
+          [
+            -71.0465098,
+            42.389403
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8617363.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"57\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0390348,
+            42.3999926
+          ],
+          [
+            -71.0388619,
+            42.3996109
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "motorway_link",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 34259088.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"ramp\"=>\"yes\", \"lanes\"=>\"1\", \"condition\"=>\"good\", \"orig_name\"=>\"Ramp-carter St To Rt 1 Sb\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"170336\"",
+        "toll": "yes",
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "15.2",
+        "wood": null,
+        "z_order": 9.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0868938,
+            42.303145
+          ],
+          [
+            -71.0867948,
+            42.303195
+          ],
+          [
+            -71.086755,
+            42.3032154
+          ],
+          [
+            -71.0866778,
+            42.303255
+          ],
+          [
+            -71.0864898,
+            42.30335
+          ],
+          [
+            -71.0862948,
+            42.303417
+          ],
+          [
+            -71.0861668,
+            42.303438
+          ],
+          [
+            -71.0860368,
+            42.303444
+          ],
+          [
+            -71.0859208,
+            42.303458
+          ],
+          [
+            -71.0858198,
+            42.303486
+          ],
+          [
+            -71.0855998,
+            42.30359
+          ],
+          [
+            -71.0854818,
+            42.303637
+          ],
+          [
+            -71.0854108,
+            42.303677
+          ],
+          [
+            -71.0853738,
+            42.303711
+          ],
+          [
+            -71.0853528,
+            42.303757
+          ],
+          [
+            -71.0853518,
+            42.303827
+          ],
+          [
+            -71.0853388,
+            42.303991
+          ],
+          [
+            -71.0853078,
+            42.304213
+          ],
+          [
+            -71.0852898,
+            42.304445
+          ],
+          [
+            -71.0852768,
+            42.304602
+          ],
+          [
+            -71.0852718,
+            42.30471
+          ],
+          [
+            -71.0852878,
+            42.304787
+          ],
+          [
+            -71.0853408,
+            42.304951
+          ],
+          [
+            -71.0853768,
+            42.305041
+          ],
+          [
+            -71.0854178,
+            42.3051
+          ],
+          [
+            -71.0854928,
+            42.305168
+          ],
+          [
+            -71.0856198,
+            42.305283
+          ],
+          [
+            -71.0858138,
+            42.305432
+          ],
+          [
+            -71.0859788,
+            42.305534
+          ],
+          [
+            -71.08623079999998,
+            42.305674
+          ],
+          [
+            -71.0864128,
+            42.305786
+          ],
+          [
+            -71.0865408,
+            42.305857
+          ],
+          [
+            -71.0865898,
+            42.305882
+          ],
+          [
+            -71.0867518,
+            42.305904
+          ],
+          [
+            -71.0870088,
+            42.305933
+          ],
+          [
+            -71.0871818,
+            42.305971
+          ],
+          [
+            -71.0872898,
+            42.305986
+          ],
+          [
+            -71.0874048,
+            42.306007
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "pedestrian",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8641785.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"35\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0326662,
+            42.3401213
+          ],
+          [
+            -71.0326275,
+            42.3401044
+          ],
+          [
+            -71.0325082,
+            42.3401054
+          ],
+          [
+            -71.0325035,
+            42.3398308
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": "fence",
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": null,
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 250053401.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0226858,
+            42.3761092
+          ],
+          [
+            -71.0231136,
+            42.3757433
+          ],
+          [
+            -71.0233979,
+            42.3754976
+          ],
+          [
+            -71.0240696,
+            42.3748885
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": "yes",
+        "operator": null,
+        "osm_id": 291346683.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.0500895,
+            42.3660902
+          ],
+          [
+            -71.0493001,
+            42.366077
+          ],
+          [
+            -71.0491177,
+            42.3661801
+          ],
+          [
+            -71.0491177,
+            42.3663188
+          ],
+          [
+            -71.0496069,
+            42.3663358
+          ],
+          [
+            -71.0500833,
+            42.3663525
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "footway",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Boston HarborWalk",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 94590202.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.068549,
+            42.3837051
+          ],
+          [
+            -71.0683639,
+            42.3839814
+          ],
+          [
+            -71.0682941,
+            42.3840835
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 8640527.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": null,
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.15749,
+            42.3758919
+          ],
+          [
+            -71.1569558,
+            42.376918
+          ],
+          [
+            -71.1566508,
+            42.377543
+          ],
+          [
+            -71.1562448,
+            42.378368
+          ],
+          [
+            -71.1559698,
+            42.379018
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "residential",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": "Marlboro Street",
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 9638491.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"lanes\"=>\"2\", \"condition\"=>\"fair\", \"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"167665\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": "15.2",
+        "wood": null,
+        "z_order": 3.0
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -71.1287575,
+            42.3407737
+          ],
+          [
+            -71.12874509999999,
+            42.3407442
+          ],
+          [
+            -71.1287345,
+            42.3407077
+          ],
+          [
+            -71.1287332,
+            42.34067
+          ],
+          [
+            -71.128774,
+            42.3403193
+          ],
+          [
+            -71.1287719,
+            42.3402815
+          ],
+          [
+            -71.1287642,
+            42.3402451
+          ],
+          [
+            -71.12875,
+            42.3402092
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "access": null,
+        "aerialway": null,
+        "aeroway": null,
+        "amenity": null,
+        "area": null,
+        "barrier": null,
+        "bicycle": null,
+        "boundary": null,
+        "brand": null,
+        "bridge": null,
+        "building": null,
+        "covered": null,
+        "culvert": null,
+        "cutting": null,
+        "disused": null,
+        "embankment": null,
+        "foot": null,
+        "harbour": null,
+        "highway": "service",
+        "historic": null,
+        "horse": null,
+        "junction": null,
+        "landuse": null,
+        "layer": null,
+        "leisure": null,
+        "lock": null,
+        "man_made": null,
+        "military": null,
+        "motorcar": null,
+        "name": null,
+        "natural": null,
+        "oneway": null,
+        "operator": null,
+        "osm_id": 325840098.0,
+        "place": null,
+        "population": null,
+        "power": null,
+        "railway": null,
+        "ref": null,
+        "religion": null,
+        "route": null,
+        "service": null,
+        "shop": null,
+        "sport": null,
+        "surface": null,
+        "tags": "\"attribution\"=>\"Office of Geographic and Environmental Information (MassGIS)\", \"massgis:way_id\"=>\"46\"",
+        "toll": null,
+        "tourism": null,
+        "tower:type": null,
+        "tracktype": null,
+        "tunnel": null,
+        "water": null,
+        "waterway": null,
+        "way_area": null,
+        "wetland": null,
+        "width": null,
+        "wood": null,
+        "z_order": 0.0
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+};
