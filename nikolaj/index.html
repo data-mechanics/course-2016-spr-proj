@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+</style>
+<body>
+<div id="tmap-annot" align="center">
+<h2>Exploring the T via the Random Commuter Model</h2>
+Below is a depiction of the <a href="">PageRank</a> computed over the graph represeting the MBTA network.
+All in all we computed three different versions of PageRank. For the simplest case, we only considered edges arising
+from <a href="">direct connections</a> between stations. Secondly, we considered <a href="">geo-adjacency</a>, i.e., 
+in addition to edges resulting from direct connections we add edges between stops that are within 500m from
+each other. Lastly, we have have added several <a href="">bus lines</a> to the graph. Please click on the highlighted
+links in the text to view the different PageRank values. Hover over the nodes to view their neighbors under the selected 
+interpretation.
+</div>
+<div id="tmap" align="center">
+</div>
+
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+var w = 960,
+    h = 500,
+    xPadding = 50,
+    yPadding = 50;
+
+var resource_names = ['ranks.json', 'spider_merged.json', 'graph_merged.json'];
+var ranks, spider, graph, remaining = resource_names.length;
+
+d3.json("http://datamechanics.io/data/nikolaj/ranks.json", function(error, data) {
+  ranks = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+d3.json("http://datamechanics.io/data/nikolaj/spider.json", function(error, data) {
+  spider = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+d3.json("http://datamechanics.io/data/nikolaj/graph.json", function(error, data) {
+  graph = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+var svg = d3.select("body").select("#tmap").append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+var t_only = d3.select("body").select("#tmap-annot").append("p")
+    .text("T Only");
+    
+var t_walk = d3.select("body").select("#tmap-annot").append("p")
+    .text("T & 500m By Foot");
+
+var renderAll = function() {
+  var station_lookup = {}
+  ranks.forEach(function(r) {
+    node_id = r["pagerank_result_t_only"]["node"]
+    station_lookup[node_id] = r;
+  });
+  
+  graph.nodes.forEach(function(n) {
+    n.x = spider[n.id][0];
+    n.y = spider[n.id][1];
+    n.t = {rank: station_lookup[n.id]["pagerank_result_t_only"].rank,
+              neighs: station_lookup[n.id]["pagerank_result_t_only"].neighs};
+    n.walk = {rank: station_lookup[n.id]["pagerank_result_t_500walk"].rank,
+                 neighs: station_lookup[n.id]["pagerank_result_t_500walk"].neighs};
+    n.rank = n.t.rank;
+    n.neighs = n.t.neighs;
+    console.log(n);
+  });
+  
+  graph.links.forEach(function (link) {
+    link.source = graph.nodes[link.source];
+    link.target = graph.nodes[link.target];
+  });
+  
+  var xScale = d3.scale.linear()
+         .domain([0, d3.max(graph.nodes, function(n) { return n.x; })])
+         .range([xPadding, w - xPadding]);
+         
+  var yScale = d3.scale.linear()
+         .domain([0, d3.max(graph.nodes, function(n) { return n.y; })])
+         .range([yPadding, h - yPadding]);
+  
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .attr("x1", function(d) { return xScale(d.source.x); })
+      .attr("y1", function(d) { return yScale(d.source.y); })
+      .attr("x2", function(d) { return xScale(d.target.x); })
+      .attr("y2", function(d) { return yScale(d.target.y); })
+      .style("stroke", function(d) { 
+        console.log(d.color);
+        return '#'.concat(d.color); 
+      })
+      .style("stroke-width", function(d) { return 3; });
+  
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", function(d) { 
+        d.small = 5;
+        d.large = 6;
+        return d.small*d.rank;
+      })
+      .attr("cx", function(d) { return xScale(d.x) })
+      .attr("cy", function(d) { return yScale(d.y) })
+      .style("fill", function(d) { return 'gray'; })
+      .on("mouseover", function(d) { 
+        var neighs = d.neighs;
+        node.filter(function(n, i) { return (neighs.indexOf(n.id) !== -1) || (n.id == d.id); })
+            .style("fill", "black")
+            .attr("r", function(d) { return d.large*d.rank; });
+       })
+      .on("mouseout", function(d) { 
+        node.style("fill", "gray")
+            .attr("r", function(d) { return d.small*d.rank; });
+      })
+      
+  node.append("title")
+      .text(function(d) { return d.name; });
+
+  t_walk.on("click", function() {
+    node.transition()
+        .attr("r", function(d) {
+          d.rank = d.walk.rank;
+          d.neighs = d.walk.neighs;
+          return d.small*d.rank;
+        })
+  });
+
+  t_only.on("click", function() {
+    node.transition()
+        .attr("r", function(d) {
+          d.rank = d.t.rank;
+          d.neighs = d.t.neighs;
+          return d.small*d.rank;
+        })
+  });
+}
+
+</script>
