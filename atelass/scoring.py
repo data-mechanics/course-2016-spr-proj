@@ -1,6 +1,6 @@
 '''
-This file scores each station. Scoring will be done by getting the total crimes for each hour between 9PM up to
-(and excluding) 1AM. and calculating a weighted sum (earlier hours will be weighted more).
+This file scores each station. Scoring is done by getting the total crimes for each station for each hour between 9PM to
+1AM (excluding 1AM) and calculating a weighted sum. Earlier hours are weighted more.
 These times are chosen because most stations close around 1AM or a little before.
 A higher score means the station is less safe, at least according to this metric and the results of this project.
 '''

@@ -1,6 +1,6 @@
 '''
 This script goes through the data to see if there's a correlation between number of streetlights and
-number of crimes around a given station.
+number of crimes around a given station by calculating the Pearson correlation coefficient.
 '''
 import pymongo
 import time

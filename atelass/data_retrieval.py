@@ -1,3 +1,7 @@
+'''
+This script collects the necessary data from online resources.
+'''
+
 import sys
 import requests
 import pymongo
