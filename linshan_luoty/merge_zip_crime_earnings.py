@@ -2,6 +2,7 @@ import json
 import datetime
 import pymongo
 import prov.model
+import provenance
 import uuid
 
 # Until a library is created, we just use the script directly.
@@ -32,12 +33,28 @@ for document in zip_location_crimes:
 	zip_location_crimes_earnings.append(document)
 
 # export zip_location_crimes_earnings to JSON
-open('zip_location_crimes_earnings.json','w').write(json.dumps(zip_location_crimes_earnings, indent=4))
+f = open('zip_location_crimes_earnings.json','w')
+f.write(json.dumps(zip_location_crimes_earnings, indent=4))
+f.close()
 
 # save it to a permanent folder
 repo.dropPermanent("zip_location_crimes_earnings")
 repo.createPermanent("zip_location_crimes_earnings")
-repo['linshan_luoty.zip_location_crimes_earnings'].insert_many(zip_location_crimes_earnings)
+repo[auth['admin']['name']+'.'+'zip_location_crimes_earnings'].insert_many(zip_location_crimes_earnings)
+
+zip_location_crimes_earnings_sorted = repo[auth['admin']['name']+'.'+'zip_location_crimes_earnings'].find({},{
+	'_id': False,
+	'zip': True,
+	'crimes': True,
+	'longitude': True,
+	'latitude': True,
+	'region': True,
+	'avg_earning': True,
+	}).sort([('avg_earning', pymongo.ASCENDING)])
+
+f = open('zip_location_crimes_earnings_sorted.json','w')
+f.write(json.dumps(list(zip_location_crimes_earnings_sorted), indent=4))
+f.close()
 
 endTime = datetime.datetime.now()
 
@@ -48,7 +65,7 @@ endTime = datetime.datetime.now()
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
-doc = prov.model.ProvDocument()
+doc = provenance.init()
 doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
 doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'https://data-mechanics.s3.amazonaws.com/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
@@ -78,8 +95,7 @@ doc.wasDerivedFrom(zip_location_crimes_earnings, zip_location_crimes, merge_zip_
 doc.wasDerivedFrom(zip_location_crimes_earnings, zip_avg_earning, merge_zip_crime_earnings, merge_zip_crime_earnings, merge_zip_crime_earnings)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+provenance.update(doc)
 print(doc.get_provn())
 	
 repo.logout()

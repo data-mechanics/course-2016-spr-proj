@@ -2,6 +2,7 @@ import json
 import datetime
 import pymongo
 import prov.model
+import provenance
 import uuid
 
 # Until a library is created, we just use the script directly.
@@ -33,7 +34,7 @@ endTime = datetime.datetime.now()
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
-doc = prov.model.ProvDocument()
+doc = provenance.init()
 doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
 doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'https://data-mechanics.s3.amazonaws.com/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
@@ -57,8 +58,7 @@ doc.wasGeneratedBy(earning_zip, extract_earning_zip, endTime)
 doc.wasDerivedFrom(earning_zip, earning, extract_earning_zip, extract_earning_zip, extract_earning_zip)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+provenance.update(doc)
 print(doc.get_provn())
 
 repo.logout()

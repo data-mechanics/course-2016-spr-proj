@@ -3,7 +3,8 @@ import json
 import datetime
 import pymongo
 import sys
-import prov.model
+import prov
+import provenance
 import uuid
 
 
@@ -38,12 +39,7 @@ endTime = datetime.datetime.now()
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
-doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
-doc.add_namespace('ont', 'https://data-mechanics.s3.amazonaws.com/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
-doc.add_namespace('log', 'https://data-mechanics.s3.amazonaws.com/log#') # The event log.
-doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc = provenance.init()
 
 this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
@@ -93,7 +89,7 @@ doc.wasGeneratedBy(building, get_building, endTime)
 doc.wasDerivedFrom(building, building_resource, get_building, get_building, get_building)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+provenance.update(doc)
+
 print(doc.get_provn())
 repo.logout()
