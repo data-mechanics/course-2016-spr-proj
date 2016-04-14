@@ -29,19 +29,18 @@ function loadJSONJC(cb, filename) {
 
         var options = {
           chart: {
-            title: 'Students\' Final Grades',
-            subtitle: 'based on hours studied'
+            title: 'Number of Hospitals and Avg. Property Value by Boston Zipcode',
           },
           width: 800,
           height: 500,
           series: {
-            0: {axis: 'hours studied'},
-            1: {axis: 'final grade'}
+            0: {axis: 'number of hospitals'},
+            1: {axis: 'avg property value'}
           },
           axes: {
             y: {
-              'hours studied': {label: 'Hours Studied'},
-              'final grade': {label: 'Final Exam Grade'}
+              'number of hospitals': {label: 'Number of Hospitals'},
+              'avg property value': {label: 'Avg Property Value'}
             }
           }
         };

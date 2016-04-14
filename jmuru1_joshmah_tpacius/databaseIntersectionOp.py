@@ -87,7 +87,7 @@ for i in range(len(Y)):
     Ynew.append(Y[i].upper())
 Y = Ynew
     
-#Find the intersections between streetjames and hospitals...for number of hospitals.
+#Find the intersections between streetjams and hospitals...for number of hospitals.
 X = intersect(Xnew,Ynew)
 Y = intersect(Ynew,Xnew)
 

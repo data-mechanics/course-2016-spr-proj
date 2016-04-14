@@ -25,28 +25,22 @@ def getCollection(dbName):
 		temp.append(elem)
 	return temp
 # ========================query database end=================================
-#Josh Stuff ===========================================================
-# repo.dropPermanent("streetjams")
-# repo.createPermanent("streetjams")
+repo.dropPermanent("streetjams")
+repo.createPermanent("streetjams")
 # repo['jmuru1_joshmah_tpacius.streetjams'].insert_many(apiTest.streetJams)
-# # x = repo['joshmah.streetjams'].find({});
-#
-# repo.dropPermanent("hospitals")
-# repo.createPermanent("hospitals")
-# repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(apiTest.hospitals)
-#
-# repo.dropPermanent("emsdeparture")
-# repo.createPermanent("emsdeparture")
-# repo['jmuru1_joshmah_tpacius.emsdeparture'].insert_many(apiTest.emsDeparture)
-#
-#
-# repo.dropPermanent("propertyvalue")
-# repo.createPermanent("propertyvalue")
-# repo['jmuru1_joshmah_tpacius.propertyvalue'].insert_many(apiTest.propertyvalue)
 
-repo.dropPermanent("propertyvalue2")
-repo.createPermanent("propertyvalue2")
-repo['jmuru1_joshmah_tpacius.propertyvalue2'].insert_many(apiTest.propertyvalue2)
+repo.dropPermanent("hospitals")
+repo.createPermanent("hospitals")
+repo['jmuru1_joshmah_tpacius.hospitals'].insert_many(apiTest.hospitals)
+
+repo.dropPermanent("emsdeparture")
+repo.createPermanent("emsdeparture")
+repo['jmuru1_joshmah_tpacius.emsdeparture'].insert_many(apiTest.emsDeparture)
+
+
+repo.dropPermanent("propertyvalue")
+repo.createPermanent("propertyvalue")
+repo['jmuru1_joshmah_tpacius.propertyvalue'].insert_many(apiTest.propertyvalue)
 
 # ========================query database=================================
 
@@ -67,7 +61,7 @@ doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'Da
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:dbProvOps', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:dbOperations', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resource3 = doc.entity('bdp:n7za-nsjh', {'prov:label':'Boston Property Values', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?$limit=1000'})
 doc.wasAssociatedWith(this_run, this_script)
@@ -80,10 +74,10 @@ doc.wasAttributedTo(propertyvalues, this_script)
 doc.wasGeneratedBy(propertyvalues, this_run, endTime)
 doc.wasDerivedFrom(propertyvalues, resource3, this_run, this_run, this_run)
 
-this_script = doc.agent('alg:proj1', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:dbOperations', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resourceHospitals = doc.entity('bdp:46f7-2snz', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 
-this_script = doc.agent('alg:proj1', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:dbOperations', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 resourceStreetjams = doc.entity('bdp:yqgx-2ktq', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 
 get_hospitals = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?type=ad&?$select=ad,name'})

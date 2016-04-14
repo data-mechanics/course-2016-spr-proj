@@ -23,25 +23,24 @@ function loadJSONJC(cb, filename) {
       function drawChart() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Zip Codes');
-        data.addColumn('number', 'Number of Hospitals');
+        data.addColumn('number', 'Number of Traffic Jams');
         data.addColumn('number', 'Avg Property Value');
         data.addRows(c);
 
         var options = {
           chart: {
-            title: 'Students\' Final Grades',
-            subtitle: 'based on hours studied'
+            title: 'Number of Traffic Jams on Streets Hospitals Are On and Average Property Value By Boston Zipcode',
           },
           width: 800,
           height: 500,
           series: {
-            0: {axis: 'hours studied'},
-            1: {axis: 'final grade'}
+            0: {axis: 'traffic jams'},
+            1: {axis: 'avg property value'}
           },
           axes: {
             y: {
-              'hours studied': {label: 'Hours Studied'},
-              'final grade': {label: 'Final Exam Grade'}
+              'traffic jams': {label: 'Number of Traffic Jams'},
+              'avg property value': {label: 'Avg Property Value'}
             }
           }
         };

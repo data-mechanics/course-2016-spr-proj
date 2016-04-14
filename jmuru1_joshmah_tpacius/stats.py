@@ -60,15 +60,11 @@ def p(x, y):
 
 
 # ===========================Perform ops on collections==============================
-# hospitalByZip = getCollection("hospitals_by_zip")[0]
-hospitalByZip = getCollection("hospitals_by_zip2")[0]
+hospitalByZip = getCollection("hospitals_by_zip")[0]
 intersectHJ = getCollection("hospital_jams_count")[0]
-# avg_property_values = getCollection("avg_property_values")[0]
-avg_property_values = getCollection("avg_property_values2")[0]
-# print(hospitalByZip)
-# print(intersectHJ)
-# print(avg_property_values)
+avg_property_values = getCollection("avg_property_values")[0]
 
+# Reduction to find number of hospitals in a zipcode
 def hospitalCountByZip(collection):
 	dictionary = {}
 	for elem in collection.items():
@@ -79,6 +75,7 @@ def hospitalCountByZip(collection):
 
 hospitalCount = hospitalCountByZip(hospitalByZip)
 
+# Reduction to find number of traffic jams near hospitals by zipcode
 def trafficJamsByHospitalsInZip(collection1, collection2):
 	dictionary = {}
 	for elem in collection1.items():
@@ -92,11 +89,11 @@ def trafficJamsByHospitalsInZip(collection1, collection2):
 			if isinstance(lst, list):
 				if name in lst and zips != '_id' and name != '_id':
 					dictionary[zips] += jams
-	# print(dictionary)
 	return dictionary
 
 jamsByZip = trafficJamsByHospitalsInZip(hospitalByZip,intersectHJ)
 
+# Reductions on zipcodes and average property value
 def hospitalCountPropertyValue(collection1, collection2):
 	dictionary = {}
 	for elem1 in collection1.items():
@@ -110,20 +107,64 @@ def hospitalCountPropertyValue(collection1, collection2):
 countValue = hospitalCountPropertyValue(hospitalCount, avg_property_values)
 jamsValues = hospitalCountPropertyValue(jamsByZip, avg_property_values)
 
-
+#calculate correlation and p values
 def stats(collection):
 	keys, values = collection.keys(), collection.values()
 	x = [x for (x , y) in values]
 	y = [y for (x , y) in values]
-	# print("Covariance = " + str(cov(x,y)))
-	# print("Correlation coefficient = " + str(corr(x,y)))
-	# print("p value = " + str(p(x,y)))
-	return corr(x,y)
+	return (corr(x,y), p(x,y))
 
-# print("Property Values and Hospital Count Stats")
-countCorr = stats(countValue)
-# print(countCorr)
-# print()
-# print("Property Values and Jams By Hospital Stats")
-jamCorr = stats(jamsValues)
-print(jamCorr)
+# countCorr = stats(countValue)
+# jamCorr = stats(jamsValues)
+
+#=====================================End collection operations===================
+
+#===============================Store in DB=======================================
+repo.dropPermanent("hospitals_in_zip")
+repo.createPermanent("hospitals_in_zip")
+repo['jmuru1_joshmah_tpacius.hospitals_in_zip'].insert_one(hospitalCount)
+
+repo.dropPermanent("trafficjam_by_zip")
+repo.createPermanent("trafficjam_by_zip")
+repo['jmuru1_joshmah_tpacius.trafficjam_by_zip'].insert_one(jamsByZip)
+
+repo.dropPermanent("avg_property_hospital_count")
+repo.createPermanent("avg_property_hospital_count")
+repo['jmuru1_joshmah_tpacius.avg_property_hospital_count'].insert_one(countValue)
+
+repo.dropPermanent("avg_property_trafficjams")
+repo.createPermanent("avg_property_trafficjams")
+repo['jmuru1_joshmah_tpacius.avg_property_trafficjams'].insert_one(jamsValues)
+#===============================End Store in DB===================================
+
+#================================Prov===========================================
+endTime = datetime.datetime.now()
+
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/jmuru1_joshmah_tpacius/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/jmuru1_joshmah_tpacius/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+
+this_script = doc.agent('alg:stats', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+resource1 = doc.entity('dat:hospitals_in_zip', {'prov:label':'Hospital Count by By Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource2 = doc.entity('dat:trafficjam_by_zip', {'prov:label':'Traffic Jams near Hospitals by Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource3 = doc.entity('dat:avg_property_hospital_count', {'prov:label':'Average Property Value and Hospital Count by Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+resource4 = doc.entity('dat:avg_property_trafficjams', {'prov:label':'Average Property Value and Traffic Jams near Hospital by Zipcode', prov.model.PROV_TYPE:'ont:DataResource', prov.model.PROV_TYPE:'ont:Computation'})
+this_run = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(this_run, this_script)
+
+doc.used(this_run, resource1, startTime)
+doc.used(this_run, resource2, startTime)
+doc.used(this_run, resource3, startTime)
+doc.used(this_run, resource4, startTime)
+
+repo.record(doc.serialize()) # Record the provenance document.
+#print(json.dumps(json.loads(doc.serialize()), indent=4))
+open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+# print(doc.get_provn())
+repo.logout()
+#================================End Prov===========================================
+
+#eof

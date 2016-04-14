@@ -17,4 +17,19 @@ To test these hypotheses, we reduced several datasets relating to local hospital
 With these reductions, we believe that we should be able to determine if relationships between hospital locations and traffic patterns as well as hospital locations and hospital location and property values are both present and significant.
 
 #Findings and Conclusions
-After reducing the initial datasets to a fine enough granularity to answer these questions. We found that the both of our questions had some merit based on our data. Primarily, that there appears to be a weak negative correlation in average property value and the number of hospital in a zip code as well as a moderate positive correlation  between number of traffic jams near hospitals in a zip code and the average property value. The calculated p-values for calculated correlations suggest that in terms of "standard" p-value interpretation that both of these findings are significant. Furthermore, despite taking sample of 10 percent of the property assessment dataset, we believe that the lack of consistent random samples from that pool and the limited window of traffic we were able to gather dampens some strength of these claims. 
+After reducing the initial datasets to a fine enough granularity to answer these questions, we found that the both of our questions had some merit based on our data. Primarily, that there appears to be a very weak negative correlation (-0.00119) in average property value and the number of hospital in a zip code as well as a moderate positive correlation (0.67221) between number of traffic jams near hospitals in a zip code and the average property value. The calculated p-values (1.0 and 0.055 respectively) for calculated correlations suggest that in terms of "standard" p-value interpretation that both of these findings are significant. Furthermore, despite taking a sample of 10 percent of the property assessment dataset, we believe that the lack of consistent random samples from that pool and the limited window of traffic we were able to gather dampens some strength of these claims. 
+
+#Visualizations
+We extracted the relevant collections into json files using the dataExtract.py script. The notable derived and visualized datasets in the database are in the collections avg\_property\_hospital\_count, avg\_property\_trafficjams and hospital\_jams\_count and can be viewed in the files counterVal.html, jamValue.html, index.html
+
+#Replication
+##Reductions and Database Operations
+In order to recreate our results, the followings scripts should be run in the following order:
+	<ol>
+	<li>dbOperations.py</li>
+	<li>elementaryOperations.py</li>
+	<li>databaseIntersectionOp.py</li>
+	<li>stats.py</li>
+	</ol>
+The notable final derived datasets from which we calculated correlation coefficients and p-values in the database are avg\_property\_hospital\_count, avg\_property\_trafficjams
+
