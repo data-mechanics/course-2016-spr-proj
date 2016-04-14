@@ -99,3 +99,46 @@ for pair in closest_stop_larceny:
 
 Y = real_aggregate(X, sum)
 print(Y)
+
+endTime = datetime.datetime.now()
+
+# Provenance information for plan.jason
+doc = prov.model.ProvDocument()
+
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ekwivagg_yuzhou7/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/ekwivagg_yuzhou7/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc.add_namespace('sj', 'http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs/')
+
+this_script = doc.agent('alg: get_crime', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+larceny_dat = doc.entity('bdp:7cdf-6fgx', {prov.model.PROV_LABEL:'Larcenies', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+stops = doc.entity('sj:stops', {'prov:label':'T Stops', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'txt'})
+closest_stop_larceny = doc.entity('dat:closest_stop_larceny', {prov.model.PROV_LABEL:'Closest Larceny Stop', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+
+stop_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval'})
+doc.wasAssociatedWith(stop_retrieval, this_script)
+doc.used(stop_retrieval, stops, startTime)
+
+larceny_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?incident_type_description=larceny+from+motor+vehicle&$select=location,compnos&$limit=50000'})
+doc.wasAssociatedWith(larceny_retrieval, this_script)
+doc.used(larceny_retrieval, larceny_dat, startTime)
+
+closest_larceny_calc = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(closest_liquor_calc, this_script)
+doc.used(closest_larceny_calc, larceny_dat, startTime)
+doc.used(closest_larceny_calc, stops, startTime)
+
+doc.wasAttributedTo(closest_stop_larceny, this_script)
+doc.wasGeneratedBy(closest_stop_larceny, closest_larceny_calc, endTime)
+doc.wasDerivedFrom(closest_stop_larceny, larceny_dat, closest_larceny_calc, closest_larceny_calc, closest_larceny_calc)
+doc.wasDerivedFrom(closest_stop_larceny, stops, closest_larceny_calc, closest_larceny_calc, closest_larceny_calc)
+
+repo.record(doc.serialize())
+content = json.dumps(json.loads(doc.serialize()), indent=4)
+f = open('plan.json', 'a')
+f.write(",\n")
+f.write(content)
+repo.logout()
