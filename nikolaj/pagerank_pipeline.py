@@ -37,6 +37,19 @@ def combine_and_export():
     combineforviz.run()
     export_pagerank.run()
     
+def to_prov(repo):
+    doc = prov.model.ProvDocument()
+    doc.update(storeT.to_prov(None, None))
+    doc.update(storeBus.to_prov(None, None))
+    doc.update(combine_t_bus.to_prov(None, None))
+    doc.update(geoagg.to_prov(None, None))
+    doc.update(pagerank.to_prov(None, None))
+    
+    repo.record(doc.serialize()) # Record the provenance document.
+    with open('plan.json','w') as plan:
+        plan.write(json.dumps(json.loads(doc.serialize()), indent=4))
+    print(doc.get_provn())
+
 def run_job_with_params(repo, job_params):
     drop_all_collections(repo)
     store_json(repo, 'nikolaj.params', job_params)
@@ -70,4 +83,5 @@ if __name__ == "__main__":
     repo = get_auth_repo('nikolaj', 'nikolaj')
     for job_param in job_param_queue:
         run_job_with_params(repo, job_param)
+    to_prov(repo)
     combine_and_export()
