@@ -1,20 +1,23 @@
 "use strict";
 
-function getDataFromReq(stuff) {
-  var d = [["Hospital", "Number of jams"]];
+function getDataFromReqHJ(stuff) {
+  var d = [
+    ["Hospital", "Number of jams"]
+  ];
   for (var elem in stuff) {
     d.push([elem, stuff[elem]]);
   }
   return d;
 }
 
-function loadJSON(cb) {
+function loadJSONJH(cb) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "./physicalData/jamHospiCount.json", true);
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var d = JSON.parse(xhr.responseText);
       var c = cb(d);
+      console.log(c);
       google.charts.load("current", {
         packages: ["corechart", "bar"]
       });
@@ -35,6 +38,8 @@ function loadJSON(cb) {
 };
 
 
+loadJSONJH(getDataFromReqHJ);
 
 
-loadJSON(getDataFromReq);
+// var countCorr = -0.0011948720685760594;
+// var jamCorr = 0.6722115956157555;
