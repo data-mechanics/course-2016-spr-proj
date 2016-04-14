@@ -11,8 +11,67 @@ Datamechanics.io
 '''
 
 import requests
-from datetime import datetime
+import datetime
 import json
+import pymongo
+import prov.model
+import uuid
+import urllib
+
+def map(f, R):
+    return [t for (k,v) in R for t in f(k,v)]
+
+
+def reduce(f, R):
+    keys = {k for (k,v) in R}
+    return [f(k1, [v for (k2,v) in R if k1 == k2]) for k1 in keys]
+
+
+# gets the entire dataset.
+
+
+def json_get_all(addr, limit=50000, offset=0):
+    r = requests.get(addr + "&$limit=" + str(limit) + "&$offset=" + str(offset))
+    if len(r.json()) < 1000:
+        return r.json()
+    else:
+        j = r.json()
+        offset += limit
+        while len(r.json()) == limit:
+            r = requests.get(addr + "&$limit=" + str(limit) + '&$offset=' + str(offset))
+            j = j + r.json()
+            offset += limit
+            print(len(j))
+        return j
+
+
+def dict_merge(x, y):
+    z = x.copy()
+    z.update(y)
+    return z
+
+
+# take collection name (same as dataset name without .json at end)
+def insert_to_db(repo, s):
+    url = 'https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data/' + s + '.json'
+    response = urllib.request.urlopen(url).read().decode("utf-8")
+    r = json.loads(response)
+
+    # The line below was causing an error.
+    #r = json.dumps(r, sort_keys=True, indent=2)
+
+    repo.dropPermanent(s)
+    repo.createPermanent(s)
+
+    # Convert to valid JSON dictionary if necessary.
+    for i in range(len(r)):
+        if type(r[i]) == list:
+            d = {}
+            d[r[i][0]] = r[i][1]
+            r[i] = d
+
+    repo['nlouie_thsu8.' + s].insert_many(r)
+
 
 # Stolen from Stack Overflow. 
 from math import radians, cos, sin, asin, sqrt
@@ -49,6 +108,12 @@ class mapReduce:
 	def dataset(self):
 		return self.i
 
+
+# Until a library is created, we just use the script directly.
+exec(open('../pymongo_dm.py').read())
+
+# Retrieve some data sets (not using the API here for the sake of simplicity).
+startTime = datetime.datetime.now()
 
 '''
 print 'Reading file. '
@@ -121,6 +186,36 @@ c_f.close()
 lcd.close()
 
 
+
+# Set up the database connection.
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
+
+# must add to database
+# insert_to_db(repo,s)
+
+endTime = datetime.datetime.now()
+
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/nlouie_thsu8/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/nlouie_thsu8/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data')
+
+this_script = doc.agent('alg:script', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+# generate provenance data
+
+resource3 = doc.entity('bdp:7cdf-6fgx', {'prov:label':'Crime Incident Report', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_run3 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+doc.wasAssociatedWith(this_run3, this_script)
+doc.used(this_run3, resource3, startTime)
+
+open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+print(doc.get_provn())
+repo.logout()
 
 
 
