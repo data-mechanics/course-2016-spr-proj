@@ -1,3 +1,15 @@
+'''
+Nicholas Louie, Thomas Hsu
+nlouie@bu.edu, thsu@bu.edu
+nlouie_thsu8
+4/13/16
+Boston University Department of Computer Science
+CS 591 L1 - Data Mechanics Project 2
+Andrei Lapets (lapets@bu.edu)
+Datamechanics.io
+
+'''
+
 import requests
 from datetime import datetime
 import json
