@@ -5,10 +5,11 @@ runallscripts.py
 
 
 from random import uniform
+from statistics import median
 
 # supplementary functions
-exec(open("convertcoordinates.py").read()) # also needs prov
-exec(open("findnearest.py").read())		# needs prov
+exec(open("convertcoordinates.py").read())
+exec(open("findnearest.py").read())		# needs prov, which is made tricky by the use of multiple collections
 exec(open("generatemiscprov.py").read())
 exec(open('../pymongo_dm.py').read())
 
@@ -17,8 +18,9 @@ exec(open('../pymongo_dm.py').read())
 exec(open("retrievehospitals.py").read())
 exec(open("cleanhospitals.py").read())
 exec(open("inputmbta.py").read())
+exec(open("retrieveservices.py").read())
 #exec(open("retrievepharmacies.py").read())		# needs to be changed to find nearest X pharmacies
-exec(open("retrievezillow.py").read())			# currently have not figured out way to incorporate into score
+exec(open("retrievezillow.py").read())			# currently have not figured out way to incorporate into score, also update retrieval query prov accordingly
 
 
 
@@ -62,6 +64,11 @@ def generatePoints(n):
 	return [(round(uniform(y1, y2), 5), round(uniform(x1, x2), 5)) for x in range(n)]
 
 
+def assignStopWeight(wheelchairstatus):
+	if wheelchairstatus == 0:
+		return 1.0
+	return 0.9
+
 
 
 client = pymongo.MongoClient()
@@ -79,14 +86,43 @@ with open("auth.json") as f:
 
 	startingLocations = generatePoints(20)
 
-	for startLocation in startingLocations:
-		
-		fip = getCensus(startLocation)
-		(addr, neigh, zipcode) = getAddress(startLocation)
+	weights = [1, 3, 6]
 
+	allscores = []
+
+	for startLocation in startingLocations:
+
+		(startlat, startlon) = startLocation
+		
+		fip = getCensus(repo, startLocation)
+		
+		(addr, neigh, zipcode) = getAddress(repo, startLocation)
+
+		if zipcode == -1:
+			# zipcode not found by geocoder due to incomplete data, look for zipcode based on neighborhood
+			continue
+
+		
 		distHospital = findClosestCoordinate(repo, user + ".hospitals", startLocation)
 
+	
 		# when scoring mbta stops, should "reward" stops that have wheelchair access
+		nearerStops = boundedRadiusMBTA(repo, user + ".mbtaStops", startLocation, 3.0)
+		medianMBTA = median([b*assignStopWeight(f) for (a,b, c, d, e, f) in nearerStops])
+
+		distCenter = findClosestCoordinate(repo, user + '.servicecenters', startLocation)
+
+		score = weights[0]*distHospital + weights[2]*medianMBTA + weights[1]*distCenter
+
+		allscores.append( {"score": score, "longitude": startlon, "latitude": startlat})
+
+
+		with open('scores.json', 'w') as output_scores:
+			output_scores.write(json.dumps(allscores, indent=4))
+
+
+
+	repo.logout()
 
 
 

@@ -13,31 +13,43 @@ exec(open('../pymongo_dm.py').read())
 # assumes startlocation = x-y, long-lat
 # given x-y coordinates, finds approximate address using opencage geocoder
 
-# get Address not working
-def getAddress(startlocation):
+def getAddress(repo, startlocation):
+  starttime = datetime.datetime.now()
   with open("auth.json") as f:
     auth = json.loads(f.read())
     key = auth['service']['opencagegeo']['key']
     (lat, lon) = startLocation
     # note geocode takes in lat-long
     query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + "+" + str(lat) \
-    	 + "," + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
+       + "," + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
 
     #print(query)
     response = request.urlopen(query).read().decode("utf-8")
     addresults = json.loads(response)
 
-    startzip = addresults['results'][0]['components']['postcode']
-    neighborhood = addresults['results'][0]['components']['suburb']
-    formatted = addresults['results'][0]['formatted']
+    try: 
+      startzip = addresults['results'][0]['components']['postcode']
+      neighborhood = addresults['results'][0]['components']['suburb']
+      formatted = addresults['results'][0]['formatted']
 
-    return (formatted, neighborhood, startzip)
+      endtime = datetime.datetime.now()
+      runids = [str(uuid.uuid4())]
+      makeProvOpencage(repo, runids, starttime, endtime, query)
+      makeProvOpencage(repo, runids, None, None, query)
+
+      return (formatted, neighborhood, startzip)
+    
+    except:
+      neighborhood = addresults['results'][0]['components']['address100']
+      formatted = addresults['results'][0]['formatted']
+      return (formatted, neighborhood, -1)
 
 
 # also takes in long-lat
 # returns 15-digit FIPS, the census block
 # fips explained: http://www.policymap.com/blog/2012/08/tips-on-fips-a-quick-guide-to-geographic-place-codes-part-iii/
-def getCensus(startLocation):
+def getCensus(repo, startLocation):
+  starttime = datetime.datetime.now()
   (lat, lon) = (str(startLocation[0]), str(startLocation[1]))
   query = "http://data.fcc.gov/api/block/find?latitude=" + lat +"&longitude="+ \
     lon +"&showall=true" + "&format=json"
@@ -47,15 +59,64 @@ def getCensus(startLocation):
 
   # returns 15 digit census block code
   fips = blockresults['Block']['FIPS']
+
+  endtime = datetime.datetime.now()
+  runids = [str(uuid.uuid4())]
+
+  makeProvCensus(repo, runids, starttime, endtime, query)
+  makeProvCensus(repo, runids, None, None, query)
   
   return fips
 
 
 # provenance info
-def makeProvCensus(repo, runids, starttime, endtime):
-  return  
+def makeProvCensus(repo, runids, starttime, endtime, query):
+  provdoc = prov.model.ProvDocument()
+  provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
+  provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
+  provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+  provdoc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+  provdoc.add_namespace('fcc', 'http://data.fcc.gov/api/block/find')
 
-def makeProvOpencage(repo, runids, starttime, endtime):
+  # activity = invocation of script, agent = script, entity = resource
+  # agent
+  this_script = provdoc.agent('alg:convertcoordinates', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+  # input data
+  inputs = provdoc.entity('fcc:censusblock', {'prov:label':'Census Block Conversion', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+
+  # output data
+  output = provdoc.entity('dat:intermediate', {prov.model.PROV_LABEL:'Intermediate', prov.model.PROV_TYPE:'ont:DataSet'})
+
+  if len(runids) == 1:
+    run_id = runids[0]
+
+  this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
+
+  querysuffix = query.split("?")[1]
+  provdoc.wasAssociatedWith(this_run, this_script)
+  provdoc.used(this_run, inputs, starttime, None,\
+    {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'json?' + querysuffix})
+
+  provdoc.wasAttributedTo(output, this_script)
+  provdoc.wasGeneratedBy(output, this_run)
+
+  provdoc.wasDerivedFrom(output, inputs)
+
+  if starttime == None:
+    plan = open('plan.json','r')
+    docModel = prov.model.ProvDocument()
+    doc = docModel.deserialize(plan)
+    doc.update(provdoc)
+    plan.close()
+    plan = open('plan.json', 'w')
+    plan.write(json.dumps(json.loads(doc.serialize()), indent=4))
+    plan.close()
+  else:
+    repo.record(provdoc.serialize())  
+  
+
+def makeProvOpencage(repo, runids, starttime, endtime, query):
   provdoc = prov.model.ProvDocument()
   provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
   provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
@@ -68,22 +129,25 @@ def makeProvOpencage(repo, runids, starttime, endtime):
   this_script = provdoc.agent('alg:convertcoordinates', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
   # input data
-  mbtazip = provdoc.entity('mbta:gtfs', {prov.model.PROV_LABEL:'MBTA_GTFS', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension': 'zip'})
+  opencage = provdoc.entity('ocd:geocode', {'prov:label':'OpenCage Data', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 
   # output data
-  output = provdoc.entity('dat:mbtaStops', {prov.model.PROV_LABEL:'MBTA Stops', prov.model.PROV_TYPE:'ont:DataSet'})
+  output = provdoc.entity('dat:intermediate', {prov.model.PROV_LABEL:'Intermediate', prov.model.PROV_TYPE:'ont:DataSet'})
 
   if len(runids) == 1:
     run_id = runids[0]
 
   this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
+
+  querysuffix = query.split("?")[1]
   provdoc.wasAssociatedWith(this_run, this_script)
-  provdoc.used(this_run, mbtazip)
+  provdoc.used(this_run, opencage, starttime, None,\
+    {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'json?' + querysuffix})
 
   provdoc.wasAttributedTo(output, this_script)
   provdoc.wasGeneratedBy(output, this_run)
 
-  provdoc.wasDerivedFrom(output, mbtazip)
+  provdoc.wasDerivedFrom(output, opencage)
 
   if starttime == None:
     plan = open('plan.json','r')
@@ -116,23 +180,3 @@ sample query
       'geometry': {'lat': 42.3604087, 'lng': -71.0579688}}]
 '''
 
-
-# client = pymongo.MongoClient()
-# repo = client.repo
-
-# ##########
-
-
-# startTime = datetime.datetime.now()
-
-# f = open("auth.json").read()
-
-# auth = loads(f)
-# user = auth['user']
-
-# repo.authenticate(auth['user'], auth['user'])
-
-# # authorization key
-# key = auth['service']['opencagegeo']['key'] 
-
-# listed as x-y, long-lat

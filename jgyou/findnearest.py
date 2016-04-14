@@ -8,6 +8,7 @@ from urllib import request, parse
 import json
 from geopy.distance import vincenty
 
+# calls mapquest to get walking distance for two lat-long coordinates
 def findDistance(startLocation, endLocation):
 	(startlat, startlon) = startLocation
 	(endlat, endlon) = endLocation
@@ -31,6 +32,8 @@ def findDistance(startLocation, endLocation):
 		return dist
 
 
+# given a series of locations in a collection and single start location
+# find the nearest location via walking distance
 def findClosestCoordinate(repo, collec, startLocation):
 	cursor = repo[collec].find()
 	alldist = []
@@ -41,25 +44,26 @@ def findClosestCoordinate(repo, collec, startLocation):
 
 		alldist.append([endLocation, dist])
 
-
-	print(alldist)
 	alldist2 = [b for [a, b] in alldist]
 	mindist = min(alldist2)
 
 	return mindist
 
-def boundedRadius(repo, collec, startLocation, bound):
-	cursor = repo[collec].find({""})
+# for a given collection of sites and a start location,
+# find if distance between site and start is less than
+# some upper bound
+def boundedRadiusMBTA(repo, collec, startLocation, bound):
+	cursor = repo[collec].find()
 	object_ids = []
 	for document in cursor:
-		endLocation = (document["latitude"], document["longitude"])
+		(endlat, endlon) = (document["latitude"], document["longitude"])
+		endLocation = (endlat, endlon)
 		dist = vincenty(startLocation, endLocation).miles
+		if dist <= bound:
+			object_ids.append((document["_id"], dist, endlat, endlon, document["stop_name"], document["wheelchair"]))
 
+	return object_ids
 
-
-
-client = pymongo.MongoClient()
-repo = client.repo
 
 
 #print(findDistance((42.3604, -71.0580),  (42.3600, -71.0562)))

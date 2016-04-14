@@ -84,7 +84,7 @@ def getZillow(allzips, zipquery, neighquery, searchtype):
 	return zproperty
 
 
-def make_provdoc(repo, runids, starttime, endtime):
+def make_provdoc(repo, runids, starttime, endtime, queries):
 	provdoc = prov.model.ProvDocument()
 	provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
 	provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
@@ -112,7 +112,8 @@ def make_provdoc(repo, runids, starttime, endtime):
 	for i, run_id in enumerate(runids):
 		this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
 		provdoc.wasAssociatedWith(this_run, this_script)
-		provdoc.used(this_run, zillow_input[i])
+		querysuffix = queries[i].split("public")[1]
+		provdoc.used(this_run, zillow_input[i], starttime, None, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query': querysuffix})
 
 		output = medianpropertyoutput
 		if i < 2:
@@ -187,8 +188,12 @@ endTime = datetime.datetime.now()
 
 runids = [str(uuid.uuid4()) for i in range(4)]
 
-make_provdoc(repo, runids, startTime, endTime)
-make_provdoc(repo, runids, None, None)
+
+# [csvrent_neigh, csvrent_zip, csvproperty_neigh, csvproperty_zip]
+queries = [zrentalquery2, zrentalquery1, zpropertyquery2, zpropertyquery1]
+
+make_provdoc(repo, runids, startTime, endTime, queries)
+make_provdoc(repo, runids, None, None, queries)
 
 
 repo.logout()

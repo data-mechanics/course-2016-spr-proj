@@ -1,6 +1,8 @@
 '''
 inputmbta.py
 
+takes stop information from mbta website
+
 saved textfile from mbta GTFS
 https://www.mbta.com/uploadedfiles/MBTA_GTFS.zip
 
@@ -42,7 +44,8 @@ def make_provdoc(repo, runids, starttime, endtime):
 
 	this_run = provdoc.activity('log:a'+run_id, startTime, endTime)
 	provdoc.wasAssociatedWith(this_run, this_script)
-	provdoc.used(this_run, mbtazip)
+	provdoc.used(this_run, mbtazip, None, None,{prov.model.PROV_TYPE:'ont:Retrieval', \
+		'ont:Query':'MBTA_GTFS.zip'})
 
 	provdoc.wasAttributedTo(output, this_script)
 	provdoc.wasGeneratedBy(output, this_run)
