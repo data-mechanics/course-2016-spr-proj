@@ -31,6 +31,6 @@
 #### StreetLights Zoomed
 ![StreetLights Zoomed](http://puu.sh/ohmsG/f164a38b1d.png "StreetLights Zoomed")
 #### Crime samples
-![Crime](http://puu.sh/ohmsG/f164a38b1d.png "Crime Samples")
+![Crime](http://puu.sh/ohmtz/eb2b04d0a4.png "Crime Samples")
 #### Crime Samples Zoomed with Popup
-![Crime Zoomed with Popup](http://puu.sh/ohmtz/eb2b04d0a4.png "Crimed Zoomed with Popup")
+![Crime Zoomed with Popup](https://puu.sh/ohmwp/5ac776b01a.png "Crimed Zoomed with Popup")
