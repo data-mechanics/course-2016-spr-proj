@@ -1,4 +1,4 @@
-BU CS591 Data Mechanics Project three
+BU CS591 Data Mechanics Project two
 ===================================
 
 Team members: 
