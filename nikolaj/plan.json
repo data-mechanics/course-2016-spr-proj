@@ -1,0 +1,628 @@
+{
+    "agent": {
+        "alg:geoagg": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:storeT": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:storeBus": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:combine_t_bus": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        },
+        "alg:pagerank": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "entity": {
+        "mbt_1:116": {
+            "prov:label": "MBTA Bus Stop 116",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt_1:66": {
+            "prov:label": "MBTA Bus Stop 66",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt:station-network": {
+            "prov:label": "MBTA Station Network",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "mbt_1:86": {
+            "prov:label": "MBTA Bus Stop 86",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt_1:16": {
+            "prov:label": "MBTA Bus Stop 16",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "dat:stops_with_neighs": [
+            {
+                "prov:label": "Stops aggregated by location",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Stops aggregated by location",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "mbt_1:1": {
+            "prov:label": "MBTA Bus Stop 1",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt_1:23": {
+            "prov:label": "MBTA Bus Stop 23",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "dat:pagerank_results": {
+            "prov:label": "Stops and their computed PageRank",
+            "prov:type": "ont:DataSet"
+        },
+        "mbt:spider": {
+            "prov:label": "Graphical representation of MBTA network",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "mbt_1:39": {
+            "prov:label": "MBTA Bus Stop 39",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt_1:89": {
+            "prov:label": "MBTA Bus Stop 89",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "dat:raw_bus_stops": [
+            {
+                "prov:label": "Combined Bus Stations",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Bus Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "mbt_1:83": {
+            "prov:label": "MBTA Bus Stop 83",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "dat:raw_stops": [
+            {
+                "prov:label": "Combined T and Bus Data",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "T and Bus Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "mbt_1:57": {
+            "prov:label": "MBTA Bus Stop 57",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt_1:70": {
+            "prov:label": "MBTA Bus Stop 70",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "dat:raw_t_stops": [
+            {
+                "prov:label": "Derived T Stations",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "T Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "mbt_1:101": {
+            "prov:label": "MBTA Bus Stop 101",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        },
+        "mbt_1:105": {
+            "prov:label": "MBTA Bus Stop 105",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "mbt_1": "http://www.mbtainfo.com/",
+        "ont": "http://datamechanics.io/ontology#",
+        "mbt": "https://github.com/mbtaviz/mbtaviz.github.io/tree/master/data",
+        "alg": "http://datamechanics.io/algorithm/nikolaj/",
+        "dat": "http://datamechanics.io/data/nikolaj/"
+    },
+    "wasGeneratedBy": {
+        "_:id29": {
+            "prov:activity": "log:ac298c98a-34c8-4a8b-baac-91d2d0695191",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id45": {
+            "prov:activity": "log:add582732-7430-47a2-8de7-eb85b8317db5",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id33": {
+            "prov:activity": "log:a92ab6938-c7bd-487a-8e63-23902dff4b18",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id25": {
+            "prov:activity": "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id67": {
+            "prov:activity": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:entity": "dat:raw_stops"
+        },
+        "_:id37": {
+            "prov:activity": "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id53": {
+            "prov:activity": "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id6": {
+            "prov:activity": "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c",
+            "prov:entity": "dat:raw_t_stops"
+        },
+        "_:id57": {
+            "prov:activity": "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id13": {
+            "prov:activity": "log:a4ccdde64-102e-49ed-9a13-ab52c375df08",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id21": {
+            "prov:activity": "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id8": {
+            "prov:activity": "log:a919f33d6-b8f5-47eb-9995-39091edd07e5",
+            "prov:entity": "dat:raw_t_stops"
+        },
+        "_:id49": {
+            "prov:activity": "log:a4dccc994-b721-43fa-b495-2a453b5d8625",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id61": {
+            "prov:activity": "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id78": {
+            "prov:activity": "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969",
+            "prov:entity": "dat:pagerank_results"
+        },
+        "_:id17": {
+            "prov:activity": "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id41": {
+            "prov:activity": "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id73": {
+            "prov:activity": "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81",
+            "prov:entity": "dat:stops_with_neighs"
+        }
+    },
+    "activity": {
+        "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d": {
+            "prov:label": "MBTA Bus Stop 116",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7": {
+            "prov:label": "Combine T and Bus Data",
+            "prov:type": "Computation"
+        },
+        "log:add582732-7430-47a2-8de7-eb85b8317db5": {
+            "prov:label": "MBTA Bus Stop 66",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833": {
+            "prov:label": "MBTA Bus Stop 57",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04": {
+            "prov:label": "MBTA Bus Stop 83",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb": {
+            "prov:label": "MBTA Bus Stop 101",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:ac298c98a-34c8-4a8b-baac-91d2d0695191": {
+            "prov:label": "MBTA Bus Stop 16",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a4dccc994-b721-43fa-b495-2a453b5d8625": {
+            "prov:label": "MBTA Bus Stop 70",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81": {
+            "prov:label": "Aggregate Stops Based on Geolocation",
+            "prov:type": "Computation"
+        },
+        "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d": {
+            "prov:label": "MBTA Bus Stop 39",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969": {
+            "prov:label": "MBTA Bus Stop 86",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a4ccdde64-102e-49ed-9a13-ab52c375df08": {
+            "prov:label": "MBTA Bus Stop 1",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a919f33d6-b8f5-47eb-9995-39091edd07e5": {
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d": {
+            "prov:label": "MBTA Bus Stop 105",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a92ab6938-c7bd-487a-8e63-23902dff4b18": {
+            "prov:label": "MBTA Bus Stop 23",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c": {
+            "prov:label": "Retrieve MBTA Station Network",
+            "prov:type": "ont:Retrieval"
+        },
+        "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969": {
+            "prov:label": "Compute PageRank for Stops",
+            "prov:type": "Computation"
+        },
+        "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea": {
+            "prov:label": "MBTA Bus Stop 89",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id9": {
+            "prov:activity": "log:a919f33d6-b8f5-47eb-9995-39091edd07e5",
+            "prov:usedEntity": "mbt:spider",
+            "prov:usage": "log:a919f33d6-b8f5-47eb-9995-39091edd07e5",
+            "prov:generatedEntity": "dat:raw_t_stops",
+            "prov:generation": "log:a919f33d6-b8f5-47eb-9995-39091edd07e5"
+        },
+        "_:id18": {
+            "prov:activity": "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb",
+            "prov:usedEntity": "mbt_1:101",
+            "prov:usage": "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb"
+        },
+        "_:id42": {
+            "prov:activity": "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833",
+            "prov:usedEntity": "mbt_1:57",
+            "prov:usage": "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833"
+        },
+        "_:id74": {
+            "prov:activity": "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81",
+            "prov:usedEntity": "dat:raw_stops",
+            "prov:usage": "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81",
+            "prov:generatedEntity": "dat:stops_with_neighs",
+            "prov:generation": "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81"
+        },
+        "_:id30": {
+            "prov:activity": "log:ac298c98a-34c8-4a8b-baac-91d2d0695191",
+            "prov:usedEntity": "mbt_1:16",
+            "prov:usage": "log:ac298c98a-34c8-4a8b-baac-91d2d0695191",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:ac298c98a-34c8-4a8b-baac-91d2d0695191"
+        },
+        "_:id38": {
+            "prov:activity": "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d",
+            "prov:usedEntity": "mbt_1:39",
+            "prov:usage": "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d"
+        },
+        "_:id50": {
+            "prov:activity": "log:a4dccc994-b721-43fa-b495-2a453b5d8625",
+            "prov:usedEntity": "mbt_1:70",
+            "prov:usage": "log:a4dccc994-b721-43fa-b495-2a453b5d8625",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a4dccc994-b721-43fa-b495-2a453b5d8625"
+        },
+        "_:id68": {
+            "prov:activity": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:usedEntity": "dat:raw_bus_stops",
+            "prov:usage": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:generatedEntity": "dat:raw_stops",
+            "prov:generation": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7"
+        },
+        "_:id79": {
+            "prov:activity": "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969",
+            "prov:usedEntity": "dat:stops_with_neighs",
+            "prov:usage": "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969",
+            "prov:generatedEntity": "dat:pagerank_results",
+            "prov:generation": "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969"
+        },
+        "_:id34": {
+            "prov:activity": "log:a92ab6938-c7bd-487a-8e63-23902dff4b18",
+            "prov:usedEntity": "mbt_1:23",
+            "prov:usage": "log:a92ab6938-c7bd-487a-8e63-23902dff4b18",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a92ab6938-c7bd-487a-8e63-23902dff4b18"
+        },
+        "_:id58": {
+            "prov:activity": "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969",
+            "prov:usedEntity": "mbt_1:86",
+            "prov:usage": "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969"
+        },
+        "_:id54": {
+            "prov:activity": "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04",
+            "prov:usedEntity": "mbt_1:83",
+            "prov:usage": "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04"
+        },
+        "_:id46": {
+            "prov:activity": "log:add582732-7430-47a2-8de7-eb85b8317db5",
+            "prov:usedEntity": "mbt_1:66",
+            "prov:usage": "log:add582732-7430-47a2-8de7-eb85b8317db5",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:add582732-7430-47a2-8de7-eb85b8317db5"
+        },
+        "_:id26": {
+            "prov:activity": "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d",
+            "prov:usedEntity": "mbt_1:116",
+            "prov:usage": "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d"
+        },
+        "_:id22": {
+            "prov:activity": "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d",
+            "prov:usedEntity": "mbt_1:105",
+            "prov:usage": "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d"
+        },
+        "_:id7": {
+            "prov:activity": "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c",
+            "prov:usedEntity": "mbt:station-network",
+            "prov:usage": "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c",
+            "prov:generatedEntity": "dat:raw_t_stops",
+            "prov:generation": "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c"
+        },
+        "_:id69": {
+            "prov:activity": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:usedEntity": "dat:raw_t_stops",
+            "prov:usage": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:generatedEntity": "dat:raw_stops",
+            "prov:generation": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7"
+        },
+        "_:id62": {
+            "prov:activity": "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea",
+            "prov:usedEntity": "mbt_1:89",
+            "prov:usage": "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea"
+        },
+        "_:id14": {
+            "prov:activity": "log:a4ccdde64-102e-49ed-9a13-ab52c375df08",
+            "prov:usedEntity": "mbt_1:1",
+            "prov:usage": "log:a4ccdde64-102e-49ed-9a13-ab52c375df08",
+            "prov:generatedEntity": "dat:raw_bus_stops",
+            "prov:generation": "log:a4ccdde64-102e-49ed-9a13-ab52c375df08"
+        }
+    },
+    "used": {
+        "_:id28": {
+            "prov:activity": "log:ac298c98a-34c8-4a8b-baac-91d2d0695191",
+            "prov:entity": "mbt_1:16"
+        },
+        "_:id56": {
+            "prov:activity": "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969",
+            "prov:entity": "mbt_1:86"
+        },
+        "_:id76": {
+            "prov:activity": "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:stops_with_neighs"
+        },
+        "_:id40": {
+            "prov:activity": "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833",
+            "prov:entity": "mbt_1:57"
+        },
+        "_:id12": {
+            "prov:activity": "log:a4ccdde64-102e-49ed-9a13-ab52c375df08",
+            "prov:entity": "mbt_1:1"
+        },
+        "_:id60": {
+            "prov:activity": "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea",
+            "prov:entity": "mbt_1:89"
+        },
+        "_:id2": {
+            "prov:activity": "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c",
+            "prov:entity": "mbt:station-network"
+        },
+        "_:id20": {
+            "prov:activity": "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d",
+            "prov:entity": "mbt_1:105"
+        },
+        "_:id71": {
+            "prov:activity": "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_stops"
+        },
+        "_:id65": {
+            "prov:activity": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_t_stops"
+        },
+        "_:id32": {
+            "prov:activity": "log:a92ab6938-c7bd-487a-8e63-23902dff4b18",
+            "prov:entity": "mbt_1:23"
+        },
+        "_:id36": {
+            "prov:activity": "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d",
+            "prov:entity": "mbt_1:39"
+        },
+        "_:id48": {
+            "prov:activity": "log:a4dccc994-b721-43fa-b495-2a453b5d8625",
+            "prov:entity": "mbt_1:70"
+        },
+        "_:id4": {
+            "prov:activity": "log:a919f33d6-b8f5-47eb-9995-39091edd07e5",
+            "prov:entity": "mbt:spider"
+        },
+        "_:id24": {
+            "prov:activity": "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d",
+            "prov:entity": "mbt_1:116"
+        },
+        "_:id16": {
+            "prov:activity": "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb",
+            "prov:entity": "mbt_1:101"
+        },
+        "_:id52": {
+            "prov:activity": "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04",
+            "prov:entity": "mbt_1:83"
+        },
+        "_:id64": {
+            "prov:activity": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id44": {
+            "prov:activity": "log:add582732-7430-47a2-8de7-eb85b8317db5",
+            "prov:entity": "mbt_1:66"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id66": {
+            "prov:entity": "dat:raw_stops",
+            "prov:agent": "alg:combine_t_bus"
+        },
+        "_:id72": {
+            "prov:entity": "dat:stops_with_neighs",
+            "prov:agent": "alg:geoagg"
+        },
+        "_:id77": {
+            "prov:entity": "dat:pagerank_results",
+            "prov:agent": "alg:pagerank"
+        },
+        "_:id10": {
+            "prov:entity": "dat:raw_bus_stops",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id5": {
+            "prov:entity": "dat:raw_t_stops",
+            "prov:agent": "alg:storeT"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id43": {
+            "prov:activity": "log:add582732-7430-47a2-8de7-eb85b8317db5",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id15": {
+            "prov:activity": "log:a83787ad8-275f-4c39-b8a4-edfda2470bcb",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id1": {
+            "prov:activity": "log:a1d22cdcf-3e8e-4d5f-9b59-5b126faa839c",
+            "prov:agent": "alg:storeT"
+        },
+        "_:id3": {
+            "prov:activity": "log:a919f33d6-b8f5-47eb-9995-39091edd07e5",
+            "prov:agent": "alg:storeT"
+        },
+        "_:id31": {
+            "prov:activity": "log:a92ab6938-c7bd-487a-8e63-23902dff4b18",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id39": {
+            "prov:activity": "log:a23a5ec15-25b4-4c52-b66a-9c5665fb5833",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id27": {
+            "prov:activity": "log:ac298c98a-34c8-4a8b-baac-91d2d0695191",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id35": {
+            "prov:activity": "log:a57ef04f7-1089-42c8-84b4-3d7746a5772d",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id11": {
+            "prov:activity": "log:a4ccdde64-102e-49ed-9a13-ab52c375df08",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id59": {
+            "prov:activity": "log:a2f1f721c-9e8a-434d-a3f2-dfe3535fdfea",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id63": {
+            "prov:activity": "log:a1ca7f8d7-4511-4c53-aceb-0bf2b66721c7",
+            "prov:agent": "alg:combine_t_bus"
+        },
+        "_:id47": {
+            "prov:activity": "log:a4dccc994-b721-43fa-b495-2a453b5d8625",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id51": {
+            "prov:activity": "log:ad0630f86-b552-4c97-aa1a-b17e1e409c04",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id75": {
+            "prov:activity": "log:ae3b13fd3-79c9-4776-9788-5f9a916ce969",
+            "prov:agent": "alg:pagerank"
+        },
+        "_:id23": {
+            "prov:activity": "log:ad2294cf1-82f2-4be6-b80a-4f389d1aa96d",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id70": {
+            "prov:activity": "log:a46aa1d96-e73e-46d9-af9b-6289d5de7d81",
+            "prov:agent": "alg:geoagg"
+        },
+        "_:id19": {
+            "prov:activity": "log:a584c37d6-bb0f-4522-99d9-70d1e4583f4d",
+            "prov:agent": "alg:storeBus"
+        },
+        "_:id55": {
+            "prov:activity": "log:a79c6ed2b-ea28-41b3-9591-709ce16cb969",
+            "prov:agent": "alg:storeBus"
+        }
+    }
+}
