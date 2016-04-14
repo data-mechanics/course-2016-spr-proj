@@ -1,0 +1,25 @@
+CREATE EXTERNAL TABLE lights (oid string, lat string, long string)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "cs591_streetlights", 
+"dynamodb.column.mapping" = "oid:OBJECTID,lat:Lat,long:Long");
+
+DROP TABLE crimes;
+CREATE EXTERNAL TABLE crimes (sid bigint, location map<boolean,boolean,string,string,boolean>, time string)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "cs591_crimes", 
+"dynamodb.column.mapping" = "sid:sid,location:Location,time:FROMDATE");
+
+
+CREATE EXTERNAL TABLE crimes (sid int, lat string, long string, time string, type string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
+LOCATION 's3://th8-cs591-mapr/crimes/';   
+
+CREATE EXTERNAL TABLE lights (sid int, lat string, long string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
+LOCATION 's3://th8-cs591-mapr/lights/';   
+
+SELECT TRANSFORM(long, lat, long, lat) USING 'python dist_udf.py' FROM lights LIMIT 5;
+
+FROM lights TRANSFORM(lights.long, lights.lat, lights.long, lights.lat) USING 'python dist_udf.py';
+
+SELECT lid, cid, dist FROM SELECT TRANSFORM(lights.sid, crimes.sid, lights.long, lights.lat, crimes.long, crimes.lat) USING 'python dist_udf.py' AS lid, cid, dist FROM lights JOIN crimes LIMIT 5;
