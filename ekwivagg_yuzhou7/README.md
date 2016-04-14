@@ -16,17 +16,17 @@
 
 <h3>Project 1:</h3>
 <sl>
-<li>1. Active Food Establishment Licenses</li>
-<li>2. Food Establishment Inspections</li>
-<li>3. Mayors 24 Hour Hotline</li>
+<li>Active Food Establishment Licenses</li>
+<li>Food Establishment Inspections</li>
+<li>Mayors 24 Hour Hotline</li>
 </sl>
 
 <h3>Project 2:</h3>
 <sl>
-<li>1. Active Food Establishment Licenses</li>
-<li>2. Liquor Licenses</li>
-<li>3. Crime Incident Report</li>
-<li>4. Location of all T stops, pulled from ciestu_sajarvis</li>
+<li>Active Food Establishment Licenses</li>
+<li>Liquor Licenses</li>
+<li>Crime Incident Report</li>
+<li>Location of all T stops, pulled from ciestu_sajarvis</li>
 </sl>
 
 
