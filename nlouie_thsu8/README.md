@@ -25,3 +25,12 @@
 - The visualization maps every streetlight (using geojson data) in Boston and a sample of the crimes
 - This is made with [Leaflet](http://leafletjs.com/) using Lapet's API key...
 - Added functionality allows the user to click on the crime to view more details in a popup.
+
+#### StreetLights
+![StreetLights](http://puu.sh/ohmgP/184c3ff996.png "StreetLights")
+#### StreetLights Zoomed
+![StreetLights Zoomed](http://puu.sh/ohmsG/f164a38b1d.png "StreetLights Zoomed")
+#### Crime samples
+![Crime](http://puu.sh/ohmsG/f164a38b1d.png "Crime Samples")
+#### Crime Samples Zoomed with Popup
+![Crime Zoomed with Popup](http://puu.sh/ohmtz/eb2b04d0a4.png "Crimed Zoomed with Popup")
