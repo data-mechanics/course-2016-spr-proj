@@ -16,8 +16,10 @@ I used this library to scrape mbtainfo.com for bus schedules.
 
 TODO:
 
-Clean up in general but especially index.html
+Clean up in general but especially index.html and pagerank_pipeline.py
 
 Go over provenance
 
 Add convergence check to pagerank code
+
+To actual write-up
