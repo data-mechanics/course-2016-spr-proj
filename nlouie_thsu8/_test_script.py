@@ -73,27 +73,27 @@ def insert_to_db(repo, s):
     repo['nlouie_thsu8.' + s].insert_many(r)
 
 
-# Stolen from Stack Overflow. 
+# Stolen from Stack Overflow.
 from math import radians, cos, sin, asin, sqrt
 def haversine(lon1, lat1, lon2, lat2):
 	"""
-	Calculate the great circle distance between two points 
+	Calculate the great circle distance between two points
 	on the earth (specified in decimal degrees)
 	"""
-	# convert decimal degrees to radians 
+	# convert decimal degrees to radians
 	lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
-	# haversine formula 
-	dlon = lon2 - lon1 
-	dlat = lat2 - lat1 
+	# haversine formula
+	dlon = lon2 - lon1
+	dlat = lat2 - lat1
 	a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-	c = 2 * asin(sqrt(a)) 
+	c = 2 * asin(sqrt(a))
 	km = 6367 * c
 	return km
 
 class mapReduce:
 	def __init__(self, dataset):
 		self.i = dataset
-	
+
 	def map(self, f):
 		R = self.i
 		self.i = [t for (k,v) in R for t in f(k,v)]
@@ -123,7 +123,7 @@ crimes_f.close()
 crimes = json.loads(crimes_s)
 print 'Loaded. '
 
-# Date time from string. 
+# Date time from string.
 
 print 'Filtering. '
 pT = lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S')
@@ -144,7 +144,7 @@ f.close()
 
 
 for i, c in enumerate(crimes[:100]):
-	if i % 1000 == 0: 
+	if i % 1000 == 0:
 		print i
 	dist = haversine(float(c['Location']['longitude']), float(c['Location']['latitude']), float(lights[0]['Long']), float(lights[0]['Lat']))
 	min_l = lights[0]
@@ -177,14 +177,13 @@ for i, line in enumerate(c_f):
 			break
 		lid, llat, llong = lline.split('\t')
 		newDist = haversine(float(lat), float(lon), float(llat), float(llong))
-		if dist == -1 or newDist < dist: 
+		if dist == -1 or newDist < dist:
 			dist = newDist
 			l = int(lid)
 	l_f.close()
 	lcd.write('%s\t%s\t%s\n' % (cid, l, str(dist)))
 c_f.close()
 lcd.close()
-
 
 
 # Set up the database connection.
@@ -208,10 +207,22 @@ this_script = doc.agent('alg:script', {prov.model.PROV_TYPE:prov.model.PROV['Sof
 
 # generate provenance data
 
-resource3 = doc.entity('bdp:7cdf-6fgx', {'prov:label':'Crime Incident Report', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-this_run3 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
-doc.wasAssociatedWith(this_run3, this_script)
-doc.used(this_run3, resource3, startTime)
+resource1 = doc.entity('bdp:7cdf-6fgx', {'prov:label':'CrimeIncidentReport', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_run1 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+doc.wasAssociatedWith(this_run1, this_script)
+doc.used(this_run1, resource1, startTime)
+
+resource2 = doc.entity('bdp:7hu5-gg2y', {'prov:label':'Streetlight-Locations', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+this_run2 = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':''})
+doc.wasAssociatedWith(this_run2, this_script)
+doc.used(this_run2, resource1, startTime)
+
+crimeNightLights = doc.entity('dat:avgEarnings', {prov.model.PROV_LABEL:'CrimesNightLight', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(crimeNightLights, this_script)
+doc.wasGeneratedBy(crimeNightLights, this_run1, endTime)
+doc.wasGeneratedBy(crimeNightLights, this_run2, endTime)
+doc.wasDerivedFrom(crimeNightLights, resource1, this_run1)
+doc.wasDerivedFrom(crimeNightLights, resource2, this_run2)
 
 open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
