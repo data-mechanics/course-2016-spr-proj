@@ -108,7 +108,10 @@ with open("auth.json") as f:
 	
 		# when scoring mbta stops, should "reward" stops that have wheelchair access
 		nearerStops = boundedRadiusMBTA(repo, user + ".mbtaStops", startLocation, 3.0)
-		medianMBTA = median([b*assignStopWeight(f) for (a,b, c, d, e, f) in nearerStops])
+		if len(nearerStops) != 0:
+			medianMBTA = median([b*assignStopWeight(f) for (a,b, c, d, e, f) in nearerStops])
+		else:
+			medianMBTA = 3.0
 
 		distCenter = findClosestCoordinate(repo, user + '.servicecenters', startLocation)
 

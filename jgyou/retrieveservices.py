@@ -29,7 +29,7 @@ repo.authenticate(auth['user'], auth['user'])
 
 servicequery = "http://datamechanics.io/data/jgyou/seniorservices.json"
 
-returned = request.urlopen(query).read().decode("utf-8")
+returned = request.urlopen(servicequery).read().decode("utf-8")
 services = json.loads(returned)
 
 repo.dropPermanent("servicecenters")
