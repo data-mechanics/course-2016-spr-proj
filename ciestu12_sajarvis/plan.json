@@ -1,0 +1,422 @@
+{
+    "activity": {
+        "log:a*": {
+        },
+        "log:a*": {
+            "prov:label": "Compute Utility with Nearest Alternatives and Popularity",
+            "prov:type": "ont:Computation"
+        },
+        "log:a*": {
+            "prov:label": "Find Nearest Neighbor Stops",
+            "prov:type": "Computation"
+        },
+        "log:a*": {
+        },
+        "log:a*": {
+            "prov:label": "Transform Data to Find Matrix of Branch Destinations",
+            "prov:type": "Computation"
+        },
+        "log:a*": {
+            "prov:label": "Use Google Maps API",
+            "prov:type": "Computation"
+        },
+        "log:a*": {
+        }
+    },
+    "agent": {
+        "alg:get_boarding_info": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:get_green_line_branch_info": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_nearest_stops": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_people_seconds": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_stop_gps_db": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_walk_dist_db": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "entity": {
+        "bu:green_line_boarding": {
+            "ont:Extension": "json",
+            "prov:label": "Green Line Boarding Counts",
+            "prov:type": "ont:DataResource"
+        },
+        "bu:green_line_branch_info": {
+            "ont:Extension": "json",
+            "prov:label": "Green Line Branch Info",
+            "prov:type": "ont:DataResource"
+        },
+        "bu_gtfs:stops": {
+            "ont:Extension": "txt",
+            "prov:label": "GPS Locations and IDs of T Stops",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:green_line_boarding_counts": [
+            {
+                "prov:label": "Green Line Boarding Counts",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Boarding Counts for Green Line Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:green_line_walking_distances": [
+            {
+                "prov:label": "Green Line Walking Distances Between Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Walking Distances Between All Green Line Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:nearest_stops": [
+            {
+                "prov:label": "Nearest Neighboring Stops For Green Line Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Nearest Neighboring Stops on Green Line",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:people_second_utility": {
+            "prov:label": "Measure of Utility Per Stop for Collective Riders",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:t_branch_info": [
+            {
+                "prov:label": "Green Line Branch Info",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Collection of Green Line Branch Info",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:t_stop_locations": [
+            {
+                "prov:label": "Collection with T Stop IDs",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Collection with T Stop IDs",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "GPS Locations and IDs of T Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Collection of Locations of T Stops",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "goog:maps/api/distancematrix/json": {
+            "prov:label": "Google Distance Matrix API",
+            "prov:type": "ont:Computation"
+        },
+        "mbta_docs:2014%20BLUEBOOK%2014th%20Edition": {
+            "ont:Extension": "pdf",
+            "prov:label": "PDF of Green Line Boarding Counts",
+            "prov:type": "ont:DataResource"
+        },
+        "mbta_gtfs:MBTA_GTFS": {
+            "ont:Extension": "zip",
+            "prov:label": "GTFS Data from MBTA",
+            "prov:type": "ont:DataResource"
+        },
+        "mbta_img:subway-spider": {
+            "ont:Extension": "jpg",
+            "prov:label": "Map of T Lines and Stops",
+            "prov:type": "ont:DataResource"
+        }
+    },
+    "prefix": {
+        "alg": "http://datamechanics.io/algorithm/ciestu12_sajarvis/",
+        "bu": "http://cs-people.bu.edu/sajarvis/datamech/",
+        "bu_gtfs": "http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs",
+        "dat": "http://datamechanics.io/data/ciestu12_sajarvis/",
+        "goog": "https://maps.googleapis.com/",
+        "log": "http://datamechanics.io/log#",
+        "mbta_docs": "http://www.mbta.com/uploadedfiles/documents/",
+        "mbta_gtfs": "http://www.mbta.com/uploadedfiles/",
+        "mbta_img": "http://www.mbta.com/images/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "used": {
+        "_:id16": {
+            "ont:Query": "",
+            "prov:activity": "log:a*",
+            "prov:entity": "bu_gtfs:stops",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id2": {
+            "ont:Query": "",
+            "prov:activity": "log:a*",
+            "prov:entity": "bu:green_line_boarding",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id23": {
+            "ont:Query": "?origins=<source_lat>,<source_lon>&destinations=<dest_lat>,<dest_lon>&mode=walking&units=imperial",
+            "prov:activity": "log:a*",
+            "prov:entity": "goog:maps/api/distancematrix/json",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id24": {
+            "ont:Query": "db.ciestu12_sajarvis.t_stop_locations.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:t_stop_locations",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id25": {
+            "ont:Query": "db.ciestu12_sajarvis.t_branch_info.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:t_branch_info",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id33": {
+            "ont:Query": "db.ciestu12_sajarvis.green_line_walking_distances.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:green_line_walking_distances",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id38": {
+            "ont:Query": "db.ciestu12_sajarvis.nearest_stops.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:nearest_stops",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id39": {
+            "ont:Query": "db.ciestu12_sajarvis.green_line_boarding_counts.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:green_line_boarding_counts",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id9": {
+            "ont:Query": "",
+            "prov:activity": "log:a*",
+            "prov:entity": "bu:green_line_branch_info",
+            "prov:type": "ont:Retrieval"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:get_boarding_info"
+        },
+        "_:id15": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_stop_gps_db"
+        },
+        "_:id21": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_walk_dist_db"
+        },
+        "_:id22": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_walk_dist_db"
+        },
+        "_:id32": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_nearest_stops"
+        },
+        "_:id37": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_people_seconds"
+        },
+        "_:id8": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:get_green_line_branch_info"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id12": {
+            "prov:agent": "alg:get_green_line_branch_info",
+            "prov:entity": "dat:t_branch_info"
+        },
+        "_:id18": {
+            "prov:agent": "alg:make_stop_gps_db",
+            "prov:entity": "dat:t_stop_locations"
+        },
+        "_:id26": {
+            "prov:agent": "alg:make_walk_dist_db",
+            "prov:entity": "dat:green_line_walking_distances"
+        },
+        "_:id34": {
+            "prov:agent": "alg:make_nearest_stops",
+            "prov:entity": "dat:nearest_stops"
+        },
+        "_:id40": {
+            "prov:agent": "alg:make_people_seconds",
+            "prov:entity": "dat:people_second_utility"
+        },
+        "_:id5": {
+            "prov:agent": "alg:get_boarding_info",
+            "prov:entity": "dat:green_line_boarding_counts"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "bu:green_line_branch_info",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "mbta_img:subway-spider"
+        },
+        "_:id11": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "bu:green_line_branch_info",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:t_stop_locations"
+        },
+        "_:id14": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:t_branch_info",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "bu:green_line_branch_info"
+        },
+        "_:id17": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "bu_gtfs:stops",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "mbta_gtfs:MBTA_GTFS"
+        },
+        "_:id20": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:t_stop_locations",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "bu_gtfs:stops"
+        },
+        "_:id29": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:green_line_walking_distances",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "goog:maps/api/distancematrix/json"
+        },
+        "_:id3": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "bu:green_line_boarding",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "mbta_docs:2014%20BLUEBOOK%2014th%20Edition"
+        },
+        "_:id30": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:green_line_walking_distances",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:t_stop_locations"
+        },
+        "_:id31": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:green_line_walking_distances",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:t_branch_info"
+        },
+        "_:id36": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:nearest_stops",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:green_line_walking_distances"
+        },
+        "_:id4": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "bu:green_line_boarding",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:t_stop_locations"
+        },
+        "_:id42": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:people_second_utility",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:nearest_stops"
+        },
+        "_:id43": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:people_second_utility",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:green_line_boarding_counts"
+        },
+        "_:id7": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:green_line_boarding_counts",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "bu:green_line_boarding"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id13": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:t_branch_info"
+        },
+        "_:id19": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:t_stop_locations"
+        },
+        "_:id27": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:green_line_walking_distances"
+        },
+        "_:id28": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:green_line_walking_distances"
+        },
+        "_:id35": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:nearest_stops"
+        },
+        "_:id41": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:people_second_utility"
+        },
+        "_:id6": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:green_line_boarding_counts"
+        }
+    }
+}

@@ -1,0 +1,1946 @@
+[
+  {
+    "FIELD1":"Site",
+    "FIELD2":"Address",
+    "FIELD3":"Area",
+    "FIELD4":"State",
+    "FIELD5":"Zip",
+    "FIELD6":"Map Location"
+  },
+  {
+    "FIELD1":"Ramirez Grocery",
+    "FIELD2":"481 Geneva Avenue",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"481 Geneva Avenue\nDorchester, MA 2122\n(42.299392257759465, -71.06481870122053)"
+  },
+  {
+    "FIELD1":"Sobrino Market",
+    "FIELD2":"416 Geneva Avenue",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"416 Geneva Avenue\nDorchester, MA 2122\n(42.30084625034499, -71.06706823101274)"
+  },
+  {
+    "FIELD1":"Cruz Market",
+    "FIELD2":"237 Bowdoin Street",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"237 Bowdoin Street\nDorchester, MA 2122\n(42.305972983667644, -71.06723352015074)"
+  },
+  {
+    "FIELD1":"Tio Supermarket",
+    "FIELD2":"9 Meridian St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"9 Meridian St\nEast Boston, MA 2128\n(42.370489748294005, -71.03891045827538)"
+  },
+  {
+    "FIELD1":"Million Market",
+    "FIELD2":"99 Chelsea St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"99 Chelsea St\nEast Boston, MA 2128\n(42.372405304216386, -71.03582578371487)"
+  },
+  {
+    "FIELD1":"El Paisa Butchery",
+    "FIELD2":"1010 Bennington St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"1010 Bennington St\nEast Boston, MA 2128\n(42.386848530463546, -71.00637235627349)"
+  },
+  {
+    "FIELD1":"Two Brothers Market",
+    "FIELD2":"75 Marion St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"75 Marion St\nEast Boston, MA 2128\n(42.37840378215185, -71.03748053624878)"
+  },
+  {
+    "FIELD1":"Raymond Market",
+    "FIELD2":"351 Meridian St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"351 Meridian St\nEast Boston, MA 2128\n(42.378529687235925, -71.03915327522327)"
+  },
+  {
+    "FIELD1":"Mi Tierra Market",
+    "FIELD2":"71 Meridian St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"71 Meridian St\nEast Boston, MA 2128\n(42.371782749757934, -71.03892842022054)"
+  },
+  {
+    "FIELD1":"Condor Market East Boston",
+    "FIELD2":" 655 Saratoga Street",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"655 Saratoga Street\nEast Boston, MA 2128\n(42.38236979230106, -71.0208610651473)"
+  },
+  {
+    "FIELD1":"Las Costas Market",
+    "FIELD2":"184 Bremen Street",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"184 Bremen Street\nEast Boston, MA 2128\n(42.37297187709487, -71.03417103118096)"
+  },
+  {
+    "FIELD1":"Mama Supermarket",
+    "FIELD2":"1178 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1178 Blue Hill Ave\nMattapan, MA 2126\n(42.28399295551594, -71.0914038851256)"
+  },
+  {
+    "FIELD1":"Essential Body Herbs",
+    "FIELD2":"1282 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1282 Blue Hill Ave\nMattapan, MA 2126\n(42.28020680977255, -71.09266293596664)"
+  },
+  {
+    "FIELD1":"Worlds Best Food Market",
+    "FIELD2":"645 River St",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"645 River St\nMattapan, MA 2126\n(42.264945314935346, -71.09953375627049)"
+  },
+  {
+    "FIELD1":"Mattapan Square Mobile",
+    "FIELD2":"1556 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1556 Blue Hill Ave\nMattapan, MA 2126\n(42.27026030812851, -71.09355326477566)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"204 N Harvard St",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"204 N Harvard St\nAllston, MA 2134\n(42.36287915195058, -71.1299621267734)"
+  },
+  {
+    "FIELD1":"Allston Convenience Store",
+    "FIELD2":"165 Allston St",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"165 Allston St\nAllston, MA 2134\n(42.347836614649275, -71.13814411252383)"
+  },
+  {
+    "FIELD1":"Brazilian Corner",
+    "FIELD2":"192 Brighton Ave",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"192 Brighton Ave\nAllston, MA 2134\n(42.35322276533145, -71.13419362727973)"
+  },
+  {
+    "FIELD1":"La Favorita Market",
+    "FIELD2":"66 Harvard Ave",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"66 Harvard Ave\nAllston, MA 2134\n(42.353933229734594, -71.13227807135729)"
+  },
+  {
+    "FIELD1":"Medina Market",
+    "FIELD2":"72 Brighton Ave",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"72 Brighton Ave\nAllston, MA 2134\n(42.352542531490414, -71.12872144410521)"
+  },
+  {
+    "FIELD1":"Neighborhood Market",
+    "FIELD2":"57 Franklin St",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"57 Franklin St\nAllston, MA 2134\n(42.35756649073295, -71.13297054931985)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"1219 Commonwealth Ave",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"1219 Commonwealth Ave\nAllston, MA 2134\n(42.350709905888216, -71.13062400024394)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"157 Brighton Ave",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"157 Brighton Ave\nAllston, MA 2134\n(42.353054289646714, -71.13209718767884)"
+  },
+  {
+    "FIELD1":"Super Stop & Shop",
+    "FIELD2":"60 Everett St",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"60 Everett St\nAllston, MA 2134\n(42.35598279983284, -71.13857259073886)"
+  },
+  {
+    "FIELD1":"T & S Convenience Store",
+    "FIELD2":"4 Brighton Ave",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"4 Brighton Ave\nAllston, MA 2134\n(42.35216156533687, -71.12534429851138)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"509 Cambridge St",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"509 Cambridge St\nAllston, MA 2134\n(42.35322276533145, -71.13833950183476)"
+  },
+  {
+    "FIELD1":"Van Mini Market",
+    "FIELD2":"109 Franklin St",
+    "FIELD3":"Allston",
+    "FIELD4":"MA",
+    "FIELD5":"2134",
+    "FIELD6":"109 Franklin St\nAllston, MA 2134\n(42.359791515776024, -71.13293739164449)"
+  },
+  {
+    "FIELD1":"777 Convenience Store",
+    "FIELD2":"215 Trenton St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"215 Trenton St\nBoston, MA 2128\n(42.380876917732394, -71.03107736340019)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"10 Milk St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2108",
+    "FIELD6":"10 Milk St\nBoston, MA 2108\n(42.35676376546663, -71.05800728414965)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"125 Tremont St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2108",
+    "FIELD6":"125 Tremont St\nBoston, MA 2108\n(42.3567236987566, -71.06178868150944)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"50 Summer St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2110",
+    "FIELD6":"50 Summer St\nBoston, MA 2110\n(42.35449980261302, -71.05920815647664)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"70 E India Row",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2110",
+    "FIELD6":"70 E India Row\nBoston, MA 2110\n(42.357980178866455, -71.05081748194328)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"464 Hanover St # 17",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2113",
+    "FIELD6":"464 Hanover St # 17\nBoston, MA 2113\n(42.366982392379725, -71.05259813956133)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"91 Causeway St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"91 Causeway St\nBoston, MA 2114\n(42.364849317579676, -71.06226540590795)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"722 Huntington Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"722 Huntington Ave\nBoston, MA 2115\n(42.334247070513186, -71.10439009522872)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"252 W Newton St # 1",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"252 W Newton St # 1\nBoston, MA 2116\n(42.34483209079809, -71.0810347021278)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"261 Dartmouth St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"261 Dartmouth St\nBoston, MA 2116\n(42.35037907261797, -71.07743885250946)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"55 Berkeley St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"55 Berkeley St\nBoston, MA 2116\n(42.346404298406995, -71.07059747308705)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"8 Park Plz",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"8 Park Plz\nBoston, MA 2116\n(42.35203932460155, -71.06724744451978)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"1306 Washington St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"1306 Washington St\nBoston, MA 2118\n(42.34215211115077, -71.0679225869406)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"1747 Washington St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"1747 Washington St\nBoston, MA 2118\n(42.33665725355172, -71.0768888275727)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"673 E BRd.way",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"673 E BRd.way\nBoston, MA 2127\n(42.35862999957499, -71.05669999960514)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"200 Seaport Blvd # 3",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2210",
+    "FIELD6":"200 Seaport Blvd # 3\nBoston, MA 2210\n(42.350058771020294, -71.04165461474597)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"121 Jersey St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"121 Jersey St\nBoston, MA 2215\n(42.3427309376654, -71.09700270945415)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"508 Park Dr",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"508 Park Dr\nBoston, MA 2215\n(42.347555753891584, -71.1056310775135)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"532 Commonwealth Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"532 Commonwealth Ave\nBoston, MA 2215\n(42.34875313484582, -71.09620626476209)"
+  },
+  {
+    "FIELD1":"A & R Food Svc",
+    "FIELD2":"253 Summer St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2210",
+    "FIELD6":"253 Summer St\nBoston, MA 2210\n(42.351535753550934, -71.05311686501481)"
+  },
+  {
+    "FIELD1":"Anthony Market",
+    "FIELD2":"407 Meridian St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"407 Meridian St\nBoston, MA 2128\n(42.38044800470189, -71.03918520466857)"
+  },
+  {
+    "FIELD1":"Berkeley St. Market",
+    "FIELD2":"56 Berkeley St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"56 Berkeley St\nBoston, MA 2116\n(42.34647785011168, -71.07073746489232)"
+  },
+  {
+    "FIELD1":"Boston Mart",
+    "FIELD2":"42 Court St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2108",
+    "FIELD6":"42 Court St\nBoston, MA 2108\n(42.35900400362382, -71.0590582114012)"
+  },
+  {
+    "FIELD1":"Boston Variety",
+    "FIELD2":"59 Causeway St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"59 Causeway St\nBoston, MA 2114\n(42.364437311036795, -71.06299430222003)"
+  },
+  {
+    "FIELD1":"Brothers Mini Market",
+    "FIELD2":"802 Tremont St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"802 Tremont St\nBoston, MA 2118\n(42.33867173489739, -71.08146637670183)"
+  },
+  {
+    "FIELD1":"Campus Convenience",
+    "FIELD2":"700 Albany St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"700 Albany St\nBoston, MA 2118\n(42.335667999319526, -71.07039572252114)"
+  },
+  {
+    "FIELD1":"Campus Convenience",
+    "FIELD2":"275 Babcock St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"275 Babcock St\nBoston, MA 2215\n(42.352824652023536, -71.1209473200311)"
+  },
+  {
+    "FIELD1":"Campus Convenience",
+    "FIELD2":"541 Commonwealth Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"541 Commonwealth Ave\nBoston, MA 2215\n(42.34899595179371, -71.0969796817073)"
+  },
+  {
+    "FIELD1":"Campus Convenience",
+    "FIELD2":"702 Commonwealth Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"702 Commonwealth Ave\nBoston, MA 2215\n(42.3496922011122, -71.10498198925507)"
+  },
+  {
+    "FIELD1":"Christy's Markets Inc",
+    "FIELD2":"508 Park Dr",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"508 Park Dr\nBoston, MA 2215\n(42.347555753891584, -71.1056310775135)"
+  },
+  {
+    "FIELD1":"City Convenience",
+    "FIELD2":"23 Beacon St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2108",
+    "FIELD6":"23 Beacon St\nBoston, MA 2108\n(42.35807011106937, -71.0623467903589)"
+  },
+  {
+    "FIELD1":"City Convenience",
+    "FIELD2":"130 Dartmouth St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"130 Dartmouth St\nBoston, MA 2116\n(42.3465319379282, -71.07570178208314)"
+  },
+  {
+    "FIELD1":"College Convenience",
+    "FIELD2":"281 Huntington Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"281 Huntington Ave\nBoston, MA 2115\n(42.3417024501361, -71.0863766749818)"
+  },
+  {
+    "FIELD1":"Corner Store",
+    "FIELD2":"270 Hanover St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2113",
+    "FIELD6":"270 Hanover St\nBoston, MA 2113\n(42.36376281951482, -71.05460362768667)"
+  },
+  {
+    "FIELD1":"Dello Di Inc",
+    "FIELD2":"372 Commercial St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2109",
+    "FIELD6":"372 Commercial St\nBoston, MA 2109\n(42.36616400933309, -71.0513211022797)"
+  },
+  {
+    "FIELD1":"Dollar Convenience",
+    "FIELD2":"55 Temple Pl",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2111",
+    "FIELD6":"55 Temple Pl\nBoston, MA 2111\n(42.35493147718711, -71.06168129205724)"
+  },
+  {
+    "FIELD1":"Downtown Convenience",
+    "FIELD2":"40 Boylston St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"40 Boylston St\nBoston, MA 2116\n(42.35230545686153, -71.06383966492757)"
+  },
+  {
+    "FIELD1":"Downtown Convenience Two",
+    "FIELD2":"1100 Boylston St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"1100 Boylston St\nBoston, MA 2215\n(42.347044422990166, -71.08855303429272)"
+  },
+  {
+    "FIELD1":"E S Variety",
+    "FIELD2":"3 Gladstone St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"3 Gladstone St\nBoston, MA 2128\n(42.38913064376083, -70.99968078696207)"
+  },
+  {
+    "FIELD1":"Express Depot",
+    "FIELD2":"145 Dartmouth St # 1",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"145 Dartmouth St # 1\nBoston, MA 2116\n(42.34730522637864, -71.07596252588252)"
+  },
+  {
+    "FIELD1":"Fenway Convenience",
+    "FIELD2":"76 Kilmarnock St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"76 Kilmarnock St\nBoston, MA 2215\n(42.34272038533916, -71.09932903049359)"
+  },
+  {
+    "FIELD1":"First Tennessee Capital Mrkts",
+    "FIELD2":"99 Summer St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2110",
+    "FIELD6":"99 Summer St\nBoston, MA 2110\n(42.3537983314302, -71.05823688868503)"
+  },
+  {
+    "FIELD1":"Food Basket",
+    "FIELD2":"563 Columbus Ave # 1",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"563 Columbus Ave # 1\nBoston, MA 2118\n(42.340991985732956, -71.08131349195685)"
+  },
+  {
+    "FIELD1":"Gateway Newstand",
+    "FIELD2":"1 Faneuil Hall Market Pl",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2109",
+    "FIELD6":"1 Faneuil Hall Market Pl\nBoston, MA 2109\n(42.35993170767, -71.05579073276533)"
+  },
+  {
+    "FIELD1":"Golden Goose",
+    "FIELD2":"179 Commercial St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2109",
+    "FIELD6":"179 Commercial St\nBoston, MA 2109\n(42.36297062078698, -71.05170270872829)"
+  },
+  {
+    "FIELD1":"Gulf",
+    "FIELD2":"1420 Boylston St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2215",
+    "FIELD6":"1420 Boylston St\nBoston, MA 2215\n(42.34331182725526, -71.10223297417795)"
+  },
+  {
+    "FIELD1":"Hemenway Variety",
+    "FIELD2":"95 Westland Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"95 Westland Ave\nBoston, MA 2115\n(42.343977447950074, -71.08965307841545)"
+  },
+  {
+    "FIELD1":"Jen's Place",
+    "FIELD2":"10 Park Plz",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"10 Park Plz\nBoston, MA 2116\n(42.35188927272095, -71.06719249594379)"
+  },
+  {
+    "FIELD1":"Karen Food Market",
+    "FIELD2":"41 Bennington St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"41 Bennington St\nBoston, MA 2128\n(42.37542702623483, -71.03739959726613)"
+  },
+  {
+    "FIELD1":"Lanzilli's Grocery",
+    "FIELD2":"931 Bennington St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"931 Bennington St\nBoston, MA 2128\n(42.38582318889354, -71.00923283130845)"
+  },
+  {
+    "FIELD1":"Mass Food Market",
+    "FIELD2":"603 Massachusetts Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"603 Massachusetts Ave\nBoston, MA 2118\n(42.337223826430204, -71.07801298010935)"
+  },
+  {
+    "FIELD1":"Medina's Market Inc",
+    "FIELD2":"611 Tremont St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"611 Tremont St\nBoston, MA 2118\n(42.34272767724951, -71.07399301063839)"
+  },
+  {
+    "FIELD1":"Monica's Mercato",
+    "FIELD2":"130 Salem St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2113",
+    "FIELD6":"130 Salem St\nBoston, MA 2113\n(42.36510280933851, -71.05552992937686)"
+  },
+  {
+    "FIELD1":"Nora's Convenient Store",
+    "FIELD2":"303 Newbury St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"303 Newbury St\nBoston, MA 2115\n(42.34882508060815, -71.0854683597322)"
+  },
+  {
+    "FIELD1":"O'Connell's Convenience Plus",
+    "FIELD2":"40 Worcester Sq",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"40 Worcester Sq\nBoston, MA 2118\n(42.33611766033414, -71.07400200385865)"
+  },
+  {
+    "FIELD1":"One Stop Convenience",
+    "FIELD2":"664 Tremont St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"664 Tremont St\nBoston, MA 2118\n(42.3415945314926, -71.07598950554342)"
+  },
+  {
+    "FIELD1":"Primo's Convenience Store",
+    "FIELD2":"24 Joy St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"24 Joy St\nBoston, MA 2114\n(42.35932916191041, -71.06506274288739)"
+  },
+  {
+    "FIELD1":"Priya Food Market",
+    "FIELD2":"399 Saratoga St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"399 Saratoga St\nBoston, MA 2128\n(42.379047252285524, -71.02972119705177)"
+  },
+  {
+    "FIELD1":"Quality Mart",
+    "FIELD2":"21 Massachusetts Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"21 Massachusetts Ave\nBoston, MA 2115\n(42.350827063131234, -71.08957078690993)"
+  },
+  {
+    "FIELD1":"Seaport Convenience",
+    "FIELD2":"451 D St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2210",
+    "FIELD6":"451 D St\nBoston, MA 2210\n(42.345704433166475, -71.04272358367962)"
+  },
+  {
+    "FIELD1":"Shop MFI Market",
+    "FIELD2":"170 Salem St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2113",
+    "FIELD6":"170 Salem St\nBoston, MA 2113\n(42.366190988993935, -71.05490040395631)"
+  },
+  {
+    "FIELD1":"Snack N' Play",
+    "FIELD2":"19 Staniford St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"19 Staniford St\nBoston, MA 2114\n(42.36191730464997, -71.06374745507058)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"177 State St # A",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2109",
+    "FIELD6":"177 State St # A\nBoston, MA 2109\n(42.359341980573895, -71.05316659277749)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"122 Cambridge St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"122 Cambridge St\nBoston, MA 2114\n(42.36112694251017, -71.06349346320631)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"141 Massachusetts Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"141 Massachusetts Ave\nBoston, MA 2115\n(42.346936504346615, -71.08757277328078)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"717 Boylston St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2116",
+    "FIELD6":"717 Boylston St\nBoston, MA 2116\n(42.349382660266315, -71.07997350213321)"
+  },
+  {
+    "FIELD1":"Sulgrave Inc",
+    "FIELD2":"60 State St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2109",
+    "FIELD6":"60 State St\nBoston, MA 2109\n(42.35892446699722, -71.05622240733942)"
+  },
+  {
+    "FIELD1":"Sulgrave News",
+    "FIELD2":"6 Milk St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2108",
+    "FIELD6":"6 Milk St\nBoston, MA 2108\n(42.3567660941269, -71.05818292936328)"
+  },
+  {
+    "FIELD1":"Symphony Market II Nghbrhd",
+    "FIELD2":"291 Huntington Ave",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2115",
+    "FIELD6":"291 Huntington Ave\nBoston, MA 2115\n(42.34151032328361, -71.08663877499849)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"50 Staniford St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"50 Staniford St\nBoston, MA 2114\n(42.36260771511021, -71.06391412228886)"
+  },
+  {
+    "FIELD1":"Val's Place",
+    "FIELD2":"10 Causeway St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2222",
+    "FIELD6":"10 Causeway St\nBoston, MA 2222\n(42.364426269502104, -71.06318792395918)"
+  },
+  {
+    "FIELD1":"Value 2000",
+    "FIELD2":"507 Washington St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2111",
+    "FIELD6":"507 Washington St\nBoston, MA 2111\n(42.35440987041011, -71.06159135985433)"
+  },
+  {
+    "FIELD1":"Visham & Son",
+    "FIELD2":"449 Washington St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2111",
+    "FIELD6":"449 Washington St\nBoston, MA 2111\n(42.355255233117646, -71.06068304460473)"
+  },
+  {
+    "FIELD1":"White Hen Pantry",
+    "FIELD2":"342 Hanover St",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2113",
+    "FIELD6":"342 Hanover St\nBoston, MA 2113\n(42.36486898561088, -71.05343450904854)"
+  },
+  {
+    "FIELD1":"White Hen Pantry",
+    "FIELD2":"250 Cambridge St # 3",
+    "FIELD3":"Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2114",
+    "FIELD6":"250 Cambridge St # 3\nBoston, MA 2114\n(42.361109819528394, -71.06748191914625)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"1610 Commonwealth Ave",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"1610 Commonwealth Ave\nBrighton, MA 2135\n(42.343429148432335, -71.14275517299865)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"2002 Beacon St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"2002 Beacon St\nBrighton, MA 2135\n(42.33630080638474, -71.15075055747413)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"584 Washington St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"584 Washington St\nBrighton, MA 2135\n(42.35029097551592, -71.16571486440665)"
+  },
+  {
+    "FIELD1":"Brighton Super Market",
+    "FIELD2":"572 Washington St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"572 Washington St\nBrighton, MA 2135\n(42.35012010433036, -71.165049366105)"
+  },
+  {
+    "FIELD1":"Chansky Super Market",
+    "FIELD2":"161 Sutherland Rd",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"161 Sutherland Rd\nBrighton, MA 2135\n(42.3408351640262, -71.147243500566)"
+  },
+  {
+    "FIELD1":"Cumberland Farms",
+    "FIELD2":"148 Chestnut Hill Ave",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"148 Chestnut Hill Ave\nBrighton, MA 2135\n(42.342125131489865, -71.1541136102287)"
+  },
+  {
+    "FIELD1":"Huntington Market",
+    "FIELD2":"1795 Commonwealth Ave",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"1795 Commonwealth Ave\nBrighton, MA 2135\n(42.34048836539654, -71.15135269159873)"
+  },
+  {
+    "FIELD1":"Kiki's Kwik-Mart",
+    "FIELD2":"236 Faneuil St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"236 Faneuil St\nBrighton, MA 2135\n(42.35284887782766, -71.15975674942047)"
+  },
+  {
+    "FIELD1":"Lee's Market",
+    "FIELD2":"1585 Commonwealth Ave",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"1585 Commonwealth Ave\nBrighton, MA 2135\n(42.34445040424109, -71.1428195261644)"
+  },
+  {
+    "FIELD1":"Maddie's Market",
+    "FIELD2":"2195 Commonwealth Ave",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"2195 Commonwealth Ave\nBrighton, MA 2135\n(42.340128805115185, -71.16624497449827)"
+  },
+  {
+    "FIELD1":"Market St. Gulf",
+    "FIELD2":"195 Market St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"195 Market St\nBrighton, MA 2135\n(42.356019656842534, -71.14921230516899)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"1912 Beacon St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"1912 Beacon St\nBrighton, MA 2135\n(42.33650018595136, -71.14871569824254)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"241 Market St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"241 Market St\nBrighton, MA 2135\n(42.35452678227392, -71.15015659329976)"
+  },
+  {
+    "FIELD1":"White Hen Pantry",
+    "FIELD2":"462 Washington St",
+    "FIELD3":"Brighton",
+    "FIELD4":"MA",
+    "FIELD5":"2135",
+    "FIELD6":"462 Washington St\nBrighton, MA 2135\n(42.34891501281106, -71.15883505088254)"
+  },
+  {
+    "FIELD1":"Bunker Hill Market",
+    "FIELD2":"180 Bunker Hill St",
+    "FIELD3":"Charlestown",
+    "FIELD4":"MA",
+    "FIELD5":"2129",
+    "FIELD6":"180 Bunker Hill St\nCharlestown, MA 2129\n(42.378637605879476, -71.06164531917608)"
+  },
+  {
+    "FIELD1":"Newtowne Foodmart",
+    "FIELD2":"87 Medford St",
+    "FIELD3":"Charlestown",
+    "FIELD4":"MA",
+    "FIELD5":"2129",
+    "FIELD6":"87 Medford St\nCharlestown, MA 2129\n(42.37918401385763, -71.05596744548801)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"1 1st Ave # 7",
+    "FIELD3":"Charlestown",
+    "FIELD4":"MA",
+    "FIELD5":"2129",
+    "FIELD6":"1 1st Ave # 7\nCharlestown, MA 2129\n(42.37355881866903, -71.05678194632321)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"140 Main St",
+    "FIELD3":"Charlestown",
+    "FIELD4":"MA",
+    "FIELD5":"2129",
+    "FIELD6":"140 Main St\nCharlestown, MA 2129\n(42.374950385559316, -71.06398355645223)"
+  },
+  {
+    "FIELD1":"Sullivan's Store",
+    "FIELD2":"2 Sullivan St",
+    "FIELD3":"Charlestown",
+    "FIELD4":"MA",
+    "FIELD5":"2129",
+    "FIELD6":"2 Sullivan St\nCharlestown, MA 2129\n(42.377817621972895, -71.06730610171155)"
+  },
+  {
+    "FIELD1":"United National Market",
+    "FIELD2":"134 Bunker Hill St",
+    "FIELD3":"Charlestown",
+    "FIELD4":"MA",
+    "FIELD5":"2129",
+    "FIELD6":"134 Bunker Hill St\nCharlestown, MA 2129\n(42.37795412113718, -71.0597027835928)"
+  },
+  {
+    "FIELD1":"Pezzi Service Ctr",
+    "FIELD2":"571 Washington Ave",
+    "FIELD3":"Chelsea",
+    "FIELD4":"MA",
+    "FIELD5":"2150",
+    "FIELD6":"571 Washington Ave\nChelsea, MA 2150\n(42.409772134533796, -71.03009710238825)"
+  },
+  {
+    "FIELD1":"7-Eleven",
+    "FIELD2":"730 William T Morrissey Blvd",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"730 William T Morrissey Blvd\nDorchester, MA 2122\n(42.296196755453536, -71.04806555653363)"
+  },
+  {
+    "FIELD1":"Adam's Convenience Store",
+    "FIELD2":"295 Adams St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"295 Adams St\nDorchester, MA 2122\n(42.29916026259752, -71.05805971458462)"
+  },
+  {
+    "FIELD1":"Adams Market",
+    "FIELD2":"365 Adams St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"365 Adams St\nDorchester, MA 2122\n(42.2971140639234, -71.05663609547287)"
+  },
+  {
+    "FIELD1":"Bostonian Convenience Store",
+    "FIELD2":"1464 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"1464 Dorchester Ave\nDorchester, MA 2122\n(42.300727726675014, -71.0599387438387)"
+  },
+  {
+    "FIELD1":"Braulios Market",
+    "FIELD2":"237 Bowdoin St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"237 Bowdoin St\nDorchester, MA 2122\n(42.305972983667644, -71.06723352015074)"
+  },
+  {
+    "FIELD1":"Cappy's Convenience Store Inc",
+    "FIELD2":"949 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"949 Dorchester Ave\nDorchester, MA 2125\n(42.31863484008454, -71.05677099377726)"
+  },
+  {
+    "FIELD1":"Chamas Market",
+    "FIELD2":"198 Humboldt Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"198 Humboldt Ave\nDorchester, MA 2121\n(42.31284493935739, -71.08965126825034)"
+  },
+  {
+    "FIELD1":"Columbia Rd. Market II",
+    "FIELD2":"387 Columbia Rd",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"387 Columbia Rd\nDorchester, MA 2125\n(42.31110628015811, -71.07022705430786)"
+  },
+  {
+    "FIELD1":"Convenience Corner",
+    "FIELD2":"1688 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"1688 Dorchester Ave\nDorchester, MA 2122\n(42.29255775535865, -71.06233524472087)"
+  },
+  {
+    "FIELD1":"Country Store",
+    "FIELD2":"316 Bowdoin St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"316 Bowdoin St\nDorchester, MA 2122\n(42.307923914715616, -71.06526958695417)"
+  },
+  {
+    "FIELD1":"D & D Convenience Store",
+    "FIELD2":"734 Blue Hill Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"734 Blue Hill Ave\nDorchester, MA 2121\n(42.299783775920034, -71.08616988748513)"
+  },
+  {
+    "FIELD1":"D & D Convenience Store",
+    "FIELD2":"1002 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"1002 Dorchester Ave\nDorchester, MA 2125\n(42.3165079916044, -71.05660927439871)"
+  },
+  {
+    "FIELD1":"Five Corners Mini Mart",
+    "FIELD2":"1246 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"1246 Dorchester Ave\nDorchester, MA 2125\n(42.308036000782806, -71.0582674092296)"
+  },
+  {
+    "FIELD1":"Gomez Convenience Store",
+    "FIELD2":"285 Washington St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"285 Washington St\nDorchester, MA 2121\n(42.30072034526091, -71.07571071571431)"
+  },
+  {
+    "FIELD1":"Grove Hill Convenience Market",
+    "FIELD2":"479 Blue Hill Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"479 Blue Hill Ave\nDorchester, MA 2121\n(42.30866118751336, -71.08314919016571)"
+  },
+  {
+    "FIELD1":"Happy Superette",
+    "FIELD2":"122 Seaver St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"122 Seaver St\nDorchester, MA 2121\n(42.3097045723336, -71.09171864783588)"
+  },
+  {
+    "FIELD1":"Hillside Spa Cardoza Brothers",
+    "FIELD2":"26 Hancock St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"26 Hancock St\nDorchester, MA 2125\n(42.31503755196735, -71.06590810559493)"
+  },
+  {
+    "FIELD1":"Lee's Store",
+    "FIELD2":"982 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"982 Dorchester Ave\nDorchester, MA 2125\n(42.317099517516155, -71.0566249062072)"
+  },
+  {
+    "FIELD1":"Lynch's Everyday",
+    "FIELD2":"626 Adams St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"626 Adams St\nDorchester, MA 2122\n(42.28834279890216, -71.05533638136261)"
+  },
+  {
+    "FIELD1":"Maria's Store",
+    "FIELD2":"777 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"777 Dorchester Ave\nDorchester, MA 2125\n(42.32394162621778, -71.05691081765069)"
+  },
+  {
+    "FIELD1":"Mutual Oil Co Inc",
+    "FIELD2":"529 Geneva Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"529 Geneva Ave\nDorchester, MA 2122\n(42.29833714188328, -71.06295832933887)"
+  },
+  {
+    "FIELD1":"New Store On the Block",
+    "FIELD2":"847 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"847 Dorchester Ave\nDorchester, MA 2125\n(42.3218004536277, -71.05684293953959)"
+  },
+  {
+    "FIELD1":"Our Neighborhood Variety Store",
+    "FIELD2":"185 Howard Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"185 Howard Ave\nDorchester, MA 2125\n(42.31393138587134, -71.07529702758086)"
+  },
+  {
+    "FIELD1":"S K B's",
+    "FIELD2":"156 Washington St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"156 Washington St\nDorchester, MA 2121\n(42.304047836769314, -71.07899324112128)"
+  },
+  {
+    "FIELD1":"Stop N Save",
+    "FIELD2":"310 Blue Hill Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"310 Blue Hill Ave\nDorchester, MA 2121\n(42.314012324853934, -71.07916411230684)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"187 E Cottage St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"187 E Cottage St\nDorchester, MA 2125\n(42.32001979600966, -71.06106975307733)"
+  },
+  {
+    "FIELD1":"Super Stop & Shop",
+    "FIELD2":"460 Blue Hill Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"460 Blue Hill Ave\nDorchester, MA 2121\n(42.309137229079376, -71.08275736736316)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"1420 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"1420 Dorchester Ave\nDorchester, MA 2122\n(42.30244535577849, -71.05951859295128)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"1580 Dorchester Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"1580 Dorchester Ave\nDorchester, MA 2122\n(42.29668720377279, -71.06111873390283)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"320 Neponset Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2122",
+    "FIELD6":"320 Neponset Ave\nDorchester, MA 2122\n(42.288399633459505, -71.04704932264053)"
+  },
+  {
+    "FIELD1":"Tropical Grocery Store",
+    "FIELD2":"67 Hancock St",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2125",
+    "FIELD6":"67 Hancock St\nDorchester, MA 2125\n(42.31337380621318, -71.06515267509036)"
+  },
+  {
+    "FIELD1":"Vange Variety",
+    "FIELD2":"434 Blue Hill Ave",
+    "FIELD3":"Dorchester",
+    "FIELD4":"MA",
+    "FIELD5":"2121",
+    "FIELD6":"434 Blue Hill Ave\nDorchester, MA 2121\n(42.31017221978885, -71.08202395635999)"
+  },
+  {
+    "FIELD1":"Ada's Tropical Inc",
+    "FIELD2":"118 Norfolk St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"118 Norfolk St\nDorchester Ctr, MA 2124\n(42.28817480295214, -71.07693379367419)"
+  },
+  {
+    "FIELD1":"Ashmont Convenience Store",
+    "FIELD2":"1996 Dorchester Ave",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"1996 Dorchester Ave\nDorchester Ctr, MA 2124\n(42.282615374622594, -71.06511594797291)"
+  },
+  {
+    "FIELD1":"Blue Hill Market",
+    "FIELD2":"766 Blue Hill Ave",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"766 Blue Hill Ave\nDorchester Ctr, MA 2124\n(42.29854135987861, -71.086617565403)"
+  },
+  {
+    "FIELD1":"Codman Square Mkt Grocery Stor",
+    "FIELD2":"573 Washington St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"573 Washington St\nDorchester Ctr, MA 2124\n(42.29164618598526, -71.07175369878541)"
+  },
+  {
+    "FIELD1":"Dominican Grocery Store",
+    "FIELD2":"710 Washington St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"710 Washington St\nDorchester Ctr, MA 2124\n(42.28666394194295, -71.07115115302577)"
+  },
+  {
+    "FIELD1":"Mass Food Mart",
+    "FIELD2":"1732 Dorchester Ave",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"1732 Dorchester Ave\nDorchester Ctr, MA 2124\n(42.29084534932588, -71.06280798308995)"
+  },
+  {
+    "FIELD1":"Matos Market",
+    "FIELD2":"140 Norfolk St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"140 Norfolk St\nDorchester Ctr, MA 2124\n(42.287878026682506, -71.07801298010935)"
+  },
+  {
+    "FIELD1":"Meli Mello Market",
+    "FIELD2":"542 Washington St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"542 Washington St\nDorchester Ctr, MA 2124\n(42.29282429784365, -71.07178067844626)"
+  },
+  {
+    "FIELD1":"Our Neighborhood Mini Mart",
+    "FIELD2":"482 Washington St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"482 Washington St\nDorchester Ctr, MA 2124\n(42.29458781253953, -71.07191572292744)"
+  },
+  {
+    "FIELD1":"Rosedale Grocery",
+    "FIELD2":"547 Washington St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"547 Washington St\nDorchester Ctr, MA 2124\n(42.29254550801454, -71.07182564454774)"
+  },
+  {
+    "FIELD1":"Salcedos Market",
+    "FIELD2":"302 Norfolk St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"302 Norfolk St\nDorchester Ctr, MA 2124\n(42.283489335179524, -71.08308515635457)"
+  },
+  {
+    "FIELD1":"Stop N Gas Inc",
+    "FIELD2":"970 Washington St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"970 Washington St\nDorchester Ctr, MA 2124\n(42.279118630117125, -71.06965827845715)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"1886 Dorchester Ave",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"1886 Dorchester Ave\nDorchester Ctr, MA 2124\n(42.286407837426154, -71.06400965932689)"
+  },
+  {
+    "FIELD1":"T & J Convenience Store",
+    "FIELD2":"80 Welles Ave",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"80 Welles Ave\nDorchester Ctr, MA 2124\n(42.289173261369555, -71.06687420038683)"
+  },
+  {
+    "FIELD1":"Upbeat Convenience",
+    "FIELD2":"613 Park St",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"613 Park St\nDorchester Ctr, MA 2124\n(42.29447905037756, -71.07791405468612)"
+  },
+  {
+    "FIELD1":"Viet Huong Market",
+    "FIELD2":"1826 Dorchester Ave",
+    "FIELD3":"Dorchester Ctr",
+    "FIELD4":"MA",
+    "FIELD5":"2124",
+    "FIELD6":"1826 Dorchester Ave\nDorchester Ctr, MA 2124\n(42.28851654532332, -71.06348892933613)"
+  },
+  {
+    "FIELD1":"Cumberland Farms",
+    "FIELD2":"464 Chelsea St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"464 Chelsea St\nEast Boston, MA 2128\n(42.38184885379028, -71.02498470821692)"
+  },
+  {
+    "FIELD1":"El Condor Market",
+    "FIELD2":"337 Paris St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"337 Paris St\nEast Boston, MA 2128\n(42.377576405884895, -71.0316619227192)"
+  },
+  {
+    "FIELD1":"Franco's Place",
+    "FIELD2":"160 Trenton St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"160 Trenton St\nEast Boston, MA 2128\n(42.380101188977534, -71.03338023355548)"
+  },
+  {
+    "FIELD1":"Los Paisanos Market LLC",
+    "FIELD2":"11 Meridian St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"11 Meridian St\nEast Boston, MA 2128\n(42.37054370761575, -71.03891945149564)"
+  },
+  {
+    "FIELD1":"Neptune Convenience & Liquor",
+    "FIELD2":"3 Neptune Rd",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"3 Neptune Rd\nEast Boston, MA 2128\n(42.37996126014139, -71.02551589006805)"
+  },
+  {
+    "FIELD1":"Neptune Launderette",
+    "FIELD2":"944 Bennington St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"944 Bennington St\nEast Boston, MA 2128\n(42.38624819757985, -71.00823603306657)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"14 Maverick Sq",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"14 Maverick Sq\nEast Boston, MA 2128\n(42.369396327769316, -71.03962464580405)"
+  },
+  {
+    "FIELD1":"Sumner Market Inc",
+    "FIELD2":"345 Sumner St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"345 Sumner St\nEast Boston, MA 2128\n(42.366910446617396, -71.03543907524227)"
+  },
+  {
+    "FIELD1":"Tesoro Market",
+    "FIELD2":"188 Chelsea St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"188 Chelsea St\nEast Boston, MA 2128\n(42.37443893118786, -71.03358995670017)"
+  },
+  {
+    "FIELD1":"Todisco's Mobil",
+    "FIELD2":"470 Meridian St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"470 Meridian St\nEast Boston, MA 2128\n(42.382718041084324, -71.03938370816641)"
+  },
+  {
+    "FIELD1":"Two Brothers Market",
+    "FIELD2":"51 Trenton St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"51 Trenton St\nEast Boston, MA 2128\n(42.37839269773639, -71.03764021354458)"
+  },
+  {
+    "FIELD1":"Varied Dades Amy",
+    "FIELD2":"178 Bennington St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"178 Bennington St\nEast Boston, MA 2128\n(42.377306609276104, -71.03261520407028)"
+  },
+  {
+    "FIELD1":"White Hen Pantry",
+    "FIELD2":"120 Byron St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"120 Byron St\nEast Boston, MA 2128\n(42.38382705192493, -71.01644849764489)"
+  },
+  {
+    "FIELD1":"White Hen Pantry",
+    "FIELD2":"205 Maverick St",
+    "FIELD3":"East Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2128",
+    "FIELD6":"205 Maverick St\nEast Boston, MA 2128\n(42.36881502802967, -71.03609047137489)"
+  },
+  {
+    "FIELD1":"Liriano Grocery",
+    "FIELD2":"1503 River St",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"1503 River St\nHyde Park, MA 2136\n(42.25042126416213, -71.13092908831334)"
+  },
+  {
+    "FIELD1":"Neighborhood Convenience Str",
+    "FIELD2":"994 Hyde Park Ave",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"994 Hyde Park Ave\nHyde Park, MA 2136\n(42.265565847135576, -71.1210905053128)"
+  },
+  {
+    "FIELD1":"Riddhi Corp",
+    "FIELD2":"171 Wolcott Sq",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"171 Wolcott Sq\nHyde Park, MA 2136\n(42.23719587516264, -71.13202130726548)"
+  },
+  {
+    "FIELD1":"Riverwood Gas & Convenience",
+    "FIELD2":"869 River St",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"869 River St\nHyde Park, MA 2136\n(42.262310301389505, -71.10883274605345)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"1187 Hyde Park Ave",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"1187 Hyde Park Ave\nHyde Park, MA 2136\n(42.2580744946315, -71.12360860699482)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"1239 River St",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"1239 River St\nHyde Park, MA 2136\n(42.255943101422076, -71.12321290530195)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"695 Truman Hwy",
+    "FIELD3":"Hyde Park",
+    "FIELD4":"MA",
+    "FIELD5":"2136",
+    "FIELD6":"695 Truman Hwy\nHyde Park, MA 2136\n(42.252246887881654, -71.11879723413807)"
+  },
+  {
+    "FIELD1":"Botanica Anaiza's",
+    "FIELD2":"610 Centre St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"610 Centre St\nJamaica Plain, MA 2130\n(42.314461985868604, -71.11406680026397)"
+  },
+  {
+    "FIELD1":"D & R Supermarkets",
+    "FIELD2":"180 Hyde Park Ave",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"180 Hyde Park Ave\nJamaica Plain, MA 2130\n(42.29467690122402, -71.11695362397802)"
+  },
+  {
+    "FIELD1":"Green Elm",
+    "FIELD2":"536 Centre St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"536 Centre St\nJamaica Plain, MA 2130\n(42.316935121449205, -71.11341029518258)"
+  },
+  {
+    "FIELD1":"J & G's Market",
+    "FIELD2":"274 Hyde Park Ave",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"274 Hyde Park Ave\nJamaica Plain, MA 2130\n(42.29201404749895, -71.1177121873278)"
+  },
+  {
+    "FIELD1":"J P Variety Store",
+    "FIELD2":"162 South St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"162 South St\nJamaica Plain, MA 2130\n(42.30411078931138, -71.11464236636272)"
+  },
+  {
+    "FIELD1":"Perez Severiano",
+    "FIELD2":"207 Boylston St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"207 Boylston St\nJamaica Plain, MA 2130\n(42.31393138587134, -71.1011885088044)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"684 Centre St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"684 Centre St\nJamaica Plain, MA 2130\n(42.3119722838793, -71.11417609921867)"
+  },
+  {
+    "FIELD1":"Super Stop & Shop",
+    "FIELD2":"301 Centre St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"301 Centre St\nJamaica Plain, MA 2130\n(42.32291651507302, -71.10371343753673)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"779 Centre St",
+    "FIELD3":"Jamaica Plain",
+    "FIELD4":"MA",
+    "FIELD5":"2130",
+    "FIELD6":"779 Centre St\nJamaica Plain, MA 2130\n(42.30979313809442, -71.1154587346798)"
+  },
+  {
+    "FIELD1":"Gonzalez Market",
+    "FIELD2":"1178 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1178 Blue Hill Ave\nMattapan, MA 2126\n(42.28399295551594, -71.0914038851256)"
+  },
+  {
+    "FIELD1":"Hyde Park Market",
+    "FIELD2":"853 River St",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"853 River St\nMattapan, MA 2126\n(42.262720469966574, -71.1083559069662)"
+  },
+  {
+    "FIELD1":"La Poula Conveniences",
+    "FIELD2":"1330 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1330 Blue Hill Ave\nMattapan, MA 2126\n(42.27811034825854, -71.09326436146752)"
+  },
+  {
+    "FIELD1":"Lili's Market",
+    "FIELD2":"1286 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1286 Blue Hill Ave\nMattapan, MA 2126\n(42.279971216786656, -71.09270747186721)"
+  },
+  {
+    "FIELD1":"No Name Deli & Grocerytwo",
+    "FIELD2":"1300 Blue Hill Ave",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"1300 Blue Hill Ave\nMattapan, MA 2126\n(42.279379433505596, -71.09293273257543)"
+  },
+  {
+    "FIELD1":"Step N Out Mart",
+    "FIELD2":"609 Walk Hill St",
+    "FIELD3":"Mattapan",
+    "FIELD4":"MA",
+    "FIELD5":"2126",
+    "FIELD6":"609 Walk Hill St\nMattapan, MA 2126\n(42.28107015892067, -71.09781605119451)"
+  },
+  {
+    "FIELD1":"Budget Mart",
+    "FIELD2":"229 Florence St",
+    "FIELD3":"Roslindale",
+    "FIELD4":"MA",
+    "FIELD5":"2131",
+    "FIELD6":"229 Florence St\nRoslindale, MA 2131\n(42.28562072838895, -71.12015521040234)"
+  },
+  {
+    "FIELD1":"Cummins Fruits & Vegetables",
+    "FIELD2":"290 Cummins Hwy",
+    "FIELD3":"Roslindale",
+    "FIELD4":"MA",
+    "FIELD5":"2131",
+    "FIELD6":"290 Cummins Hwy\nRoslindale, MA 2131\n(42.279568291131795, -71.11791589854937)"
+  },
+  {
+    "FIELD1":"Downtown Brazil",
+    "FIELD2":"878 South St",
+    "FIELD3":"Roslindale",
+    "FIELD4":"MA",
+    "FIELD5":"2131",
+    "FIELD6":"878 South St\nRoslindale, MA 2131\n(42.28878634193211, -71.13385188490855)"
+  },
+  {
+    "FIELD1":"El Chavo Mexican Products",
+    "FIELD2":"4254 Washington St",
+    "FIELD3":"Roslindale",
+    "FIELD4":"MA",
+    "FIELD5":"2131",
+    "FIELD6":"4254 Washington St\nRoslindale, MA 2131\n(42.28545450938999, -71.12909959035171)"
+  },
+  {
+    "FIELD1":"T & D Market",
+    "FIELD2":"4545 Washington St",
+    "FIELD3":"Roslindale",
+    "FIELD4":"MA",
+    "FIELD5":"2131",
+    "FIELD6":"4545 Washington St\nRoslindale, MA 2131\n(42.278175816233826, -71.13723739125055)"
+  },
+  {
+    "FIELD1":"Blue Hill Convenience",
+    "FIELD2":"137 Blue Hill Ave # B",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"137 Blue Hill Ave # B\nRoxbury, MA 2119\n(42.32019966041554, -71.07781512926289)"
+  },
+  {
+    "FIELD1":"Bohio Grocery & Snacks",
+    "FIELD2":"718 Shawmut Ave",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"718 Shawmut Ave\nRoxbury, MA 2119\n(42.33305996543453, -71.08314810889664)"
+  },
+  {
+    "FIELD1":"Casa Blanca Convenience Store",
+    "FIELD2":"41 Burrell St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"41 Burrell St\nRoxbury, MA 2119\n(42.32299168897712, -71.07036188835214)"
+  },
+  {
+    "FIELD1":"Central Convenience",
+    "FIELD2":"218 Blue Hill Ave",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"218 Blue Hill Ave\nRoxbury, MA 2119\n(42.31703404687238, -71.07801298010935)"
+  },
+  {
+    "FIELD1":"Chi Chi Produce Market",
+    "FIELD2":"2251 Washington St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"2251 Washington St\nRoxbury, MA 2119\n(42.33069559042983, -71.0832564186872)"
+  },
+  {
+    "FIELD1":"Egleston Square Citgo",
+    "FIELD2":"3055 Washington St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"3055 Washington St\nRoxbury, MA 2119\n(42.31632358246924, -71.09782504441483)"
+  },
+  {
+    "FIELD1":"Giovanni's Market",
+    "FIELD2":"624 Columbus Ave",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"624 Columbus Ave\nRoxbury, MA 2118\n(42.339295494795365, -71.08322926745511)"
+  },
+  {
+    "FIELD1":"La Plazita",
+    "FIELD2":"3 Blue Hill Ave",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"3 Blue Hill Ave\nRoxbury, MA 2119\n(42.32523288394556, -71.07512159010693)"
+  },
+  {
+    "FIELD1":"Market Maywood",
+    "FIELD2":"249 Blue Hill Ave",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"249 Blue Hill Ave\nRoxbury, MA 2119\n(42.31609875196193, -71.07823781061666)"
+  },
+  {
+    "FIELD1":"Mini Market",
+    "FIELD2":"64 Blue Hill Ave",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"64 Blue Hill Ave\nRoxbury, MA 2119\n(42.32294259260493, -71.07659205130307)"
+  },
+  {
+    "FIELD1":"N & M Market",
+    "FIELD2":"2359 Washington St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"2359 Washington St\nRoxbury, MA 2119\n(42.329444690876755, -71.0847489021088)"
+  },
+  {
+    "FIELD1":"Nunez Mini Mart",
+    "FIELD2":"305 Dudley St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"305 Dudley St\nRoxbury, MA 2119\n(42.32782591122401, -71.07759029875558)"
+  },
+  {
+    "FIELD1":"On the Run",
+    "FIELD2":"85 Southampton St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2118",
+    "FIELD6":"85 Southampton St\nRoxbury, MA 2118\n(42.33213469829626, -71.07055805784337)"
+  },
+  {
+    "FIELD1":"Quick Stop",
+    "FIELD2":"338 Warren St",
+    "FIELD3":"Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2119",
+    "FIELD6":"338 Warren St\nRoxbury, MA 2119\n(42.31924637906451, -71.0813944309395)"
+  },
+  {
+    "FIELD1":"Grocery Associates",
+    "FIELD2":"82 Hillside St",
+    "FIELD3":"Roxbury Crossing",
+    "FIELD4":"MA",
+    "FIELD5":"2120",
+    "FIELD6":"82 Hillside St\nRoxbury Crossing, MA 2120\n(42.33044842713316, -71.10303802994673)"
+  },
+  {
+    "FIELD1":"Penas Market",
+    "FIELD2":"1055 Tremont St",
+    "FIELD3":"Roxbury Crossing",
+    "FIELD4":"MA",
+    "FIELD5":"2120",
+    "FIELD6":"1055 Tremont St\nRoxbury Crossing, MA 2120\n(42.336261551858854, -71.08586406142513)"
+  },
+  {
+    "FIELD1":"Andrew Square Convenience",
+    "FIELD2":"390 Dorchester St # A",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"390 Dorchester St # A\nSouth Boston, MA 2127\n(42.32984039256962, -71.05646522428731)"
+  },
+  {
+    "FIELD1":"Cumberland Farms",
+    "FIELD2":"628 E 5th St",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"628 E 5th St\nSouth Boston, MA 2127\n(42.333986267124715, -71.0355110210046)"
+  },
+  {
+    "FIELD1":"EVS Mini Mart",
+    "FIELD2":"334 Dorchester St",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"334 Dorchester St\nSouth Boston, MA 2127\n(42.33098253154685, -71.05402806158793)"
+  },
+  {
+    "FIELD1":"J & J Discount Mini Mart",
+    "FIELD2":"131 W BRd.way",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"131 W BRd.way\nSouth Boston, MA 2127\n(42.337950000092576, -71.04948000030163)"
+  },
+  {
+    "FIELD1":"Mirisolas",
+    "FIELD2":"200 L St",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"200 L St\nSouth Boston, MA 2127\n(42.331369240019455, -71.03522323795522)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"405 W BRd.way",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"405 W BRd.way\nSouth Boston, MA 2127\n(42.337950000092576, -71.04948000030163)"
+  },
+  {
+    "FIELD1":"Store 24",
+    "FIELD2":"555 E BRd.way",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"555 E BRd.way\nSouth Boston, MA 2127\n(42.337950000092576, -71.04948000030163)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Shops",
+    "FIELD2":"566 Dorchester Ave",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"566 Dorchester Ave\nSouth Boston, MA 2127\n(42.330308040024875, -71.05690589208166)"
+  },
+  {
+    "FIELD1":"Three D's",
+    "FIELD2":"249 E St",
+    "FIELD3":"South Boston",
+    "FIELD4":"MA",
+    "FIELD5":"2127",
+    "FIELD6":"249 E St\nSouth Boston, MA 2127\n(42.33586585016593, -71.05159089888849)"
+  },
+  {
+    "FIELD1":"Charley Market",
+    "FIELD2":"604 Weld St",
+    "FIELD3":"West Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2132",
+    "FIELD6":"604 Weld St\nWest Roxbury, MA 2132\n(42.29164618598526, -71.15780083054881)"
+  },
+  {
+    "FIELD1":"Speedy Market",
+    "FIELD2":"4899 Washington St",
+    "FIELD3":"West Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2132",
+    "FIELD6":"4899 Washington St\nWest Roxbury, MA 2132\n(42.269307409207606, -71.1483792159798)"
+  },
+  {
+    "FIELD1":"Spring St. Petroleum",
+    "FIELD2":"167 Spring St",
+    "FIELD3":"West Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2132",
+    "FIELD6":"167 Spring St\nWest Roxbury, MA 2132\n(42.27576415894782, -71.16726169829707)"
+  },
+  {
+    "FIELD1":"Tedeschi Food Stores",
+    "FIELD2":"7 Spring St",
+    "FIELD3":"West Roxbury",
+    "FIELD4":"MA",
+    "FIELD5":"2132",
+    "FIELD6":"7 Spring St\nWest Roxbury, MA 2132\n(42.27817434198636, -71.16035490511206)"
+  },
+  {
+    "FIELD1":"Bolster Service Inc",
+    "FIELD2":"81 Veterans Rd",
+    "FIELD3":"Winthrop",
+    "FIELD4":"MA",
+    "FIELD5":"2152",
+    "FIELD6":"81 Veterans Rd\nWinthrop, MA 2152\n(42.380804971970065, -70.97576905859819)"
+  }
+]
