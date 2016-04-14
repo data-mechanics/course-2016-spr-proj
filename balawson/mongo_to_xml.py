@@ -7,7 +7,6 @@ import pandas as pd
 import pymongo, datetime, uuid
 import prov.model
 import random
-from scic_stat_tests import *
 exec(open('../pymongo_dm.py').read())
 
 ###############################################################
