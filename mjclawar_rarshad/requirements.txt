@@ -10,6 +10,8 @@ decorator==4.0.9
 networkx==1.11
 pydotplus==2.0.2
 graphviz==0.4.9
+mplleaflet==0.0.5
+matplotlib==1.4.3
 
 # Database management
 pymongo==3.2.1
