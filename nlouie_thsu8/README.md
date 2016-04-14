@@ -4,12 +4,12 @@
 #### Boston University Data Mechanics CS591 L1
 #### course-2016-spr-proj-two
 
-### Running the package
-
-
 ### Functionality
 
-> Write a short narrative and justification (at least 7-10 sentences) explaining how the data sets and techniques you hope to employ can address the problem you chose. Depending on what techniques you are using and what problem you are trying to solve, you may need to provide a justification or evaluation methodology for the techniques you are using (i.e., why you believe the chosen techniques will solve the problem you are trying to address). Include this narrative in the README.md file within your directory (you may only need to update your existing file).
+We want to know how streetlights relate to crimes in Boston. We want to know whether or not streetlamp placement has an affect on crime and if there are high-crime areas that may benefit from better lighting.
+In order to do this, we compute the distance of each crime (at night) to the closest streetlamp using data provided from [Boston's public datasets](https://data.cityofboston.gov/). 
+We think solving this gives insight on how lighting plays a role in the incidences of crime and whether or not certain areas should include more lighting.
+
 
 ### Datasets 
 
