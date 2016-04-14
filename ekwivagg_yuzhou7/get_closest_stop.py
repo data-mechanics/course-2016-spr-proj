@@ -126,6 +126,13 @@ doc.wasGeneratedBy(closest_stop, closest_stop_calc, endTime)
 doc.wasDerivedFrom(closest_stop, restaurant_dat, closest_stop_calc, closest_stop_calc, closest_stop_calc)
 doc.wasDerivedFrom(closest_stop, stops, closest_stop_calc, closest_stop_calc, closest_stop_calc)
 
+restaurant_freq = doc.entity('dat:restaurant_freq', {prov.model.PROV_LABEL:'Restaurant Frequency', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+get_frequency = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(get_frequency, this_script)
+doc.used(restaurant_freq, closest_stop, startTime)
+doc.wasDerivedFrom(closest_stop, restaurant_freq, get_frequency, get_frequency, get_frequency)
+
+
 repo.record(doc.serialize())
 content = json.dumps(json.loads(doc.serialize()), indent=4)
 f = open('plan.json', 'a')
