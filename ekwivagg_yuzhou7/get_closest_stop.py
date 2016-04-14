@@ -26,7 +26,6 @@ response = urllib.request.urlopen(url).read().decode("utf-8")
 f = open('stops.txt', 'w')
 f.write(response)
 
-count = 1
 stops = {}
 f1 = open('stops.txt', 'r')
 for i in range(1, 248):
@@ -40,6 +39,10 @@ for i in range(1, 248):
 
 def product(R, S):
     return [(t,u) for t in R for u in S]
+
+def real_aggregate(R, f):
+    keys = {r[0] for r in R}
+    return [(key, f([v for (k,v) in R if k == key])) for key in keys]
 
 def aggregate(R, f):
     keys = {r[0] for r in R}
@@ -78,6 +81,15 @@ for pair in closest_stop:
 repo.dropPermanent("closest_stop")
 repo.createPermanent("closest_stop")
 repo['ekwivagg_yuzhou7.closest_stop'].insert_many(closest_t_stop)
+
+closest_stop = repo['ekwivagg_yuzhou7.closest_stop'].find()
+
+X = []
+for pair in closest_stop:
+    X.append((pair['tstop'], 1))
+
+Y = real_aggregate(X, sum)
+print(Y)
 
 endTime = datetime.datetime.now()
 

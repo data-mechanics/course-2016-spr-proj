@@ -85,6 +85,7 @@ doc.wasDerivedFrom(rodent_problem, restaurant_dat, rodent_problem_calc, rodent_p
 
 repo.record(doc.serialize())
 content = json.dumps(json.loads(doc.serialize()), indent=4)
-f = open('plan.json', 'w')
+f = open('plan.json', 'a')
+f.write(",\n")
 f.write(content)
 repo.logout()
