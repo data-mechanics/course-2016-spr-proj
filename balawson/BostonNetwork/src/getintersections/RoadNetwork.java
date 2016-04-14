@@ -2,6 +2,12 @@
 
 @author Sofia Maria Nikolakaki <smnikol@bu.edu>
 @edited by ben lawson <balawson@bu.edu>
+    *contributions:
+         -adapt to single population counts
+         -add caching of HashMaps (improve runtime like ~10x fold)
+         -maintain user lists to determine which users posted at which intersection
+
+@rubber-ducky johnson lam (special thanks)
 
 ***********************************/
 
@@ -58,6 +64,8 @@ public class RoadNetwork {
 	static private HashMap<Long, List<String>> mapInterSectTypes = new HashMap<Long, List<String>>();
 
 	static private HashMap<String, Integer> populationAssignment = new HashMap<String, Integer>();
+	
+        static private HashMap<String, String> peopleAssignment = new HashMap<String, String>();
 
 	static private List<Long> nodeIds;
 	static private List<Float> nodeLat;
@@ -68,11 +76,13 @@ public class RoadNetwork {
 
 	static private List<Float> queryX;
 	static private List<Float> queryY;
+	
+        static private List<Long> userids;
 
-        static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
-        static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
-        //static public final String path = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
-        //static public final String shortPath = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson";
+        //static public final String path = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        //static public final String shortPath = "/home/jedidiah/dev/sandbox/course-2016-spr-proj-one/balawson";
+        static public final String path = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson/BostonNetwork";
+        static public final String shortPath = "/home/abel/dev/sandbox/course-2016-spr-proj-one/balawson";
 
 	/* IntersectionIDs function stores in separate lists the node ids, their respective latitude 
 	 * and their respective longitude (3 lists) these lists are nodeIds, nodeLat and nodeLong. The 
@@ -127,28 +137,30 @@ public class RoadNetwork {
 		BufferedReader bufRead;
 		String myLine = null;
 		FileReader inputTourists = new FileReader(
-                                  shortPath  + "/big_twitter.xml");
-				//shortPath  + "/2015-12-28.xml");
+                                 // shortPath  + "/big_twitter.xml");
+				shortPath  + "/twitter.xml");
 				//shortPath  + "/sample2.xml");
 		bufRead = new BufferedReader(inputTourists);
 		myLine = null;
 		String[] array = null;
 		queryX = new ArrayList<Float>();
 		queryY = new ArrayList<Float>();
+		userids = new ArrayList<Long>();
 		while ((myLine = bufRead.readLine()) != null) {
 			array = myLine.split(
 					" |loca|lng|lat|local|\">|</ROW>|<ROW|<?xml version=\"1.0\"?>|<ROWSET>|FIELD5=\"|FIELD6=\"|FIELD1=\"|FIELD2=\"|FIELD3=\"|FIELD4=\"|\" ");
                         //System.out.println(Arrays.toString(array)); 
-			for (int i = 0; i < array.length; i++) {
-				//if (array[i].equals("False") || array[i].equals("True")) {
+                                if (array.length > 8){
                                         try {
-					    if (queryY.contains(Float.parseFloat(array[7])) && queryX.contains(Float.parseFloat(array[9]))) {
+					    if (queryY.contains(Float.parseFloat(array[7])) && queryX.contains(Float.parseFloat(array[9])) && userids.contains(Long.parseLong(array[5]))) {
 						    if (!(queryY.indexOf(Float.parseFloat(array[7])) == queryX
 								    .indexOf(Float.parseFloat(array[0])))) {
+							    userids.add(Long.parseLong(array[5]));
 							    queryY.add(Float.parseFloat(array[7]));
 							    queryX.add(Float.parseFloat(array[9]));
 						    }
 					    } else {
+					            userids.add(Long.parseLong(array[5]));
 						    queryY.add(Float.parseFloat(array[7]));
 						    queryX.add(Float.parseFloat(array[9]));
 					    }
@@ -156,7 +168,6 @@ public class RoadNetwork {
                                         catch (Exception e) {
                                         } 
                                 }
-
 		}
 
 		long tEndid = System.currentTimeMillis();
@@ -227,9 +238,9 @@ public class RoadNetwork {
 		/* TODO remove comments to consider all residential roads
 		 * experiment using 50 roads to evaluate results.
 		 */
-		for (int i = 0; i < nodeListWays.getLength(); i++) { 
+		//for (int i = 0; i < nodeListWays.getLength(); i++) { 
                 
-		//for (int i = 0; i < 50; i++) { 
+		for (int i = 0; i < 50; i++) { 
 			org.w3c.dom.Node nNode = nodeListWays.item(i); // nodeListNodes
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				org.w3c.dom.Node eElement = nNode;
@@ -743,11 +754,15 @@ public class RoadNetwork {
 		double minDistance = Double.MAX_VALUE;
 		double x = 0;
 		double y = 0;
+                System.out.println(userids.size());
+                System.out.println(queryX.size());
+                System.out.println(queryY.size());
 		System.out.println("Assigning People(Tourists/Locals to Intersections");
 		Point2D basePoint = new Point2D.Double(0, 0);
 		Point2D queryPoint = new Point2D.Double(0, 0);
 		String keyM = "";
-		for (int j = 0; j < queryX.size(); j++) {
+		//for (int j = 0; j < queryX.size(); j++) {
+		for (int j = 0; j < userids.size(); j++) {
 			queryPoint = new Point2D.Double(queryX.get(j), queryY.get(j));
 			for (int i = 0; i < finalX.size(); i++) {
 				basePoint.setLocation(finalX.get(i), finalY.get(i));
@@ -762,9 +777,15 @@ public class RoadNetwork {
 	                if (populationAssignment.containsKey(keyM)) {
 		            int num = populationAssignment.get(keyM);
 		            num = num + 1;
+		            String ids = peopleAssignment.get(keyM);
+		            String id = ids + ',';
+                            id = id + userids.get(j);
                             populationAssignment.put(keyM, num);
+                            peopleAssignment.put(keyM, id);
 			} else {
 			    populationAssignment.put(keyM, 1);
+                            //System.out.print(Float.toString(userids.get(j)));
+                            peopleAssignment.put(keyM, Long.toString(userids.get(j)));
                         }
 			minDistance = Double.MAX_VALUE;
 		}
@@ -793,6 +814,7 @@ public class RoadNetwork {
 		org.w3c.dom.Element intersectElement = doc.createElement("intersection");
 		org.w3c.dom.Element road = doc.createElement("road");
 		org.w3c.dom.Element numPopulation = doc.createElement("population");
+		org.w3c.dom.Element users = doc.createElement("users");
 		for (Entry<Long, List<Long>> entry : mapInterSectCodes.entrySet()) {
 			List<Long> val = entry.getValue();
 			Long key = entry.getKey();
@@ -832,13 +854,25 @@ public class RoadNetwork {
 				road = doc.createElement("road");
 
                                 Attr num = doc.createAttribute("num");
+                                Attr ulist = doc.createAttribute("ulist");
 				if (populationAssignment.containsKey(keyF)) {
 					num.setValue(populationAssignment.get(keyF).toString());
 				} else {
 					num.setValue("0");
                                 }
+
+				if (peopleAssignment.containsKey(keyF)) {
+					ulist.setValue(peopleAssignment.get(keyF).toString());
+				} else {
+					ulist.setValue("0");
+                                }
+
+
+
 				numPopulation.setAttributeNode(num);
+				users.setAttributeNode(ulist);
 				intersectElement.appendChild(numPopulation);
+				intersectElement.appendChild(users);
 
 				index++;
 
@@ -849,9 +883,8 @@ public class RoadNetwork {
 
 			rootElement.appendChild(intersectElement);
 			intersectElement = doc.createElement("intersection");
-			//numtourists = doc.createElement("numtourists");
-			//numlocals = doc.createElement("numlocals");
 			numPopulation = doc.createElement("population");
+			users = doc.createElement("users");
 			retrieveEl++;
 		}
 		// write the content into xml file
