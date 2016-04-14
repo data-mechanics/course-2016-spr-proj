@@ -1,4 +1,7 @@
-NOTE: This is an in-progress commit.
+NOTE: This is an in-progress commit. 
+
+NOTE: Currently the code will not run with authentication on due to an access issue for creating indexes on a collection.
+Will continue working to hopefully resolve the problem.
 
 Usage:
 
@@ -15,6 +18,8 @@ Pip install: pip install beautifulsoup4
 I used this library to scrape mbtainfo.com for bus schedules.
 
 TODO:
+
+Fix authorization issue when creating indeces on collection.
 
 Clean up in general but especially index.html and pagerank_pipeline.py
 
