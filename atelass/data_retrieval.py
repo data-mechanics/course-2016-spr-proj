@@ -1,9 +1,13 @@
 import sys
 import requests
-import json
 import pymongo
-import prov.model
+import json
 import time
+import prov.model
+import datetime
+import uuid
+from astral import Astral
+from haversine import haversine
 
 # Until a library is created, we just use the script directly.
 # Path of pymongo_dm.py may need to be changed to ../pymongo_dm.py.
@@ -16,27 +20,15 @@ repo.authenticate('atelass', 'atelass')
 
 # Get authorization information.
 auth = json.loads(open(sys.argv[1]).read())
+mbta_open_development_key = 'wX9NwuHnZU2ToO7GmGR9uw'    # To use in the provenance document
 mbta_api_key = auth['services']['mbtadeveloperportal']['key']
 
-# Approximate sunset/sunrise times for each month in 2015 (source: timeanddate.com).
-# Used the sunset/sunrise time for the 15th day of each month.
-# Assume approximately the same times in 2012-2014 as well.
-sunset_sunrise_times = {1: {'sunset': '16:37', 'sunrise': '07:11'},\
-                        2: {'sunset': '17:16', 'sunrise': '06:41'},\
-                        3: {'sunset': '18:50', 'sunrise': '06:57'},\
-                        4: {'sunset': '19:26', 'sunrise': '06:04'},\
-                        5: {'sunset': '19:59', 'sunrise': '05:23'},\
-                        6: {'sunset': '20:23', 'sunrise': '05:07'},\
-                        7: {'sunset': '20:19', 'sunrise': '05:21'},\
-                        8: {'sunset': '19:46', 'sunrise': '05:51'},\
-                        9: {'sunset': '18:54', 'sunrise': '06:24'},\
-                       10: {'sunset': '18:03', 'sunrise': '06:57'},\
-                       11: {'sunset': '16:22', 'sunrise': '06:35'},\
-                       12: {'sunset': '16:12', 'sunrise': '07:06'}}
-
+# Initialize Astral object for sunrise/sunset data.
+a = Astral()
+city = a['Boston']
 
 # Retrieve datasets.
-print('Beginning to retrieve the crime data at ' + time.strftime('%I:%M:%S%p'))
+print(time.strftime('%I:%M:%S%p') + ': Retrieving crime data...')
 
 crimes_api_endpoint = 'https://data.cityofboston.gov/resource/7cdf-6fgx.json'
 
@@ -45,6 +37,7 @@ limit = 50000
 offset = 0
 
 # Request records.
+crimes_start_time = datetime.datetime.now()
 crimes = []
 x = 50000
 while x == 50000:
@@ -54,7 +47,7 @@ while x == 50000:
     offset += 50000
     x = len(c)
 
-# Get indexes of crimes where lat/long is 0 (i.e., no specific location given).
+# Get indexes of crimes where lat/lon is 0 (i.e., no specific location given).
 indexes = []
 for i in range(len(crimes)):
     if crimes[i]['location']['latitude'] == '0.0' or crimes[i]['location']['longitude'] == '0.0':
@@ -62,47 +55,83 @@ for i in range(len(crimes)):
 
 # Delete the crimes with no specified location.
 num_deleted = 0
-for i in range(len(crimes)):
-    if i in indexes:
-        del(crimes[i - num_deleted])
-        num_deleted += 1
+for index in indexes:
+    del(crimes[index - num_deleted])
+    num_deleted += 1
 
 # Get crimes that occurred between sunset and sunrise (i.e., when the streetlights would probably be on).
 # First get the indexes of these crimes.
 indexes = []
 for i in range(len(crimes)):
-    crime_month= int(crimes[i]['month'])
-    crime_time = crimes[i]['fromdate'].split('T')[1]
-    crime_hour = int(crime_time[0:2])
-    crime_minute = int(crime_time[3:5])
-    sunset_hour = int(sunset_sunrise_times[crime_month]['sunset'][0:2])
-    sunset_minute = int(sunset_sunrise_times[crime_month]['sunset'][3:5])
-    sunrise_hour = int(sunset_sunrise_times[crime_month]['sunrise'][0:2])
-    sunrise_minute = int(sunset_sunrise_times[crime_month]['sunrise'][3:5])
-    if crime_hour >= sunset_hour or crime_hour <= sunrise_hour:
-        if (crime_hour == sunset_hour and crime_minute >= sunset_minute) or (crime_hour == sunrise_hour and crime_minute <= sunrise_minute):
-            indexes.append(i)
+    crime_date_time = crimes[i]['fromdate'].split('T')
+    crime_date = crime_date_time[0].split('-')
+    crime_date = datetime.date(int(crime_date[0]), int(crime_date[1]), int(crime_date[2]))
+    crime_time = crime_date_time[1].split(':')
+    crime_time = datetime.time(int(crime_time[0]), int(crime_time[1]), int(crime_time[2]))
+
+    sunset_time = city.sun(date=crime_date)['sunset']
+    #sunrise_time = city.sun(date=crime_date)['sunrise']
+
+    #if (crime_time.hour > sunset_time.hour or (crime_time.hour == sunset_time.hour and crime_time.minute >= sunset_time.minute)) \
+     #  or (crime_time.hour < sunrise_time.hour or (crime_time.hour == sunrise_time.hour and crime_time.minute <= sunrise_time.minute)):
+
+    # Get crimes from sunset to 1am
+    if (crime_time.hour > sunset_time.hour or (crime_time.hour == sunset_time.hour and crime_time.minute >= sunset_time.minute)) or (crime_time.hour < 1):
+        indexes.append(i)
 
 # Use these indexes to select the appropriate crimes.
 new_crimes = []
-for i in range(len(crimes)):
-    if i in indexes:
-        new_crimes.append(crimes[i])
+for index in indexes:
+    new_crimes.append(crimes[index])
 crimes = new_crimes
+
+# For some reason, all crimes on and after 2015-06-17 (June 17, 2015) have a time of
+# 00:00:00, so remove these since they are inaccurate (I'm assuming here that
+# when these records were inputted, they may not have had the times or just
+# didn't input them).
+index = 0
+for i in range(len(crimes)):
+    if crimes[i]['fromdate'].split('T')[0] == '2015-06-17':
+        index = i
+        break
+
+# Now that we have the index of the first crime on June 17, 2015, we can get rid
+# of it and all crimes after it.
+crimes = crimes[0:index]
+
+# It also appears that there are a large number of crimes on June 16, 2015 that
+# have a time of 00:00:00, so I'll also remove these since it's likely that the
+# times weren't inputted for the same reasons as those above (it's very unlikely
+# that all 110 crimes of these crimes took place at midnight).
+indexes = []
+for i in range(len(crimes)):
+    crime_date_and_time = crimes[i]['fromdate'].split('T')
+    if crime_date_and_time[0] == '2015-06-16':
+        if crime_date_and_time[1] == '00:00:00':
+            indexes.append(i)
+
+num_deleted = 0
+for index in indexes:
+    del(crimes[index - num_deleted])
+    num_deleted += 1
+
+crimes_end_time = datetime.datetime.now()
 
 # Add to MongoDB.
 repo.dropPermanent("crimes")
 repo.createPermanent("crimes")
 repo['atelass.crimes'].insert_many(crimes)
 
-print('Finished retrieving crime data at ' + time.strftime('%I:%M:%S%p'))
-print()
-print('Beginning to retrieve the streetlight data at ' + time.strftime('%I:%M:%S%p'))
+print(time.strftime('%I:%M:%S%p') + ': Completed.')
+
+print(time.strftime('%I:%M:%S%p') + ': Retrieving streetlight data...')
 
 # There doesn't seem to be an API endpoint for this data, so using a URL instead.
 streetlights_url = 'https://data.cityofboston.gov/api/views/fbdp-b7et/rows.geojson'
 
+streetlights_start_time = datetime.datetime.now()
 response = requests.get('https://data.cityofboston.gov/api/views/fbdp-b7et/rows.geojson')
+streetlights_end_time = datetime.datetime.now()
 
 streetlights = response.json()['features']
 
@@ -111,47 +140,105 @@ repo.dropPermanent("streetlights")
 repo.createPermanent("streetlights")
 repo['atelass.streetlights'].insert_many(streetlights)
 
-print('Finished retrieving streetlight data at ' + time.strftime('%I:%M:%S%p'))
-print()
-print('Beginning to get stops data at ' + time.strftime('%I:%M:%S%p'))
+print(time.strftime('%I:%M:%S%p') + ': Completed.')
+print(time.strftime('%I:%M:%S%p') + ': Retrieving stations data...')
 
 # Get Blue, Orange, Red, and B, C, D, E Green Line stop names (only outbound or inbound, not both, since lats and lons seem to be the same.
 stopsbyroute_api_endpoint = 'http://realtime.mbta.com/developer/api/v2/stopsbyroute'
 routes = ['Blue', 'Orange', 'Red', 'Green-B', 'Green-C', 'Green-D', 'Green-E']
 stops = []
+stop_names = []
+
 for route in routes:
     response = requests.get(stopsbyroute_api_endpoint + '?api_key=' + mbta_api_key + '&route=' + route)
-    route_stops = response.json()
-    for i in range(len(route_stops['direction'][0]['stop'])):
-        stop = route_stops['direction'][0]['stop'][i]['stop_name']
-        # Edit format of results (e.g. for 'Griggs Street - Outbound', we onyl want 'Griggs Street').
-        stop = stop.split('-')[0][0:-1]
-        stops.append(stop)
-stops = list(set(stops))    # Get rid of duplicate stops.
+    route_stops = response.json()['direction'][0]['stop']    # Only getting names of stops in one direction
+    for route_stop in route_stops:
+        stop_name = route_stop['stop_name'].split(' - ')[0]
+        if stop_name not in stop_names:    # Get rid of duplicate stops
+            stop_names.append(stop_name)
+            stop_location = (route_stop['stop_lat'], route_stop['stop_lon'])
+            stops.append({'stop_name': stop_name, 'stop_location': stop_location})
 
-# Get stops corresponding to crime locations.
-stopsbylocation_api_endpoint = 'http://realtime.mbta.com/developer/api/v2/stopsbylocation'
-
-stations = []
+stations = []    # Naming it stations since stops is already taken
 count = 0
+stations_start_time = datetime.datetime.now()
 for crime in crimes:
-    if count % 100 == 0:
-        time.sleep(5)
-    lat = crime['location']['latitude']
-    lon = crime['location']['longitude']
-    response = requests.get(stopsbylocation_api_endpoint + '?api_key=' + mbta_api_key + '&lat=' + lat + '\
-&lon=' + lon)
-    stop = response.json()['stop']
-    # Query returns 15 stops, so take the first one, which is the closest to the given latitude and longitude. If no stop is close to it, return None
-    if stop == []:
-        stations.append({crime['compnos']: None})
-    else:
-        stations.append({crime['compnos']: stop[0]})
+    if count > 0 and count % 10000 == 0:
+        print('\t' + time.strftime('%I:%M:%S%p') + ': Gone through ' + str(count) + ' crimes so far.')
+    crime_location = (float(crime['location']['latitude']), float(crime['location']['longitude']))
+    closest_stop = {}
+    closest_stop_distance = 1.0
+    for stop in stops:
+        stop_location = stop['stop_location']
+        stop_location = (float(stop_location[0]), float(stop_location[1]))
+        dist = haversine(crime_location, stop_location, miles=True)
+        if dist <= 1.0:
+            if dist < closest_stop_distance:
+                closest_stop_distance = dist
+                closest_stop = {'stop_name': stop['stop_name'], 'distance': closest_stop_distance,\
+                                'stop_lat': stop['stop_location'][0], 'stop_lon': stop['stop_location'][1]}
+    if closest_stop != {}:    # Ignore crimes that aren't within a 1-mile radius of any stop
+        stations.append({'crime_compnos': crime['compnos'], 'station_info': closest_stop})
     count += 1
+
+stations_end_time = datetime.datetime.now()
 
 # Add to MongoDB.
 repo.dropPermanent("stations")
-repo.addPermanent("stations")
-repo['atelass.stations'] = insert_many(stations)
+repo.createPermanent("stations")
+repo['atelass.stations'].insert_many(stations)
 
-print('Finished getting stops data at ' + time.strftime('%I:%M:%S%p'))
+print(time.strftime('%I:%M:%S%p') + ': Completed.')
+
+
+# Provenance information.
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/atelass/')
+doc.add_namespace('dat', 'http://datamechanics.io/data/atelass/')
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#')
+doc.add_namespace('log', 'http://datamechanics.io/log#')
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc.add_namespace('mbta', 'http://realtime.mbta.com/developer/api/v2/')
+
+this_script = doc.agent('alg:data_retrieval', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+crimes_resource = doc.entity('bdp:7cdf-6fgx', {'prov:label': 'Crime Incident Reports', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+streetlights_resource = doc.entity('bdp:7hu5-gg2y', {'prov:label': 'Streetlight Locations', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'geojson'})
+stopsbyroute_resource = doc.entity('mbta:stopsbyroute', {'prov:label': 'Stops by Route', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+
+# Crimes provenance information.
+get_crimes = doc.activity('log:a'+str(uuid.uuid4()), crimes_start_time, crimes_end_time)
+doc.wasAssociatedWith(get_crimes, this_script)
+doc.usage(get_crimes, crimes_resource, crimes_start_time, None, {prov.model.PROV_TYPE:'ont:Retrieval','ont:Query':('?$limit=' + str(limit) + '&$offset=' + str(offset))})
+
+crimes = doc.entity('dat:crimes', {prov.model.PROV_LABEL:'Crimes', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(crimes, this_script)
+doc.wasGeneratedBy(crimes, get_crimes, crimes_end_time)
+doc.wasDerivedFrom(crimes, crimes_resource, get_crimes)
+
+# Streetlights provenance information
+get_streetlights = doc.activity('log:a'+str(uuid.uuid4()), streetlights_start_time, streetlights_end_time)
+doc.wasAssociatedWith(get_streetlights, this_script)
+doc.used(get_streetlights, streetlights_resource, streetlights_start_time)
+
+streetlights = doc.entity('dat:streetlights', {prov.model.PROV_LABEL:'Streetlights', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(streetlights, this_script)
+doc.wasGeneratedBy(streetlights, get_streetlights, streetlights_end_time)
+doc.wasDerivedFrom(streetlights, streetlights_resource, get_streetlights)
+
+# Stations provenance information
+get_stations = doc.activity('log:a'+str(uuid.uuid4()), stations_start_time, stations_end_time)
+doc.wasAssociatedWith(get_stations, this_script)
+doc.used(get_stations, stopsbyroute_resource, stations_start_time)
+doc.used(get_stations, crimes, stations_start_time)
+
+stations = doc.entity('dat:stations', {prov.model.PROV_LABEL:'Stations', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(stations, this_script)
+doc.wasGeneratedBy(stations, get_stations, stations_end_time)
+doc.wasDerivedFrom(stations, stopsbyroute_resource, get_stations)
+doc.wasDerivedFrom(stations, crimes, get_stations)
+
+repo.record(doc.serialize())
+open('plan.json', 'w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+#print(doc.get_provn())
+repo.logout()
