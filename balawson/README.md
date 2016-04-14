@@ -31,7 +31,7 @@ Legend (TODO: fix crude legend):
 * Blue : Brightkite
 * Green: Gowalla
 
-![timeline of the datasets above](/balawson/postsperdaysmall.png)
+![timeline of the datasets above](/balawson/img/postsperdaysmall.png)
 
 ###Twitter
 This is a curated twitter dataset filtered for geotagged tweets in the Boston area, collected from the public stream. Currently, the only information considered are attributes shared by the Brightkite and Gowalla datasets, geocoordinates and user id. Other information available include the full Twitter API offering, including the actual tweet posted. 
@@ -49,7 +49,7 @@ Legend (TODO: fix crude legend):
 * Red  : Twitter 
 
 
-![timeline of the datasets above](/balawson/postsperday.png)
+![timeline of the datasets above](/balawson/img/postsperday.png)
 
 
 ###Are these datasets saying the same thing?
@@ -58,7 +58,7 @@ Legend (TODO: fix crude legend):
 * Colors are the same. 
 * y-axis represents the percentage of posts posted during each hour
 * 24 hour scale on x-axis
-![posts by the hour](/balawson/postsbyhour.png)
+![posts by the hour](/balawson/img/postsbyhour.png)
 
 #####Posts by the hour by location
 
@@ -94,6 +94,20 @@ It is used to determine if two samples came from the same distrutibutions. I use
 
 Clustering this data represents locations that are very attractive. This means there is a large number of posts near these locations. Further clustering methods will incoroporate time of day, number of users, and posts per user. I choose k to be square root of n as a rule of thumb for determing k. This will be improved by one of the metrics described in the [Wikipedia article](https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)
 
+####Data Segmentation
+We use Open Street Maps to indentify intersections and map social media posts to the closest intersection. Orginal code was created by [Sofia Maria Nikolakaki](https://cs-people.bu.edu/smnikol). New contributions include preserving user ids when associating posts to intersections, for use with mark and recapture and potentially other methods, and a caching mechanism when creating large data strutures. This optimization allows for the scipt to run under 10 minutes (down from >2 hours), thus allowing us to run the script for different datas in a reasonal time.
+
+####Mark & Recapture
+Since social media presence is only a sample of true human movement in the wild, it will be useful to try to estimate what the true population is based on the social media posts collected. Using [Capture-Recapture](http://cs-people.bu.edu/lapets/591/s.php#1121b48a2e1040808d9538ff15ae342f) we essentially treat tweeters, gowalla'ers, and brightkiters as animals that are caught in a trap, given a single day. Then when we check the 'trap' the next day we check to see how many of these users that we've seen before. For the first pass, we will use this estimation on the city level, but will focus in on a intersection by intersection. Since we do have the true population of Downtown Boston, [16,298](http://archive.boston.com/yourtown/news/downtown/2011/04/census_data_downtown_populatio.html), we can cross-verify our results. Using a sample of the twitter data and a waiting period of 5 days, we found an estimate of 2,215... off by a order of magnitude. To minimize this error, we will test different waiting periods as well as increase granularity (i.e. intersections). Once we find the proper parameters, we can use this information to model the population at an intersection on a given day and time.  
+
+####Cross-validation
+We attempted to use the [web cam](http://www.bu.edu/av/alumni/marsh/image.jpg?1460605284161) to create a truth dataset to cross validate population estimates derived from the sampling methods. The image quality is too small for the default OpenCV person detector. We began data collection to try to use a background subtraction method, but the data but our hard drive space filled up and many of the images were corrupted in the collection process. Currently on hold. Methods of cross-validation will be based on census data.
+
+####To do
+Create visualization display the popularity of intersections. Circles will grow in size for populations, x,y axis will be lat/lng and the time will be the third dimension. 
+
+Estimate populations for each intersection
+
 ##Setup
 code is for debian-based systems
 
@@ -112,10 +126,11 @@ pip install -r requirements.txt
 ```
 python collect.py
 ```
-###To compare and cluster
+###To compare, cluster, and capture
 ```
 python compare.py
 python cluster.py
+python capture-recapture.py
 ```
 ###To generate visualizations of data
 ```
