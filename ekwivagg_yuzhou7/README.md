@@ -1,16 +1,16 @@
-Erica Wivagg (ekwivagg@bu.edu)
-Yu Zhou (yuzhou7@bu.edu)
+<p>Erica Wivagg (ekwivagg@bu.edu)</p>
+<p>Yu Zhou (yuzhou7@bu.edu)</p>
 
 <h2>To run:</h2>
-
-run_project.py : will run all associated project 1 scripts:
-retrieval.py : retrieves and filters all data from City of Boston opendata
-rodent_problems.py : performs a join to determine which restaurants have rodent problems nearby
-inspections.py : performs a join to determine which licensed restaurants failed inspection
-get_crime.py : retrieves all larceny from vehicle crimes
-get_closest_stop.py : finds closest stop for every restaurant
-get_liquor.py : finds closest stop for every restaurant with a liquor license
-
+<sl>
+<li>run_project.py : will run all associated project 1 scripts:</li>
+<li>retrieval.py : retrieves and filters all data from City of Boston opendata</li>
+<li>rodent_problems.py : performs a join to determine which restaurants have rodent problems nearby</li>
+<li>inspections.py : performs a join to determine which licensed restaurants failed inspection</li>
+<li>get_crime.py : retrieves all larceny from vehicle crimes</li>
+<li>get_closest_stop.py : finds closest stop for every restaurant</li>
+<li>get_liquor.py : finds closest stop for every restaurant with a liquor license</li>
+</sl>
 
 <h2>Datasets used:</h2>
 
