@@ -96,7 +96,7 @@ def trafficJamsByHospitalsInZip(collection1, collection2):
 	return dictionary
 
 jamsByZip = trafficJamsByHospitalsInZip(hospitalByZip,intersectHJ)
-			
+
 def hospitalCountPropertyValue(collection1, collection2):
 	dictionary = {}
 	for elem1 in collection1.items():
@@ -108,29 +108,22 @@ def hospitalCountPropertyValue(collection1, collection2):
 	return dictionary
 
 countValue = hospitalCountPropertyValue(hospitalCount, avg_property_values)
-print(countValue)
 jamsValues = hospitalCountPropertyValue(jamsByZip, avg_property_values)
-print(jamsValues)
-print()
+
 
 def stats(collection):
 	keys, values = collection.keys(), collection.values()
 	x = [x for (x , y) in values]
 	y = [y for (x , y) in values]
-	print("Covariance = " + str(cov(x,y)))
-	print("Correlation coefficient = " + str(corr(x,y)))
-	print("p value = " + str(p(x,y)))
-	return
+	# print("Covariance = " + str(cov(x,y)))
+	# print("Correlation coefficient = " + str(corr(x,y)))
+	# print("p value = " + str(p(x,y)))
+	return corr(x,y)
 
-print("Property Values and Hospital Count Stats")
-stats(countValue)
-print()
-print("Property Values and Jams By Hospital Stats")
-stats(jamsValues)
-
-
-
-
-
-
-
+# print("Property Values and Hospital Count Stats")
+countCorr = stats(countValue)
+# print(countCorr)
+# print()
+# print("Property Values and Jams By Hospital Stats")
+jamCorr = stats(jamsValues)
+print(jamCorr)
