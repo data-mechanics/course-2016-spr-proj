@@ -3,7 +3,7 @@
 
 To goal of this project will be to analyze the usefulness of historial social media data as a preditor of human movement. 
 
-
+*note: throughout, I use first-person plural, but I really mean first-person singular.*
 ##Datasets
 
 ###Brightkite
@@ -102,6 +102,9 @@ Since social media presence is only a sample of true human movement in the wild,
 
 ####Cross-validation
 We attempted to use the [web cam](http://www.bu.edu/av/alumni/marsh/image.jpg?1460605284161) to create a truth dataset to cross validate population estimates derived from the sampling methods. The image quality is too small for the default OpenCV person detector. We began data collection to try to use a background subtraction method, but the data but our hard drive space filled up and many of the images were corrupted in the collection process. Currently on hold. Methods of cross-validation will be based on census data.
+
+####I ask for forgivenss
+The XML mess is hideous. Currently working on trying to make it not too much of a pain. There are lots of intermediate files and we are working relying less on these and more of stashing information in mongo.
 
 ####To do
 Create visualization display the popularity of intersections. Circles will grow in size for populations, x,y axis will be lat/lng and the time will be the third dimension. 
