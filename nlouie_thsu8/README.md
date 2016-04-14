@@ -19,6 +19,11 @@ We think solving this gives insight on how lighting plays a role in the incidenc
 #### Crime Incidents
 - [Crime Incidents](https://data.cityofboston.gov/resource/7cdf-6fgx.json). 
 
+### Transformations
+- Convert JSON -> Text
+- Feed Text -> Hive/Hadoop
+- Get Final Result. 
+
 ### Visualizations
 
 - The visualization can be found in `index.html`. 
