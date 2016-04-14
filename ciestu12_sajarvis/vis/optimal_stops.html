@@ -39,7 +39,7 @@
     <br>
     <h3>Optimal Stops</h3>
     <p> This visual shows optimal stops based on different calculated <i>k</i>-means scores. We use a variant of the <i>k</i>-means clustering algorithm that also takes into account a given weight for each point. The weight, in this case, will be a function of the stop's popularity and the proximity to the nearest alternative.</p>
-    
+
     <p>Initally, the map shows the current existing Green Line stops, where <i>k</i> = 0. By playing with the sliders and changing the value of <i>k</i>, you can see the optimal <i>k</i> stops for that branch. </p>
 
     <p>Each of the original stops are represented by a transparent circle of corresponding color (see key in left-hand corner). Each optimal stop will appear as a solid circle of corresponding color with a black border. </p>
@@ -51,7 +51,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script>
 
-    // Load the openstreetmap
+    // Load the openstreetmap. Based off the introductory example at: http://leafletjs.com/examples/quick-start.html
     var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
     // The starting coords and zoom just look good.
     var map = L.map('map').setView([42.35, -71.11], 13);
