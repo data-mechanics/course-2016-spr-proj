@@ -53,6 +53,8 @@ repo['linshan_luoty.zip_avg_earnings'].insert_many(zip_avg_earnings)
 
 endTime = datetime.datetime.now()
 	
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -71,7 +73,7 @@ this_script = doc.agent('alg:get_avg_earning', {prov.model.PROV_TYPE:prov.model.
 
 earning_zip = doc.entity('dat:earnings_zips', {prov.model.PROV_LABEL:'Earnings Zips', prov.model.PROV_TYPE:'ont:DataSet'})
 
-get_avg_earning = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_avg_earning = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Calculate the average earnings for each zip."})
 doc.wasAssociatedWith(get_avg_earning, this_script)
 doc.usage(get_avg_earning, earning_zip, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'

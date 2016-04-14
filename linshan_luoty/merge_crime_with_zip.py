@@ -33,6 +33,8 @@ repo['linshan_luoty.crime_zips'].insert_many(crime_zips)
 
 endTime = datetime.datetime.now()
 	
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -52,7 +54,7 @@ this_script = doc.agent('alg:merge_crime_with_zip', {prov.model.PROV_TYPE:prov.m
 crime = doc.entity('dat:crime_incident_reports', {prov.model.PROV_LABEL:'Crime Incident Reports', prov.model.PROV_TYPE:'ont:DataSet'})
 zip_location = doc.entity('dat:zips_locations', {prov.model.PROV_LABEL:'Zips Locations', prov.model.PROV_TYPE:'ont:DataSet'})
 
-merge_crime_with_zip = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+merge_crime_with_zip = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Merge crimes with zips."})
 doc.wasAssociatedWith(merge_crime_with_zip, this_script)
 doc.usage(merge_crime_with_zip, crime, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'

@@ -33,6 +33,9 @@ for title in datasets:
 
 endTime = datetime.datetime.now()
 
+startTime = None
+endTime = None
+
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
 # document describing that invocation event. This information
@@ -45,7 +48,7 @@ this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.mode
 
 # crime incidents
 crime_resource = doc.entity('bdp:7cdf-6fgx', {'prov:label':'311, Service Requests', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
-get_crime = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_crime = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Retrieve datasets."})
 doc.wasAssociatedWith(get_crime, this_script)
 doc.usage(get_crime, crime_resource, startTime, None,
         {prov.model.PROV_TYPE:'ont:Retrieval',

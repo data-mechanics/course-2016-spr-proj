@@ -58,6 +58,8 @@ f.close()
 
 endTime = datetime.datetime.now()
 
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -77,7 +79,7 @@ this_script = doc.agent('alg:merge_zip_crime_earnings', {prov.model.PROV_TYPE:pr
 zip_location_crimes = doc.entity('dat:zip_location_crimes', {prov.model.PROV_LABEL:'Zip Location Crimes', prov.model.PROV_TYPE:'ont:DataSet'})
 zip_avg_earning = doc.entity('dat:zip_avg_earnings', {prov.model.PROV_LABEL:'Zips Average Earnings', prov.model.PROV_TYPE:'ont:DataSet'})
 
-merge_zip_crime_earnings = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+merge_zip_crime_earnings = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Merge zips, crimes, locations, and earnings."})
 doc.wasAssociatedWith(merge_zip_crime_earnings, this_script)
 doc.usage(merge_zip_crime_earnings, zip_location_crimes, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'

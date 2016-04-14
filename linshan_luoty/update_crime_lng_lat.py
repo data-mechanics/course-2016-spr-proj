@@ -29,6 +29,8 @@ for document in db.find():
 
 endTime = datetime.datetime.now()
 	
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -47,7 +49,7 @@ this_script = doc.agent('alg:update_crime_lng_lat', {prov.model.PROV_TYPE:prov.m
 
 crime = doc.entity('dat:crime_incident_reports', {prov.model.PROV_LABEL:'Crime Incident Reports', prov.model.PROV_TYPE:'ont:DataSet'})
 
-update_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+update_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Update location info."})
 doc.wasAssociatedWith(update_location, this_script)
 doc.usage(update_location, crime, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'

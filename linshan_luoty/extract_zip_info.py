@@ -52,6 +52,8 @@ repo['linshan_luoty.zips_locations'].insert_many(zips_locations)
 
 endTime = datetime.datetime.now()
 
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -65,7 +67,7 @@ this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.mode
 
 building = doc.entity('dat:approved_building_permits', {prov.model.PROV_LABEL:'Approved Building Permits', prov.model.PROV_TYPE:'ont:DataSet'})
 
-get_zip_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_zip_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Extract zips and location info"})
 doc.wasAssociatedWith(get_zip_location, this_script)
 doc.usage(get_zip_location, building, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'

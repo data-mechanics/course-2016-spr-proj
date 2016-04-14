@@ -27,6 +27,8 @@ repo['linshan_luoty.earnings_zips'].insert_many(earnings_zips)
 
 endTime = datetime.datetime.now()
 	
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -45,7 +47,7 @@ this_script = doc.agent('alg:extract_earnings_zips', {prov.model.PROV_TYPE:prov.
 
 earning = doc.entity('dat:employee_earnings_report_2014', {prov.model.PROV_LABEL:'Employee Earnings Report 2014', prov.model.PROV_TYPE:'ont:DataSet'})
 
-extract_earning_zip = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+extract_earning_zip = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Extract earnings and zips."})
 doc.wasAssociatedWith(extract_earning_zip, this_script)
 doc.usage(extract_earning_zip, earning, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'
