@@ -1,0 +1,162 @@
+[{
+  "United States": {
+    "Pop in Group Quarters":7987323,
+    "% of Total Population":"2.6%",
+    "Institutionalized* Population":3993659,
+    "% of Group Quarters Pop":"50.0%",
+    "Non-Institutionalized** Population":3993664,
+    "% of Group Quarters Pop":"50.0%"
+  },
+  "Massachusetts": {
+    "Pop in Group Quarters":238882,
+    "% of Total Population":"3.6%",
+    "Institutionalized* Population":74667,
+    "% of Group Quarters Pop":"31.3%",
+    "Non-Institutionalized** Population":164215,
+    "% of Group Quarters Pop":"68.7%"
+  },
+  "Boston": {
+    "Pop in Group Quarters":46214,
+    "% of Total Population":"7.5%",
+    "Institutionalized* Population":6697,
+    "% of Group Quarters Pop":"14.5%",
+    "Non-Institutionalized** Population":39517,
+    "% of Group Quarters Pop":"85.5%"
+  },
+  "Allston/Brighton": {
+    "Pop in Group Quarters":9593,
+    "% of Total Population":"12.8%",
+    "Institutionalized* Population":332,
+    "% of Group Quarters Pop":"3.5%",
+    "Non-Institutionalized** Population":9261,
+    "% of Group Quarters Pop":"96.5%"
+  },
+  "Back Bay": {
+    "Pop in Group Quarters":1819,
+    "% of Total Population":"6.6%",
+    "Institutionalized* Population":52,
+    "% of Group Quarters Pop":"2.9%",
+    "Non-Institutionalized** Population":1767,
+    "% of Group Quarters Pop":"97.1%"
+  },
+  "Central": {
+    "Pop in Group Quarters":4660,
+    "% of Total Population":"15.1%",
+    "Institutionalized* Population":896,
+    "% of Group Quarters Pop":"19.2%",
+    "Non-Institutionalized** Population":3764,
+    "% of Group Quarters Pop":"80.8%"
+  },
+  "Charlestown": {
+    "Pop in Group Quarters":126,
+    "% of Total Population":"0.8%",
+    "Institutionalized* Population":0,
+    "% of Group Quarters Pop":"0.0%",
+    "Non-Institutionalized** Population":126,
+    "% of Group Quarters Pop":"100.0%"
+  },
+  "East Boston": {
+    "Pop in Group Quarters":229,
+    "% of Total Population":"0.6%",
+    "Institutionalized* Population":95,
+    "% of Group Quarters Pop":"41.5%",
+    "Non-Institutionalized** Population":134,
+    "% of Group Quarters Pop":"58.5%"
+  },
+  "Fenway/Kenmore": {
+    "Pop in Group Quarters":18596,
+    "% of Total Population":"45.5%",
+    "Institutionalized* Population":170,
+    "% of Group Quarters Pop":"0.9%",
+    "Non-Institutionalized** Population":18426,
+    "% of Group Quarters Pop":"99.1%"
+  },
+  "Harbor Islands": {
+    "Pop in Group Quarters":535,
+    "% of Total Population":"100.0%",
+    "Institutionalized* Population":0,
+    "% of Group Quarters Pop":"0.0%",
+    "Non-Institutionalized** Population":535,
+    "% of Group Quarters Pop":"100.0%"
+  },
+  "Hyde Park": {
+    "Pop in Group Quarters":287,
+    "% of Total Population":"0.9%",
+    "Institutionalized* Population":193,
+    "% of Group Quarters Pop":"67.2%",
+    "Non-Institutionalized** Population":94,
+    "% of Group Quarters Pop":"32.8%"
+  },
+  "Jamaica Plain": {
+    "Pop in Group Quarters":1439,
+    "% of Total Population":"3.6%",
+    "Institutionalized* Population":974,
+    "% of Group Quarters Pop":"67.7%",
+    "Non-Institutionalized** Population":465,
+    "% of Group Quarters Pop":"32.3%"
+  },
+  "Mattapan": {
+    "Pop in Group Quarters":473,
+    "% of Total Population":"1.4%",
+    "Institutionalized* Population":290,
+    "% of Group Quarters Pop":"61.3%",
+    "Non-Institutionalized** Population":183,
+    "% of Group Quarters Pop":"38.7%"
+  },
+  "North Dorchester": {
+    "Pop in Group Quarters":1957,
+    "% of Total Population":"6.9%",
+    "Institutionalized* Population":1543,
+    "% of Group Quarters Pop":"78.8%",
+    "Non-Institutionalized** Population":414,
+    "% of Group Quarters Pop":"21.2%"
+  },
+  "Roslindale": {
+    "Pop in Group Quarters":755,
+    "% of Total Population":"2.3%",
+    "Institutionalized* Population":531,
+    "% of Group Quarters Pop":"70.3%",
+    "Non-Institutionalized** Population":224,
+    "% of Group Quarters Pop":"29.7%"
+  },
+  "Roxbury": {
+    "Pop in Group Quarters":617,
+    "% of Total Population":"1.0%",
+    "Institutionalized* Population":80,
+    "% of Group Quarters Pop":"13.0%",
+    "Non-Institutionalized** Population":537,
+    "% of Group Quarters Pop":"87.0%"
+  },
+  "South Boston": {
+    "Pop in Group Quarters":672,
+    "% of Total Population":"2.0%",
+    "Institutionalized* Population":385,
+    "% of Group Quarters Pop":"57.3%",
+    "Non-Institutionalized** Population":287,
+    "% of Group Quarters Pop":"42.7%"
+  },
+  "South Dorchester": {
+    "Pop in Group Quarters":690,
+    "% of Total Population":"1.2%",
+    "Institutionalized* Population":352,
+    "% of Group Quarters Pop":"51.0%",
+    "Non-Institutionalized** Population":338,
+    "% of Group Quarters Pop":"49.0%"
+  },
+  "South End": {
+    "Pop in Group Quarters":3108,
+    "% of Total Population":"9.0%",
+    "Institutionalized* Population":197,
+    "% of Group Quarters Pop":"6.3%",
+    "Non-Institutionalized** Population":2911,
+    "% of Group Quarters Pop":"93.7%"
+  },
+  "West Roxbury": {
+    "Pop in Group Quarters":658,
+    "% of Total Population":"2.2%",
+    "Institutionalized* Population":607,
+    "% of Group Quarters Pop":"92.2%",
+    "Non-Institutionalized** Population":51,
+    "% of Group Quarters Pop":"7.8%"
+  }
+}]

@@ -1,0 +1,102 @@
+[{
+  "United States": {
+    "2000 Total Housing Units":"115904641",
+    "2010 Total Housing Units":"131704730",
+    "% Change":"13.6%"
+  },
+  "Massachusetts": {
+    "2000 Total Housing Units":"2621989",
+    "2010 Total Housing Units":"2808254",
+    "% Change":"7.1%"
+  },
+  "Boston": {
+    "2000 Total Housing Units":"251935",
+    "2010 Total Housing Units":"272481",
+    "% Change":"8.2%"
+  },
+  "Allston/Brighton": {
+    "2000 Total Housing Units":"30988",
+    "2010 Total Housing Units":"31912",
+    "% Change":"3.0%"
+  },
+  "Back Bay": {
+    "2000 Total Housing Units":"17912",
+    "2010 Total Housing Units":"18396",
+    "% Change":"2.7%"
+  },
+  "Central": {
+    "2000 Total Housing Units":"14220",
+    "2010 Total Housing Units":"17891",
+    "% Change":"25.8%"
+  },
+  "Charlestown": {
+    "2000 Total Housing Units":"7755",
+    "2010 Total Housing Units":"8648",
+    "% Change":"11.5%"
+  },
+  "East Boston": {
+    "2000 Total Housing Units":"15078",
+    "2010 Total Housing Units":"15854",
+    "% Change":"5.1%"
+  },
+  "Fenway/Kenmore": {
+    "2000 Total Housing Units":"13159",
+    "2010 Total Housing Units":"14390",
+    "% Change":"9.4%"
+  },
+  "Harbor Islands": {
+    "2000 Total Housing Units":"-",
+    "2010 Total Housing Units":"-",
+    "% Change":"-"
+  },
+  "Hyde Park": {
+    "2000 Total Housing Units":"11877",
+    "2010 Total Housing Units":"12287",
+    "% Change":"3.5%"
+  },
+  "Jamaica Plain": {
+    "2000 Total Housing Units":"16554",
+    "2010 Total Housing Units":"17650",
+    "% Change":"6.6%"
+  },
+  "Mattapan": {
+    "2000 Total Housing Units":"13101",
+    "2010 Total Housing Units":"13558",
+    "% Change":"3.5%"
+  },
+  "North Dorchester": {
+    "2000 Total Housing Units":"10311",
+    "2010 Total Housing Units":"11081",
+    "% Change":"7.5%"
+  },
+  "Roslindale": {
+    "2000 Total Housing Units":"13247",
+    "2010 Total Housing Units":"13651",
+    "% Change":"3.0%"
+  },
+  "Roxbury": {
+    "2000 Total Housing Units":"22423",
+    "2010 Total Housing Units":"24964",
+    "% Change":"11.3%"
+  },
+  "South Boston": {
+    "2000 Total Housing Units":"15031",
+    "2010 Total Housing Units":"17623",
+    "% Change":"17.2%"
+  },
+  "South Dorchester": {
+    "2000 Total Housing Units":"22615",
+    "2010 Total Housing Units":"23608",
+    "% Change":"4.4%"
+  },
+  "South End": {
+    "2000 Total Housing Units":"15267",
+    "2010 Total Housing Units":"17422",
+    "% Change":"14.1%"
+  },
+  "West Roxbury": {
+    "2000 Total Housing Units":"12397",
+    "2010 Total Housing Units":"13546",
+    "% Change":"9.3%"
+  }
+}]

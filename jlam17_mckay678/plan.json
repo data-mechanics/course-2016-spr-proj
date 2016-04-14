@@ -1,0 +1,29 @@
+document
+  prefix ont <http://datamechanics.io/ontology#>
+  prefix dat <http://datamechanics.io/data/jlam17_mckay678/>
+  prefix alg <http://datamechanics.io/algorithm/jlam17_mckay678/>
+  prefix bdp <https://data.cityofboston.gov/resource/>
+  prefix log <http://datamechanics.io/log#>
+  
+  agent(alg:foodLocations, [prov:type='prov:SoftwareAgent', ont:Extension="py"])
+  entity(bdp:wc8w-nujj, [prov:type="ont:DataResource", ont:Extension="json", prov:label="Active Food Establishment Licenses"])
+  activity(log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:19.220478, 2016-04-13T17:43:22.001121, [prov:type="ont:Computation", ont:Query="?accessType=DOWNLOAD"])
+  wasAssociatedWith(log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, alg:foodLocations, -)
+  used(log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, bdp:wc8w-nujj, 2016-04-13T17:43:19.220478)
+  entity(dat:foodEst, [prov:type="ont:DataSet", prov:label="foodEst"])
+  wasAttributedTo(dat:foodEst, alg:foodLocations)
+  wasGeneratedBy(dat:foodEst, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
+  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
+  entity(dat:cornerStore, [prov:type="ont:DataSet", prov:label="cornerStore"])
+  wasAttributedTo(dat:cornerStore, alg:foodLocations)
+  wasGeneratedBy(dat:cornerStore, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
+  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
+  entity(dat:foodPantry, [prov:type="ont:DataSet", prov:label="foodPantry"])
+  wasAttributedTo(dat:foodPantry, alg:foodLocations)
+  wasGeneratedBy(dat:foodPantry, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
+  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
+  entity(dat:retailBakery, [prov:type="ont:DataSet", prov:label="retailBakery"])
+  wasAttributedTo(dat:retailBakery, alg:foodLocations)
+  wasGeneratedBy(dat:retailBakery, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
+  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
+endDocument
