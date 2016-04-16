@@ -11,18 +11,12 @@ var output_col = "nikolaj.stops_with_neighs"
 
 db[input_col].ensureIndex({coords:"2dsphere"});
 
-// db[input_col].find().forEach(function(st) { 
-//     db[output_col].insert(st);
-// });
-
 var XY = output_col;
 var X = input_col;
 var Y = input_col;
 
-// db[XY].remove({});
 dropPerm(XY)
 createPerm(XY)
-// db.createCollection(XY);
 db[X].find().forEach(function(x) { 
     x['geo_neighs'] = [];
     x['geo_neigh_routes'] = [];
