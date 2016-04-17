@@ -95,7 +95,7 @@ var createCreate =
         + "  repo.runCommand({grantPrivilegesToRole:user,"
         + "    privileges: ["
         + "        { resource:{db:'" + config.repo.name + "', collection:collName },"
-        + "          actions:['find','insert','remove','update'] }"
+        + "          actions:['find','insert','remove','update','createIndex'] }"
         + "      ]"
         + "  });"
         + "  repo.auth(user, pwd);"

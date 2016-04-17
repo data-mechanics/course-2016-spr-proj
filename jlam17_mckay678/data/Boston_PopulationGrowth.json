@@ -1,0 +1,102 @@
+[{
+  "United States": {
+    "2000: Total Population":281421906,
+    "2010: Total Population":308745538,
+    "% Change":"9.7%"
+  },
+  "Massachusetts": {
+    "2000: Total Population":6349097,
+    "2010: Total Population":6547629,
+    "% Change":"3.1%"
+  },
+  "Boston": {
+    "2000: Total Population":589141,
+    "2010: Total Population":617594,
+    "% Change":"4.8%"
+  },
+  "Allston/Brighton": {
+    "2000: Total Population":69648,
+    "2010: Total Population":74997,
+    "% Change":"7.7%"
+  },
+  "Back Bay": {
+    "2000: Total Population":26721,
+    "2010: Total Population":27476,
+    "% Change":"2.8%"
+  },
+  "Central": {
+    "2000: Total Population":25193,
+    "2010: Total Population":30901,
+    "% Change":"22.7%"
+  },
+  "Charlestown": {
+    "2000: Total Population":15195,
+    "2010: Total Population":16439,
+    "% Change":"8.2%"
+  },
+  "East Boston": {
+    "2000: Total Population":38413,
+    "2010: Total Population":40508,
+    "% Change":"5.5%"
+  },
+  "Fenway/Kenmore": {
+    "2000: Total Population":35602,
+    "2010: Total Population":40898,
+    "% Change":"14.9%"
+  },
+  "Harbor Islands": {
+    "2000: Total Population":640,
+    "2010: Total Population":535,
+    "% Change":"-16.4%"
+  },
+  "Hyde Park": {
+    "2000: Total Population":31553,
+    "2010: Total Population":31813,
+    "% Change":"0.8%"
+  },
+  "Jamaica Plain": {
+    "2000: Total Population":38196,
+    "2010: Total Population":39897,
+    "% Change":"4.5%"
+  },
+  "Mattapan": {
+    "2000: Total Population":37607,
+    "2010: Total Population":34616,
+    "% Change":"-8.0%"
+  },
+  "North Dorchester": {
+    "2000: Total Population":28775,
+    "2010: Total Population":28384,
+    "% Change":"-1.4%"
+  },
+  "Roslindale": {
+    "2000: Total Population":34663,
+    "2010: Total Population":32589,
+    "% Change":"-6.0%"
+  },
+  "Roxbury": {
+    "2000: Total Population":56657,
+    "2010: Total Population":59790,
+    "% Change":"5.5%"
+  },
+  "South Boston": {
+    "2000: Total Population":29965,
+    "2010: Total Population":33688,
+    "% Change":"12.4%"
+  },
+  "South Dorchester": {
+    "2000: Total Population":63340,
+    "2010: Total Population":59949,
+    "% Change":"-5.4%"
+  },
+  "South End": {
+    "2000: Total Population":28220,
+    "2010: Total Population":34669,
+    "% Change":"22.9%"
+  },
+  "West Roxbury": {
+    "2000: Total Population":28753,
+    "2010: Total Population":30445,
+    "% Change":"5.9%"
+  }
+}]

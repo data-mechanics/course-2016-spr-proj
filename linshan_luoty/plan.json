@@ -1,604 +1,433 @@
-[
 {
-    "activity": {
-        "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f": {
-            "prov:startTime": "2016-03-01T23:06:19.391018",
-            "prov:endTime": "2016-03-01T23:06:46.476210"
-        },
-        "log:a7070248b-c720-4005-8b9e-10f9193fd199": {
-            "prov:startTime": "2016-03-01T23:06:19.391018",
-            "prov:endTime": "2016-03-01T23:06:46.476210"
-        },
-        "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d": {
-            "prov:startTime": "2016-03-01T23:06:19.391018",
-            "prov:endTime": "2016-03-01T23:06:46.476210"
-        }
-    },
-    "agent": {
-        "alg:retrieve_datasets": {
-            "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "entity": {
-        "bdp:4swk-wcg8": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "311, Service Requests"
-        },
-        "dat:employee_earnings_report_2014": {
-            "prov:label": "Employee Earnings Report 2014",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:crime_incident_reports": {
-            "prov:label": "Crime Incident Reports",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:approved_building_permits": {
-            "prov:label": "Approved Building Permits",
-            "prov:type": "ont:DataSet"
-        },
-        "bdp:msk6-43c6": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "311, Service Requests"
-        },
-        "bdp:7cdf-6fgx": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "311, Service Requests"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id15": {
-            "prov:usage": "log:a7070248b-c720-4005-8b9e-10f9193fd199",
-            "prov:usedEntity": "bdp:msk6-43c6",
-            "prov:generatedEntity": "dat:approved_building_permits",
-            "prov:activity": "log:a7070248b-c720-4005-8b9e-10f9193fd199",
-            "prov:generation": "log:a7070248b-c720-4005-8b9e-10f9193fd199"
-        },
-        "_:id10": {
-            "prov:usage": "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f",
-            "prov:usedEntity": "bdp:4swk-wcg8",
-            "prov:generatedEntity": "dat:employee_earnings_report_2014",
-            "prov:activity": "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f",
-            "prov:generation": "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f"
-        },
-        "_:id5": {
-            "prov:usage": "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d",
-            "prov:usedEntity": "bdp:7cdf-6fgx",
-            "prov:generatedEntity": "dat:crime_incident_reports",
-            "prov:activity": "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d",
-            "prov:generation": "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d"
-        }
-    },
-    "used": {
-        "_:id2": {
-            "prov:activity": "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d",
-            "prov:time": "2016-03-01T23:06:19.391018",
-            "prov:entity": "bdp:7cdf-6fgx",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "?year=2014&$limit=50000"
-        },
-        "_:id7": {
-            "prov:activity": "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f",
-            "prov:time": "2016-03-01T23:06:19.391018",
-            "prov:entity": "bdp:4swk-wcg8",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "?$limit=50000"
-        },
-        "_:id12": {
-            "prov:activity": "log:a7070248b-c720-4005-8b9e-10f9193fd199",
-            "prov:time": "2016-03-01T23:06:19.391018",
-            "prov:entity": "bdp:msk6-43c6",
-            "prov:type": "ont:Retrieval",
-            "ont:Query": "?$limit=50000"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:activity": "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d",
-            "prov:time": "2016-03-01T23:06:46.476210",
-            "prov:entity": "dat:crime_incident_reports"
-        },
-        "_:id9": {
-            "prov:activity": "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f",
-            "prov:time": "2016-03-01T23:06:46.476210",
+    "wasAttributedTo": {
+        "_:id42": {
+            "prov:agent": "alg:retrieve_datasets",
             "prov:entity": "dat:employee_earnings_report_2014"
         },
-        "_:id14": {
-            "prov:activity": "log:a7070248b-c720-4005-8b9e-10f9193fd199",
-            "prov:time": "2016-03-01T23:06:46.476210",
+        "_:id39": {
+            "prov:agent": "alg:update_crime_lng_lat",
+            "prov:entity": "dat:crime_incident_reports"
+        },
+        "_:id40": {
+            "prov:agent": "alg:retrieve_datasets",
             "prov:entity": "dat:approved_building_permits"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:activity": "log:a727a1177-c3b1-4e87-96f5-44b8dc25199d",
-            "prov:agent": "alg:retrieve_datasets"
         },
-        "_:id11": {
-            "prov:activity": "log:a7070248b-c720-4005-8b9e-10f9193fd199",
-            "prov:agent": "alg:retrieve_datasets"
-        },
-        "_:id6": {
-            "prov:activity": "log:a7e4fb6f5-2996-4ad3-b6e0-9531cb7ceb1f",
-            "prov:agent": "alg:retrieve_datasets"
-        }
-    },
-    "prefix": {
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "ont": "https://data-mechanics.s3.amazonaws.com/ontology#",
-        "log": "https://data-mechanics.s3.amazonaws.com/log#",
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "bdp": "https://data.cityofboston.gov/resource/"
-    },
-    "wasAttributedTo": {
-        "_:id3": {
-            "prov:entity": "dat:crime_incident_reports",
-            "prov:agent": "alg:retrieve_datasets"
-        },
-        "_:id8": {
-            "prov:entity": "dat:employee_earnings_report_2014",
-            "prov:agent": "alg:retrieve_datasets"
-        },
-        "_:id13": {
-            "prov:entity": "dat:approved_building_permits",
-            "prov:agent": "alg:retrieve_datasets"
-        }
-    }
-},
-{
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:time": "2016-03-01T23:08:06.908283",
-            "prov:entity": "dat:zips_locations",
-            "prov:activity": "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2"
-        }
-    },
-    "prefix": {
-        "log": "https://data-mechanics.s3.amazonaws.com/log#",
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "ont": "https://data-mechanics.s3.amazonaws.com/ontology#",
-        "bdp": "https://data.cityofboston.gov/resource/"
-    },
-    "wasAttributedTo": {
-        "_:id3": {
+        "_:id38": {
             "prov:agent": "alg:retrieve_datasets",
             "prov:entity": "dat:zips_locations"
-        }
-    },
-    "used": {
-        "_:id2": {
-            "prov:time": "2016-03-01T23:08:03.994432",
-            "prov:entity": "dat:approved_building_permits",
-            "prov:activity": "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2",
-            "prov:type": "ont:Computation"
+        },
+        "_:id35": {
+            "prov:agent": "alg:extract_earnings_zips",
+            "prov:entity": "dat:earnings_zips"
+        },
+        "_:id41": {
+            "prov:agent": "alg:retrieve_datasets",
+            "prov:entity": "dat:crime_incident_reports"
+        },
+        "_:id36": {
+            "prov:agent": "alg:merge_crime_with_zip",
+            "prov:entity": "dat:crime_zips"
+        },
+        "_:id46": {
+            "prov:agent": "alg:merge_zip_crime_earnings",
+            "prov:entity": "dat:zip_location_crimes_earnings"
+        },
+        "_:id37": {
+            "prov:agent": "alg:get_avg_earning",
+            "prov:entity": "dat:zip_avg_earnings"
         }
     },
     "agent": {
-        "alg:retrieve_datasets": {
+        "alg:extract_earnings_zips": {
             "ont:Extension": "py",
             "prov:type": {
                 "$": "prov:SoftwareAgent",
                 "type": "prov:QUALIFIED_NAME"
             }
-        }
-    },
-    "entity": {
-        "dat:zips_locations": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Zips Locations"
         },
-        "dat:approved_building_permits": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Approved Building Permits"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id5": {
-            "prov:usedEntity": "dat:approved_building_permits",
-            "prov:usage": "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2",
-            "prov:activity": "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2",
-            "prov:generatedEntity": "dat:zips_locations",
-            "prov:generation": "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2"
-        }
-    },
-    "activity": {
-        "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2": {
-            "prov:startTime": "2016-03-01T23:08:03.994432",
-            "prov:endTime": "2016-03-01T23:08:06.908283"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:agent": "alg:retrieve_datasets",
-            "prov:activity": "log:ab2dd3d4d-9162-4c6e-99a1-faf9d725bcb2"
-        }
-    }
-},
-{
-    "agent": {
-        "alg:update_crime_lng_lat": {
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "entity": {
-        "dat:crime_incident_reports": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crime Incident Reports"
-        }
-    },
-    "prefix": {
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "log": "https://data-mechanics.s3.amazonaws.com/log#",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "ont": "https://data-mechanics.s3.amazonaws.com/ontology#"
-    },
-    "activity": {
-        "log:a093b4039-4922-495c-a6fd-7050d6ead47e": {
-            "prov:startTime": "2016-03-01T23:08:17.077383",
-            "prov:endTime": "2016-03-01T23:08:38.285702"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:activity": "log:a093b4039-4922-495c-a6fd-7050d6ead47e",
-            "prov:agent": "alg:update_crime_lng_lat"
-        }
-    },
-    "used": {
-        "_:id2": {
-            "prov:type": "ont:Computation",
-            "prov:time": "2016-03-01T23:08:17.077383",
-            "prov:activity": "log:a093b4039-4922-495c-a6fd-7050d6ead47e",
-            "prov:entity": "dat:crime_incident_reports"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id3": {
-            "prov:entity": "dat:crime_incident_reports",
-            "prov:agent": "alg:update_crime_lng_lat"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:time": "2016-03-01T23:08:38.285702",
-            "prov:activity": "log:a093b4039-4922-495c-a6fd-7050d6ead47e",
-            "prov:entity": "dat:crime_incident_reports"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id5": {
-            "prov:activity": "log:a093b4039-4922-495c-a6fd-7050d6ead47e",
-            "prov:generation": "log:a093b4039-4922-495c-a6fd-7050d6ead47e",
-            "prov:generatedEntity": "dat:crime_incident_reports",
-            "prov:usedEntity": "dat:crime_incident_reports",
-            "prov:usage": "log:a093b4039-4922-495c-a6fd-7050d6ead47e"
-        }
-    }
-},
-{
-    "used": {
-        "_:id2": {
-            "prov:type": "ont:Computation",
-            "prov:time": "2016-03-01T23:08:58.898154",
-            "prov:activity": "log:aa546b930-af92-4869-989e-29a6201d70b2",
-            "prov:entity": "dat:employee_earnings_report_2014"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id5": {
-            "prov:generatedEntity": "dat:earnings_zips",
-            "prov:usedEntity": "dat:employee_earnings_report_2014",
-            "prov:generation": "log:aa546b930-af92-4869-989e-29a6201d70b2",
-            "prov:usage": "log:aa546b930-af92-4869-989e-29a6201d70b2",
-            "prov:activity": "log:aa546b930-af92-4869-989e-29a6201d70b2"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:activity": "log:aa546b930-af92-4869-989e-29a6201d70b2",
-            "prov:agent": "alg:extract_earnings_zips"
-        }
-    },
-    "agent": {
-        "alg:extract_earnings_zips": {
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "activity": {
-        "log:aa546b930-af92-4869-989e-29a6201d70b2": {
-            "prov:startTime": "2016-03-01T23:08:58.898154",
-            "prov:endTime": "2016-03-01T23:09:00.008015"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:time": "2016-03-01T23:09:00.008015",
-            "prov:activity": "log:aa546b930-af92-4869-989e-29a6201d70b2",
-            "prov:entity": "dat:earnings_zips"
-        }
-    },
-    "prefix": {
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "ont": "https://data-mechanics.s3.amazonaws.com/ontology#",
-        "log": "https://data-mechanics.s3.amazonaws.com/log#"
-    },
-    "entity": {
-        "dat:employee_earnings_report_2014": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Employee Earnings Report 2014"
-        },
-        "dat:earnings_zips": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Earnings Zips"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id3": {
-            "prov:agent": "alg:extract_earnings_zips",
-            "prov:entity": "dat:earnings_zips"
-        }
-    }
-},
-{
-    "wasAttributedTo": {
-        "_:id3": {
-            "prov:entity": "dat:zip_avg_earnings",
-            "prov:agent": "alg:get_avg_earning"
-        }
-    },
-    "entity": {
-        "dat:earnings_zips": {
-            "prov:label": "Earnings Zips",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:zip_avg_earnings": {
-            "prov:label": "Zip Average Earnings",
-            "prov:type": "ont:DataSet"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:activity": "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1",
-            "prov:agent": "alg:get_avg_earning"
-        }
-    },
-    "activity": {
-        "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1": {
-            "prov:startTime": "2016-03-01T23:09:10.004672",
-            "prov:endTime": "2016-03-01T23:09:10.396340"
-        }
-    },
-    "agent": {
-        "alg:get_avg_earning": {
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:entity": "dat:zip_avg_earnings",
-            "prov:time": "2016-03-01T23:09:10.396340",
-            "prov:activity": "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id5": {
-            "prov:activity": "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1",
-            "prov:generatedEntity": "dat:zip_avg_earnings",
-            "prov:usage": "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1",
-            "prov:generation": "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1",
-            "prov:usedEntity": "dat:earnings_zips"
-        }
-    },
-    "prefix": {
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "ont": "https://data-mechanics.s3.amazonaws.com/ontology#",
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "log": "https://data-mechanics.s3.amazonaws.com/log#",
-        "bdp": "https://data.cityofboston.gov/resource/"
-    },
-    "used": {
-        "_:id2": {
-            "prov:entity": "dat:earnings_zips",
-            "prov:time": "2016-03-01T23:09:10.004672",
-            "prov:type": "ont:Computation",
-            "prov:activity": "log:a442f10c1-2b11-44d6-a7c6-c459586e02e1"
-        }
-    }
-},
-{
-    "wasDerivedFrom": {
-        "_:id6": {
-            "prov:usage": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:activity": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:usedEntity": "dat:crime_incident_reports",
-            "prov:generatedEntity": "dat:crime_zips",
-            "prov:generation": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a"
-        },
-        "_:id7": {
-            "prov:usage": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:activity": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:usedEntity": "dat:zips_locations",
-            "prov:generatedEntity": "dat:crime_zips",
-            "prov:generation": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a"
-        }
-    },
-    "agent": {
-        "alg:merge_crime_with_zip": {
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id4": {
-            "prov:agent": "alg:merge_crime_with_zip",
-            "prov:entity": "dat:crime_zips"
-        }
-    },
-    "used": {
-        "_:id2": {
-            "prov:time": "2016-03-01T23:09:25.227419",
-            "prov:activity": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:type": "ont:Computation",
-            "prov:entity": "dat:crime_incident_reports"
-        },
-        "_:id3": {
-            "prov:time": "2016-03-01T23:09:25.227419",
-            "prov:activity": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:type": "ont:Computation",
-            "prov:entity": "dat:zips_locations"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id5": {
-            "prov:time": "2016-03-01T23:19:02.692210",
-            "prov:activity": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a",
-            "prov:entity": "dat:crime_zips"
-        }
-    },
-    "entity": {
-        "dat:crime_incident_reports": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crime Incident Reports"
-        },
-        "dat:crime_zips": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crime Zips"
-        },
-        "dat:zips_locations": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Zips Locations"
-        }
-    },
-    "activity": {
-        "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a": {
-            "prov:startTime": "2016-03-01T23:09:25.227419",
-            "prov:endTime": "2016-03-01T23:19:02.692210"
-        }
-    },
-    "prefix": {
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "ont": "https://data-mechanics.s3.amazonaws.com/ontology#",
-        "log": "https://data-mechanics.s3.amazonaws.com/log#"
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:agent": "alg:merge_crime_with_zip",
-            "prov:activity": "log:a03240c5c-07bd-437a-ad44-8a7b84abc58a"
-        }
-    }
-},
-{
-    "agent": {
         "alg:merge_zip_crime_earnings": {
             "ont:Extension": "py",
             "prov:type": {
                 "$": "prov:SoftwareAgent",
                 "type": "prov:QUALIFIED_NAME"
             }
+        },
+        "alg:get_avg_earning": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:update_crime_lng_lat": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:retrieve_datasets": [
+            {
+                "ont:Extension": "py",
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            },
+            {
+                "ont:Extension": "py",
+                "prov:type": {
+                    "$": "prov:SoftwareAgent",
+                    "type": "prov:QUALIFIED_NAME"
+                }
+            }
+        ],
+        "alg:merge_crime_with_zip": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
         }
     },
     "wasGeneratedBy": {
+        "_:id2": {
+            "prov:entity": "dat:crime_zips",
+            "prov:activity": "log:a52ef4cdf-2914-46f3-8cff-155225902462"
+        },
+        "_:id8": {
+            "prov:entity": "dat:zips_locations",
+            "prov:activity": "log:af60f12b9-f14d-44f0-b359-22f34c728164"
+        },
+        "_:id3": {
+            "prov:entity": "dat:approved_building_permits",
+            "prov:activity": "log:a66d18538-9059-402e-a985-8bfa3daf1dbf"
+        },
+        "_:id1": {
+            "prov:entity": "dat:crime_incident_reports",
+            "prov:activity": "log:ab5d710e5-3fc8-4328-9908-7aefcace117a"
+        },
         "_:id5": {
-            "prov:time": "2016-03-01T23:20:34.946242",
-            "prov:activity": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
-            "prov:entity": "dat:zip_crime_earnings"
-        }
-    },
-    "activity": {
-        "log:ac8aea193-fe37-4123-924c-3c74a9828597": {
-            "prov:startTime": "2016-03-01T23:20:34.538787",
-            "prov:endTime": "2016-03-01T23:20:34.946242"
-        }
-    },
-    "wasDerivedFrom": {
+            "prov:entity": "dat:zip_avg_earnings",
+            "prov:activity": "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed"
+        },
         "_:id6": {
-            "prov:usedEntity": "dat:crime_zips",
-            "prov:generatedEntity": "dat:zip_crime_earnings",
-            "prov:generation": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
-            "prov:activity": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
-            "prov:usage": "log:ac8aea193-fe37-4123-924c-3c74a9828597"
+            "prov:entity": "dat:employee_earnings_report_2014",
+            "prov:activity": "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd"
+        },
+        "_:id4": {
+            "prov:entity": "dat:earnings_zips",
+            "prov:activity": "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6"
         },
         "_:id7": {
-            "prov:usedEntity": "dat:zip_avg_earnings",
-            "prov:generatedEntity": "dat:zip_crime_earnings",
-            "prov:generation": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
-            "prov:activity": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
-            "prov:usage": "log:ac8aea193-fe37-4123-924c-3c74a9828597"
+            "prov:entity": "dat:crime_incident_reports",
+            "prov:activity": "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940"
+        },
+        "_:id47": {
+            "prov:entity": "dat:zip_location_crimes_earnings",
+            "prov:activity": "log:ac939c348-b294-4479-ac4c-e69468496c79"
         }
     },
     "used": {
-        "_:id3": {
-            "prov:time": "2016-03-01T23:20:34.538787",
-            "prov:activity": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
+        "_:id12": {
+            "prov:entity": "dat:crime_incident_reports",
+            "prov:activity": "log:ab5d710e5-3fc8-4328-9908-7aefcace117a",
+            "prov:type": "ont:Computation"
+        },
+        "_:id14": {
+            "prov:entity": "bdp:msk6-43c6",
+            "ont:Query": "?$limit=50000",
+            "prov:activity": "log:a66d18538-9059-402e-a985-8bfa3daf1dbf",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id9": {
+            "prov:entity": "dat:crime_incident_reports",
+            "prov:activity": "log:a52ef4cdf-2914-46f3-8cff-155225902462",
+            "prov:type": "ont:Computation"
+        },
+        "_:id10": {
+            "prov:entity": "dat:earnings_zips",
+            "prov:activity": "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed",
+            "prov:type": "ont:Computation"
+        },
+        "_:id45": {
             "prov:entity": "dat:zip_avg_earnings",
+            "prov:activity": "log:ac939c348-b294-4479-ac4c-e69468496c79",
             "prov:type": "ont:Computation"
         },
-        "_:id2": {
-            "prov:time": "2016-03-01T23:20:34.538787",
-            "prov:activity": "log:ac8aea193-fe37-4123-924c-3c74a9828597",
-            "prov:entity": "dat:crime_zips",
+        "_:id17": {
+            "prov:entity": "bdp:7cdf-6fgx",
+            "ont:Query": "?year=2014&$limit=50000",
+            "prov:activity": "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id11": {
+            "prov:entity": "dat:employee_earnings_report_2014",
+            "prov:activity": "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6",
             "prov:type": "ont:Computation"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id4": {
-            "prov:agent": "alg:merge_zip_crime_earnings",
-            "prov:entity": "dat:zip_crime_earnings"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:agent": "alg:merge_zip_crime_earnings",
-            "prov:activity": "log:ac8aea193-fe37-4123-924c-3c74a9828597"
-        }
-    },
-    "entity": {
-        "dat:zip_avg_earnings": {
-            "prov:label": "Zips Average Earnings",
-            "prov:type": "ont:DataSet"
         },
-        "dat:zip_crime_earnings": {
-            "prov:label": "Zips with Crime and Earnings",
-            "prov:type": "ont:DataSet"
+        "_:id15": {
+            "prov:entity": "bdp:4swk-wcg8",
+            "ont:Query": "?$limit=50000",
+            "prov:activity": "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd",
+            "prov:type": "ont:Retrieval"
         },
-        "dat:crime_zips": {
-            "prov:label": "Crime Zips",
-            "prov:type": "ont:DataSet"
+        "_:id16": {
+            "prov:entity": "dat:approved_building_permits",
+            "prov:activity": "log:af60f12b9-f14d-44f0-b359-22f34c728164",
+            "prov:type": "ont:Computation"
+        },
+        "_:id13": {
+            "prov:entity": "dat:zips_locations",
+            "prov:activity": "log:a52ef4cdf-2914-46f3-8cff-155225902462",
+            "prov:type": "ont:Computation"
+        },
+        "_:id44": {
+            "prov:entity": "dat:zip_location_crimes",
+            "prov:activity": "log:ac939c348-b294-4479-ac4c-e69468496c79",
+            "prov:type": "ont:Computation"
         }
     },
     "prefix": {
-        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
-        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
-        "log": "https://data-mechanics.s3.amazonaws.com/log#",
         "ont": "https://data-mechanics.s3.amazonaws.com/ontology#",
-        "bdp": "https://data.cityofboston.gov/resource/"
+        "dat": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "alg": "https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/",
+        "log": "https://data-mechanics.s3.amazonaws.com/log#"
+    },
+    "entity": {
+        "dat:approved_building_permits": [
+            {
+                "prov:label": "Approved Building Permits",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Approved Building Permits",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:zip_avg_earnings": [
+            {
+                "prov:label": "Zip Average Earnings",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Zips Average Earnings",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:earnings_zips": [
+            {
+                "prov:label": "Earnings Zips",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Earnings Zips",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:crime_incident_reports": [
+            {
+                "prov:label": "Crime Incident Reports",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Crime Incident Reports",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Crime Incident Reports",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "bdp:7cdf-6fgx": {
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:zip_location_crimes_earnings": {
+            "prov:label": "Zips with Crime and Earnings",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:employee_earnings_report_2014": [
+            {
+                "prov:label": "Employee Earnings Report 2014",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Employee Earnings Report 2014",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:crime_zips": {
+            "prov:label": "Crime Zips",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:4swk-wcg8": {
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:zips_locations": [
+            {
+                "prov:label": "Zips Locations",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Zips Locations",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "bdp:msk6-43c6": {
+            "ont:Extension": "json",
+            "prov:label": "311, Service Requests",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:zip_location_crimes": {
+            "prov:label": "Zip Location Crimes",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "activity": {
+        "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6": {
+            "prov:label": "Extract earnings and zips."
+        },
+        "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed": {
+            "prov:label": "Calculate the average earnings for each zip."
+        },
+        "log:ac939c348-b294-4479-ac4c-e69468496c79": {
+            "prov:label": "Merge zips, crimes, locations, and earnings."
+        },
+        "log:af60f12b9-f14d-44f0-b359-22f34c728164": {
+            "prov:label": "Extract zips and location info"
+        },
+        "log:a66d18538-9059-402e-a985-8bfa3daf1dbf": {},
+        "log:a52ef4cdf-2914-46f3-8cff-155225902462": {
+            "prov:label": "Merge crimes with zips."
+        },
+        "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd": {},
+        "log:ab5d710e5-3fc8-4328-9908-7aefcace117a": {
+            "prov:label": "Update location info."
+        },
+        "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940": {
+            "prov:label": "Retrieve datasets."
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id32": {
+            "prov:agent": "alg:extract_earnings_zips",
+            "prov:activity": "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6"
+        },
+        "_:id34": {
+            "prov:agent": "alg:retrieve_datasets",
+            "prov:activity": "log:af60f12b9-f14d-44f0-b359-22f34c728164"
+        },
+        "_:id30": {
+            "prov:agent": "alg:retrieve_datasets",
+            "prov:activity": "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd"
+        },
+        "_:id29": {
+            "prov:agent": "alg:get_avg_earning",
+            "prov:activity": "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed"
+        },
+        "_:id33": {
+            "prov:agent": "alg:retrieve_datasets",
+            "prov:activity": "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940"
+        },
+        "_:id28": {
+            "prov:agent": "alg:retrieve_datasets",
+            "prov:activity": "log:a66d18538-9059-402e-a985-8bfa3daf1dbf"
+        },
+        "_:id31": {
+            "prov:agent": "alg:update_crime_lng_lat",
+            "prov:activity": "log:ab5d710e5-3fc8-4328-9908-7aefcace117a"
+        },
+        "_:id27": {
+            "prov:agent": "alg:merge_crime_with_zip",
+            "prov:activity": "log:a52ef4cdf-2914-46f3-8cff-155225902462"
+        },
+        "_:id43": {
+            "prov:agent": "alg:merge_zip_crime_earnings",
+            "prov:activity": "log:ac939c348-b294-4479-ac4c-e69468496c79"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id25": {
+            "prov:generation": "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd",
+            "prov:generatedEntity": "dat:employee_earnings_report_2014",
+            "prov:usedEntity": "bdp:4swk-wcg8",
+            "prov:usage": "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd",
+            "prov:activity": "log:ae87e374b-5d0c-45a5-8b59-05a08d9790bd"
+        },
+        "_:id18": {
+            "prov:generation": "log:a52ef4cdf-2914-46f3-8cff-155225902462",
+            "prov:generatedEntity": "dat:crime_zips",
+            "prov:usedEntity": "dat:zips_locations",
+            "prov:usage": "log:a52ef4cdf-2914-46f3-8cff-155225902462",
+            "prov:activity": "log:a52ef4cdf-2914-46f3-8cff-155225902462"
+        },
+        "_:id48": {
+            "prov:generation": "log:ac939c348-b294-4479-ac4c-e69468496c79",
+            "prov:generatedEntity": "dat:zip_location_crimes_earnings",
+            "prov:usedEntity": "dat:zip_location_crimes",
+            "prov:usage": "log:ac939c348-b294-4479-ac4c-e69468496c79",
+            "prov:activity": "log:ac939c348-b294-4479-ac4c-e69468496c79"
+        },
+        "_:id24": {
+            "prov:generation": "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940",
+            "prov:generatedEntity": "dat:crime_incident_reports",
+            "prov:usedEntity": "bdp:7cdf-6fgx",
+            "prov:usage": "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940",
+            "prov:activity": "log:ae62c1ba3-518d-4642-81a5-ef0d6f361940"
+        },
+        "_:id49": {
+            "prov:generation": "log:ac939c348-b294-4479-ac4c-e69468496c79",
+            "prov:generatedEntity": "dat:zip_location_crimes_earnings",
+            "prov:usedEntity": "dat:zip_avg_earnings",
+            "prov:usage": "log:ac939c348-b294-4479-ac4c-e69468496c79",
+            "prov:activity": "log:ac939c348-b294-4479-ac4c-e69468496c79"
+        },
+        "_:id20": {
+            "prov:generation": "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed",
+            "prov:generatedEntity": "dat:zip_avg_earnings",
+            "prov:usedEntity": "dat:earnings_zips",
+            "prov:usage": "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed",
+            "prov:activity": "log:a69eb1ef6-7dda-4304-a9e1-b0fd10a6a0ed"
+        },
+        "_:id22": {
+            "prov:generation": "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6",
+            "prov:generatedEntity": "dat:earnings_zips",
+            "prov:usedEntity": "dat:employee_earnings_report_2014",
+            "prov:usage": "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6",
+            "prov:activity": "log:a820b5bc9-e7a5-4b98-99c5-9dd77c4d3de6"
+        },
+        "_:id23": {
+            "prov:generation": "log:a52ef4cdf-2914-46f3-8cff-155225902462",
+            "prov:generatedEntity": "dat:crime_zips",
+            "prov:usedEntity": "dat:crime_incident_reports",
+            "prov:usage": "log:a52ef4cdf-2914-46f3-8cff-155225902462",
+            "prov:activity": "log:a52ef4cdf-2914-46f3-8cff-155225902462"
+        },
+        "_:id26": {
+            "prov:generation": "log:ab5d710e5-3fc8-4328-9908-7aefcace117a",
+            "prov:generatedEntity": "dat:crime_incident_reports",
+            "prov:usedEntity": "dat:crime_incident_reports",
+            "prov:usage": "log:ab5d710e5-3fc8-4328-9908-7aefcace117a",
+            "prov:activity": "log:ab5d710e5-3fc8-4328-9908-7aefcace117a"
+        },
+        "_:id21": {
+            "prov:generation": "log:af60f12b9-f14d-44f0-b359-22f34c728164",
+            "prov:generatedEntity": "dat:zips_locations",
+            "prov:usedEntity": "dat:approved_building_permits",
+            "prov:usage": "log:af60f12b9-f14d-44f0-b359-22f34c728164",
+            "prov:activity": "log:af60f12b9-f14d-44f0-b359-22f34c728164"
+        },
+        "_:id19": {
+            "prov:generation": "log:a66d18538-9059-402e-a985-8bfa3daf1dbf",
+            "prov:generatedEntity": "dat:approved_building_permits",
+            "prov:usedEntity": "bdp:msk6-43c6",
+            "prov:usage": "log:a66d18538-9059-402e-a985-8bfa3daf1dbf",
+            "prov:activity": "log:a66d18538-9059-402e-a985-8bfa3daf1dbf"
+        }
     }
 }
-]

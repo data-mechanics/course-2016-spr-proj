@@ -2,57 +2,40 @@
 ### Thomas Hsu [thsu@bu.edu](mailto:thsu@bu.edu), Nicholas Louie [nlouie@bu.edu](mailto:nlouie@bu.edu)
 
 #### Boston University Data Mechanics CS591 L1
-####course-2016-spr-proj-one
-
-
-### Running the package
-
-- Create your own auth.json with the format below: 
-
-```json
-{
-    "services": {
-        "cityofbostondataportal": {
-            "service": "https://data.cityofboston.gov/",
-            "username": username,
-            "password": password,
-            "token": token (API token for the City of Boston portal)
-        }
-    }
-}  
-```
-
-If you wish to obtain the actual datasets, run setup.py
-Otherwise, run script.py
+#### course-2016-spr-proj-two
 
 ### Functionality
 
-- The goal of our `setup.py` is to obtain the data of Boston's Employee Earnings, Crime Incidents, map and reduce the results to obtain for a given year between 2012-2014 average police salary versus crime incidents.
+We want to know how streetlights relate to crimes in Boston. We want to know whether or not streetlamp placement has an affect on crime and if there are high-crime areas that may benefit from better lighting.
+In order to do this, we compute the distance of each crime (at night) to the closest streetlamp using data provided from [Boston's public datasets](https://data.cityofboston.gov/). 
+We think solving this gives insight on how lighting plays a role in the incidences of crime and whether or not certain areas should include more lighting.
 
-- `setup.py` then outputs these data sets to `nlouie_thsu/data/`
-
-- For the purposes of this project, the data sets have been uploaded to https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data
-
-- `script.py` Will take the data sets and input them into the MongoDB database. It also generates the provenance data which is also added
 
 ### Datasets 
 
-#### Employee Earnings Report
--[2012](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2012/effb-uspk) 
--[2013](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg) 
--[2014](https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8)
+#### Street Lights
+- [Street Lights](https://data.cityofboston.gov/Facilities/Streetlight-Locations/7hu5-gg2y).
 
 #### Crime Incidents
 - [Crime Incidents](https://data.cityofboston.gov/resource/7cdf-6fgx.json). 
-- We reduce for years 2012, 2013, 2014.
-- We map together the average Police Officer's salary for a year with the crime incidents for that given year. The dataset is then added to our database. 
-- We also create provenance data that acts as a log of actions our script has taken from its specific sources. This too is added to our database. 
 
-### Possibilities
+### Transformations
+- Convert JSON -> Text
+- Feed Text -> Hive/Hadoop
+- Get Final Result. 
 
-- We are interested in the effects of money on the crime in Boston. In particular, for our package how Boston Police Department employee earnings affect crime in Boston.
+### Visualizations
 
-- With Boston's Employee Earnings dataset, there are many possibilities including creating trends by various departments and attempting to link it with other facts present in Boston (in our case, the police department and amount of crime).
+- The visualization can be found in `index.html`. 
+- The visualization maps every streetlight (using geojson data) in Boston and a sample of the crimes
+- This is made with [Leaflet](http://leafletjs.com/) using Lapet's API key...
+- Added functionality allows the user to click on the crime to view more details in a popup.
 
-- It may be potentially interesting to use Employee Earnings to track where money is going to the city and flag for any earnings that may seem out of the oridinary. 
-
+#### StreetLights
+![StreetLights](http://puu.sh/ohmgP/184c3ff996.png "StreetLights")
+#### StreetLights Zoomed
+![StreetLights Zoomed](http://puu.sh/ohmsG/f164a38b1d.png "StreetLights Zoomed")
+#### Crime samples
+![Crime](http://puu.sh/ohmtz/eb2b04d0a4.png "Crime Samples")
+#### Crime Samples Zoomed with Popup
+![Crime Zoomed with Popup](https://puu.sh/ohmwp/5ac776b01a.png "Crimed Zoomed with Popup")

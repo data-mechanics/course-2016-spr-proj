@@ -2,3 +2,4 @@
 data/
 ._*
 *.pyc
+auth.json
