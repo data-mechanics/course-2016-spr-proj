@@ -23,6 +23,9 @@ repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
+with open("fixedFood.json", mode='w', encoding='utf-8') as f:
+    json.dump([], f)
+
 filen = 'data/activeFood.json'
 res = open(filen, 'r')
 r = json.load(res)
@@ -63,6 +66,8 @@ repo['jlam17_mckay678.retailBakery'].insert_many(r5)
 # repo['jlam17_mckay678.food'].insert_many(r)
 # repo['jlam17_mckay678.food'].insert_many(r2)
 
+listicle = []
+
 repo.dropPermanent("fixedFood")
 repo.createPermanent("fixedFood")
 title = ''
@@ -80,6 +85,7 @@ for idx, u in enumerate(r2):
 		c.pop()
 		e = "".join(c)
 		repo['jlam17_mckay678.fixedFood'].insert({'Location': (d, e), 'Neighborhood': r2[idx]['FIELD3'], 'Type': 'cornerStore'})
+		listicle.append({'Location': (d, e), 'Neighborhood': r2[idx]['FIELD3'], 'Type': 'cornerStore'})
 
 for idx, u in enumerate(r):
 	if idx == 0:
@@ -95,6 +101,7 @@ for idx, u in enumerate(r):
 		c.pop()
 		e = "".join(c)
 		repo['jlam17_mckay678.fixedFood'].insert({'Location': (d,e), 'Neighborhood': r[idx]['FIELD4'], 'Type': 'activeFood'})
+		listicle.append({'Location': (d,e), 'Neighborhood': r[idx]['FIELD4'], 'Type': 'activeFood'})
 
 for idx, u in enumerate(r3):
 	if idx == 0:
@@ -120,6 +127,8 @@ for idx, u in enumerate(r3):
 			c.pop()
 			e = "".join(c)
 		repo['jlam17_mckay678.fixedFood'].insert({'Location': (d,e), 'Neighborhood': r3[idx]['FIELD5'], 'Type': 'foodPantry'})
+		listicle.append({'Location': (d,e), 'Neighborhood': r3[idx]['FIELD5'], 'Type': 'foodPantry'})
+
 '''
 for idx, u in enumerate(r4):
 	if idx == 0:
@@ -136,6 +145,11 @@ for idx, u in enumerate(r5):
 		c = b[1].lower()
 		d = c.capitalize()
 		repo['jlam17_mckay678.fixedFood'].insert({'Location': (r5[idx]['FIELD10'], r5[idx]['FIELD11']), 'Neighborhood': d, 'Type': 'retailBakery'})
+		listicle.append({'Location': (r5[idx]['FIELD10'], r5[idx]['FIELD11']), 'Neighborhood': d, 'Type': 'retailBakery'})
+
+
+with open("fixedFood.json", mode='a', encoding='utf-8') as ff:
+    json.dump(listicle, ff)
 
 
 endTime = datetime.datetime.now()
