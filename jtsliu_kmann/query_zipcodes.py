@@ -1,6 +1,6 @@
 # Kyle Mann and Jonathan Liu (jtsliu_kmann)
 # CS591
-# 
+# This is for issuing simple queries on the profile information
 import datetime
 import json
 import prov.model

@@ -121,23 +121,32 @@ We believe this data is slightly skewed because of a lack of judicious filtering
 
 
 Now we wanted to solve a problem - the one we originally described. Based on some user input, what is the
-optimal zipcode. NOTE: we still want to refine this to be able to maximize/minimize in multiple dimensions
+optimal zipcode. This problem is simple to solve now, as we can just issue queries on the mongo db. Lame.
+So we came up with a more complicated one - we can min and max in two dimensions for a subset of size k
+for the zipcodes, all varied on user input. This is done using z3!
 
-$ python3 solve_optimal_zipcode.py
+NOTE: This script has NOT been tested on python 3. For some reason we could not use z3 for python 3. As
+a result, this is only tested in python 2. That being said, I don't think there is any python 2 
+specific syntax or functionality, so it theory it should be okay.
+
+$ python solve_optimal_zipcode.py
+
+Note: If you want to issue a few simple queries here was the original script we used for this problem,
+we saved it mostly for legacy purposes, but it is not so bad - so here it is:
+
+# python3 query_zipcodes.py
 
 Limitations and problems
 -------------------------
-
-Currently we cannot do sophisticated results for our optimal zipcode (outside of what you see
-when you run it). Ideally we would like to turn this into a more complicated optimization problem.
 
 The zipcode as mentioned above is a pretty large area, maybe we should explore smaller subsets.
 
 We should filter out more crimes that we associate with liquor licenses.
 
+Our optimal zipcode query is only tested in python 2
+
 TODO:
 -----
 
 Implement and refine the visualizations
-Refactor and comment the code more
 
