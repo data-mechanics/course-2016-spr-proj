@@ -134,7 +134,7 @@ $ python solve_optimal_zipcode.py
 Note: If you want to issue a few simple queries here was the original script we used for this problem,
 we saved it mostly for legacy purposes, but it is not so bad - so here it is:
 
-# python3 query_zipcodes.py
+$ python3 query_zipcodes.py
 
 Limitations and problems
 -------------------------
