@@ -54,10 +54,9 @@ for key, group in groups:
         [print(line) for line in pipe.readlines()]
         os.wait()
 
-        temp_df = xml_to_dataframe.xml_to_dataframe('../outputs/roadnetwork.xml')
-        xml_to_dataframe.insert_df_to_mongo(temp_df, str(source + '-' + key))
-#       insert(temp_df, group.name)
-        break
+    temp_df = xml_to_dataframe.xml_to_dataframe('./BostonNetwork/outputs/roadnetwork.xml')
+    xml_to_dataframe.insert_df_to_mongo(temp_df, str(source + "hour" + key))
+    #break
 
 ###############################################################
 ####    save results       
@@ -77,6 +76,7 @@ doc.add_namespace('bal', 'http://people.bu.edu/balawson/')
 
 this_script = doc.agent('alg:compare', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 twitter_xml = doc.entity('bal:twitter', {'prov:label':'Derived intermediate state of curated Tweets', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'xml'})
+twitter_resource = doc.entity('bal:twitter', {'prov:label':'Sample of Curated Tweet', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'csv'})
 
 doc.wasAssociatedWith(twitter_xml, this_script)
 doc.used(twitter_xml, twitter_resource, startTime)   
@@ -86,7 +86,7 @@ doc.wasAttributedTo(twitter_ent, this_script)
 doc.wasDerivedFrom(twitter_ent, twitter_resource)
 
 repo.record(doc.serialize()) # Record the provenance document.
-nt(json.dumps(json.loads(doc.serialize()), indent=4))
+#print(json.dumps(json.loads(doc.serialize()), indent=4))
 open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
