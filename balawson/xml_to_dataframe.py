@@ -13,8 +13,7 @@ exec(open('../pymongo_dm.py').read())
 ###############################################################
 ####    parse the xml !!!!!       
 ###############################################################
-def xml_to_dataframe(xml_file_name='BostonNetwork/outputs/roadnetwork.xml')
-    startTime  = datetime.datetime.now()
+def xml_to_dataframe(xml_file_name='BostonNetwork/outputs/roadnetwork.xml'):
     roads, lat, lng, population, users = [], [] , [] , [] , [] #lists to store the information
     e = xmltree.parse(xml_file_name).getroot()
     for intersection in e.findall('intersection'):
@@ -56,13 +55,13 @@ def xml_to_dataframe(xml_file_name='BostonNetwork/outputs/roadnetwork.xml')
 ###############################################################
 ####    dump dataframe
 ###############################################################
-def record prov(collection_name):
+def insert_df_to_mongo(df, collection_name):
     client = pymongo.MongoClient()
     repo = client.repo
     repo.authenticate('balawson', 'balawson')
 
     #collection_name = 'twitter-intersection'
     records = json.loads(df.T.to_json()).values()
-    epo.dropPermanent(collection_name)
+    repo.dropPermanent(collection_name)
     repo.createPermanent(collection_name)
     repo['balawson.' + collection_name].insert_many(records)

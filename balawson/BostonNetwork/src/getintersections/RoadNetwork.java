@@ -137,8 +137,8 @@ public class RoadNetwork {
 		BufferedReader bufRead;
 		String myLine = null;
 		FileReader inputTourists = new FileReader(
-                                 // shortPath  + "/big_twitter.xml");
-				shortPath  + "/twitter.xml");
+                                  shortPath  + "/temp.xml");
+				//shortPath  + "/twitter.xml");
 				//shortPath  + "/sample2.xml");
 		bufRead = new BufferedReader(inputTourists);
 		myLine = null;

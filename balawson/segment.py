@@ -3,7 +3,9 @@
 ####   import dependancies       
 ###############################################################
 import pandas as pd
+import prov.model
 import pymongo, datetime, uuid, math, os, subprocess
+import mongo_to_xml, xml_to_dataframe
 exec(open('../pymongo_dm.py').read())
 
 ###############################################################
@@ -39,21 +41,23 @@ tweets.time = tweets.time.apply(lambda d: pd.to_datetime(d*1000000))
 ####    group the data by time of day
 ###############################################################
 
-groups = tweets.groupby(tweets.time.map(lambda t: str(t.time)))
-#for group in groups:
-#save temp file
-#run the following (with temp file as input)
-'''
+groups = tweets.groupby(tweets.time.map(lambda t: str(t.hour)))
+source = 'twitter'
+for key, group in groups:
+    mongo_to_xml.to_xml(group, 'temp.xml') #save input 
+ 
     with cd("./BostonNetwork/src/"):
-        print (os.getcwd())
+        #print (os.getcwd())
         os.popen("javac getintersections/RoadNetwork.java;")
         os.wait()
         pipe = os.popen("java  getintersections.RoadNetwork")
-        print pipe.readlines()
+        [print(line) for line in pipe.readlines()]
         os.wait()
-'''
-#       temp_df = xml_to_dataframe('../temp/temp.xml')
+
+        temp_df = xml_to_dataframe.xml_to_dataframe('../outputs/roadnetwork.xml')
+        xml_to_dataframe.insert_df_to_mongo(temp_df, str(source + '-' + key))
 #       insert(temp_df, group.name)
+        break
 
 ###############################################################
 ####    save results       
@@ -75,9 +79,7 @@ this_script = doc.agent('alg:compare', {prov.model.PROV_TYPE:prov.model.PROV['So
 twitter_xml = doc.entity('bal:twitter', {'prov:label':'Derived intermediate state of curated Tweets', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'xml'})
 
 doc.wasAssociatedWith(twitter_xml, this_script)
-
 doc.used(twitter_xml, twitter_resource, startTime)   
-
 
 twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'Twitter dataset', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(twitter_ent, this_script)
@@ -88,6 +90,3 @@ nt(json.dumps(json.loads(doc.serialize()), indent=4))
 open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
-
-
-# 
