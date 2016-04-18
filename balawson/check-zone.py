@@ -89,6 +89,7 @@ def make_patch(color, label):
 tweets.drop(['0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19','2', '20', '21', '22', '23', '3', '4', '5', '6', '7', '8', '9', '_id',], inplace=True, axis=1)
 tweets['lat'] = tweets.lat.apply(lambda d: float(d))
 tweets['lng'] = tweets.lng.apply(lambda d: float(d))
+tweets['total'] = tweets.apply(lambda d: countpeople( d), axis=1)
 tweets['neighborhoods'] = tweets.apply(lambda d: determine_neighborhood( d.lat, d.lng), axis=1) 
 
 
