@@ -1,13 +1,6 @@
 {
-    "prefix": {
-        "ont": "http://datamechanics.io/ontology#",
-        "log": "http://datamechanics.io/log#",
-        "snap": "https://snap.stanford.edu/data/",
-        "dat": "http://datamechanics.io/data/balawson/",
-        "alg": "http://datamechanics.io/algorithm/balawson/"
-    },
     "agent": {
-        "alg:collect": {
+        "alg:cluster": {
             "prov:type": {
                 "$": "prov:SoftwareAgent",
                 "type": "prov:QUALIFIED_NAME"
@@ -16,95 +9,281 @@
         }
     },
     "used": {
-        "_:id4": {
-            "prov:entity": "snap:gowalla",
-            "prov:time": "2016-02-27T17:46:02.097759",
-            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+        "_:id6": {
+            "prov:entity": "bal:twitter",
+            "prov:activity": "log:adc05e32a-a7db-4f19-80ee-8b5d5f4c8b7b",
         },
-        "_:id3": {
+        "_:id5": {
+            "prov:entity": "snap:gowalla",
+            "prov:activity": "log:a2046d256-84fe-41f8-af92-7bde913dbb78",
+        },
+        "_:id4": {
             "prov:entity": "snap:brightkite",
-            "prov:time": "2016-02-27T17:46:02.097759",
-            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+            "prov:activity": "log:a1cedaaa0-99b7-4b85-b243-5825ca09cd14",
         }
     },
     "entity": {
+        "dat:gowalla": {
+            "prov:label": "Gowalla dataset",
+            "prov:type": "ont:DataSet"
+        },
         "snap:gowalla": {
+            "prov:label": "SNAP: Standford Network Analysis Project - Gowalla",
             "prov:type": "ont:DataResource",
-            "ont:Extension": "txtgz",
-            "prov:label": "SNAP: Standford Network Analysis Project - Gowalla"
+            "ont:Extension": "txtgz"
         },
         "dat:brightkite": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Brightkite data"
+            "prov:label": "Brightkite data",
+            "prov:type": "ont:DataSet"
         },
         "snap:brightkite": {
+            "prov:label": "SNAP: Standford Network Analysis Project - Brightkite",
             "prov:type": "ont:DataResource",
-            "ont:Extension": "txtgz",
-            "prov:label": "SNAP: Standford Network Analysis Project - Brightkite"
+            "ont:Extension": "txtgz"
         },
-        "dat:gowalla": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Gowalla dataset"
+        "bal:twitter": {
+            "prov:label": "Sample of Curated Tweet",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "csv"
+        },
+        "dat:twitter": {
+            "prov:label": "Twitter dataset",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "prefix": {
+        "bal": "http://people.bu.edu/balawson/",
+        "alg": "http://datamechanics.io/algorithm/balawson/",
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/balawson/",
+        "snap": "https://snap.stanford.edu/data/"
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a1cedaaa0-99b7-4b85-b243-5825ca09cd14",
+            "prov:agent": "alg:cluster"
+        },
+        "_:id3": {
+            "prov:activity": "log:adc05e32a-a7db-4f19-80ee-8b5d5f4c8b7b",
+            "prov:agent": "alg:cluster"
+        },
+        "_:id2": {
+            "prov:activity": "log:a2046d256-84fe-41f8-af92-7bde913dbb78",
+            "prov:agent": "alg:cluster"
         }
     },
     "wasAttributedTo": {
-        "_:id8": {
-            "prov:agent": "alg:collect",
-            "prov:entity": "dat:gowalla"
+        "_:id7": {
+            "prov:entity": "dat:brightkite",
+            "prov:agent": "alg:cluster"
         },
-        "_:id5": {
-            "prov:agent": "alg:collect",
-            "prov:entity": "dat:brightkite"
+        "_:id11": {
+            "prov:entity": "dat:twitter",
+            "prov:agent": "alg:cluster"
+        },
+        "_:id9": {
+            "prov:entity": "dat:gowalla",
+            "prov:agent": "alg:cluster"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id12": {
+            "prov:generatedEntity": "dat:twitter",
+            "prov:usedEntity": "bal:twitter"
+        },
+        "_:id8": {
+            "prov:generatedEntity": "dat:brightkite",
+            "prov:usedEntity": "snap:brightkite"
+        },
+        "_:id10": {
+            "prov:generatedEntity": "dat:gowalla",
+            "prov:usedEntity": "snap:gowalla"
+        }
+    },
+    "activity": {
+        "log:a1cedaaa0-99b7-4b85-b243-5825ca09cd14": {
+            "prov:type": "ont:Computation",
+        },
+        "log:a2046d256-84fe-41f8-af92-7bde913dbb78": {
+            "prov:type": "ont:Computation",
+        },
+        "log:adc05e32a-a7db-4f19-80ee-8b5d5f4c8b7b": {
+            "prov:type": "ont:Computation",
+        }
+    }
+}{
+    "activity": {
+        "log:a29fe10e2-a62e-4e50-8171-b048f5310498": {
+            "prov:type": "ont:Computation"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:a29fe10e2-a62e-4e50-8171-b048f5310498",
+            "prov:entity": "bal:twitter"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id3": {
+            "prov:agent": "alg:combine",
+            "prov:entity": "dat:twitter"
+        }
+    },
+    "entity": {
+        "bal:twitter": {
+            "prov:label": "Sample of Curated Tweet",
+            "ont:Extension": "csv",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:twitter": {
+            "prov:label": "Twitter population dataset",
+            "prov:type": "ont:DataSet"
         }
     },
     "wasAssociatedWith": {
         "_:id1": {
-            "prov:agent": "alg:collect",
-            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263"
-        },
-        "_:id2": {
-            "prov:agent": "alg:collect",
-            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+            "prov:agent": "alg:combine",
+            "prov:activity": "log:a29fe10e2-a62e-4e50-8171-b048f5310498"
+        }
+    },
+    "agent": {
+        "alg:combine": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "prefix": {
+        "snap": "https://snap.stanford.edu/data/",
+        "alg": "http://datamechanics.io/algorithm/balawson/",
+        "log": "http://datamechanics.io/log#",
+        "bal": "http://people.bu.edu/balawson/",
+        "dat": "http://datamechanics.io/data/balawson/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "wasDerivedFrom": {
+        "_:id4": {
+            "prov:generatedEntity": "dat:twitter",
+            "prov:usedEntity": "bal:twitter"
+        }
+    }
+}{
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "bal": "http://people.bu.edu/balawson/",
+        "alg": "http://datamechanics.io/algorithm/balawson/",
+        "snap": "https://snap.stanford.edu/data/",
+        "dat": "http://datamechanics.io/data/balawson/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "activity": {
+        "log:af0c80788-4c13-4d82-bdea-eaf401d9f0e3": {
+            "prov:type": "ont:Computation",
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:af0c80788-4c13-4d82-bdea-eaf401d9f0e3",
+            "prov:agent": "alg:combine"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id3": {
+            "prov:entity": "dat:twitter",
+            "prov:agent": "alg:combine"
         }
     },
     "wasDerivedFrom": {
-        "_:id10": {
-            "prov:generatedEntity": "dat:gowalla",
-            "prov:generation": "log:a7368349c-7c96-4d45-9885-1289925e1f9a",
-            "prov:usedEntity": "snap:gowalla",
-            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a",
-            "prov:usage": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
-        },
-        "_:id7": {
-            "prov:generatedEntity": "dat:brightkite",
-            "prov:generation": "log:af7baf957-afcd-478b-ad70-03e97d685263",
-            "prov:usedEntity": "snap:brightkite",
-            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263",
-            "prov:usage": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+        "_:id4": {
+            "prov:usedEntity": "bal:twitter",
+            "prov:generatedEntity": "dat:twitter"
         }
     },
-    "wasGeneratedBy": {
-        "_:id9": {
-            "prov:entity": "dat:gowalla",
-            "prov:time": "2016-02-27T17:47:43.829888",
-            "prov:activity": "log:a7368349c-7c96-4d45-9885-1289925e1f9a"
+    "used": {
+        "_:id2": {
+            "prov:entity": "bal:twitter",
+            "prov:activity": "log:af0c80788-4c13-4d82-bdea-eaf401d9f0e3"
+        }
+    },
+    "agent": {
+        "alg:combine": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "entity": {
+        "dat:twitter": {
+            "prov:label": "Twitter population dataset",
+            "prov:type": "ont:DataSet"
         },
-        "_:id6": {
-            "prov:entity": "dat:brightkite",
-            "prov:time": "2016-02-27T17:47:43.829888",
-            "prov:activity": "log:af7baf957-afcd-478b-ad70-03e97d685263"
+        "bal:twitter": {
+            "ont:Extension": "csv",
+            "prov:label": "Sample of Curated Tweet",
+            "prov:type": "ont:DataResource"
+        }
+    }
+}{
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/balawson/",
+        "bal": "http://people.bu.edu/balawson/",
+        "snap": "https://snap.stanford.edu/data/",
+        "dat": "http://datamechanics.io/data/balawson/"
+    },
+    "agent": {
+        "alg:combine": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
         }
     },
     "activity": {
-        "log:a7368349c-7c96-4d45-9885-1289925e1f9a": {
-            "prov:type": "ont:Retrieval",
-            "prov:startTime": "2016-02-27T17:46:02.097759",
-            "prov:endTime": "2016-02-27T17:47:43.829888"
+        "log:ace7c661c-4867-4e7f-9c9f-faf4fc52940a": {
+            "prov:type": "ont:Computation"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:ace7c661c-4867-4e7f-9c9f-faf4fc52940a",
+            "prov:entity": "bal:twitter",
+        }
+    },
+    "wasAttributedTo": {
+        "_:id3": {
+            "prov:agent": "alg:combine",
+            "prov:entity": "dat:twitter"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:ace7c661c-4867-4e7f-9c9f-faf4fc52940a",
+            "prov:agent": "alg:combine"
+        }
+    },
+    "entity": {
+        "dat:twitter": {
+            "prov:label": "Twitter population dataset",
+            "prov:type": "ont:DataSet"
         },
-        "log:af7baf957-afcd-478b-ad70-03e97d685263": {
-            "prov:type": "ont:Retrieval",
-            "prov:startTime": "2016-02-27T17:46:02.097759",
-            "prov:endTime": "2016-02-27T17:47:43.829888"
+        "bal:twitter": {
+            "ont:Extension": "csv",
+            "prov:label": "Sample of Curated Tweet",
+            "prov:type": "ont:DataResource"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id4": {
+            "prov:generatedEntity": "dat:twitter",
+            "prov:usedEntity": "bal:twitter"
         }
     }
 }
