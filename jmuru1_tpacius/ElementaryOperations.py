@@ -33,7 +33,7 @@ def project(R, p):
 
 def select(R, s):
     return [t for t in R if s(t)]
- 
+
 def product(R, S):
     return [(t,u) for t in R for u in S]
 
@@ -43,7 +43,7 @@ def aggregate(R, f):
 
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
-    
+
 def reduce(f, R):
     keys = {k for (k,v) in R}
     return [f(k1, [v for (k2,v) in R if k1 == k2]) for k1 in keys]
@@ -76,16 +76,44 @@ def collectionsReduce(a, b, compareCollection=propertyValues):
     reservationReduce = reduceNoFunction(y,c)
     return (memberReduce, reservationReduce) #return a tuple of the wo lists after reduction
 
-def propertyAverage(propList):
-    props = propList #takes in second part of each tuple (list of property)
-    total = 0
-    print(props)
-    for elem in props:
-        #increment total by value associated with this key
-        total += int(elem['av_bldg']) 
-        #the largest property value should have largest ratio after dividing by the size
-    return (total / len(props))
+def getKeys(propList):
+    kk = [key for key, value in propList if key != "_id"]
+    vk = [value for key, value in propList if value != "_id"]
+    return kk + vk
 
+#extracts the zipcodes and property values.
+def zipcodeAggregate(propList):
+    props = propList #takes in second part of each tuple (list of property)
+    keys = getKeys(propList)
+    dbInsert = {}
+    for i in keys:
+        dbInsert[i] = 0
+    total = 0
+    for k in keys:
+        for i in range(len(props)):
+            (key, value) = props[i]
+            if k == key or k == value:
+                if(not not props[i][k]):
+                    for elem in props[i][k]:
+                        dbInsert[k] += int(elem['av_total'])
+    return dbInsert
+
+    #extracts the zipcodes and property values.
+def zipcodeLengthAggregate(propList):
+    props = propList #takes in second part of each tuple (list of property)
+    keys = getKeys(propList)
+    dbInsert = {}
+    for i in keys:
+        dbInsert[i] = 0
+    total = 0
+    for k in keys:
+        for i in range(len(props)):
+            (key, value) = props[i]
+            if k == key or k == value:
+                if(not not props[i][k]):
+                    for elem in props[i][k]:
+                        dbInsert[k] += 1
+    return dbInsert
 
 
 (cReduceMember, cReduceReservations) = collectionsReduce(zipCarMembers, zipCarReservations) #declaration
@@ -102,6 +130,45 @@ repo.createPermanent("reservationsreduction")
 for elem in cReduceReservations:
     d = {elem[0]: elem[1]}
     repo['jmuru1_tpacius.reservationsreduction'].insert_one(d)
+
+# zipcodeAggregate(cReduceReservations)
+
+# Parses zipcodes to sum average property values
+memberZipProperty = getCollection("membersreduction")
+reservationZipProperty = getCollection("reservationsreduction")
+
+#Zipcodes and number of properties at each zipcode
+memberZipCount = zipcodeLengthAggregate(memberZipProperty)
+reservationZipCount = zipcodeLengthAggregate(reservationZipProperty)
+
+# print(memberZipCount)
+# print(reservationZipCount)
+
+memberZipProperty = zipcodeAggregate(memberZipProperty)
+reservationZipProperty = zipcodeAggregate(reservationZipProperty)
+
+repo.dropPermanent("members_sums")
+repo.createPermanent("members_sums")
+repo['jmuru1_tpacius.members_sums'].insert_one(memberZipProperty)
+
+repo.dropPermanent("reservations_sums")
+repo.createPermanent("reservations_sums")
+repo['jmuru1_tpacius.reservations_sums'].insert_one(reservationZipProperty)
+
+repo.dropPermanent("members_counts")
+repo.createPermanent("members_counts")
+repo['jmuru1_tpacius.members_counts'].insert_one(memberZipCount)
+
+repo.dropPermanent("reservations_counts")
+repo.createPermanent("reservations_counts")
+repo['jmuru1_tpacius.reservations_counts'].insert_one(reservationZipCount)
+
+# print("made it")
+
+# print(memberZipProperty)
+# print(reservationZipProperty)
+# print(zipcodeAggregate(memberZipProperty))
+# print(zipcodeAggregate(reservationZipProperty))
 
 # ===========================Perform ops on collections end==============================
 endTime = datetime.datetime.now()
@@ -135,7 +202,7 @@ doc.wasDerivedFrom(zipcarreservations, resource2, this_run, this_run, this_run)
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
 open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
-print(doc.get_provn())
+# print(doc.get_provn())
 repo.logout()
 
 ## eof

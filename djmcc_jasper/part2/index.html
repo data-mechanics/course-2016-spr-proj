@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <title>Boston Composition vs. Vitality</title>
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="css/svg.css">
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="chart">
+			</div>
+
+			<div id="title">
+				<h1>Composition vs. Vitality</h1>
+			</div>
+
+			<div id="about">
+				<p><strong>How well does neighborhood composition correlate with vitality?</strong></p>
+				<p>This scatterplot shows the % of the neighborhood that is commercial (as opposed to residential, and excluding industrial and exempt properties), in relation to a derived vitality score.</p>
+				<p>Assessment data comes from the city of Boston's <a href="https://data.cityofboston.gov" target="_blank">Data Portal</a> and the vitality score is calculated from <a href="https://www.yelp.com/" target="_blank">Yelp</a>.</p>
+				<p>Built by Jasper Burns and Daren McCulley.</p>
+			</div>
+
+	    <div id="menu">
+			<!--<ul id="years"></ul>-->
+			<div id="corr" />
+			</div>
+		</div>
+
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="http://underscorejs.org/underscore-min.js"></script>
+		<script src="js/main.js"></script>
+		
+	</body>
+</html>

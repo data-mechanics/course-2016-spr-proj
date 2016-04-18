@@ -10,8 +10,9 @@ in mongodb.
 import json
 import datetime
 import pymongo
-import prov.model
 import uuid
+import provenance
+import prov
 
 exec(open('../pymongo_dm.py').read())
 exec(open('get_repo.py').read())
@@ -38,8 +39,8 @@ for document in db.find():
 			latitude = latitude[:i+4]	# rounded to three decimals
 		zl = {
 			'zip': 			zipcode,
-			'longitude':	longitude,
-			'latitude':		latitude
+			'longitude':	float(longitude),
+			'latitude':		float(latitude)
 		}
 
 		zips_locations.append(zl)
@@ -51,6 +52,8 @@ repo['linshan_luoty.zips_locations'].insert_many(zips_locations)
 
 endTime = datetime.datetime.now()
 
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -58,18 +61,13 @@ endTime = datetime.datetime.now()
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
-doc = prov.model.ProvDocument()
-doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
-doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
-doc.add_namespace('ont', 'https://data-mechanics.s3.amazonaws.com/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
-doc.add_namespace('log', 'https://data-mechanics.s3.amazonaws.com/log#') # The event log.
-doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc = provenance.init()
 
 this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
 building = doc.entity('dat:approved_building_permits', {prov.model.PROV_LABEL:'Approved Building Permits', prov.model.PROV_TYPE:'ont:DataSet'})
 
-get_zip_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_zip_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Extract zips and location info"})
 doc.wasAssociatedWith(get_zip_location, this_script)
 doc.usage(get_zip_location, building, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'
@@ -82,8 +80,8 @@ doc.wasGeneratedBy(zip_location, get_zip_location, endTime)
 doc.wasDerivedFrom(zip_location, building, get_zip_location, get_zip_location, get_zip_location)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+provenance.update(doc)
+
 print(doc.get_provn())
 
 repo.logout()

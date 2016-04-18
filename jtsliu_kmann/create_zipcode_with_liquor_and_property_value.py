@@ -26,6 +26,7 @@ def getCollection(dbName):
 		temp.append(elem)
 	return temp
 
+
 # Start the process
 startTime = datetime.datetime.now()
 

@@ -12,12 +12,16 @@ import pymongo
 import sys
 import os
 
+from prov.dot import prov_to_dot
+from prov.model import ProvDocument
+
 # Make sure the system path is valid for running from command line
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from mjclawar_rarshad.reference.dir_info import plan_json
-from mjclawar_rarshad.processing import crime_centroids, hospital_distances
-from mjclawar_rarshad.sources import crime, property_assessment, boston_public_schools, hospital_locations
+from mjclawar_rarshad.reference.dir_info import plan_json, prov_svg
+from mjclawar_rarshad.sources.tier1 import crime_centroids, hospital_distances, crime_knn, home_value_model, \
+    hospital_scatter, school_distances, school_scatter
+from mjclawar_rarshad.sources.tier0 import crime, property_assessment, boston_public_schools, hospital_locations
 from mjclawar_rarshad.tools import bdp_query, database_helpers
 
 
@@ -41,6 +45,17 @@ def main(auth_json_path, full_provenance=False):
     setup_hospital_locations(database_helper, bdp_api, full_provenance=full_provenance)
     setup_crime_centroids(database_helper, full_provenance=full_provenance)
     setup_hospital_distances(database_helper, full_provenance=full_provenance)
+    setup_crime_knn(database_helper, full_provenance=full_provenance)
+    setup_home_value_model(database_helper, full_provenance=full_provenance)
+    setup_hospital_scatter(database_helper, full_provenance=full_provenance)
+    setup_school_distances(database_helper, full_provenance=full_provenance)
+    setup_school_scatter(database_helper, full_provenance=full_provenance)
+
+    if full_provenance:
+        with open(plan_json, 'r') as f:
+            prov_doc = ProvDocument.deserialize(f)
+            dot = prov_to_dot(prov_doc)
+            dot.write_svg(prov_svg)
 
 
 def setup_crime_incidents(database_helper, bdp_api, full_provenance=False):
@@ -73,9 +88,39 @@ def setup_crime_centroids(database_helper, full_provenance=False):
         run_processor(full_provenance=full_provenance)
 
 
+def setup_crime_knn(database_helper, full_provenance=False):
+    crime_knn_settings = crime_knn.CrimeKNNSettings()
+    crime_knn.CrimeKNNProcessor(crime_knn_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
+def setup_home_value_model(database_helper, full_provenance=False):
+    home_value_model_settings = home_value_model.HomeValueModelSettings()
+    home_value_model.HomeValueModelProcessor(home_value_model_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
 def setup_hospital_distances(database_helper, full_provenance=False):
     hospital_distances_settings = hospital_distances.HospitalDistancesSettings()
     hospital_distances.HospitalLocationsProcessor(hospital_distances_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
+def setup_hospital_scatter(database_helper, full_provenance=False):
+    hospital_scatter_settings = hospital_scatter.HospitalScatterSettings()
+    hospital_scatter.HospitalScatterProcessor(hospital_scatter_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
+def setup_school_distances(database_helper, full_provenance=False):
+    school_distances_settings = school_distances.SchoolDistancesSettings()
+    school_distances.SchoolLocationsProcessor(school_distances_settings, database_helper).\
+        run_processor(full_provenance=full_provenance)
+
+
+def setup_school_scatter(database_helper, full_provenance=False):
+    school_scatter_settings = school_scatter.SchoolScatterSettings()
+    school_scatter.SchoolScatterProcessor(school_scatter_settings, database_helper).\
         run_processor(full_provenance=full_provenance)
 
 

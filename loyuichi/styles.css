@@ -1,0 +1,16 @@
+body {
+	text-align: center;
+	background-color: #292929;
+	font-family: "Karla", Helvetica, Arial, sans-serif;
+	color: #ffffff;
+}
+
+#map {
+	margin: 0 auto;
+	color: #292929;
+}
+
+.leaflet-container {
+	font-family: "Karla", Helvetica, Arial, sans-serif;
+	font-size: 1em;
+}
