@@ -33,3 +33,10 @@ text.axis-workweek {
 text.axis-worktime {
 	fill: #aaa;
 }
+
+.label {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}

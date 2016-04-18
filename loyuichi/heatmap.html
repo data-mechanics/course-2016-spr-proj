@@ -139,75 +139,8 @@
         legend.exit().remove();
 
       };
-      // var colorScale = d3.scale.quantile()
-      //       .domain([0, buckets - 1, d3.max(data, function (d) { return d.count; })])
-      //       .range(colors);
-      // var heatmapChart = function(f) {
-      //   d3.json(f,
-      //   function(d) {
-      //     data = d;
 
-          
-
-      //     for (var i = 0; i < daysFull.length; i++) {
-      //     console.log(daysFull[i]);
-      //     console.log(data);
-      //     console.log(data[daysFull[i]]);
-      //     for (var j = 0; j < data[daysFull[i]].length; j++) {
-            
-      //         var cards = svg.selectAll(".hour")
-      //           .data(data);
-
-      //       cards.append("title");
-
-      //       cards.enter().append("rect")
-      //           .attr("x", (j - 1)*gridSize)
-      //           .attr("y", (i - 1)*gridSize)
-      //           .attr("rx", 4)
-      //           .attr("ry", 4)
-      //           .attr("class", "hour bordered")
-      //           .attr("width", gridSize)
-      //           .attr("height", gridSize)
-      //           .style("fill", colors[0]);
-
-      //       cards.transition().duration(1000)
-      //           .style("fill", colorScale(data[daysFull[i]][j]));
-
-      //       cards.select("title").text(data[daysFull[i]][j]);
-            
-      //       cards.exit().remove();
-      //     }
-      //   }
-      //   }
-      //   );
-
-
-        
-
-      //   var legend = svg.selectAll(".legend")
-      //       .data([0].concat(colorScale.quantiles()), function(d) { return d; });
-
-      //   legend.enter().append("g")
-      //       .attr("class", "legend");
-
-      //   legend.append("rect")
-      //     .attr("x", function(d, i) { return legendElementWidth * i; })
-      //     .attr("y", height)
-      //     .attr("width", legendElementWidth)
-      //     .attr("height", gridSize / 2)
-      //     .style("fill", function(d, i) { return colors[i]; });
-
-      //   legend.append("text")
-      //     .attr("class", "mono")
-      //     .text(function(d) { return "≥ " + Math.round(d); })
-      //     .attr("x", function(d, i) { return legendElementWidth * i; })
-      //     .attr("y", height + gridSize);
-
-      //   legend.exit().remove();
-  
-      // };
-
-      heatmapChart("daytime_counts_2.json");
+      heatmapChart("daytime_counts.json");
       
       // var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
       //   .data("");
