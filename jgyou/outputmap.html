@@ -9,6 +9,7 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <script src="seniorservicesgeo.json" type="text/javascript"></script>
   <script src="neighborhoods.geojson" type="text/javascript"></script>
+  <script src="hospitalsgeo.json" type="text/javascript"></script>
 
    <style>
     #map{ height: 100% }
@@ -44,7 +45,7 @@
   </br>
 
   <p> 
-    Use the Layers icon in the top-right hand corner of the map to toggle different sites of interest, such as community centers or hospitals.
+    Use the Layers icon in the top-right hand corner of the map to toggle different sites of interest, such as community centers or hospitals. Note that actual locations may vary from those shown on this map due to discrepancies in geocoding.
   </p>
 
 
@@ -70,19 +71,28 @@
     }
   });
 
-  var CommCenter = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/communitycentre.png"});
+  var CommCenterMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/communitycentre.png"});
+  var HospitalMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/hospital-building.png"});
 
   var CommCenterLayer = L.layerGroup();
-  var landmarks_other = L.layerGroup();
+  var HospitalLayer = L.layerGroup();
 
   // plot community centers
-  for (var i in servicesjs) 
-  {
+  for (var i in servicesjs) {
     var name = servicesjs[i]["Organization_Name"];
     var addr = servicesjs[i]["Address"];
     var lon = servicesjs[i]["longitude"];
     var lat = servicesjs[i]["latitude"];
-    L.marker([lat, lon], {icon: CommCenter}).bindPopup("<b>"+ name +"</b>" + "</br>" + addr).addTo(CommCenterLayer);
+    L.marker([lat, lon], {icon: CommCenterMarker}).bindPopup("<b>"+ name +"</b>" + "</br>" + addr).addTo(CommCenterLayer);
+  }
+
+  // markers for hospitals
+  for (var i in hospitalsjs) {
+    var name = hospitalsjs[i]["name"]
+    var addr = hospitalsjs[i]["street"]
+    var lon = hospitalsjs[i]["longitude"]
+    var lat = hospitalsjs[i]["latitude"]
+    L.marker([lat, lon], {icon: HospitalMarker}).bindPopup("<b>"+ name +"</b>" + "</br>" + addr).addTo(HospitalLayer);
   }
 
 /*
@@ -91,14 +101,15 @@
 
   L.marker([42.349, -71.105], {icon: CommCenter}).bindPopup("Marker 1").addTo(landmarks),
   L.marker([42.351, -71.111], {icon: CommCenter}).bindPopup("Marker 2").addTo(landmarks);
-*/
-  L.marker([42.362, -71.123]).bindPopup("Marker 3").addTo(landmarks_other),
+   L.marker([42.362, -71.123]).bindPopup("Marker 3").addTo(landmarks_other),
   L.marker([42.366, -71.115]).bindPopup("Marker 4").addTo(landmarks_other);
+*/
+ 
 
   // add neighborhoods
 
   function onEachNeigh(feature, layer) {
-    var popupContent = feature.properties.Name;
+    var popupContent = feature.properties.Name.toUpperCase();
     layer.bindPopup(popupContent);
   }
 
@@ -114,7 +125,7 @@
   var map = L.map('map', {
     center: [42.35, -71.08], 
     zoom: 13,
-    layers: [CommCenterLayer, stamen]
+    layers: [neigh, stamen]
   });
 
   // add layers
@@ -124,7 +135,7 @@
 
   var overlayMaps = {
     "Community Centers": CommCenterLayer,
-    "More landmarks": landmarks_other,
+    "Hospitals": HospitalLayer,
     "Neighborhoods": neigh
   };
 

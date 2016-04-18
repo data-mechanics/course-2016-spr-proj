@@ -7,7 +7,9 @@ Projections from the City of Boston's 2014 report on ["Aging in Boston"] (https:
 
 Boston has demonstrated its commitment to its older residents by [joining] (http://www.cityofboston.gov/news/default.aspx?id=6600) the World Health Organization's Age Friendly Cities Network. It has also been qualitatively described by the [Milken Institute] (http://successfulaging.milkeninstitute.org/2014/best-cities-for-successful-aging-report-2014.pdf) as being age-friendly because of its high-quality healthcare, its abundance of universities, opportunities for community engagement and cultural vibrancy, and public transportation system. 
 
-However it has been criticized for its high cost of living and expensive healthcare. Some of these factors are important to older adults - for example, the 2015 United States of Aging Survey, conducted by the National Council on Aging, found that [concerns] (https://www.ncoa.org/news/usoa-survey/2015-results/) among adults aged 60 and older and the professionals who worked with them included physical health, affordable housing, and mental wellbeing. Other concerns, brought up by the Aging in Boston report, include greater access to social services and improved transportation access. 
+However it has been criticized for its high cost of living and expensive healthcare. Some of these factors are important to older adults - for example, the 2015 United States of Aging Survey, conducted by the National Council on Aging, found that [concerns] (https://www.ncoa.org/news/usoa-survey/2015-results/) among adults aged 60 and older and the professionals who worked with them included physical health, affordable housing, and mental wellbeing. Other concerns, brought up by the Aging in Boston report, include greater access to social services and improved transportation access.
+
+Besides examining the aging population, it's important to also consider measures related to the neighborhoods they inhabit. Public and private entities have developed metrics for accessibility that tend to address the needs of the general population. In the UK, the Greater London Authority has developed a series of measures called the Public Transport Accessibility Levels ([PTALs] (http://data.london.gov.uk/dataset/public-transport-accessibility-levels)), explained [here] (https://s3-eu-west-1.amazonaws.com/londondatastore-upload/PTAL-methodology.pdf). Also in the UK, the local government has developed [PERS] (http://content.tfl.gov.uk/what-is-pers.pdf), the Pedestrian Environment Review System, a tool to measure walkability. Commercial services, such as [Walk Score] (https://www.walkscore.com/), also try to quantify walkability.
 
 
 ##Project Description
@@ -16,9 +18,6 @@ This project aims to find a way to compute how "age-friendly" a location in Bost
 1. Distance to nearest MBTA stop, weighted by whether wheelchair access is present   
 2. Distance to nearest community center  
 3. Distance to nearest hospital
-
-
-For a given location, this score is plotted against the HUD and DOT's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block tract.
 
 Other factors currently not included but potentially be taken in consideration for scoring include:
 1. Median property value in that zipcode from Zillow  
@@ -31,9 +30,15 @@ Other factors currently not included but potentially be taken in consideration f
 8. Distance to other art/cultural sites
 9. Availability of affordable or accessible housing from sites such as Mass Affordable Housing
 
-Sites will either be retrieved from the City of Boston website or from the Yelp API. These factors aim to address some of the major concerns brought up by the Aging in Boston report as well as other 
+Sites will either be retrieved from the City of Boston website or from the Yelp API. These factors aim to address some of the major concerns brought up by the Aging in Boston report as well as other.
 
-Some of the files in this directory pertain to the previous version of this project on a different subject matter and are not used in this version of the project. However they are stored here in the event they are useful.
+Two visualizations are produced in relation to this project:
+
+a. Some of these locations are mapped using Leaflet in `outputmap.html` to qualitatively show the distribution of sites in different neighborhoods of Boston.  
+
+b. For a given location, its score is plotted against information from the HUD and DOT's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block tract.
+
+Note: for the scripts written during project one on medical sharps disposal in Boston, see the `project_one` directory for more information.
 
 ### Further Considerations and Applications
 
@@ -52,7 +57,6 @@ The scores by neighborhood/region could then be compared to the current distribu
 - There also appears to be discrepancies in coordinates found using a geocoder and listed on the MBTA website (in the screenshot below ([alt link] (http://datamechanics.io/data/jgyou/capture.jpg)), coordinates should correspond to State Street, which is downtown, yet map shows up in Cambridge). This is possibly due to limitations of geocoding in general or may be specific to certain data points.
 
 ![Screenshot] (http://datamechanics.io/data/jgyou/capture.jpg)
-
 
 
 ## Dependencies/Requirements

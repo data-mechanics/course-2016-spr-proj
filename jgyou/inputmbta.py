@@ -115,7 +115,7 @@ with open("auth.json") as a:
 							else:
 								wheelchair = 0
 							mbtainfo.append({"stop_id": stop_id, "stop_name": stop_name, \
-								"longitude": stop_long, "latitude": stop_lat, "wheelchair": wheelchair})
+								"longitude": stop_lon, "latitude": stop_lat, "wheelchair": wheelchair})
 
 						repo.dropPermanent("mbtaStops")
 						repo.createPermanent("mbtaStops")

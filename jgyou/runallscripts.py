@@ -10,7 +10,7 @@ from random import uniform
 from statistics import median
 
 # supplementary functions
-exec(open("convertcoordinates.py").read())
+exec(open("convertcoordinates.py").read())  # something wrong with makeProvCensus
 exec(open("findnearest.py").read())		# needs prov, which is made tricky by the use of multiple collections
 exec(open("generatemiscprov.py").read())
 exec(open('../pymongo_dm.py').read())
@@ -93,7 +93,7 @@ with open("auth.json") as f:
 
 		(startlat, startlon) = startLocation
 		
-		fip = getCensus(repo, startLocation)
+		fip = getCensus(repo, startLocation)  # problematic line
 		
 		(addr, neigh, zipcode) = getAddress(repo, startLocation)
 
@@ -116,7 +116,7 @@ with open("auth.json") as f:
 
 		score = weights[0]*distHospital + weights[2]*medianMBTA + weights[1]*distCenter
 
-		allscores.append( {"score": score, "longitude": startlon, "latitude": startlat})
+		allscores.append( {"address": addr, "census_block": fip, "score": score, "longitude": startlon, "latitude": startlat})
 
 
 		with open('scores.json', 'w') as output_scores:

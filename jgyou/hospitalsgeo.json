@@ -1,0 +1,158 @@
+hospitalsjs = [
+    {
+        "name": "Lemuel Shattuck Hospital",
+        "longitude": -71.10737910445549,
+        "street": "170 Morton St, Boston, MA 02130",
+        "latitude": 42.30025000839615
+    },
+    {
+        "name": "Beth Israel Deaconess Medical Center East Cam",
+        "longitude": -71.08983000035408,
+        "street": "330 Brookline Av, Boston, MA 02115",
+        "latitude": 42.3438499996779
+    },
+    {
+        "name": "Jewish Memorial Hospital",
+        "longitude": -71.09165569529381,
+        "street": "59 Townsend St, Boston, MA 02119",
+        "latitude": 42.31856289432221
+    },
+    {
+        "name": "New England Baptist Hospital",
+        "longitude": -71.10616871232227,
+        "street": "125 Parker Hill Av, Boston, MA 02120",
+        "latitude": 42.329611374844326
+    },
+    {
+        "name": "Boston Specialty & Rehabilitation Hospital",
+        "longitude": -71.08168028446168,
+        "street": "249 River St, Boston, MA 02126",
+        "latitude": 42.27137912172521
+    },
+    {
+        "name": "Boston Medical Center",
+        "longitude": -71.07139912234962,
+        "street": "88 East Newton St, Boston, MA 02118",
+        "latitude": 42.3371094801158
+    },
+    {
+        "name": "Va Hospital",
+        "longitude": -71.10616871232227,
+        "street": "125 Parker Hill Av, Boston, MA 02120",
+        "latitude": 42.329611374844326
+    },
+    {
+        "name": "Massachusetts Eye & Ear Infirmary",
+        "longitude": -71.07043169540236,
+        "street": "243 Charles St, Boston, MA 02114",
+        "latitude": 42.36297141612903
+    },
+    {
+        "name": "Kindred Hospital",
+        "longitude": -71.14136122385321,
+        "street": "1515 Commonwealth Av, Boston, MA 02135",
+        "latitude": 42.34665771451756
+    },
+    {
+        "name": "Brigham And Women's Hospital",
+        "longitude": -71.10741054246668,
+        "street": "75 Francis St, Boston, MA 02115",
+        "latitude": 42.33587602903896
+    },
+    {
+        "name": "Carney Hospital",
+        "longitude": -71.06631280050811,
+        "street": "2100 Dorchester Av, Boston, MA 02124",
+        "latitude": 42.27854306401838
+    },
+    {
+        "name": "New England Medical Center",
+        "longitude": -71.0634111017112,
+        "street": "750 Washington St, Boston, MA 02111",
+        "latitude": 42.349946522039204
+    },
+    {
+        "name": "Faulkner Hospital",
+        "longitude": -71.12789683059322,
+        "street": "1153 Centre St, Boston, MA 02130",
+        "latitude": 42.30021828265608
+    },
+    {
+        "name": "St. Elizabeth's Hospital",
+        "longitude": -71.14822103232248,
+        "street": "736 Cambridge St, Boston, MA 02135",
+        "latitude": 42.349656455743144
+    },
+    {
+        "name": "VA Hospital",
+        "longitude": -71.17245195460838,
+        "street": "1400 Vfw Parkway, Boston, MA 02132",
+        "latitude": 42.27598935537618
+    },
+    {
+        "name": "Shriners Burns Institute",
+        "longitude": -71.0668523937257,
+        "street": "51 Blossom St, Boston, MA 02114",
+        "latitude": 42.36327718561898
+    },
+    {
+        "name": "Children's Hospital",
+        "longitude": -71.10472284437952,
+        "street": "300 Longwood Av, Boston, MA 02115",
+        "latitude": 42.337592548462226
+    },
+    {
+        "name": "Arbour Hospital",
+        "longitude": -71.11272670363542,
+        "street": "49 Robinwood Av, Boston, MA 02130",
+        "latitude": 42.31617666213941
+    },
+    {
+        "name": "Hebrew Rehabilitation Center",
+        "longitude": -71.13150465441208,
+        "street": "1200 Centre St, Boston, MA 02131",
+        "latitude": 42.29738386053219
+    },
+    {
+        "name": "St. Margaret's Hospital For Women",
+        "longitude": -71.06406449543488,
+        "street": "90 Cushing Av, Boston, MA 02125",
+        "latitude": 42.314030311294516
+    },
+    {
+        "name": "Spaulding Rehabilitation Hospital",
+        "longitude": -71.06564730220646,
+        "street": "125 Nashua St, Boston, MA 02114",
+        "latitude": 42.36764789068138
+    },
+    {
+        "name": "Franciscan Children's  Hospital",
+        "longitude": -71.13281000028115,
+        "street": "30 Warren St, Boston, MA 02134",
+        "latitude": 42.352620000312925
+    },
+    {
+        "name": "Beth Israel Deaconess Medical Center West Cam",
+        "longitude": -71.10940050507557,
+        "street": "185 Pilgrim Rd, Boston, MA 02215",
+        "latitude": 42.3385289546495
+    },
+    {
+        "name": "Dana-farber Cancer Institute",
+        "longitude": -71.1071702648531,
+        "street": "44 Binney St, Boston, MA 02115",
+        "latitude": 42.33734993862189
+    },
+    {
+        "name": "Massachusetts General Hospital",
+        "longitude": -71.06924724545246,
+        "street": "55 Fruit St, Boston, MA 02114",
+        "latitude": 42.36247485742686
+    },
+    {
+        "name": "Boston City Hospital",
+        "longitude": -71.07378404269969,
+        "street": "818 Harrison Av, Boston, MA 02118",
+        "latitude": 42.335925371008436
+    }
+];
