@@ -14,3 +14,22 @@ body {
 	font-family: "Karla", Helvetica, Arial, sans-serif;
 	font-size: 1em;
 }
+
+rect.hour {
+	stroke: #292929;
+	stroke-width: 8px;
+}
+
+text.mono {
+	font-size: 9pt;
+	font-family: "Karla", courier;
+	fill: #545454;
+}
+
+text.axis-workweek {
+	fill: #aaa;
+}
+
+text.axis-worktime {
+	fill: #aaa;
+}
