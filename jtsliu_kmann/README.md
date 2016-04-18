@@ -161,6 +161,8 @@ Visualizations $ http-server
 From within the visualizations directory. These visualizations depend on D3 - this can be seen near the top of the files.
 They were heavily tested on Safari, and seemed to work on Chrome.
 
+We have included screenshots of the visualizations for convenience
+
 NOTES: The histogram could have been implemented better, but we were running into bugs, where a bunch of
 crappy if statements ended up being the easiest solution. (We are 90% certain there is a better way - sorry)
 The data used:
