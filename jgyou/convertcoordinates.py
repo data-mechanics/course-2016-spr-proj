@@ -13,12 +13,12 @@ exec(open('../pymongo_dm.py').read())
 # assumes startlocation = x-y, long-lat
 # given x-y coordinates, finds approximate address using opencage geocoder
 
-def getAddress(repo, startlocation):
-  starttime = datetime.datetime.now()
+def getAddress(repo, user, startlocation):
+  startTime = datetime.datetime.now()
   with open("auth.json") as f:
     auth = json.loads(f.read())
     key = auth['service']['opencagegeo']['key']
-    (lat, lon) = startLocation
+    (lat, lon) = startlocation
     # note geocode takes in lat-long
     query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + "+" + str(lat) \
        + "," + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
@@ -31,10 +31,10 @@ def getAddress(repo, startlocation):
       neighborhood = addresults['results'][0]['components']['suburb']
       formatted = addresults['results'][0]['formatted']
 
-      endtime = datetime.datetime.now()
+      endTime = datetime.datetime.now()
       runids = [str(uuid.uuid4())]
-      makeProvOpencage(repo, runids, starttime, endtime, query)
-      makeProvOpencage(repo, runids, None, None, query)
+      makeProvOpencage(repo, user, runids, startTime, endTime, query)
+      makeProvOpencage(repo, user, runids, None, None, query)
 
       return (formatted, neighborhood, startzip)
     
@@ -47,8 +47,8 @@ def getAddress(repo, startlocation):
 # also takes in long-lat
 # returns 15-digit FIPS, the census block
 # fips explained: http://www.policymap.com/blog/2012/08/tips-on-fips-a-quick-guide-to-geographic-place-codes-part-iii/
-def getCensus(repo, startLocation):
-  starttime = datetime.datetime.now()
+def getCensus(repo, user, startLocation):
+  startTime = datetime.datetime.now()
   (lat, lon) = (str(startLocation[0]), str(startLocation[1]))
   query = "http://data.fcc.gov/api/block/find?latitude=" + lat +"&longitude="+ \
     lon +"&showall=true" + "&format=json"
@@ -59,18 +59,22 @@ def getCensus(repo, startLocation):
   # returns 15 digit census block code
   fips = blockresults['Block']['FIPS']
 
-  endtime = datetime.datetime.now()
+  endTime = datetime.datetime.now()
   runids = [str(uuid.uuid4())]
 
-  makeProvCensus(repo, runids, starttime, endtime, query)
-  makeProvCensus(repo, runids, None, None, query)
+  makeProvCensus(repo, user, runids, startTime, endTime, query)
+  makeProvCensus(repo, user, runids, None, None, query)
   
   return fips
 
 
 # provenance info
-def makeProvCensus(repo, runids, starttime, endtime, query):
+def makeProvCensus(repo, user, runids, startTime, endTime, query):
+
+  repo.authenticate(user, user)
+
   provdoc = prov.model.ProvDocument()
+
   provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
   provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
   provdoc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
@@ -94,7 +98,7 @@ def makeProvCensus(repo, runids, starttime, endtime, query):
 
   querysuffix = query.split("?")[1]
   provdoc.wasAssociatedWith(this_run, this_script)
-  provdoc.used(this_run, inputs, starttime, None,\
+  provdoc.used(this_run, inputs, startTime, None,\
     {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'json?' + querysuffix})
 
   provdoc.wasAttributedTo(output, this_script)
@@ -102,7 +106,7 @@ def makeProvCensus(repo, runids, starttime, endtime, query):
 
   provdoc.wasDerivedFrom(output, inputs)
 
-  if starttime == None:
+  if startTime == None:
     plan = open('plan.json','r')
     docModel = prov.model.ProvDocument()
     doc = docModel.deserialize(plan)
@@ -115,7 +119,10 @@ def makeProvCensus(repo, runids, starttime, endtime, query):
     repo.record(provdoc.serialize())  
   
 
-def makeProvOpencage(repo, runids, starttime, endtime, query):
+def makeProvOpencage(repo, user, runids, startTime, endTime, query):
+
+  repo.authenticate(user, user)
+
   provdoc = prov.model.ProvDocument()
   provdoc.add_namespace('alg', 'http://datamechanics.io/algorithm/' + user + '/') # The scripts in <folder>/<filename> format.
   provdoc.add_namespace('dat', 'http://datamechanics.io/data/' + user + '/') # The data sets in <user>/<collection> format.
@@ -140,7 +147,7 @@ def makeProvOpencage(repo, runids, starttime, endtime, query):
 
   querysuffix = query.split("?")[1]
   provdoc.wasAssociatedWith(this_run, this_script)
-  provdoc.used(this_run, opencage, starttime, None,\
+  provdoc.used(this_run, opencage, startTime, None,\
     {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'json?' + querysuffix})
 
   provdoc.wasAttributedTo(output, this_script)
@@ -148,7 +155,7 @@ def makeProvOpencage(repo, runids, starttime, endtime, query):
 
   provdoc.wasDerivedFrom(output, opencage)
 
-  if starttime == None:
+  if startTime == None:
     plan = open('plan.json','r')
     docModel = prov.model.ProvDocument()
     doc = docModel.deserialize(plan)

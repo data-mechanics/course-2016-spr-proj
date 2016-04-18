@@ -93,9 +93,9 @@ with open("auth.json") as f:
 
 		(startlat, startlon) = startLocation
 		
-		fip = getCensus(repo, startLocation)  # problematic line
+		fip = getCensus(repo, user, startLocation)  # problematic line
 		
-		(addr, neigh, zipcode) = getAddress(repo, startLocation)
+		(addr, neigh, zipcode) = getAddress(repo, user, startLocation)
 
 		if zipcode == -1:
 			# zipcode not found by geocoder due to incomplete data, look for zipcode based on neighborhood
