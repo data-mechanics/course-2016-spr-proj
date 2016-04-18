@@ -43,6 +43,8 @@ Given that the p-value for null hypothesis a) was 0.00, there is strong evidence
 
 Then, given that the p-value for null hypothesis b) was 0.63, there is strong evidence that proves it, meaning more food establishments in an area would not lead to more towings happening. The proving of null hypothesis b) encourages further investigation into why cars are being towed and how busy areas with many more food establishments do not see more towings than areas with fewer.
 
+- Scoring areas required that I find the mean and standard deviation for all fafactors in a zip code neighborhood. Then I proceeded to normalize the data on a scale of 0-100 to simplify the scoring process and to compensate for the varying quantities of each factor between zip codes.
+
 Visualizations:
 - Coloring zipcodes within Boston based on the quantity of food establishments, parking meters, parking tickets, and towings registered to each area 
 - Shading a spectrum to display the number of tickets/towings that occur depending on day and hour within a week

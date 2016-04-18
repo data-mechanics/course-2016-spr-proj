@@ -21,14 +21,17 @@ startTime = datetime.datetime.now()
 geolocator = GoogleV3()
 
 for meter in repo['loyuichi.meters'].find({'X': {'$exists': True}, 'Y': {'$exists': True}}):
-	try:
-		location = geolocator.reverse(str(meter['Y']) + ',' + str(meter['X']))
+    try:
+        location = geolocator.reverse(str(meter['Y']) + ',' + str(meter['X']))
 
-		if (location):
-			zipcode = location[0].raw['address_components'][-1]["long_name"]
-			repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
-	except:
-		pass
+        if (location):
+            zipcode = location[0].raw['address_components'][-1]["long_name"]
+            if (len(zipcode) == 4):
+				zipcode = "0" + zipcode
+            res = repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
+            print(res)
+    except:
+        pass
 
 for fe in repo['loyuichi.food_establishments'].find({'zip': {'$exists': False}}):
 	try:
@@ -36,6 +39,8 @@ for fe in repo['loyuichi.food_establishments'].find({'zip': {'$exists': False}})
 
 		if (location):
 			zipcode = location[0].raw['address_components'][-1]["long_name"]
+			if (len(zipcode) == 4):
+				zipcode = "0" + zipcode
 			repo['loyuichi.food_establishments'].update({'_id': fe['_id']}, {'$set': {'zip': zipcode}})
 	except:
 		pass
@@ -46,6 +51,8 @@ for towed in repo['loyuichi.towed'].find():
 
 		if (location):
 			zipcode = location[0].raw['address_components'][-1]["long_name"]
+			if (len(zipcode) == 4):
+				zipcode = "0" + zipcode
 			res = repo['loyuichi.towed'].update({'_id': towed['_id']}, {'$set': {'zip': zipcode}})
 			print(res)
 	except:
