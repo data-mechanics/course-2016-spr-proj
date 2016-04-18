@@ -23,10 +23,10 @@ For a given location, this score is plotted against the HUD and DOT's [Housing A
 Other factors currently not included but potentially be taken in consideration for scoring include:
 1. Median property value in that zipcode from Zillow  
 2. Median rental value for latest available month for given zipcode from Zillow  
-3. Distance to nearest park  
+3. Distance to nearest [park] (http://www.cityofboston.gov/images_documents/Park%20Directory%20-%20June%202014_tcm3-44633.pdf)  
 4. Distance to grocery store/supermarket/food markets  
 5. Distance to pharmacies  
-6. Distance to libraries  
+6. Distance to [libraries] (http://www.bpl.org/branches/)  
 7. Distance to locations of church/faith-based groups  
 8. Distance to other art/cultural sites
 9. Availability of affordable or accessible housing from sites such as Mass Affordable Housing
@@ -81,6 +81,9 @@ The scores by neighborhood/region could then be compared to the current distribu
 - [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
 - [City of Boston, Elderly Affairs] (http://www.cityofboston.gov/elderly/center.asp)
 - [City of Boston, Elderly Affairs, Programs] (http://www.cityofboston.gov/elderly/agency.asp)
+
+## Other Websites
+- Map markers from Maps Icons Collection [https://mapicons.mapsmarker.com] (https://mapicons.mapsmarker.com)
 
 
 ## Instructions

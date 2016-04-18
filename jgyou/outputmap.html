@@ -1,0 +1,87 @@
+<html>
+<!-- modified from Leaflet Tutorial Page -->
+<head>
+  <title>Map of Relevant Resources</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map{ height: 100% }
+
+    p {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+
+    h1 {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+    }
+  </style>
+</head>
+<body>
+  <h1> 
+    Map of Sites of Interest
+  </h1>
+  <div id="map" style="width:50%; height:50%"></div>
+
+  </br>
+
+  <p> 
+    Use the Layers icon in the top-right hand corner of the map to toggle different sites of interest, such as community centers or hospitals.
+  </p>
+
+
+  <script>
+
+  // load a tile layer
+  var stamen = L.tileLayer(
+                'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                );
+
+  var SquareMarker = L.Icon.extend({
+    options: {
+      iconSize: [40, 40],
+      iconAnchor: [20, 3],
+      popupAnchor: [1, 20]
+    }
+  });
+
+  var CommCenter = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/communitycentre.png"});
+
+
+  var landmarks = L.layerGroup();
+  var landmarks_other = L.layerGroup();
+
+  L.marker([42.349, -71.105], {icon: CommCenter}).bindPopup("Marker 1").addTo(landmarks),
+  L.marker([42.351, -71.111], {icon: CommCenter}).bindPopup("Marker 2").addTo(landmarks);
+
+  L.marker([42.362, -71.123]).bindPopup("Marker 3").addTo(landmarks_other),
+  L.marker([42.366, -71.115]).bindPopup("Marker 4").addTo(landmarks_other);
+
+  
+  // initialize the map
+  var map = L.map('map', {
+    center: [42.35, -71.08], 
+    zoom: 13,
+    layers: [landmarks, stamen]
+  });
+
+  var baseLayers = {
+      "B&W": stamen
+  };
+
+  var overlayMaps = {
+    "Landmarks": landmarks,
+    "More landmarks": landmarks_other
+  };
+
+  L.control.layers(baseLayers, overlayMaps).addTo(map);
+
+  </script>
+</body>
+</html>

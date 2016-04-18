@@ -1,6 +1,8 @@
 '''
 runallscripts.py
 
+
+
 '''
 
 
@@ -22,9 +24,6 @@ exec(open("retrieveservices.py").read())
 #exec(open("retrievepharmacies.py").read())		# needs to be changed to find nearest X pharmacies
 exec(open("retrievezillow.py").read())			# currently have not figured out way to incorporate into score, also update retrieval query prov accordingly
 
-
-
-#exec(open("inputcommcenters.py").read())
 
 # highly unscientific function to generate initial coordinates
 # essentially - using a box formed by the following approximate coordinates,
@@ -123,9 +122,10 @@ with open("auth.json") as f:
 		with open('scores.json', 'w') as output_scores:
 			output_scores.write(json.dumps(allscores, indent=4))
 
+			# needs prov data
 
 
-	repo.logout()
+			repo.logout()
 
 
 
