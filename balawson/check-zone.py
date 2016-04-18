@@ -60,7 +60,7 @@ plt.gcf().subplots_adjust(bottom=0.22)
 plt.xlabel('Neighborhood')
 plt.ylabel('Number of Intersections')
 plt.title('Intersections by Neighborhood')
-tweets.neighborhood.value_counts().plot(kind='bar')
+tweets.neighborhoods.value_counts().plot(kind='bar')
 plt.savefig('img/numberofintersections.png')
 
 ###############################################################
