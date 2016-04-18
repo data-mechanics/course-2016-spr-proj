@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Optimal Green Line MBTA Stops</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  </style>
+</head>
+
+<body>
+  <div id="colorkey" style="margin-top:20px">
+     &nbsp;&nbsp;&nbsp;&nbsp; <font color="red">GLB</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="green">GLC</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="brown">GLD</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">GLE</font>
+ </div>
+ <br>
+  <div id="map" style="width: 800px; height: 600px"></div>
+  <div style='position:absolute; top:16px; right:32px; width:380px'>
+    <!-- slider divs -->
+    <h3><i>k</i> Sliders</h3>
+    <div style='margin-top:10px; height:30px'>
+      <div id='bslider' style='background:red; width:340px; float:right'></div>
+      <div id='bsliderval' style='width:40px; float:left'></div>
+    </div>
+    <div style='margin-top:10px; height:30px'>
+      <div id='cslider' style='background:green;  width:340px; float:right'></div>
+      <div id='csliderval' style='width:40px; float:left'></div>
+    </div>
+    <div style='margin-top:10px; height:30px'>
+      <div id='dslider' style='background:brown;  width:340px; float:right'></div>
+      <div id='dsliderval' style='width:40px; float:left'></div>
+    </div>
+    <div style='margin-top:10px; height:30px'>
+      <div id='eslider' style='background:blue;  width:340px; float:right'></div>
+      <div id='esliderval' style='width:40px; float:left'></div>
+    </div>
+    <br>
+    <br>
+    <h3>Optimal Stops</h3>
+    <p> This visual shows optimal stops based on different calculated <i>k</i>-means scores. We use a variant of the <i>k</i>-means clustering algorithm that also takes into account a given weight for each point. The weight, in this case, will be a function of the stop's popularity and the proximity to the nearest alternative.</p>
+
+    <p>Initally, the map shows the current existing Green Line stops, where <i>k</i> = 0. By playing with the sliders and changing the value of <i>k</i>, you can see the optimal <i>k</i> stops for that branch. </p>
+
+    <p>Each of the original stops are represented by a transparent circle of corresponding color (see key in left-hand corner). Each optimal stop will appear as a solid circle of corresponding color with a black border. </p>
+
+  </div>
+
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script>
+
+    // Load the openstreetmap. Based off the introductory example at: http://leafletjs.com/examples/quick-start.html
+    var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+    // The starting coords and zoom just look good.
+    var map = L.map('map').setView([42.35, -71.11], 13);
+    L.tileLayer(mapboxUrl, {
+      maxZoom: 30,
+      // credit our tools
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(map);
+
+    var colors = {'GLB':'red', 'GLC':'green', 'GLD':'brown', 'GLE':'blue'};
+    var branches = ['GLB','GLC','GLD','GLE'];
+
+    // draw a point for all stops
+    branches.forEach(function(branch) {
+      // find the id for all stops on this line
+      $.getJSON('http://127.0.0.1:5000/get/t_branch_info?line='.concat(branch), function(stops) {
+        // stops is the JSON string
+        // now get the coordinates for that stop id to draw it
+        stops.forEach(function(stop) {
+          $.getJSON('http://127.0.0.1:5000/get/t_stop_locations?stop_id='.concat(stop.stop_id), function(points) {
+            L.circle([points[0].stop_lat, points[0].stop_lon], 30, {
+              color: colors[branch],
+              fillColor: 'white',
+              fillOpacity: 0.9
+            }).addTo(map).bindPopup(stop.pretty_name);
+          });
+        });
+      });
+    });
+
+    // Track the markers added for means so they can be removed.
+    var meanMarkers = {'GLB':[], 'GLC':[], 'GLD':[], 'GLE':[]};
+
+    function drawkmeans(k, branch) {
+      // Find the id for all stops on this line.
+      $.getJSON('http://127.0.0.1:5000/get/optimal_green_stops?line='.concat(branch).concat('&k=').concat(k), function(means) {
+        // Delete what means existed already for this branch.
+        if(meanMarkers[branch]) {
+          meanMarkers[branch].forEach( function(marker){ map.removeLayer(marker); } );
+        }
+        meanMarkers[branch] = []
+        // Now draw new ones.
+        means.forEach(function(mean) {
+          mean.coords.forEach(function(crds) {
+            var marker = new L.circleMarker([crds.stop_lat, crds.stop_lon], {
+              radius: 5,
+              stroke: true,
+              color: 'black',
+              fillColor: colors[branch],
+              fillOpacity: 0.9
+            });
+            marker.addTo(map).bindPopup('Optimal Stop');
+            // Save it
+            meanMarkers[branch].push(marker);
+          });
+        });
+      });
+    }
+
+    // Then draw/interact with the k-means.
+    var k = 9
+    drawkmeans(9)
+
+    $("#bslider").slider({
+      range: "max",
+      value: 0,
+      min: 0,
+      max: 23,
+      slide: function(event, ui) {
+        drawkmeans(ui.value, 'GLB');
+        $( "#bsliderval" ).text(ui.value);
+      }
+    });
+    drawkmeans(0, 'GLB'); // init
+    $( "#bsliderval" ).text(0);
+
+    $("#cslider").slider({
+      range: "max",
+      value: 0,
+      min: 0,
+      max: 21,
+      slide: function(event, ui) {
+        drawkmeans(ui.value, 'GLC');
+        $( "#csliderval" ).text(ui.value);
+      }
+    });
+    drawkmeans(0, 'GLC'); // init
+    $( "#csliderval" ).text(0);
+
+    $("#dslider").slider({
+      range: "max",
+      value: 0,
+      min: 0,
+      max: 18,
+      slide: function(event, ui) {
+        drawkmeans(ui.value, 'GLD');
+        $( "#dsliderval" ).text(ui.value);
+      }
+    });
+    drawkmeans(0, 'GLD'); // init
+    $( "#dsliderval" ).text(0);
+
+    $("#eslider").slider({
+      range: "max",
+      value: 0,
+      min: 0,
+      max: 19,
+      slide: function(event, ui) {
+        drawkmeans(ui.value, 'GLE');
+        $( "#esliderval" ).text(ui.value);
+      }
+    });
+    drawkmeans(0, 'GLE'); // init
+    $( "#esliderval" ).text(0);
+
+  </script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import json
 import datetime
 import pymongo
 import prov.model
+import provenance
 import uuid
 from bson.code import Code
 
@@ -52,6 +53,8 @@ repo['linshan_luoty.zip_avg_earnings'].insert_many(zip_avg_earnings)
 
 endTime = datetime.datetime.now()
 	
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -59,7 +62,7 @@ endTime = datetime.datetime.now()
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
-doc = prov.model.ProvDocument()
+doc = provenance.init()
 doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
 doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'https://data-mechanics.s3.amazonaws.com/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
@@ -70,7 +73,7 @@ this_script = doc.agent('alg:get_avg_earning', {prov.model.PROV_TYPE:prov.model.
 
 earning_zip = doc.entity('dat:earnings_zips', {prov.model.PROV_LABEL:'Earnings Zips', prov.model.PROV_TYPE:'ont:DataSet'})
 
-get_avg_earning = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+get_avg_earning = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Calculate the average earnings for each zip."})
 doc.wasAssociatedWith(get_avg_earning, this_script)
 doc.usage(get_avg_earning, earning_zip, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'
@@ -83,8 +86,7 @@ doc.wasGeneratedBy(zip_avg_earning, get_avg_earning, endTime)
 doc.wasDerivedFrom(zip_avg_earning, earning_zip, get_avg_earning, get_avg_earning, get_avg_earning)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+provenance.update(doc)
 print(doc.get_provn())
 
 repo.logout()

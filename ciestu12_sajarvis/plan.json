@@ -3,12 +3,6 @@
         "log:a*": {
         },
         "log:a*": {
-            "prov:label": "Compute Utility with Nearest Alternatives and Popularity",
-            "prov:type": "ont:Computation"
-        },
-        "log:a*": {
-            "prov:label": "Find Nearest Neighbor Stops",
-            "prov:type": "Computation"
         },
         "log:a*": {
         },
@@ -21,6 +15,24 @@
             "prov:type": "Computation"
         },
         "log:a*": {
+            "prov:label": "Compute Utility with Nearest Alternatives and Popularity",
+            "prov:type": "ont:Computation"
+        },
+        "log:a*": {
+            "prov:label": "Compute Correlation and P Value for Utility vs Wheelchair Access",
+            "prov:type": "ont:Computation"
+        },
+        "log:a*": {
+            "prov:label": "Compute Normalized Utility Based",
+            "prov:type": "ont:Computation"
+        },
+        "log:a*": {
+            "prov:label": "Compute Optimal Stop Locations for Each Line",
+            "prov:type": "ont:Computation"
+        },
+        "log:a*": {
+            "prov:label": "Find Nearest Neighbor Stops",
+            "prov:type": "Computation"
         }
     },
     "agent": {
@@ -39,6 +51,27 @@
             }
         },
         "alg:make_nearest_stops": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_normalized_people_seconds": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_optimal_stops": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        },
+        "alg:make_p_score": {
             "ont:Extension": "py",
             "prov:type": {
                 "$": "prov:SoftwareAgent",
@@ -113,10 +146,38 @@
                 "prov:type": "ont:DataSet"
             }
         ],
-        "dat:people_second_utility": {
-            "prov:label": "Measure of Utility Per Stop for Collective Riders",
+        "dat:normal_ppl_sec_util": [
+            {
+                "prov:label": "Normalized People Second Utility Rating",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Normalized People Second Utility Rating",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Normalized People Second Utility Rating",
+                "prov:type": "ont:DataSet"
+            }
+        ],
+        "dat:optimal_green_stops": {
+            "prov:label": "Optimal Green Line Stop Locations for Each Branch",
             "prov:type": "ont:DataSet"
         },
+        "dat:p_score_stops": {
+            "prov:label": "Correlation and P Value for Utility vs Wheelchair Access",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:people_second_utility": [
+            {
+                "prov:label": "Measure of Utility Per Stop for Collective Riders",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Measure of Utility Per Stop for Collective Riders",
+                "prov:type": "ont:DataSet"
+            }
+        ],
         "dat:t_branch_info": [
             {
                 "prov:label": "Green Line Branch Info",
@@ -142,6 +203,14 @@
             },
             {
                 "prov:label": "Collection of Locations of T Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Locations for all MBTA Stops",
+                "prov:type": "ont:DataSet"
+            },
+            {
+                "prov:label": "Locations for all MBTA Stops",
                 "prov:type": "ont:DataSet"
             }
         ],
@@ -226,6 +295,36 @@
             "prov:entity": "dat:green_line_boarding_counts",
             "prov:type": "ont:Retrieval"
         },
+        "_:id45": {
+            "ont:Query": "db.ciestu12_sajarvis.people_second_utility.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:people_second_utility",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id50": {
+            "ont:Query": "db.ciestu12_sajarvis.normal_ppl_sec_util.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:normal_ppl_sec_util",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id51": {
+            "ont:Query": "db.ciestu12_sajarvis.t_stop_locations.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:t_stop_locations",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id57": {
+            "ont:Query": "db.ciestu12_sajarvis.normal_ppl_sec_util.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:normal_ppl_sec_util",
+            "prov:type": "ont:Retrieval"
+        },
+        "_:id58": {
+            "ont:Query": "db.ciestu12_sajarvis.t_stop_locations.find({})",
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:t_stop_locations",
+            "prov:type": "ont:Retrieval"
+        },
         "_:id9": {
             "ont:Query": "",
             "prov:activity": "log:a*",
@@ -258,6 +357,18 @@
             "prov:activity": "log:a*",
             "prov:agent": "alg:make_people_seconds"
         },
+        "_:id44": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_normalized_people_seconds"
+        },
+        "_:id49": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_optimal_stops"
+        },
+        "_:id56": {
+            "prov:activity": "log:a*",
+            "prov:agent": "alg:make_p_score"
+        },
         "_:id8": {
             "prov:activity": "log:a*",
             "prov:agent": "alg:get_green_line_branch_info"
@@ -284,9 +395,21 @@
             "prov:agent": "alg:make_people_seconds",
             "prov:entity": "dat:people_second_utility"
         },
+        "_:id46": {
+            "prov:agent": "alg:make_normalized_people_seconds",
+            "prov:entity": "dat:normal_ppl_sec_util"
+        },
         "_:id5": {
             "prov:agent": "alg:get_boarding_info",
             "prov:entity": "dat:green_line_boarding_counts"
+        },
+        "_:id52": {
+            "prov:agent": "alg:make_optimal_stops",
+            "prov:entity": "dat:optimal_green_stops"
+        },
+        "_:id59": {
+            "prov:agent": "alg:make_p_score",
+            "prov:entity": "dat:p_score_stops"
         }
     },
     "wasDerivedFrom": {
@@ -381,6 +504,41 @@
             "prov:usage": "log:a*",
             "prov:usedEntity": "dat:green_line_boarding_counts"
         },
+        "_:id48": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:normal_ppl_sec_util",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:people_second_utility"
+        },
+        "_:id54": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:optimal_green_stops",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:normal_ppl_sec_util"
+        },
+        "_:id55": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:optimal_green_stops",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:t_stop_locations"
+        },
+        "_:id61": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:p_score_stops",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:normal_ppl_sec_util"
+        },
+        "_:id62": {
+            "prov:activity": "log:a*",
+            "prov:generatedEntity": "dat:p_score_stops",
+            "prov:generation": "log:a*",
+            "prov:usage": "log:a*",
+            "prov:usedEntity": "dat:t_stop_locations"
+        },
         "_:id7": {
             "prov:activity": "log:a*",
             "prov:generatedEntity": "dat:green_line_boarding_counts",
@@ -414,9 +572,21 @@
             "prov:activity": "log:a*",
             "prov:entity": "dat:people_second_utility"
         },
+        "_:id47": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:normal_ppl_sec_util"
+        },
+        "_:id53": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:optimal_green_stops"
+        },
         "_:id6": {
             "prov:activity": "log:a*",
             "prov:entity": "dat:green_line_boarding_counts"
+        },
+        "_:id60": {
+            "prov:activity": "log:a*",
+            "prov:entity": "dat:p_score_stops"
         }
     }
 }
