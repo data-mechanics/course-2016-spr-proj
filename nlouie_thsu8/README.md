@@ -20,9 +20,17 @@ We think solving this gives insight on how lighting plays a role in the incidenc
 - [Crime Incidents](https://data.cityofboston.gov/resource/7cdf-6fgx.json). 
 
 ### Transformations
-- Convert JSON -> Text
-- Feed Text -> Hive/Hadoop
-- Get Final Result. 
+First we got the aforementioned datasets from data.cityofboston.gov. I converted them into Hive/Hadoop readable text files and put them on s3. (You can easily just do this by moving it on to HDFS instead of Amazon's S3.) Since the nearest neighbor algorithm on HIVE was not working, I just did it serially in Python. I was originally trying to use ESRI's ArcGIS in HIVE to do the calculations, but since the algorithm involved a cross product I couldn't do much. I moved this data to Hive to analyze it and finally uploaded the results to s3.  
+
+- Crimes: Incidents in JSON format -> Crimes: Text format id lat long time type
+- Street: Lights in JSON format -> Lights: Text format id lat long
+
+- Python Script (Nearest Neighbour Algorithm) 
+- Crimes + Lights -> CLD: Text format crime id light id, dist (in meters) 
+
+HIVE:
+- Put the data points in CLD into 'buckets'
+- Do analysis on the columns. 
 
 ### Visualizations
 
