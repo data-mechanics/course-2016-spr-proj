@@ -7,6 +7,7 @@ Files:
 - clean.py: Cleans up the data by standardizing streetname acronyms and removing tickets for violations that are irrelevant to parking concerns
 - add_address.py: Adds the street addresses for entries with only longitude and latitude coordinates
 - add_zip_long_lat.py: Adds zip codes for entries that only have streetname or longitude and latitude coordinates
+- fix_datetime.py: Combines the issue date and issue time field to create a correct datetime field
 - merge.py: Merges datasets into aggregate datasets that analyze overall numbers based on zip codes and ticket citations based on day and hour
 - output_counts_json.py: Generates JSON file of counts for use by zipcode.html visualization
 - calc_ticket_fe_corr.py: Calculates p-value for various null hypotheses about relationships between food establishments and tickets/towings

@@ -17,6 +17,7 @@ repo.authenticate('loyuichi', 'loyuichi')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
+# Combining the issue_date and issue_time fields to create a complete datetime field for tickets
 for ticket in repo['loyuichi.tickets'].find({"issue_time": {'$exists': True}, "issue_date": {'$exists': True}}):
 	issue_date = ticket['issue_date']
 	issue_time = ticket['issue_time']

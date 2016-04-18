@@ -17,6 +17,7 @@ repo.authenticate('loyuichi', 'loyuichi')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
+# Processing tickets to aggregate them by the day of the week and time they occur
 daytimes = {"Sunday": [0]*24, "Monday": [0]*24, "Tuesday": [0]*24, "Wednesday": [0]*24, "Thursday": [0]*24, "Friday": [0]*24, "Saturday": [0]*24}
 for ticket in repo['loyuichi.tickets'].find({"issue_time": {'$exists': True}, "issue_date": {'$exists': True}}):
 	d_format = '%Y-%m-%dT%I:%M:%S %p'
@@ -28,6 +29,7 @@ for ticket in repo['loyuichi.tickets'].find({"issue_time": {'$exists': True}, "i
 	print(day_week)
 	daytimes[day_week][hour] += 1
 
+# Outputting the results to a JSON file formatted for heatmap.html
 days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 with open('daytime_counts.json', 'w') as outfile:
 	out = "["

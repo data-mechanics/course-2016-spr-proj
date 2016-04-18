@@ -17,7 +17,7 @@ repo.authenticate('loyuichi', 'loyuichi')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-# Standardizing street name abbreviations
+# Adding zip code field to all documents that do not have it yet
 geolocator = GoogleV3()
 
 for meter in repo['loyuichi.meters'].find({'X': {'$exists': True}, 'Y': {'$exists': True}}):
@@ -51,29 +51,12 @@ for towed in repo['loyuichi.towed'].find():
 	except:
 		pass
 
-addresses = {}
-counter = 0
 for ticket in repo['loyuichi.tickets'].find({"zip": {'$exists': False}}):
 	try:
 		street_add = ticket["ticket_loc"]
-		# if (street_add not in addresses):
-		# 	location = geolocator.geocode(street_add + " Boston")
-
-		# 	print(location)
-			
-		# 	zipcode = location.raw['address_components'][-1]["long_name"]
-		# 	latitude = location.latitude
-		# 	longitude = location.longitude
-		# 	addresses[street_add] = {'zip': zipcode, 'location': {'latitude': latitude, 'longitude': longitude}}
-		# 	res = repo['loyuichi.tickets'].update({'_id': ticket['_id']}, {'$set': {'zip': zipcode, 'location': {'latitude': latitude, 'longitude': longitude}}})
-		# 	print(res)
-		# else:
-		# 	repo['loyuichi.tickets'].update({'_id': ticket['_id']}, {'$set': {'zip': addresses[street_add][zipcode], 'location': {'latitude': addresses[street_add][latitude], 'longitude': addresses[street_add][longitude]}}})
-
+		
 		location = geolocator.geocode(street_add + " Boston")
 
-		#print(location)
-		
 		zipcode = location.raw['address_components'][-1]["long_name"]
 		# Ensure all zipcodes are 5-digit
 		if (len(zipcode) == 4):
@@ -101,7 +84,7 @@ doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'Da
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:add_address', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:add_zip_long_lat', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
 food_establishments = doc.entity('dat:food_establishments', {'prov:label':'Food Establishment Permits', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 meters = doc.entity('dat:meters', {'prov:label':'Parking Meters', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
