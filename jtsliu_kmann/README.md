@@ -127,7 +127,8 @@ for the zipcodes, all varied on user input. This is done using z3!
 
 NOTE: This script has NOT been tested on python 3. For some reason we could not use z3 for python 3. As
 a result, this is only tested in python 2. That being said, I don't think there is any python 2 
-specific syntax or functionality, so it theory it should be okay.
+specific syntax or functionality, so it theory it should be okay. This also obviously has an aditional
+dependency on the z3 library for python.
 
 $ python solve_optimal_zipcode.py
 
@@ -145,8 +146,26 @@ We should filter out more crimes that we associate with liquor licenses.
 
 Our optimal zipcode query is only tested in python 2
 
-TODO:
------
+Visualizations
+---------------
 
-Implement and refine the visualizations
+We present two interactive visualizations. The way we set them up however, requires a webserver running from that
+directory. If you have done a:
+
+$ sudo npm install http-server -g
+
+Then you can simply run:
+
+Visualizations $ http-server
+
+From within the visualizations directory. These visualizations depend on D3 - this can be seen near the top of the files.
+They were heavily tested on Safari, and seemed to work on Chrome.
+
+NOTES: The histogram could have been implemented better, but we were running into bugs, where a bunch of
+crappy if statements ended up being the easiest solution. (We are 90% certain there is a better way - sorry)
+The data used:
+For the histograms, we used subset of our zipcode_profile collection
+For the scatterplot, we did an aggregation on an intermediate data set that had liquor related crimes, and
+liquor locations. Because both of these sets were just aggregated from data sets, we did not write additional provenance
+They are the same as the datasets they came from.
 

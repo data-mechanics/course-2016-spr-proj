@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<!-- Learned how to set up multiple graphs from: -->
+<!-- http://www.alexrothenberg.com/2014/01/06/learning-d3-by-building-a-chart.js.html -->
+<!-- http://www.d3noob.org/2013/07/arranging-more-than-one-d3js-graph-on.html -->
+
+<!-- TOOLTIP FROM: -->
+<!-- https://github.com/caged/d3-tip -->
+<!-- http://bl.ocks.org/Caged/6476579 -->
+
+<!-- Rotate axis label -->
+<!-- http://www.d3noob.org/2013/01/how-to-rotate-text-labels-for-x-axis-of.html -->
+
+<!-- Basic bar chart -->
+<!-- https://bost.ocks.org/mike/bar/3/ -->
+<!-- http://bl.ocks.org/mbostock/3885304 -->
+
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  width: 960px;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+  fill-opacity: .9;
+}
+
+.bar:hover {
+  fill: brown ;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+</style>
+<label><input type="checkbox"> Sort values</label><br \>
+
+<select onchange="loadData()" id="metric">
+  <option value="liquor_locations">Number of Liquor Locations</option>
+  <option value="num_schools">Number of Schools</option>
+  <option value="num_hospitals">Number of Hospitals</option>
+  <option value="num_crimes">Number of Crimes</option>
+  <option value="number_properties">Number of Properties</option>
+  <option value="avg_tax_per_sf">Average Tax per Sq Ft.</option>
+</select>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script>
+
+var margin = {top: 30, right: 40, bottom: 50, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// var formatPercent = d3.format(".0%");
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1, 1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    // .tickFormat(formatPercent);
+
+var globalchoice = document.getElementById('metric').selectedOptions[0].value;
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([0, 0])
+  .html(function(d) {
+    if (globalchoice == "liquor_locations") {
+      return "<strong>Liquor Locations:</strong> <span style='color:red'>" + d.liquor_locations + "</span>";
+    }
+
+    if (globalchoice == "num_schools") {
+      return "<strong>Number of Schools:</strong> <span style='color:red'>" + d.num_schools + "</span>";
+    }
+
+    if (globalchoice == "num_hospitals") {
+      return "<strong>Number of Hospitals:</strong> <span style='color:red'>" + d.num_hospitals + "</span>";
+    }
+
+    if (globalchoice == "num_crimes") {
+      return "<strong>Number of Crimes:</strong> <span style='color:red'>" + d.num_crimes + "</span>";
+    }
+
+    if (globalchoice == "number_properties") {
+      return "<strong>Number of Properties:</strong> <span style='color:red'>" + d.number_properties + "</span>";
+    }
+
+    if (globalchoice == "avg_tax_per_sf") {
+      return "<strong>Average Tax per Square Footage:</strong> <span style='color:red'>" + d.avg_tax_per_sf + "</span>";
+    }
+
+  })
+
+var svg = d3.select("body").append("svg")
+    .attr("id", "amazingViz")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+  for(var k in data) {
+    console.log(k, data[k]["liquor_locations"]);
+  }
+
+  x.domain(data.map(function(d) { return d._id; }));
+  y.domain([0, d3.max(data, function(d) { return d.liquor_locations; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)" );
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Liquor Locations");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d._id); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.liquor_locations); })
+      .attr("height", function(d) { return height - y(d.liquor_locations); });
+
+  d3.select("input").on("change", change);
+
+  var sortTimeout = setTimeout(function() {
+    d3.select("input").property("checked", true).each(change);
+  }, 2000);
+
+  function change() {
+    clearTimeout(sortTimeout);
+
+    // Copy-on-write since tweens are evaluated after a delay.
+    var x0 = x.domain(data.sort(this.checked
+        ? function(a, b) { return b.liquor_locations - a.liquor_locations; }
+        : function(a, b) { return d3.ascending(a._id, b._id); })
+        .map(function(d) { return d._id; }))
+        .copy();
+
+    svg.selectAll(".bar")
+        .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+    var transition = svg.transition().duration(750),
+        delay = function(d, i) { return i * 50; };
+
+    transition.selectAll(".bar")
+        .delay(delay)
+        .attr("x", function(d) { return x0(d._id); });
+
+    transition.select(".x.axis")
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)")
+      .selectAll("g")
+        .delay(delay);
+  }
+});
+
+var loadData = function() {
+  globalchoice = document.getElementById('metric').selectedOptions[0].value;
+  var metric = document.getElementById('metric').selectedOptions[0].text;
+  var choice = document.getElementById('metric').selectedOptions[0].value;
+
+  d3.select("#amazingViz").remove();
+
+  var svg = d3.select("body").append("svg")
+    .attr("id", "amazingViz")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.call(tip);
+
+  console.log(choice);
+
+  if (choice == "liquor_locations") {
+      d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+      for(var k in data) {
+        console.log(k, data[k]["liquor_locations"]);
+      }
+
+      x.domain(data.map(function(d) { return d._id; }));
+      y.domain([0, d3.max(data, function(d) { return d.liquor_locations; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Liquor Locations");
+
+      svg.selectAll(".bar")
+          .data(data)
+        .enter().append("rect")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d._id); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.liquor_locations); })
+          .attr("height", function(d) { return height - y(d.liquor_locations); });
+
+      d3.select("input").on("change", change);
+
+      var sortTimeout = setTimeout(function() {
+        d3.select("input").property("checked", true).each(change);
+      }, 2000);
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+            ? function(a, b) { return b.liquor_locations - a.liquor_locations; }
+            : function(a, b) { return d3.ascending(a._id, b._id); })
+            .map(function(d) { return d._id; }))
+            .copy();
+
+        svg.selectAll(".bar")
+            .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+        var transition = svg.transition().duration(750),
+            delay = function(d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+            .delay(delay)
+            .attr("x", function(d) { return x0(d._id); });
+
+        transition.select(".x.axis")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+          .selectAll("g")
+            .delay(delay);
+      }
+    });
+  }
+
+  if (choice == "num_schools") {
+      d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+      for(var k in data) {
+        console.log(k, data[k]["num_schools"]);
+      }
+
+      x.domain(data.map(function(d) { return d._id; }));
+      y.domain([0, d3.max(data, function(d) { return d.num_schools; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Number of Schools");
+
+      svg.selectAll(".bar")
+          .data(data)
+        .enter().append("rect")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d._id); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.num_schools); })
+          .attr("height", function(d) { return height - y(d.num_schools); });
+
+      d3.select("input").on("change", change);
+
+      var sortTimeout = setTimeout(function() {
+        d3.select("input").property("checked", true).each(change);
+      }, 2000);
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+            ? function(a, b) { return b.num_schools - a.num_schools; }
+            : function(a, b) { return d3.ascending(a._id, b._id); })
+            .map(function(d) { return d._id; }))
+            .copy();
+
+        svg.selectAll(".bar")
+            .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+        var transition = svg.transition().duration(750),
+            delay = function(d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+            .delay(delay)
+            .attr("x", function(d) { return x0(d._id); });
+
+        transition.select(".x.axis")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+          .selectAll("g")
+            .delay(delay);
+      }
+    });
+  }
+
+  if (choice == "num_hospitals") {
+      d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+      for(var k in data) {
+        console.log(k, data[k]["num_hospitals"]);
+      }
+
+      x.domain(data.map(function(d) { return d._id; }));
+      y.domain([0, d3.max(data, function(d) { return d.num_hospitals; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Number of Hospitals");
+
+      svg.selectAll(".bar")
+          .data(data)
+        .enter().append("rect")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d._id); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.num_hospitals); })
+          .attr("height", function(d) { return height - y(d.num_hospitals); });
+
+      d3.select("input").on("change", change);
+
+      var sortTimeout = setTimeout(function() {
+        d3.select("input").property("checked", true).each(change);
+      }, 2000);
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+            ? function(a, b) { return b.num_hospitals - a.num_hospitals; }
+            : function(a, b) { return d3.ascending(a._id, b._id); })
+            .map(function(d) { return d._id; }))
+            .copy();
+
+        svg.selectAll(".bar")
+            .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+        var transition = svg.transition().duration(750),
+            delay = function(d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+            .delay(delay)
+            .attr("x", function(d) { return x0(d._id); });
+
+        transition.select(".x.axis")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+          .selectAll("g")
+            .delay(delay);
+      }
+    });
+  }
+
+  if (choice == "num_crimes") {
+      d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+      for(var k in data) {
+        console.log(k, data[k]["num_crimes"]);
+      }
+
+      x.domain(data.map(function(d) { return d._id; }));
+      y.domain([0, d3.max(data, function(d) { return d.num_crimes; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Number of Crimes");
+
+      svg.selectAll(".bar")
+          .data(data)
+        .enter().append("rect")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d._id); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.num_crimes); })
+          .attr("height", function(d) { return height - y(d.num_crimes); });
+
+      d3.select("input").on("change", change);
+
+      var sortTimeout = setTimeout(function() {
+        d3.select("input").property("checked", true).each(change);
+      }, 2000);
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+            ? function(a, b) { return b.num_crimes - a.num_crimes; }
+            : function(a, b) { return d3.ascending(a._id, b._id); })
+            .map(function(d) { return d._id; }))
+            .copy();
+
+        svg.selectAll(".bar")
+            .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+        var transition = svg.transition().duration(750),
+            delay = function(d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+            .delay(delay)
+            .attr("x", function(d) { return x0(d._id); });
+
+        transition.select(".x.axis")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+          .selectAll("g")
+            .delay(delay);
+      }
+    });
+  }
+
+  if (choice == "number_properties") {
+      d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+      for(var k in data) {
+        console.log(k, data[k]["number_properties"]);
+      }
+
+      x.domain(data.map(function(d) { return d._id; }));
+      y.domain([0, d3.max(data, function(d) { return d.number_properties; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Number of Properties");
+
+      svg.selectAll(".bar")
+          .data(data)
+        .enter().append("rect")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d._id); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.number_properties); })
+          .attr("height", function(d) { return height - y(d.number_properties); });
+
+      d3.select("input").on("change", change);
+
+      var sortTimeout = setTimeout(function() {
+        d3.select("input").property("checked", true).each(change);
+      }, 2000);
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+            ? function(a, b) { return b.number_properties - a.number_properties; }
+            : function(a, b) { return d3.ascending(a._id, b._id); })
+            .map(function(d) { return d._id; }))
+            .copy();
+
+        svg.selectAll(".bar")
+            .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+        var transition = svg.transition().duration(750),
+            delay = function(d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+            .delay(delay)
+            .attr("x", function(d) { return x0(d._id); });
+
+        transition.select(".x.axis")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+          .selectAll("g")
+            .delay(delay);
+      }
+    });
+  }
+
+  if (choice == "avg_tax_per_sf") {
+      d3.json("/data/cleanedzipcodeprofile.json", function(error, data) {
+
+      for(var k in data) {
+        console.log(k, data[k]["avg_tax_per_sf"]);
+      }
+
+      x.domain(data.map(function(d) { return d._id; }));
+      y.domain([0, d3.max(data, function(d) { return d.avg_tax_per_sf; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Average Tax per Square Footage");
+
+      svg.selectAll(".bar")
+          .data(data)
+        .enter().append("rect")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d._id); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.avg_tax_per_sf); })
+          .attr("height", function(d) { return height - y(d.avg_tax_per_sf); });
+
+      d3.select("input").on("change", change);
+
+      var sortTimeout = setTimeout(function() {
+        d3.select("input").property("checked", true).each(change);
+      }, 2000);
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+            ? function(a, b) { return b.avg_tax_per_sf - a.avg_tax_per_sf; }
+            : function(a, b) { return d3.ascending(a._id, b._id); })
+            .map(function(d) { return d._id; }))
+            .copy();
+
+        svg.selectAll(".bar")
+            .sort(function(a, b) { return x0(a._id) - x0(b._id); });
+
+        var transition = svg.transition().duration(750),
+            delay = function(d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+            .delay(delay)
+            .attr("x", function(d) { return x0(d._id); });
+
+        transition.select(".x.axis")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+          .selectAll("g")
+            .delay(delay);
+      }
+    });
+  }
+}
+
+function type(d) {
+  d._id = +d._id;
+  return d;
+}
+
+</script>
