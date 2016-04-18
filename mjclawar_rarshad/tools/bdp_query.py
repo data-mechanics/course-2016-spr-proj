@@ -15,7 +15,7 @@ class BDPQuery:
     def __init__(self, api_token):
         self.api_token = api_token
 
-    def api_query(self, base_url, limit=None, order=None, select=None, where=None):
+    def api_query(self, base_url, limit=None, order=None, select=None, where=None, offset=None):
         """
         Creates and sends the API query according to the Socrata API standards: https://dev.socrata.com/docs/queries/
 
@@ -31,19 +31,21 @@ class BDPQuery:
             List of the variables to return. Returns all in data set if None ($select in SoQL)
         where: str
             Where condition ($where in SoQL)
+        offset: int
+            Number by which to offset the query
 
         Returns
         -------
         json, str
         """
-        query_url = self.get_query_url(base_url, limit, order, select, where)
+        query_url = self.get_query_url(base_url, limit, order, select, where, offset)
         print('Getting query from', query_url)
         response = urllib.request.urlopen(query_url).read().decode('utf-8')
         r = json.loads(response)
         print('Done getting query')
         return r, query_url.split('?')[1]
 
-    def get_query_url(self, base_url, limit, order, select, where):
+    def get_query_url(self, base_url, limit, order, select, where, offset):
         """
         Creates the query url to use from the parameters
 
@@ -59,6 +61,8 @@ class BDPQuery:
             List of the variables to return. Returns all in data set if None ($select in SoQL)
         where: str
             Where condition ($where in SoQL)
+        offset: int
+            Number by which to offset the query
 
         Returns
         -------
@@ -68,6 +72,8 @@ class BDPQuery:
 
         if limit is not None:
             query_url += '$limit=%s' % limit
+        else:
+            query_url += '$limit=1000'
 
         if order is not None:
             assert isinstance(order, str)
@@ -84,5 +90,9 @@ class BDPQuery:
         if where is not None:
             assert isinstance(where, str)
             query_url += '&$where=' + where.replace(' ', '%20')
+
+        if offset is not None:
+            assert isinstance(offset, int)
+            query_url += '&$offset=%s' % offset
 
         return query_url

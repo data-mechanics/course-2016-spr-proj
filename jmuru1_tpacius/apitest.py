@@ -12,14 +12,18 @@ zipcarUrl1 = 'https://data.cityofboston.gov/resource/78f5-5i4e.json' + '?$$app_t
 zipcarUrl2 = 'https://data.cityofboston.gov/resource/498g-jbmi.json' + '?$$app_token=' + data["api_key"] + "&$limit=1000"
 propertyUrl = 'https://data.cityofboston.gov/resource/n7za-nsjh.json'  + '?$$app_token=' + data["api_key"] + "&$limit=1000"
 
+print(zipcarUrl1)
+
 def request(url):
 	response = urllib.request.urlopen(url).read().decode("utf-8")
 	r = json.loads(response)
 	s = json.dumps(r, sort_keys=True, indent=2)
 	return (r , s)
 
-zipCarMemberCount = request(zipcarUrl1)[0]
-zipCarReservations = request(zipcarUrl2)[0]
+# zipCarMemberCount = request(zipcarUrl1)[0]
+# zipCarReservations = request(zipcarUrl2)[0]
 propertyvalue = request(propertyUrl)[0]
+
+# print(propertyvalue)
 
 #eof

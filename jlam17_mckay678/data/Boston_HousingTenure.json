@@ -1,0 +1,122 @@
+[{
+  "United States": {
+    "Owner Occupied Units":"75986074",
+    "%":"65.1%",
+    "Renter Occupied Units":"40730218",
+    "%":"34.9%"
+  },
+  "Massachusetts": {
+    "Owner Occupied Units":"1587158",
+    "%":"62.3%",
+    "Renter Occupied Units":"959917",
+    "%":"37.7%"
+  },
+  "Boston": {
+    "Owner Occupied Units":"85791",
+    "%":"33.9%",
+    "Renter Occupied Units":"166908",
+    "%":"66.1%"
+  },
+  "Allston/Brighton": {
+    "Owner Occupied Units":"6435",
+    "%":"21.0%",
+    "Renter Occupied Units":"24175",
+    "%":"79.0%"
+  },
+  "Back Bay": {
+    "Owner Occupied Units":"5476",
+    "%":"33.8%",
+    "Renter Occupied Units":"10725",
+    "%":"66.2%"
+  },
+  "Central": {
+    "Owner Occupied Units":"4255",
+    "%":"27.0%",
+    "Renter Occupied Units":"11479",
+    "%":"73.0%"
+  },
+  "Charlestown": {
+    "Owner Occupied Units":"3719",
+    "%":"46.3%",
+    "Renter Occupied Units":"4314",
+    "%":"53.7%"
+  },
+  "East Boston": {
+    "Owner Occupied Units":"4028",
+    "%":"27.5%",
+    "Renter Occupied Units":"10623",
+    "%":"72.5%"
+  },
+  "Fenway/Kenmore": {
+    "Owner Occupied Units":"1187",
+    "%":"8.6%",
+    "Renter Occupied Units":"12558",
+    "%":"91.4%"
+  },
+  "Harbor Islands": {
+    "Owner Occupied Units":"-",
+    "%":"-",
+    "Renter Occupied Units":"-",
+    "%":"-"
+  },
+  "Hyde Park": {
+    "Owner Occupied Units":"6639",
+    "%":"57.6%",
+    "Renter Occupied Units":"4885",
+    "%":"42.4%"
+  },
+  "Jamaica Plain": {
+    "Owner Occupied Units":"5844",
+    "%":"34.9%",
+    "Renter Occupied Units":"10919",
+    "%":"65.1%"
+  },
+  "Mattapan": {
+    "Owner Occupied Units":"4403",
+    "%":"35.5%",
+    "Renter Occupied Units":"7999",
+    "%":"64.5%"
+  },
+  "North Dorchester": {
+    "Owner Occupied Units":"3076",
+    "%":"30.1%",
+    "Renter Occupied Units":"7133",
+    "%":"69.9%"
+  },
+  "Roslindale": {
+    "Owner Occupied Units":"6447",
+    "%":"50.5%",
+    "Renter Occupied Units":"6326",
+    "%":"49.5%"
+  },
+  "Roxbury": {
+    "Owner Occupied Units":"5290",
+    "%":"23.2%",
+    "Renter Occupied Units":"17538",
+    "%":"76.8%"
+  },
+  "South Boston": {
+    "Owner Occupied Units":"6496",
+    "%":"40.1%",
+    "Renter Occupied Units":"9723",
+    "%":"59.9%"
+  },
+  "South Dorchester": {
+    "Owner Occupied Units":"8822",
+    "%":"40.9%",
+    "Renter Occupied Units":"12746",
+    "%":"59.1%"
+  },
+  "South End": {
+    "Owner Occupied Units":"5437",
+    "%":"33.0%",
+    "Renter Occupied Units":"11042",
+    "%":"67.0%"
+  },
+  "West Roxbury": {
+    "Owner Occupied Units":"8237",
+    "%":"63.6%",
+    "Renter Occupied Units":"4723",
+    "%":"36.4%"
+  }
+}]

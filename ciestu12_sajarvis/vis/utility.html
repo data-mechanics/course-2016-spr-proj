@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Green Line MBTA Stop Ratings</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  </style>
+</head>
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <div id="colorkey" style="margin-top:20px">
+      &nbsp;&nbsp;&nbsp;&nbsp; <font color="#AA3939">GLB</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#AA6C39">GLC</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#226666">GLD</font> &nbsp;&nbsp;&nbsp;&nbsp; <font color="#2D882D">GLE</font>
+  </div>
+  <div id="container" style="float:left"></div>
+  <div id="description" style="margin-left:920px">
+    <h3>Utility Measurement</h3>
+    <p>Our utility measurement is a score that uses both the popularity of each stop and the walking time to the next nearest
+      stop. A high score is good; this means that the stop is valued and saves the greatest amount of time for the collective commuting group. The measurement is scaled from 1 to 1000. 
+  </p>
+  <p>The size of the bubble corresponds to the utility measurement; the larger the bubble, the greater the utility measurement. 
+    The bubbles are labeled with their stop-id, and colored by line (see key in left-hand corner). If you hover your mouse over
+    the bubbles, a tooltip will appear showing the stop name and utility measurement for that stop.
+  </p>
+  <p>
+    You may notice that some stops are repeated with different utility scores. This is because each of these stops may have a
+    different importance based on the branch. 
+  </p>
+  </div>
+  <script>
+    // Credit for most of this to examples at https://bl.ocks.org/mbostock/3231298 and
+    // https://bl.ocks.org/mbostock/4063269. Force and texty bubbles.
+    // Each licensed GPLv3
+    // Still pretty customized and unique, though... JavaScript is tricky.
+
+    var width = 920,
+        height = 600;
+
+    // These are just four colors from a recommended palette on the Internet.
+    var colors = {'GLB':'#AA3939', 'GLC':'#AA6C39', 'GLD':'#226666', 'GLE':'#2D882D'};
+
+    function scale(radius) {
+      // This just looks kinda good.
+      return Math.sqrt(radius) * 1.5
+    }
+
+    // The force layout for d3
+    var force = d3.layout.force()
+        .gravity(0.02)
+        .charge(0.0)
+        .size([width, height]);
+
+    var svg = d3.select("#container").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("class", "force");
+
+    // Grab our utility ratings. Start the db server from our project directory
+    // like "python3 restful.py".
+    d3.json('http://127.0.0.1:5000/get/normal_ppl_sec_util', function(pplsecs) {
+
+      data = pplsecs.map( function(d) {
+        return {ppl_secs: d.ppl_secs, radius: scale(d.ppl_secs), line: d.line, stop: d.stop};
+      });
+
+      // Add the nodes to the force layout.
+      force.nodes(data).start();
+
+      // To have both circles and text we need group tags for each node.
+      var node = svg.selectAll(".node")
+          .data(data)
+        .enter().append("g") // Need a group to include text with the circles.
+          .attr("class", "node")
+          .call(force.drag);
+
+      node.append("circle")
+        .attr("r", function(d) { return d.radius; })
+        .style("fill", function(d) { return colors[d.line]; });
+
+      // Add the "pretty name" and utility of each score to show on mouseover.
+      // I'm guessing this is not the most efficient way to do this, but given
+      // the asynchronous nature of the d3.json call it seems most reliable to
+      // nest the closures.
+      d3.json('http://127.0.0.1:5000/get/t_branch_info', function(stops) {
+        node.append("title").text(function(d) {
+          return stops.filter(function(s,i,a) {
+            return s.stop_id == d.stop;
+          })[0].pretty_name + "\nUtility: " + d.ppl_secs;
+        });
+      });
+
+      // Show the "id" style stop in the circle.
+      node.append("text")
+        .attr("dy", ".3em")
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.stop.split('-')[1]; });
+
+      force.on("tick", function(e) {
+        var q = d3.geom.quadtree(data),
+            i = 0,
+            n = data.length;
+
+        while (++i < n) {
+          q.visit(collide(data[i]));
+        }
+
+        // Not sure why an attr has to be set on tick, but setting it anywhere
+        // else just doesn't work.
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+      });
+
+      function collide(node) {
+        var r = node.radius + 16,
+            nx1 = node.x - r,
+            nx2 = node.x + r,
+            ny1 = node.y - r,
+            ny2 = node.y + r;
+        return function(quad, x1, y1, x2, y2) {
+          if (quad.point && (quad.point !== node)) {
+            var x = node.x - quad.point.x,
+                y = node.y - quad.point.y,
+                l = Math.sqrt(x * x + y * y),
+                r = node.radius + quad.point.radius;
+            if (l < r) {
+              l = (l - r) / l * .5;
+              node.x -= x *= l;
+              node.y -= y *= l;
+              quad.point.x += x;
+              quad.point.y += y;
+            }
+          }
+          return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+        };
+      }
+
+    });
+
+  </script>
+</body>
+</html>

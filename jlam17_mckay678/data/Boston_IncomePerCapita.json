@@ -1,0 +1,102 @@
+[{
+  "United States": {
+    "Total Population":306603772,
+    "Aggregate Income":8326458156400,
+    "Per Capita Income":27915
+  },
+  "Massachusetts": {
+    "Total Population":6512227,
+    "Aggregate Income":223427937100,
+    "Per Capita Income":35051
+  },
+  "Boston": {
+    "Total Population":609942,
+    "Aggregate Income":19345504900,
+    "Per Capita Income":33158
+  },
+  "Allston/Brighton": {
+    "Total Population":68241,
+    "Aggregate Income":1916691197,
+    "Per Capita Income":28087
+  },
+  "Back Bay": {
+    "Total Population":22861,
+    "Aggregate Income":2007366212,
+    "Per Capita Income":87807
+  },
+  "Central": {
+    "Total Population":32972,
+    "Aggregate Income":2157152008,
+    "Per Capita Income":65424
+  },
+  "Charlestown": {
+    "Total Population":16685,
+    "Aggregate Income":977169912,
+    "Per Capita Income":58566
+  },
+  "East Boston": {
+    "Total Population":41128,
+    "Aggregate Income":921373121,
+    "Per Capita Income":22403
+  },
+  "Fenway/Kenmore": {
+    "Total Population":41601,
+    "Aggregate Income":851818485,
+    "Per Capita Income":20476
+  },
+  "Harbor Islands": {
+    "Total Population":458,
+    "Aggregate Income":5567448,
+    "Per Capita Income":12156
+  },
+  "Hyde Park": {
+    "Total Population":32961,
+    "Aggregate Income":922169707,
+    "Per Capita Income":27978
+  },
+  "Jamaica Plain": {
+    "Total Population":41277,
+    "Aggregate Income":1482635044,
+    "Per Capita Income":35919
+  },
+  "Mattapan": {
+    "Total Population":35329,
+    "Aggregate Income":692820438,
+    "Per Capita Income":19611
+  },
+  "North Dorchester": {
+    "Total Population":27069,
+    "Aggregate Income":654517837,
+    "Per Capita Income":24180
+  },
+  "Roslindale": {
+    "Total Population":33254,
+    "Aggregate Income":978206493,
+    "Per Capita Income":29416
+  },
+  "Roxbury": {
+    "Total Population":63155,
+    "Aggregate Income":1185205100,
+    "Per Capita Income":18767
+  },
+  "South Boston": {
+    "Total Population":33499,
+    "Aggregate Income":1431961235,
+    "Per Capita Income":42746
+  },
+  "South Dorchester": {
+    "Total Population":59527,
+    "Aggregate Income":1443424085,
+    "Per Capita Income":24248
+  },
+  "South End": {
+    "Total Population":29632,
+    "Aggregate Income":1387748195,
+    "Per Capita Income":46833
+  },
+  "West Roxbury": {
+    "Total Population":30293,
+    "Aggregate Income":1200476162,
+    "Per Capita Income":39629
+  }
+}]

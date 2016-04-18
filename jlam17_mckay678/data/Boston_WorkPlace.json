@@ -1,0 +1,222 @@
+[{
+  "United States": {
+    "Total":139488206,
+    "Worked in state of residence":134173556,
+    "% of Total":"96.2%",
+    "Worked in county of residence":101187364,
+    "%":"75.4%",
+    "Worked outside county of residence":32986192,
+    "%":"24.6%",
+    "Worked outside state of residence":"5314650",
+    "% of Total":"3.8%"
+  },
+  "Massachusetts": {
+    "Total":3202521,
+    "Worked in state of residence":3077478,
+    "% of Total":"96.1%",
+    "Worked in county of residence":2096867,
+    "%":"68.1%",
+    "Worked outside county of residence":980611,
+    "%":"31.9%",
+    "Worked outside state of residence":"125043",
+    "% of Total":"3.9%"
+  },
+  "Boston": {
+    "Total":310881,
+    "Worked in state of residence":306784,
+    "% of Total":"98.7%",
+    "Worked in county of residence":213295,
+    "%":"69.5%",
+    "Worked outside county of residence":93489,
+    "%":"30.5%",
+    "Worked outside state of residence":"4097",
+    "% of Total":"1.3%"
+  },
+  "Allston/Brighton": {
+    "Total":40157,
+    "Worked in state of residence":39784,
+    "% of Total":"99.1%",
+    "Worked in county of residence":23777,
+    "%":"59.8%",
+    "Worked outside county of residence":16007,
+    "%":"40.2%",
+    "Worked outside state of residence":"373",
+    "% of Total":"0.9%"
+  },
+  "Back Bay": {
+    "Total":14792,
+    "Worked in state of residence":14278,
+    "% of Total":"96.5%",
+    "Worked in county of residence":9885,
+    "%":"69.2%",
+    "Worked outside county of residence":4393,
+    "%":"30.8%",
+    "Worked outside state of residence":"514",
+    "% of Total":"3.5%"
+  },
+  "Central": {
+    "Total":19282,
+    "Worked in state of residence":18821,
+    "% of Total":"97.6%",
+    "Worked in county of residence":14585,
+    "%":"77.5%",
+    "Worked outside county of residence":4236,
+    "%":"22.5%",
+    "Worked outside state of residence":"461",
+    "% of Total":"2.4%"
+  },
+  "Charlestown": {
+    "Total":9469,
+    "Worked in state of residence":9142,
+    "% of Total":"96.5%",
+    "Worked in county of residence":5970,
+    "%":"65.3%",
+    "Worked outside county of residence":3172,
+    "%":"34.7%",
+    "Worked outside state of residence":"327",
+    "% of Total":"3.5%"
+  },
+  "East Boston": {
+    "Total":21607,
+    "Worked in state of residence":21499,
+    "% of Total":"99.5%",
+    "Worked in county of residence":15917,
+    "%":"74.0%",
+    "Worked outside county of residence":5582,
+    "%":"26.0%",
+    "Worked outside state of residence":"108",
+    "% of Total":"0.5%"
+  },
+  "Fenway/Kenmore": {
+    "Total":19128,
+    "Worked in state of residence":18704,
+    "% of Total":"97.8%",
+    "Worked in county of residence":14584,
+    "%":"78.0%",
+    "Worked outside county of residence":4120,
+    "%":"22.0%",
+    "Worked outside state of residence":"424",
+    "% of Total":"2.2%"
+  },
+  "Harbor Islands": {
+    "Total":100,
+    "Worked in state of residence":100,
+    "% of Total":"100.0%",
+    "Worked in county of residence":61,
+    "%":"61.0%",
+    "Worked outside county of residence":39,
+    "%":"39.0%",
+    "Worked outside state of residence":"-",
+    "% of Total":"0.0%"
+  },
+  "Hyde Park": {
+    "Total":16543,
+    "Worked in state of residence":16307,
+    "% of Total":"98.6%",
+    "Worked in county of residence":10760,
+    "%":"66.0%",
+    "Worked outside county of residence":5547,
+    "%":"34.0%",
+    "Worked outside state of residence":"236",
+    "% of Total":"1.4%"
+  },
+  "Jamaica Plain": {
+    "Total":23206,
+    "Worked in state of residence":22931,
+    "% of Total":"98.8%",
+    "Worked in county of residence":16680,
+    "%":"72.7%",
+    "Worked outside county of residence":6251,
+    "%":"27.3%",
+    "Worked outside state of residence":"275",
+    "% of Total":"1.2%"
+  },
+  "Mattapan": {
+    "Total":14667,
+    "Worked in state of residence":14607,
+    "% of Total":"99.6%",
+    "Worked in county of residence":10126,
+    "%":"69.3%",
+    "Worked outside county of residence":4481,
+    "%":"30.7%",
+    "Worked outside state of residence":"60",
+    "% of Total":"0.4%"
+  },
+  "North Dorchester": {
+    "Total":12574,
+    "Worked in state of residence":12458,
+    "% of Total":"99.1%",
+    "Worked in county of residence":8641,
+    "%":"69.4%",
+    "Worked outside county of residence":3817,
+    "%":"30.6%",
+    "Worked outside state of residence":"116",
+    "% of Total":"0.9%"
+  },
+  "Roslindale": {
+    "Total":17166,
+    "Worked in state of residence":17014,
+    "% of Total":"99.1%",
+    "Worked in county of residence":10711,
+    "%":"63.0%",
+    "Worked outside county of residence":6303,
+    "%":"37.0%",
+    "Worked outside state of residence":"152",
+    "% of Total":"0.9%"
+  },
+  "Roxbury": {
+    "Total":24239,
+    "Worked in state of residence":24139,
+    "% of Total":"99.6%",
+    "Worked in county of residence":18428,
+    "%":"76.3%",
+    "Worked outside county of residence":5711,
+    "%":"23.7%",
+    "Worked outside state of residence":"100",
+    "% of Total":"0.4%"
+  },
+  "South Boston": {
+    "Total":20015,
+    "Worked in state of residence":19764,
+    "% of Total":"98.7%",
+    "Worked in county of residence":14188,
+    "%":"71.8%",
+    "Worked outside county of residence":5576,
+    "%":"28.2%",
+    "Worked outside state of residence":"251",
+    "% of Total":"1.3%"
+  },
+  "South Dorchester": {
+    "Total":27297,
+    "Worked in state of residence":27071,
+    "% of Total":"99.2%",
+    "Worked in county of residence":19043,
+    "%":"70.3%",
+    "Worked outside county of residence":8028,
+    "%":"29.7%",
+    "Worked outside state of residence":"226",
+    "% of Total":"0.8%"
+  },
+  "South End": {
+    "Total":15161,
+    "Worked in state of residence":14811,
+    "% of Total":"97.7%",
+    "Worked in county of residence":11102,
+    "%":"75.0%",
+    "Worked outside county of residence":3709,
+    "%":"25.0%",
+    "Worked outside state of residence":"350",
+    "% of Total":"2.3%"
+  },
+  "West Roxbury": {
+    "Total":15478,
+    "Worked in state of residence":15354,
+    "% of Total":"99.2%",
+    "Worked in county of residence":8837,
+    "%":"57.6%",
+    "Worked outside county of residence":6517,
+    "%":"42.4%",
+    "Worked outside state of residence":"124",
+    "% of Total":"0.8%"
+  }
+}]
