@@ -54,25 +54,27 @@ var w_sort = 960,
 
 var ranks, spider, graph, routes, remaining = 4;
 
-d3.json("http://datamechanics.io/data/nikolaj/routes.json", function(error, data) {
+var prefix = "http://datamechanics.io/data/nikolaj/"
+
+d3.json(prefix.concat("routes.json"), function(error, data) {
   routes = data;
   if (error) throw error;
   if (!--remaining) renderAll();
 });
 
-d3.json("http://datamechanics.io/data/nikolaj/ranks.json", function(error, data) {
+d3.json(prefix.concat("ranks.json"), function(error, data) {
   ranks = data;
   if (error) throw error;
   if (!--remaining) renderAll();
 });
 
-d3.json("http://datamechanics.io/data/nikolaj/spider.json", function(error, data) {
+d3.json(prefix.concat("spider.json"), function(error, data) {
   spider = data;
   if (error) throw error;
   if (!--remaining) renderAll();
 });
 
-d3.json("http://datamechanics.io/data/nikolaj/graph.json", function(error, data) {
+d3.json(prefix.concat("graph.json"), function(error, data) {
   graph = data;
   if (error) throw error;
   if (!--remaining) renderAll();

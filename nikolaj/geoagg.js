@@ -8,7 +8,8 @@ var routeUnion = dyn_params["routeUnion"];
 var neighUnion = dyn_params["neighUnion"];
 
 var input_col = "nikolaj.raw_stops"
-var output_col = "nikolaj.stops_with_neighs"
+var output_col = dyn_params["output_col_name"]
+// "nikolaj.stops_with_neighs"
 
 dropPerm(input_col);
 createPerm(input_col);

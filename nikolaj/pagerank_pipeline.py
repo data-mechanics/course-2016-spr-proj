@@ -24,57 +24,49 @@ def drop_derived_collections(repo):
     repo.dropPerm('nikolaj.neighs')
     repo.dropPerm('nikolaj.ranks')
     repo.dropPerm('nikolaj.raw_stops')
-    repo.dropPerm('nikolaj.stops_with_neighs')
     repo.dropPerm('nikolaj.pagerank')
     repo.dropPerm('nikolaj.pagerank_result')
     repo.dropPerm('nikolaj.params')
 
-def export_for_viz():
-    vizdatautil.run()
-
-def to_plan(repo):
-    doc = prov.model.ProvDocument()
-    doc.update(storeT.to_prov(None, None))
-    doc.update(storeBus.to_prov(None, None))
-    doc.update(geoagg.to_prov(None, None))
-    doc.update(pagerank.to_prov(None, None))
-    
-    repo.record(doc.serialize()) # Record the provenance document.
-    with open('plan.json','w') as plan:
-        plan.write(json.dumps(json.loads(doc.serialize()), indent=4))
-    print(doc.get_provn())
-
-def load_initial_data(repo):
-    storeT.run()
-    storeBus.run()
-    
-def run_job_with_params(repo, job_params):
+def run_job_with_params(repo, job_params, doc):
     drop_derived_collections(repo)
     store_json(repo, 'nikolaj.params', job_params)
-    geoagg.run()
-    pagerank.run()
+    startTime, _, endTime = geoagg.run()
+    doc.update(geoagg.to_prov(startTime, endTime, job_params[0]))
+    startTime, _, endTime = pagerank.run()
+    doc.update(pagerank.to_prov(startTime, endTime, job_params[1]))
 
 if __name__ == "__main__":
     repo = get_auth_repo('nikolaj', 'nikolaj')
-    load_initial_data(repo)
+    doc = prov.model.ProvDocument()
+    
+    startTime, _, endTime = storeT.run()
+    doc.update(storeT.to_prov(startTime, endTime))
+    startTime, _, endTime = storeBus.run()
+    doc.update(storeBus.to_prov(startTime, endTime))
     
     t_only_params = [
-        { "id" : "geoagg_params", "maxDistance" : 0, "input_cols": [ "nikolaj.raw_t_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
-        { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_only" }
+        { "id" : "geoagg_params", "maxDistance" : 0, "output_col_name": "nikolaj.stops_with_neighs_t_only", "input_cols": [ "nikolaj.raw_t_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+        { "id" : "pagerank_params", "input_col_name": "nikolaj.stops_with_neighs_t_only", "output_col_name" : "nikolaj.pagerank_result_t_only" }
     ]
 
     t_500walk_params = [
-        { "id" : "geoagg_params", "maxDistance" : 500, "input_cols": [ "nikolaj.raw_t_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
-        { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk" }
+        { "id" : "geoagg_params", "maxDistance" : 500, "output_col_name": "nikolaj.stops_with_neighs_t_500walk", "input_cols": [ "nikolaj.raw_t_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+        { "id" : "pagerank_params", "input_col_name": "nikolaj.stops_with_neighs_t_500walk", "output_col_name" : "nikolaj.pagerank_result_t_500walk" }
     ]
 
     t_500walk_bus_params = [
-        { "id" : "geoagg_params", "maxDistance" : 500, "input_cols": [ "nikolaj.raw_t_stops", "nikolaj.raw_bus_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
-        { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk_bus" }
+        { "id" : "geoagg_params", "maxDistance" : 500, "output_col_name": "nikolaj.stops_with_neighs_t_500walk_bus", "input_cols": [ "nikolaj.raw_t_stops", "nikolaj.raw_bus_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+        { "id" : "pagerank_params", "input_col_name": "nikolaj.stops_with_neighs_t_500walk_bus", "output_col_name" : "nikolaj.pagerank_result_t_500walk_bus" }
     ]
     job_param_queue = [t_only_params, t_500walk_params, t_500walk_bus_params]
     
     for job_param in job_param_queue:
-        run_job_with_params(repo, job_param)
+        run_job_with_params(repo, job_param, doc)
     
-    export_for_viz()
+    startTime, _, endTime = vizdatautil.run()
+    doc.update(vizdatautil.to_prov(startTime, endTime))
+
+    repo.record(doc.serialize()) # Record the provenance document.
+    print(doc.get_provn())
+    

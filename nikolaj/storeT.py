@@ -5,6 +5,7 @@ import ast
 import urllib.request
 import prov.model
 import uuid
+from utils import timestamped
 exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
@@ -61,6 +62,7 @@ def get_stations():
     # TODO: might want to postprocess for green line
     return stations
 
+@timestamped
 def run():
     repo = get_auth_repo('nikolaj', 'nikolaj')
     json_stations = get_stations()
@@ -91,7 +93,7 @@ def to_prov(startTime, endTime):
     doc.wasAssociatedWith(get_spider, this_script)
     doc.used(get_spider, spider_resource, startTime)
 
-    station_network = doc.entity('dat:raw_t_stops', {prov.model.PROV_LABEL:'Derived T Stations', prov.model.PROV_TYPE:'ont:DataSet'})
+    station_network = doc.entity('dat:raw_t_stops', {prov.model.PROV_LABEL:'Stops', prov.model.PROV_TYPE:'ont:DataSet'})
     doc.wasAttributedTo(station_network, this_script)
     doc.wasGeneratedBy(station_network, get_station_network, endTime)
     doc.wasDerivedFrom(station_network, station_network_resource, get_station_network, get_station_network, get_station_network)
