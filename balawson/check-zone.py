@@ -76,37 +76,28 @@ doc.add_namespace('alg', 'http://datamechanics.io/algorithm/balawson/') # The sc
 doc.add_namespace('dat', 'http://datamechanics.io/data/balawson/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
-doc.add_namespace('snap', 'https://snap.stanford.edu/data/')
 doc.add_namespace('bal', 'http://people.bu.edu/balawson/')
+doc.add_namespace('bos', 'http://bostonopendata.boston.opendata.arcgis.com/datasets/')
 
-this_script = doc.agent('alg:combine', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-#brightkite_resource = doc.entity('snap:brightkite', {'prov:label':'SNAP: Standford Network Analysis Project - Brightkite', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'txtgz'})
-#gowalla_resource = doc.entity('snap:gowalla', {'prov:label':'SNAP: Standford Network Analysis Project - Gowalla', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'txtgz'})
+this_script = doc.agent('alg:checkzone', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 twitter_resource = doc.entity('bal:twitter', {'prov:label':'Sample of Curated Tweet', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'csv'})
+shapefile_resource = doc.entity('bos:shapefile', {'prov:label':'BostonMaps: Open Data | Planning Districts', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'zip'})
 
-#viz_brightkite = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
-#viz_gowalla = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
-viz_twitter = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+comp_twitter = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
 
-#doc.wasAssociatedWith(viz_brightkite, this_script)
-#doc.wasAssociatedWith(viz_gowalla, this_script)
-doc.wasAssociatedWith(viz_twitter, this_script)
+doc.wasAssociatedWith(comp_twitter, this_script)
 
-#doc.used(viz_brightkite, brightkite_resource, startTime)
-#doc.used(viz_gowalla, gowalla_resource, startTime)
-doc.used(viz_twitter, twitter_resource, startTime)
+doc.used(comp_twitter, twitter_resource, startTime)
+doc.used(comp_twitter, shapefile_resource, startTime)
 
-#brightkite_ent = doc.entity('dat:brightkite', {prov.model.PROV_LABEL:'Brightkite data', prov.model.PROV_TYPE:'ont:DataSet'})
-#doc.wasAttributedTo(brightkite_ent, this_script)
-#doc.wasDerivedFrom(brightkite_ent, brightkite_resource)
-
-#gowalla_ent = doc.entity('dat:gowalla', {prov.model.PROV_LABEL:'Gowalla dataset', prov.model.PROV_TYPE:'ont:DataSet'})
-#doc.wasAttributedTo(gowalla_ent, this_script)
-#doc.wasDerivedFrom(gowalla_ent, gowalla_resource)
-
-twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'Twitter population dataset', prov.model.PROV_TYPE:'ont:DataSet'})
+twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'neighboorhoods for intersections', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(twitter_ent, this_script)
 doc.wasDerivedFrom(twitter_ent, twitter_resource)
+
+shapefile_ent = doc.entity('bos:shapefile', {prov.model.PROV_LABEL:'BostonMaps: Open Data | Planning Districts', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(shapefile_ent, this_script)
+doc.wasGeneratedBy(shapefile_ent, get_shapefile, endTime)
+doc.wasDerivedFrom(shapefile_ent, shapefile_resource, get_shapefile, get_shapefile, get_shapefile)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))

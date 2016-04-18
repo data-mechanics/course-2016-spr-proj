@@ -63,7 +63,6 @@ doc.add_namespace('alg', 'http://datamechanics.io/algorithm/balawson/') # The sc
 doc.add_namespace('dat', 'http://datamechanics.io/data/balawson/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
-doc.add_namespace('snap', 'https://snap.stanford.edu/data/')
 doc.add_namespace('bal', 'http://people.bu.edu/balawson/')
 
 this_script = doc.agent('alg:capture-recapture', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
@@ -75,7 +74,7 @@ doc.wasAssociatedWith(twitter_activity, this_script)
 
 doc.used(viz_twitter, twitter_resource, startTime)
 
-twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'Twitter dataset', prov.model.PROV_TYPE:'ont:DataSet'})
+twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'capture-recapture results', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(twitter_ent, this_script)
 doc.wasDerivedFrom(twitter_ent, twitter_resource)
 
