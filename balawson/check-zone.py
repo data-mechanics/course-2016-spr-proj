@@ -6,6 +6,7 @@ import pandas as pd
 import pymongo, datetime, uuid, math
 import prov.model
 import shapefile
+import matplotlib.pyplot as plt
 exec(open('../pymongo_dm.py').read())
 ###############################################################
 ####    access the data       
