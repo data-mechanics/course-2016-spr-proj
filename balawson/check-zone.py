@@ -7,6 +7,7 @@ import pymongo, datetime, uuid, math
 import prov.model
 import shapefile
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 exec(open('../pymongo_dm.py').read())
 ###############################################################
 ####    access the data       
@@ -40,21 +41,67 @@ def countpeople(row):
     for col in row.keys():
         try:
             int(col)
-            total += row[col] 
+            total += int(row[col])
         except:
             pass
     return total
 
+def color_map(df):
+    my_colors = {'Allston/Brighton': [0.8823529411764706, 0.5843137254901961,  0.5215686274509804],
+ 'Back Bay/Beacon Hill': [0.7333333333333333,
+  0.5176470588235295,
+  0.4666666666666667],
+ 'Central': [0.7529411764705882, 0.7372549019607844, 0.8392156862745098],
+ 'Charlestown': [0.7254901960784313, 0.49019607843137253, 0.5294117647058824],
+ 'East Boston': [0.00784313725490196, 0.6470588235294118, 0.24705882352941178],
+ 'Fenway/Kenmore': [0.2901960784313726,
+  0.8901960784313725,
+  0.43529411764705883],
+ 'Harbor Islands': [0.9411764705882353,
+  0.7254901960784313,
+  0.5529411764705883],
+ 'Hyde Park': [0.9176470588235294, 0.8274509803921568, 0.7764705882352941],
+ 'Jamaica Plain': [0.8901960784313725, 0.7333333333333333, 0.7098039215686275],
+ 'Mattapan': [0.2196078431372549, 0.06666666666666667, 0.7764705882352941],
+ 'North Dorchester': [0.8784313725490196,
+  0.5686274509803921,
+  0.4823529411764706],
+ 'Roslindale': [0.5764705882352941, 0.8352941176470589, 0.5529411764705883],
+ 'Roxbury': [0.7254901960784313, 0.9019607843137255, 0.6862745098039216],
+ 'South Boston': [0.7568627450980392, 0.8313725490196079, 0.7450980392156863],
+ 'South Dorchester': [0.41568627450980394,
+  0.8274509803921568,
+  0.24705882352941178],
+ 'South End': [0.23137254901960785, 0.023529411764705882, 0.5568627450980392],
+ 'West Roxbury': [0.7764705882352941, 0.8705882352941177, 0.7803921568627451]}
+
+    color = []
+    for idx, x in df.iterrows():
+        try:
+            color.append(my_colors[x.neighborhoods])
+        except KeyError:
+            color.append('k')
+    return color
+
+def make_patch(color, label):
+    return mpatches.Patch(color=color, label=label)
 
 tweets.drop(['0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19','2', '20', '21', '22', '23', '3', '4', '5', '6', '7', '8', '9', '_id',], inplace=True, axis=1)
 tweets['lat'] = tweets.lat.apply(lambda d: float(d))
 tweets['lng'] = tweets.lng.apply(lambda d: float(d))
-tweets.neighborhoods = tweets.apply(lambda d: determine_neighborhood( d.lat, d.lng), axis=1) 
+tweets['neighborhoods'] = tweets.apply(lambda d: determine_neighborhood( d.lat, d.lng), axis=1) 
 
 
 ###############################################################
 ####    make some summary charts
 ###############################################################
+
+sorted_tweets = tweets.sort_values(by='total', ascending=False)
+colorful = color_map(sorted_tweets)
+
+sorted_tweets[:25].total.plot(kind='bar', color=colorful, figsize=(10,10))
+plt.legend(handles=leg, loc='center left', bbox_to_anchor=(1, 0.5))
+plt.savefig('img/popularintersections.png')
 
 plt.gcf().subplots_adjust(bottom=0.22)
 plt.xlabel('Neighborhood')
@@ -98,7 +145,6 @@ doc.wasDerivedFrom(twitter_ent, twitter_resource)
 shapefile_ent = doc.entity('bos:shapefile', {prov.model.PROV_LABEL:'BostonMaps: Open Data | Planning Districts', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(shapefile_ent, this_script)
 doc.wasGeneratedBy(shapefile_ent, get_shapefile, endTime)
-doc.wasDerivedFrom(shapefile_ent, shapefile_resource, get_shapefile, get_shapefile, get_shapefile)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
