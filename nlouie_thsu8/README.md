@@ -39,6 +39,7 @@ HIVE:
 - The visualization maps every streetlight (using geojson data) in Boston and a sample of the crimes
 - This is made with [Leaflet](http://leafletjs.com/) using Lapet's API key...
 - Added functionality allows the user to click on the crime to view more details in a popup.
+- Added visualization of the distance of the closest streetlamp with the number of crimes
 
 #### StreetLights
 ![StreetLights](http://puu.sh/ohmgP/184c3ff996.png "StreetLights")
@@ -48,3 +49,5 @@ HIVE:
 ![Crime](http://puu.sh/ohmtz/eb2b04d0a4.png "Crime Samples")
 #### Crime Samples Zoomed with Popup
 ![Crime Zoomed with Popup](https://puu.sh/ohmwp/5ac776b01a.png "Crimed Zoomed with Popup")
+#### Closest Street Lamp and Number of Crimes
+![Street Lamp Number Crimes](http://puu.sh/onr9L/60eb12506d.png "Street Lamps Number of Crimes")
