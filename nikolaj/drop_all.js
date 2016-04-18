@@ -1,0 +1,16 @@
+db.loadServerScripts();
+
+dropPerm("contribs")
+dropPerm("dist_routes")
+dropPerm("neighs")
+dropPerm("pagerank")
+dropPerm("pagerank_result")
+dropPerm("pagerank_result_t_500walk")
+dropPerm("pagerank_result_t_500walk_bus")
+dropPerm("pagerank_result_t_only")
+dropPerm("params")
+dropPerm("ranks")
+dropPerm("raw_bus_stops")
+dropPerm("raw_stops")
+dropPerm("raw_t_stops")
+dropPerm("stops_with_neighs")

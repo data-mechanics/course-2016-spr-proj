@@ -155,7 +155,6 @@ var renderAll = function() {
   })
 
   var all_routes = routes.filter(function(rt) { return rt._id == "all" })[0].value.routes.sort();
-  console.log(all_routes);
   // routes.map(function(rt) {
   //   var update = {};
   //   update[rt._id] = rt.value.routes;
@@ -223,9 +222,6 @@ var renderAll = function() {
             .style("fill", "#444");
       })
       
-  // node.append("title")
-  //     .text(function(d) { return d.name; });
-
   var route = station_map.selectAll(".text")
         .data(all_routes)
     .enter().append("text")

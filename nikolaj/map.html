@@ -83,6 +83,9 @@ var renderAll = function() {
           .attr("cx", padding)
           .attr("cy", padding);
 
+      marker.append("title")
+          .text(function(d) { return d.name; });
+
       function transform(d) {
         d = new google.maps.LatLng(d.lat, d.lng);
         d = projection.fromLatLngToDivPixel(d);
