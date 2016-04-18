@@ -95,14 +95,14 @@ with open("auth.json") as temp:
         servicejs = json.loads(serviceresult)
         
         # get lat, lon data
-        lat = float(servicejs['features'][0]['geometry']['coordinates'][0])
-        lon = float(servicejs['features'][0]['geometry']['coordinates'][1])
+        lat = float(servicejs['features'][0]['geometry']['coordinates'][1])
+        lon = float(servicejs['features'][0]['geometry']['coordinates'][0])
         site["latitude"] = lat
         site["longitude"] = lon
 
     # write to json for use in visualization
     with open("seniorservicesgeo.json", "w") as output:
-        output.write(json.dumps(services, indent=4))
+        output.write("var servicesjs =" + json.dumps(services, indent=4) + ";")
         output.close()
 
         # then add to database

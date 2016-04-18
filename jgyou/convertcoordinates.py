@@ -23,7 +23,6 @@ def getAddress(repo, startlocation):
     query = "https://api.opencagedata.com/geocode/v1/json?" + "q=" + "+" + str(lat) \
        + "," + str(lon) + "&pretty=1" + "&countrycode=us" + "&key=" + key
 
-    #print(query)
     response = request.urlopen(query).read().decode("utf-8")
     addresults = json.loads(response)
 

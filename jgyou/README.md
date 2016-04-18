@@ -65,6 +65,7 @@ The scores by neighborhood/region could then be compared to the current distribu
   - [Scikit-learn] (http://scikit-learn.org/stable/) `scikit-learn`
   - [Matplotlib] (http://matplotlib.org/index.html) `matplot-lib`
   - [GeoPy] (https://github.com/geopy/geopy)
+  - [Yelp] (https://github.com/Yelp/yelp-python/) 
 - MongoDB 3.2
 
 ### Accounts required
@@ -84,6 +85,7 @@ The scores by neighborhood/region could then be compared to the current distribu
 
 ## Other Websites
 - Map markers from Maps Icons Collection [https://mapicons.mapsmarker.com] (https://mapicons.mapsmarker.com)
+- Map Neighborhood Geojson Polygons from MapTime Boston [http://maptimeboston.github.io/leaflet-intro/neighborhoods.geojson] (http://maptimeboston.github.io/leaflet-intro/neighborhoods.geojson)
 
 
 ## Instructions
