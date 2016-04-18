@@ -3,6 +3,8 @@ body {
 	background-color: #292929;
 	font-family: "Karla", Helvetica, Arial, sans-serif;
 	color: #ffffff;
+	margin-top: 80px;
+	margin-bottom: 80px;
 }
 
 #map {
@@ -36,7 +38,33 @@ text.axis-worktime {
 
 .label {
   position: absolute;
-  width: 200px;
-  height: 28px;
+  width: 80px;
+  height: 24px;
+  font-size: 0.95em;
+  padding: 3px;
   pointer-events: none;
+  background-color: #EC6D6D;
+}
+
+#dataset-picker {
+	margin-bottom: 25px;
+}
+
+.dataset-button.tickets {
+    background-color: #EC6D6D;
+}
+
+.dataset-button.towed {
+    background-color: #ECD06D;
+}
+
+.dataset-button {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    margin-left: 15px;
+    border: none;
+    font-family: "Karla";
+    font-size: 1em;
+    color: #ffffff;
 }
