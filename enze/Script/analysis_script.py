@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[230]:
+# In[1]:
 
 import csv
 import datetime
@@ -29,25 +29,25 @@ get_ipython().magic('matplotlib inline')
 
 # # Data Transformation
 
-# In[5]:
+# In[2]:
 
 # import the Excel file: Boston Bike Collision Database
-df_collision = pd.read_excel("dataverse_files/Final Bike Collision Database.xlsx")
+df_collision = pd.read_excel("data/Final Bike Collision Database.xlsx")
 
 
-# In[63]:
+# In[3]:
 
 # import the csv file: Existing Bike Network Database
-df_lane = pd.read_csv("Existing_Bike_Network.csv")
+df_lane = pd.read_csv("data/Existing_Bike_Network.csv")
 
 
-# In[178]:
+# In[4]:
 
 # import the csv file: City of Boston Street Segments Database
-df_street = pd.read_csv("Boston_Segments.csv")
+df_street = pd.read_csv("data/Boston_Segments.csv")
 
 
-# In[181]:
+# In[5]:
 
 # df_collision.info()
 # df_collision.head(10)
@@ -142,19 +142,19 @@ def get_intersection():
             a.writerows([[str1, str2]])
 
 
-# In[87]:
+# In[6]:
 
 # import the csv file of the intersection database we just collected
-df_intersection = pd.read_csv("intersection.csv")
+df_intersection = pd.read_csv("data/intersection.csv")
 
 
-# In[89]:
+# In[7]:
 
 df_intersection.head(5)
 df_intersection.info()
 
 
-# In[81]:
+# In[8]:
 
 def get_bike_lane():
     # This function traverse thru each entry of the existing bike lane database
@@ -168,13 +168,13 @@ def get_bike_lane():
     return bike_lane
 
 
-# In[82]:
+# In[9]:
 
 # Roads that have bike lane
 bike_lane = get_bike_lane()
 
 
-# In[92]:
+# In[10]:
 
 def add_bike_lane():
     # This function takes the existing intersection database
@@ -193,7 +193,7 @@ def add_bike_lane():
 #     print(df_intersection.head(5))
 
 
-# In[95]:
+# In[11]:
 
 add_bike_lane()
 df_intersection.head(5)
@@ -202,10 +202,10 @@ df_intersection.head(5)
 # In[98]:
 
 # Save the Pandas Dataframe to csv for SMT solver
-df_intersection.to_csv('intersection_lane.csv',index=False)
+df_intersection.to_csv('data/intersection_lane.csv',index=False)
 
 
-# In[139]:
+# In[12]:
 
 def get_collision_street():
     # This function takes the existing Boston Bike Collision database
@@ -219,12 +219,12 @@ def get_collision_street():
     return st
 
 
-# In[140]:
+# In[13]:
 
 collision_street = get_collision_street()
 
 
-# In[196]:
+# In[14]:
 
 st_type = {'XWY':'Xwy','BCH':'Beach','IS':'Island','PSGE':'Passage','VW':'View','TERS':'','CSWY':'Causeway','CRES':'Crescent','GDN':'Garden','GDNS':'Gardens','GRN':'Green','DM':'Dam','CIRT':'Circle','EXT':'Extension','ST':'Street','AVE':'Avenue','RD':'Road','PL':'Place','WAY':'Way','TER':'Terrace','BLVD':'Boulevard','CT':'Court','PKWY':'Parkway','DR':'Drive','HWY':'Highway','SQ':'Square','PARK':'Park','CIR':'Circle','TPKE':'Turnpike','LN':'Lane','FWY':'Freeway','BRG':'Bridge','SKWY':'Skyway','ROW':'Row','PATH':'Path','PLZ':'Plaza','ALY':'Alley','MALL':'Mall','WHRF':'Whrf', 'DRWY':'Driveway'}
 def street_length():
@@ -244,7 +244,7 @@ def street_length():
     return street_len
 
 
-# In[197]:
+# In[15]:
 
 street_length = street_length()
 # df_street.ST_TYPE.value_counts()
@@ -289,13 +289,13 @@ df_intersection[df_intersection['1HASLANE'] == 0].STREET1.value_counts().head(20
 
 # ### Is there a correlation between the number of incidents and the length of the street?
 
-# In[117]:
+# In[16]:
 
 collisions = df_intersection.STREET1.value_counts()
 df_col_len = pd.DataFrame({'ST_NAM':collisions.index, 'COUNT':collisions.values})
 
 
-# In[198]:
+# In[17]:
 
 def append_length():
     # This function append the length data to each road
@@ -306,24 +306,29 @@ def append_length():
             df_col_len.ix[idx,'LENGTH'] = 0.01
 
 
-# In[ ]:
+# In[18]:
 
 append_length()
 
 
-# In[200]:
+# In[19]:
 
 df_col_len = df_col_len[df_col_len.LENGTH != 0.01]
 
 
-# In[227]:
+# In[20]:
 
 df_col_len.head(20)
 
 
-# In[255]:
+# In[21]:
 
-# Normalize the Distance
+df_col_len.to_csv("data/collision_vs_length.csv",index=False)
+
+
+# In[24]:
+
+# Normalize the Distance Length
 # df_col_len = df_col_len[df_col_len['LENGTH'].apply(lambda x: (x - np.mean(x)) / (np.max(x) - np.min(x)))]
 
 # Create x, where x the 'scores' column's values as floats
@@ -336,11 +341,12 @@ min_max_scaler = preprocessing.MinMaxScaler()
 x_scaled = min_max_scaler.fit_transform(x)
 
 # Run the normalizer on the dataframe
-df_normalized = pd.DataFrame(x_scaled, columns=["NORM"])
+df_normalized = pd.DataFrame(x_scaled, columns=["LENGTH"])
 
 
-# In[256]:
+# In[25]:
 
+# Normalize the Count of Collisions
 # Create x, where x the 'scores' column's values as floats
 x = df_col_len['COUNT'].values.astype(float)
 
@@ -351,30 +357,42 @@ min_max_scaler = preprocessing.MinMaxScaler()
 x_scaled = min_max_scaler.fit_transform(x)
 
 # Run the normalizer on the dataframe
-df_cnormalized = pd.DataFrame(x_scaled, columns=["CNORM"])
+df_cnormalized = pd.DataFrame(x_scaled, columns=["COUNT"])
 
 
-# In[257]:
+# In[26]:
 
 df_scatter = pd.concat([df_normalized, df_cnormalized], axis=1)
 
 
-# In[258]:
+# In[31]:
 
 df_scatter.info()
+df_col_len.info()
 
 
-# In[276]:
+# In[29]:
 
-df_scatter.plot.scatter(x='NORM', y='CNORM',title="Corelation between Length of Street and Collision")
+df_scatter.plot.scatter(x='LENGTH', y='COUNT',title="Corelation between Length of Street and Collision")
 
 
-# So obviously the correlation between the road length and the collision rate is not that obvious.
+# In[35]:
+
+df_col_len[['COUNT','LENGTH']].corr(method='pearson')
+
+
+# In[36]:
+
+# Calculate the correlation coefficient:
+df_scatter.corr(method='pearson')
+
+
+# The correlation between the road length and the collision frequency is quite strong.
 
 # ### What about the collision rates on the bike lanes when there are actucally bike lane exiting on the street?
 # For example, there are collision that happened off the bike lanes on a road with bike lane.
 
-# In[269]:
+# In[37]:
 
 # Create a new DataFrame to count for the whether the narrative mentioned the presence of a bike lane
 # 'BLFinal' variable should not be used to identify where bike lanes are in the city
@@ -383,40 +401,66 @@ df_BL = pd.DataFrame({'BLFinal':bl.values})
 df_BL = pd.concat([df_intersection, df_BL], axis=1)
 
 
-# In[271]:
+# In[38]:
 
 df_BL.info()
 
 
-# In[292]:
+# In[39]:
+
+df_BL.to_csv("data/collision_on_BikeLane",index=False)
+
+
+# In[40]:
 
 # Calculate the collision counts off the bike lane
-on_BL = df_BL['STREET1'][(df_BL['BLFinal']==1) & (df_BL['1HASLANE']==1)].value_counts().head(20)
+on_BL = df_BL['STREET1'][(df_BL['BLFinal']==1) & (df_BL['1HASLANE']==1)].value_counts()
 
 
-# In[293]:
+# In[41]:
 
 # Calculate the collision counts on the bike lane
-off_BL = df_BL['STREET1'][(df_BL['BLFinal']==0) & (df_BL['1HASLANE']==1)].value_counts().head(20)
+off_BL = df_BL['STREET1'][(df_BL['BLFinal']==0) & (df_BL['1HASLANE']==1)].value_counts()
 
 
-# In[294]:
+# In[43]:
 
-print(on_BL)
-print(off_BL)
-
-
-# In[295]:
-
-off_BL.plot.bar(title="Top 20 Collision OFF Bike Lanes")
+print(on_BL.head(10))
+print(off_BL.head(10))
 
 
-# In[296]:
+# Apparently we could notice that the collisions happened way often off the bike lane than on the bike lane.
+
+# In[47]:
+
+off_BL.head(20).plot.bar(title="Top 20 Collision OFF Bike Lanes")
+
+
+# In[45]:
 
 on_BL.head(20).plot.bar(title="Top 20 Collision ON Bike Lanes")
 
 
-# In[309]:
+# In[66]:
 
-# str(on_BL.index)
+# Merge two bar plot together for comparison
+df_bar = pd.DataFrame({'ST_NAM':off_BL.index, 'COUNT':off_BL.values})
+df_temp = pd.DataFrame({'ST_NAM':on_BL.index, 'COUNT':on_BL.values})
+df_bar = df_bar.merge(df_temp, left_on=df_bar.ST_NAM, right_on=df_temp.ST_NAM)
+df_bar = df_bar.drop(['ST_NAM_y'],axis=1)
+
+
+# In[73]:
+
+# df_bar.info()
+# df_bar.to_csv("data/collision_counts")
+df_bar.head(20)
+
+
+# In[85]:
+
+# df_bar.plot.bar(label='Group 1');
+ax = df_bar.plot.bar(x='ST_NAM_x', y='COUNT_x', color='LightBlue', label='Off Bike Lane');
+df_bar.plot.bar(x='ST_NAM_x', y='COUNT_y', color='Green', label='On Bike Lane', ax=ax);
+ax.set_title("Collision Frequency - On/Off Bike Lane")
 
