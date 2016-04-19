@@ -81,7 +81,7 @@ def color_map(df):
             color.append(my_colors[x.neighborhoods])
         except KeyError:
             color.append('k')
-    return color
+    return my_colors, color
 
 def make_patch(color, label):
     return mpatches.Patch(color=color, label=label)
@@ -98,7 +98,12 @@ tweets['neighborhoods'] = tweets.apply(lambda d: determine_neighborhood( d.lat, 
 ###############################################################
 
 sorted_tweets = tweets.sort_values(by='total', ascending=False)
-colorful = color_map(sorted_tweets)
+cmap, colorful = color_map(sorted_tweets)
+
+leg = []
+for key in cmap:
+    leg.append(make_patch(label=key, color=cmap[key]))
+
 
 sorted_tweets[:25].total.plot(kind='bar', color=colorful, figsize=(10,10))
 plt.legend(handles=leg, loc='center left', bbox_to_anchor=(1, 0.5))
@@ -145,7 +150,6 @@ doc.wasDerivedFrom(twitter_ent, twitter_resource)
 
 shapefile_ent = doc.entity('bos:shapefile', {prov.model.PROV_LABEL:'BostonMaps: Open Data | Planning Districts', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(shapefile_ent, this_script)
-doc.wasGeneratedBy(shapefile_ent, get_shapefile, endTime)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
