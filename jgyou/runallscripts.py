@@ -15,7 +15,6 @@ exec(open("retrievezillow.py").read())			# currently have not figured out way to
 
 # calculate scores
 exec(open("scorecoordinates.py").read())
-# findnearest, score coordinates both need prov
 
 # create csv for visualization in D3
 exec(open("makescorecsv.py").read())

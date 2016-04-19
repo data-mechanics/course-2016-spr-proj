@@ -48,7 +48,7 @@ def make_provdoc(repo, runids, starttime, endtime):
 		'ont:Query':'MBTA_GTFS.zip'})
 
 	provdoc.wasAttributedTo(output, this_script)
-	provdoc.wasGeneratedBy(output, this_run)
+	provdoc.wasGeneratedBy(output, this_run, endTime)
 
 	provdoc.wasDerivedFrom(output, mbtazip)
 
