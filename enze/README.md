@@ -23,21 +23,25 @@ The database contains a single spreadsheet (Bicycle Collisions.xlsx) and an acco
 
 The Bicycle Collision database contains all bicycle collisions in the city of Boston during 2009 – 2012 that were recorded in Boston Police Department records. The database itself is derived predominantly from these records. The database contains 1,815 collisions.
 
-**Existing Bike Network**
+**Boston Existing Bike Lane Database**
 
 The Boston Bike Network provides a vision for developing bike lanes and paths throughout the City.
 
-**Hubway Stations**
+**Boston,MA Metro Extracts**
 
-As of end of November 2013
+City-sized portions of OpenStreetMap, served weekly
 
-**311, Service Requests**
+### Problem to Solve:
 
-Constituent requests for city services directly downloaded from City of Boston Data portal. The data was collected from July 1st, 2011 to April 12nd, 2016.
+Use the existing bicycle collisions data, we could compare the incidents frequeny between the roads with bike lane or and roads without bike lane. It turns out that the incidents are less likely to happen in a bike lanes, which was suggested by the plots, even though there are more incidents happening on the road with a bike lane. That could suggest that everyone is eager to use the bike lane.
 
-**EMS 911 Dispatch**
+![GitHub Logo](Plot/on_BikeLane.png)
+Format: ![Alt Text](url)
 
-911 dispatch between February 23rd, 2015 to March 1st, 2015.
+![GitHub Logo](Plot/off_BikeLane.png)
+Format: ![Alt Text](url)
+
+I am trying to figure out what are the improvement on a bike lane? What are the bike lanes that we could add to the street to make biking safer? I am planning on using a SMT solver to tackle this problem. I have already generate a special database - intersection_lane.csv, which contains all the roads that have had at least one collision happend on this street. It also collects the data which tells if there is a bike lane on this given road. The last step is to put this model into an SMT solver.
 
 ### Reference
 
