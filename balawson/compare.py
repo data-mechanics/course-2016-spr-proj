@@ -54,7 +54,6 @@ b_t_results = (ks2d2s(list(b_test.lat), list(b_test.lng), list(t_test.lat), list
 print('\tbetween Gowalla and Brightkite: ',)
 g_b_results = (ks2d2s(list(g_test.lat), list(g_test.lng), list(b_test.lat), list(b_test.lng)))
 
-
 '''
 TODO: put the correct time collumn in (this compares between milisecond differences not hour/min differences
 ###### test similarity between timestamps in datasets based on random samples
@@ -69,7 +68,6 @@ print(ks2d2s(list(g_test.time), list(t_test.time)))
 ###############################################################
 ####    save results       
 ###############################################################
-
 records = {'gowalla_twitter' : g_t_results,
            'brightkite_twitter' : b_t_results,
            'gowalla_brightkite': g_b_results,
@@ -126,7 +124,7 @@ doc.wasDerivedFrom(twitter_ent, twitter_resource)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
 

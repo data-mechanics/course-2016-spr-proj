@@ -2,7 +2,7 @@
 ####   import dependancies       
 ###############################################################
 import pandas as pd
-import pymongo, datetime, uuid, prov
+import pymongo, datetime, uuid, prov.model
 exec(open('../pymongo_dm.py').read())
 
 ###############################################################
@@ -15,7 +15,6 @@ repo.authenticate('balawson', 'balawson')
 startTime  = datetime.datetime.now()
 tweets     = pd.DataFrame(list(repo.balawson.twitter.find()))
 tweets.time = tweets.time.apply(lambda d: pd.to_datetime(d*1000000))
-
 
 ###############################################################
 ####    compute!
@@ -52,7 +51,6 @@ repo.dropPermanent(collection_name)
 repo.createPermanent(collection_name)
 
 repo['balawson.' + collection_name].insert(records)
-
 endTime  = datetime.datetime.now()
 
 ###############################################################
@@ -72,7 +70,7 @@ twitter_activity = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {
 
 doc.wasAssociatedWith(twitter_activity, this_script)
 
-doc.used(viz_twitter, twitter_resource, startTime)
+doc.used(twitter_activity, twitter_resource, startTime)
 
 twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'capture-recapture results', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(twitter_ent, this_script)
