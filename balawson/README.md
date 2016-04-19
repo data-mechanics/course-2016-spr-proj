@@ -99,6 +99,7 @@ We use Open Street Maps to indentify intersections and map social media posts to
 
 Here's a visualization of the number of intersections by neighborhood 
 ![intersectionsbyneightborhood](/balawson/img/numberofintersections.png)
+![popular](/balawson/img/popularintersections.png)
 
 ####Mark & Recapture
 Since social media presence is only a sample of true human movement in the wild, it will be useful to try to estimate what the true population is based on the social media posts collected. Using [Capture-Recapture](http://cs-people.bu.edu/lapets/591/s.php#1121b48a2e1040808d9538ff15ae342f) we essentially treat tweeters, gowalla'ers, and brightkiters as animals that are caught in a trap, given a single day. Then when we check the 'trap' the next day we check to see how many of these users that we've seen before. We will use this estimation on the city level. We do have the true population of Downtown Boston, [16,298](http://archive.boston.com/yourtown/news/downtown/2011/04/census_data_downtown_populatio.html). Using a sample of the twitter data and a waiting period of 5 days, we found an estimate of 2,215. This estimation represents the approximate number of people using twitter which is approx. 7% of the total population in this area. This could be useful in extrapolating into wider domains. 
