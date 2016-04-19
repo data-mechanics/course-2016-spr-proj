@@ -14,12 +14,12 @@ Besides examining the aging population, it's important to also consider measures
 
 ##Project Description
 
-This project aims to find a way to compute how "age-friendly" a location in Boston is, using mostly distance-based metrics that act as a proxy for convenience in accessing important locations for older adults. Factors that are currently to be incorporated into the score include:
-1. Distance to nearest MBTA stop, weighted by whether wheelchair access is present   
+This project aims to find a way to compute how "age-friendly" a location in Boston is, using mostly distance-based metrics that act as a proxy for convenience in accessing important locations for older adults. Factors that are currently to be incorporated into the score include:  
+1. Distance to nearest MBTA stop, weighted by whether wheelchair access is present  
 2. Distance to nearest community center  
-3. Distance to nearest hospital
+3. Distance to nearest hospital  
 
-Other factors currently not included but potentially be taken in consideration for scoring include:
+Other factors currently not included but potentially be taken in consideration for scoring include:  
 1. Median property value in that zipcode from Zillow  
 2. Median rental value for latest available month for given zipcode from Zillow  
 3. Distance to nearest [park] (http://www.cityofboston.gov/images_documents/Park%20Directory%20-%20June%202014_tcm3-44633.pdf)  
@@ -27,16 +27,16 @@ Other factors currently not included but potentially be taken in consideration f
 5. Distance to pharmacies  
 6. Distance to [libraries] (http://www.bpl.org/branches/)  
 7. Distance to locations of church/faith-based groups  
-8. Distance to other art/cultural sites
-9. Availability of affordable or accessible housing from sites such as Mass Affordable Housing
+8. Distance to other art/cultural sites  
+9. Availability of affordable or accessible housing from sites such as Mass Affordable Housing  
 
-Sites will either be retrieved from the City of Boston website or from the Yelp API. These factors aim to address some of the major concerns brought up by the Aging in Boston report as well as other.
+Sites will mostly be retrieved from the City of Boston website or using the Yelp API. These factors aim to address some of the major concerns brought up by the Aging in Boston report as well as those voiced by other national organizations.
 
 Two visualizations are produced in relation to this project:
 
-a. Some of these locations are mapped using Leaflet in `outputmap.html` to qualitatively show the distribution of sites in different neighborhoods of Boston.  
+a. Some of these locations are mapped using Leaflet in `outputmap.html` to qualitatively show the distribution of sites in different neighborhoods of Boston. The scored locations can also be viewed on the map.  
 
-b. For a given location, its score is plotted against information from the Housing and Urban Development and Department of Transportation's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block Group.
+b. For a given location, its score is plotted against information from the Housing and Urban Development and Department of Transportation's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block Group. See `retailacesscompare.html`.
 
 Note: for the scripts written during project one on medical sharps disposal in Boston, see the `project_one` directory for more information.
 
