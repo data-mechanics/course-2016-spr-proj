@@ -9,7 +9,10 @@
 We want to know how streetlights relate to crimes in Boston. We want to know whether or not streetlamp placement has an affect on crime and if there are high-crime areas that may benefit from better lighting.
 In order to do this, we compute the distance of each crime (at night) to the closest streetlamp using data provided from [Boston's public datasets](https://data.cityofboston.gov/). 
 We think solving this gives insight on how lighting plays a role in the incidences of crime and whether or not certain areas should include more lighting.
+By gathering this data, it could be used in creating a "danger" metric of certain areas in Boston where lighting may or may not be low.
 
+By evaluating our distance to street light and number of crime data, most crimes are within several meters to a streetlight (note the use of a log scale).
+This may be due to inaccurate locations of crimes, but by viewing the streetlight visualization, it's interesting to see the precision coordinates of the streetlamps as they are viewable by street.
 
 ### Datasets 
 
