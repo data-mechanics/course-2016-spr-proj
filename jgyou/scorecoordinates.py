@@ -151,8 +151,13 @@ with open("auth.json") as f:
 
         output_scores.close()
 
-        run_id = str(uuid.uuid4())
-        make_provdoc(repo, user, run_id, startTime, endTime)
-        make_provdoc(repo, user, run_id, None, None)
+        with open('scoresgeo.json', 'w') as output_scores2:
+            output_scores2.write('scoresjs = ' + json.dumps(allscores, indent=4) + ";")
 
-        repo.logout()
+            output_scores2.close()
+
+            run_id = str(uuid.uuid4())
+            make_provdoc(repo, user, run_id, startTime, endTime)
+            make_provdoc(repo, user, run_id, None, None)
+
+            repo.logout()

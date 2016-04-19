@@ -1,5 +1,6 @@
 <html>
 <!-- modified from Leaflet Tutorial Page -->
+<!-- rounding found here http://www.jacklmoore.com/notes/rounding-in-javascript/ -->
 
 <head>
   <title>Map of Relevant Resources</title>
@@ -10,6 +11,7 @@
   <script src="seniorservicesgeo.json" type="text/javascript"></script>
   <script src="neighborhoods.geojson" type="text/javascript"></script>
   <script src="hospitalsgeo.json" type="text/javascript"></script>
+  <script src="scoresgeo.json" type="text/javascript"></script>
 
    <style>
     #map{ height: 100% }
@@ -73,9 +75,11 @@
 
   var CommCenterMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/communitycentre.png"});
   var HospitalMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/hospital-building.png"});
+  var ScoreMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/letter_x.png"});
 
   var CommCenterLayer = L.layerGroup();
   var HospitalLayer = L.layerGroup();
+  var ScoreLayer = L.layerGroup();
 
   // plot community centers
   for (var i in servicesjs) {
@@ -93,6 +97,14 @@
     var lon = hospitalsjs[i]["longitude"]
     var lat = hospitalsjs[i]["latitude"]
     L.marker([lat, lon], {icon: HospitalMarker}).bindPopup("<b>"+ name +"</b>" + "</br>" + addr).addTo(HospitalLayer);
+  }
+
+  for (var i in scoresjs) {
+    var addr = scoresjs[i]["address"]
+    var lat = scoresjs[i]["latitude"]
+    var lon = scoresjs[i]["longitude"]
+    var score = scoresjs[i]["score"]
+    L.marker([lat, lon], {icon: ScoreMarker}).bindPopup("<b>"+ addr +"</b>" + "</br>" + Number(Math.round(score + 'e2') + 'e-2') + "</br>" + "(" + lat + "," + lon + ")").addTo(ScoreLayer);
   }
 
 /*
@@ -136,7 +148,8 @@
   var overlayMaps = {
     "Community Centers": CommCenterLayer,
     "Hospitals": HospitalLayer,
-    "Neighborhoods": neigh
+    "Neighborhoods": neigh,
+    "Scores": ScoreLayer
   };
 
   L.control.layers(baseLayers, overlayMaps).addTo(map);

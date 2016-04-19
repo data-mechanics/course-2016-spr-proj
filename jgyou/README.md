@@ -36,13 +36,13 @@ Two visualizations are produced in relation to this project:
 
 a. Some of these locations are mapped using Leaflet in `outputmap.html` to qualitatively show the distribution of sites in different neighborhoods of Boston.  
 
-b. For a given location, its score is plotted against information from the HUD and DOT's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block tract.
+b. For a given location, its score is plotted against information from the Housing and Urban Development and Department of Transportation's [Housing Affordability Index] (http://www.locationaffordability.info/about.aspx) for the location's Census Block Group.
 
 Note: for the scripts written during project one on medical sharps disposal in Boston, see the `project_one` directory for more information.
 
 ### Further Considerations and Applications
 
-This scoring could be made more sophisticated with measures such as taking into account wheelchair access at MBTA stops, possibly inpatient bed count at a hospital etc.
+This scoring could be made more sophisticated with measures such as taking into account inpatient bed count at a hospital etc.
 
 This scoring system could be used to randomly select points in a particular neighborhood and calculate an average score for the region. Point selection could occur by using geojson polygon data [here] (http://maptimeboston.github.io/leaflet-intro/neighborhoods.geojson) in combination with a polygon library such as the `shapely` [package] (http://toblerity.org/shapely/shapely.html).
 
