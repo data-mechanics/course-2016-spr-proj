@@ -51,14 +51,16 @@
 					var steps = route.route.legs[0].steps;
 
 					// Place each leg of the route
+					var lines = [];
 					steps.forEach(function(step) {
 						var start = step.start_location;
 						var end = step.end_location;
 
-						L.polyline([L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)], {'color': colors[index]}).addTo(map);
+						lines.push([[start.lat, start.lng], [end.lat, end.lng]]);
 					});
+					L.multiPolyline(lines, {'color': colors[index]}).addTo(map);
 
-					// Place marker for each pothole
+					// Place a marker for each pothole
 					incidents.forEach(function(incident) {
 						L.marker([incident.lat, incident.lng]).addTo(map);
 					});
