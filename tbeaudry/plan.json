@@ -150,4 +150,287 @@
         }
     }
 }
+{
+    "activity": {
+        "log:aa8bbee41-6bb5-48d2-89ec-b253e8e49ab9": {
+            "prov:startTime": "2016-04-19T03:47:34.892600",
+            "prov:type": "ont:Computation",
+            "ont:Computation": "Distance to HS",
+            "prov:endTime": "2016-04-19T03:51:20.085068"
+        },
+        "log:a532f1203-4132-40a6-b7e5-083136e7a3fd": {
+            "prov:startTime": "2016-04-19T03:47:34.892600",
+            "prov:type": "ont:Computation",
+            "ont:Computation": "Distance to PS",
+            "prov:endTime": "2016-04-19T03:51:20.085068"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id11": {
+            "prov:activity": "log:aa8bbee41-6bb5-48d2-89ec-b253e8e49ab9",
+            "prov:usage": "log:aa8bbee41-6bb5-48d2-89ec-b253e8e49ab9",
+            "prov:generatedEntity": "dat:HS_EVENTS",
+            "prov:usedEntity": "dat:HS_LOC",
+            "prov:generation": "log:aa8bbee41-6bb5-48d2-89ec-b253e8e49ab9"
+        },
+        "_:id8": {
+            "prov:activity": "log:a532f1203-4132-40a6-b7e5-083136e7a3fd",
+            "prov:usage": "log:a532f1203-4132-40a6-b7e5-083136e7a3fd",
+            "prov:generatedEntity": "dat:PS_EVENTS",
+            "prov:usedEntity": "dat:PS_LOC",
+            "prov:generation": "log:a532f1203-4132-40a6-b7e5-083136e7a3fd"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id10": {
+            "prov:activity": "log:aa8bbee41-6bb5-48d2-89ec-b253e8e49ab9",
+            "prov:time": "2016-04-19T03:51:20.085068",
+            "prov:entity": "dat:HS_EVENTS"
+        },
+        "_:id7": {
+            "prov:activity": "log:a532f1203-4132-40a6-b7e5-083136e7a3fd",
+            "prov:time": "2016-04-19T03:51:20.085068",
+            "prov:entity": "dat:PS_EVENTS"
+        }
+    },
+    "agent": {
+        "alg:reform": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "entity": {
+        "dat:HS_LOC": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Hospital Locations"
+        },
+        "dat:P_911": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Boston Police Department 911"
+        },
+        "dat:PS_EVENTS": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Police Events"
+        },
+        "dat:PS_LOC": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Boston Police District Stations"
+        },
+        "dat:HS_EVENTS": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Medical Events"
+        }
+    },
+    "used": {
+        "_:id1": {
+            "prov:activity": "dat:PS_LOC",
+            "prov:time": "2016-04-19T03:47:34.892600",
+            "prov:entity": "log:a532f1203-4132-40a6-b7e5-083136e7a3fd"
+        },
+        "_:id2": {
+            "prov:activity": "dat:HS_LOC",
+            "prov:time": "2016-04-19T03:47:34.892600",
+            "prov:entity": "log:aa8bbee41-6bb5-48d2-89ec-b253e8e49ab9"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/tbeaudry/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/tbeaudry/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "wasAssociatedWith": {
+        "_:id4": {
+            "prov:activity": "dat:HS_LOC",
+            "prov:agent": "alg:reform"
+        },
+        "_:id3": {
+            "prov:activity": "dat:PS_LOC",
+            "prov:agent": "alg:reform"
+        },
+        "_:id5": {
+            "prov:activity": "dat:P_911",
+            "prov:agent": "alg:reform"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id6": {
+            "prov:agent": "alg:reform",
+            "prov:entity": "dat:PS_EVENTS"
+        },
+        "_:id9": {
+            "prov:agent": "alg:reform",
+            "prov:entity": "dat:HS_EVENTS"
+        }
+    }
+}
+{
+    "agent": {
+        "alg:stat_analysis": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/tbeaudry/",
+        "dat": "http://datamechanics.io/data/tbeaudry/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "wasAttributedTo": {
+        "_:id4": {
+            "prov:entity": "dat:HS_EVENTS",
+            "prov:agent": "alg:stat_analysis"
+        },
+        "_:id1": {
+            "prov:entity": "dat:PS_EVENTS",
+            "prov:agent": "alg:stat_analysis"
+        }
+    },
+    "activity": {
+        "log:aa568ffc3-b2c9-4503-a3c2-6ad467e0c24a": {
+            "ont:Computation": "Seconds after 6 PS",
+            "prov:startTime": "2016-04-19T04:00:15.822151",
+            "prov:endTime": "2016-04-19T04:00:33.507367",
+            "prov:type": "ont:Computation"
+        },
+        "log:af4b41541-3202-46ce-b577-24118140959c": {
+            "ont:Computation": "Seconds after 6 HS",
+            "prov:startTime": "2016-04-19T04:00:15.822151",
+            "prov:endTime": "2016-04-19T04:00:33.507367",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id10": {
+            "prov:activity": "dat:HS_EVENTS",
+            "prov:agent": "alg:stat_analysis"
+        },
+        "_:id9": {
+            "prov:activity": "dat:PS_EVENTS",
+            "prov:agent": "alg:stat_analysis"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id5": {
+            "prov:time": "2016-04-19T04:00:33.507367",
+            "prov:entity": "dat:HS_EVENTS",
+            "prov:activity": "log:af4b41541-3202-46ce-b577-24118140959c"
+        },
+        "_:id2": {
+            "prov:time": "2016-04-19T04:00:33.507367",
+            "prov:entity": "dat:PS_EVENTS",
+            "prov:activity": "log:aa568ffc3-b2c9-4503-a3c2-6ad467e0c24a"
+        }
+    },
+    "used": {
+        "_:id7": {
+            "prov:time": "2016-04-19T04:00:15.822151",
+            "prov:entity": "log:aa568ffc3-b2c9-4503-a3c2-6ad467e0c24a",
+            "prov:activity": "dat:PS_EVENTS"
+        },
+        "_:id8": {
+            "prov:time": "2016-04-19T04:00:15.822151",
+            "prov:entity": "log:af4b41541-3202-46ce-b577-24118140959c",
+            "prov:activity": "dat:HS_EVENTS"
+        }
+    },
+    "entity": {
+        "dat:PS_EVENTS": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Police Events"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Police Events Stats"
+            }
+        ],
+        "dat:HS_EVENTS": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Medical Events"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Medical Events Stats"
+            }
+        ]
+    },
+    "wasDerivedFrom": {
+        "_:id6": {
+            "prov:generatedEntity": "dat:HS_EVENTS",
+            "prov:generation": "log:af4b41541-3202-46ce-b577-24118140959c",
+            "prov:activity": "log:af4b41541-3202-46ce-b577-24118140959c",
+            "prov:usedEntity": "log:af4b41541-3202-46ce-b577-24118140959c"
+        },
+        "_:id3": {
+            "prov:generatedEntity": "dat:PS_EVENTS",
+            "prov:generation": "log:aa568ffc3-b2c9-4503-a3c2-6ad467e0c24a",
+            "prov:activity": "log:aa568ffc3-b2c9-4503-a3c2-6ad467e0c24a",
+            "prov:usedEntity": "log:aa568ffc3-b2c9-4503-a3c2-6ad467e0c24a"
+        }
+    }
+}
+{
+    "wasDerivedFrom": {
+        "_:id3": {
+            "prov:generatedEntity": "dat:HS_EVENTS",
+            "prov:generation": "log:a75c79ac7-96fe-40b2-a6e9-8b12b8179df7",
+            "prov:activity": "log:a75c79ac7-96fe-40b2-a6e9-8b12b8179df7",
+            "prov:usedEntity": "log:a75c79ac7-96fe-40b2-a6e9-8b12b8179df7"
+        }
+    },
+    "entity": {
+        "dat:HS_EVENTS": {
+            "prov:label": "Medical Events",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "prefix": {
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/tbeaudry/",
+        "dat": "http://datamechanics.io/data/tbeaudry/",
+        "ont": "http://datamechanics.io/ontology#"
+    },
+    "agent": {
+        "alg:medical_drone_opt": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
+        }
+    },
+    "activity": {
+        "log:a75c79ac7-96fe-40b2-a6e9-8b12b8179df7": {
+            "prov:startTime": "2016-04-19T06:14:44.158392",
+            "ont:Computation": "Opt for med",
+            "prov:endTime": "2016-04-19T06:14:44.463249",
+            "prov:type": "ont:Computation"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id1": {
+            "prov:agent": "alg:medical_drone_opt",
+            "prov:entity": "dat:HS_EVENTS"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id2": {
+            "prov:time": "2016-04-19T06:14:44.463249",
+            "prov:activity": "log:a75c79ac7-96fe-40b2-a6e9-8b12b8179df7",
+            "prov:entity": "dat:HS_EVENTS"
+        }
+    }
+}
 

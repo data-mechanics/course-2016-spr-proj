@@ -26,13 +26,17 @@ pol_stations=['District A-1 Police Station', 'District D-4 Police', 'District E-
 hos_stations=['Beth Israel Deaconess Medical Center East Cam', 'Boston City Hospital', 'Boston Specialty & Rehabilitation Hospital', 'Boston Medical Center', "Brigham And Women's Hospital", 'Carney Hospital', "Children's Hospital", 'Dana-farber Cancer Institute', 'Faulkner Hospital', "Franciscan Children's  Hospital", 'Kindred Hospital', 'Jewish Memorial Hospital', 'Lemuel Shattuck Hospital', 'Massachusetts Eye & Ear Infirmary', 'Massachusetts General Hospital', 'New England Baptist Hospital', 'Beth Israel Deaconess Medical Center West Cam', 'New England Medical Center', "St. Elizabeth's Hospital", "St. Margaret's Hospital For Women", 'Shriners Burns Institute', 'Spaulding Rehabilitation Hospital', 'Arbour Hospital', 'Va Hospital', 'VA Hospital', 'Hebrew Rehabilitation Center']
 
 
-repo.dropPermanent("PS_EVENTS")
+#repo.dropPermanent("PS_EVENTS")
 repo.dropPermanent("HS_EVENTS")
-repo.createPermanent("PS_EVENTS")
+#repo.createPermanent("PS_EVENTS")
 repo.createPermanent("HS_EVENTS")
 
+
+
 print('CREATING PS_EVENTS')
-geolocator = Nominatim()
+geolocator =  geopy.geocoders.GoogleV3()
+geolocator =  Nominatim()
+
 for x in pol_events:
     ins=repo.tbeaudry.P_911.find({'cad_event_type':x})
     for y in ins:
@@ -42,11 +46,20 @@ for x in pol_events:
             lat=y['latitude']
             lon=y['longitude']
         elif 'udo_event_location_full_street_address' in y:
-            '''
-            continue here to run quick version
-            '''
+            
+
+            #continue here to run quick version
+
+
             loc=y['udo_event_location_full_street_address']+" Boston"
-            loc2=geolocator.geocode(loc)
+            loc2=None
+            try:
+                loc2=geolocator.geocode(loc)
+                time.sleep(.1)  
+            except:
+                print ("error with geocode")
+                
+            'print (loc2)'
             if (loc2==None):
                 continue
             lat = loc2.latitude
@@ -58,13 +71,17 @@ for x in pol_events:
             else:
                 y[z]=999
         if lat!=0 and lon!=0:
-            
+            y["latitude"]=lat
+            y["longitude"]=lon
             repo.tbeaudry.PS_EVENTS.insert_one(y)
 
             
 print("PS EVENTS DONE\n")
+
 print('CREATING HS_EVENTS')
 
+geolocator =  geopy.geocoders.GoogleV3()
+geolocator =  Nominatim()
 for x in med_events:
     ins=repo.tbeaudry.P_911.find({'cad_event_type':x})
     for y in ins:
@@ -75,10 +92,17 @@ for x in med_events:
             lon=y['longitude']
         elif 'udo_event_location_full_street_address' in y:
             '''
+
             continue here to run quick version
+
             '''
             loc=y['udo_event_location_full_street_address']+" Boston"
-            loc2=geolocator.geocode(loc)
+            loc2=None
+            try:
+                loc2=geolocator.geocode(loc)
+                time.sleep(.1)  
+            except:
+                print ("error with geocode")
             if (loc2==None):
                 continue
             lat = loc2.latitude
@@ -102,7 +126,8 @@ for x in med_events:
                 y[z]=999
 
         if lat!=0 and lon!=0:
-            
+            y["latitude"]=lat
+            y["longitude"]=lon
             repo.tbeaudry.HS_EVENTS.insert_one(y)
 
         
@@ -225,12 +250,15 @@ doc.wasDerivedFrom(HS_EVENTS, HS_LOC, comp_hs, comp_hs, comp_hs)
 
 
 repo.record(doc.serialize()) # Record the provenance document.
-plan.close()
-plan = open('plan.json', 'w')
-plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
-print(doc.get_provn())
-plan.close()
-
+print(json.dumps(json.loads(doc.serialize()), indent=4))
 #print(doc.get_provn())
 repo.logout()
 
+
+
+
+
+
+
+    
+    

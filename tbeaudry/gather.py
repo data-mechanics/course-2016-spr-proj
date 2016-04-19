@@ -32,7 +32,7 @@ repo.dropPermanent("HS_LOC")
 repo.createPermanent("HS_LOC")
 repo['tbeaudry.HS_LOC'].insert_many(r)
 
-url = 'https://data.cityofboston.gov/resource/uea6-pfmm.json?$limit=50000&$select=latitude,longitude,cad_event_type,start_standard_time,udo_event_location_full_street_address'
+url = 'https://data.cityofboston.gov/resource/uea6-pfmm.json?$limit=50000&$select=latitude,longitude,cad_event_type,start_standard_time,udo_event_location_full_street_address,start_calendar_date'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
