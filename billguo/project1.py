@@ -17,7 +17,7 @@ repo.authenticate('billguo', 'billguo')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = 'https://data.cityofboston.gov/resource/54s2-yxpg.json?$limit=300'
+url = 'https://data.cityofboston.gov/resource/54s2-yxpg.json?$limit=500'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
@@ -25,7 +25,7 @@ repo.dropPermanent("earn2013")
 repo.createPermanent("earn2013")
 repo['billguo.earn2013'].insert_many(r)
 
-url = 'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=300'
+url = 'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=500'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
@@ -33,7 +33,7 @@ repo.dropPermanent("earn2014")
 repo.createPermanent("earn2014")
 repo['billguo.earn2014'].insert_many(r)
 
-url = 'https://data.cityofboston.gov/resource/effb-uspk.json?$limit=300'
+url = 'https://data.cityofboston.gov/resource/effb-uspk.json?$limit=500'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
