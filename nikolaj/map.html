@@ -71,7 +71,6 @@ var renderAll = function() {
 
       var marker = layer.selectAll("svg")
           .data(stations)
-          // .data(d3.entries(stations))
           .each(transform) // update existing markers
         .enter().append("svg")
           .each(transform)
