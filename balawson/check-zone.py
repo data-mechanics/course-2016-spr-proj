@@ -86,10 +86,10 @@ def color_map(df):
 def make_patch(color, label):
     return mpatches.Patch(color=color, label=label)
 
+tweets['total'] = tweets.apply(lambda d: countpeople( d), axis=1)
 tweets.drop(['0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19','2', '20', '21', '22', '23', '3', '4', '5', '6', '7', '8', '9', '_id',], inplace=True, axis=1)
 tweets['lat'] = tweets.lat.apply(lambda d: float(d))
 tweets['lng'] = tweets.lng.apply(lambda d: float(d))
-tweets['total'] = tweets.apply(lambda d: countpeople( d), axis=1)
 tweets['neighborhoods'] = tweets.apply(lambda d: determine_neighborhood( d.lat, d.lng), axis=1) 
 
 
@@ -105,8 +105,9 @@ for key in cmap:
     leg.append(make_patch(label=key, color=cmap[key]))
 
 
-sorted_tweets[:25].total.plot(kind='bar', color=colorful, figsize=(10,10))
+sorted_tweets[:25].total.plot(kind='bar', color=colorful, figsize=(10,15))
 plt.legend(handles=leg, loc='center left', bbox_to_anchor=(1, 0.5))
+plt.title("Top 25 most population intersections")
 plt.savefig('img/popularintersections.png')
 
 plt.gcf().subplots_adjust(bottom=0.22)
@@ -119,7 +120,6 @@ plt.savefig('img/numberofintersections.png')
 ###############################################################
 ####    save results       
 ###############################################################
-
 endTime  = datetime.datetime.now()
 
 ###############################################################
