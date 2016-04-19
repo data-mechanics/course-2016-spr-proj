@@ -23,3 +23,6 @@ only keep these data.
 
 Then we calculate the percentage of people who have increasing earnings each year with the number of items of frist script and
 the number of items of second script.
+
+Visualization:
+I have done two visualization index1 and index2 and have written a script that will generate a json file in a correct format. I can simply change the original database(and results from project1) input in the scipt to change the input of visualization. Since the results from my project1 are small, I used earnings report 2014 as a sample input and visualize it.
