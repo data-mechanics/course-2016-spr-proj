@@ -1,5 +1,4 @@
-# BU CASCS 591 L1 Data Mechanics
-### Spring 2016
+# BU CASCS 591 L1 Data Mechanics Spring 2016
 
 # Project #2
 
