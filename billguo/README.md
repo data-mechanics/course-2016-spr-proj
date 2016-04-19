@@ -1,6 +1,7 @@
 Yihong Guo (Billguo@bu.edu)
 
 To run:
+
 1. run project1.py  
 
 2. run "mongoexport -d repo -c billguo.test -o test.json" to output json file 
