@@ -4,7 +4,7 @@ To run:
 1. run project1.py  
 
 2. run "mongoexport -d repo -c billguo.test -o test.json" to output json file 
-3. 
+
 3. I have already doen these two and ouput a json file that will work with index1.html and index2.html  
 
 Datasets used:
