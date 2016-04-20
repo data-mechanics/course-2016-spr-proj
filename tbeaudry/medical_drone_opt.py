@@ -84,13 +84,17 @@ for x in range(0,len(dates)):
     #this is where you can add extra constraints, such as if you wanted
     #to limit the number of drones between multiple hospitals or if you wanted to
     #scale
-    b = [-1]*(len(hos_stations)+1)
+    b = [-1]*(len(hos_stations)+1+4)
     for y in range(0,len(hos_stations)):
         #print(y,hos_stations[y],data[hos_stations[y]][0][d])
         b[y]=(data[hos_stations[y]][0][d])
     b[len(hos_stations)]=total_d
+    b[len(hos_stations)+1]=5
+    b[len(hos_stations)+2]=5
+    b[len(hos_stations)+3]=5
+    b[len(hos_stations)+4]=5
     print(b)
-    A=[-1]*(len(hos_stations)+1)
+    A=[-1]*(len(hos_stations)+1+4)
     a=[]
     for y in range(0,len(hos_stations)):
         a.append(1)
@@ -99,6 +103,33 @@ for x in range(0,len(dates)):
         xx=[0]*len(hos_stations)
         xx[y]=max_fly
         A[y]=xx
+    for y in range(0,4):
+        xx=[0]*len(hos_stations)
+        if (y==0):
+            xx[10]=1
+            xx[9]  =1
+        elif (y==1):
+            xx[13]=1
+            xx[14]=1
+            xx[18]=1
+            xx[19]=1
+
+        elif (y==2):
+            xx[0]=1
+            xx[6]=1
+            xx[7]=1
+            xx[4]=1
+            xx[16]=1
+            xx[15]=1
+        else:
+            xx[1]=1
+            xx[3]=1
+
+        A[len(hos_stations)+1+y]=xx
+        
+        
+    #print(A)
+    #print(b)
         
     res = linprog(c, A_ub=A, b_ub=b, bounds=bounds,
                   options={"disp": True})
@@ -124,9 +155,11 @@ comp_hs = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.mode
 
 this_script = doc.agent('alg:medical_drone_opt', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 HS_EVENTS  = doc.entity('dat:HS_EVENTS', {prov.model.PROV_LABEL:'Medical Events', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(HS_EVENTS, this_script)
-doc.wasGeneratedBy(HS_EVENTS, comp_hs, endTime)
-doc.wasDerivedFrom(HS_EVENTS, comp_hs, comp_hs, comp_hs)
+OPT_MED  = doc.entity('dat:OPT_MED', {prov.model.PROV_LABEL:'Medical Optimization', prov.model.PROV_TYPE:'ont:DataSet'})
+
+doc.wasAttributedTo(OPT_MED, this_script)
+doc.wasGeneratedBy(OPT_MED, comp_hs, endTime)
+doc.wasDerivedFrom(OPT_MED,HS_EVENTS, comp_hs, comp_hs, comp_hs)
 
 
 

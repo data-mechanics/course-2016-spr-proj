@@ -109,8 +109,11 @@ plt.show()
 
 repo.dropPermanent("HS_EVENTS_STATS")
 repo.createPermanent("HS_EVENTS_STATS")
+x = [xi for (xi, yi) in data]
+y = [yi for (xi, yi) in data]
 
-y={'datax':data,'datay':data2,'xcov':scipy.stats.pearsonr(x, y),'ycov':scipy.stats.pearsonr(xx, yy)}
+
+y={'datax':data,'datay':data2,'xcor,p':scipy.stats.pearsonr(x, y),'ycor,p':scipy.stats.pearsonr(xx, yy)}
 repo.tbeaudry.HS_EVENTS_STATS.insert_one(y)
 
 print("Police Events")
@@ -175,7 +178,10 @@ plt.show()
 repo.dropPermanent("PS_EVENTS_STATS")
 repo.createPermanent("PS_EVENTS_STATS")
 
-y={'datax':data,'datay':data2,'xcov':scipy.stats.pearsonr(x, y),'ycov':scipy.stats.pearsonr(xx, yy)}
+x = [xi for (xi, yi) in data]
+y = [yi for (xi, yi) in data]
+
+y={'datax':data,'datay':data2,'xcor,p':scipy.stats.pearsonr(x, y),'ycor,p':scipy.stats.pearsonr(xx, yy)}
 repo.tbeaudry.PS_EVENTS_STATS.insert_one(y)
 
 endTime = datetime.now()
@@ -195,21 +201,21 @@ PS_EVENTS  = doc.entity('dat:PS_EVENTS', {prov.model.PROV_LABEL:'Police Events',
 HS_EVENTS  = doc.entity('dat:HS_EVENTS', {prov.model.PROV_LABEL:'Medical Events', prov.model.PROV_TYPE:'ont:DataSet'})
 
 
-PS_EVENTS_STATS  = doc.entity('dat:PS_EVENTS', {prov.model.PROV_LABEL:'Police Events Stats', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(PS_EVENTS, this_script)
-doc.wasGeneratedBy(PS_EVENTS, comp_ps, endTime)
-doc.wasDerivedFrom(PS_EVENTS, comp_ps, comp_ps, comp_ps)
+PS_EVENTS_STATS  = doc.entity('dat:PS_EVENTS_STATS', {prov.model.PROV_LABEL:'Police Events Stats', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(PS_EVENTS_STATS, this_script)
+doc.wasGeneratedBy(PS_EVENTS_STATS, comp_ps, endTime)
+doc.wasDerivedFrom(PS_EVENTS_STATS, PS_EVENTS,comp_ps, comp_ps, comp_ps)
 
-HS_EVENTS_STATS  = doc.entity('dat:HS_EVENTS', {prov.model.PROV_LABEL:'Medical Events Stats', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(HS_EVENTS, this_script)
-doc.wasGeneratedBy(HS_EVENTS, comp_hs, endTime)
-doc.wasDerivedFrom(HS_EVENTS, comp_hs, comp_hs, comp_hs)
+HS_EVENTS_STATS  = doc.entity('dat:HS_EVENTS_STATS', {prov.model.PROV_LABEL:'Medical Events Stats', prov.model.PROV_TYPE:'ont:DataSet'})
+doc.wasAttributedTo(HS_EVENTS_STATS, this_script)
+doc.wasGeneratedBy(HS_EVENTS_STATS, comp_hs, endTime)
+doc.wasDerivedFrom(HS_EVENTS_STATS, HS_EVENTS, comp_hs, comp_hs, comp_hs)
 
-doc.used(PS_EVENTS, comp_ps, startTime)
-doc.used(HS_EVENTS , comp_hs, startTime)
+doc.used(PS_EVENTS_STATS, comp_ps, startTime)
+doc.used(HS_EVENTS_STATS , comp_hs, startTime)
 
-doc.wasAssociatedWith(PS_EVENTS, this_script)
-doc.wasAssociatedWith(HS_EVENTS, this_script)
+doc.wasAssociatedWith(PS_EVENTS_STATS, this_script)
+doc.wasAssociatedWith(HS_EVENTS_STATS, this_script)
 
 repo.record(doc.serialize()) # Record the provenance document.
 print(json.dumps(json.loads(doc.serialize()), indent=4))

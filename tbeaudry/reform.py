@@ -26,9 +26,9 @@ pol_stations=['District A-1 Police Station', 'District D-4 Police', 'District E-
 hos_stations=['Beth Israel Deaconess Medical Center East Cam', 'Boston City Hospital', 'Boston Specialty & Rehabilitation Hospital', 'Boston Medical Center', "Brigham And Women's Hospital", 'Carney Hospital', "Children's Hospital", 'Dana-farber Cancer Institute', 'Faulkner Hospital', "Franciscan Children's  Hospital", 'Kindred Hospital', 'Jewish Memorial Hospital', 'Lemuel Shattuck Hospital', 'Massachusetts Eye & Ear Infirmary', 'Massachusetts General Hospital', 'New England Baptist Hospital', 'Beth Israel Deaconess Medical Center West Cam', 'New England Medical Center', "St. Elizabeth's Hospital", "St. Margaret's Hospital For Women", 'Shriners Burns Institute', 'Spaulding Rehabilitation Hospital', 'Arbour Hospital', 'Va Hospital', 'VA Hospital', 'Hebrew Rehabilitation Center']
 
 
-#repo.dropPermanent("PS_EVENTS")
+repo.dropPermanent("PS_EVENTS")
 repo.dropPermanent("HS_EVENTS")
-#repo.createPermanent("PS_EVENTS")
+repo.createPermanent("PS_EVENTS")
 repo.createPermanent("HS_EVENTS")
 
 
