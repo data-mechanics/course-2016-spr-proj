@@ -80,7 +80,11 @@ for x in range(0,len(dates)):
     for y in range(0,len(hos_stations)):
         #here you can change the formula for calulating the number of missions a
         #hospital can serve in a single day
-        c.append(-1*max_fly)
+        
+        #c.append(-1*max_fly)
+        c.append(-1*data[hos_stations[y]][0][x])
+
+        
     #this is where you can add extra constraints, such as if you wanted
     #to limit the number of drones between multiple hospitals or if you wanted to
     #scale
@@ -89,10 +93,10 @@ for x in range(0,len(dates)):
         #print(y,hos_stations[y],data[hos_stations[y]][0][d])
         b[y]=(data[hos_stations[y]][0][d])
     b[len(hos_stations)]=total_d
-    b[len(hos_stations)+1]=5
-    b[len(hos_stations)+2]=5
-    b[len(hos_stations)+3]=5
-    b[len(hos_stations)+4]=5
+    b[len(hos_stations)+1]=max_d
+    b[len(hos_stations)+2]=max_d
+    b[len(hos_stations)+3]=max_d
+    b[len(hos_stations)+4]=max_d
     print(b)
     A=[-1]*(len(hos_stations)+1+4)
     a=[]
@@ -136,8 +140,7 @@ for x in range(0,len(dates)):
     print(res)
     #here i break because my implementation is flawed
     break
-print("\nClearly this implementation using linear programming cant give good enough",
-      " vaules of optimizaiton. I intend to try to use z3 in the future")    
+print("\nThis is the optimal placement for a single day. Once optimization is improved this can be the average opt over all days)")
 
 endTime = datetime.datetime.now()
 doc = prov.model.ProvDocument()
