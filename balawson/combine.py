@@ -18,26 +18,54 @@ startTime  = datetime.datetime.now()
 ###############################################################
 ####    combine the intersection data by hour
 ###############################################################
+##this should not be hard coded 
+collectionnames = \
+['bigtwitterdate2015-05-31 00:00:00',
+ 'bigtwitterdate2015-06-30 00:00:00',
+ 'bigtwitterdate2015-07-31 00:00:00',
+ 'bigtwitterdate2015-08-31 00:00:00',
+ 'bigtwitterdate2015-09-30 00:00:00',
+ 'bigtwitterdate2015-10-31 00:00:00',
+ 'bigtwitterdate2015-11-30 00:00:00',
+ 'bigtwitterdate2015-12-31 00:00:00',
+ 'bigtwitterdate2016-01-31 00:00:00',
+ 'bigtwitterdate2016-02-29 00:00:00',
+ 'bigtwitterdate2016-03-31 00:00:00',
+ 'bigtwitterdate2016-04-30 00:00:00']
+months = ['may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'january', 'feburary', 'march', 'april']
 populations = {}
-for x in range(0,24):
-    p = pd.DataFrame(list(eval("repo.balawson.twitterhour{0}.find()".format(x))))
-    populations.update({'{0}'.format(x) : p.population})
+users = {}
+for idx, x in enumerate(collectionnames):
+    p = pd.DataFrame(list(eval("repo.balawson['{0}'].find()".format(x))))
+    populations.update({'{0}'.format(months[idx]) : p.population})
+    users.update({'{0}'.format(months[idx]) : p.users})
 
-populationLists = []
+#populationLists = []
 populationFrame = pd.DataFrame(populations)
-for idx, row in populationFrame.iterrows():
-    populationLists.append( ([[int(populationFrame.columns[id]), int(i)] for id, i in enumerate(row)]) )
+#for idx, row in populationFrame.iterrows():
+#    populationLists.append( ([[(populationFrame.columns[id]), i] for id, i in enumerate(row)]) )
 
-populationFrame['lat'] = p.lat
-populationFrame['lng'] = p.lng
-populationFrame['key'] = p.apply(lambda d: str(d.lat) + str(d.lng), axis=1 )
+#userLists = []
+userFrame = pd.DataFrame(users)
+#for idx, row in userFrame.iterrows():
+#    userLists.append( ([[(userFrame.columns[id]), i] for id, i in enumerate(row)]) )
 
-collection_name = 'twitterIntersectionHours'
+populationFrame['lat'] = userFrame['lat'] = p.lat
+populationFrame['lng'] = userFrame['lng'] = p.lng
+populationFrame['key'] = userFrame['key'] = p.apply(lambda d: str(d.lat) + str(d.lng), axis=1 )
+
+collection_name = 'twitterIntersectionMonthCounts'
 records = json.loads(populationFrame.T.to_json()).values()
 repo.dropPermanent(collection_name)
 repo.createPermanent(collection_name)
 repo['balawson.' + collection_name].insert_many(records)
 
+collection_name = 'twitterIntersectionMonthUsers'
+records = json.loads(userFrame.T.to_json()).values()
+repo.dropPermanent(collection_name)
+repo.createPermanent(collection_name)
+repo['balawson.' + collection_name].insert_many(records)
+'''
 final_json = []
 for idx, row in p.iterrows():
     name       = row.roads
@@ -59,7 +87,7 @@ for idx, row in p.iterrows():
 ###############################################################
 
 json.dump(final_json, open('d3/temp.json', 'w'))
-
+'''
 endTime  = datetime.datetime.now()
 
 ###############################################################

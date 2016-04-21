@@ -17,9 +17,6 @@ repo = client.repo
 repo.authenticate(username, pwd)
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
-
-
-startTime = datetime.datetime.now()
 def download_fiter_and_insert(filename, url, collection_name, header = ['user', 'time', 'lat', 'lng', 'location']):
     print('Begin downloading {0}'.format(filename))
     response = requests.get(url, stream=True) 
@@ -41,16 +38,6 @@ def download_fiter_and_insert(filename, url, collection_name, header = ['user', 
     repo.createPermanent(collection_name)
     repo['balawson.' + collection_name].insert_many(records)
 
-brightkite_filename = 'brightkite.txt.gz'
-brightkite_url      = 'https://snap.stanford.edu/data/loc-brightkite_totalCheckins.txt.gz'
-download_fiter_and_insert(brightkite_filename, brightkite_url, 'brightkite', header = ['user', 'time', 'lat', 'lng', 'location'])
-
-gowalla_filename = 'gowalla.txt.gz'
-gowalla_url      = 'https://snap.stanford.edu/data/loc-gowalla_totalCheckins.txt.gz'
-download_fiter_and_insert(gowalla_filename, gowalla_url, 'gowalla', header = ['user', 'time', 'lat', 'lng', 'location'])
-
-twitter_filename = '2016-02-25.sample.csv'
-twitter_url      = 'http://people.bu.edu/balawson/2016-02-25.sample.csv' 
 
 def download_and_insert(filename, url, collection_name, header = ['lat', 'location', 'lng', 'source', 'time', '_id', 'user']):
     print('Begin downloading {0}'.format(filename))
@@ -62,14 +49,30 @@ def download_and_insert(filename, url, collection_name, header = ['lat', 'locati
     ####read###
     df = pd.read_csv('{0}'.format(filename), header = 0, names = header)
     df.drop('source', inplace=True, axis=1)
-    print(df.head())
     df =  df[ (df.lat < 42.445945) & (df.lat > 42.275086) & (df.lng > -71.194213) & (df.lng < -70.926301)]
     print('Inserting {0} into mongo'.format(filename))
     records = json.loads(df.T.to_json()).values()
     repo.dropPermanent(collection_name)
     repo.createPermanent(collection_name)
     repo['balawson.' + collection_name].insert_many(records)
-download_and_insert(twitter_filename, twitter_url, 'twitter')
+
+def download_and_insert2(filename, url, collection_name)
+    print('Begin downloading {0}'.format(filename))
+    response = requests.get(url, stream=True) 
+    with open(filename, "wb") as handle:
+       for data in response.iter_content(chunk_size=1024):
+           handle.write(data)
+    print('Finish downloading {0}'.format(filename))
+    ####read###
+    df = pd.read_csv('{0}'.format(filename))
+    df.drop(['text', 'user_id.1', 'verified', 'name', 'created_at'], inplace=True, axis=1)
+    df.columns = ['lng', 'lat', 'user', 'time']
+    df =  df[ (df.lat < 42.445945) & (df.lat > 42.275086) & (df.lng > -71.194213) & (df.lng < -70.926301)]
+    print('Inserting {0} into mongo'.format(filename))
+    records = json.loads(df.T.to_json()).values()
+    repo.dropPermanent(collection_name)
+    repo.createPermanent(collection_name)
+    repo['balawson.' + collection_name].insert_many(records)
 
 def download_shapefiles(url, filename='Planning_Districts.zip'):
     print('Begin downloading shapefiles')
@@ -80,7 +83,23 @@ def download_shapefiles(url, filename='Planning_Districts.zip'):
     print('Finish downloading {0}'.format(filename))
     ###unzip###
     os.popen('unzip {0}'.format(filename))
-download_shapefiles(url='http://bostonopendata.boston.opendata.arcgis.com/datasets/a6488cfd737b4955bf55b0342c74575b_2.zip')
+
+startTime = datetime.datetime.now()
+
+brightkite_filename = 'brightkite.txt.gz'
+brightkite_url      = 'https://snap.stanford.edu/data/loc-brightkite_totalCheckins.txt.gz'
+download_fiter_and_insert(brightkite_filename, brightkite_url, 'brightkite', header = ['user', 'time', 'lat', 'lng', 'location'])
+
+gowalla_filename = 'gowalla.txt.gz'
+gowalla_url      = 'https://snap.stanford.edu/data/loc-gowalla_totalCheckins.txt.gz'
+download_fiter_and_insert(gowalla_filename, gowalla_url, 'gowalla', header = ['user', 'time', 'lat', 'lng', 'location'])
+
+twitter_filename = '2016-02-25.sample.csv'
+twitter_url      = 'http://people.bu.edu/balawson/2016-02-25.sample.csv' 
+download_and_insert(twitter_filename, twitter_url, 'twitter')
+
+shapefile_url = 'http://bostonopendata.boston.opendata.arcgis.com/datasets/a6488cfd737b4955bf55b0342c74575b_2.zip'
+download_shapefiles(url=shapefile_url)
 
 endTime = datetime.datetime.now()
 

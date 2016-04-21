@@ -31,18 +31,22 @@ repo = client.repo
 repo.authenticate('balawson', 'balawson')
 
 startTime  = datetime.datetime.now()
-tweets     = pd.DataFrame(list(repo.balawson.twitter.find()))
-gowalla    = pd.DataFrame(list(repo.balawson.gowalla.find()))
-brightkite = pd.DataFrame(list(repo.balawson.brightkite.find()))
+#tweets     = pd.DataFrame(list(repo.balawson.twitter.find()))
+bigtweets     = pd.DataFrame(list(repo.balawson.big_twitter.find()))
+#gowalla    = pd.DataFrame(list(repo.balawson.gowalla.find()))
+#brightkite = pd.DataFrame(list(repo.balawson.brightkite.find()))
 
-tweets.time = tweets.time.apply(lambda d: pd.to_datetime(d*1000000))
+#tweets.time = tweets.time.apply(lambda d: pd.to_datetime(d*1000000))
+bigtweets.time = bigtweets.time.apply(lambda d: pd.to_datetime(d*1000000))
 
 ###############################################################
 ####    group the data by time of day
 ###############################################################
 
-groups = tweets.groupby(tweets.time.map(lambda t: str(t.hour)))
-source = 'twitter'
+#groups = bigtweets.groupby(bigtweets.time.map(lambda t: str(t.hour)))
+groups = bigtweets.groupby(pd.Grouper(key='time', freq='M'))
+
+source = 'bigtwitter'
 for key, group in groups:
     mongo_to_xml.to_xml(group, 'temp.xml') #save input 
  
@@ -51,12 +55,13 @@ for key, group in groups:
         os.popen("javac getintersections/RoadNetwork.java;")
         os.wait()
         pipe = os.popen("java  getintersections.RoadNetwork")
-        [print(line) for line in pipe.readlines()]
+        print([line for line in pipe.readlines()], end='')
+        print()
         os.wait()
 
     temp_df = xml_to_dataframe.xml_to_dataframe('./BostonNetwork/outputs/roadnetwork.xml')
-    xml_to_dataframe.insert_df_to_mongo(temp_df, str(source + "hour" + key))
-    #break
+    xml_to_dataframe.insert_df_to_mongo(temp_df, str(source + "date" + str(key)))
+    print('.', end='')
 
 ###############################################################
 ####    save results       

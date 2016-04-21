@@ -25,7 +25,7 @@ def to_xml(df, filename=None, mode='w'):
         try:
             xml += ['FIELD2="{0}"'.format(row.user_id)] 
         except:  
-            xml += ['FIELD2="{0}"'.format(row.user)]
+            xml += ['FIELD2="{0}"'.format(int(row.user))]
         xml += ['FIELD3="{0}"'.format(row.lng)]
         xml += ['FIELD4="{0}"'.format(row.lat)]
         xml += ['FIELD5="{0}"'.format(str(row.time).strip().replace('\n', ' '))]
