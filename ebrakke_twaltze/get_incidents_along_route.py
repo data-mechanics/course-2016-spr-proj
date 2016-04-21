@@ -54,6 +54,19 @@ def find_routes(start, end):
 	response = urllib.request.urlopen(this_url).read().decode('utf-8')
 	routes = json.loads(response).get('routes')
 
+	# Remove the html_instructions and warnings keys from routes/steps
+	for i, route in enumerate(routes):
+		try:
+			del routes[i]['warnings']
+		except KeyError:
+			pass
+
+		for j, step in enumerate(route['legs'][0]['steps']):
+			try:
+				del routes[i]['legs'][0]['steps'][j]['html_instructions']
+			except KeyError:
+				pass
+
 	return routes;
 
 def incidents_on_path(path, incidentType):
