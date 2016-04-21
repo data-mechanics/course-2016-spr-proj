@@ -29,7 +29,7 @@ def calculate_danger_levels():
 
         for d in dataset:
             dangerZoneType = d.get('type')
-
+            print(d)
             # Determine the type of zone
             if dangerZoneType == 'pothole':
                 dangerZone = Pothole(d.get('latitude'), d.get('longitude'), d.get('report_dt'), d.get('status'))

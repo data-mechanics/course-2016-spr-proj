@@ -61,11 +61,8 @@ def incidents_on_path(path, incidentType):
 
 		d = distance(path[0], path[1], np.array([lat, lng]))
 		if d <= maxDistance:
-			#print(path, (lat,lng), d)
-			#i.append(incident)
-			count += 1
-
-	return count
+			i.append(incident)
+	return i
 
 def calculate_average_incident(incidentType):
     repo.dropPermanent('randomDirectionIncidentCount')
@@ -80,16 +77,16 @@ def calculate_average_incident(incidentType):
         if list(incidentCount.find({'_id': route['_id']})):
         	continue
         print("Starting route " + str(i))
-        count = 0;
         steps = route['legs'][0]['steps']
         distance = 0
+        potholes = []
 
         for step in steps:
             start = np.array([step['start_location']['lat'], step['start_location']['lng']])
             end = np.array([step['end_location']['lat'], step['end_location']['lng']])
             distance += step['distance']['value']
-            count += incidents_on_path([start, end], incidentType)
-        incidentCount.update({'_id': route['_id']}, {'$set': {'distance': distance}})
+            potholes += incidents_on_path([start, end], incidentType)
+        incidentCount.insert({'distance': distance, 'count': len(potholes), 'incidents': potholes})
     end_time = datetime.datetime.now()
     do_prov(start_time, end_time)
 
@@ -121,5 +118,5 @@ def do_prov(start_time=None, end_time=None):
     #open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
     print(doc.get_provn())
 
-#calculate_average_incident('pothole')
-do_prov()
+calculate_average_incident('pothole')
+#do_prov()

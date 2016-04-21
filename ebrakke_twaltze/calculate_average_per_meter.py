@@ -23,7 +23,7 @@ def find_average():
 
     total_potholes_vs_meters = []
     for d in routes.find():
-        avg = d['pothole'] / float(d['distance'])
+        avg = d['count'] / float(d['distance'])
         total_potholes_vs_meters.append(avg)
 
     total_potholes_vs_meters = np.array(total_potholes_vs_meters)
