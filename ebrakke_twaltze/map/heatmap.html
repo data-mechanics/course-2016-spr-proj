@@ -13,8 +13,6 @@
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 		<script src="leaflet-heat.js"></script>
 
-		<script src="incidents.js"></script>
-
 		<style>
 			* {
 				padding: 0;
@@ -44,11 +42,15 @@
 					id: 'mapbox.streets'
 				}).addTo(map);
 
-				data = JSON.parse(incidentsJSON);
-
-				var incidents = data.map(function(v) { return [v.lat, v.lng, 1]; });
+				$.ajax({
+					url: "http://datamechanics.io/data/ebrakke_twaltze/incidents.json",
+					dataType: 'json',
+					success: function(data) {
+						var incidents = data.map(function(v) { return [v.lat, v.lng, 1]; });
 				
-				L.heatLayer(incidents, {radius: 5}).addTo(map);
+						L.heatLayer(incidents, {radius: 15}).addTo(map);
+					}
+				});
 			});
 		</script>
 	</head>
