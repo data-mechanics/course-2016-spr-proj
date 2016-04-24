@@ -17,7 +17,7 @@ repo = client.repo
 repo.authenticate('balawson', 'balawson')
 
 startTime  = datetime.datetime.now()
-tweets     = pd.DataFrame(list(repo.balawson.twitterIntersectionHours.find()))
+tweets     = pd.DataFrame(list(repo.balawson.twitterIntersectionMonthCounts.find()))
 
 
 sf = shapefile.Reader("./Planning_Districts/Planning_Districts.shp")
@@ -37,13 +37,15 @@ def determine_neighborhood(lat, lng):
 ####    using shape files determine which neighboorhood intersection is in
 ###############################################################
 def countpeople(row):
+    months = ['may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'january', 'feburary', 'march', 'april']
     total = 0;
     for col in row.keys():
-        try:
-            int(col)
-            total += int(row[col])
-        except:
-            pass
+        if col in months:
+            try:
+                int(row[col])
+                total += int(row[col])
+            except:
+                continue 
     return total
 
 def color_map(df):
@@ -88,7 +90,7 @@ def make_patch(color, label):
 
 tweets = tweets.convert_objects(convert_numeric=True) #TODO this is getting deprenciated
 tweets['total'] = tweets.apply(lambda d: countpeople( d), axis=1)
-tweets.drop(['0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19','2', '20', '21', '22', '23', '3', '4', '5', '6', '7', '8', '9', '_id',], inplace=True, axis=1)
+#tweets.drop(['0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19','2', '20', '21', '22', '23', '3', '4', '5', '6', '7', '8', '9', '_id',], inplace=True, axis=1)
 tweets['lat'] = tweets.lat.apply(lambda d: float(d))
 tweets['lng'] = tweets.lng.apply(lambda d: float(d))
 tweets['neighborhoods'] = tweets.apply(lambda d: determine_neighborhood( d.lat, d.lng), axis=1) 
@@ -111,6 +113,7 @@ plt.ylabel('Number of Intersections')
 plt.title('Intersections by Neighborhood')
 tweets.neighborhoods.value_counts().plot(kind='bar')
 plt.savefig('img/numberofintersections.png')
+plt.close()
 
 sorted_tweets[:25].total.plot(kind='bar', color=colorful, figsize=(10,10))
 #plt.legend(handles=leg, loc='center left', bbox_to_anchor=(1, 0.5))
