@@ -20,8 +20,7 @@ tweets = pd.DataFrame(list(repo.balawson.twitterIntersectionMonthCounts.find()))
 users = pd.DataFrame(list(repo.balawson.twitterIntersectionMonthUsers.find()))
 
 tweets = tweets.convert_objects(convert_numeric=True) #TODO this is getting deprenciated 
-months = \
-['may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'january', 'feburary', 'march', 'april']
+months = ['may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'january', 'feburary', 'march', 'april']
 ###############################################################
 ####    filter the data       
 ###############################################################
@@ -62,20 +61,36 @@ Ns = []
 for idx, x in enumerate(first_month):
     Ns.append( c_rp(x, second_month[idx]))
 
-print(Ns)
-    
+sample['estimate'] = Ns
+sample.drop(months, inplace=True, axis=1)
+sample.drop('_id', inplace=True, axis=1)
     
 
+###############################################################
+####    plot results
+###############################################################
+import folium
+outputname = 'estimate.html'
+map_osm = folium.Map(location=[42.355,-71.0609], zoom_start=13)
+for idx, row in sample.iterrows():
+    lat, lng = row.lat, row.lng
+    if row.estimate > 0:
+        ratio = math.log2(row.estimate*2)
+        map_osm.polygon_marker(location=[lat, lng], popup='estimate: '+ str(row.estimate),fill_color='#ff0000', num_sides=8, radius=ratio, fill_opacity=0.3) 
+    else:
+        ratio = 10
+        map_osm.polygon_marker(location=[lat, lng], popup=' estimate: '+ str(row.estimate),fill_color='#0000ff', num_sides=4, radius=ratio, fill_opacity=0.3) 
+map_osm.create_map(path=outputname)
 
 ###############################################################
 ####    save results       
 ###############################################################
-'''
-collection_name = 'kmeans_results'
+records = json.loads(sample.T.to_json()).values()
+print(type(records))
+collection_name = 'capture_recapture'
 repo.dropPermanent(collection_name)
 repo['balawson.' + collection_name].insert(records)
 endTime  = datetime.datetime.now()
-
 ###############################################################
 ####    record provanence       
 ###############################################################
@@ -84,33 +99,16 @@ doc.add_namespace('alg', 'http://datamechanics.io/algorithm/balawson/') # The sc
 doc.add_namespace('dat', 'http://datamechanics.io/data/balawson/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
-doc.add_namespace('snap', 'https://snap.stanford.edu/data/')
 doc.add_namespace('bal', 'http://people.bu.edu/balawson/')
 
-this_script = doc.agent('alg:cluster', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
-brightkite_resource = doc.entity('snap:brightkite', {'prov:label':'SNAP: Standford Network Analysis Project - Brightkite', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'txtgz'})
-gowalla_resource = doc.entity('snap:gowalla', {'prov:label':'SNAP: Standford Network Analysis Project - Gowalla', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'txtgz'})
+this_script = doc.agent('alg:estimate', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 twitter_resource = doc.entity('bal:twitter', {'prov:label':'Sample of Curated Tweet', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'csv'})
 
-viz_brightkite = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
-viz_gowalla = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
-viz_twitter = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+act_twitter = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
 
-doc.wasAssociatedWith(viz_brightkite, this_script)
-doc.wasAssociatedWith(viz_gowalla, this_script)
-doc.wasAssociatedWith(viz_twitter, this_script)
+doc.wasAssociatedWith(act_twitter, this_script)
 
-doc.used(viz_brightkite, brightkite_resource, startTime)
-doc.used(viz_gowalla, gowalla_resource, startTime)
-doc.used(viz_twitter, twitter_resource, startTime)
-
-brightkite_ent = doc.entity('dat:brightkite', {prov.model.PROV_LABEL:'Brightkite data', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(brightkite_ent, this_script)
-doc.wasDerivedFrom(brightkite_ent, brightkite_resource)
-
-gowalla_ent = doc.entity('dat:gowalla', {prov.model.PROV_LABEL:'Gowalla dataset', prov.model.PROV_TYPE:'ont:DataSet'})
-doc.wasAttributedTo(gowalla_ent, this_script)
-doc.wasDerivedFrom(gowalla_ent, gowalla_resource)
+doc.used(act_twitter, twitter_resource, startTime)
 
 twitter_ent = doc.entity('dat:twitter', {prov.model.PROV_LABEL:'Twitter dataset', prov.model.PROV_TYPE:'ont:DataSet'})
 doc.wasAttributedTo(twitter_ent, this_script)
@@ -121,6 +119,4 @@ repo.record(doc.serialize()) # Record the provenance document.
 open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
-
-'''
 # 
