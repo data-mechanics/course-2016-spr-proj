@@ -70,7 +70,7 @@ def find_routes(start, end):
 	return routes;
 
 def incidents_on_path(path, incidentType):
-	maxDistance = .33
+	maxDistance = .66
 	lats = [path[0][0], path[1][0]]
 	lngs = [path[0][1], path[1][1]]
 	north = max(lngs)
@@ -109,6 +109,10 @@ def run(start, end, incidentType):
 
 			output[i]['incidents'] += incidents_on_path([s, e], incidentType)
 
+	with open('map/data.js', 'w') as f:
+		out = json.dumps(output)
+		f.write('var data = {}'.format(out))
+		f.close()
 	return json.dumps(output)
 
 print(run(start, end, 'pothole'))

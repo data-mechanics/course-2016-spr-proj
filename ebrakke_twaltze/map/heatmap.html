@@ -46,7 +46,7 @@
 					url: "http://datamechanics.io/data/ebrakke_twaltze/incidents.json",
 					dataType: 'json',
 					success: function(data) {
-						var incidents = data.map(function(v) { return [v.lat, v.lng, 1]; });
+						var incidents = data.map(function(v) { return [v.lat, v.lng, 5]; });
 				
 						L.heatLayer(incidents, {radius: 15}).addTo(map);
 					}

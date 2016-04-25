@@ -23,7 +23,7 @@ def find_average():
 
     total_potholes_vs_meters = []
     for d in routes.find():
-        avg = d['count'] / float(d['distance'])
+        avg = d['count'] / (float(d['distance']) / 1000)
         total_potholes_vs_meters.append(avg)
 
     total_potholes_vs_meters = np.array(total_potholes_vs_meters)
@@ -31,8 +31,8 @@ def find_average():
     std = np.std(total_potholes_vs_meters)
 
     plt.hist(total_potholes_vs_meters, 50, normed=1, facecolor='green', alpha=0.75)
-    plt.xlabel('Average Potholes per meter')
-    plt.ylabel('Number of occurences')
+    plt.xlabel('Average Potholes Per Kilometer')
+    plt.ylabel('Number of Occurences')
     plt.grid(True)
     plt.savefig('potholes_per_meter.png')
 
