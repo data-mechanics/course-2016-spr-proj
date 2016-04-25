@@ -1,7 +1,15 @@
 Tabor Beaudry
 CS:591
 
-Project 2 WORK IN PROGRESS
+Project 2 (poor opt)
+
+requires a rerun of gather.py and reform.py as changes have been made to the corresponding datasets
+still takes a long time because it requires geolocates on all poorly labeled data
+
+stat_analysis.py for statistics
+medical_drone_opt.py for optimization attempt
+
+index1 and index2 for html
 
 The goal of Project 2 is to delve a bit deeper into the use of drones for medical and police services. To solve this
 problem I plan on investigating the best way to distribute drones, an optimization problem, and for examining the use
@@ -9,7 +17,19 @@ of them at different time of the day, a statistical analysis problem. Medical dr
 quite a hefty price associated with them, and with limited resources it will be important to distribute them
 effectively. Further, examining the distribution of EMS events across times of day and days of the week can help
 fine tune when these devices could really be put to use. Visualizaing this data will involve combining data resulting
-from statistical analysis, and more human understandable visualization: heatmaps, and gps pathing comparisons.
+from statistical analysis, and more human understandable visualization: Interactive histogram and Projection of injury data.
+index1 shows a interactive histogram that shows the number of calls that could be covered each day in the data set by
+using users choice of hospitals as lauching points for drones. index2 shows a rough cartesian projection of data points
+by longitude and latitude and a highlighter traces a rougly 1 mile radius over each point. This was intended to be a more
+substantial visualization and may still see improvements. Statistically, I found minimal correlation between
+time of day and location of both medical events and criminal events. I was hoping to see some correlation here
+so that optimizations could take into general location within the city i.e. more drones would be needed near the city center.
+However Boston appears to have a dense enough population that combiend with the available data no such trends could be found.
+My goal with the optimization was to set up script such that a variety of factors could be changed
+in order to be useable on many systems. Unfortunately while in many ways this script could do that, as of yet
+I have been unable to get a solver working that can use integer programing and between that and weak boundry information
+I was unable to produce a good optimization.
+
 
 
 
