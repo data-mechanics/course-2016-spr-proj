@@ -94,6 +94,8 @@ def round_up(num):
 def round_down(num):
     return int(math.floor(num/100.0) * 100.0)
 
+# Creating a dictionary for the data to be stored in the scoring visualization following
+# the example at the following URL: http://bl.ocks.org/mbostock/7607535
 scores_json = {"name": "scores", "children": []}
 min_score = scores[0][0]
 max_score = scores[-1][0]
@@ -121,7 +123,7 @@ for station_score in scores:
                     scores_json["children"][i]["children"].append({"name": (station + ': ' + str(score)), "size": score})
 
 f = open('./scores.json', 'w')
-f.write(json.dumps(scores_json))
+f.write(json.dumps(scores_json, indent=2))
 f.close()
 
 
