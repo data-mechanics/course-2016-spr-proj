@@ -1,6 +1,6 @@
 # Kyle Mann and Jonathan Liu (jtsliu_kmann)
 # CS591
-# 
+# This script creates the profile for a zipcode, putting in all the information we have
 import datetime
 import json
 import prov.model
