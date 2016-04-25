@@ -1,4 +1,4 @@
-[
+scoresjs = [
     {
         "latitude": 42.32064,
         "longitude": -71.06237,
@@ -202,4 +202,4 @@
         "score": 13.466152594829085,
         "address": "170 DeWitt Drive, Boston, MA 02120, United States of America"
     }
-]
+];

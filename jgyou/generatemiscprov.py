@@ -38,6 +38,7 @@ def makeProvZipCodes(repo, run_id, starttime, endtime):
     provdoc.wasGeneratedBy(zipcodes, this_run, endTime)
     provdoc.wasDerivedFrom(zipcodes, resource, this_run, this_run, this_run)
 
+    #print(provdoc.serialize())
     if starttime == None:
         plan = open('plan.json','r')
         docModel = prov.model.ProvDocument()
@@ -113,8 +114,8 @@ run_id_zipcodes = str(uuid.uuid4())
 runids_communitycenter = str(uuid.uuid4())
 
 makeProvZipCodes(repo, run_id_zipcodes, startTime, endTime)
-
 makeProvZipCodes(repo, run_id_zipcodes, None, None)
+
 makeProvCommunity(repo, runids_communitycenter, startTime, endTime)
 makeProvCommunity(repo, runids_communitycenter, None, None)
 

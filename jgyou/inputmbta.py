@@ -48,7 +48,7 @@ def make_provdoc(repo, runids, starttime, endtime):
 		'ont:Query':'MBTA_GTFS.zip'})
 
 	provdoc.wasAttributedTo(output, this_script)
-	provdoc.wasGeneratedBy(output, this_run)
+	provdoc.wasGeneratedBy(output, this_run, endTime)
 
 	provdoc.wasDerivedFrom(output, mbtazip)
 
@@ -115,7 +115,7 @@ with open("auth.json") as a:
 							else:
 								wheelchair = 0
 							mbtainfo.append({"stop_id": stop_id, "stop_name": stop_name, \
-								"longitude": stop_long, "latitude": stop_lat, "wheelchair": wheelchair})
+								"longitude": stop_lon, "latitude": stop_lat, "wheelchair": wheelchair})
 
 						repo.dropPermanent("mbtaStops")
 						repo.createPermanent("mbtaStops")
