@@ -7,6 +7,7 @@ import sys
 import pymongo
 import random
 import json
+from prov.serializers import provjson
 
 exec(open('../pymongo_dm.py').read())
 client = pymongo.MongoClient()
@@ -77,8 +78,11 @@ def do_prov(start_time=None, end_time=None):
     doc.wasDerivedFrom(random_directions, danger_levels, get_directions, get_directions, get_directions)
 
     repo.record(doc.serialize())
-    print(doc.get_provn())
+    plan = json.loads(open('plan.json', 'r').read())
+    #provjson.decode_json_document(plan, doc)
+    #open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
     repo.logout()
 
 if __name__ == '__main__':
-    find_directions()
+    #find_directions()
+    do_prov()
