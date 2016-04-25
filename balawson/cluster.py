@@ -65,7 +65,6 @@ if not(db[collection_name]):
 #repo.dropPermanent(collection_name)
 
 repo['balawson.' + collection_name].insert(records)
-
 endTime  = datetime.datetime.now()
 
 ###############################################################
@@ -110,7 +109,7 @@ doc.wasDerivedFrom(twitter_ent, twitter_resource)
 
 repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
 print(doc.get_provn())
 repo.logout()
 
