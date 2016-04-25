@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import csv
 import pymongo
 import prov.model
 import datetime
@@ -106,7 +107,30 @@ for pair in closest_stop_liq:
 	X.append((pair['tstop'], 1))
 
 Y = real_aggregate(X, sum)
-print(Y)
+#print(Y)
+
+liquor_freq = []
+for i in Y:
+    if '.' in i[0]:
+        name = i[0].replace('.', '')
+    else:
+        name = i[0]
+    liquor_freq.append({name:i[1]})
+#print(liquor_freq)
+repo.dropPermanent("liquor_freq")
+repo.createPermanent("liquor_freq")
+repo['ekwivagg_yuzhou7.liquor_freq'].insert_many(liquor_freq)
+
+liquor_freq_one = {}
+for i in liquor_freq:
+    for key in i.keys():
+        liquor_freq_one[key] = i[key]
+liquor_freq = [liquor_freq_one]
+
+with open('liquor.tsv', 'w') as out:
+    dw = csv.DictWriter(out, sorted(liquor_freq[0].keys()), delimiter='\t')
+    dw.writeheader()
+    dw.writerows(liquor_freq)
 
 endTime = datetime.datetime.now()
 
@@ -148,14 +172,14 @@ doc.used(closest_liquor_calc, liquor_dat, startTime)
 
 get_frequency = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
 doc.wasAssociatedWith(get_frequency, this_script)
-doc.used(liquor_freq, closest_stop, startTime)
+doc.used(get_frequency, closest_stop_liq, startTime)
 
 doc.wasAttributedTo(closest_stop_liq, this_script)
 doc.wasGeneratedBy(closest_stop_liq, closest_liquor_calc, endTime)
 doc.wasDerivedFrom(closest_stop_liq, restaurant_dat, closest_liquor_calc, closest_liquor_calc, closest_liquor_calc)
 doc.wasDerivedFrom(closest_stop_liq, stops, closest_liquor_calc, closest_liquor_calc, closest_liquor_calc)
 doc.wasDerivedFrom(closest_stop_liq, liquor_dat, closest_liquor_calc, closest_liquor_calc, closest_liquor_calc)
-doc.wasDerivedFrom(closest_stop_liq, liquor_freq, get_frequency, get_frequency, get_frequency)
+doc.wasDerivedFrom(liquor_freq, closest_stop_liq, get_frequency, get_frequency, get_frequency)
 
 repo.record(doc.serialize())
 content = json.dumps(json.loads(doc.serialize()), indent=4)
