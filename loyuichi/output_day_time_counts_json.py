@@ -1,3 +1,5 @@
+from geopy.geocoders import GoogleV3
+import urllib.request
 import json
 import pymongo
 import prov.model
@@ -15,23 +17,24 @@ repo.authenticate('loyuichi', 'loyuichi')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-# Process through Zip Stats collection to record all zip code counts per category
-data = {"food_est_counts": {}, "meter_counts": {}, "towed_counts": {}, "tickets_counts": {}}
-for stat in repo['loyuichi.zip_stats'].find():
-	zipcode = stat["zip"]
-	data["food_est_counts"].update({zipcode: stat["food_establishments"]})
-	data["meter_counts"].update({zipcode: stat["meters"]})
-	data["towed_counts"].update({zipcode: stat["towed"]})
-	data["tickets_counts"].update({zipcode: stat["tickets"]})
+# Processing tickets to aggregate them by the day of the week and time they occur
+daytimes = {"Sunday": [0]*24, "Monday": [0]*24, "Tuesday": [0]*24, "Wednesday": [0]*24, "Thursday": [0]*24, "Friday": [0]*24, "Saturday": [0]*24}
+for ticket in repo['loyuichi.tickets'].find({"issue_time": {'$exists': True}, "issue_date": {'$exists': True}}):
+	d_format = '%Y-%m-%dT%I:%M:%S %p'
+	issue_datetime = datetime.datetime.strptime(ticket["issue_datetime"], d_format)
+	hour = issue_datetime.hour
+	day_week = issue_datetime.strftime('%A')
+	print(issue_datetime.strftime(d_format))
+	print(hour)
+	print(day_week)
+	daytimes[day_week][hour] += 1
 
-# Write processed Zip Stats to json file for zipcode.html to read
-labels = ["food_est_counts", "meter_counts", "towed_counts", "tickets_counts"]
-with open('counts.json', 'w') as outfile:
-	out = ""
-	for i in range(len(labels)):
-		out += "var " + labels[i] + " = "
-		out += json.dumps(data[labels[i]])
-		out += "\n"
+# Outputting the results to a JSON file formatted for heatmap.html
+days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+with open('daytime_counts.json', 'w') as outfile:
+	out = "["
+	out += json.dumps(daytimes)
+	out += "]"
 	outfile.write(out)
 
 endTime = datetime.datetime.now()
@@ -49,15 +52,15 @@ doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'Da
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:output_counts_json', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:output_day_time_counts', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
-zip_stats = doc.entity('dat:zip_stats', {'prov:label':'Zip Stats', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+tickets = doc.entity('dat:tickets', {'prov:label':'Tickets', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 
-convert_zip_stats = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Address Meters', prov.model.PROV_TYPE:'ont:Computation'})
+aggr_datetime_tickets = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Aggregate Issue Datetime Tickets', prov.model.PROV_TYPE:'ont:Computation'})
 
-doc.wasAssociatedWith(convert_zip_stats, this_script)
+doc.wasAssociatedWith(aggr_datetime_tickets, this_script)
 
-doc.used(convert_zip_stats, zip_stats, startTime)
+doc.used(aggr_datetime_tickets, tickets, startTime)
 
 #repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))

@@ -17,60 +17,62 @@ repo.authenticate('loyuichi', 'loyuichi')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-# Standardizing street name abbreviations
+# Adding zip code field to all documents that do not have it yet
 geolocator = GoogleV3()
 
-# for meter in repo['loyuichi.meters'].find({'X': {'$exists': True}, 'Y': {'$exists': True}}):
-# 	try:
-# 		location = geolocator.reverse(str(meter['Y']) + ',' + str(meter['X']))
+for meter in repo['loyuichi.meters'].find({'X': {'$exists': True}, 'Y': {'$exists': True}}):
+    try:
+        location = geolocator.reverse(str(meter['Y']) + ',' + str(meter['X']))
 
-# 		if (location):
-# 			zipcode = location[0].raw['address_components'][-1]["long_name"]
-# 			repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
-# 	except:
-# 		pass
+        if (location):
+            zipcode = location[0].raw['address_components'][-1]["long_name"]
+            if (len(zipcode) == 4):
+				zipcode = "0" + zipcode
+            res = repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
+            print(res)
+    except:
+        pass
 
-# for fe in repo['loyuichi.food_establishments'].find({'zip': {'$exists': False}}):
-# 	try:
-# 		location = geolocator.reverse(str(fe['location']['latitude']) + ', ' + str(fe['location']['longitude']))
+for fe in repo['loyuichi.food_establishments'].find({'zip': {'$exists': False}}):
+	try:
+		location = geolocator.reverse(str(fe['location']['latitude']) + ', ' + str(fe['location']['longitude']))
 
-# 		if (location):
-# 			zipcode = location[0].raw['address_components'][-1]["long_name"]
-# 			repo['loyuichi.food_establishments'].update({'_id': fe['_id']}, {'$set': {'zip': zipcode}})
-# 	except:
-# 		pass
+		if (location):
+			zipcode = location[0].raw['address_components'][-1]["long_name"]
+			if (len(zipcode) == 4):
+				zipcode = "0" + zipcode
+			repo['loyuichi.food_establishments'].update({'_id': fe['_id']}, {'$set': {'zip': zipcode}})
+	except:
+		pass
 
-# for towed in repo['loyuichi.towed'].find():
-# 	try:
-# 		location = geolocator.reverse(str(towed['location']['latitude']) + ',' + str(towed['location']['longitude']))
+for towed in repo['loyuichi.towed'].find():
+	try:
+		location = geolocator.reverse(str(towed['location']['latitude']) + ',' + str(towed['location']['longitude']))
 
-# 		if (location):
-# 			zipcode = location[0].raw['address_components'][-1]["long_name"]
-# 			repo['loyuichi.towed'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
-# 	except:
-# 		pass
+		if (location):
+			zipcode = location[0].raw['address_components'][-1]["long_name"]
+			if (len(zipcode) == 4):
+				zipcode = "0" + zipcode
+			res = repo['loyuichi.towed'].update({'_id': towed['_id']}, {'$set': {'zip': zipcode}})
+			print(res)
+	except:
+		pass
 
-addresses = {}
-counter = 0
-for ticket in repo['loyuichi.tickets'].find():
-	if (counter > 10):
-		break
-		
+for ticket in repo['loyuichi.tickets'].find({"zip": {'$exists': False}}):
 	try:
 		street_add = ticket["ticket_loc"]
-		print(street_add)
-		if (street_add not in addresses):
-			location = geolocator.geocode(street_add + " Boston")
+		
+		location = geolocator.geocode(street_add + " Boston")
 
-			print(location)
-			
-			zipcode = location.raw['address_components'][-1]["long_name"]
-			latitude = location.latitude
-			longitude = location.longitude
-			addresses[street_add] = {'zip': zipcode, 'location': {'latitude': latitude, 'longitude': longitude}}
-			repo['loyuichi.tickets'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode, 'location': {'latitude': latitude, 'longitude': longitude}}})
-		else:
-			repo['loyuichi.tickets'].update({'_id': meter['_id']}, {'$set': {'zip': addresses[street_add][zipcode], 'location': {'latitude': addresses[street_add][latitude], 'longitude': addresses[street_add][longitude]}}})
+		zipcode = location.raw['address_components'][-1]["long_name"]
+		# Ensure all zipcodes are 5-digit
+		if (len(zipcode) == 4):
+			zipcode = "0" + zipcode
+		latitude = location.latitude
+		longitude = location.longitude
+		addresses[street_add] = {'zip': zipcode, 'location': {'latitude': latitude, 'longitude': longitude}}
+		res = repo['loyuichi.tickets'].update({'_id': ticket['_id']}, {'$set': {'zip': zipcode, 'location': {'latitude': latitude, 'longitude': longitude}}})
+		print(res)
 	except:
 		pass
 
@@ -89,7 +91,7 @@ doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'Da
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:add_address', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:add_zip_long_lat', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
 food_establishments = doc.entity('dat:food_establishments', {'prov:label':'Food Establishment Permits', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 meters = doc.entity('dat:meters', {'prov:label':'Parking Meters', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
