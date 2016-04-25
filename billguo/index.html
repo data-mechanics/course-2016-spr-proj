@@ -46,7 +46,7 @@ d3.json("test.json", function(error, root) {
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
   node.append("title")
-      .text(function(d) { return d.name + (d.children ? "" : ": " + format(d.total_earnings)); });
+      .text(function(d) { return d.name + (d.children ? "" : ": " + d.total_earnings); });
 
   node.append("circle")
       .attr("r", function(d) { return d.r; });
