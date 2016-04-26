@@ -53,4 +53,7 @@ Output structure: (Sample)
 		"name" : "Supvising Claims Agent (Asd)", 
 		"children" : [ { 
 			"name" : "Adario,Anthony J", "total_earnings" : "100381.19" } ] }
+			
+More information about the result can be found in poster.pptx
+Since I don't know how to upload picture in README file, I add them in the poster.pptx
 
