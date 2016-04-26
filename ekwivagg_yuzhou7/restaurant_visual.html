@@ -20,7 +20,7 @@ body {
 }
 
 .bar {
-  fill: steelblue;
+  fill: orange;
   fill-opacity: .9;
 }
 
@@ -58,7 +58,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .tickFormat(formatPercent);
+    .tickFormat(d3.format("d"));
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -79,7 +79,10 @@ d3.csv("http://datamechanics.io/data/ekwivagg_yuzhou7/restaurant.csv", function(
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis)
+    .selectAll("text")
+      .attr("transform", "rotate(90)")
+      .style("text-anchor", "start");
 
   svg.append("g")
       .attr("class", "y axis")
@@ -103,7 +106,7 @@ d3.csv("http://datamechanics.io/data/ekwivagg_yuzhou7/restaurant.csv", function(
   d3.select("input").on("change", change);
 
   var sortTimeout = setTimeout(function() {
-    d3.select("input").property("checked", true).each(change);
+    d3.select("input").property("checked", false).each(change);
   }, 2000);
 
   function change() {
