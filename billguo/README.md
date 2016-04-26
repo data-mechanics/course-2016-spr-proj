@@ -29,3 +29,28 @@ the number of items of second script.
 
 Visualization:
 I have done two visualization index1 and index2 and have written a script that will generate a json file in a correct format. I can simply change the original database(and results from project1) input in the scipt to change the input of visualization. Since the results from my project1 are small, I used earnings report 2014 as a sample input and visualize it.
+
+Original structure:
+"total_earnings" : "100381.19",
+  "zip" : "02132",
+  "detail" : "0.00",
+  "injured" : "0.00",
+  "title" : "Supvising Claims Agent (Asd)",
+  "other" : "1842.87",
+  "regular" : "98538.32",
+  "name" : "Adario,Anthony J",
+  "retro" : "0.00",
+  "department_name" : "ASD Human Resources",
+  "overtime" : "0.00",
+  "quinn" : "0.00"
+
+
+Output structure: (Sample)
+"name" : "job&earn2014", 
+"children" : [ { 
+	"name" : "ASD Human Resources",
+	"children" : [ { 
+		"name" : "Supvising Claims Agent (Asd)", 
+		"children" : [ { 
+			"name" : "Adario,Anthony J", "total_earnings" : "100381.19" } ] }
+
