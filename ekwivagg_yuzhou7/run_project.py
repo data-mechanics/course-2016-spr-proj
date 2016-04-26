@@ -31,6 +31,8 @@ os.system("py -3 get_liquor.py")
 print('done')
 os.system("py -3 correlation.py")
 print('done')
+os.system("py -3 ratings.py")
+print('done')
 
 
 repo.logout()
