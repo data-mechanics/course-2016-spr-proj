@@ -80,7 +80,7 @@ for larceny in larceny_loc:
         if round(stop[1], 2) == min_lat and round(stop[2], 2) == min_long:
             distance = great_circle((larceny[1], larceny[2]), (stop[1], stop[2])).feet
             larceny_stop.append(((larceny[0], stop[0]), distance))
-print(larceny_stop)
+#print(larceny_stop)
 
 closest_stop = aggregate(larceny_stop, min)
 closest_t_stop = []
@@ -98,7 +98,19 @@ for pair in closest_stop_larceny:
 	X.append((pair['tstop'], 1))
 
 Y = real_aggregate(X, sum)
-print(Y)
+#print(Y)
+
+crime_freq = []
+for i in Y:
+    if '.' in i[0]:
+        name = i[0].replace('.', '')
+    else:
+        name = i[0]
+    crime_freq.append({name:i[1]})
+#print(crime_freq)
+repo.dropPermanent("crime_freq")
+repo.createPermanent("crime_freq")
+repo['ekwivagg_yuzhou7.crime_freq'].insert_many(crime_freq)
 
 endTime = datetime.datetime.now()
 
@@ -128,13 +140,13 @@ doc.wasAssociatedWith(larceny_retrieval, this_script)
 doc.used(larceny_retrieval, larceny_dat, startTime)
 
 closest_larceny_calc = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
-doc.wasAssociatedWith(closest_liquor_calc, this_script)
+doc.wasAssociatedWith(closest_larceny_calc, this_script)
 doc.used(closest_larceny_calc, larceny_dat, startTime)
 doc.used(closest_larceny_calc, stops, startTime)
 
 get_frequency = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
 doc.wasAssociatedWith(get_frequency, this_script)
-doc.used(restaurant_freq, closest_stop_larceny, startTime)
+doc.used(crime_freq, closest_stop_larceny, startTime)
 
 
 doc.wasAttributedTo(closest_stop_larceny, this_script)
