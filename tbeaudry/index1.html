@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<style>
+
+
+
+		.bar {
+		  fill: steelblue;
+		  shape-rendering: crispEdges;
+		  
+		}
+
+		.axis path, .axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+
+	</style>
+</html>
+
+<div id = "area1"></div>
+<div id = "area2"></div>
+<div id = "area3"></div>
+<div id = "area4"></div>
+<div id = "area5"></div>
+<div id = "area6"></div>
+<div id = "area7"></div>
+<div id = "area8"></div>
+<div id = "area9"></div>
+<div id = "area10"></div>
+<div id = "area11"></div>
+<div id = "area12"></div>
+<div id = "area13"></div>
+<div id = "area14"></div>
+
+
+<body>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script>
+		var margin = {top: 10, right: 30, bottom: 30, left: 50},
+		    width = 960 - margin.left - margin.right,
+		    height = 500 - margin.top - margin.bottom;
+
+		var parseDate = d3.time.format("%Y-%m-%dT00:00:00").parse;
+		var formatDate = d3.time.format("%m/%d/%y");
+		var formatCount = d3.format(",.0f");
+
+		var x = d3.time.scale().range([0, width]);
+		var y = d3.scale.linear().range([height, 0]);
+
+		var xAxis = d3.svg.axis().scale(x)
+		  .orient("bottom").tickFormat(formatDate);
+
+		var yAxis = d3.svg.axis().scale(y)
+		  .orient("left").ticks(6);
+
+		// Create the SVG drawing area
+		var svg = d3.select("#area1")
+		  .append("svg")
+		  .attr("width", width + margin.left + margin.right)
+		  .attr("height", height + margin.top + margin.bottom)
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		  .attr("font-size","12px")
+		  .on("click",function(){
+			//d3.select(this)
+				//.transition()
+				//.duration(500);
+				
+			d3.selectAll(".bar").remove()
+				
+			///////////////////////////////////
+			///////////////////////////////////
+			///////////////////////////////////
+			d3.csv("http://datamechanics.io/data/tbeaudry/hs_events.csv", function(error, data) {
+			  //console.log(data[0])
+			  // Parse the date strings into javascript dates
+			  data.forEach(function(d) {
+			    var flag = false;
+			    for (var i = 0;i< hos.length;i++){
+				//console.log(hos[i],d[hos2[i]])
+				if (hos[i]==1&&d[hos2[i]]<2){
+					flag = true;
+					console.log(hos2[i],d[hos2[i]])
+					break;
+				}
+			    }
+			    if (flag){
+			      d.created_date = parseDate(d["start_calendar_date"])
+			    }else{
+				console.log("SDFSDFDSF")
+			    }
+			    //console.log(d[hos2[0]]);
+			  });
+
+			  // Determine the first and list dates in the data set
+			  var dayExtent = d3.extent(data, function(d) { return d.created_date; });
+
+			  // Create one bin per month, use an offset to include the first and last months
+			  var dayBins = d3.time.days(d3.time.day.offset(dayExtent[0],-1),
+							 d3.time.day.offset(dayExtent[1],1));
+
+			  // Use the histogram layout to create a function that will bin the data
+			  var binByDay = d3.layout.histogram()
+			    .value(function(d) { return d.created_date; })
+			    .bins(dayBins);
+
+			  // Bin the data by day
+			  var histData = binByDay(data);
+
+			  // Scale the range of the data by setting the domain
+			  x.domain(d3.extent(dayBins));
+			  y.domain([0, 140]);
+
+			  // Set up one bar for each bin
+			  // Months have slightly different lengths so calculate the width for each bin
+			  // Note: dx, the width of the histogram bin, is in milliseconds so convert the x value
+			  // into UTC time and convert the sum back to a date in order to help calculate the width
+			  // Thanks to npdoty for pointing this out in this stack overflow post:
+			  // http://stackoverflow.com/questions/17745682/d3-histogram-date-based
+			  svg.selectAll(".bar")
+			      .data(histData)
+			    .enter().append("rect")
+			      .attr("class", "bar")
+			      .attr("x", function(d) { return x(d.x); })
+			      .attr("width", function(d) { return x(new Date(d.x.getTime() + d.dx))-x(d.x)-1; })
+			      .attr("y", function(d) { return y(d.y); })
+			      .attr("height", function(d) { return height - y(d.y); }); 
+			      
+			  // Add the X Axis
+			  svg.append("g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + height + ")")
+			      .call(xAxis);
+
+			  // Add the Y Axis and label
+			  svg.append("g")
+			     .attr("class", "y axis")
+			     .call(yAxis)
+			    .append("text")
+			      .attr("transform", "rotate(-90)")
+			      .attr("y", 6)
+			      .attr("dy", ".71em")
+			      .style("text-anchor", "end")
+			      .text("Number of Medical Incidents");
+	    
+			});
+				
+				////////////////////////////////////
+				////////////////////////////////////
+				////////////////////////////////////
+			  });
+
+			// Get the data
+		svg.append("text").text("             RUN BY CLICKING HERE. CLICK HOSPITALS TO MARK THEM AS DRONE DISTRIBUTORS. RESULTS ARE WITHIN 2 MILES OF A DISTRIBUTOR")
+			
+		var h0 = d3.select("#area2")
+			  .append("svg")
+			  .append("g")
+			  .attr("transform", "translate(" + margin.left + "," + (margin.top +15)+ ")")	  
+			h0.append('text')
+			  .text("Beth Israel Deaconess Medical Center")
+			  .attr("fill","gray")
+			  .attr("font-size","20px")
+			  .on("click",function(){
+				if (hos[0]==1){
+					hos[0]=0
+					d3.select(this).attr("fill","gray");
+				}else{
+					hos[0]=1
+					d3.select(this).attr("fill","black");
+				}
+			  });
+			  
+			var h1 = d3.select("#area2")
+			  .append("svg")
+			  .append("g")
+			  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+			h1.append('text')
+			  .text("New England Baptist Hospital")
+			  .attr("fill","gray")
+			  .attr("font-size","20px")
+			  .on("click",function(){
+				if (hos[1]==1){
+					hos[1]=0
+					d3.select(this).attr("fill","gray");
+				}else{
+					hos[1]=1
+					d3.select(this).attr("fill","black");
+				}
+			  });
+			  
+			var h2 = d3.select("#area2")
+			  .append("svg")
+			  .append("g")
+			  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+			h2.append('text')
+			  .text("Shriners Burns Institute")
+			  .attr("fill","gray")
+			  .attr("font-size","20px")
+			  .on("click",function(){
+				var x = 2;
+				if (hos[x]==1){
+					hos[x]=0
+					d3.select(this).attr("fill","gray");
+				}else{
+					hos[x]=1
+					d3.select(this).attr("fill","black");
+				}
+			  });
+			  
+			var h3 = d3.select("#area2")
+			  .append("svg")
+			  .append("g")
+			  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+			h3.append('text')
+			  .text("Hebrew Rehabilitation Center")
+			  .attr("fill","gray")
+			  .attr("font-size","20px")
+			  .on("click",function(){
+				var x = 3;
+				if (hos[x]==1){
+					hos[x]=0
+					d3.select(this).attr("fill","gray");
+				}else{
+					hos[x]=1
+					d3.select(this).attr("fill","black");
+				}
+			  });
+			  
+			var h4 = d3.select("#area2")
+			  .append("svg")
+			  .append("g")
+			  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+			h4.append('text')
+			  .text("Arbour Hospital")
+			  .attr("fill","gray")
+			  .attr("font-size","20px")
+			  .on("click",function(){
+				var x = 4;
+				if (hos[x]==1){
+					hos[x]=0
+					d3.select(this).attr("fill","gray");
+				}else{
+					hos[x]=1
+					d3.select(this).attr("fill","black");
+				}
+			  });
+			  
+			var h5 = d3.select("#area2")
+			  .append("svg")
+			  .append("g")
+			  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+			h5.append('text')
+			  .text("Franciscan Children's  Hospital")
+			  .attr("fill","gray")
+			  .attr("font-size","20px")
+			  .on("click",function(){
+				var x = 5;
+				if (hos[x]==1){
+					hos[x]=0
+					d3.select(this).attr("fill","gray");
+				}else{
+					hos[x]=1
+					d3.select(this).attr("fill","black");
+				}
+			  });
+		  
+		 var h6 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h6.append('text')
+		  .text("Massachusetts General Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 6;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h7 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h7.append('text')
+		  .text("Children's Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 7;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h8 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h8.append('text')
+		  .text("Faulkner Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 8;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h9 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h9.append('text')
+		  .text("Dana-farber Cancer Institute")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 9;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h10 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h10.append('text')
+		  .text("Carney Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 10;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h11 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h11.append('text')
+		  .text("VA Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 11;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h12 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h12.append('text')
+		  .text("New England Medical Center,")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 12;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h13 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h13.append('text')
+		  .text("Boston Specialty & Rehabilitation Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 13;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h14 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h14.append('text')
+		  .text("Massachusetts Eye & Ear Infirmary")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 14;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h15 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h15.append('text')
+		  .text("Spaulding Rehabilitation Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 15;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h16 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h16.append('text')
+		  .text("Brigham And Women's Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 16;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h17 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h17.append('text')
+		  .text("St Elizabeth's Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 17;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h18 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h18.append('text')
+		  .text("Beth Israel Deaconess Medical Center West Cam")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 18;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  var h19 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h19.append('text')
+		  .text("Boston City Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 19;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h20 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h20.append('text')
+		  .text("Jewish Memorial Hospital,St Margaret's Hospital For Women")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 20;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h21 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h21.append('text')
+		  .text("Kindred Hospital,Boston Medical Center")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 21;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h22 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h22.append('text')
+		  .text("Lemuel Shattuck Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 22;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		  
+		  var h23 = d3.select("#area2")
+		  .append("svg")
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + (margin.top+15)+ ")") 
+		h23.append('text')
+		  .text("Va Hospital")
+		  .attr("fill","gray")
+		  .attr("font-size","20px")
+		  .on("click",function(){
+			var x = 23;
+			if (hos[x]==1){
+				hos[x]=0
+				d3.select(this).attr("fill","gray");
+			}else{
+				hos[x]=1
+				d3.select(this).attr("fill","black");
+			}
+		  });
+		
+		//var hos= [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+		var hos =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		var hos2=[
+			"Beth Israel Deaconess Medical Center East Cam",
+			"New England Baptist Hospital",
+			"Shriners Burns Institute",
+			"Hebrew Rehabilitation Center",
+			"Arbour Hospital",
+			"Franciscan Children's  Hospital",
+			"Massachusetts General Hospital",
+			"Children's Hospital",
+			"Faulkner Hospital",
+			"Dana-farber Cancer Institute",
+			"Carney Hospital",
+			"VA Hospital",
+			"New England Medical Center",
+			"Boston Specialty & Rehabilitation Hospital",
+			"Massachusetts Eye & Ear Infirmary",
+			"Spaulding Rehabilitation Hospital",
+			"Brigham And Women's Hospital",
+			"St Elizabeth's Hospital",
+			"Beth Israel Deaconess Medical Center West Cam",
+			"Boston City Hospital",
+			"Jewish Memorial Hospital,St Margaret's Hospital For Women",
+			"Kindred Hospital,Boston Medical Center",
+			"Lemuel Shattuck Hospital",
+			"Va Hospital"
+		]
+		  
+		
+		  
+		
+		  
+		
+	</script>
+	<script>
+	
+	</script>
+	
+</body>

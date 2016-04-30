@@ -30,6 +30,9 @@ def index():
     return """Nothing here, try
         <a href=\"./stops\">/stops</a> or
         <a href=\"./utility\">/utility</a>.
+        <br>
+        For some database meta statistics, see
+        <a href=\"./meta\">/meta</a>.
         """
 
 # These specific routes load static html/js files. If used for the entire
@@ -45,6 +48,12 @@ def loadutil():
     '''Load the static file. To change the visualization change the js file.'''
     d = os.path.dirname(os.getcwd())
     return send_from_directory(os.path.join(d, 'vis'), 'utility.html')
+
+@app.route('/meta')
+def loadstats():
+    '''Load the static file. To change the visualization change the js file.'''
+    d = os.path.dirname(os.getcwd())
+    return send_from_directory(os.path.join(d, 'vis'), 'collection_stats.html')
 
 # This route serves as the general "get an arbitrary collection" interface.
 # Can provide filters to find() by adding a query to the URL.
@@ -63,6 +72,23 @@ def getthings(collection):
             args[k] = request.args[k]
     all_stops = repo['{}.{}'.format(teamname, collection)].find(args)
     return dumps(all_stops)
+
+@app.route('/getstats')
+def getstats():
+    '''Dumps statistics on all collections in the database, all authors.'''
+    colls = []
+    for coll in repo.collection_names():
+        colls.append(repo.command('collstats', '{}'.format(coll)))
+    return dumps(colls)
+
+@app.route('/getprov')
+def getprov():
+    '''Dumps provenance for all collections, all authors.'''
+    provs = []
+    for prov in repo['_provenance'].find():
+        provs.append(prov)
+    return dumps(provs)
+
 
 if __name__ == '__main__':
     # NOTE don't run debug on final server, allows Python execution in browser.

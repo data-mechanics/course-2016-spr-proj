@@ -72,3 +72,7 @@ The visualizations are viewable in a web browser. These visualizations need acce
 2 - Then check out 127.0.0.1:5000/utility.
 
 ![utility example](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/utility.png)
+
+3 - Finally, 127.0.0.1:5000/meta displays some meta information about the database. It is not related directly to our measurements, but examines all collections in the database and evaluates their physical size on disk, entry count, and relates their provenance label. Relies on some database string parsing, may not be correct in all situations.
+
+![meta](https://github.com/stevejarvis/course-2016-spr-proj-one/blob/master/ciestu12_sajarvis/vis/collection_stats.png)

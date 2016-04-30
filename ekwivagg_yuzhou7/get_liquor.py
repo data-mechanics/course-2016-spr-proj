@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import csv
 import pymongo
 import prov.model
 import datetime
@@ -106,4 +107,83 @@ for pair in closest_stop_liq:
 	X.append((pair['tstop'], 1))
 
 Y = real_aggregate(X, sum)
-print(Y)
+#print(Y)
+
+liquor_freq = []
+for i in Y:
+    if '.' in i[0]:
+        name = i[0].replace('.', '')
+    else:
+        name = i[0]
+    liquor_freq.append({name:i[1]})
+#print(liquor_freq)
+repo.dropPermanent("liquor_freq")
+repo.createPermanent("liquor_freq")
+repo['ekwivagg_yuzhou7.liquor_freq'].insert_many(liquor_freq)
+
+liquor_freq_one = {}
+for i in liquor_freq:
+    for key in i.keys():
+        liquor_freq_one[key] = i[key]
+liquor_freq = [liquor_freq_one]
+
+with open('liquor.tsv', 'w') as out:
+    dw = csv.DictWriter(out, sorted(liquor_freq[0].keys()), delimiter='\t')
+    dw.writeheader()
+    dw.writerows(liquor_freq)
+
+endTime = datetime.datetime.now()
+
+# Provenance information for plan.jason
+doc = prov.model.ProvDocument()
+
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ekwivagg_yuzhou7/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/ekwivagg_yuzhou7/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc.add_namespace('sj', 'http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs/')
+
+this_script = doc.agent('alg: get_liquor', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+restaurant_dat = doc.entity('dat:restaurant', {prov.model.PROV_LABEL:'Restaurants', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+liquor_dat = doc.entity('bdp:hda6-fnsh', {prov.model.PROV_LABEL:'Liquor', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+stops = doc.entity('sj:stops', {'prov:label':'T Stops', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'txts'})
+closest_stop_liq = doc.entity('dat:closest_stop_liq', {prov.model.PROV_LABEL:'Closest Liquor Stop', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+liquor_freq = doc.entity('dat:liquor_freq', {prov.model.PROV_LABEL:'Liquor Frequency', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+
+restaurant_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval'})
+doc.wasAssociatedWith(restaurant_retrieval, this_script)
+doc.used(restaurant_retrieval, restaurant_dat, startTime)
+
+stop_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval'})
+doc.wasAssociatedWith(stop_retrieval, this_script)
+doc.used(stop_retrieval, stops, startTime)
+
+liquor_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Guery':'?$select=dbaname&$limit=50000'})
+doc.wasAssociatedWith(liquor_retrieval, this_script)
+doc.used(liquor_retrieval, liquor_dat, startTime)
+
+closest_liquor_calc = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(closest_liquor_calc, this_script)
+doc.used(closest_liquor_calc, restaurant_dat, startTime)
+doc.used(closest_liquor_calc, stops, startTime)
+doc.used(closest_liquor_calc, liquor_dat, startTime)
+
+get_frequency = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(get_frequency, this_script)
+doc.used(get_frequency, closest_stop_liq, startTime)
+
+doc.wasAttributedTo(closest_stop_liq, this_script)
+doc.wasGeneratedBy(closest_stop_liq, closest_liquor_calc, endTime)
+doc.wasDerivedFrom(closest_stop_liq, restaurant_dat, closest_liquor_calc, closest_liquor_calc, closest_liquor_calc)
+doc.wasDerivedFrom(closest_stop_liq, stops, closest_liquor_calc, closest_liquor_calc, closest_liquor_calc)
+doc.wasDerivedFrom(closest_stop_liq, liquor_dat, closest_liquor_calc, closest_liquor_calc, closest_liquor_calc)
+doc.wasDerivedFrom(liquor_freq, closest_stop_liq, get_frequency, get_frequency, get_frequency)
+
+repo.record(doc.serialize())
+content = json.dumps(json.loads(doc.serialize()), indent=4)
+f = open('plan.json', 'a')
+f.write(",\n")
+f.write(content)
+repo.logout()

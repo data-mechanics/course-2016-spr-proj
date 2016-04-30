@@ -8,6 +8,8 @@ import pymongo
 import prov.model
 import datetime
 import uuid
+import numpy as np
+from pymongo import MongoClient
 
 # Until a library is created, we just use the script directly.
 exec(open('pymongo_dm.py').read())
@@ -17,6 +19,9 @@ client = pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
 
+filen = 'fixedFood.json'
+res = open(filen, 'r')
+r = json.load(res)
 
 #repo['jlam17_mckay678.fixedFood']
 A = [0,0,0,0]
@@ -36,8 +41,19 @@ N = [0,0,0,0]
 O = [0,0,0,0]
 P = [0,0,0,0]
 Q = [0,0,0,0]
-for i in repo['jlam17_mckay678.sortedFood']:
-	if i['Neighborhood'] == "Allston/Brighton":
+avg = [0,0,0,0]
+
+
+for i in r:
+	if i['Type'] == 'activeFood':
+		avg[0] += 1
+	elif i['Type'] == 'cornerStore':
+		avg[1] += 1
+	elif i['Type'] == 'foodPantry':
+		avg[2] += 1
+	elif i['Type'] == 'retailBakery':
+		avg[3] += 1
+	if (i['Neighborhood'] == "Allston") or (i['Neighborhood'] == "Brighton"):
 		if i['Type'] == 'activeFood':
 			A[0] += 1
 		elif i['Type'] == 'cornerStore':
@@ -82,7 +98,7 @@ for i in repo['jlam17_mckay678.sortedFood']:
 			E[2] += 1
 		elif i['Type'] == 'retailBakery':
 			E[3] += 1
-	elif i['Neighborhood'] == "Fenway/Kenmore":
+	elif (i['Neighborhood'] == "Fenway/Kenmore") or (i['Neighborhood'] == "Boston/Fenway") or (i['Neighborhood'] == "Fenway/") or (i['Neighborhood'] == "Fenway"):
 		if i['Type'] == 'activeFood':
 			F[0] += 1
 		elif i['Type'] == 'cornerStore':
@@ -100,7 +116,7 @@ for i in repo['jlam17_mckay678.sortedFood']:
 			G[2] += 1
 		elif i['Type'] == 'retailBakery':
 			G[3] += 1
-	elif i['Neighborhood'] == "Hyde Park":
+	elif (i['Neighborhood'] == "Hyde Park") or (i['Neighborhood'] == "Hyde"):
 		if i['Type'] == 'activeFood':
 			H[0] += 1
 		elif i['Type'] == 'cornerStore':
@@ -109,7 +125,7 @@ for i in repo['jlam17_mckay678.sortedFood']:
 			H[2] += 1
 		elif i['Type'] == 'retailBakery':
 			H[3] += 1
-	elif i['Neighborhood'] == "Jamaica Plain":
+	elif (i['Neighborhood'] == "Jamaica Plain") or (i['Neighborhood'] == "Jamaica"):
 		if i['Type'] == 'activeFood':
 			I[0] += 1
 		elif i['Type'] == 'cornerStore':
@@ -127,7 +143,7 @@ for i in repo['jlam17_mckay678.sortedFood']:
 			J[2] += 1
 		elif i['Type'] == 'retailBakery':
 			J[3] += 1
-	elif i['Neighborhood'] == "North Dorchester":
+	elif (i['Neighborhood'] == "North Dorchester") or (i['Neighborhood'] == "South Dorchester") or (i['Neighborhood'] == "Dorchester"):
 		if i['Type'] == 'activeFood':
 			K[0] += 1
 		elif i['Type'] == 'cornerStore':
@@ -163,7 +179,7 @@ for i in repo['jlam17_mckay678.sortedFood']:
 			N[2] += 1
 		elif i['Type'] == 'retailBakery':
 			N[3] += 1
-	elif i['Neighborhood'] == "South Dorchester":
+	elif i['Neighborhood'] == "Boston":
 		if i['Type'] == 'activeFood':
 			O[0] += 1
 		elif i['Type'] == 'cornerStore':
@@ -193,138 +209,170 @@ for i in repo['jlam17_mckay678.sortedFood']:
 
 index = np.arange(4)
 
-plt.bar(index, A, .5, alpha=opacity, color='b')
+print(A)
+print(B)
+print(C)
+print(D)
+print(E)
+print(F)
+print(G)
+print(H)
+print(I)
+print(J)
+print(K)
+print(L)
+print(M)
+print(N)
+print(O)
+print(P)
+print(Q)
+
+for idx, i in enumerate(avg):
+	avg[idx] = i/17
+
+plt.bar(index, avg, .5, color='b')
+plt.xlabel('Number')
+plt.ylabel('Type')
+plt.title('Average')
+plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
+plt.savefig('visual/average', bbox_inches='tight', pad_inches=.2)
+plt.close()
+
+
+#graph the neighborhoods and save them as pngs
+plt.bar(index, A, .5, color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Allston/Brighton')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Allston/Brighton.png')
-plt.clf
+plt.savefig('visual/allstonBrighton', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, B, .5, alpha=opacity, color='b')
+plt.bar(index, B, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Back Bay')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Back Bay.png')
-plt.clf
+plt.savefig('visual/backBay', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, C, .5, alpha=opacity, color='b')
+plt.bar(index, C, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Central')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Central.png')
-plt.clf
+plt.savefig('visual/central', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, D, .5, alpha=opacity, color='b')
+plt.bar(index, D, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Charlestown')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Charlestown.png')
-plt.clf
+plt.savefig('visual/charlestown', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, E, .5, alpha=opacity, color='b')
+plt.bar(index, E, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('East Boston')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('East Boston.png')
-plt.clf
+plt.savefig('visual/eastBoston', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, F, .5, alpha=opacity, color='b')
+plt.bar(index, F, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Fenway/Kenmore')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Fenway/Kenmore.png')
-plt.clf
+plt.savefig('visual/fenwayKenmore', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, G, .5, alpha=opacity, color='b')
+plt.bar(index, G, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Harbor Islands')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Harbor Islands.png')
-plt.clf
+plt.savefig('visual/harborIslands', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, H, .5, alpha=opacity, color='b')
+plt.bar(index, H, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Hyde Park')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Hyde Park.png')
-plt.clf
+plt.savefig('visual/hydePark', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, I, .5, alpha=opacity, color='b')
+plt.bar(index, I, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Jamaica Plain')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Jamaica Plain.png')
-plt.clf
+plt.savefig('visual/jamaicaPlain', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, J, .5, alpha=opacity, color='b')
+plt.bar(index, J, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Mattapan')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Mattapan.png')
-plt.clf
+plt.savefig('visual/mattapan', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, K, .5, alpha=opacity, color='b')
+plt.bar(index, K, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
-plt.title('North Dorchester')
+plt.title('Dorchester')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('North Dorchester.png')
-plt.clf
+plt.savefig('visual/dorchester', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, L, .5, alpha=opacity, color='b')
+plt.bar(index, L, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Roslindale')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Roslindale.png')
-plt.clf
+plt.savefig('visual/roslindale', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, M, .5, alpha=opacity, color='b')
+plt.bar(index, M, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('Roxbury')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('Roxbury.png')
-plt.clf
+plt.savefig('visual/roxbury', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, N, .5, alpha=opacity, color='b')
+plt.bar(index, N, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('South Boston')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('South Boston.png')
-plt.clf
+plt.savefig('visual/southBoston', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, O, .5, alpha=opacity, color='b')
+plt.bar(index, O, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
-plt.title('South Dorchester')
+plt.title('Boston')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('South Dorchester.png')
-plt.clf
+plt.savefig('visual/boston', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, P, .5, alpha=opacity, color='b')
+plt.bar(index, P, .5,  color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('South End')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('South End.png')
-plt.clf
+plt.savefig('visual/southEnd', bbox_inches='tight', pad_inches=.2)
+plt.close()
 
-plt.bar(index, Q, .5, alpha=opacity, color='b')
+plt.bar(index, Q, .5, color='b')
 plt.xlabel('Number')
 plt.ylabel('Type')
 plt.title('West Roxbury')
 plt.xticks(index + .5, ('Food Est.', 'Corner Store', 'Food Pantry', 'Retail Bakery'), rotation='vertical')
-savefig('West Roxbury.png')
-plt.clf
+plt.savefig('visual/westRoxbury', bbox_inches='tight', pad_inches=.2)
+plt.close()
+

@@ -5,6 +5,7 @@ import urllib.request
 import prov.model
 import uuid
 import pymongo
+from utils import timestamped
 exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
@@ -83,6 +84,7 @@ def add_coords(stops, lookup):
         stop['coords'] = {'type': 'Point', 'coordinates': [float(lng), float(lat)]}
     return stops
 
+@timestamped
 def run():
     repo = get_auth_repo('nikolaj', 'nikolaj')
     lookup = coords_by_id(read_raw_stops('http://datamechanics.io/data/nikolaj/stops.txt'))
@@ -102,7 +104,7 @@ def to_prov(startTime, endTime):
 
     # stops
     stops = ['1', '101', '105', '116', '16', '23', '39', '57', '66', '70', '83', '86', '89']
-    raw_bus_stops = doc.entity('dat:raw_bus_stops', {prov.model.PROV_LABEL:'Combined Bus Stations', prov.model.PROV_TYPE:'ont:DataSet'})
+    raw_bus_stops = doc.entity('dat:raw_bus_stops', {prov.model.PROV_LABEL:'Stops', prov.model.PROV_TYPE:'ont:DataSet'})
     doc.wasAttributedTo(raw_bus_stops, this_script)
     for stop in stops:
         stop_resource = doc.entity('mbt:' + stop , {'prov:label':'MBTA Bus Stop ' + stop, prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'html'})
@@ -117,4 +119,3 @@ def to_prov(startTime, endTime):
 
 if __name__ == "__main__":
     print(json.dumps(json.loads(to_prov(None, None).serialize()), indent=4))
-

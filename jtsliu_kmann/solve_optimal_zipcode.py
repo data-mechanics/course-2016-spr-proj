@@ -1,14 +1,16 @@
 # Kyle Mann and Jonathan Liu (jtsliu_kmann)
 # CS591
-# 
+# solve_optimal_zipcode.py
+# This file solves our super cool optimization problem. Using z3, we find an optimal subset
+# of zipcodes that maximizes one parameter and minimizes the other.
+# NOTE: if you only want a max/min, this is just a query and you can use query_zipcodes.py
 import datetime
 import json
 import prov.model
 import pymongo
 import re
-import urllib.request
 import uuid
-from bson.son import SON
+import z3
 
 # Open the file for interfacing with DB
 exec(open('../pymongo_dm.py').read())
@@ -20,52 +22,99 @@ repo.authenticate('jtsliu_kmann', 'jtsliu_kmann')
 
 #Parse through dataases and put it into a temporary list.
 # Josh Mah helped us with this one :)
+# we just dont want to divide by 0
 def getCollection(dbName):
 	temp = []
-	for elem in repo['jtsliu_kmann.' + dbName].find({}):
+	for elem in repo['jtsliu_kmann.' + dbName].find({ "avg_tax_per_sf" : {"$gt" : 0} }):
 		temp.append(elem)
 	return temp
 
-num_schools = int(input("Enter the number of schools you want in your zipcode: "))
-num_hospitals = int(input("Enter the number of hospitals you want in your zipcode: "))
-avg_tax = float(input("Enter the average tax per square foot you want as a maximum: "))
+zipcode_information = getCollection("zipcode_profile")
 
-get_possible_solutions_statement = {"$and" : [ {"avg_tax_per_sf" : {"$lte" : avg_tax} },
- {"num_hospitals" : {"$gte" : num_hospitals}}, {"num_schools" : {"$gte" : num_schools}} ]}
+# Read in user input - while loops for validation
+number_zipcodes = len(zipcode_information) + 1
+while (number_zipcodes > len(zipcode_information)):
+	print("Please enter a number less than " + str(len(zipcode_information)))
+	number_zipcodes = int(input("Enter a maximum number of zipcodes you are interested in: " ))
+print("Choices: 'num_schools', 'avg_tax_per_sf', 'num_hospitals', 'number_properties', 'num_crimes', 'liquor_locations'")
+print("Please input as strings if running in python 2")
 
-cursor = repo['jtsliu_kmann.zipcode_profile'].find(get_possible_solutions_statement)
+maximize_this = "banana"
+while(not maximize_this in ['num_schools', 'avg_tax_per_sf', 'num_hospitals', 'number_properties', 'num_crimes', 'liquor_locations']):
+	maximize_this = input("Enter a parameter to maximize (MAX) from the above choices: ")
 
-zipcodes = []
-for elem in cursor:
-	zipcodes.append(elem)
-
-
-minimum_crime = 999999
-safest_zip = None
-for zipcode in zipcodes:
-	if zipcode["num_crimes"] < minimum_crime:
-		minimum_crime = zipcode["num_crimes"]
-		safest_zip = zipcode
-
-cheapest_tax = 999999
-cheapest_zip = None
-for zipcode in zipcodes:
-	if zipcode["avg_tax_per_sf"] < cheapest_tax:
-		cheapest_tax = zipcode["avg_tax_per_sf"]
-		cheapest_zip = zipcode
-
-print("The cheapest zipcode satisfying your constraints is:")
-print(cheapest_zip)
-print()
-print("The safest zipcode satisfying your constraints is:")
-print(safest_zip)
-
-choice = input("Would you like to see all results? (y/n) ")
-if choice == "y":
-	for x in zipcodes:
-		print(x)
+minimize_this = "oreo"
+while(not minimize_this in ['num_schools', 'avg_tax_per_sf', 'num_hospitals', 'number_properties', 'num_crimes', 'liquor_locations']):
+	minimize_this = input("Enter a parameter to minimize (MIN) from the above choices: ")
 
 
+# Initialize all the zipcodes as z3 Ints
+X = [ z3.Int('x' + str(i)) for i in range(len(zipcode_information)) ]
+
+maximized_parameter_vector = []
+minimized_parameter_vector = []
+mapping_int_to_zip = {}
+val = 0
+
+# Pull out the data from the collection
+for elem in zipcode_information:
+	mapping_int_to_zip[val] = elem["_id"]
+	maximized_parameter_vector.append(elem[maximize_this])
+	minimized_parameter_vector.append(elem[minimize_this])
+	val += 1
+
+S = z3.Optimize()
+
+# Now we add constraints:
+
+# Make sure we only select a subset
+S.add(z3.Sum(X) > 0)
+S.add(z3.Sum(X) <= number_zipcodes)
+
+# Make sure they are 0 or 1
+for x in X:
+	S.add(x >= 0)
+	S.add(x <= 1)
+
+Y =[]
+Z =[]
+val = 0
+# Use the lists from before to build up what the value of a solution would be
+for x in X:
+	y = z3.Real('y' + str(val))
+	z = z3.Real('z' + str(val))
+	Y.append(y)
+	Z.append(z)
+	S.add(y == z3.ToReal(x) * maximized_parameter_vector[val])
+	S.add(z == z3.ToReal(x) * minimized_parameter_vector[val])
+	val += 1
+
+# Set up the min and max
+S.maximize(z3.Sum(Y))
+S.minimize(z3.Sum(Z))
+
+# Get a solution
+S.check()
+solution = S.model()
+
+print("Here are the zipcodes you may be interested in:")
+
+val = 0
+solution_zips = []
+for x in X:
+	if val == len(zipcode_information):
+		break
+	if solution[x].as_long() == 1:
+		print(mapping_int_to_zip[val])
+		solution_zips.append(mapping_int_to_zip[val])
+	val += 1
+
+print("\n")
+
+print("Here is them in detail\n")
+for sol in solution_zips:
+	print(list(repo['jtsliu_kmann.zipcode_profile'].find({'_id' : sol}))[0])
+	print('\n')
 
 
 

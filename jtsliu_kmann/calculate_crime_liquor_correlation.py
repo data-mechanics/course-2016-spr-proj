@@ -1,14 +1,10 @@
 # Kyle Mann and Jonathan Liu (jtsliu_kmann)
 # CS591
-#
+# This script just calculates the correlation between two of the data fields we have
 import datetime
 import json
 import prov.model
 import pymongo
-import re
-import urllib.request
-import uuid
-from bson.son import SON
 
 from random import shuffle
 from math import sqrt
@@ -18,7 +14,6 @@ import scipy.stats
 
 # Open the file for interfacing with DB
 exec(open('../pymongo_dm.py').read())
-
 
 def permute(x):
     shuffled = [xi for xi in x]
@@ -103,15 +98,4 @@ print(correlation, p_val)
 
 print("From library")
 print(scipy.stats.pearsonr(x, y))
-
-
-
-
-
-
-
-
-
-
-
 

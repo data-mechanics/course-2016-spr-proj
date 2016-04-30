@@ -2,7 +2,8 @@ db.loadServerScripts();
 
 var param_id = "pagerank_params";
 var dyn_params = db.nikolaj.params.findOne({id: param_id});
-var input_col = "nikolaj.stops_with_neighs"
+var input_col = dyn_params["input_col_name"]
+// "nikolaj.stops_with_neighs"
 var output_col = dyn_params["output_col_name"]
 
 var join = function(attr, X, Y, XY) {

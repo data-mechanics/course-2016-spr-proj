@@ -97,19 +97,18 @@ Clustering this data represents locations that are very attractive. This means t
 ####Data Segmentation
 We use Open Street Maps to indentify intersections and map social media posts to the closest intersection. Orginal code was created by [Sofia Maria Nikolakaki](https://cs-people.bu.edu/smnikol). New contributions include preserving user ids when associating posts to intersections, for use with mark and recapture and potentially other methods, and a caching mechanism when creating large data strutures. This optimization allows for the scipt to run under 10 minutes (down from >2 hours), thus allowing us to run the script for different datas in a reasonal time.
 
+Here's a visualization of the number of intersections by neighborhood 
+![intersectionsbyneightborhood](/balawson/img/numberofintersections.png)
+![popular](/balawson/img/popularintersections.png)
+
 ####Mark & Recapture
-Since social media presence is only a sample of true human movement in the wild, it will be useful to try to estimate what the true population is based on the social media posts collected. Using [Capture-Recapture](http://cs-people.bu.edu/lapets/591/s.php#1121b48a2e1040808d9538ff15ae342f) we essentially treat tweeters, gowalla'ers, and brightkiters as animals that are caught in a trap, given a single day. Then when we check the 'trap' the next day we check to see how many of these users that we've seen before. For the first pass, we will use this estimation on the city level, but will focus in on a intersection by intersection. Since we do have the true population of Downtown Boston, [16,298](http://archive.boston.com/yourtown/news/downtown/2011/04/census_data_downtown_populatio.html), we can cross-verify our results. Using a sample of the twitter data and a waiting period of 5 days, we found an estimate of 2,215... off by a order of magnitude. To minimize this error, we will test different waiting periods as well as increase granularity (i.e. intersections). Once we find the proper parameters, we can use this information to model the population at an intersection on a given day and time.  
+Since social media presence is only a sample of true human movement in the wild, it will be useful to try to estimate what the true population is based on the social media posts collected. Using [Capture-Recapture](http://cs-people.bu.edu/lapets/591/s.php#1121b48a2e1040808d9538ff15ae342f) we essentially treat tweeters, gowalla'ers, and brightkiters as animals that are caught in a trap, given a single day. Then when we check the 'trap' the next day we check to see how many of these users that we've seen before. We will use this estimation on the city level. We do have the true population of Downtown Boston, [16,298](http://archive.boston.com/yourtown/news/downtown/2011/04/census_data_downtown_populatio.html). Using a sample of the twitter data and a waiting period of 5 days, we found an estimate of 2,215. This estimation represents the approximate number of people using twitter which is approx. 7% of the total population in this area. This could be useful in extrapolating into wider domains. 
 
 ####Cross-validation
-We attempted to use the [web cam](http://www.bu.edu/av/alumni/marsh/image.jpg?1460605284161) to create a truth dataset to cross validate population estimates derived from the sampling methods. The image quality is too small for the default OpenCV person detector. We began data collection to try to use a background subtraction method, but the data but our hard drive space filled up and many of the images were corrupted in the collection process. Currently on hold. Methods of cross-validation will be based on census data.
+We attempted to use the [web cam](http://www.bu.edu/av/alumni/marsh/image.jpg?1460605284161) to create a truth dataset to cross validate population estimates derived from the sampling methods. The image quality is too small for the default OpenCV person detector. We began data collection to try to use a background subtraction method, but the data but our hard drive space filled up and many of the images were corrupted in the collection process. Currently on hold. Methods of cross-validation will be based on census data. ...still in progress...
 
 ####I ask for forgivenss
 The XML mess is hideous. Currently working on trying to make it not too much of a pain. There are lots of intermediate files and we are working relying less on these and more of stashing information in mongo.
-
-####To do
-Create visualization display the popularity of intersections. Circles will grow in size for populations, x,y axis will be lat/lng and the time will be the third dimension. 
-
-Estimate populations for each intersection
 
 ##Setup
 code is for debian-based systems

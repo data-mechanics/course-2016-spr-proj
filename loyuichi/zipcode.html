@@ -14,6 +14,8 @@
     <script src="zipcode.geojson" type="text/javascript"></script>
     <script src="counts.json" type="text/javascript"></script>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="http://d3js.org/d3.v3.js"></script>
+    
     <script>
       var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
 
@@ -27,13 +29,13 @@
         attribution: '',
         id: 'mapbox.light'
       }),
-          meters = L.tileLayer(mapboxUrl, {
+          tickets = L.tileLayer(mapboxUrl, {
         maxZoom: 18,
         attribution: '',
         id: 'mapbox.light'
       });
 
-      var map = L.map('map', {layers: [food_est, meters]}).setView(L.latLng(42.3562559, -71.1), 13);
+      var map = L.map('map', {layers: [food_est, tickets]}).setView(L.latLng(42.3562559, -71.1), 13);
 
       // var map = L.map('map').setView(L.latLng(42.3562559, -71.1), 13);
 
@@ -49,21 +51,19 @@
 
       var baseMaps = {
         "Food Establishments": food_est,
-        "Meters": meters
+        "Tickets": tickets
       };
 
       L.control.layers(baseMaps, overlayMaps).addTo(map);
 
       function onEachFeature(feature, layer) {
         var popupContent = "";
-        /*if (feature.properties && feature.properties.popupContent)
-          popupContent += feature.properties.popupContent;*/
         if (feature.properties && feature.properties.Name) {
           popupContent += feature.properties.Name + "<br/>"
         }
-        if (meter_counts[feature.properties.Zipcode]) {
-          popupContent += meter_counts[feature.properties.Zipcode]
-          console.log(meter_counts[feature.properties.Zipcode])
+        if (tickets_counts[feature.properties.Zipcode]) {
+          popupContent += tickets_counts[feature.properties.Zipcode]
+          console.log(tickets_counts[feature.properties.Zipcode])
         }
         layer.bindPopup(popupContent);
       }
@@ -83,8 +83,8 @@
         var zipcode = feature.properties.Zipcode;
         var count = 0;
         console.log(layer);
-        if (meter_counts[zipcode]) {
-           count = meter_counts[zipcode];
+        if (tickets_counts[zipcode]) {
+           count = tickets_counts[zipcode];
         } else {
           console.log(zipcode);
         }

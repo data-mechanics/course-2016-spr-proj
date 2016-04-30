@@ -121,23 +121,53 @@ We believe this data is slightly skewed because of a lack of judicious filtering
 
 
 Now we wanted to solve a problem - the one we originally described. Based on some user input, what is the
-optimal zipcode. NOTE: we still want to refine this to be able to maximize/minimize in multiple dimensions
+optimal zipcode. This problem is simple to solve now, as we can just issue queries on the mongo db. Lame.
+So we came up with a more complicated one - we can min and max in two dimensions for a subset of size k
+for the zipcodes, all varied on user input. This is done using z3!
 
-$ python3 solve_optimal_zipcode.py
+NOTE: This script has NOT been tested on python 3. For some reason we could not use z3 for python 3. As
+a result, this is only tested in python 2. That being said, I don't think there is any python 2 
+specific syntax or functionality, so it theory it should be okay. This also obviously has an aditional
+dependency on the z3 library for python.
+
+$ python solve_optimal_zipcode.py
+
+Note: If you want to issue a few simple queries here was the original script we used for this problem,
+we saved it mostly for legacy purposes, but it is not so bad - so here it is:
+
+$ python3 query_zipcodes.py
 
 Limitations and problems
 -------------------------
-
-Currently we cannot do sophisticated results for our optimal zipcode (outside of what you see
-when you run it). Ideally we would like to turn this into a more complicated optimization problem.
 
 The zipcode as mentioned above is a pretty large area, maybe we should explore smaller subsets.
 
 We should filter out more crimes that we associate with liquor licenses.
 
-TODO:
------
+Our optimal zipcode query is only tested in python 2
 
-Implement and refine the visualizations
-Refactor and comment the code more
+Visualizations
+---------------
+
+We present two interactive visualizations. The way we set them up however, requires a webserver running from that
+directory. If you have done a:
+
+$ sudo npm install http-server -g
+
+Then you can simply run:
+
+Visualizations $ http-server
+
+From within the visualizations directory. These visualizations depend on D3 - this can be seen near the top of the files.
+They were heavily tested on Safari, and seemed to work on Chrome.
+
+We have included screenshots of the visualizations for convenience
+
+NOTES: The histogram could have been implemented better, but we were running into bugs, where a bunch of
+crappy if statements ended up being the easiest solution. (We are 90% certain there is a better way - sorry)
+The data used:
+For the histograms, we used subset of our zipcode_profile collection
+For the scatterplot, we did an aggregation on an intermediate data set that had liquor related crimes, and
+liquor locations. Because both of these sets were just aggregated from data sets, we did not write additional provenance
+They are the same as the datasets they came from.
 
