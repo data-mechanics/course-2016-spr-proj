@@ -1,14 +1,47 @@
 {
-    "wasGeneratedBy": {
-        "_:id4": {
-            "prov:entity": "dat:rich",
-            "prov:time": "2016-04-13T00:59:01.620712",
-            "prov:activity": "dat:rich"
+    "activity": {
+        "log:a33119338-e759-41db-95f6-c19f2f2ff819": {
+            "prov:startTime": "2016-04-18T17:43:52.002313",
+            "prov:endTime": "2016-04-18T17:44:00.979385"
         },
-        "_:id7": {
-            "prov:entity": "dat:totalearn",
-            "prov:time": "2016-04-13T00:59:01.620712",
-            "prov:activity": "dat:totalearn"
+        "log:adc6f3eee-99b6-4068-bd66-90e59968e0ca": {
+            "prov:startTime": "2016-04-18T17:43:52.002313",
+            "prov:endTime": "2016-04-18T17:44:00.979385"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a33119338-e759-41db-95f6-c19f2f2ff819",
+            "prov:agent": "alg:project1"
+        },
+        "_:id2": {
+            "prov:activity": "log:adc6f3eee-99b6-4068-bd66-90e59968e0ca",
+            "prov:agent": "alg:project1"
+        }
+    },
+    "entity": {
+        "bdp:effb-uspk": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Employee Earnings Report 2012",
+            "ont:Extension": "json"
+        },
+        "dat:totalearn": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "totalearn"
+        },
+        "bdp:54s2-yxpg": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Employee Earnings Report 2013",
+            "ont:Extension": "json"
+        },
+        "bdp:qz7u-kb7x": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Employee Earnings Report 2014",
+            "ont:Extension": "json"
+        },
+        "dat:rich": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "rich"
         }
     },
     "agent": {
@@ -20,82 +53,49 @@
             "ont:Extension": "py"
         }
     },
-    "prefix": {
-        "ont": "http://datamechanics.io/ontology#",
-        "log": "http://datamechanics.io/log#",
-        "alg": "http://datamechanics.io/algorithm/billguo/",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "dat": "http://datamechanics.io/data/billguo/"
-    },
-    "wasAssociatedWith": {
-        "_:id2": {
-            "prov:agent": "alg:project1",
-            "prov:activity": "log:aba80a99e-4ea8-44ad-9b2a-8b30f0196b6d"
-        },
-        "_:id1": {
-            "prov:agent": "alg:project1",
-            "prov:activity": "log:ab36a68e4-4b9e-44f6-8829-a38beeabc3e6"
-        }
-    },
-    "activity": {
-        "log:aba80a99e-4ea8-44ad-9b2a-8b30f0196b6d": {
-            "prov:endTime": "2016-04-13T00:59:01.620712",
-            "prov:startTime": "2016-04-13T00:58:58.830975"
-        },
-        "log:ab36a68e4-4b9e-44f6-8829-a38beeabc3e6": {
-            "prov:endTime": "2016-04-13T00:59:01.620712",
-            "prov:startTime": "2016-04-13T00:58:58.830975"
-        }
-    },
-    "entity": {
-        "bdp:qz7u-kb7x": {
-            "prov:type": "ont:DataResource",
-            "prov:label": "Employee Earnings Report 2014",
-            "ont:Extension": "json"
-        },
-        "dat:rich": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "rich"
-        },
-        "bdp:54s2-yxpg": {
-            "prov:type": "ont:DataResource",
-            "prov:label": "Employee Earnings Report 2013",
-            "ont:Extension": "json"
-        },
-        "bdp:effb-uspk": {
-            "prov:type": "ont:DataResource",
-            "prov:label": "Employee Earnings Report 2012",
-            "ont:Extension": "json"
-        },
-        "dat:totalearn": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "totalearn"
-        }
-    },
     "wasDerivedFrom": {
-        "_:id8": {
-            "prov:usedEntity": "bdp:effb-uspk",
-            "prov:generation": "dat:totalearn",
-            "prov:generatedEntity": "dat:totalearn",
-            "prov:activity": "dat:totalearn",
-            "prov:usage": "dat:totalearn"
-        },
         "_:id5": {
             "prov:usedEntity": "bdp:effb-uspk",
-            "prov:generation": "dat:rich",
+            "prov:usage": "dat:rich",
             "prov:generatedEntity": "dat:rich",
             "prov:activity": "dat:rich",
-            "prov:usage": "dat:rich"
+            "prov:generation": "dat:rich"
+        },
+        "_:id8": {
+            "prov:usedEntity": "bdp:effb-uspk",
+            "prov:usage": "dat:totalearn",
+            "prov:generatedEntity": "dat:totalearn",
+            "prov:activity": "dat:totalearn",
+            "prov:generation": "dat:totalearn"
         }
     },
     "wasAttributedTo": {
-        "_:id3": {
-            "prov:agent": "alg:project1",
-            "prov:entity": "dat:rich"
-        },
         "_:id6": {
             "prov:agent": "alg:project1",
             "prov:entity": "dat:totalearn"
+        },
+        "_:id3": {
+            "prov:agent": "alg:project1",
+            "prov:entity": "dat:rich"
         }
+    },
+    "wasGeneratedBy": {
+        "_:id7": {
+            "prov:activity": "dat:totalearn",
+            "prov:entity": "dat:totalearn",
+            "prov:time": "2016-04-18T17:44:00.979385"
+        },
+        "_:id4": {
+            "prov:activity": "dat:rich",
+            "prov:entity": "dat:rich",
+            "prov:time": "2016-04-18T17:44:00.979385"
+        }
+    },
+    "prefix": {
+        "ont": "http://datamechanics.io/ontology#",
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/billguo/",
+        "alg": "http://datamechanics.io/algorithm/billguo/",
+        "bdp": "https://data.cityofboston.gov/resource/"
     }
 }

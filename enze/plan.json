@@ -1,0 +1,153 @@
+{
+    "wasDerivedFrom": {
+        "_:id16": {
+            "prov:generatedEntity": "dat:intersection_lane.csv",
+            "prov:activity": "dat:Existing_Bike_Network.csv",
+            "prov:usedEntity": "dat:Boston_Segments.csv",
+            "prov:generation": "dat:Final Bike Collision Database.xlsx"
+        },
+        "_:id13": {
+            "prov:generatedEntity": "dat:intersection.csv",
+            "prov:activity": "dat:Boston_Segments.csv",
+            "prov:usedEntity": "dat:Final Bike Collision Database.xlsx"
+        }
+    },
+    "agent": {
+        "alg:provenance.py": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "prefix": {
+        "bbc": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/24713",
+        "dat": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/Dataset",
+        "ont": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/ontology#",
+        "log": "https://github.com/andrewenze/course-2016-spr-proj-two/tree/master/enze",
+        "alg": "https://github.com/andrewenze/course-2016-spr-proj-one/enze/Script/analysis_script.py",
+        "bos": "https://mapzen.com/data/metro-extracts/#boston-massachusetts",
+        "plt": "https://github.com/andrewenze/course-2016-spr-proj-two/Plot"
+    },
+    "entity": {
+        "dat:intersection_lane.csv": {
+            "ont:Extension": "csv",
+            "prov:label": "intersection_lane.csv",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:intersection.csv": {
+            "ont:Extension": "csv",
+            "prov:label": "intersection.csv",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:Final Bike Collision Database.xlsx": {
+            "ont:Extension": "xlsx",
+            "prov:type": "ont:DataResource",
+            "prov:label": "Final Bike Collision Database.xlsx"
+        },
+        "dat:Boston_Segments.csv": {
+            "ont:Extension": "csv",
+            "prov:type": "ont:DataResource",
+            "prov:label": "Boston_Segments.csv"
+        },
+        "dat:Existing_Bike_Network.csv": {
+            "ont:Extension": "csv",
+            "prov:type": "ont:DataResource",
+            "prov:label": "Existing_Bike_Network.csv"
+        }
+    },
+    "used": {
+        "_:id8": {
+            "prov:activity": "log:aef437a1e-d132-41a7-8892-826cf74ef3e9",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Boston_Segments.csv"
+        },
+        "_:id2": {
+            "prov:activity": "log:a9c5004f3-56a3-4c1b-9c7b-a9048510c392",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Boston_Segments.csv"
+        },
+        "_:id6": {
+            "prov:activity": "log:a6d88f6b6-9e96-4e5a-bc5e-1c364c926dbe",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Existing_Bike_Network.csv"
+        },
+        "_:id5": {
+            "prov:activity": "log:a6d88f6b6-9e96-4e5a-bc5e-1c364c926dbe",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Boston_Segments.csv"
+        },
+        "_:id10": {
+            "prov:activity": "log:aef437a1e-d132-41a7-8892-826cf74ef3e9",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Final Bike Collision Database.xlsx"
+        },
+        "_:id9": {
+            "prov:activity": "log:aef437a1e-d132-41a7-8892-826cf74ef3e9",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Existing_Bike_Network.csv"
+        },
+        "_:id3": {
+            "prov:activity": "log:a9c5004f3-56a3-4c1b-9c7b-a9048510c392",
+            "prov:time": "2016-04-18T23:50:06.188701",
+            "prov:entity": "dat:Existing_Bike_Network.csv"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id15": {
+            "prov:activity": "log:a6d88f6b6-9e96-4e5a-bc5e-1c364c926dbe",
+            "prov:time": "2016-04-18T23:50:06.188707",
+            "prov:entity": "dat:intersection_lane.csv"
+        },
+        "_:id12": {
+            "prov:activity": "log:a9c5004f3-56a3-4c1b-9c7b-a9048510c392",
+            "prov:time": "2016-04-18T23:50:06.188707",
+            "prov:entity": "dat:intersection.csv"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id4": {
+            "prov:agent": "alg:provenance.py",
+            "prov:activity": "log:a6d88f6b6-9e96-4e5a-bc5e-1c364c926dbe"
+        },
+        "_:id7": {
+            "prov:agent": "alg:provenance.py",
+            "prov:activity": "log:aef437a1e-d132-41a7-8892-826cf74ef3e9"
+        },
+        "_:id1": {
+            "prov:agent": "alg:provenance.py",
+            "prov:activity": "log:a9c5004f3-56a3-4c1b-9c7b-a9048510c392"
+        }
+    },
+    "activity": {
+        "log:a9c5004f3-56a3-4c1b-9c7b-a9048510c392": {
+            "prov:startTime": "2016-04-18T23:50:06.188701",
+            "ont:Computation": "inference",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-18T23:50:06.188707"
+        },
+        "log:a6d88f6b6-9e96-4e5a-bc5e-1c364c926dbe": {
+            "prov:startTime": "2016-04-18T23:50:06.188701",
+            "ont:Computation": "inference",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-18T23:50:06.188707"
+        },
+        "log:aef437a1e-d132-41a7-8892-826cf74ef3e9": {
+            "prov:startTime": "2016-04-18T23:50:06.188701",
+            "ont:Computation": "statistical analysis",
+            "prov:type": "ont:Retrieval",
+            "prov:endTime": "2016-04-18T23:50:06.188707"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id11": {
+            "prov:agent": "alg:provenance.py",
+            "prov:entity": "dat:intersection.csv"
+        },
+        "_:id14": {
+            "prov:agent": "alg:provenance.py",
+            "prov:entity": "dat:intersection_lane.csv"
+        }
+    }
+}

@@ -2,11 +2,9 @@ import subprocess
 import pymongo
 import storeT
 import storeBus
-import combine_t_bus
 import geoagg
 import pagerank
-import combineforviz
-import export_pagerank
+import vizdatautil
 import prov.model
 exec(open('../pymongo_dm.py').read())
 
@@ -21,67 +19,54 @@ def store_json(repo, target_col_name, raw_json):
     repo.createPerm(target_col_name)
     repo[target_col_name].insert_many(raw_json)
 
-def drop_all_collections(repo):
+def drop_derived_collections(repo):
     repo.dropPerm('nikolaj.contribs')
     repo.dropPerm('nikolaj.neighs')
     repo.dropPerm('nikolaj.ranks')
-    repo.dropPerm('nikolaj.raw_bus_stops')
     repo.dropPerm('nikolaj.raw_stops')
-    repo.dropPerm('nikolaj.raw_t_stops')
-    repo.dropPerm('nikolaj.stops_with_neighs')
     repo.dropPerm('nikolaj.pagerank')
     repo.dropPerm('nikolaj.pagerank_result')
     repo.dropPerm('nikolaj.params')
 
-def combine_and_export():
-    combineforviz.run()
-    export_pagerank.run()
-    
-def to_prov(repo):
-    doc = prov.model.ProvDocument()
-    doc.update(storeT.to_prov(None, None))
-    doc.update(storeBus.to_prov(None, None))
-    doc.update(combine_t_bus.to_prov(None, None))
-    doc.update(geoagg.to_prov(None, None))
-    doc.update(pagerank.to_prov(None, None))
-    
-    repo.record(doc.serialize()) # Record the provenance document.
-    with open('plan.json','w') as plan:
-        plan.write(json.dumps(json.loads(doc.serialize()), indent=4))
-    print(doc.get_provn())
-
-def run_job_with_params(repo, job_params):
-    drop_all_collections(repo)
+def run_job_with_params(repo, job_params, doc):
+    drop_derived_collections(repo)
     store_json(repo, 'nikolaj.params', job_params)
-
-    storeT.run()
-    storeBus.run()
-    combine_t_bus.run()
-    geoagg.run()
-    pagerank.run()
-
-t_only_params = [
-    { "id" : "geoagg", "maxDistance" : 0, "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
-    { "id" : "combine_t_bus", "cols_to_combine" : [ "nikolaj.raw_t_stops" ] },
-    { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_only" }
-]
-
-t_500walk_params = [
-    { "id" : "geoagg", "maxDistance" : 500, "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
-    { "id" : "combine_t_bus", "cols_to_combine" : [ "nikolaj.raw_t_stops" ] },
-    { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk" }
-]
-
-t_500walk_bus_params = [
-    { "id" : "geoagg", "maxDistance" : 500, "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
-    { "id" : "combine_t_bus", "cols_to_combine" : [ "nikolaj.raw_t_stops", "nikolaj.raw_bus_stops" ] },
-    { "id" : "pagerank_params", "output_col_name" : "nikolaj.pagerank_result_t_500walk_bus" }
-]
+    startTime, _, endTime = geoagg.run()
+    doc.update(geoagg.to_prov(startTime, endTime, job_params[0]))
+    startTime, _, endTime = pagerank.run()
+    doc.update(pagerank.to_prov(startTime, endTime, job_params[1]))
 
 if __name__ == "__main__":
-    job_param_queue = [t_only_params, t_500walk_params, t_500walk_bus_params]
     repo = get_auth_repo('nikolaj', 'nikolaj')
+    doc = prov.model.ProvDocument()
+    
+    startTime, _, endTime = storeT.run()
+    doc.update(storeT.to_prov(startTime, endTime))
+    startTime, _, endTime = storeBus.run()
+    doc.update(storeBus.to_prov(startTime, endTime))
+    
+    t_only_params = [
+        { "id" : "geoagg_params", "maxDistance" : 0, "output_col_name": "nikolaj.stops_with_neighs_t_only", "input_cols": [ "nikolaj.raw_t_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+        { "id" : "pagerank_params", "input_col_name": "nikolaj.stops_with_neighs_t_only", "output_col_name" : "nikolaj.pagerank_result_t_only" }
+    ]
+
+    t_500walk_params = [
+        { "id" : "geoagg_params", "maxDistance" : 500, "output_col_name": "nikolaj.stops_with_neighs_t_500walk", "input_cols": [ "nikolaj.raw_t_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+        { "id" : "pagerank_params", "input_col_name": "nikolaj.stops_with_neighs_t_500walk", "output_col_name" : "nikolaj.pagerank_result_t_500walk" }
+    ]
+
+    t_500walk_bus_params = [
+        { "id" : "geoagg_params", "maxDistance" : 500, "output_col_name": "nikolaj.stops_with_neighs_t_500walk_bus", "input_cols": [ "nikolaj.raw_t_stops", "nikolaj.raw_bus_stops" ], "routeUnion" : [ "$routes", "$geo_neigh_routes" ], "neighUnion" : [ "$neighs", "$geo_neighs" ] },
+        { "id" : "pagerank_params", "input_col_name": "nikolaj.stops_with_neighs_t_500walk_bus", "output_col_name" : "nikolaj.pagerank_result_t_500walk_bus" }
+    ]
+    job_param_queue = [t_only_params, t_500walk_params, t_500walk_bus_params]
+    
     for job_param in job_param_queue:
-        run_job_with_params(repo, job_param)
-    to_prov(repo)
-    combine_and_export()
+        run_job_with_params(repo, job_param, doc)
+    
+    startTime, _, endTime = vizdatautil.run()
+    doc.update(vizdatautil.to_prov(startTime, endTime))
+
+    repo.record(doc.serialize()) # Record the provenance document.
+    print(doc.get_provn())
+    

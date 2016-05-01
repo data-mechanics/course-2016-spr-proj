@@ -1,77 +1,205 @@
 [
     {
-        "latitude": 42.3068,
-        "score": 15.508190090165286,
-        "longitude": -71.07419
+        "latitude": 42.32064,
+        "longitude": -71.06237,
+        "census_block": "250250913001000",
+        "score": 15.473479960905387,
+        "address": "Hubway - E. Cottage St at Columbia Rd, East Cottage Street, Boston, MA 02125, United States of America"
     },
     {
-        "latitude": 42.29689,
-        "score": 13.812901721054867,
-        "longitude": -71.08579
+        "latitude": 42.34148,
+        "longitude": -71.08131,
+        "census_block": "250250708003005",
+        "score": 13.44270277509256,
+        "address": "Render Coffee, 563 Columbus Avenue, Boston, MA MA 02118, United States of America"
     },
     {
-        "latitude": 42.33077,
-        "score": 15.801431441502421,
-        "longitude": -71.06757
+        "latitude": 42.31908,
+        "longitude": -71.08993,
+        "census_block": "250250819001003",
+        "score": 13.115627602315746,
+        "address": "Horatio Harris Park, Townsend Street, Boston, MA 02119, United States of America"
     },
     {
-        "latitude": 42.31536,
-        "score": 16.69866774962679,
-        "longitude": -71.06265
+        "latitude": 42.34776,
+        "longitude": -71.08235,
+        "census_block": "250250106001013",
+        "score": 15.081714130812685,
+        "address": "Prudential Tower, Massachusetts Turnpike, Boston, MA 02199, United States of America"
     },
     {
-        "latitude": 42.29681,
-        "score": 14.630464475534032,
-        "longitude": -71.08206
+        "latitude": 42.33358,
+        "longitude": -71.09726,
+        "census_block": "250250808012006",
+        "score": 14.967042340462864,
+        "address": "20 Turquoise Way, Boston, MA 02120, United States of America"
     },
     {
-        "latitude": 42.32847,
-        "score": 14.084914024354362,
-        "longitude": -71.07599
+        "latitude": 42.29002,
+        "longitude": -71.08636,
+        "census_block": "250251001006011",
+        "score": 18.678655115609594,
+        "address": "Ames St @ Westview St, Ames Street, Boston, MA 02124, United States of America"
     },
     {
-        "latitude": 42.34442,
-        "score": 13.586353765810653,
-        "longitude": -71.07768
+        "latitude": 42.3325,
+        "longitude": -71.05727,
+        "census_block": "250250612002014",
+        "score": 14.559039628218251,
+        "address": "485 Dorchester Avenue, Boston, MA 02127, United States of America"
     },
     {
-        "latitude": 42.33908,
-        "score": 10.412486472243303,
-        "longitude": -71.09311
+        "latitude": 42.30207,
+        "longitude": -71.09137,
+        "census_block": "250259803001022",
+        "score": 19.279287664038158,
+        "address": "Jewish War Veterans Drive, Boston, MA 02121, United States of America"
     },
     {
-        "latitude": 42.29414,
-        "score": 14.07209999590657,
-        "longitude": -71.08339
+        "latitude": 42.30326,
+        "longitude": -71.07866,
+        "census_block": "250250901002007",
+        "score": 16.780304449961967,
+        "address": "Washington St @ Erie St, Erie Street, Boston, MA 02121, United States of America"
     },
     {
-        "latitude": 42.34754,
-        "score": 15.077891248894682,
-        "longitude": -71.07022
+        "latitude": 42.32976,
+        "longitude": -71.06232,
+        "census_block": "250250907004012",
+        "score": 14.033266852896656,
+        "address": "South Bay Mall, Allstate Road, Boston, MA 01125, United States of America"
     },
     {
-        "latitude": 42.33207,
-        "score": 18.587152749823648,
-        "longitude": -71.05915
+        "latitude": 42.28359,
+        "longitude": -71.05859,
+        "census_block": "250251008003003",
+        "score": 16.39710267719288,
+        "address": "267 Minot Street, Boston, MA 02124, United States of America"
     },
     {
-        "latitude": 42.29959,
-        "score": 16.4225747973947,
-        "longitude": -71.06866
+        "latitude": 42.33525,
+        "longitude": -71.10469,
+        "census_block": "250250810011007",
+        "score": 14.556862308992821,
+        "address": "Thorn Wing, Shattuck Street, Boston, MA 02120, United States of America"
     },
     {
-        "latitude": 42.3196,
-        "score": 11.745686895336155,
-        "longitude": -71.09011
+        "latitude": 42.29103,
+        "longitude": -71.07193,
+        "census_block": "250250923002003",
+        "score": 16.672134083605467,
+        "address": "Washington St @ Southern Ave, Washington Street, Boston, MA 02124, United States of America"
     },
     {
-        "latitude": 42.34911,
-        "score": 15.538249023129758,
-        "longitude": -71.06803
+        "latitude": 42.32447,
+        "longitude": -71.10209,
+        "census_block": "250250812001004",
+        "score": 14.82890591476519,
+        "address": "Julia Martin House, 90 Bickford Street, Boston, MA 02120, United States of America"
     },
     {
-        "latitude": 42.31362,
-        "score": 11.758999190375,
-        "longitude": -71.09381
+        "latitude": 42.27955,
+        "longitude": -71.07778,
+        "census_block": "250251003002004",
+        "score": 17.863112410464957,
+        "address": "154 Fairmount Street, Boston, MA 02124, United States of America"
+    },
+    {
+        "latitude": 42.29481,
+        "longitude": -71.07972,
+        "census_block": "250250924001004",
+        "score": 16.99874200674052,
+        "address": "50 Warner Street, Boston, MA 02124, United States of America"
+    },
+    {
+        "latitude": 42.32348,
+        "longitude": -71.05769,
+        "census_block": "250250907002002",
+        "score": 16.556840460366622,
+        "address": "Clap Innovation, Harvest Street, Boston, MA 02125, United States of America"
+    },
+    {
+        "latitude": 42.30339,
+        "longitude": -71.06976,
+        "census_block": "250250917003000",
+        "score": 15.161611908966858,
+        "address": "16 Levant Street, Boston, MA 02122, United States of America"
+    },
+    {
+        "latitude": 42.29915,
+        "longitude": -71.08115,
+        "census_block": "250250901005003",
+        "score": 18.013752122150535,
+        "address": "126 Glenway Street, Boston, MA 02121, United States of America"
+    },
+    {
+        "latitude": 42.33842,
+        "longitude": -71.08015,
+        "census_block": "250250709002000",
+        "score": 12.274011403206767,
+        "address": "Massachusetts Ave @ Tremont St, Massachusetts Avenue, Boston, MA 02118, United States of America"
+    },
+    {
+        "latitude": 42.27918,
+        "longitude": -71.06316,
+        "census_block": "250251008005000",
+        "score": 16.163892401777403,
+        "address": "90 Hutchinson Street, Boston, MA 02124, United States of America"
+    },
+    {
+        "latitude": 42.32367,
+        "longitude": -71.05707,
+        "census_block": "250250907002001",
+        "score": 16.526745701895738,
+        "address": "Dorchester Ave @ Dorset St, Dorchester Avenue, Boston, MA 02125, United States of America"
+    },
+    {
+        "latitude": 42.33109,
+        "longitude": -71.05518,
+        "census_block": "250250612002015",
+        "score": 14.482276610413265,
+        "address": "Dorchester St @ Middle St, Dorchester Street, Boston, MA 01125, United States of America"
+    },
+    {
+        "latitude": 42.30106,
+        "longitude": -71.09334,
+        "census_block": "250259803001022",
+        "score": 19.3937937731358,
+        "address": "William J. Devine Golf Course, 1 Jewish War Veterans Drive, Boston, MA 02121, United States of America"
+    },
+    {
+        "latitude": 42.34634,
+        "longitude": -71.06485,
+        "census_block": "250250704021011",
+        "score": 13.431598000690428,
+        "address": "Washington St @ Herald St, Washington Street, Boston, MA 02112, United States of America"
+    },
+    {
+        "latitude": 42.31413,
+        "longitude": -71.05842,
+        "census_block": "250250911004002",
+        "score": 15.863190412082407,
+        "address": "46 Thornley Street, Boston, MA 02125, United States of America"
+    },
+    {
+        "latitude": 42.33926,
+        "longitude": -71.05445,
+        "census_block": "250250607001008",
+        "score": 14.863873846620955,
+        "address": "66 Flaherty Way, Boston, MA 02127, United States of America"
+    },
+    {
+        "latitude": 42.28788,
+        "longitude": -71.0984,
+        "census_block": "250259811004012",
+        "score": 18.10606564087748,
+        "address": "Blue Jay Court, Boston, MA 02126, United States of America"
+    },
+    {
+        "latitude": 42.3318,
+        "longitude": -71.08513,
+        "census_block": "250250804012014",
+        "score": 13.466152594829085,
+        "address": "170 DeWitt Drive, Boston, MA 02120, United States of America"
     }
 ]

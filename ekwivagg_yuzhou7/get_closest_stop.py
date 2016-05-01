@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import csv
 import pymongo
 import prov.model
 import datetime
@@ -71,7 +72,7 @@ for restaurant in restaurant_loc:
         if round(stop[1], 2) == min_lat and round(stop[2], 2) == min_long:
             distance = great_circle((restaurant[1], restaurant[2]), (stop[1], stop[2])).feet
             restaurant_stop.append(((restaurant[0], stop[0]), distance))
-print(len(restaurant_stop))
+#print(len(restaurant_stop))
 
 
 closest_stop = aggregate(restaurant_stop, min)
@@ -89,7 +90,32 @@ for pair in closest_stop:
     X.append((pair['tstop'], 1))
 
 Y = real_aggregate(X, sum)
-print(Y)
+#print(Y)
+
+restaurant_freq = []
+for i in Y:
+    if '.' in i[0]:
+        name = i[0].replace('.', '')
+    else:
+        name = i[0]
+    restaurant_freq.append({name:i[1]})
+#print(restaurant_freq)
+repo.dropPermanent("restaurant_freq")
+repo.createPermanent("restaurant_freq")
+repo['ekwivagg_yuzhou7.restaurant_freq'].insert_many(restaurant_freq)
+
+restaurant_freq_one = {}
+for i in restaurant_freq:
+    for key in i.keys():
+        restaurant_freq_one[key] = i[key]
+restaurant_freq = [restaurant_freq_one]
+
+with open('restaurant.csv', 'w') as out:
+    fieldnames = ['T_Stop', 'Frequency']
+    dw = csv.DictWriter(out, fieldnames=fieldnames)
+    dw.writeheader()
+    for key in restaurant_freq[0].keys():
+        dw.writerow({'T_Stop': key, 'Frequency': restaurant_freq[0][key]})
 
 endTime = datetime.datetime.now()
 
@@ -125,6 +151,12 @@ doc.wasAttributedTo(closest_stop, this_script)
 doc.wasGeneratedBy(closest_stop, closest_stop_calc, endTime)
 doc.wasDerivedFrom(closest_stop, restaurant_dat, closest_stop_calc, closest_stop_calc, closest_stop_calc)
 doc.wasDerivedFrom(closest_stop, stops, closest_stop_calc, closest_stop_calc, closest_stop_calc)
+
+restaurant_freq = doc.entity('dat:restaurant_freq', {prov.model.PROV_LABEL:'Restaurant Frequency', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+get_frequency = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(get_frequency, this_script)
+doc.used(restaurant_freq, closest_stop, startTime)
+doc.wasDerivedFrom(closest_stop, restaurant_freq, get_frequency, get_frequency, get_frequency)
 
 repo.record(doc.serialize())
 content = json.dumps(json.loads(doc.serialize()), indent=4)

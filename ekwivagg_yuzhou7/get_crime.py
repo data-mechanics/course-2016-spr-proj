@@ -80,7 +80,7 @@ for larceny in larceny_loc:
         if round(stop[1], 2) == min_lat and round(stop[2], 2) == min_long:
             distance = great_circle((larceny[1], larceny[2]), (stop[1], stop[2])).feet
             larceny_stop.append(((larceny[0], stop[0]), distance))
-print(larceny_stop)
+#print(larceny_stop)
 
 closest_stop = aggregate(larceny_stop, min)
 closest_t_stop = []
@@ -98,4 +98,66 @@ for pair in closest_stop_larceny:
 	X.append((pair['tstop'], 1))
 
 Y = real_aggregate(X, sum)
-print(Y)
+#print(Y)
+
+crime_freq = []
+for i in Y:
+    if '.' in i[0]:
+        name = i[0].replace('.', '')
+    else:
+        name = i[0]
+    crime_freq.append({name:i[1]})
+#print(crime_freq)
+repo.dropPermanent("crime_freq")
+repo.createPermanent("crime_freq")
+repo['ekwivagg_yuzhou7.crime_freq'].insert_many(crime_freq)
+
+endTime = datetime.datetime.now()
+
+# Provenance information for plan.jason
+doc = prov.model.ProvDocument()
+
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/ekwivagg_yuzhou7/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/ekwivagg_yuzhou7/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+doc.add_namespace('sj', 'http://cs-people.bu.edu/sajarvis/datamech/mbta_gtfs/')
+
+this_script = doc.agent('alg: get_crime', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+larceny_dat = doc.entity('bdp:7cdf-6fgx', {prov.model.PROV_LABEL:'Larcenies', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+stops = doc.entity('sj:stops', {'prov:label':'T Stops', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'txt'})
+closest_stop_larceny = doc.entity('dat:closest_stop_larceny', {prov.model.PROV_LABEL:'Closest Larceny Stop', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+crime_freq = doc.entity('dat:crime_freq', {prov.model.PROV_LABEL:'Crime Frequency', prov.model.PROV_TYPE:'ont:DataSet', 'ont:Extension':'json'})
+
+stop_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval'})
+doc.wasAssociatedWith(stop_retrieval, this_script)
+doc.used(stop_retrieval, stops, startTime)
+
+larceny_retrieval = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Retrieval', 'ont:Query':'?incident_type_description=larceny+from+motor+vehicle&$select=location,compnos&$limit=50000'})
+doc.wasAssociatedWith(larceny_retrieval, this_script)
+doc.used(larceny_retrieval, larceny_dat, startTime)
+
+closest_larceny_calc = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(closest_larceny_calc, this_script)
+doc.used(closest_larceny_calc, larceny_dat, startTime)
+doc.used(closest_larceny_calc, stops, startTime)
+
+get_frequency = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_TYPE:'ont:Computation'})
+doc.wasAssociatedWith(get_frequency, this_script)
+doc.used(crime_freq, closest_stop_larceny, startTime)
+
+
+doc.wasAttributedTo(closest_stop_larceny, this_script)
+doc.wasGeneratedBy(closest_stop_larceny, closest_larceny_calc, endTime)
+doc.wasDerivedFrom(closest_stop_larceny, larceny_dat, closest_larceny_calc, closest_larceny_calc, closest_larceny_calc)
+doc.wasDerivedFrom(closest_stop_larceny, stops, closest_larceny_calc, closest_larceny_calc, closest_larceny_calc)
+doc.wasDerivedFrom(closest_stop_larceny, crime_freq, get_frequency, get_frequency, get_frequency)
+
+repo.record(doc.serialize())
+content = json.dumps(json.loads(doc.serialize()), indent=4)
+f = open('plan.json', 'a')
+f.write(",\n")
+f.write(content)
+repo.logout()

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<!-- Example based on http://bl.ocks.org/mbostock/3887118 -->
+<!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html -->
+
+<style>
+	body {
+	  font: 11px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+	.dot {
+	  stroke: #000;
+	}
+
+	.tooltip {
+	  position: absolute;                    
+  width: 70px;                  
+  height: 70px;                 
+  padding: 2px;             
+  font: 12px sans-serif;        
+  background: lightsteelblue;   
+  border: 0px;      
+  border-radius: 35px;           
+  pointer-events: none;  
+	}
+</style>
+
+<div id = "area1"></div>
+<div id = "area2"></div>
+
+<body>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script>
+		var margin = {top: 20, right: 20, bottom: 30, left: 40},
+		    width = 1100 - margin.left - margin.right,
+		    height = 500 - margin.top - margin.bottom;
+
+		/* 
+		 * value accessor - returns the value to encode for a given data object.
+		 * scale - maps value to a visual display encoding, such as a pixel position.
+		 * map function - maps from data value to display value
+		 * axis - sets up axis
+		 */ 
+
+		// setup x 
+		var xValue = function(d) { return d.proj[0];}, // data -> value
+		    xScale = d3.scale.linear().range([0, width]), // value -> display
+		    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+		    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+
+		// setup y
+		var yValue = function(d) { return d.proj[1];}, // data -> value
+		    yScale = d3.scale.linear().range([height, 0]), // value -> display
+		    yMap = function(d) { return yScale(yValue(d));}, // data -> display
+		    yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+		// setup fill color
+		var cValue = function(d) { return d.group;},
+		    color = d3.scale.category20()
+
+
+		// add the graph canvas to the body of the webpage
+		var svg = d3.select("body").append("svg")
+		    .attr("width", width + margin.left + margin.right)
+		    .attr("height", height + margin.top + margin.bottom)
+		  .append("g")
+		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		    
+		var tooltip = d3.select("body").append("div")
+		  .attr("class", "tooltip")
+		  .style("opacity", .2);
+
+		
+		var projection = d3.geo.azimuthalEqualArea();
+		dataset=d3.csv("http://datamechanics.io/data/tbeaudry/hs_events.csv", function(error, data) {
+			data.forEach(function(d){
+				d.proj= projection([d.longitude,d.latitude])
+				var group=-1
+				var dist= 99
+				for (var i = 0;i< hos.length;i++){
+					if (d[hos2[i]]<dist){
+						group=i
+						dist=d[hos2[i]]
+					}
+				}
+				if (group==8){
+					group=3
+				}
+				if (group == 14){
+					group=0
+				}
+				if (group == 9){
+					group=1
+				}
+				d.proj= projection([d.longitude,-1*d.latitude])
+				d.group= group
+				//console.log(projection([d.longitude,d.latitude]),group)
+			});
+			
+			  xScale.domain([d3.min(data, xValue)-.05, d3.max(data, xValue)+.2]);
+			  yScale.domain([d3.min(data, yValue)-.05, d3.max(data, yValue)+.05]);
+
+			  // x-axis
+			  svg.append("g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + height + ")")
+			      .call(xAxis)
+			    .append("text")
+			      .attr("class", "label")
+			      .attr("x", width)
+			      .attr("y", -6)
+			      .style("text-anchor", "end")
+			      .text("Projection value x");
+
+			  // y-axis
+			  svg.append("g")
+			      .attr("class", "y axis")
+			      .call(yAxis)
+			    .append("text")
+			      .attr("class", "label")
+			      .attr("transform", "rotate(-90)")
+			      .attr("y", 6)
+			      .attr("dy", ".71em")
+			      .style("text-anchor", "end")
+			      .text("Projection Value y");
+
+			  // draw dots
+			  svg.selectAll(".dot")
+			      .data(data)
+			    .enter().append("circle")
+			      .attr("class", "dot")
+			      .attr("r", 3.5)
+			      .attr("cx", xMap)
+			      .attr("cy", yMap)
+			      .style("fill", function(d) { return color(cValue(d));}) 
+			      /*
+			      .on("click",function(d){
+				if (hos3[d.groups]==0){
+					d3.select(this).style("fill-opacity",0)
+					console.log(d)
+				}else{
+					d3.select(this).style("fill-opacity",.6)
+				}
+			      })
+			      */
+			      .on("mouseover", function(d) {
+				  tooltip.transition()
+				       .duration(250)
+				       .style("opacity", .6);
+				  tooltip.html(hos2[d.group] )
+				       .style("left", (d3.event.pageX -35) + "px")
+				       .style("top", (d3.event.pageY -35) + "px");
+				   for (var i = 0;i< hos.length;i++){
+					if (i!=d.group){
+						hos3[i]=0
+					}else{
+						hos3[i]=1
+					}
+				    }
+				    console.log(hos3);
+			      })
+			      .on("mouseout", function(d) {
+				  tooltip.transition()
+				       .duration(5000)
+				       .style("opacity", 0);
+				  hos3=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+				  console.log(hos3);
+				       
+			      });
+			      
+
+			  // draw legend
+			  var legend = svg.selectAll(".legend")
+			      .data(color.domain())
+			    .enter().append("g")
+			      .attr("class", "legend")
+			      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+			  // draw legend colored rectangles
+			  legend.append("rect")
+			      .attr("x", width - 18)
+			      .attr("width", 18)
+			      .attr("height", 18)
+			      .style("fill", color);
+
+			  // draw legend text
+			  legend.append("text")
+			      .attr("x", width - 24)
+			      .attr("y", 9)
+			      .attr("dy", ".35em")
+			      .style("text-anchor", "end")
+			      .text(function(d) { return hos2[d];})
+			
+			
+			
+			
+		});
+		/*
+		var drag = d3.behavior.drag()  
+             .on('dragstart', function() { circle.style('fill', 'red'); })
+             .on('drag', function() { circle.attr('cx', d3.event.x)
+                                            .attr('cy', d3.event.y); })
+             .on('dragend', function() { circle.style('fill', 'black'); });
+		
+		
+		var circle = d3.select("body")
+			  .append("svg")
+			  .append("circle")
+			  .attr("r",40)
+			  .attr("fill-opacity",.1)
+			  .attr('class','draggableCircle')
+			  .call(drag)
+			  .on("mousemove",function(){
+				
+			  
+			  }
+			  );
+
+		*/
+		var hos3=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+		
+		var hos =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+		var hos2=[
+			"Beth Israel Deaconess Medical Center East Cam",
+			"New England Baptist Hospital",
+			"Shriners Burns Institute",
+			"Hebrew Rehabilitation Center",
+			"Arbour Hospital",
+			"Franciscan Children's  Hospital",
+			"Massachusetts General Hospital",
+			"Children's Hospital",
+			"Faulkner Hospital",
+			"Dana-farber Cancer Institute",
+			"Carney Hospital",
+			"VA Hospital",
+			"New England Medical Center",
+			"Boston Specialty & Rehabilitation Hospital",
+			"Massachusetts Eye & Ear Infirmary",
+			"Spaulding Rehabilitation Hospital",
+			"Brigham And Women's Hospital",
+			"St Elizabeth's Hospital",
+			"Beth Israel Deaconess Medical Center West Cam",
+			"Boston City Hospital",
+			"Jewish Memorial Hospital,St Margaret's Hospital For Women",
+			"Kindred Hospital,Boston Medical Center",
+			"Lemuel Shattuck Hospital",
+			"Va Hospital"
+			]
+			
+		
+	</script>
+	
+</body>

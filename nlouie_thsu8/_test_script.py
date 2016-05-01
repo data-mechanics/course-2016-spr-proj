@@ -88,7 +88,7 @@ def haversine(lon1, lat1, lon2, lat2):
 	a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
 	c = 2 * asin(sqrt(a))
 	km = 6367 * c
-	return km
+	return km * 1000
 
 class mapReduce:
 	def __init__(self, dataset):
@@ -163,26 +163,21 @@ f.close()
 
 c_f = open('crimes_night.txt')
 lcd = open('lcd.txt', 'w')
-for i, line in enumerate(c_f):
-	if i % 10 == 0:
-		print i
-	if i > 100:
-		break
-	cid, lat, lon, _, _ = line.split('\t')
-	l_f = open('lights.txt')
-	dist = -1
-	l = -1
-	for j, lline in enumerate(l_f):
-		if j > 100:
-			break
-		lid, llat, llong = lline.split('\t')
-		newDist = haversine(float(lat), float(lon), float(llat), float(llong))
-		if dist == -1 or newDist < dist:
-			dist = newDist
-			l = int(lid)
-	l_f.close()
-	lcd.write('%s\t%s\t%s\n' % (cid, l, str(dist)))
+l_f = open('lights.txt')
+cs = [(line.split('\t')) for line in c_f]
+ls = [(line.split('\t')) for line in l_f]
 c_f.close()
+l_f.close()
+cl = len(cs)
+ll = len(ls)
+print 'FOR %d RECORDS' % cl 
+for i, c in enumerate(cs):
+	cid, lat, lon, _, _ = c
+	lid, llat, llong = min(ls, key=lambda l: haversine(float(l[2]), float(l[1]), float(lon), float(lat)))
+	dist = haversine(float(llong), float(llat), float(lon), float(lat))
+	if i % 10 == 0:
+		print '%s\t%s\t%s m\n' % (cid, lid, str(dist))
+	lcd.write('%s\t%s\t%s m\n' % (cid, lid, str(dist)))
 lcd.close()
 
 

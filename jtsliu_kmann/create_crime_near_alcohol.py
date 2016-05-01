@@ -9,8 +9,6 @@ import json
 import prov.model
 import pymongo
 import re
-import urllib.request
-import uuid
 from bson.son import SON
 
 # This is a semi-arbitrary parameter for determing if something was alcohol related

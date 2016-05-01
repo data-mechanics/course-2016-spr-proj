@@ -9,7 +9,10 @@
 We want to know how streetlights relate to crimes in Boston. We want to know whether or not streetlamp placement has an affect on crime and if there are high-crime areas that may benefit from better lighting.
 In order to do this, we compute the distance of each crime (at night) to the closest streetlamp using data provided from [Boston's public datasets](https://data.cityofboston.gov/). 
 We think solving this gives insight on how lighting plays a role in the incidences of crime and whether or not certain areas should include more lighting.
+By gathering this data, it could be used in creating a "danger" metric of certain areas in Boston where lighting may or may not be low.
 
+By evaluating our distance to street light and number of crime data, most crimes are within several meters to a streetlight (note the use of a log scale).
+This may be due to inaccurate locations of crimes, but by viewing the streetlight visualization, it's interesting to see the precision coordinates of the streetlamps as they are viewable by street.
 
 ### Datasets 
 
@@ -20,9 +23,18 @@ We think solving this gives insight on how lighting plays a role in the incidenc
 - [Crime Incidents](https://data.cityofboston.gov/resource/7cdf-6fgx.json). 
 
 ### Transformations
-- Convert JSON -> Text
-- Feed Text -> Hive/Hadoop
-- Get Final Result. 
+First we got the aforementioned datasets from data.cityofboston.gov. We converted them into Hive/Hadoop readable text files and put them on s3. (You can easily just do this by moving it on to HDFS instead of Amazon's S3.) Since the nearest neighbor algorithm on HIVE was not working, we just did it serially in Python. We were originally trying to use ESRI's ArcGIS in HIVE to do the calculations, but since the algorithm involved a cross product, the slave possibly ran out of memory. So we moved the processed text file to Hive and analyzed it. Then finally uploaded the results to s3.  
+
+Base Data Manipulation(Done in Python):
+- Crimes: Incidents in JSON format -> Crimes: Text format id lat long time type
+- Street: Lights in JSON format -> Lights: Text format id lat long
+
+Python Script (Nearest Neighbour Algorithm): 
+- Crimes + Lights -> CLD: Text format crime id light id, dist (in meters) 
+
+HIVE:
+- Put the data points in CLD into 'buckets'
+- Do analysis on the columns. 
 
 ### Visualizations
 
@@ -30,6 +42,7 @@ We think solving this gives insight on how lighting plays a role in the incidenc
 - The visualization maps every streetlight (using geojson data) in Boston and a sample of the crimes
 - This is made with [Leaflet](http://leafletjs.com/) using Lapet's API key...
 - Added functionality allows the user to click on the crime to view more details in a popup.
+- Added visualization of the distance of the closest streetlamp with the number of crimes
 
 #### StreetLights
 ![StreetLights](http://puu.sh/ohmgP/184c3ff996.png "StreetLights")
@@ -39,3 +52,5 @@ We think solving this gives insight on how lighting plays a role in the incidenc
 ![Crime](http://puu.sh/ohmtz/eb2b04d0a4.png "Crime Samples")
 #### Crime Samples Zoomed with Popup
 ![Crime Zoomed with Popup](https://puu.sh/ohmwp/5ac776b01a.png "Crimed Zoomed with Popup")
+#### Closest Street Lamp and Number of Crimes
+![Street Lamp Number Crimes](http://puu.sh/onr9L/60eb12506d.png "Street Lamps Number of Crimes")

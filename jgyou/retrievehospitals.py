@@ -12,6 +12,7 @@ import prov.model
 import datetime
 import uuid
 import time
+import os
 
 exec(open('../pymongo_dm.py').read())
 
@@ -94,16 +95,21 @@ with open("auth.json") as authfile:
 	provdoc2.wasGeneratedBy(hospitals, this_run)
 	provdoc2.wasDerivedFrom(hospitals, resource, this_run, this_run, this_run)
 
-	repo.record(provdoc2.serialize()) # Record the provenance document.
+	#repo.record(provdoc2.serialize()) # Record the provenance document.
 
 	with open('plan.json','r') as plan:
 		docModel = prov.model.ProvDocument()
-		doc2 = docModel.deserialize(plan)
-		doc2.update(provdoc2)
-		plan.close()
-		with open('plan.json', 'w') as plan:
-			plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
+		if os.stat('plan.json').st_size == 0:
+			with open('plan.json', 'w') as plan:
+				plan.write(json.dumps(json.loads(provdoc2.serialize()), indent=4))
+		else:
+			doc2 = docModel.deserialize(plan)
+			docModel.deserialize(plan)
+			doc2.update(provdoc2)
 			plan.close()
+			with open('plan.json', 'w') as plan:
+				plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
+				plan.close()
 
 
 	#print(provdoc.get_provn())
