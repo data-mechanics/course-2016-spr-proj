@@ -122,14 +122,19 @@ Using the OpenStreetMap data, each Twitter post was associated with the closest 
 \caption{Relative estimates for monthly social media users per intersection}
 \end{figure}
 %%%%%%%%%%%%%%%% end figure %%%%%%%%%%%%%%%%%%%
-We discovered only 94 intersections, of the almost 25,000, had five or more visitors each month. Only 57 of these intersections had visitors that returned during the capture/recapture period. The red markers show the intersections that estimates could be computed, scaled with the $\log_2$ function. The blue markers show the intersections that did not have returning users. Fenway park had that max estimate with approximately 12,000 visitors per month. 
+We discovered only 94 intersections, of the almost 25,000, had five or more visitors each month. Only 57 of these intersections had visitors that returned during the capture/recapture period. The red markers show the intersections that estimates could be computed, scaled with the $\log_2$ function. The blue markers show the intersections that did not have returning users. Fenway park had that max estimate with approximately 12,000 visitors per month. This calculation was only done with the Twitter dataset. Future work will explore the best way to intergrate the Brightkite and Gowalla datasets.
 
 
 \begin{equation}
 \hat{N} = \frac{Kn}{k}
 \end{equation} 
 
-$\hat{N}$ is the estimation of the total population of social media users, $n$ is the number of users during the first month, $K$ is the number of users during the second month, and $k$ is the number of users from the first month that are observed during the second month. With this formulation, we can derive estimations for the number of social media users that post near an intersection per month. 
+$\hat{N}$ is the estimation of the total population of social media users, $n$ is the number of users during the first month, $K$ is the number of users during the second month, and $k$ is the number of users from the first month that are observed during the second month. With this formulation, we can derive estimations for the number of social media users that post near an intersection per month. It will be important to discover what percentage the social media users are of the total population. This can be done by observing a true population through web cams and utilizing popular methods in computer vision, like object dectection and background subtraction. We can also obtain an estimate by comparing all the social media activity in a neighborhood to the total population take from the census, however this would be less accurate and would be difficult to argue as the true population.
+
+\begin{equation}
+\frac{| A \cap B|}{|B|} = \frac{|A \cap S|}{|S|} = \frac{|A|}{|S|}
+\end{equation}
+Once we know the relationship between the number of social media users and the true total population, we can use proportional sampling to determine the most accurate estimate for the number of people passing through an intersection. For example, if we knew that $\frac{1}{10}$ people used social media, we can use Equation(2) to determine the estimate of people at each intersection, instead of an estimate of the number of social media users at each intersection. If we take the most popular intersection, Brookline Ave @ Brookline Ave, our estimate is 12,835.2. Plugging this into the formula gives us: $\frac{1}{10} = \frac{12835.2}{\hat{N}}$ resulting in an appromation of $128,352$ total people passing through that intersection each month.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
@@ -138,7 +143,7 @@ Although the social media data consisted of many posts, only a fraction of the i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgment}
-Special thanks to Andrei Lapets who supported this project and helped flush out ideas about general project direction. Special thanks to Evimaria Terzi for help with the development of the Twitter dataset and Sofia Maria Nikolakaki for her work the segmentation of tweet segmentation by intersection.
+Special thanks to Andrei Lapets who supported this project and helped flush out ideas about general project direction. Special thanks to Evimaria Terzi for help with the development of the Twitter dataset and Sofia Maria Nikolakaki for her work with tweet segmentation by intersection.
 \end{acknowledgment}
 
 \section*{Appendix A: Most Popular Intersections (monthly estimates)}
