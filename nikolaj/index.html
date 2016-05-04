@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+html, body { margin:0; color:#333333; font-family:'Open Sans',sans-serif; }
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+b:hover { 
+  text-decoration: underline;
+}
+
+.noIbar {
+  cursor:default;
+}
+
+</style>
+<body>
+<div id="tmap-annot" align="center">
+<h2>The T and the Random Commuter</h2>
+<p class="noIbar">
+Below is a depiction of the PageRank computed over the graph represeting the MBTA network.
+All in all we computed three different versions of PageRank. For the simplest case, we only considered edges arising
+from direct connections between stations. Secondly, we considered 
+geo-adjacency, i.e., 
+in addition to edges resulting from direct connections we add edges between stops that are within 500m from
+each other. Lastly, we consider the transporation graph when bus lines are included. Please click on the highlighted
+text to display the corresponding PageRank values below. Hover over the nodes to view their neighbors under the selected 
+interpretation as well as their relative position under the PageRank metric. For an alternative visualization of PageRank
+click <a href="map.html">here</a>.
+</p>
+</div>
+<div id="tmap" align="center"></div>
+<div id="selectiondiv" align="center">
+  <p> Select
+<b id="ttrig" style="color:#003366">t-only</b>, <b id="walktrig" style="color:#003366">t-walk</b>, <b id="bustrig" style="color:#003366">t-walk-bus</b>.</p>
+  <b id="stationinfo">Hover over station.</b>
+</div>
+<div id="sortedbypr" align="center"> </div>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+var w = 960,
+    h = 500,
+    xPadding = 50,
+    yPadding = 50;
+
+var w_sort = 960,
+    h_sort = 70,
+    xPadding_sort = 20,
+    yPadding_sort = 20;
+
+var ranks, spider, graph, routes, remaining = 4;
+
+var prefix = "http://datamechanics.io/data/nikolaj/"
+
+d3.json(prefix.concat("routes.json"), function(error, data) {
+  routes = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+d3.json(prefix.concat("ranks.json"), function(error, data) {
+  ranks = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+d3.json(prefix.concat("spider.json"), function(error, data) {
+  spider = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+d3.json(prefix.concat("graph.json"), function(error, data) {
+  graph = data;
+  if (error) throw error;
+  if (!--remaining) renderAll();
+});
+
+var station_map = d3.select("body").select("#tmap").append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+var pagerank_order = d3.select("body").select("#sortedbypr").append("svg")
+    .attr("width", w_sort)
+    .attr("height", h_sort);
+
+var t_only = d3.select("body").select("#selectiondiv").select("#ttrig");
+var t_walk = d3.select("body").select("#selectiondiv").select("#walktrig");
+var t_walk_bus = d3.select("body").select("#selectiondiv").select("#bustrig");
+var info_text = d3.select("body").select('#selectiondiv').select('#stationinfo');
+
+var renderAll = function() {
+  // data preparation
+  
+  var station_lookup = {}
+  ranks.forEach(function(r) {
+    node_id = r["pagerank_result_t_only"]["node"]
+    station_lookup[node_id] = r;
+  });
+  
+  var data_lookup = function(node_id, collection, lookup) {
+    var data = {};
+    var fields = ['rank', 'neighs', 'routes'];
+    fields.forEach(function(f) {
+      data[f] = lookup[node_id][collection][f];
+    });
+    return data;
+  };
+
+  var graph_nodes = graph.nodes.map(function(n) {
+    node = {};
+    node.id = n.id;
+    node.name = n.name;
+    node.t = data_lookup(node.id, 'pagerank_result_t_only', station_lookup);
+    node.walk = data_lookup(node.id, 'pagerank_result_t_500walk', station_lookup);
+    node.bus = data_lookup(node.id, 'pagerank_result_t_500walk_bus', station_lookup);
+    node.state = "t";
+    node.scale = 5;
+    node.x = spider[node.id][0];
+    node.y = spider[node.id][1];
+    return node;
+  });
+
+  graph.links.forEach(function (link) {
+    link.source = graph_nodes[link.source];
+    link.target = graph_nodes[link.target];
+  });
+  
+  var order_nodes = graph.nodes.map(function(n) {
+    node = {};
+    node.id = n.id;
+    node.name = n.name;
+    node.t = {rank: station_lookup[n.id]["pagerank_result_t_only"].rank};
+    node.walk = {rank: station_lookup[n.id]["pagerank_result_t_500walk"].rank};
+    node.bus = {rank: station_lookup[n.id]["pagerank_result_t_500walk_bus"].rank};
+    node.state = "t"; // this could be outside the node
+    node.scale = 4;
+    return node;
+  });
+
+  var setIndex = function(nodes, state, per_row, x_space, y_space) {
+    nodes.sort(function(a, b) { return b[state].rank - a[state].rank; })
+    nodes.forEach(
+      function(d, i) {
+        d[state].x = (i % per_row) * x_space;
+        d[state].y = (Math.floor(i / per_row)) * y_space;
+      }
+    );
+  };  
+  var states = ['t', 'walk', 'bus'];
+  states.forEach(function(state) {
+    setIndex(order_nodes, state, 50, 1, 1);
+  })
+
+  var all_routes = routes.filter(function(rt) { return rt._id == "all" })[0].value.routes.sort();
+  // routes.map(function(rt) {
+  //   var update = {};
+  //   update[rt._id] = rt.value.routes;
+  //   return update;
+  // });
+
+  // Rendering
+
+  var xScale = d3.scale.linear()
+      .domain([0, d3.max(graph_nodes, function(n) { return n.x; })])
+      .range([xPadding, w - xPadding]);
+         
+  var yScale = d3.scale.linear()
+         .domain([0, d3.max(graph_nodes, function(n) { return n.y; })])
+         .range([yPadding, h - yPadding]);
+  
+  var link = station_map.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .attr("x1", function(d) { return xScale(d.source.x); })
+      .attr("y1", function(d) { return yScale(d.source.y); })
+      .attr("x2", function(d) { return xScale(d.target.x); })
+      .attr("y2", function(d) { return yScale(d.target.y); })
+      // below styles could be css
+      .style("stroke", function(d) { 
+        return '#'.concat(d.color); 
+      })
+      .style("stroke-width", function(d) { return 3; });
+  
+  var node = station_map.selectAll(".node")
+      .data(graph_nodes)
+    .enter().append("circle")
+      .attr("r", function(d) {
+        return d.scale * d[d.state].rank;
+      })
+      .attr("cx", function(d) { return xScale(d.x) })
+      .attr("cy", function(d) { return yScale(d.y) })
+      .style("fill", function(d) { return 'gray'; })
+      .on("mouseover", function(d) { 
+        var neighs = d[d.state].neighs;
+        node.filter(function(n, i) { return (neighs.indexOf(n.id) !== -1) || (n.id == d.id); })
+            .style("fill", "black")
+            .attr("r", function(d) { 
+              d.scale = 6;
+              return d.scale * d[d.state].rank; 
+            });
+        order_node.filter(function(n) { return d.id == n.id })
+          .style("fill", "black")
+        info_text.text(d.name + ": " + Math.round(d[d.state].rank * 100) / 100);
+        var routes = d[d.state].routes;
+        route.filter(function(r) {return (routes.indexOf(r) !== -1)})
+            .style("font-weight", "bold")
+            .style("fill", "black");
+       })
+      .on("mouseout", function(d) { 
+        node.style("fill", "gray")
+            .attr("r", function(d) { 
+              d.scale = 5;
+              return d.scale * d[d.state].rank;  
+            });
+        order_node.style("fill", "gray");
+        info_text.text("Hover over station.");
+        route.style("font-weight", "normal")
+            .style("fill", "#444");
+      })
+      
+  var route = station_map.selectAll(".text")
+        .data(all_routes)
+    .enter().append("text")
+        .text(function(d) { return d; })
+        .style("font-size", "14px")
+        .style("fill", "#444")
+        .attr("x", function(d, i) { return xScale(26); })
+        .attr("y", function(d, i) { return yScale(i/2 + 4); })
+
+  var pagerank_order_xScale = d3.scale.linear()
+         .domain([0, d3.max(order_nodes, function(n) { return n.t.x; })])
+         .range([xPadding_sort, w_sort - xPadding_sort]);
+         
+  var pagerank_order_yScale = d3.scale.linear()
+         .domain([0, d3.max(order_nodes, function(n) { return n.t.y; })])
+         .range([yPadding_sort, h_sort - yPadding_sort]);
+  
+  var order_node = pagerank_order.selectAll(".node")
+      .data(order_nodes)
+      .enter().append("circle")
+      .attr("r", function(d) {
+        return d.scale * d[d.state].rank;
+      })
+      .attr("cx", function(d, i) {
+        return pagerank_order_xScale(d[d.state].x); 
+      })
+      .attr("cy", function(d, i) { 
+        return pagerank_order_yScale(d[d.state].y);
+      })
+      .style("fill", function(d) { return 'gray'; })
+      .on("mouseover", function(d) {
+        d3.select(this).style("fill", "black");
+        node.filter(function(n) { return d.id == n.id; })
+          .style("fill", "black")
+          .attr("r", function(d) { return 10; });
+        info_text.text(d.name + ": " + Math.round(d[d.state].rank * 100) / 100);
+      })
+      .on("mouseout", function(d) {
+        d3.select(this).style("fill", "gray");
+        info_text.text("Hover over station.");
+        node.style("fill", "gray")
+        .attr("r", function(n) { return n.scale * n[n.state].rank; });
+      })
+
+  // switch between states (t, walk, bus)
+
+  var transition_to_state = function(nd, ord_nd, new_state) {
+    return function() {
+      nd.transition()
+          .attr("r", function(d) {
+            d.state = new_state;
+            return d.scale * d[d.state].rank;
+          });
+      ord_nd.transition()
+          .attr("r", function(d) {
+            d.state = new_state;
+            return d.scale * d[d.state].rank;
+          })
+          .attr("cx", function(d, i) {
+            d.state = new_state; 
+            return pagerank_order_xScale(d[d.state].x); 
+          })
+          .attr("cy", function(d, i) { 
+            d.state = new_state; 
+            return pagerank_order_yScale(d[d.state].y);
+          })
+    }
+  };
+
+  t_walk.on("click", transition_to_state(node, order_node, "walk"));
+  t_only.on("click", transition_to_state(node, order_node, "t"));
+  t_walk_bus.on("click", transition_to_state(node, order_node, "bus"));
+}
+
+</script>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Meta - Collection Sizes</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </style>
+</head>
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <div id="container" style="float:left"></div>
+  <div id="description" style="margin-left:920px">
+    <h3>Database Statistics</h3>
+    <p>
+      Meta statistics on the database. Each collection, by every team, is examined for
+      entry count, physical size (in kilobytes), and the authoring team. The object size
+      is based on the log of the size of the collection on disk.
+    </p>
+    <p>
+      This also maps the description of the collection as recorded in the corresponding
+      provenance entry. All visible on mouseover.
+    </p>
+  </div>
+  <script>
+    // Looks the same as the Utility visualization, but quite different data and
+    // some different logic inside.
+    // Like Utility, credit for most of this to examples at https://bl.ocks.org/mbostock/3231298 and
+    // https://bl.ocks.org/mbostock/4063269. Force and texty bubbles.
+    // Each licensed GPLv3
+
+    var width = 900,
+        height = 600;
+
+    function scale(size) {
+      return Math.log2(size) * 2;
+    }
+
+    var color = d3.scale.category10();
+
+    // Separated this out because I hoped to be able to dynamically redefine circle
+    // sizes based on radio buttons, but couldn't get that transform quite working yet.
+    var radius_function = function(d) { return scale(d.size); }
+
+    // The force layout for d3
+    var force = d3.layout.force()
+        .gravity(0.09)
+        .charge(0.0)
+        .size([width, height]);
+
+    var svg = d3.select("#container").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("class", "force");
+
+    // Grab our utility ratings. Start the db server from our project directory
+    // like "python3 restful.py" after starting mongod.
+    d3.json('http://127.0.0.1:5000/getstats', function(stats) {
+
+      data = stats.map( function(d) {
+        // Could filter out collections like "system" and "_provenance" here.
+        return {size: d.size, radius: scale(d.size), name: d.ns.substring(d.ns.indexOf('.')+1), count: d.count};
+      });
+
+      // Add the nodes to the force layout.
+      force.nodes(data).start();
+
+      // To have both circles and text we need group tags for each node.
+      var node = svg.selectAll(".node")
+          .data(data)
+        .enter().append("g") // Need a group to include text with the circles.
+          .attr("class", "node")
+          .call(force.drag);
+
+      node.append("circle")
+        .attr("r", function(d) { return radius_function(d); })
+        .style("fill", function(d) { return color(d.size); });
+
+      // Sweet mouseover action with descriptions and such.
+      d3.json('http://127.0.0.1:5000/getprov', function(provs) {
+        node.append("title").text(function(d) {
+          provs.forEach(function(p) {
+            // Each prov entry has multiple entities, need to search keys.
+            for ( k in p.entity ) {
+              if ( k.split(':')[1] == d.name.split('.')[1] ) {
+                // We found it, save it.
+                d.label = p.entity[k]['prov:label'];
+              }
+            }
+          });
+          return d.label + "\nTeam: " + d.name.split('.')[0] + "\nSize: " + (d.size/1024).toFixed(1) + " kb\nCount: " + d.count + " entries";
+        });
+      });
+
+      // Show the "id" style stop in the circle.
+      node.append("text")
+        .attr("dy", ".3em")
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.name.split('.')[1]; });
+
+      force.on("tick", function(e) {
+        var q = d3.geom.quadtree(data),
+            i = 0,
+            n = data.length;
+
+        while (++i < n) {
+          q.visit(collide(data[i]));
+        }
+
+        // Not sure why an attr has to be set on tick, but setting it anywhere
+        // else just doesn't work.
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+      });
+
+      function collide(node) {
+        var r = radius_function(node) + 16,
+            nx1 = node.x - r,
+            nx2 = node.x + r,
+            ny1 = node.y - r,
+            ny2 = node.y + r;
+        return function(quad, x1, y1, x2, y2) {
+          if (quad.point && (quad.point !== node)) {
+            var x = node.x - quad.point.x,
+                y = node.y - quad.point.y,
+                l = Math.sqrt(x * x + y * y),
+                r = radius_function(node) + quad.point.radius;
+            if (l < r) {
+              l = (l - r) / l * .5;
+              node.x -= x *= l;
+              node.y -= y *= l;
+              quad.point.x += x;
+              quad.point.y += y;
+            }
+          }
+          return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+        };
+      }
+
+    });
+
+  </script>
+</body>
+</html>

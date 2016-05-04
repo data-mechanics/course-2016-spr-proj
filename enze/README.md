@@ -1,58 +1,56 @@
-Enze Yan
-enze@bu.edu
-CS 591 L1 Spring 2016
-Project #1: Data Retrieval, Storage, Provenance, and Transformation
+# BU CASCS 591 L1 Data Mechanics Spring 2016
 
-Question: Do most incidents happen near pubs/bars due to alcohol?
+# Project #2
 
-What we need:
-- Where are the pubs/bars?
-- Incidents report with information about what type of incidents and where the incidents happened.
-- Traffic condition around pubs/bars.
+**Enze Yan**
+**enze@bu.edu**
 
-# Database 1: Liquor Licenses
-# URL: https://data.cityofboston.gov/resource/hda6-fnsh
+### Background
 
-All approved liquor licenses by the Boston Licensing Board
-- The dataset was last updated on June 2014
-- We first create a filter to get the related license category:
-	• located in the greater Boston area (city=Boston)
-	• 'CV7AL' is the license code issued to bars/pubs (liccat=CV7AL)
-	• We want to make sure that the license is still active (licstatus=Active)
-- Important information:
-	• Closing (time): is there a particular time interval that has most amount of incidents?
-	• Street name & Location: (Latitude, Longitude) -- clustering algorithm with incidents locations
+> Since former Mayor Menino launched Boston Bikes **(http://www.bostonbikes.org/)** in 2007, ridership in the City has more than doubled. Many other important strides have been made in safety, education, and facilities.
 
-# Database 2: Crime Incident Reports
-# URL: https://data.cityofboston.gov/resource/7cdf-6fgx
+> Boston Bikes is putting together a broad picture of cycling in Boston by analyzing data from a variety of sources. The Boston Public Health Commission is analyzing crash data from Boston Emergency Medical Services, Boston Police Department and local emergency departments. Further, Boston Bikes confirmed ridership using information compiled by the League of American Bicyclists. Boston Bikes conducted multiple surveys with over 4,000 respondents. Key findings can soon be found here once fully analyzed. Boston Bikes will continue to seek public input in the upcoming year to improve bike safety, education, and ridership.
 
-Crime Incident Reports provided by Boston Police Department:
-- The data was documented between July 2012 and August 2015
-- Important information:
-	• Incident Type Description: Pub Drink, Vandalism, Simple/Aggravated Assault, Robbery ...
-	• Day Week = Friday, Saturday, and Sunday
-	• Location: (Latitude, Longitude)
+> Additionally, Boston Bikes conducted its annual traffic counts at 24 different locations. Together, these sources of data provide a broad picture of cycling in Boston. Boston Bikes will continue seek public input in the upcoming year to improve bike safety, education, and ridership.
 
-# Database 3: Waze Jam Data
-# URL: https://data.cityofboston.gov/resource/yqgx-2ktq
+### Datasets
 
-Waze Jam data between 2/21/2015 and 3/1/2015. Join with Waze point data set by UUID for detailed location.
-Use MapReduce to gather information about each street, specially around bar area.
-- Important information:
-	• Street Address
-	• Start Time
-	• Road Type: 1, 2, 6, 7 (no freeway/highway)
+**The Bicycle Collisions in Boston Database**
 
-### 2 new databases
+Draws off of Boston Police Department records to document those bike collisions that occurred in Boston from 2009 – 2012. The database was constructed as part of a research-policy collaboration between Dahianna Lopez (Harvard School of Public Health) and the Boston Police Department.
 
-crime_totals.json sums up (through mapreduce) all the incidents reported located within the same street as pub/bars, separated by day of the week (columns).
+The database contains a single spreadsheet (Bicycle Collisions.xlsx) and an accompanying shape file that enables mapping and spatial analysis (Bicycle Collisions.shp and associated files.
 
-waze_totals.json sums up all the traffic jam reported through waze at the same street of pub/bars.
+The Bicycle Collision database contains all bicycle collisions in the city of Boston during 2009 – 2012 that were recorded in Boston Police Department records. The database itself is derived predominantly from these records. The database contains 1,815 collisions.
 
-To run:
+**Boston Existing Bike Lane Database**
 
-# Fetch the dataset and build 2 new datasets
-python dat_process.py
+The Boston Bike Network provides a vision for developing bike lanes and paths throughout the City.
 
-# Build the provenance file
-python initialize.py
+**Boston,MA Metro Extracts**
+
+City-sized portions of OpenStreetMap, served weekly
+
+### Problem to Solve:
+
+Use the existing bicycle collisions data, we could compare the incidents frequeny between the roads with bike lane or and roads without bike lane. It turns out that the incidents are less likely to happen in a bike lanes, which was suggested by the plots, even though there are more incidents happening on the road with a bike lane. That could suggest that everyone is eager to use the bike lane.
+
+![GitHub Logo](Plot/on_BikeLane.png)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Plot/off_BikeLane.png)
+Format: ![Alt Text](url)
+
+I am trying to figure out what are the improvement on a bike lane? What are the bike lanes that we could add to the street to make biking safer? I am planning on using a SMT solver to tackle this problem. I have already generate a special database - intersection_lane.csv, which contains all the roads that have had at least one collision happend on this street. It also collects the data which tells if there is a bike lane on this given road. The last step is to put this model into an SMT solver.
+
+### Reference
+
+- http://hubhacks-vermonster.s3-website-us-west-2.amazonaws.com/
+- https://data.cityofboston.gov/
+- http://www.cityofboston.gov/bikes/statistics.asp
+- http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/datalayers/bicycle-trails.html
+- http://bostonopendata.boston.opendata.arcgis.com/datasets?q=bike
+- http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer
+- https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/24713
+- http://www.cityofboston.gov/bikes/BikeNetwork/
+

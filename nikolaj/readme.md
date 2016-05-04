@@ -1,35 +1,41 @@
-**Usage**
+Project summary
 
-The driver script is projone.py. No authentication is required so an auth file is optinal. Run as follows:
+In this project we model the Boston public transportation system as a graph. We investigate different adjacency semantics and explore important graph metrics such as node degree and PageRank. The PageRank algorithm was initially developed to measure the importance of web pages to improve search query result quality. The PageRank of a web page reflects the likelihood that a web-surfer starting at a random webpage and following links at random reaches the webpage in question. By computing the PageRank of a station we expose the likelihood of a random commuter using the transportation network arriving at a particular station. This, in turn, gives indication to the relative importance and centrality of a particular station. By analyzing the station PageRank we hope to expose idiosyncrasies in the overall station layout and get a better understanding of which stations are most central and essential to the network. Modelling the transportation network as a graph further allows us to apply other graph algorithms, such as SimRank to the network. Some concrete questions we want to answer are: which stations in the network are redundant? Which stations are most central? Which routes are most central? Which routes are most similar to each other? How does the inclusion of the bus transportation network affect these centrality scores? How does extending the adjacency semantics by creating edges between stations that are within a short walking distance from each other affect the centrality scores? 
 
-```python projone.py [auth.json]```
+Data sources
 
-**Depedencies**
+http://www.mbtainfo.com/ -- Various bus schedules specifically for the 1, 9, 16, 23, 39, 47, 57, 66, 70, 83, 86, 87, 89, 101, 105, and 116 routes.
 
-Tested on Ubuntu 12.04 64 bit, Python3.4, Mongo3.2.3.
+https://github.com/mbtaviz/mbtaviz.github.io/tree/master/data -- T lines data both topology and station names.
 
-**Analytics Task**
+http://www.mbta.com/uploadedfiles/MBTA_GTFS.zip -- The official MBTA station data.
 
-Determine if there is a gender based pay gap among Boston City Employees. This is the first step to establishing whether there are trends in gender pay gap over time.
+Transformations
 
-**Datasets**
+Geo-adjacency. For each station we compute and store all stations within a k-meter radius. This serves as intermediate data for the following PageRank computations but also indicates the vertex degree of each station. 
 
-SSA common names by gender: This dataset contains records of first name, gender, and frequency of name. I will use this dataset to infer 
-the gender of each employee included in the following datasets. 
+PageRank of T network only. We computed the PageRank of the graph induced by the green, red, blue, and orange T lines. Two stations are adjacent if there is a direct train connection between them.
 
-https://www.ssa.gov/oact/babynames/names.zip
+PageRank of T network with geo-adjacency. In this model we include edges between directly connected stations but also when stations are within 500 meters of each other (indicating a short-walking distance).
 
-Employee Earnings Report 2013: This data set contains income data of Boston City employees. Since employee gender is not included, I will use the first name records to cross-reference the previous data set to establish gender. 
+PageRank of T and bus network with geo-adjacency. Same as the previous transformation but also includes the above-mentioned bus routes.
 
-https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2013/54s2-yxpg
+Visualizations
 
-Employee Earnings Report 2014: Same as the previous dataset but for the year 2014.
+index.html -- PageRank and adjacency over network graph.
 
-https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8
+map.html -- PageRank of bus and t stations projected onto Google Maps. 
 
-**Transformations**
+Usage:
 
-Aggregate gender records with salary information: I provide a MongoDB mapreduce implementation for combining employee income records from Employee Earnings Report 2013, and Employee Earnings Report 2014 with the gender name information provided in SSA common names by gender to establish the gender of the employees.
-This creates two new data sets of individual employee gender to salary mappings for the years of 2013 and 2014. 
+Run "python pagerank_pipeline.py" to step through the data generation process.
 
-Average income by gender: I provide a MongoDB mapreduce implementation for computing the average income by gender using the two data sets generated in the previous transformation.
+Open index.html to view visualizations. NOTE: index.html accesses datamechanics.io.
+
+Dependencies:
+
+Python Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
+
+Pip install: pip install beautifulsoup4
+
+I used this library to scrape mbtainfo.com for bus schedules.

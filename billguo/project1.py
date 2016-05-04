@@ -17,7 +17,7 @@ repo.authenticate('billguo', 'billguo')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-url = 'https://data.cityofboston.gov/resource/54s2-yxpg.json?$limit=2000'
+url = 'https://data.cityofboston.gov/resource/54s2-yxpg.json?$limit=500'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
@@ -25,7 +25,7 @@ repo.dropPermanent("earn2013")
 repo.createPermanent("earn2013")
 repo['billguo.earn2013'].insert_many(r)
 
-url = 'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=2000'
+url = 'https://data.cityofboston.gov/resource/4swk-wcg8.json?$limit=500'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
@@ -33,7 +33,7 @@ repo.dropPermanent("earn2014")
 repo.createPermanent("earn2014")
 repo['billguo.earn2014'].insert_many(r)
 
-url = 'https://data.cityofboston.gov/resource/effb-uspk.json?$limit=2000'
+url = 'https://data.cityofboston.gov/resource/effb-uspk.json?$limit=500'
 response = urllib.request.urlopen(url).read().decode("utf-8")
 r = json.loads(response)
 s = json.dumps(r, sort_keys=True, indent=2)
@@ -46,6 +46,46 @@ repo.createPermanent("earn2012to2014")
 earn2013 = repo['billguo.earn2013']
 earn2014 = repo['billguo.earn2014']
 earn2012 = repo['billguo.earn2012']
+
+
+R = dict()
+R["name"] = "job&earn2014"
+R["children"] = []
+temp = ""
+temp2 = ""
+for data in earn2014.find():
+	if data["department_name"] != temp: #find a new department
+		temp = data["department_name"]
+		D = dict()
+		D["name"] = temp
+		D["children"] = []
+		for data2 in earn2014.find({"department_name":temp}):
+			if data2["title"] != temp2: #find a new title
+				temp2 = data2["title"]
+				T = dict()
+				T["name"] = temp2
+				T["children"] = []	
+				a = earn2014.find({"department_name":temp,"title": temp2}, {"name":True, "total_earnings":True, "_id":False})
+				l = list(a)
+				json.dumps(l)
+				T["children"] = l
+			else:
+				continue
+			D["children"].append(T)
+	else:
+		continue
+	R["children"].append(D)
+
+
+j = []
+j.append(R)
+
+repo.dropPermanent("test")
+repo.createPermanent("test")
+json.dumps(j, sort_keys=True, indent=2)
+repo['billguo.test'].insert_many(j)
+
+		
 
 #this script basically search all the data in 2012 and than look for
 #data with same name in 2013 and 2014 and put their earnings in 2013

@@ -1,365 +1,888 @@
 {
-    "prefix": {
-        "log": "http://datamechanics.io/log#",
-        "alg": "http://datamechanics.io/algorithm/nikolaj/",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "ont": "http://datamechanics.io/ontology#",
-        "ssa": "https://www.ssa.gov/oact/babynames/",
-        "dat": "http://datamechanics.io/data/nikolaj/"
-    },
-    "wasDerivedFrom": {
-        "_:id34": {
-            "prov:usedEntity": "dat:earnings_2013_combined",
-            "prov:generation": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
-            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
-            "prov:generatedEntity": "dat:earnings_2013_avg_by_gender",
-            "prov:usage": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a"
-        },
-        "_:id39": {
-            "prov:usedEntity": "dat:earnings_2014_combined",
-            "prov:generation": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
-            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
-            "prov:generatedEntity": "dat:earnings_2014_avg_by_gender",
-            "prov:usage": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0"
-        },
-        "_:id22": {
-            "prov:usedEntity": "dat:name_gender_lookup",
-            "prov:generation": "log:a11d77307-8853-499d-948f-bc01671f29a8",
-            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
-            "prov:generatedEntity": "dat:earnings_2013_combined",
-            "prov:usage": "log:a11d77307-8853-499d-948f-bc01671f29a8"
-        },
-        "_:id21": {
-            "prov:usedEntity": "dat:earnings_2013",
-            "prov:generation": "log:a11d77307-8853-499d-948f-bc01671f29a8",
-            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
-            "prov:generatedEntity": "dat:earnings_2013_combined",
-            "prov:usage": "log:a11d77307-8853-499d-948f-bc01671f29a8"
-        },
-        "_:id5": {
-            "prov:usedEntity": "bdp:54s2-yxpg",
-            "prov:generation": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
-            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
-            "prov:generatedEntity": "dat:earnings_2013",
-            "prov:usage": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05"
-        },
-        "_:id29": {
-            "prov:usedEntity": "dat:name_gender_lookup",
-            "prov:generation": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:generatedEntity": "dat:earnings_2014_combined",
-            "prov:usage": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677"
-        },
-        "_:id10": {
-            "prov:usedEntity": "bdp:ntv7-hwjm",
-            "prov:generation": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
-            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
-            "prov:generatedEntity": "dat:earnings_2014",
-            "prov:usage": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c"
-        },
-        "_:id15": {
-            "prov:usedEntity": "ssa:names",
-            "prov:generation": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
-            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
-            "prov:generatedEntity": "dat:name_gender_lookup",
-            "prov:usage": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197"
-        },
-        "_:id28": {
-            "prov:usedEntity": "dat:earnings_2014",
-            "prov:generation": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:generatedEntity": "dat:earnings_2014_combined",
-            "prov:usage": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677"
-        }
-    },
     "entity": {
-        "ssa:names": {
-            "prov:label": "National Data on the relative frequency of given names",
+        "mbt_1:83": {
             "prov:type": "ont:DataResource",
-            "ont:Extension": "zip"
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 83"
         },
-        "dat:earnings_2013_avg_by_gender": {
-            "prov:label": "Average Salary Computed by Gender 2013",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:earnings_2014": [
+        "dat:raw_bus_stops": [
             {
-                "prov:label": "Earnings Report 2014",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops"
             },
             {
-                "prov:label": "Earnings Report 2014",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops"
             }
         ],
-        "dat:earnings_2013_combined": [
+        "dat:pagerank_result_t_500walk_bus": [
             {
-                "prov:label": "Average Salary Computed by Gender 2013",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops and their computed PageRank"
             },
             {
-                "prov:label": "Individual Salary by Gender 2013",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops and their computed PageRank"
             }
         ],
-        "bdp:ntv7-hwjm": {
-            "prov:label": "Employee Earnings Report 2014",
+        "mbt_1:89": {
             "prov:type": "ont:DataResource",
-            "ont:Extension": "json"
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 89"
         },
-        "bdp:54s2-yxpg": {
-            "prov:label": "Employee Earnings Report 2013",
+        "mbt_1:101": {
             "prov:type": "ont:DataResource",
-            "ont:Extension": "json"
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 101"
         },
-        "dat:earnings_2014_combined": [
+        "dat:stops_with_neighs_t_only": [
             {
-                "prov:label": "Average Salary Computed by Gender 2014",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops aggregated by location"
             },
             {
-                "prov:label": "Individual Salary by Gender 2014",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops aggregated by location"
             }
         ],
-        "dat:earnings_2014_avg_by_gender": {
-            "prov:label": "Average Salary Computed by Gender 2014",
-            "prov:type": "ont:DataSet"
-        },
-        "dat:name_gender_lookup": [
+        "dat:raw_t_stops": [
             {
-                "prov:label": "Name Gender Lookup",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops"
             },
             {
-                "prov:label": "Name Gender Lookup",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops"
             }
         ],
-        "dat:earnings_2013": [
+        "mbt_1:70": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 70"
+        },
+        "mbt_1:86": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 86"
+        },
+        "dat:dist_routes": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "All distinct routes"
+        },
+        "mbt_1:16": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 16"
+        },
+        "mbt_1:66": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 66"
+        },
+        "dat:stops_with_neighs_t_500walk_bus": [
             {
-                "prov:label": "Earnings Report 2013",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops aggregated by location"
             },
             {
-                "prov:label": "Earnings Report 2013",
-                "prov:type": "ont:DataSet"
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops aggregated by location"
             }
-        ]
+        ],
+        "dat:pagerank_result": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "All pageranks in single collection"
+        },
+        "mbt:spider": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "Graphical representation of MBTA network"
+        },
+        "dat:stops_with_neighs_t_500walk": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops aggregated by location"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops aggregated by location"
+            }
+        ],
+        "mbt_1:39": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 39"
+        },
+        "dat:pagerank_result_t_500walk": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops and their computed PageRank"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops and their computed PageRank"
+            }
+        ],
+        "dat:pagerank_result_t_only": [
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops and their computed PageRank"
+            },
+            {
+                "prov:type": "ont:DataSet",
+                "prov:label": "Stops and their computed PageRank"
+            }
+        ],
+        "mbt_1:23": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 23"
+        },
+        "mbt:station-network": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json",
+            "prov:label": "MBTA Station Network"
+        },
+        "mbt_1:116": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 116"
+        },
+        "mbt_1:1": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 1"
+        },
+        "mbt_1:105": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 105"
+        },
+        "mbt_1:57": {
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "html",
+            "prov:label": "MBTA Bus Stop 57"
+        }
     },
     "used": {
-        "_:id31": {
-            "prov:time": "2016-03-01T17:37:53.327846",
-            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
-            "prov:type": "ont:Retrieval",
-            "prov:entity": "dat:earnings_2013_combined"
+        "_:id4": {
+            "prov:activity": "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c",
+            "prov:entity": "mbt:spider"
         },
-        "_:id18": {
-            "prov:time": "2016-03-01T17:37:28.886145",
-            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
+        "_:id56": {
+            "prov:activity": "log:abd1fec04-efcb-477c-a868-f669c5ef02e3",
+            "prov:entity": "mbt_1:86"
+        },
+        "_:id16": {
+            "prov:activity": "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7",
+            "prov:entity": "mbt_1:101"
+        },
+        "_:id48": {
+            "prov:activity": "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6",
+            "prov:entity": "mbt_1:70"
+        },
+        "_:id105": {
             "prov:type": "ont:Retrieval",
-            "prov:entity": "dat:name_gender_lookup"
+            "prov:entity": "dat:pagerank_result",
+            "prov:activity": "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504"
+        },
+        "_:id98": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:pagerank_result_t_500walk_bus",
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6"
+        },
+        "_:id91": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:stops_with_neighs_t_500walk_bus",
+            "prov:activity": "log:a15372da7-8478-482f-9c48-0ed037588b01"
         },
         "_:id36": {
-            "prov:time": "2016-03-01T17:37:53.327846",
-            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
+            "prov:activity": "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78",
+            "prov:entity": "mbt_1:39"
+        },
+        "_:id96": {
             "prov:type": "ont:Retrieval",
-            "prov:entity": "dat:earnings_2014_combined"
-        },
-        "_:id17": {
-            "prov:time": "2016-03-01T17:37:28.886145",
-            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
-            "prov:type": "ont:Retrieval",
-            "prov:entity": "dat:earnings_2013"
-        },
-        "_:id12": {
-            "prov:time": "2016-03-01T17:37:10.993472",
-            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
-            "prov:entity": "ssa:names"
-        },
-        "_:id2": {
-            "prov:time": "2016-03-01T17:37:10.993472",
-            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
-            "prov:entity": "bdp:54s2-yxpg"
-        },
-        "_:id25": {
-            "prov:time": "2016-03-01T17:37:28.886145",
-            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:type": "ont:Retrieval",
-            "prov:entity": "dat:name_gender_lookup"
-        },
-        "_:id7": {
-            "prov:time": "2016-03-01T17:37:10.993472",
-            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
-            "prov:entity": "bdp:ntv7-hwjm"
-        },
-        "_:id24": {
-            "prov:time": "2016-03-01T17:37:28.886145",
-            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:type": "ont:Retrieval",
-            "prov:entity": "dat:earnings_2014"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id37": {
-            "prov:agent": "alg:sal_avg_by_gender",
-            "prov:entity": "dat:earnings_2014_avg_by_gender"
-        },
-        "_:id13": {
-            "prov:agent": "alg:gender_sal_data",
-            "prov:entity": "dat:name_gender_lookup"
+            "prov:entity": "dat:pagerank_result_t_only",
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6"
         },
         "_:id32": {
-            "prov:agent": "alg:sal_avg_by_gender",
-            "prov:entity": "dat:earnings_2013_avg_by_gender"
+            "prov:activity": "log:a7c2bc982-345a-422d-a032-1ad0fa361202",
+            "prov:entity": "mbt_1:23"
         },
-        "_:id26": {
-            "prov:agent": "alg:join_sal_gender",
-            "prov:entity": "dat:earnings_2014_combined"
+        "_:id69": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:stops_with_neighs_t_only",
+            "prov:activity": "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66"
         },
-        "_:id3": {
-            "prov:agent": "alg:gender_sal_data",
-            "prov:entity": "dat:earnings_2013"
+        "_:id44": {
+            "prov:activity": "log:a0a133908-b701-48af-b864-ff99be423811",
+            "prov:entity": "mbt_1:66"
         },
-        "_:id19": {
-            "prov:agent": "alg:join_sal_gender",
-            "prov:entity": "dat:earnings_2013_combined"
+        "_:id73": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_t_stops",
+            "prov:activity": "log:a20e39127-7773-45a1-a64f-c07664e5a60f"
         },
-        "_:id8": {
-            "prov:agent": "alg:gender_sal_data",
-            "prov:entity": "dat:earnings_2014"
+        "_:id12": {
+            "prov:activity": "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f",
+            "prov:entity": "mbt_1:1"
+        },
+        "_:id40": {
+            "prov:activity": "log:a656dfe69-b957-4034-96c1-79a93b256726",
+            "prov:entity": "mbt_1:57"
+        },
+        "_:id83": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_t_stops",
+            "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7"
+        },
+        "_:id60": {
+            "prov:activity": "log:a790994ad-17a8-4552-8ee0-48938f0ad910",
+            "prov:entity": "mbt_1:89"
+        },
+        "_:id52": {
+            "prov:activity": "log:af5f34955-f365-4aef-8868-ed3d3edfdd54",
+            "prov:entity": "mbt_1:83"
+        },
+        "_:id97": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:pagerank_result_t_500walk",
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6"
+        },
+        "_:id20": {
+            "prov:activity": "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52",
+            "prov:entity": "mbt_1:105"
+        },
+        "_:id28": {
+            "prov:activity": "log:a13a49d03-eb09-472d-b070-8cd90f131636",
+            "prov:entity": "mbt_1:16"
+        },
+        "_:id63": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_t_stops",
+            "prov:activity": "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96"
+        },
+        "_:id2": {
+            "prov:activity": "log:ad59f35b8-0ee2-46ed-b042-57d622945612",
+            "prov:entity": "mbt:station-network"
+        },
+        "_:id24": {
+            "prov:activity": "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed",
+            "prov:entity": "mbt_1:116"
+        },
+        "_:id87": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:raw_bus_stops",
+            "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7"
+        },
+        "_:id79": {
+            "prov:type": "ont:Retrieval",
+            "prov:entity": "dat:stops_with_neighs_t_500walk",
+            "prov:activity": "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d"
         }
     },
     "activity": {
-        "log:a710eec67-25b6-4e47-9360-fb92de70bd5a": {
-            "prov:endTime": "2016-03-01T17:37:55.439032",
-            "prov:label": "Compute Average Salary by Gender 2013",
-            "prov:startTime": "2016-03-01T17:37:53.327846",
-            "prov:type": "Computation"
+        "log:af5f34955-f365-4aef-8868-ed3d3edfdd54": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 83"
         },
-        "log:a11d77307-8853-499d-948f-bc01671f29a8": {
-            "prov:endTime": "2016-03-01T17:37:53.316920",
-            "prov:label": "Join Salary and Gender on Name 2013",
-            "prov:startTime": "2016-03-01T17:37:28.886145",
-            "prov:type": "Computation"
+        "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 1"
         },
-        "log:a310f2f4b-b781-4e46-8040-5d0dc9652677": {
-            "prov:endTime": "2016-03-01T17:37:53.316920",
-            "prov:label": "Join Salary and Gender on Name 2014",
-            "prov:startTime": "2016-03-01T17:37:28.886145",
-            "prov:type": "Computation"
+        "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504": {
+            "prov:type": "Computation",
+            "prov:label": "Extract all distinct routes"
         },
-        "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c": {
-            "prov:endTime": "2016-03-01T17:37:28.879538",
-            "prov:label": "Retrieve Earnings Report 2014",
-            "prov:startTime": "2016-03-01T17:37:10.993472",
-            "prov:type": "ont:Retrieval"
+        "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66": {
+            "prov:type": "Computation",
+            "prov:label": "Compute PageRank for Stops"
         },
-        "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197": {
-            "prov:endTime": "2016-03-01T17:37:28.879538",
-            "prov:startTime": "2016-03-01T17:37:10.993472",
-            "prov:type": "ont:Retrieval"
+        "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96": {
+            "prov:type": "Computation",
+            "prov:label": "Aggregate Stops Based on Geolocation"
         },
-        "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0": {
-            "prov:endTime": "2016-03-01T17:37:55.439032",
-            "prov:label": "Compute Average Salary by Gender 2014",
-            "prov:startTime": "2016-03-01T17:37:53.327846",
-            "prov:type": "Computation"
+        "log:a13a49d03-eb09-472d-b070-8cd90f131636": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 16"
         },
-        "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05": {
-            "prov:endTime": "2016-03-01T17:37:28.879538",
-            "prov:startTime": "2016-03-01T17:37:10.993472",
+        "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d": {
+            "prov:type": "Computation",
+            "prov:label": "Compute PageRank for Stops"
+        },
+        "log:ad59f35b8-0ee2-46ed-b042-57d622945612": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "Retrieve MBTA Station Network"
+        },
+        "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 70"
+        },
+        "log:a20e39127-7773-45a1-a64f-c07664e5a60f": {
+            "prov:type": "Computation",
+            "prov:label": "Aggregate Stops Based on Geolocation"
+        },
+        "log:a0a133908-b701-48af-b864-ff99be423811": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 66"
+        },
+        "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 105"
+        },
+        "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 116"
+        },
+        "log:a790994ad-17a8-4552-8ee0-48938f0ad910": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 89"
+        },
+        "log:a15372da7-8478-482f-9c48-0ed037588b01": {
+            "prov:type": "Computation",
+            "prov:label": "Compute PageRank for Stops"
+        },
+        "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6": {
+            "prov:type": "Computation",
+            "prov:label": "Combine different pageranks into single collection"
+        },
+        "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 39"
+        },
+        "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7": {
+            "prov:type": "Computation",
+            "prov:label": "Aggregate Stops Based on Geolocation"
+        },
+        "log:a656dfe69-b957-4034-96c1-79a93b256726": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 57"
+        },
+        "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 101"
+        },
+        "log:a7c2bc982-345a-422d-a032-1ad0fa361202": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 23"
+        },
+        "log:abd1fec04-efcb-477c-a868-f669c5ef02e3": {
+            "prov:type": "ont:Retrieval",
+            "prov:label": "MBTA Bus Stop 86"
+        },
+        "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c": {
             "prov:type": "ont:Retrieval"
         }
     },
-    "wasGeneratedBy": {
-        "_:id20": {
-            "prov:time": "2016-03-01T17:37:53.316920",
-            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8",
-            "prov:entity": "dat:earnings_2013_combined"
+    "wasAttributedTo": {
+        "_:id106": {
+            "prov:agent": "alg:vizdatautil",
+            "prov:entity": "dat:dist_routes"
         },
-        "_:id4": {
-            "prov:time": "2016-03-01T17:37:28.879538",
-            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05",
-            "prov:entity": "dat:earnings_2013"
+        "_:id64": {
+            "prov:agent": "alg:geoagg",
+            "prov:entity": "dat:stops_with_neighs_t_only"
+        },
+        "_:id70": {
+            "prov:agent": "alg:pagerank",
+            "prov:entity": "dat:pagerank_result_t_only"
+        },
+        "_:id10": {
+            "prov:agent": "alg:storeBus",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id74": {
+            "prov:agent": "alg:geoagg",
+            "prov:entity": "dat:stops_with_neighs_t_500walk"
+        },
+        "_:id92": {
+            "prov:agent": "alg:pagerank",
+            "prov:entity": "dat:pagerank_result_t_500walk_bus"
+        },
+        "_:id5": {
+            "prov:agent": "alg:storeT",
+            "prov:entity": "dat:raw_t_stops"
+        },
+        "_:id84": [
+            {
+                "prov:agent": "alg:geoagg",
+                "prov:entity": "dat:stops_with_neighs_t_500walk_bus"
+            },
+            {
+                "prov:agent": "alg:geoagg",
+                "prov:entity": "dat:stops_with_neighs_t_500walk_bus"
+            }
+        ],
+        "_:id80": {
+            "prov:agent": "alg:pagerank",
+            "prov:entity": "dat:pagerank_result_t_500walk"
+        },
+        "_:id99": {
+            "prov:agent": "alg:vizdatautil",
+            "prov:entity": "dat:pagerank_result"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id102": {
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:generation": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:usedEntity": "dat:pagerank_result_t_500walk",
+            "prov:usage": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:generatedEntity": "dat:pagerank_result"
+        },
+        "_:id54": {
+            "prov:activity": "log:af5f34955-f365-4aef-8868-ed3d3edfdd54",
+            "prov:generation": "log:af5f34955-f365-4aef-8868-ed3d3edfdd54",
+            "prov:usedEntity": "mbt_1:83",
+            "prov:usage": "log:af5f34955-f365-4aef-8868-ed3d3edfdd54",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id103": {
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:generation": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:usedEntity": "dat:pagerank_result_t_500walk_bus",
+            "prov:usage": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:generatedEntity": "dat:pagerank_result"
         },
         "_:id14": {
-            "prov:time": "2016-03-01T17:37:28.879538",
-            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197",
-            "prov:entity": "dat:name_gender_lookup"
+            "prov:activity": "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f",
+            "prov:generation": "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f",
+            "prov:usedEntity": "mbt_1:1",
+            "prov:usage": "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f",
+            "prov:generatedEntity": "dat:raw_bus_stops"
         },
-        "_:id33": {
-            "prov:time": "2016-03-01T17:37:55.439032",
-            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a",
-            "prov:entity": "dat:earnings_2013_avg_by_gender"
+        "_:id58": {
+            "prov:activity": "log:abd1fec04-efcb-477c-a868-f669c5ef02e3",
+            "prov:generation": "log:abd1fec04-efcb-477c-a868-f669c5ef02e3",
+            "prov:usedEntity": "mbt_1:86",
+            "prov:usage": "log:abd1fec04-efcb-477c-a868-f669c5ef02e3",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id22": {
+            "prov:activity": "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52",
+            "prov:generation": "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52",
+            "prov:usedEntity": "mbt_1:105",
+            "prov:usage": "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id50": {
+            "prov:activity": "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6",
+            "prov:generation": "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6",
+            "prov:usedEntity": "mbt_1:70",
+            "prov:usage": "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id66": {
+            "prov:activity": "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96",
+            "prov:generation": "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96",
+            "prov:usedEntity": "dat:raw_t_stops",
+            "prov:usage": "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96",
+            "prov:generatedEntity": "dat:stops_with_neighs_t_only"
+        },
+        "_:id18": {
+            "prov:activity": "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7",
+            "prov:generation": "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7",
+            "prov:usedEntity": "mbt_1:101",
+            "prov:usage": "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id30": {
+            "prov:activity": "log:a13a49d03-eb09-472d-b070-8cd90f131636",
+            "prov:generation": "log:a13a49d03-eb09-472d-b070-8cd90f131636",
+            "prov:usedEntity": "mbt_1:16",
+            "prov:usage": "log:a13a49d03-eb09-472d-b070-8cd90f131636",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id94": {
+            "prov:activity": "log:a15372da7-8478-482f-9c48-0ed037588b01",
+            "prov:generation": "log:a15372da7-8478-482f-9c48-0ed037588b01",
+            "prov:usedEntity": "dat:stops_with_neighs_t_500walk_bus",
+            "prov:usage": "log:a15372da7-8478-482f-9c48-0ed037588b01",
+            "prov:generatedEntity": "dat:pagerank_result_t_500walk_bus"
+        },
+        "_:id42": {
+            "prov:activity": "log:a656dfe69-b957-4034-96c1-79a93b256726",
+            "prov:generation": "log:a656dfe69-b957-4034-96c1-79a93b256726",
+            "prov:usedEntity": "mbt_1:57",
+            "prov:usage": "log:a656dfe69-b957-4034-96c1-79a93b256726",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id7": {
+            "prov:activity": "log:ad59f35b8-0ee2-46ed-b042-57d622945612",
+            "prov:generation": "log:ad59f35b8-0ee2-46ed-b042-57d622945612",
+            "prov:usedEntity": "mbt:station-network",
+            "prov:usage": "log:ad59f35b8-0ee2-46ed-b042-57d622945612",
+            "prov:generatedEntity": "dat:raw_t_stops"
+        },
+        "_:id62": {
+            "prov:activity": "log:a790994ad-17a8-4552-8ee0-48938f0ad910",
+            "prov:generation": "log:a790994ad-17a8-4552-8ee0-48938f0ad910",
+            "prov:usedEntity": "mbt_1:89",
+            "prov:usage": "log:a790994ad-17a8-4552-8ee0-48938f0ad910",
+            "prov:generatedEntity": "dat:raw_bus_stops"
         },
         "_:id9": {
-            "prov:time": "2016-03-01T17:37:28.879538",
-            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c",
-            "prov:entity": "dat:earnings_2014"
+            "prov:activity": "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c",
+            "prov:generation": "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c",
+            "prov:usedEntity": "mbt:spider",
+            "prov:usage": "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c",
+            "prov:generatedEntity": "dat:raw_t_stops"
         },
-        "_:id27": {
-            "prov:time": "2016-03-01T17:37:53.316920",
-            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677",
-            "prov:entity": "dat:earnings_2014_combined"
+        "_:id101": {
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:generation": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:usedEntity": "dat:pagerank_result_t_only",
+            "prov:usage": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:generatedEntity": "dat:pagerank_result"
+        },
+        "_:id46": {
+            "prov:activity": "log:a0a133908-b701-48af-b864-ff99be423811",
+            "prov:generation": "log:a0a133908-b701-48af-b864-ff99be423811",
+            "prov:usedEntity": "mbt_1:66",
+            "prov:usage": "log:a0a133908-b701-48af-b864-ff99be423811",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id82": {
+            "prov:activity": "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d",
+            "prov:generation": "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d",
+            "prov:usedEntity": "dat:stops_with_neighs_t_500walk",
+            "prov:usage": "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d",
+            "prov:generatedEntity": "dat:pagerank_result_t_500walk"
+        },
+        "_:id86": {
+            "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+            "prov:generation": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+            "prov:usedEntity": "dat:raw_t_stops",
+            "prov:usage": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+            "prov:generatedEntity": "dat:stops_with_neighs_t_500walk_bus"
         },
         "_:id38": {
-            "prov:time": "2016-03-01T17:37:55.439032",
-            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0",
-            "prov:entity": "dat:earnings_2014_avg_by_gender"
+            "prov:activity": "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78",
+            "prov:generation": "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78",
+            "prov:usedEntity": "mbt_1:39",
+            "prov:usage": "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id88": {
+            "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+            "prov:generation": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+            "prov:usedEntity": "dat:raw_bus_stops",
+            "prov:usage": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+            "prov:generatedEntity": "dat:stops_with_neighs_t_500walk_bus"
+        },
+        "_:id26": {
+            "prov:activity": "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed",
+            "prov:generation": "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed",
+            "prov:usedEntity": "mbt_1:116",
+            "prov:usage": "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id72": {
+            "prov:activity": "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66",
+            "prov:generation": "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66",
+            "prov:usedEntity": "dat:stops_with_neighs_t_only",
+            "prov:usage": "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66",
+            "prov:generatedEntity": "dat:pagerank_result_t_only"
+        },
+        "_:id108": {
+            "prov:activity": "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504",
+            "prov:generation": "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504",
+            "prov:usedEntity": "dat:pagerank_result",
+            "prov:usage": "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504",
+            "prov:generatedEntity": "dat:dist_routes"
+        },
+        "_:id34": {
+            "prov:activity": "log:a7c2bc982-345a-422d-a032-1ad0fa361202",
+            "prov:generation": "log:a7c2bc982-345a-422d-a032-1ad0fa361202",
+            "prov:usedEntity": "mbt_1:23",
+            "prov:usage": "log:a7c2bc982-345a-422d-a032-1ad0fa361202",
+            "prov:generatedEntity": "dat:raw_bus_stops"
+        },
+        "_:id76": {
+            "prov:activity": "log:a20e39127-7773-45a1-a64f-c07664e5a60f",
+            "prov:generation": "log:a20e39127-7773-45a1-a64f-c07664e5a60f",
+            "prov:usedEntity": "dat:raw_t_stops",
+            "prov:usage": "log:a20e39127-7773-45a1-a64f-c07664e5a60f",
+            "prov:generatedEntity": "dat:stops_with_neighs_t_500walk"
         }
     },
     "wasAssociatedWith": {
-        "_:id30": {
-            "prov:agent": "alg:sal_avg_by_gender",
-            "prov:activity": "log:a710eec67-25b6-4e47-9360-fb92de70bd5a"
+        "_:id67": {
+            "prov:agent": "alg:geoagg",
+            "prov:activity": "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96"
         },
-        "_:id6": {
-            "prov:agent": "alg:gender_sal_data",
-            "prov:activity": "log:a5b9b3fe7-acf8-4c6a-aac2-9a721fb0df3c"
+        "_:id31": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a7c2bc982-345a-422d-a032-1ad0fa361202"
+        },
+        "_:id19": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52"
+        },
+        "_:id90": {
+            "prov:agent": "alg:pagerank",
+            "prov:activity": "log:a15372da7-8478-482f-9c48-0ed037588b01"
+        },
+        "_:id47": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6"
         },
         "_:id11": {
-            "prov:agent": "alg:gender_sal_data",
-            "prov:activity": "log:a66824ed8-7ee7-4c3d-bbe9-e9eed9f80197"
-        },
-        "_:id16": {
-            "prov:agent": "alg:join_sal_gender",
-            "prov:activity": "log:a11d77307-8853-499d-948f-bc01671f29a8"
-        },
-        "_:id23": {
-            "prov:agent": "alg:join_sal_gender",
-            "prov:activity": "log:a310f2f4b-b781-4e46-8040-5d0dc9652677"
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f"
         },
         "_:id1": {
-            "prov:agent": "alg:gender_sal_data",
-            "prov:activity": "log:a28bf1a2e-78b1-4b07-8d91-231eddb63d05"
+            "prov:agent": "alg:storeT",
+            "prov:activity": "log:ad59f35b8-0ee2-46ed-b042-57d622945612"
+        },
+        "_:id95": {
+            "prov:agent": "alg:vizdatautil",
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6"
+        },
+        "_:id43": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a0a133908-b701-48af-b864-ff99be423811"
+        },
+        "_:id104": {
+            "prov:agent": "alg:vizdatautil",
+            "prov:activity": "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504"
+        },
+        "_:id27": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a13a49d03-eb09-472d-b070-8cd90f131636"
+        },
+        "_:id3": {
+            "prov:agent": "alg:storeT",
+            "prov:activity": "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c"
+        },
+        "_:id78": {
+            "prov:agent": "alg:pagerank",
+            "prov:activity": "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d"
+        },
+        "_:id59": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a790994ad-17a8-4552-8ee0-48938f0ad910"
+        },
+        "_:id55": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:abd1fec04-efcb-477c-a868-f669c5ef02e3"
+        },
+        "_:id51": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:af5f34955-f365-4aef-8868-ed3d3edfdd54"
         },
         "_:id35": {
-            "prov:agent": "alg:sal_avg_by_gender",
-            "prov:activity": "log:a3da12ad1-9dcd-4f23-9236-ab77f2822fd0"
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78"
+        },
+        "_:id77": {
+            "prov:agent": "alg:geoagg",
+            "prov:activity": "log:a20e39127-7773-45a1-a64f-c07664e5a60f"
+        },
+        "_:id89": {
+            "prov:agent": "alg:geoagg",
+            "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7"
+        },
+        "_:id68": {
+            "prov:agent": "alg:pagerank",
+            "prov:activity": "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66"
+        },
+        "_:id39": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a656dfe69-b957-4034-96c1-79a93b256726"
+        },
+        "_:id23": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed"
+        },
+        "_:id15": {
+            "prov:agent": "alg:storeBus",
+            "prov:activity": "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7"
         }
     },
     "agent": {
-        "alg:join_sal_gender": {
+        "alg:storeT": {
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             },
             "ont:Extension": "py"
         },
-        "alg:sal_avg_by_gender": {
+        "alg:pagerank": [
+            {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "$": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "$": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "$": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            }
+        ],
+        "alg:geoagg": [
+            {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "$": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "$": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            },
+            {
+                "prov:type": {
+                    "type": "prov:QUALIFIED_NAME",
+                    "$": "prov:SoftwareAgent"
+                },
+                "ont:Extension": "py"
+            }
+        ],
+        "alg:storeBus": {
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             },
             "ont:Extension": "py"
         },
-        "alg:gender_sal_data": {
+        "alg:vizdatautil": {
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             },
             "ont:Extension": "py"
         }
+    },
+    "wasGeneratedBy": {
+        "_:id71": {
+            "prov:activity": "log:a08edd1d7-9a71-4101-a528-92b14fbf4d66",
+            "prov:entity": "dat:pagerank_result_t_only"
+        },
+        "_:id57": {
+            "prov:activity": "log:abd1fec04-efcb-477c-a868-f669c5ef02e3",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id100": {
+            "prov:activity": "log:a8ca8d4be-1dda-4fa8-b135-0396274cdba6",
+            "prov:entity": "dat:pagerank_result"
+        },
+        "_:id41": {
+            "prov:activity": "log:a656dfe69-b957-4034-96c1-79a93b256726",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id49": {
+            "prov:activity": "log:a28c6cea7-ffd2-43db-9a27-2bbdc21d48a6",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id75": {
+            "prov:activity": "log:a20e39127-7773-45a1-a64f-c07664e5a60f",
+            "prov:entity": "dat:stops_with_neighs_t_500walk"
+        },
+        "_:id53": {
+            "prov:activity": "log:af5f34955-f365-4aef-8868-ed3d3edfdd54",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id25": {
+            "prov:activity": "log:a11aa5aa0-e0ab-4378-aebb-1832eef239ed",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id17": {
+            "prov:activity": "log:aa4b5ff20-2d7b-4743-ab34-573cb0ae52c7",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id8": {
+            "prov:activity": "log:a749ad66c-2d1b-4e94-b1e1-5887247ff06c",
+            "prov:entity": "dat:raw_t_stops"
+        },
+        "_:id37": {
+            "prov:activity": "log:a472101dc-56cb-4cee-a6d9-b18c439d7b78",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id33": {
+            "prov:activity": "log:a7c2bc982-345a-422d-a032-1ad0fa361202",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id81": {
+            "prov:activity": "log:a1c9e6c95-9f6f-4a35-8372-25367cb78a4d",
+            "prov:entity": "dat:pagerank_result_t_500walk"
+        },
+        "_:id85": [
+            {
+                "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+                "prov:entity": "dat:stops_with_neighs_t_500walk_bus"
+            },
+            {
+                "prov:activity": "log:a4d96d845-b077-4e6b-ba4a-f7a6819aefe7",
+                "prov:entity": "dat:stops_with_neighs_t_500walk_bus"
+            }
+        ],
+        "_:id13": {
+            "prov:activity": "log:ae50bcd71-bb9b-475d-bb7e-44c7492f2d2f",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id21": {
+            "prov:activity": "log:a6755c909-1a7b-4911-8bad-c7ebd3d71f52",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id61": {
+            "prov:activity": "log:a790994ad-17a8-4552-8ee0-48938f0ad910",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id107": {
+            "prov:activity": "log:aa6ed0cf8-c54b-497d-8f06-d9e1e5742504",
+            "prov:entity": "dat:dist_routes"
+        },
+        "_:id45": {
+            "prov:activity": "log:a0a133908-b701-48af-b864-ff99be423811",
+            "prov:entity": "dat:raw_bus_stops"
+        },
+        "_:id93": {
+            "prov:activity": "log:a15372da7-8478-482f-9c48-0ed037588b01",
+            "prov:entity": "dat:pagerank_result_t_500walk_bus"
+        },
+        "_:id65": {
+            "prov:activity": "log:a90a4bcd8-39e8-4c37-97aa-3f712f949d96",
+            "prov:entity": "dat:stops_with_neighs_t_only"
+        },
+        "_:id6": {
+            "prov:activity": "log:ad59f35b8-0ee2-46ed-b042-57d622945612",
+            "prov:entity": "dat:raw_t_stops"
+        },
+        "_:id29": {
+            "prov:activity": "log:a13a49d03-eb09-472d-b070-8cd90f131636",
+            "prov:entity": "dat:raw_bus_stops"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "dat": "http://datamechanics.io/data/nikolaj/",
+        "mbt_1": "http://www.mbtainfo.com/",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/nikolaj/",
+        "mbt": "https://github.com/mbtaviz/mbtaviz.github.io/tree/master/data"
     }
 }

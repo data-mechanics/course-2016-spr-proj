@@ -1,0 +1,14 @@
+Creating Node Ids with Respective Latitude and Longitude
+Elapsed Time to Create Node Ids with Respective Latitude and Longitude: 31.648 (sec)
+Creating the Locations of People in Boston
+Elapsed Time to Create the Locations of People in Boston: 923.402 (sec)
+Creating the hash map of Road Ids and Events that happen along them.
+.........
+Elapsed Time to Create the hash map of Road Ids and Events that happen along them: 7971.934 (sec)
+Finding intersections between roads.
+Elapsed Time to Find Intersections between Roads: 825.656 (sec)
+Assigning People(Tourists/Locals to Intersections
+Elapsed Time to Assign People to Intersections: 1.46053646851E9 (sec)
+Creating XML Boston Network
+Elapsed Time to Create XML Boston Network: 85.807 (sec)
+

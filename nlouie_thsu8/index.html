@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston Crime and Streetlights - Data Mechanics - nlouie_thsu8</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="container">
+        <h1>Boston Crime and Streetlights&nbsp;<small>Nicholas Louie (nlouie), Thomas Hsu (thsu8)</small></h1>
+        <h3>Boston University Data Mechanics CS591</h3>
+        <h5>Please wait while I load <i class="fa fa-smile-o" aria-hidden="true"></i></h5>
+
+        <h4>All Street Lights in Boston</h4>
+        <div id="streetlights" style="width:600px; height:400px"></div>
+
+        <h4>Sample of Crimes in Boston</h4>
+        <div id="crimemap" style="width:600px; height:400px"></div>
+
+        <h4>Distance to Closest Street Lamp vs Number of Crimes</h4>
+        <img src="Crimes_Distance_To_StreetLamp_Data_Visualization.png" alt="Crimes Distance Plot" width="600px">
+
+    </div>
+
+</div>
+
+<!-- load jquery from google, sorry if you're in china -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!-- bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- get streetlight locations, make sure to change to local path -->
+<script src="http://datamechanics.io/data/nlouie_thsu8/data/StreetlightLocations.geojson" type="text/javascript"></script>
+<script src="http://datamechanics.io/data/nlouie_thsu8/data/crimes_subset.json" type="text/javascript"></script>
+
+<!-- use local dataset for now -->
+<!--<script src="StreetlightLocations.geojson" type="text/javascript"></script>-->
+<!-- <script src="crimes_subset.json" type="text/javascript"></script> -->
+
+<!-- get leaflet script -->
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+<!-- main script -->
+<script src="js/script.js"></script>
+</body>
+</html>

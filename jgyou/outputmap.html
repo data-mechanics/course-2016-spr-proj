@@ -1,0 +1,159 @@
+<html>
+<!-- modified from Leaflet Tutorial Page -->
+<!-- rounding found here http://www.jacklmoore.com/notes/rounding-in-javascript/ -->
+
+<head>
+  <title>Map of Relevant Resources</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="seniorservicesgeo.json" type="text/javascript"></script>
+  <script src="neighborhoods.geojson" type="text/javascript"></script>
+  <script src="hospitalsgeo.json" type="text/javascript"></script>
+  <script src="scoresgeo.json" type="text/javascript"></script>
+
+   <style>
+    #map{ height: 100% }
+
+    p {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+
+    h1 {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+    
+    .legend {
+    line-height: 18px;
+    color: #555;
+    }
+  .legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+  }
+  </style>
+</head>
+
+<body>
+  <h1> 
+    Map of Sites of Interest
+  </h1>
+  <div id="map" style="width:80%; height:80%"></div>
+
+  </br>
+
+  <p> 
+    Use the Layers icon in the top-right hand corner of the map to toggle different sites of interest, such as community centers or hospitals. Note that actual locations may vary from those shown on this map due to discrepancies in geocoding.
+  </p>
+
+
+  <script>
+
+  // load a tile layer
+  var stamen = L.tileLayer(
+                'https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                );
+
+  // initialize markers
+  var SquareMarker = L.Icon.extend({
+    options: {
+      iconSize: [40, 40],
+      iconAnchor: [20, 3],
+      popupAnchor: [1, 20]
+    }
+  });
+
+  var CommCenterMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/communitycentre.png"});
+  var HospitalMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/hospital-building.png"});
+  var ScoreMarker = new SquareMarker({iconUrl: "http://datamechanics.io/data/jgyou/markers/letter_x.png"});
+
+  var CommCenterLayer = L.layerGroup();
+  var HospitalLayer = L.layerGroup();
+  var ScoreLayer = L.layerGroup();
+
+  // plot community centers
+  for (var i in servicesjs) {
+    var name = servicesjs[i]["Organization_Name"];
+    var addr = servicesjs[i]["Address"];
+    var lon = servicesjs[i]["longitude"];
+    var lat = servicesjs[i]["latitude"];
+    L.marker([lat, lon], {icon: CommCenterMarker}).bindPopup("<b>"+ name +"</b>" + "</br>" + addr).addTo(CommCenterLayer);
+  }
+
+  // markers for hospitals
+  for (var i in hospitalsjs) {
+    var name = hospitalsjs[i]["name"]
+    var addr = hospitalsjs[i]["street"]
+    var lon = hospitalsjs[i]["longitude"]
+    var lat = hospitalsjs[i]["latitude"]
+    L.marker([lat, lon], {icon: HospitalMarker}).bindPopup("<b>"+ name +"</b>" + "</br>" + addr).addTo(HospitalLayer);
+  }
+
+  for (var i in scoresjs) {
+    var addr = scoresjs[i]["address"]
+    var lat = scoresjs[i]["latitude"]
+    var lon = scoresjs[i]["longitude"]
+    var score = scoresjs[i]["score"]
+    L.marker([lat, lon], {icon: ScoreMarker}).bindPopup("<b>"+ addr +"</b>" + "</br>" + Number(Math.round(score + 'e2') + 'e-2') + "</br>" + "(" + lat + "," + lon + ")").addTo(ScoreLayer);
+  }
+
+/*
+  var landmarks = L.layerGroup();
+  var landmarks_other = L.layerGroup();
+
+  L.marker([42.349, -71.105], {icon: CommCenter}).bindPopup("Marker 1").addTo(landmarks),
+  L.marker([42.351, -71.111], {icon: CommCenter}).bindPopup("Marker 2").addTo(landmarks);
+   L.marker([42.362, -71.123]).bindPopup("Marker 3").addTo(landmarks_other),
+  L.marker([42.366, -71.115]).bindPopup("Marker 4").addTo(landmarks_other);
+*/
+ 
+
+  // add neighborhoods
+
+  function onEachNeigh(feature, layer) {
+    var popupContent = feature.properties.Name.toUpperCase();
+    layer.bindPopup(popupContent);
+  }
+
+
+  var neigh = L.geoJson(neighjs, {
+    filter: function (feature, layer) { return true; },
+    onEachFeature: onEachNeigh,
+      style: {"opacity": 0.9, "weight": 5, "color": "#33cc33"}
+    });
+
+  
+  // initialize the map
+  var map = L.map('map', {
+    center: [42.35, -71.08], 
+    zoom: 13,
+    layers: [neigh, stamen]
+  });
+
+  // add layers
+  var baseLayers = {
+      "B&W": stamen
+  };
+
+  var overlayMaps = {
+    "Community Centers": CommCenterLayer,
+    "Hospitals": HospitalLayer,
+    "Neighborhoods": neigh,
+    "Scores": ScoreLayer
+  };
+
+  L.control.layers(baseLayers, overlayMaps).addTo(map);
+
+  </script>
+</body>
+</html>

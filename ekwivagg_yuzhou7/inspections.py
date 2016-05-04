@@ -80,6 +80,7 @@ doc.wasDerivedFrom(inspection, restaurant_dat, inspection_calc, inspection_calc,
 
 repo.record(doc.serialize())
 content = json.dumps(json.loads(doc.serialize()), indent=4)
-f = open('plan.json', 'w')
+f = open('plan.json', 'a')
+f.write(",\n")
 f.write(content)
 repo.logout()

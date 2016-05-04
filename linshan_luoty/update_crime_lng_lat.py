@@ -2,6 +2,7 @@ import json
 import datetime
 import pymongo
 import prov.model
+import provenance
 import uuid
 
 # Until a library is created, we just use the script directly.
@@ -24,10 +25,12 @@ for document in db.find():
 		i = latitude.find('.')
 		if i != -1:
 			latitude = latitude[:i+4]	# rounded to three decimals
-		db.update_one({'_id':document['_id']}, {'$set': {'location': {'longitude': longitude, 'latitude': latitude}}})
+		db.update_one({'_id':document['_id']}, {'$set': {'location': {'longitude': float(longitude), 'latitude': float(latitude)}}})
 
 endTime = datetime.datetime.now()
 	
+startTime = None
+endTime = None
 
 # Create the provenance document describing everything happening
 # in this script. Each run of the script will generate a new
@@ -35,7 +38,7 @@ endTime = datetime.datetime.now()
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
-doc = prov.model.ProvDocument()
+doc = provenance.init()
 doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
 doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
 doc.add_namespace('ont', 'https://data-mechanics.s3.amazonaws.com/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
@@ -46,7 +49,7 @@ this_script = doc.agent('alg:update_crime_lng_lat', {prov.model.PROV_TYPE:prov.m
 
 crime = doc.entity('dat:crime_incident_reports', {prov.model.PROV_LABEL:'Crime Incident Reports', prov.model.PROV_TYPE:'ont:DataSet'})
 
-update_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime)
+update_location = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {prov.model.PROV_LABEL: "Update location info."})
 doc.wasAssociatedWith(update_location, this_script)
 doc.usage(update_location, crime, startTime, None,
         {prov.model.PROV_TYPE:'ont:Computation'
@@ -58,8 +61,7 @@ doc.wasGeneratedBy(crime, update_location, endTime)
 doc.wasDerivedFrom(crime, crime, update_location, update_location, update_location)
 
 repo.record(doc.serialize()) # Record the provenance document.
-#print(json.dumps(json.loads(doc.serialize()), indent=4))
-open('plan.json','a').write(json.dumps(json.loads(doc.serialize()), indent=4))
+provenance.update(doc)
 print(doc.get_provn())
 
 repo.logout()
