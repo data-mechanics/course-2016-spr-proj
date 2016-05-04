@@ -53,9 +53,12 @@ def generatePoints(n):
     # 5-decimal place lat-long coordinates randomly created
     return [(round(uniform(y1, y2), 5), round(uniform(x1, x2), 5)) for x in range(n)]
 
-
+# wheelchair status from mbta is:
+# 0 = no wheelchair-accessibility
+# 1 = wheelchair accessibility
+# 2 = unknown accessibility status
 def assignStopWeight(wheelchairstatus):
-    if wheelchairstatus == 0:
+    if wheelchairstatus == 0 or wheelchairstatus == 2:
         return 1.0
     return 0.9
 
