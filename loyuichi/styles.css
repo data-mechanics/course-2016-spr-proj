@@ -68,3 +68,7 @@ text.axis-worktime {
     font-size: 1em;
     color: #ffffff;
 }
+
+.selected {
+	background-color: red;
+}

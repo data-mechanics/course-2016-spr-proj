@@ -48,4 +48,4 @@ Then, given that the p-value for null hypothesis b) was 0.63, there is strong ev
 Visualizations:
 - Coloring zipcodes within Boston based on the quantity of food establishments, parking meters, parking tickets, and towings registered to each area 
 - Shading a spectrum to display the number of tickets/towings that occur depending on day and hour within a week
-- Scatter plot visualizing the correlation between various variables
+- Scatter plot visualizing the correlation between food establishments to tickets and food establishments to tow violations

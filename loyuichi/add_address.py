@@ -26,25 +26,25 @@ startTime = datetime.datetime.now()
 # Standardizing street name abbreviations
 geolocator = Nominatim()
 
-for meter in repo['loyuichi.meters'].find({'streetname': {'$exists': False}}):
-	try:
-		location = geolocator.reverse(str(meter['Y']) + ', ' + str(meter['X']))
+#for meter in repo['loyuichi.meters'].find({'streetname': {'$exists': False}}):
+	# try:
+	# 	location = geolocator.reverse(str(meter['Y']) + ', ' + str(meter['X']))
 
-		if ('road' in location.raw['address']):
-			street_address = street_abbrev(location.raw['address']['road'])
-			repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'streetname': street_address}})
-	except:
-		pass
+	# 	if ('road' in location.raw['address']):
+	# 		street_address = street_abbrev(location.raw['address']['road'])
+	# 		repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'streetname': street_address}})
+	# except:
+	# 	pass
 
-for fe in repo['loyuichi.food_establishments'].find({'streetname': {'$exists': False}}):
-	try:
-		location = geolocator.reverse(str(fe['location']['latitude']) + ', ' + str(fe['location']['longitude']))
+# for fe in repo['loyuichi.food_establishments'].find({'streetname': {'$exists': False}}):
+# 	try:
+# 		location = geolocator.reverse(str(fe['location']['latitude']) + ', ' + str(fe['location']['longitude']))
 
-		if ('road' in location.raw['address']):
-			street_address = street_abbrev(location.raw['address']['road'])
-			repo['loyuichi.food_establishments'].update({'_id': fe['_id']}, {'$set': {'streetname': street_address}})
-	except:
-		pass
+# 		if ('road' in location.raw['address']):
+# 			street_address = street_abbrev(location.raw['address']['road'])
+# 			repo['loyuichi.food_establishments'].update({'_id': fe['_id']}, {'$set': {'streetname': street_address}})
+# 	except:
+# 		pass
 endTime = datetime.datetime.now()
 
 # Create the provenance document describing everything happening
