@@ -32,9 +32,8 @@ for ticket in repo['loyuichi.tickets'].find({"issue_time": {'$exists': True}, "i
 # Outputting the results to a JSON file formatted for heatmap.html
 days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 with open('daytime_counts.json', 'w') as outfile:
-	out = "["
+	out = ""
 	out += json.dumps(daytimes)
-	out += "]"
 	outfile.write(out)
 
 endTime = datetime.datetime.now()
