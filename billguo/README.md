@@ -21,3 +21,5 @@ only keep these data.
 
 Then we calculate the percentage of people who have increasing earnings each year with the number of items of frist script and
 the number of items of second script.
+
+I have updated most of the project and include detailed description in the project report.pdf Due to a problem I don't know how to insert picture in the readme file, I list them in the report as well.
