@@ -1,344 +1,236 @@
 {
-    "entity": {
-        "dat:streetlights": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Streetlights"
-        },
-        "dat:crimes": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crimes"
-        },
-        "dat:stations": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Stations"
-        },
-        "mbta:stopsbyroute": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "Stops by Route"
-        },
-        "bdp:7hu5-gg2y": {
-            "ont:Extension": "geojson",
-            "prov:type": "ont:DataResource",
-            "prov:label": "Streetlight Locations"
-        },
-        "dat:crimes_and_streetlights": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crimes and Streetlights"
-        },
-        "dat:stations_and_scores": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Stations and Scores"
-        },
-        "bdp:7cdf-6fgx": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "Crime Incident Reports"
-        },
-        "dat:crimes_and_streetlights_per_station": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crimes and Streetlights per Station"
-        },
-        "dat:crimes_and_stations": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Crimes and Stations"
-        },
-        "dat:stations_and_streetlights": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Stations and Streetlights"
-        }
-    },
-    "prefix": {
-        "alg": "http://datamechanics.io/algorithm/atelass/",
-        "log": "http://datamechanics.io/log#",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "ont": "http://datamechanics.io/ontology#",
-        "mbta": "http://realtime.mbta.com/developer/api/v2/",
-        "dat": "http://datamechanics.io/data/atelass/"
-    },
-    "used": {
-        "_:id47": {
-            "prov:time": "2016-04-21T22:51:11.788429",
-            "prov:entity": "dat:crimes_and_stations",
-            "prov:activity": "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7"
-        },
-        "_:id12": {
-            "prov:time": "2016-04-21T22:38:29.470974",
-            "prov:entity": "dat:crimes_and_stations",
-            "prov:activity": "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c"
-        },
-        "_:id8": {
-            "prov:time": "2016-04-21T22:38:29.470974",
-            "prov:entity": "dat:crimes",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
-        },
-        "_:id46": {
-            "prov:time": "2016-04-21T22:51:11.788429",
-            "prov:entity": "dat:crimes",
-            "prov:activity": "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7"
-        },
-        "_:id3": {
-            "prov:time": "2016-04-21T22:35:01.409853",
-            "ont:Query": "?$limit=50000&$offset=300000",
-            "prov:entity": "bdp:7cdf-6fgx",
-            "prov:type": "ont:Retrieval",
-            "prov:activity": "log:a3fede05e-cb46-4da9-8a89-027b5dca9701"
-        },
-        "_:id9": {
-            "prov:time": "2016-04-21T22:37:16.202545",
-            "prov:entity": "bdp:7hu5-gg2y",
-            "prov:activity": "log:adf7b8606-6f6f-4ee0-af7a-facf9fbe3ab9"
-        },
-        "_:id6": {
-            "prov:time": "2016-04-21T22:38:29.470974",
-            "prov:entity": "dat:crimes_and_stations",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
-        },
-        "_:id1": {
-            "prov:time": "2016-04-21T22:38:29.470974",
-            "prov:entity": "dat:stations_and_streetlights",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
-        },
+    "wasDerivedFrom": {
         "_:id5": {
-            "prov:time": "2016-04-21T22:38:27.658861",
-            "prov:entity": "dat:stations",
-            "prov:activity": "log:a62ccad31-7bd8-4caf-a9b6-bf5d38ab245d"
-        },
-        "_:id11": {
-            "prov:time": "2016-04-21T22:37:31.015917",
-            "prov:entity": "dat:crimes",
-            "prov:activity": "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4"
-        },
-        "_:id10": {
-            "prov:time": "2016-04-21T22:38:29.470974",
-            "prov:entity": "dat:streetlights",
-            "prov:activity": "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c"
-        },
-        "_:id2": {
-            "prov:time": "2016-04-21T22:50:39.034643",
-            "prov:entity": "dat:crimes_and_stations",
-            "prov:activity": "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc"
-        },
-        "_:id4": {
-            "prov:time": "2016-04-21T22:37:31.015917",
-            "prov:entity": "mbta:stopsbyroute",
-            "prov:activity": "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4"
+            "prov:usedEntity": "dat:streetlights",
+            "prov:generatedEntity": "dat:stations_and_streetlights",
+            "prov:activity": "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb"
         },
         "_:id7": {
-            "prov:time": "2016-04-21T22:50:39.034643",
-            "prov:entity": "dat:stations_and_streetlights",
-            "prov:activity": "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id18": {
-            "prov:agent": "alg:data_manipulation",
-            "prov:activity": "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c"
-        },
-        "_:id14": {
-            "prov:agent": "alg:data_manipulation",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
-        },
-        "_:id16": {
-            "prov:agent": "alg:data_retrieval",
-            "prov:activity": "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4"
-        },
-        "_:id15": {
-            "prov:agent": "alg:data_manipulation",
-            "prov:activity": "log:a62ccad31-7bd8-4caf-a9b6-bf5d38ab245d"
-        },
-        "_:id13": {
-            "prov:agent": "alg:correlation",
-            "prov:activity": "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc"
-        },
-        "_:id17": {
-            "prov:agent": "alg:data_retrieval",
-            "prov:activity": "log:adf7b8606-6f6f-4ee0-af7a-facf9fbe3ab9"
-        },
-        "_:id45": {
-            "prov:agent": "alg:scoring",
-            "prov:activity": "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7"
-        },
-        "_:id19": {
-            "prov:agent": "alg:data_retrieval",
-            "prov:activity": "log:a3fede05e-cb46-4da9-8a89-027b5dca9701"
-        }
-    },
-    "activity": {
-        "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc": {
-            "prov:startTime": "2016-04-21T22:50:39.034643",
-            "prov:endTime": "2016-04-21T22:50:39.144761"
-        },
-        "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4": {
-            "prov:startTime": "2016-04-21T22:37:31.015917",
-            "prov:endTime": "2016-04-21T22:38:11.114265"
-        },
-        "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7": {
-            "prov:startTime": "2016-04-21T22:51:11.788429",
-            "prov:endTime": "2016-04-21T22:55:04.005796"
-        },
-        "log:adf7b8606-6f6f-4ee0-af7a-facf9fbe3ab9": {
-            "prov:startTime": "2016-04-21T22:37:16.202545",
-            "prov:endTime": "2016-04-21T22:37:21.626302"
-        },
-        "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448": {
-            "prov:startTime": "2016-04-21T22:38:51.056365",
-            "prov:endTime": "2016-04-21T22:38:28.489045"
-        },
-        "log:a62ccad31-7bd8-4caf-a9b6-bf5d38ab245d": {
-            "prov:startTime": "2016-04-21T22:38:27.658861",
-            "prov:endTime": "2016-04-21T22:38:28.489045"
-        },
-        "log:a3fede05e-cb46-4da9-8a89-027b5dca9701": {
-            "prov:startTime": "2016-04-21T22:35:01.409853",
-            "prov:endTime": "2016-04-21T22:37:10.129626"
-        },
-        "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c": {
-            "prov:startTime": "2016-04-21T22:38:29.470974",
-            "prov:endTime": "2016-04-21T22:38:50.369452"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id51": {
             "prov:usedEntity": "dat:crimes_and_stations",
-            "prov:generatedEntity": "dat:stations_and_scores",
-            "prov:activity": "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7"
+            "prov:generatedEntity": "dat:crimes_and_streetlights_per_station",
+            "prov:activity": "log:a1929dea1-8f11-47db-9b26-c24681545069"
+        },
+        "_:id2": {
+            "prov:usedEntity": "dat:crimes_and_stations",
+            "prov:generatedEntity": "dat:stations_and_streetlights",
+            "prov:activity": "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb"
+        },
+        "_:id1": {
+            "prov:usedEntity": "bdp:7hu5-gg2y",
+            "prov:generatedEntity": "dat:streetlights",
+            "prov:activity": "log:a1577b9d7-5394-4a40-beb8-abe4cba72d7a"
+        },
+        "_:id6": {
+            "prov:usedEntity": "dat:stations_and_streetlights",
+            "prov:generatedEntity": "dat:crimes_and_streetlights",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a"
+        },
+        "_:id3": {
+            "prov:usedEntity": "dat:crimes_and_stations",
+            "prov:generatedEntity": "dat:crimes_and_streetlights",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a"
         },
         "_:id50": {
             "prov:usedEntity": "dat:crimes",
             "prov:generatedEntity": "dat:stations_and_scores",
-            "prov:activity": "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7"
+            "prov:activity": "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8"
         },
-        "_:id23": {
-            "prov:usedEntity": "dat:stations",
-            "prov:generatedEntity": "dat:crimes_and_stations",
-            "prov:activity": "log:a62ccad31-7bd8-4caf-a9b6-bf5d38ab245d"
-        },
-        "_:id22": {
+        "_:id9": {
             "prov:usedEntity": "dat:stations_and_streetlights",
             "prov:generatedEntity": "dat:crimes_and_streetlights_per_station",
-            "prov:activity": "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc"
+            "prov:activity": "log:a1929dea1-8f11-47db-9b26-c24681545069"
         },
-        "_:id26": {
-            "prov:usedEntity": "dat:crimes_and_stations",
-            "prov:generatedEntity": "dat:crimes_and_streetlights_per_station",
-            "prov:activity": "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc"
-        },
-        "_:id30": {
-            "prov:usedEntity": "bdp:7hu5-gg2y",
-            "prov:generatedEntity": "dat:streetlights",
-            "prov:activity": "log:adf7b8606-6f6f-4ee0-af7a-facf9fbe3ab9"
-        },
-        "_:id21": {
-            "prov:usedEntity": "dat:streetlights",
-            "prov:generatedEntity": "dat:stations_and_streetlights",
-            "prov:activity": "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c"
-        },
-        "_:id29": {
+        "_:id10": {
             "prov:usedEntity": "dat:crimes",
             "prov:generatedEntity": "dat:stations",
-            "prov:activity": "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4"
+            "prov:activity": "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968"
         },
-        "_:id28": {
+        "_:id51": {
             "prov:usedEntity": "dat:crimes_and_stations",
-            "prov:generatedEntity": "dat:stations_and_streetlights",
-            "prov:activity": "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c"
+            "prov:generatedEntity": "dat:stations_and_scores",
+            "prov:activity": "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8"
         },
-        "_:id20": {
-            "prov:usedEntity": "bdp:7cdf-6fgx",
-            "prov:generatedEntity": "dat:crimes",
-            "prov:activity": "log:a3fede05e-cb46-4da9-8a89-027b5dca9701"
+        "_:id8": {
+            "prov:usedEntity": "dat:stations",
+            "prov:generatedEntity": "dat:crimes_and_stations",
+            "prov:activity": "log:aad83ef79-2e7e-4f0e-aa4b-ad912addd08d"
         },
-        "_:id24": {
+        "_:id4": {
             "prov:usedEntity": "mbta:stopsbyroute",
             "prov:generatedEntity": "dat:stations",
-            "prov:activity": "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4"
+            "prov:activity": "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968"
         },
-        "_:id25": {
-            "prov:usedEntity": "dat:crimes_and_stations",
-            "prov:generatedEntity": "dat:crimes_and_streetlights",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
-        },
-        "_:id27": {
-            "prov:usedEntity": "dat:stations_and_streetlights",
-            "prov:generatedEntity": "dat:crimes_and_streetlights",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
+        "_:id11": {
+            "prov:usedEntity": "bdp:7cdf-6fgx",
+            "prov:generatedEntity": "dat:crimes",
+            "prov:activity": "log:a74a6c064-5c8e-4779-8f4e-95351eb40ee0"
         }
     },
-    "wasAttributedTo": {
-        "_:id35": {
-            "prov:agent": "alg:data_retrieval",
-            "prov:entity": "dat:crimes"
+    "activity": {
+        "log:aad83ef79-2e7e-4f0e-aa4b-ad912addd08d": {
+            "prov:endTime": "2016-05-04T22:11:08.612262",
+            "prov:startTime": "2016-05-04T22:11:08.009598"
         },
-        "_:id33": {
-            "prov:agent": "alg:data_retrieval",
-            "prov:entity": "dat:stations"
+        "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8": {
+            "prov:endTime": "2016-05-04T22:24:45.917979",
+            "prov:startTime": "2016-05-04T22:20:58.292860"
         },
-        "_:id37": {
-            "prov:agent": "alg:data_manipulation",
-            "prov:entity": "dat:crimes_and_stations"
+        "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968": {
+            "prov:endTime": "2016-05-04T22:08:44.111595",
+            "prov:startTime": "2016-05-04T22:08:12.070782"
         },
-        "_:id34": {
-            "prov:agent": "alg:data_manipulation",
-            "prov:entity": "dat:crimes_and_streetlights"
+        "log:a74a6c064-5c8e-4779-8f4e-95351eb40ee0": {
+            "prov:endTime": "2016-05-04T22:07:53.619522",
+            "prov:startTime": "2016-05-04T22:06:04.554246"
         },
-        "_:id32": {
-            "prov:agent": "alg:data_manipulation",
-            "prov:entity": "dat:stations_and_streetlights"
+        "log:a1577b9d7-5394-4a40-beb8-abe4cba72d7a": {
+            "prov:endTime": "2016-05-04T22:08:05.189995",
+            "prov:startTime": "2016-05-04T22:07:58.532296"
         },
-        "_:id36": {
-            "prov:agent": "alg:data_retrieval",
-            "prov:entity": "dat:streetlights"
+        "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb": {
+            "prov:endTime": "2016-05-04T22:11:26.667643",
+            "prov:startTime": "2016-05-04T22:11:09.384289"
         },
-        "_:id48": {
-            "prov:agent": "alg:scoring",
-            "prov:entity": "dat:stations_and_scores"
+        "log:a1929dea1-8f11-47db-9b26-c24681545069": {
+            "prov:endTime": "2016-05-04T22:20:47.876158",
+            "prov:startTime": "2016-05-04T22:20:47.761460"
         },
-        "_:id31": {
-            "prov:agent": "alg:correlation",
-            "prov:entity": "dat:crimes_and_streetlights_per_station"
+        "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a": {
+            "prov:endTime": "2016-05-04T22:11:08.612262",
+            "prov:startTime": "2016-05-04T22:11:27.208223"
         }
     },
     "wasGeneratedBy": {
-        "_:id41": {
-            "prov:time": "2016-04-21T22:50:39.144761",
+        "_:id16": {
+            "prov:entity": "dat:stations",
+            "prov:activity": "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968",
+            "prov:time": "2016-05-04T22:08:44.111595"
+        },
+        "_:id12": {
+            "prov:entity": "dat:streetlights",
+            "prov:activity": "log:a1577b9d7-5394-4a40-beb8-abe4cba72d7a",
+            "prov:time": "2016-05-04T22:08:05.189995"
+        },
+        "_:id14": {
             "prov:entity": "dat:crimes_and_streetlights_per_station",
-            "prov:activity": "log:a0cf71eb0-527f-4fde-8d22-3efe24c574bc"
+            "prov:activity": "log:a1929dea1-8f11-47db-9b26-c24681545069",
+            "prov:time": "2016-05-04T22:20:47.876158"
         },
-        "_:id39": {
-            "prov:time": "2016-04-21T22:38:50.369452",
-            "prov:entity": "dat:stations_and_streetlights",
-            "prov:activity": "log:a86fd445f-92d0-40ef-8892-72e7620b7e9c"
-        },
-        "_:id38": {
-            "prov:time": "2016-04-21T22:37:10.129626",
+        "_:id18": {
             "prov:entity": "dat:crimes",
-            "prov:activity": "log:a3fede05e-cb46-4da9-8a89-027b5dca9701"
+            "prov:activity": "log:a74a6c064-5c8e-4779-8f4e-95351eb40ee0",
+            "prov:time": "2016-05-04T22:07:53.619522"
         },
         "_:id49": {
-            "prov:time": "2016-04-21T22:55:04.005796",
             "prov:entity": "dat:stations_and_scores",
-            "prov:activity": "log:a61915a6d-1c7f-4edc-83fe-f005352b54f7"
+            "prov:activity": "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8",
+            "prov:time": "2016-05-04T22:24:45.917979"
         },
-        "_:id43": {
-            "prov:time": "2016-04-21T22:45:57.365068",
-            "prov:entity": "dat:crimes_and_streetlights",
-            "prov:activity": "log:a09fbe14c-1ba0-4358-a2b0-c355ef602448"
+        "_:id13": {
+            "prov:entity": "dat:stations_and_streetlights",
+            "prov:activity": "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb",
+            "prov:time": "2016-05-04T22:11:26.667643"
         },
-        "_:id40": {
-            "prov:time": "2016-04-21T22:37:21.626302",
-            "prov:entity": "dat:streetlights",
-            "prov:activity": "log:adf7b8606-6f6f-4ee0-af7a-facf9fbe3ab9"
-        },
-        "_:id42": {
-            "prov:time": "2016-04-21T22:38:28.489045",
+        "_:id15": {
             "prov:entity": "dat:crimes_and_stations",
-            "prov:activity": "log:a62ccad31-7bd8-4caf-a9b6-bf5d38ab245d"
+            "prov:activity": "log:aad83ef79-2e7e-4f0e-aa4b-ad912addd08d",
+            "prov:time": "2016-05-04T22:11:08.612262"
         },
-        "_:id44": {
-            "prov:time": "2016-04-21T22:38:11.114265",
+        "_:id17": {
+            "prov:entity": "dat:crimes_and_streetlights",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a",
+            "prov:time": "2016-05-04T22:19:07.264504"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id21": {
+            "prov:entity": "dat:streetlights",
+            "prov:agent": "alg:data_retrieval"
+        },
+        "_:id19": {
+            "prov:entity": "dat:crimes_and_stations",
+            "prov:agent": "alg:data_manipulation"
+        },
+        "_:id20": {
+            "prov:entity": "dat:crimes_and_streetlights",
+            "prov:agent": "alg:data_manipulation"
+        },
+        "_:id24": {
             "prov:entity": "dat:stations",
-            "prov:activity": "log:a1bcb2ee1-1ab6-4507-b55d-e158e3c3f4c4"
+            "prov:agent": "alg:data_retrieval"
+        },
+        "_:id22": {
+            "prov:entity": "dat:stations_and_streetlights",
+            "prov:agent": "alg:data_manipulation"
+        },
+        "_:id23": {
+            "prov:entity": "dat:crimes_and_streetlights_per_station",
+            "prov:agent": "alg:correlation"
+        },
+        "_:id25": {
+            "prov:entity": "dat:crimes",
+            "prov:agent": "alg:data_retrieval"
+        },
+        "_:id48": {
+            "prov:entity": "dat:stations_and_scores",
+            "prov:agent": "alg:scoring"
+        }
+    },
+    "prefix": {
+        "mbta": "http://realtime.mbta.com/developer/api/v2/",
+        "dat": "http://datamechanics.io/data/atelass/",
+        "ont": "http://datamechanics.io/ontology#",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "alg": "http://datamechanics.io/algorithm/atelass/"
+    },
+    "entity": {
+        "dat:crimes_and_streetlights_per_station": {
+            "prov:label": "Crimes and Streetlights per Station",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:stations": {
+            "prov:label": "Stations",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:stations_and_streetlights": {
+            "prov:label": "Stations and Streetlights",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:7cdf-6fgx": {
+            "prov:label": "Crime Incident Reports",
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:crimes": {
+            "prov:label": "Crimes",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:7hu5-gg2y": {
+            "prov:label": "Streetlight Locations",
+            "ont:Extension": "geojson",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:stations_and_scores": {
+            "prov:label": "Stations and Scores",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:crimes_and_stations": {
+            "prov:label": "Crimes and Stations",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:crimes_and_streetlights": {
+            "prov:label": "Crimes and Streetlights",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:streetlights": {
+            "prov:label": "Streetlights",
+            "prov:type": "ont:DataSet"
+        },
+        "mbta:stopsbyroute": {
+            "prov:label": "Stops by Route",
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource"
         }
     },
     "agent": {
@@ -349,7 +241,7 @@
                 "$": "prov:SoftwareAgent"
             }
         },
-        "alg:correlation": {
+        "alg:scoring": {
             "ont:Extension": "py",
             "prov:type": {
                 "type": "prov:QUALIFIED_NAME",
@@ -363,12 +255,120 @@
                 "$": "prov:SoftwareAgent"
             }
         },
-        "alg:scoring": {
+        "alg:correlation": {
             "ont:Extension": "py",
             "prov:type": {
                 "type": "prov:QUALIFIED_NAME",
                 "$": "prov:SoftwareAgent"
             }
+        }
+    },
+    "used": {
+        "_:id46": {
+            "prov:entity": "dat:crimes",
+            "prov:activity": "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8",
+            "prov:time": "2016-05-04T22:20:58.292860"
+        },
+        "_:id47": {
+            "prov:entity": "dat:crimes_and_stations",
+            "prov:activity": "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8",
+            "prov:time": "2016-05-04T22:20:58.292860"
+        },
+        "_:id34": {
+            "prov:entity": "dat:crimes",
+            "prov:activity": "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968",
+            "prov:time": "2016-05-04T22:08:12.070782"
+        },
+        "_:id38": {
+            "prov:entity": "dat:crimes_and_stations",
+            "prov:activity": "log:a1929dea1-8f11-47db-9b26-c24681545069",
+            "prov:time": "2016-05-04T22:20:47.761460"
+        },
+        "_:id41": {
+            "prov:entity": "dat:stations",
+            "prov:activity": "log:aad83ef79-2e7e-4f0e-aa4b-ad912addd08d",
+            "prov:time": "2016-05-04T22:11:08.009598"
+        },
+        "_:id44": {
+            "prov:entity": "dat:crimes_and_stations",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a",
+            "prov:time": "2016-05-04T22:11:09.384289"
+        },
+        "_:id36": {
+            "prov:entity": "dat:crimes_and_stations",
+            "prov:activity": "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb",
+            "prov:time": "2016-05-04T22:11:09.384289"
+        },
+        "_:id43": {
+            "prov:entity": "bdp:7cdf-6fgx",
+            "prov:type": "ont:Retrieval",
+            "prov:activity": "log:a74a6c064-5c8e-4779-8f4e-95351eb40ee0",
+            "prov:time": "2016-05-04T22:06:04.554246",
+            "ont:Query": "?$limit=50000&$offset=300000"
+        },
+        "_:id39": {
+            "prov:entity": "dat:stations_and_streetlights",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a",
+            "prov:time": "2016-05-04T22:11:09.384289"
+        },
+        "_:id37": {
+            "prov:entity": "dat:streetlights",
+            "prov:activity": "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb",
+            "prov:time": "2016-05-04T22:11:09.384289"
+        },
+        "_:id42": {
+            "prov:entity": "dat:crimes",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a",
+            "prov:time": "2016-05-04T22:11:09.384289"
+        },
+        "_:id33": {
+            "prov:entity": "bdp:7hu5-gg2y",
+            "prov:activity": "log:a1577b9d7-5394-4a40-beb8-abe4cba72d7a",
+            "prov:time": "2016-05-04T22:07:58.532296"
+        },
+        "_:id40": {
+            "prov:entity": "dat:stations_and_streetlights",
+            "prov:activity": "log:a1929dea1-8f11-47db-9b26-c24681545069",
+            "prov:time": "2016-05-04T22:20:47.761460"
+        },
+        "_:id35": {
+            "prov:entity": "mbta:stopsbyroute",
+            "prov:activity": "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968",
+            "prov:time": "2016-05-04T22:08:12.070782"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id31": {
+            "prov:agent": "alg:data_retrieval",
+            "prov:activity": "log:a1577b9d7-5394-4a40-beb8-abe4cba72d7a"
+        },
+        "_:id45": {
+            "prov:agent": "alg:scoring",
+            "prov:activity": "log:afcf2a0dc-fa75-44b5-8ff4-83939d14b2c8"
+        },
+        "_:id32": {
+            "prov:agent": "alg:data_retrieval",
+            "prov:activity": "log:a74a6c064-5c8e-4779-8f4e-95351eb40ee0"
+        },
+        "_:id30": {
+            "prov:agent": "alg:data_retrieval",
+            "prov:activity": "log:a9430ecaf-106e-4b4b-ae2c-35fbce1c4968"
+        },
+        "_:id27": {
+            "prov:agent": "alg:correlation",
+            "prov:activity": "log:a1929dea1-8f11-47db-9b26-c24681545069"
+        },
+        "_:id28": {
+            "prov:agent": "alg:data_manipulation",
+            "prov:activity": "log:a2651853f-2b9c-4ad8-b1b8-3d64f4fab62a"
+        },
+        "_:id26": {
+            "prov:agent": "alg:data_manipulation",
+            "prov:activity": "log:aad83ef79-2e7e-4f0e-aa4b-ad912addd08d"
+        },
+        "_:id29": {
+            "prov:agent": "alg:data_manipulation",
+            "prov:activity": "log:aa37a92ac-adcc-4ea7-ae89-a52777f0fbeb"
         }
     }
 }
