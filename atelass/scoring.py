@@ -68,7 +68,7 @@ for station in num_crimes_per_hour.keys():
             score += (1 * num_crimes_per_hour[station][hour])
     scores.append([score, station])
 
-# Put results in dictionary to put in
+# Store results as list of dictionaries to insert into repo.
 station_scores = []
 for station_and_score in scores:
     station = station_and_score[1]
@@ -138,7 +138,7 @@ doc2.add_namespace('log', 'http://datamechanics.io/log#')
 
 this_script = doc2.agent('alg:scoring', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
-# Crimes and streetlights provenance information
+# Stations_and_scores provenance information
 get_stations_and_scores = doc2.activity('log:a'+str(uuid.uuid4()), stations_and_scores_start_time, stations_and_scores_end_time)
 doc2.wasAssociatedWith(get_stations_and_scores, this_script)
 doc2.used(get_stations_and_scores, 'dat:crimes', stations_and_scores_start_time)

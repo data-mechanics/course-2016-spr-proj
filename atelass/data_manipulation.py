@@ -147,7 +147,7 @@ doc2.wasGeneratedBy(stations_and_streetlights, get_stations_and_streetlights, st
 doc2.wasDerivedFrom(stations_and_streetlights, 'dat:streetlights', get_stations_and_streetlights)
 doc2.wasDerivedFrom(stations_and_streetlights, crimes_and_stations, get_stations_and_streetlights)
 
-# Crimes and streetlights provenance information
+# Crimes_and_streetlights provenance information
 get_crimes_and_streetlights = doc2.activity('log:a'+str(uuid.uuid4()), crimes_and_streetlights_start_time, crimes_and_stations_end_time)
 doc2.wasAssociatedWith(get_crimes_and_streetlights, this_script)
 doc2.used(get_crimes_and_streetlights, 'dat:crimes', stations_and_streetlights_start_time)
