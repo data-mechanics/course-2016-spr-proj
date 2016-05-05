@@ -1,72 +1,27 @@
 {
-    "activity": {
-        "log:a33119338-e759-41db-95f6-c19f2f2ff819": {
-            "prov:startTime": "2016-04-18T17:43:52.002313",
-            "prov:endTime": "2016-04-18T17:44:00.979385"
-        },
-        "log:adc6f3eee-99b6-4068-bd66-90e59968e0ca": {
-            "prov:startTime": "2016-04-18T17:43:52.002313",
-            "prov:endTime": "2016-04-18T17:44:00.979385"
-        }
-    },
-    "wasAssociatedWith": {
-        "_:id1": {
-            "prov:activity": "log:a33119338-e759-41db-95f6-c19f2f2ff819",
-            "prov:agent": "alg:project1"
-        },
-        "_:id2": {
-            "prov:activity": "log:adc6f3eee-99b6-4068-bd66-90e59968e0ca",
-            "prov:agent": "alg:project1"
-        }
-    },
-    "entity": {
-        "bdp:effb-uspk": {
-            "prov:type": "ont:DataResource",
-            "prov:label": "Employee Earnings Report 2012",
-            "ont:Extension": "json"
-        },
-        "dat:totalearn": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "totalearn"
-        },
-        "bdp:54s2-yxpg": {
-            "prov:type": "ont:DataResource",
-            "prov:label": "Employee Earnings Report 2013",
-            "ont:Extension": "json"
-        },
-        "bdp:qz7u-kb7x": {
-            "prov:type": "ont:DataResource",
-            "prov:label": "Employee Earnings Report 2014",
-            "ont:Extension": "json"
-        },
-        "dat:rich": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "rich"
-        }
-    },
     "agent": {
         "alg:project1": {
+            "ont:Extension": "py",
             "prov:type": {
-                "type": "prov:QUALIFIED_NAME",
-                "$": "prov:SoftwareAgent"
-            },
-            "ont:Extension": "py"
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            }
         }
     },
     "wasDerivedFrom": {
-        "_:id5": {
-            "prov:usedEntity": "bdp:effb-uspk",
-            "prov:usage": "dat:rich",
-            "prov:generatedEntity": "dat:rich",
-            "prov:activity": "dat:rich",
-            "prov:generation": "dat:rich"
-        },
         "_:id8": {
-            "prov:usedEntity": "bdp:effb-uspk",
             "prov:usage": "dat:totalearn",
             "prov:generatedEntity": "dat:totalearn",
-            "prov:activity": "dat:totalearn",
-            "prov:generation": "dat:totalearn"
+            "prov:generation": "dat:totalearn",
+            "prov:usedEntity": "bdp:effb-uspk",
+            "prov:activity": "dat:totalearn"
+        },
+        "_:id5": {
+            "prov:usage": "dat:rich",
+            "prov:generatedEntity": "dat:rich",
+            "prov:generation": "dat:rich",
+            "prov:usedEntity": "bdp:effb-uspk",
+            "prov:activity": "dat:rich"
         }
     },
     "wasAttributedTo": {
@@ -79,23 +34,68 @@
             "prov:entity": "dat:rich"
         }
     },
-    "wasGeneratedBy": {
-        "_:id7": {
-            "prov:activity": "dat:totalearn",
-            "prov:entity": "dat:totalearn",
-            "prov:time": "2016-04-18T17:44:00.979385"
-        },
-        "_:id4": {
-            "prov:activity": "dat:rich",
-            "prov:entity": "dat:rich",
-            "prov:time": "2016-04-18T17:44:00.979385"
-        }
-    },
     "prefix": {
         "ont": "http://datamechanics.io/ontology#",
-        "log": "http://datamechanics.io/log#",
         "dat": "http://datamechanics.io/data/billguo/",
         "alg": "http://datamechanics.io/algorithm/billguo/",
+        "log": "http://datamechanics.io/log#",
         "bdp": "https://data.cityofboston.gov/resource/"
+    },
+    "activity": {
+        "log:a44359164-dd83-4fad-97f5-971e60748f3d": {
+            "prov:startTime": "2016-05-03T00:53:39.601233",
+            "prov:endTime": "2016-05-03T00:56:37.457101"
+        },
+        "log:a8f76990f-df6c-4cb2-bcd2-92316f20f903": {
+            "prov:startTime": "2016-05-03T00:53:39.601233",
+            "prov:endTime": "2016-05-03T00:56:37.457101"
+        }
+    },
+    "entity": {
+        "bdp:qz7u-kb7x": {
+            "prov:label": "Employee Earnings Report 2014",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:rich": {
+            "prov:label": "rich",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:effb-uspk": {
+            "prov:label": "Employee Earnings Report 2012",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:totalearn": {
+            "prov:label": "totalearn",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:54s2-yxpg": {
+            "prov:label": "Employee Earnings Report 2013",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:project1",
+            "prov:activity": "log:a44359164-dd83-4fad-97f5-971e60748f3d"
+        },
+        "_:id2": {
+            "prov:agent": "alg:project1",
+            "prov:activity": "log:a8f76990f-df6c-4cb2-bcd2-92316f20f903"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id4": {
+            "prov:time": "2016-05-03T00:56:37.457101",
+            "prov:entity": "dat:rich",
+            "prov:activity": "dat:rich"
+        },
+        "_:id7": {
+            "prov:time": "2016-05-03T00:56:37.457101",
+            "prov:entity": "dat:totalearn",
+            "prov:activity": "dat:totalearn"
+        }
     }
 }
