@@ -67,3 +67,41 @@ with open('all_counts_per_zip.txt', 'w') as outfile:
 	out += json.dumps(data)
 	outfile.write(out)
 endTime = datetime.datetime.now()
+
+# Create the provenance document describing everything happening
+# in this script. Each run of the script will generate a new
+# document describing that invocation event. This information
+# can then be used on subsequent runs to determine dependencies
+# and "replay" everything. The old documents will also act as a
+# log.
+doc = prov.model.ProvDocument()
+doc.add_namespace('alg', 'http://datamechanics.io/algorithm/loyuichi/') # The scripts in <folder>/<filename> format.
+doc.add_namespace('dat', 'http://datamechanics.io/data/loyuichi/') # The data sets in <user>/<collection> format.
+doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
+doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
+doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
+
+this_script = doc.agent('alg:output_violations_per_zip', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+
+tickets = doc.entity('dat:tickets', {'prov:label':'Tickets', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+meters = doc.entity('dat:meters', {'prov:label':'Meters', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+food_establishments = doc.entity('dat:food_establishments', {'prov:label':'Food Establishments', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+towed = doc.entity('dat:towed', {'prov:label':'Towed', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
+
+aggr_zipcode_tickets = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Aggregate Zip Code Tickets', prov.model.PROV_TYPE:'ont:Computation'})
+aggr_zipcode_meters = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Aggregate Zip Code Meters', prov.model.PROV_TYPE:'ont:Computation'})
+aggr_zipcode_towed = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Aggregate Zip Code Towed', prov.model.PROV_TYPE:'ont:Computation'})
+
+doc.wasAssociatedWith(aggr_zipcode_tickets, this_script)
+doc.wasAssociatedWith(aggr_zipcode_towed, this_script)
+doc.wasAssociatedWith(aggr_zipcode_meters, this_script)
+
+doc.used(aggr_zipcode_tickets, tickets, startTime)
+doc.used(aggr_zipcode_meters, meters, startTime)
+doc.used(aggr_zipcode_towed, towed, startTime)
+
+#repo.record(doc.serialize()) # Record the provenance document.
+#print(json.dumps(json.loads(doc.serialize()), indent=4))
+#open('plan.json','w').write(json.dumps(json.loads(doc.serialize()), indent=4))
+print(doc.get_provn())
+repo.logout()

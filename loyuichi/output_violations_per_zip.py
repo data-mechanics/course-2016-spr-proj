@@ -101,15 +101,15 @@ doc.add_namespace('ont', 'http://datamechanics.io/ontology#') # 'Extension', 'Da
 doc.add_namespace('log', 'http://datamechanics.io/log#') # The event log.
 doc.add_namespace('bdp', 'https://data.cityofboston.gov/resource/')
 
-this_script = doc.agent('alg:output_day_time_counts', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
+this_script = doc.agent('alg:output_violations_per_zip', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
 tickets = doc.entity('dat:tickets', {'prov:label':'Tickets', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 
-aggr_zipcode_tickets = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Aggregate Issue Datetime Tickets', prov.model.PROV_TYPE:'ont:Computation'})
+aggr_zipcode_tickets_violations = doc.activity('log:a'+str(uuid.uuid4()), startTime, endTime, {'prov:label':'Aggregate Zip Code Tickets Violations', prov.model.PROV_TYPE:'ont:Computation'})
 
-doc.wasAssociatedWith(aggr_zipcode_tickets, this_script)
+doc.wasAssociatedWith(aggr_zipcode_tickets_violations, this_script)
 
-doc.used(aggr_zipcode_tickets, tickets, startTime)
+doc.used(aggr_zipcode_tickets_violations, tickets, startTime)
 
 #repo.record(doc.serialize()) # Record the provenance document.
 #print(json.dumps(json.loads(doc.serialize()), indent=4))

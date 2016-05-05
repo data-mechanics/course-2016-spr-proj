@@ -11,11 +11,9 @@
   <body>
     <h1>Parking Tickets Timestamp Analysis</h1>
     <script src="http://d3js.org/d3.v3.js"></script>
+    <button id="tickets_switch" class="dataset-button tickets selected">Tickets</button>
+    <button id="towed_switch" class="dataset-button towed">Towed</button>
     <div id="chart"></div>
-    <div id="dataset-picker">
-    </div>
-    <button id="tickets_switch" class="selected">Tickets</button>
-    <button id="towed_switch">Towed</button>
     <script type="text/javascript">
       var current = "tickets";
       var margin = { top: 50, right: 0, bottom: 100, left: 30 },

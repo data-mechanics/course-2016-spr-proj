@@ -16,29 +16,29 @@ repo.authenticate('loyuichi', 'loyuichi')
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
 
-# url = 'https://data.cityofboston.gov/resource/7cdf-6fgx.json?INCIDENT_TYPE_DESCRIPTION=towed'
-# response = urllib.request.urlopen(url).read().decode("utf-8")
-# r = json.loads(response)
-# s = json.dumps(r, sort_keys=True, indent=2)
-# repo.dropPermanent("towed")
-# repo.createPermanent("towed")
-# repo['loyuichi.towed'].insert_many(r)
+url = 'https://data.cityofboston.gov/resource/7cdf-6fgx.json?INCIDENT_TYPE_DESCRIPTION=towed'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("towed")
+repo.createPermanent("towed")
+repo['loyuichi.towed'].insert_many(r)
 
-# url = 'https://data.cityofboston.gov/resource/gb6y-34cq.json'
-# response = urllib.request.urlopen(url).read().decode("utf-8")
-# r = json.loads(response)
-# s = json.dumps(r, sort_keys=True, indent=2)
-# repo.dropPermanent("food_establishments")
-# repo.createPermanent("food_establishments")
-# repo['loyuichi.food_establishments'].insert_many(r)
+url = 'https://data.cityofboston.gov/resource/gb6y-34cq.json'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("food_establishments")
+repo.createPermanent("food_establishments")
+repo['loyuichi.food_establishments'].insert_many(r)
 
-# url = 'https://data.cityofboston.gov/resource/qbxx-ev3s.json'
-# response = urllib.request.urlopen(url).read().decode("utf-8")
-# r = json.loads(response)
-# s = json.dumps(r, sort_keys=True, indent=2)
-# repo.dropPermanent("tickets")
-# repo.createPermanent("tickets")
-# repo['loyuichi.tickets'].insert_many(r)
+url = 'https://data.cityofboston.gov/resource/qbxx-ev3s.json'
+response = urllib.request.urlopen(url).read().decode("utf-8")
+r = json.loads(response)
+s = json.dumps(r, sort_keys=True, indent=2)
+repo.dropPermanent("tickets")
+repo.createPermanent("tickets")
+repo['loyuichi.tickets'].insert_many(r)
 
 url = 'https://data-mechanics.s3.amazonaws.com/loyuichi/parking_meters.json'
 response = urllib.request.urlopen(url).read().decode("utf-8")
