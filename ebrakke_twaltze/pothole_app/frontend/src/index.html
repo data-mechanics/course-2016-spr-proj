@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+		<link rel="stylesheet" href="styles/main.css">
+
+		<style>
+			#map {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+
+		<!-- bower:css -->
+		<!-- endbower -->
+
+		<!-- bower:js -->
+		<!-- endbower -->
+
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="wrapper grid">
+			<div class="sidebar block-1-4">
+				<form class="routeSearch">
+					<input class="startingLocation input-field" type="text" placeholder="Starting Location" />
+					<input class="endingLocation input-field" type="text" placeholder="Ending Location" />
+					<input type="submit" class="button" value="Get Directions" />
+				</form>
+			</div><!--
+			--><div class="content block-3-4">
+				<div id="map"></div>
+			</div>
+		</div>
+	</body>
+</html>

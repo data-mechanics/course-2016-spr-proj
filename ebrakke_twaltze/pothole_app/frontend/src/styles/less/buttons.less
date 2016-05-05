@@ -1,0 +1,111 @@
+.button {
+	cursor: pointer;
+
+	color: #fff;
+	line-height: normal;
+	font-size: 1em;
+	font-family: @fontFamily;
+	font-weight: 300;
+	text-align: center;
+	text-decoration: none;
+
+	outline: none;
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+
+	display: inline-block;
+	padding: .6em 1em;
+	margin: 0;
+
+	/* mobile safari fix */
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+
+	.newColoredButton(@accent);
+
+	&-size {
+		&--small {
+
+		}
+
+		&--medium {
+			font-size: 1.2rem;
+		}
+
+		&--large {
+
+		}
+
+		&--fullWidth {
+			width: 100%;
+		}
+	}
+
+	&-color {
+		&--twitter {
+			@baseColor: #00ACED;
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--facebook {
+			letter-spacing: -.1em;
+
+			@baseColor: #3B5999;
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--dark {
+			@baseColor: darken(@accent, 5%);
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--blue {
+			@baseColor: @blue;
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--green {
+			@baseColor: @green;
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--red {
+			@baseColor: @red;
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--orange {
+			@baseColor: @orange;
+
+			.newColoredButton(@baseColor);
+		}
+
+		&--yellow {
+			@baseColor: @yellow;
+
+			.newColoredButton(@baseColor);
+		}
+	}
+}
+
+.newColoredButton(@baseColor) {
+	background: @baseColor;
+	border-color: darken(@baseColor, 15%);
+
+	&:hover {
+		background: darken(@baseColor, 5%);
+	}
+
+	&:active,
+	&:disabled,
+	&.disabled {
+		background: darken(@baseColor, 10%);
+	}
+}

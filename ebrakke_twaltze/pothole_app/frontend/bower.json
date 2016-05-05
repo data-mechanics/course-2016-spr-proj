@@ -1,0 +1,25 @@
+{
+  "name": "generator-basic",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Tyler Waltze <tylerwaltze@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/TWaltze/generator-basic",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.10.1",
+    "jquery": "~2.1.4",
+    "font-awesome": "~4.4.0",
+    "leaflet": "leaflet-dist#~0.7.2"
+  }
+}
