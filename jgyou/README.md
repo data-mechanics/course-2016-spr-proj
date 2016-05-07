@@ -48,6 +48,8 @@ This scoring system could be used to randomly select points in a particular neig
 
 The scores by neighborhood/region could then be compared to the current distribution of adults age 60 and older throughout different neighborhoods in Boston. 
 
+See `poster.pdf` and `agefriendly.pdf` for further information.
+
 
 #### Current Issues
 - Most of the walking distances are calculated using MapQuest's API - these distances currently do not seem to be entirely accurate relative to manually retrieved map results. This needs to be investigated further.
@@ -86,6 +88,7 @@ The scores by neighborhood/region could then be compared to the current distribu
 - [City of Boston, Hospital Locations] (https://data.cityofboston.gov/Public-Health/Hospital-Locations/46f7-2snz)
 - [City of Boston, Elderly Affairs] (http://www.cityofboston.gov/elderly/center.asp)
 - [City of Boston, Elderly Affairs, Programs] (http://www.cityofboston.gov/elderly/agency.asp)
+- [Zillow Median Home Value and Rental Indices] (http://www.zillow.com/research/data/)
 
 ## Other Websites
 - Map markers from Maps Icons Collection [https://mapicons.mapsmarker.com] (https://mapicons.mapsmarker.com)
