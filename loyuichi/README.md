@@ -7,15 +7,25 @@ Files:
 - clean.py: Cleans up the data by standardizing streetname acronyms and removing tickets for violations that are irrelevant to parking concerns
 - add_address.py: Adds the street addresses for entries with only longitude and latitude coordinates
 - add_zip_long_lat.py: Adds zip codes for entries that only have streetname or longitude and latitude coordinates
+- store_location_point.py: Standardizes longitude and latitude data in the form of type Point objects that can be indexed geospatially
 - fix_datetime.py: Combines the issue date and issue time field to create a correct datetime field
 - merge.py: Merges datasets into aggregate datasets that analyze overall numbers based on zip codes and ticket citations based on day and hour
 - output_counts_json.py: Generates JSON file of counts for use by zipcode.html visualization
+- output_all_counts_per_zip.py: Generates TXT file containing the number of food establishments, tickets, tow violations, and meters per zip code for use by scatterplots.html
+- output_day_time_counts.py: Generates JSON file containing the number of tickets issued per day of the week per hour for use by heatmap.html
+- output_violations_per_zip.py: Generates CSV file containing the counts of each of 24 types of ticket violations per zip code for use by violations_per_zip.html
 - calc_ticket_fe_corr.py: Calculates p-value for various null hypotheses about relationships between food establishments and tickets/towings
+- scoring_areas.py:
+- count_nearby.py: Calculates score for restaurants based on number of meters and tickets within a 0.4 mile radius; creates fe_radius collection containing the data, outputs fe_radius.json for use by zipcode.html
 - zipcode.html: Map visualization of areas with greatest number of tickets
 - zipcode.geojson
+- fe_radius.json
 - heatmap.html: Heat map visualization of days and times when greatest number of tickets are issued
-- daytime_counts.json
+- daytime_counts_tickets.json
+- daytime_counts_towed.json
 - scatter_plots.html: Scatter plot visualization of relationships between food establishments and tickets/towings
+- violations_per_zip.html: Stacked bar graph visualization of tickets issued in each zip code area broken up by type of violation
+- violations_per_zip.csv
 
 Sources:
 - Active Food Establishment Licenses: https://data.cityofboston.gov/Permitting/Active-Food-Establishment-Licenses/gb6y-34cq
@@ -48,4 +58,5 @@ Then, given that the p-value for null hypothesis b) was 0.63, there is strong ev
 Visualizations:
 - Coloring zipcodes within Boston based on the quantity of food establishments, parking meters, parking tickets, and towings registered to each area 
 - Shading a spectrum to display the number of tickets/towings that occur depending on day and hour within a week
-- Scatter plot visualizing the correlation between various variables
+- Scatter plot visualizing the correlation between food establishments to tickets and food establishments to tow violations
+- Stacked bar graphs displaying the array of parking violations received within each zipcode area

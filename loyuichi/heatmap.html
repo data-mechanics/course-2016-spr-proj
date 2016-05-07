@@ -11,10 +11,11 @@
   <body>
     <h1>Parking Tickets Timestamp Analysis</h1>
     <script src="http://d3js.org/d3.v3.js"></script>
+    <button id="tickets_switch" class="dataset-button tickets selected">Tickets</button>
+    <button id="towed_switch" class="dataset-button towed">Towed</button>
     <div id="chart"></div>
-    <div id="dataset-picker">
-    </div>
     <script type="text/javascript">
+      var current = "tickets";
       var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           width = 960 - margin.left - margin.right,
           height = 430 - margin.top - margin.bottom,
@@ -140,9 +141,29 @@
 
       };
 
-      heatmapChart("daytime_counts.json");
+      heatmapChart("daytime_counts_tickets.json");
+      var tickets_switch = d3.select("#tickets_switch");
+      var towed_switch = d3.select("#towed_switch");
+
+      tickets_switch.on("click", function(d) {
+          if (current != "tickets") {
+            heatmapChart("daytime_counts_tickets.json");
+            current = "tickets";
+            tickets_switch.classed("selected", true);
+            towed_switch.classed("selected", false);
+          }
+        });
+
+      towed_switch.on("click", function(d) {
+          if (current != "towed") {
+            heatmapChart("daytime_counts_towed.json");
+            current = "towed";
+            tickets_switch.classed("selected", false);
+            towed_switch.classed("selected", true);
+          }
+        });
       
-      // var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
+      //var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
       //   .data("");
 
       // datasetpicker.enter()

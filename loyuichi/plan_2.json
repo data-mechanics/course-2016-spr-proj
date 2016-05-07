@@ -1093,6 +1093,7 @@
 			"prov:endTime": "2016-04-18T09:02:24.273162", 
 			"prov:label": "Aggregate Issue Datetime Tickets",
 			"prov:type": "ont:Computation"
+		}
 	},
 	"wasAssociatedWith": {
 		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
@@ -1104,5 +1105,305 @@
 			"prov:entity":"dat:tickets",
 			"prov:time": "2016-04-18T09:02:23.947937"
 		}
+	}
+},
+{
+	"agent": {
+		"alg:output_violations_per_zip": {
+			"ont:Extension": "py",
+			"prov:type": {
+				"$": "prov:SoftwareAgent"
+			}
+		}
+	},
+	"entity": {
+	"dat:tickets": {
+		"ont:Extension": "json",
+		"prov:label": "Tickets", "prov:type": "ont:DataResource"
+	},
+	"dat:meters": {
+		"ont:Extension": "json",
+		"prov:label": "Meters", "prov:type": "ont:DataResource"
+	},
+	"dat:food_establishments": {
+		"ont:Extension": "json",
+		"prov:label": "Food Establishments", "prov:type": "ont:DataResource"
+	}
+	},
+	"activity": {
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:startTime": "2016-05-02T09:02:23.947937",
+			"prov:endTime": "2016-05-02T09:02:24.273162", 
+			"prov:label": "Aggregate Zip Code Tickets Violations",
+			"prov:type": "ont:Computation"
+		}
+	},
+	"wasAssociatedWith": {
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:agent": "alg:output_violations_per_zip"
+		}
+	},
+	"used": {
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:entity":"dat:tickets",
+			"prov:time": "2016-05-02T09:02:23.947937"
+		}
+	}
+},
+{
+	"agent": {
+		"alg:output_all_counts_per_zip": {
+			"ont:Extension": "py",
+			"prov:type": {
+				"$": "prov:SoftwareAgent"
+			}
+		}
+	},
+	"entity": {
+		"dat:tickets": {
+			"ont:Extension": "json",
+			"prov:label": "Tickets", "prov:type": "ont:DataResource"
+		},
+		"dat:meters": {
+			"ont:Extension": "json",
+			"prov:label": "Meters", "prov:type": "ont:DataResource"
+		},
+		"dat:food_establishments": {
+			"ont:Extension": "json",
+			"prov:label": "Food Establishments", "prov:type": "ont:DataResource"
+		},
+		"dat:towed": {
+			"ont:Extension": "json",
+			"prov:label": "Towed", "prov:type": "ont:DataResource"
+		}
+	},
+	"activity": {
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:startTime": "2016-05-02T09:02:23.947937",
+			"prov:endTime": "2016-05-02T09:02:24.273162", 
+			"prov:label": "Aggregate Zip Code Tickets",
+			"prov:type": "ont:Computation"
+		},
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:startTime": "2016-05-02T09:02:33.275937",
+			"prov:endTime": "2016-05-02T09:02:34.279151", 
+			"prov:label": "Aggregate Zip Code Meters",
+			"prov:type": "ont:Computation"
+		},
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:startTime": "2016-05-02T09:02:38.847537",
+			"prov:endTime": "2016-05-02T09:02:39.175862", 
+			"prov:label": "Aggregate Zip Code Towed",
+			"prov:type": "ont:Computation"
+		}
+	},
+	"wasAssociatedWith": {
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:agent": "alg:output_all_counts_per_zip"
+		}
+	},
+	"used": {
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:entity":"dat:tickets",
+			"prov:time": "2016-05-02T09:02:23.947937"
+		},
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:entity":"dat:meters",
+			"prov:time": "2016-05-02T09:02:33.275937"
+		},
+		"log:af32af5bf-7d23-4e71-8ac8-ac4a50f9ee3b": {
+			"prov:entity":"dat:towed",
+			"prov:time": "2016-05-02T09:02:38.847537"
+		}
+	},
+	"agent": {
+		"alg:store_location_point": {
+			"ont:Extension": "py",
+			"prov:type": "prov:SoftwareAgent"
+		}
+	},
+  "entity": {
+  	"dat:towed": {
+  		"ont:Extension": "json",
+  		"prov:label": "Towed",
+  		"prov:type": "ont:DataResource"
+  		},
+  	"dat:food_establishments": {
+	  	"ont:Extension": "json",
+	  	"prov:label": "Food Establishment Permits",
+	  	"prov:type": "ont:DataResource"
+  	},
+  	"dat:tickets": {
+	  	"ont:Extension": "json",
+	  	"prov:label": "Parking Tickets",
+	  	"prov:type": "ont:DataResource"
+  	},
+  	"dat:meters": {
+	  	"ont:Extension": "json",
+	  	"prov:label": "Parking Meters",
+	  	"prov:type": "ont:DataResource"
+  	}
+	},
+  "activity": {
+  	"log:a411a6097-9e81-4ca6-a121-e165520c54e5": {
+  		"prov:startTime": "2016-05-04T21:22:19.635148",
+  		"prov:endTime": "2016-05-04T21:22:19.635158",
+  		"prov:label": "Update Towed Location",
+  		"prov:type": "ont:Computation"
+		},
+	  "log:a177f9f67-65de-4f65-ad73-c2b16c07a455": {
+	  	"prov:startTime": "2016-05-04T21:22:19.635148",
+	  	"prov:endTime": "2016-05-04T21:22:19.635158",
+	  	"prov:label": "Update Meters Location",
+	  	"prov:type": "ont:Computation"
+		},
+	  "log:a679ae657-9005-44ab-b310-65c26b2f5cb2": {
+	  	"prov:startTime": "2016-05-04T21:22:19.635148",
+	  	"prov:endTime": "2016-05-04T21:22:19.635158",
+	  	"prov:label": "Update Tickets Location",
+	  	"prov:type": "ont:Computation"
+		},
+	  "log:adaae4f94-e3ba-4830-af05-57cdd9c0c049": {
+	  	"prov:startTime": "2016-05-04T21:22:19.635148",
+	  	"prov:endTime": "2016-05-04T21:22:19.635158",
+	  	"prov:label": "Update Food Establishments Location",
+	  	"prov:type": "ont:Computation"
+		}
+	},
+  "wasAssociatedWith": {
+  	"log:a411a6097-9e81-4ca6-a121-e165520c54e5": {
+  		"prov:agent": "alg:store_location_point"
+		},
+  	"log:a177f9f67-65de-4f65-ad73-c2b16c07a455": {
+  		"prov:agent": "alg:store_location_point"
+		},
+  	"log:a679ae657-9005-44ab-b310-65c26b2f5cb2": {
+  		"prov:agent": "alg:store_location_point"
+		},
+  	"log:adaae4f94-e3ba-4830-af05-57cdd9c0c049": {
+  		"prov:agent": "alg:store_location_point"
+		}
+	},
+  "used": {
+  	"log:a411a6097-9e81-4ca6-a121-e165520c54e5": {
+  		"prov:entity": "dat:towed",
+  		"prov:time": "2016-05-04T21:22:19.635148"
+		},
+  	"log:adaae4f94-e3ba-4830-af05-57cdd9c0c049": {
+  		"prov:entity": "dat:food_establishments",
+  		"prov:time": "2016-05-04T21:22:19.635148"
+		},
+  	"log:a679ae657-9005-44ab-b310-65c26b2f5cb2": {
+  		"prov:entity": "dat:tickets",
+  		"prov:time": "2016-05-04T21:22:19.635148"
+		},
+  	"log:a177f9f67-65de-4f65-ad73-c2b16c07a455": {
+  		"prov:entity": "dat:meters",
+  		"prov:time": "2016-05-04T21:22:19.635148"
+		}
+	},
+  "entity": {
+  	"dat:towed": {
+  		"prov:label": "Towed",
+  		"prov:type": "ont:DataSet"
+  	}
+	},
+  "wasAttributedTo": {
+  	"prov:entity": "dat:towed",
+  	"prov:agent": "alg:store_location_point"
+	},
+  "wasGeneratedBy": {
+	  "_:id10": {
+	  	"prov:entity": "dat:towed",
+	  	"prov:activity": "log:a411a6097-9e81-4ca6-a121-e165520c54e5",
+	  	"prov:time": "2016-05-04T21:22:19.635158"
+	  }
+  },
+  "wasDerivedFrom": {
+  	"_:id10": {
+  		"prov:generatedEntity": "dat:towed",
+  		"prov:usedEntity": "dat:towed",
+  		"prov:activity": "log:a411a6097-9e81-4ca6-a121-e165520c54e5",
+  		"prov:usage" : "log:a411a6097-9e81-4ca6-a121-e165520c54e5",
+  		"prov:generated": "log:a411a6097-9e81-4ca6-a121-e165520c54e5"
+  	}
+	},
+  "entity": {
+  	"dat:food_establishments": {
+  		"prov:label": "Food Establishments Permits",
+  		"prov:type": "ont:DataSet"
+  	}
+	},
+  "wasAttributedTo": {
+  	"prov:entity": "dat:food_establishments",
+  	"prov:agent": "alg:store_location_point"
+	},
+  "wasGeneratedBy": {
+	  "_:id10": {
+	  	"prov:entity": "dat:food_establishments",
+	  	"prov:activity": "log:adaae4f94-e3ba-4830-af05-57cdd9c0c049",
+	  	"prov:time": "2016-05-04T21:22:19.635158"
+	  }
+  },
+  "wasDerivedFrom": {
+  	"_:id10": {
+  		"prov:generatedEntity": "dat:food_establishments",
+  		"prov:usedEntity": "dat:food_establishments",
+  		"prov:activity": "log:adaae4f94-e3ba-4830-af05-57cdd9c0c049",
+  		"prov:usage" : "log:adaae4f94-e3ba-4830-af05-57cdd9c0c049",
+  		"prov:generated": "log:adaae4f94-e3ba-4830-af05-57cdd9c0c049"
+  	}
+	},
+  "entity": {
+  	"dat:tickets": {
+  		"prov:label": "Parking Tickets",
+  		"prov:type": "ont:DataSet"
+  	}
+	},
+  "wasAttributedTo": {
+  	"prov:entity": "dat:tickets",
+  	"prov:agent": "alg:store_location_point"
+	},
+  "wasGeneratedBy": {
+	  "_:id10": {
+	  	"prov:entity": "dat:tickets",
+	  	"prov:activity": "log:a679ae657-9005-44ab-b310-65c26b2f5cb2",
+	  	"prov:time": "2016-05-04T21:22:19.635158"
+	  }
+  },
+  "wasDerivedFrom": {
+  	"_:id10": {
+  		"prov:generatedEntity": "dat:tickets",
+  		"prov:usedEntity": "dat:tickets",
+  		"prov:activity": "log:a679ae657-9005-44ab-b310-65c26b2f5cb2",
+  		"prov:usage" : "log:a679ae657-9005-44ab-b310-65c26b2f5cb2",
+  		"prov:generated": "log:a679ae657-9005-44ab-b310-65c26b2f5cb2"
+  	}
+	},
+  "entity": {
+  	"dat:meters": {
+  		"prov:label": "Parking Meters",
+  		"prov:type": "ont:DataSet"
+  	}
+	},
+  "wasAttributedTo": {
+  	"prov:entity": "dat:meters",
+  	"prov:agent": "alg:store_location_point"
+	},
+  "wasGeneratedBy": {
+	  "_:id10": {
+	  	"prov:entity": "dat:meters",
+	  	"prov:activity": "log:a177f9f67-65de-4f65-ad73-c2b16c07a455",
+	  	"prov:time": "2016-05-04T21:22:19.635158"
+	  }
+  },
+  "wasDerivedFrom": {
+  	"_:id10": {
+  		"prov:generatedEntity": "dat:meters",
+  		"prov:usedEntity": "dat:meters",
+  		"prov:activity": "log:a177f9f67-65de-4f65-ad73-c2b16c07a455",
+  		"prov:usage" : "log:a177f9f67-65de-4f65-ad73-c2b16c07a455",
+  		"prov:generated": "log:a177f9f67-65de-4f65-ad73-c2b16c07a455"
+  	}
 	}
 }

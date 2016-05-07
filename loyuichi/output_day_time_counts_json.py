@@ -31,10 +31,24 @@ for ticket in repo['loyuichi.tickets'].find({"issue_time": {'$exists': True}, "i
 
 # Outputting the results to a JSON file formatted for heatmap.html
 days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-with open('daytime_counts.json', 'w') as outfile:
-	out = "["
+with open('daytime_counts_tickets.json', 'w') as outfile:
+	out = ""
 	out += json.dumps(daytimes)
-	out += "]"
+	outfile.write(out)
+
+# Processing tickets to aggregate them by the day of the week and time they occur
+daytimes = {"Sunday": [0]*24, "Monday": [0]*24, "Tuesday": [0]*24, "Wednesday": [0]*24, "Thursday": [0]*24, "Friday": [0]*24, "Saturday": [0]*24}
+for towed in repo['loyuichi.towed'].find({"fromdate": {'$exists': True}}):
+	d_format = '%Y-%m-%dT%H:%M:%S'
+	issue_datetime = datetime.datetime.strptime(towed["fromdate"], d_format)
+	hour = issue_datetime.hour
+	day_week = issue_datetime.strftime('%A')
+	daytimes[day_week][hour] += 1
+
+# Outputting the results to a JSON file formatted for heatmap.html
+with open('daytime_counts_towed.json', 'w') as outfile:
+	out = ""
+	out += json.dumps(daytimes)
 	outfile.write(out)
 
 endTime = datetime.datetime.now()

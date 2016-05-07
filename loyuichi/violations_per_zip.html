@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+  color: #ffffff;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<head>
+    <title>Parking Ticket Violations per Zipcode Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Parking Ticket Violations per Zipcode Analysis</h1>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 40, right: 20, bottom: 50, left: 40},
+    width = 1260 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .rangeRound([height, 0]);
+
+var color = d3.scale.ordinal()
+    .range(["#DE422C",
+"#C96433",
+"#8B5220",
+"#E38A2E",
+"#C9A432",
+"#CDDC43",
+"#5F6920",
+"#6EA237",
+"#6FDD38",
+"#6EDA71",
+"#367D4C",
+"#4DD8AB",
+"#51B5CE",
+"#48678E",
+"#6788DA",
+"#A36FE3",
+"#774E9A",
+"#CC8ECB",
+"#D755C6",
+"#87496F",
+"#C94589",
+"#DF3462",
+"#DC6B6F",
+"#97363A"]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(d3.format(".2s"));
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .style("fill", "#ffffff")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("violations_per_zip.csv", function(error, data) {
+  if (error) throw error;
+
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "zip"; }));
+
+  data.forEach(function(d) {
+    var y0 = 0;
+    d.violations = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+    d.total = d.violations[d.violations.length - 1].y1;
+  });
+
+  data.sort(function(a, b) { return b.total - a.total; });
+
+  x.domain(data.map(function(d) { return d.zip; }));
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .style("fill", "#ffffff")
+      .call(xAxis)
+      .selectAll("text") .style("text-anchor", "end") .attr("dx", "-.8em") .attr("dy", ".15em") .attr("transform", function(d) { return "rotate(-65)" });
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .style("fill", "#ffffff")
+      .text("Total # of Tickets");
+
+  var zip = svg.selectAll(".zip")
+      .data(data)
+    .enter().append("g")
+      .attr("class", "g")
+      .style("fill", "#ffffff")
+      .attr("transform", function(d) { return "translate(" + x(d.zip) + ",0)"; });
+
+  zip.selectAll("rect")
+      .data(function(d) { return d.violations; })
+    .enter().append("rect")
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return y(d.y0) - y(d.y1); })
+      .style("fill", function(d) { return color(d.name); });
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain().slice().reverse())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .style("fill", "#ffffff")
+      .text(function(d) { return d; });
+
+});
+
+</script>

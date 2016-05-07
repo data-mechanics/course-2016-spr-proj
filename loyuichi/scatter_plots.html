@@ -21,8 +21,10 @@
 		    .attr("class", "label")
 		    .style("opacity", 0);
 		
+		var current = 2;
+
 		//Static dataset
-		var dataset_tickets = [[33, 77], [47, 33], [54, 26], [52, 4], [28, 38], [100, 56], [26, 14], [49, 5], [40, 59], [9, 10], [43, 20], [10, 8], [41, 14], [28, 18], [10, 6], [14, 3], [58, 11], [17, 5], [20, 2], [48, 8], [65, 3], [29, 4], [38, 7], [41, 5], [27, 6], [47, 4], [1, 1], [16, 1]];
+		var dataset_tickets = [['02134', 47, 33, 25, 120], ['02115', 54, 26, 29, 378], ['02118', 28, 38, 7, 177], ['02116', 100, 56, 87, 453], ['02135', 40, 59, 3, 53], ['02215', 43, 20, 37, 421], ['02120', 10, 6, 2, 15], ['02114', 48, 8, 73, 43], ['02210', 38, 7, 1, 2], ['02108', 41, 5, 14, 24], ['02467', 1, 1, 1, 10]]
 
 		var dataset_towed = [[52, 72], [48, 73], [16, 8], [100, 87], [41, 20], [47, 25], [47, 69], [43, 37], [54, 29], [41, 14], [65, 55], [28, 2], [58, 6], [33, 35], [1, 1], [20, 17], [9, 3], [10, 2], [28, 7], [40, 3], [26, 2], [14, 2], [38, 1], [27, 1]]
 
@@ -30,21 +32,22 @@
 		var dataset_labels = ["Tickets", "Towed"];
 
 		var scatterPlot = function(cur_data, i) {
+			console.log(current);
 			if (i == null) {
 				i = 0;
 			}
 			//Create scale functions
 			var xScale = d3.scale.linear()
-								 .domain([0, d3.max(cur_data, function(d) { return d[0]; })])
+								 .domain([0, d3.max(cur_data, function(d) { return d[1]; })])
 								 .range([padding, w - padding]);
 
 			var yScale = d3.scale.linear()
-								 .domain([0, d3.max(cur_data, function(d) { return d[1]; })])
+								 .domain([0, d3.max(cur_data, function(d) { return d[current]; })])
 								 .range([h - padding, padding]);
 
 			var rScale = d3.scale.linear()
-								 .domain([0, d3.max(cur_data, function(d) { return d[1]; })])
-								 .range([4, 8]);
+								 .domain([0, d3.max(cur_data, function(d) { return d[4]; })])
+								 .range([4, 15]);
 
 			//Define X axis
 			var xAxis = d3.svg.axis()
@@ -75,22 +78,23 @@
 				.enter()
 				.append("circle")
 				.attr("cx", function(d) {
-					return xScale(d[0]);
+					return xScale(d[1]);
 				})
 				.attr("cy", function(d) {
-					return yScale(d[1]);
+					return yScale(d[current]);
 				})
 				.attr("r", function(d) {
-					return rScale(d[1]);
+					return rScale(d[4]);
+					//return rScale(d[1]);
 				})
 				.on("mouseover", function(d) {
 					label.transition()
 	               .duration(200)
 	               .style("opacity", .9);
 
-					label.html("(" + d[0] + ", " + d[1] + ")")
-					.style("left", (xScale(d[0]) + padding*4.1) + "px")
-					.style("top", (yScale(d[1]) + padding*4.1) + "px");
+					label.html("(" + d[1] + ", " + d[current] + ")")
+					.style("left", (xScale(d[1]) + padding*4.1) + "px")
+					.style("top", (yScale(d[current]) + padding*4.1) + "px");
 					})
 				.on("mouseout", function(d) {
 					label.transition()
@@ -153,7 +157,8 @@
         .attr("class", function(d, i) { return "dataset-button " + dataset_labels[i].toLowerCase() })
         .on("click", function(d, i) {
           d3.select("body").selectAll("svg").remove();
-          scatterPlot(d, i);
+          current = 2 + i;
+          scatterPlot(dataset_tickets, i);
         });
 	</script>
   </body>

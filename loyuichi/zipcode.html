@@ -10,10 +10,13 @@
   </head>
   <body>
     <h1>Breakdown by Zip Codes</h1>
-    <div id="map" style="width:600px; height:400px"></div>
+    <div id="map" style="width:800px; height:500px"></div>
     <script src="zipcode.geojson" type="text/javascript"></script>
     <script src="counts.json" type="text/javascript"></script>
+    <script src="fe_radius.json" type="text/javascript"></script>
+    <script src="meters.json" type="text/javascript"></script>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
     <script src="http://d3js.org/d3.v3.js"></script>
     
     <script>
@@ -24,35 +27,38 @@
         attribution: '',
         id: 'mapbox.light'
       }),
-          food_est = L.tileLayer(mapboxUrl, {
-        maxZoom: 18,
-        attribution: '',
-        id: 'mapbox.light'
-      }),
-          tickets = L.tileLayer(mapboxUrl, {
-        maxZoom: 18,
-        attribution: '',
-        id: 'mapbox.light'
-      });
+          scores = L.layerGroup();
 
-      var map = L.map('map', {layers: [food_est, tickets]}).setView(L.latLng(42.3562559, -71.1), 13);
+      var map = L.map('map', {layers: [base, scores]}).setView(L.latLng(42.3562559, -71.1), 13);
 
-      // var map = L.map('map').setView(L.latLng(42.3562559, -71.1), 13);
+    var food_est = L.layerGroup();
 
-      /*L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-        maxZoom: 18,
-        attribution: '',
-        id: 'mapbox.light'
-      }).addTo(map);*/
+    for (var i in food_establishments) {
+      var name = food_establishments[i]['name'];
+      var coordinates = food_establishments[i]['location_point']['coordinates']
+      var score = food_establishments[i]['score']
+      //L.marker([coordinates[1], coordinates[0]]).bindPopup("<b>"+ name +"</b>" + "</br>" + score).addTo(food_est);
+      L.circle([coordinates[1], coordinates[0]], 10, {
+    color: 'red', fillColor: '#f03', fillOpacity: 0.5}).bindPopup("<b>"+ name +"</b>" + "</br>" + score).addTo(food_est);
+    }
+
+    var meters_layer = L.layerGroup();
+    for (var i in meters) {
+      var coordinates = meters[i]['location']['coordinates']
+      L.circle([coordinates[1], coordinates[0]], 5, {
+    fillColor: '#blue', opacity: 0.3}).addTo(meters_layer);
+    }
 
       var overlayMaps = {
-        "Base": base
+        "Scores": scores,
+        "Meters": meters_layer,
+        "Food Establishments": food_est
       };
 
       var baseMaps = {
-        "Food Establishments": food_est,
-        "Tickets": tickets
+        "Base": base
       };
+
 
       L.control.layers(baseMaps, overlayMaps).addTo(map);
 
@@ -62,10 +68,10 @@
           popupContent += feature.properties.Name + "<br/>"
         }
         if (tickets_counts[feature.properties.Zipcode]) {
-          popupContent += tickets_counts[feature.properties.Zipcode]
+          popupContent += "Tickets: " + tickets_counts[feature.properties.Zipcode]
           console.log(tickets_counts[feature.properties.Zipcode])
         }
-        layer.bindPopup(popupContent);
+        layer.bindLabel(popupContent);
       }
 
       function getColor(d) {
@@ -102,7 +108,7 @@
         filter: function (feature, layer) { return true; },
         onEachFeature: onEachFeature,
         style: style
-      }).addTo(map);
+      }).addTo(scores);
     </script>
   </body>
 </html>

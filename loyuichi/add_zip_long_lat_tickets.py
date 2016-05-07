@@ -26,10 +26,10 @@ for ticket in repo['loyuichi.towed'].find({"zip": {'$exists': True}, '$where': "
 	except:
 		pass
 
-for ticket in repo['loyuichi.meters'].find({"zip": {'$exists': True}, '$where': "this.zip.length == 4"}):
+for meter in repo['loyuichi.meters'].find({"zip": {'$exists': True}, '$where': "this.zip.length == 4"}):
 	try:
-		zipcode = "0" + ticket['zip']
-		res = repo['loyuichi.meters'].update({'_id': ticket['_id']}, {'$set': {'zip': zipcode}})
+		zipcode = "0" + meter['zip']
+		res = repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
 		print(res)
 	except:
 		pass
