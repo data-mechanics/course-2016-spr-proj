@@ -54,6 +54,6 @@ Output structure: (Sample)
 		"children" : [ { 
 			"name" : "Adario,Anthony J", "total_earnings" : "100381.19" } ] }
 			
-More information about the result can be found in poster.pptx
-Since I don't know how to upload picture in README file, I add them in the poster.pptx
+More information about the result can be found in project report.pdf
 
+I have updated most of the project and include detailed description in the project report.pdf Due to a problem I don't know how to insert picture in the readme file, I list them in the report as well.

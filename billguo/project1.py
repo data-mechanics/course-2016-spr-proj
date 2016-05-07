@@ -65,7 +65,7 @@ for data in earn2014.find():
 				T = dict()
 				T["name"] = temp2
 				T["children"] = []	
-				a = earn2014.find({"department_name":temp,"title": temp2}, {"name":True, "total_earnings":True, "_id":False})
+				a = earn2014.find({"department_name":temp,"title": temp2}, {"name":True, "department_name":True, "title":True,"total_earnings":True, "_id":False})
 				l = list(a)
 				json.dumps(l)
 				T["children"] = l
@@ -84,6 +84,7 @@ repo.dropPermanent("test")
 repo.createPermanent("test")
 json.dumps(j, sort_keys=True, indent=2)
 repo['billguo.test'].insert_many(j)
+
 
 		
 
@@ -137,6 +138,44 @@ json.dumps("rich", sort_keys=True, indent=2)
 repo['billguo.rich'].insert_many(rich)
 result = count2 / count1 * 100.0
 print("the percentage of people that have increasing earnings each year is " + str(result) + '%')
+
+increasing = repo['billguo.rich']
+S = dict()
+S["name"] = "increasing_earning"
+S["children"] = []
+S1 = ""
+S2 = ""
+for data in increasing.find():
+	if data["department"] != S1: #find a new department
+		S1 = data["department"]
+		D = dict()
+		D["name"] = S1
+		D["children"] = []
+		for data2 in increasing.find({"department":S1}):
+			if data2["title"] != S2: #find a new title
+				S2 = data2["title"]
+				T = dict()
+				T["name"] = S2
+				T["children"] = []	
+				a = increasing.find({"department":S1,"title": S2}, {"name":True, "department":True, "tilte":True, "total_earnings":True, "_id":False})
+				l = list(a)
+				json.dumps(l)
+				T["children"] = l
+			else:
+				continue
+			D["children"].append(T)
+	else:
+		continue
+	S["children"].append(D)
+
+
+k = []
+k.append(S)
+
+repo.dropPermanent("increasing_earning")
+repo.createPermanent("increasing_earning")
+json.dumps(k, sort_keys=True, indent=2)
+repo['billguo.increasing_earning'].insert_many(k)
 
 endTime = datetime.datetime.now()
 
