@@ -5,6 +5,10 @@
 **Enze Yan**
 **enze@bu.edu**
 
+### Abstract
+
+The city of Boston has dedicated tons of energy on developing a better safety environment for biker, including adding more bike lanes to more streets. But what are the priority streets to be picked as to install bike lanes in order to achieve a higher connected bike lane network? With the help of automated reasoning tool such as Z3 , I propose a model based on propositional logic and solve the model that satisfies the given constrains, which in return, suggests the specific street to put on bike lane.
+
 ### Background
 
 > Since former Mayor Menino launched Boston Bikes **(http://www.bostonbikes.org/)** in 2007, ridership in the City has more than doubled. Many other important strides have been made in safety, education, and facilities.
@@ -42,6 +46,34 @@ Format: ![Alt Text](url)
 Format: ![Alt Text](url)
 
 I am trying to figure out what are the improvement on a bike lane? What are the bike lanes that we could add to the street to make biking safer? I am planning on using a SMT solver to tackle this problem. I have already generate a special database - intersection_lane.csv, which contains all the roads that have had at least one collision happend on this street. It also collects the data which tells if there is a bike lane on this given road. The last step is to put this model into an SMT solver.
+
+### Script Running
+
+For the next part should guide you for use the Python script that I wrote to solve the problem Part 4.1 on the final report using Z3
+
+## Required Package
+
+**Python**
+- Python 2.7+
+
+**Z3**
+- Make sure that your system supports Z3
+- Download the newest version here --> https://github.com/Z3Prover/z3
+- Follow the guidance for installation using Command Line tool
+
+## Included Files
+
+**Database**
+- data/intersection_lane.csv
+
+**Script**
+- smt_solver.py
+
+## Usage
+Open Command Line environment
+> python smt_solver.py
+
+The results will be returned and shown on the screen.
 
 ### Reference
 
