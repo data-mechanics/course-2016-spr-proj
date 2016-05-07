@@ -74,10 +74,6 @@ for i in range(len(crimes)):
     crime_time = datetime.time(int(crime_time[0]), int(crime_time[1]), int(crime_time[2]))
 
     sunset_time = city.sun(date=crime_date)['sunset']
-    #sunrise_time = city.sun(date=crime_date)['sunrise']
-
-    #if (crime_time.hour > sunset_time.hour or (crime_time.hour == sunset_time.hour and crime_time.minute >= sunset_time.minute)) \
-     #  or (crime_time.hour < sunrise_time.hour or (crime_time.hour == sunrise_time.hour and crime_time.minute <= sunrise_time.minute)):
 
     # Get crimes from sunset to 1am
     if (crime_time.hour > sunset_time.hour or (crime_time.hour == sunset_time.hour and crime_time.minute >= sunset_time.minute)) or (crime_time.hour < 1):
@@ -147,7 +143,7 @@ repo['atelass.streetlights'].insert_many(streetlights)
 print(time.strftime('%I:%M:%S%p') + ': Completed.')
 print(time.strftime('%I:%M:%S%p') + ': Retrieving stations data...')
 
-# Get Blue, Orange, Red, and B, C, D, E Green Line stop names (only outbound or inbound, not both, since lats and lons seem to be the same.
+# Get Blue, Orange, Red, and B, C, D, E Green Line stop names (only outbound or inbound, not both, since lats and lons seem to be the same).
 stopsbyroute_api_endpoint = 'http://realtime.mbta.com/developer/api/v2/stopsbyroute'
 routes = ['Blue', 'Orange', 'Red', 'Green-B', 'Green-C', 'Green-D', 'Green-E']
 stops = []
@@ -163,6 +159,7 @@ for route in routes:
             stop_location = (route_stop['stop_lat'], route_stop['stop_lon'])
             stops.append({'stop_name': stop_name, 'stop_location': stop_location})
 
+# For each crime, get station closest to it, as long as that station is at most one mile away.
 stations = []    # Naming it stations since stops is already taken
 count = 0
 stations_start_time = datetime.datetime.now()

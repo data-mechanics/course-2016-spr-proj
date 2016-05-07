@@ -1,1 +1,336 @@
-{"name": "scores", "children": [{"name": "0-99", "children": [{"size": 5, "name": "Boston Univ East: 5"}, {"size": 6, "name": "Longwood: 6"}, {"size": 7, "name": "Englewood Avenue: 7"}, {"size": 8, "name": "Boston College: 8"}, {"size": 11, "name": "Airport: 11"}, {"size": 11, "name": "Saint Mary Street: 11"}, {"size": 11, "name": "Suffolk Downs: 11"}, {"size": 12, "name": "JFK/UMASS Braintree: 12"}, {"size": 12, "name": "Saint Paul Street: 12"}, {"size": 14, "name": "Heath Street: 14"}, {"size": 14, "name": "Science Park: 14"}, {"size": 16, "name": "Boston Univ Central: 16"}, {"size": 17, "name": "Ruggles: 17"}, {"size": 18, "name": "Wood Island: 18"}, {"size": 22, "name": "Boston Univ West: 22"}, {"size": 26, "name": "Fenway: 26"}, {"size": 40, "name": "Green Street: 40"}, {"size": 50, "name": "Blandford Street: 50"}, {"size": 50, "name": "Sullivan Square: 50"}, {"size": 60, "name": "Chiswick Road: 60"}, {"size": 65, "name": "Museum of Fine Arts: 65"}, {"size": 65, "name": "Savin Hill: 65"}, {"size": 66, "name": "Chestnut Hill Avenue: 66"}, {"size": 67, "name": "Shawmut: 67"}, {"size": 69, "name": "Stony Brook: 69"}, {"size": 73, "name": "Sutherland Road: 73"}, {"size": 74, "name": "Warren Street: 74"}, {"size": 77, "name": "South Street: 77"}, {"size": 79, "name": "Riverway: 79"}, {"size": 81, "name": "Haymarket: 81"}, {"size": 91, "name": "Back of the Hill: 91"}, {"size": 96, "name": "Orient Heights: 96"}, {"size": 99, "name": "Longwood Medical Area: 99"}]}, {"name": "100-199", "children": [{"size": 100, "name": "South Station: 100"}, {"size": 101, "name": "Cleveland Circle: 101"}, {"size": 105, "name": "Pleasant Street: 105"}, {"size": 121, "name": "Forest Hills Orange Line: 121"}, {"size": 121, "name": "Packards Corner: 121"}, {"size": 125, "name": "Washington Street: 125"}, {"size": 126, "name": "Griggs Street: 126"}, {"size": 129, "name": "Fenwood Road: 129"}, {"size": 129, "name": "Jackson Square: 129"}, {"size": 130, "name": "Allston Street: 130"}, {"size": 132, "name": "Prudential: 132"}, {"size": 135, "name": "Mission Park: 135"}, {"size": 136, "name": "Charles/MGH: 136"}, {"size": 139, "name": "Northeastern: 139"}, {"size": 143, "name": "Broadway: 143"}, {"size": 148, "name": "Andrew: 148"}, {"size": 153, "name": "Bowdoin: 153"}, {"size": 154, "name": "Aquarium: 154"}, {"size": 156, "name": "Fields Corner: 156"}, {"size": 160, "name": "Arlington: 160"}, {"size": 160, "name": "Massachusetts Avenue: 160"}, {"size": 163, "name": "Government Center: 163"}, {"size": 168, "name": "Back Bay: 168"}, {"size": 182, "name": "Babcock Street: 182"}]}, {"name": "200-299", "children": [{"size": 203, "name": "Symphony: 203"}, {"size": 211, "name": "Brigham Circle: 211"}, {"size": 228, "name": "Roxbury Crossing: 228"}, {"size": 237, "name": "Ashmont: 237"}, {"size": 254, "name": "Harvard Avenue: 254"}, {"size": 270, "name": "State Street: 270"}, {"size": 278, "name": "Maverick: 278"}, {"size": 297, "name": "Kenmore: 297"}]}, {"name": "300-399", "children": [{"size": 341, "name": "Downtown Crossing: 341"}, {"size": 384, "name": "Park Street: 384"}]}, {"name": "400-499", "children": [{"size": 438, "name": "Boylston: 438"}, {"size": 456, "name": "Hynes: 456"}, {"size": 494, "name": "Copley: 494"}]}, {"name": "500-599", "children": [{"size": 510, "name": "Tufts Medical Center: 510"}, {"size": 524, "name": "Chinatown: 524"}]}, {"name": "600-699", "children": []}, {"name": "700-799", "children": [{"size": 765, "name": "North Station: 765"}]}]}
+{
+  "name": "scores",
+  "children": [
+    {
+      "name": "0-99",
+      "children": [
+        {
+          "name": "Boston Univ East: 5",
+          "size": 5
+        },
+        {
+          "name": "Longwood: 6",
+          "size": 6
+        },
+        {
+          "name": "Englewood Avenue: 7",
+          "size": 7
+        },
+        {
+          "name": "Boston College: 8",
+          "size": 8
+        },
+        {
+          "name": "Airport: 11",
+          "size": 11
+        },
+        {
+          "name": "Saint Mary Street: 11",
+          "size": 11
+        },
+        {
+          "name": "Suffolk Downs: 11",
+          "size": 11
+        },
+        {
+          "name": "JFK/UMASS Braintree: 12",
+          "size": 12
+        },
+        {
+          "name": "Saint Paul Street: 12",
+          "size": 12
+        },
+        {
+          "name": "Heath Street: 14",
+          "size": 14
+        },
+        {
+          "name": "Science Park: 14",
+          "size": 14
+        },
+        {
+          "name": "Boston Univ Central: 16",
+          "size": 16
+        },
+        {
+          "name": "Ruggles: 17",
+          "size": 17
+        },
+        {
+          "name": "Wood Island: 18",
+          "size": 18
+        },
+        {
+          "name": "Boston Univ West: 22",
+          "size": 22
+        },
+        {
+          "name": "Fenway: 26",
+          "size": 26
+        },
+        {
+          "name": "Green Street: 40",
+          "size": 40
+        },
+        {
+          "name": "Blandford Street: 50",
+          "size": 50
+        },
+        {
+          "name": "Sullivan Square: 50",
+          "size": 50
+        },
+        {
+          "name": "Chiswick Road: 60",
+          "size": 60
+        },
+        {
+          "name": "Museum of Fine Arts: 65",
+          "size": 65
+        },
+        {
+          "name": "Savin Hill: 65",
+          "size": 65
+        },
+        {
+          "name": "Chestnut Hill Avenue: 66",
+          "size": 66
+        },
+        {
+          "name": "Shawmut: 67",
+          "size": 67
+        },
+        {
+          "name": "Stony Brook: 69",
+          "size": 69
+        },
+        {
+          "name": "Sutherland Road: 73",
+          "size": 73
+        },
+        {
+          "name": "Warren Street: 74",
+          "size": 74
+        },
+        {
+          "name": "South Street: 77",
+          "size": 77
+        },
+        {
+          "name": "Riverway: 79",
+          "size": 79
+        },
+        {
+          "name": "Haymarket: 81",
+          "size": 81
+        },
+        {
+          "name": "Back of the Hill: 91",
+          "size": 91
+        },
+        {
+          "name": "Orient Heights: 96",
+          "size": 96
+        },
+        {
+          "name": "Longwood Medical Area: 99",
+          "size": 99
+        }
+      ]
+    },
+    {
+      "name": "100-199",
+      "children": [
+        {
+          "name": "South Station: 100",
+          "size": 100
+        },
+        {
+          "name": "Cleveland Circle: 101",
+          "size": 101
+        },
+        {
+          "name": "Pleasant Street: 105",
+          "size": 105
+        },
+        {
+          "name": "Forest Hills Orange Line: 121",
+          "size": 121
+        },
+        {
+          "name": "Packards Corner: 121",
+          "size": 121
+        },
+        {
+          "name": "Washington Street: 125",
+          "size": 125
+        },
+        {
+          "name": "Griggs Street: 126",
+          "size": 126
+        },
+        {
+          "name": "Fenwood Road: 129",
+          "size": 129
+        },
+        {
+          "name": "Jackson Square: 129",
+          "size": 129
+        },
+        {
+          "name": "Allston Street: 130",
+          "size": 130
+        },
+        {
+          "name": "Prudential: 132",
+          "size": 132
+        },
+        {
+          "name": "Mission Park: 135",
+          "size": 135
+        },
+        {
+          "name": "Charles/MGH: 136",
+          "size": 136
+        },
+        {
+          "name": "Northeastern: 139",
+          "size": 139
+        },
+        {
+          "name": "Broadway: 143",
+          "size": 143
+        },
+        {
+          "name": "Andrew: 148",
+          "size": 148
+        },
+        {
+          "name": "Bowdoin: 153",
+          "size": 153
+        },
+        {
+          "name": "Aquarium: 154",
+          "size": 154
+        },
+        {
+          "name": "Fields Corner: 156",
+          "size": 156
+        },
+        {
+          "name": "Arlington: 160",
+          "size": 160
+        },
+        {
+          "name": "Massachusetts Avenue: 160",
+          "size": 160
+        },
+        {
+          "name": "Government Center: 163",
+          "size": 163
+        },
+        {
+          "name": "Back Bay: 168",
+          "size": 168
+        },
+        {
+          "name": "Babcock Street: 182",
+          "size": 182
+        }
+      ]
+    },
+    {
+      "name": "200-299",
+      "children": [
+        {
+          "name": "Symphony: 203",
+          "size": 203
+        },
+        {
+          "name": "Brigham Circle: 211",
+          "size": 211
+        },
+        {
+          "name": "Roxbury Crossing: 228",
+          "size": 228
+        },
+        {
+          "name": "Ashmont: 237",
+          "size": 237
+        },
+        {
+          "name": "Harvard Avenue: 254",
+          "size": 254
+        },
+        {
+          "name": "State Street: 270",
+          "size": 270
+        },
+        {
+          "name": "Maverick: 278",
+          "size": 278
+        },
+        {
+          "name": "Kenmore: 297",
+          "size": 297
+        }
+      ]
+    },
+    {
+      "name": "300-399",
+      "children": [
+        {
+          "name": "Downtown Crossing: 341",
+          "size": 341
+        },
+        {
+          "name": "Park Street: 384",
+          "size": 384
+        }
+      ]
+    },
+    {
+      "name": "400-499",
+      "children": [
+        {
+          "name": "Boylston: 438",
+          "size": 438
+        },
+        {
+          "name": "Hynes: 456",
+          "size": 456
+        },
+        {
+          "name": "Copley: 494",
+          "size": 494
+        }
+      ]
+    },
+    {
+      "name": "500-599",
+      "children": [
+        {
+          "name": "Tufts Medical Center: 510",
+          "size": 510
+        },
+        {
+          "name": "Chinatown: 524",
+          "size": 524
+        }
+      ]
+    },
+    {
+      "name": "600-699",
+      "children": []
+    },
+    {
+      "name": "700-799",
+      "children": [
+        {
+          "name": "North Station: 765",
+          "size": 765
+        }
+      ]
+    }
+  ]
+}

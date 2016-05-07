@@ -91,7 +91,7 @@ doc2.add_namespace('log', 'http://datamechanics.io/log#')
 
 this_script = doc2.agent('alg:correlation', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
 
-# Crimes_and_stations provenance information
+# Crimes_and_streetlights_per_station provenance information
 get_crimes_and_streetlights_per_station = doc2.activity('log:a'+str(uuid.uuid4()), crimes_and_streetlights_per_station_start_time, crimes_and_streetlights_per_station_end_time)
 doc2.wasAssociatedWith(get_crimes_and_streetlights_per_station, this_script)
 doc2.used(get_crimes_and_streetlights_per_station, 'dat:crimes_and_stations', crimes_and_streetlights_per_station_start_time)
