@@ -143,3 +143,9 @@ python data-viz.py
 ```
 ipython notebook data-viz.ipynb
 ```
+####compile latex
+navigate to lposter folder
+```
+sudo apt-get install latexmk
+latexmk  -pvc -pdf report.tex  & #this will compile/display code in the background as you update it
+```
