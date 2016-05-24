@@ -1,104 +1,82 @@
 {
-    "wasDerivedFrom": {
-        "_:id7": {
-            "prov:generation": "log:a9e18ce79-9a31-4fc9-b8f8-3f0696f6509d",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:usage": "log:a9e18ce79-9a31-4fc9-b8f8-3f0696f6509d",
-            "prov:generatedEntity": "dat:lost",
-            "prov:activity": "log:a9e18ce79-9a31-4fc9-b8f8-3f0696f6509d"
-        },
-        "_:id10": {
-            "prov:generation": "log:aeade81b7-8e3d-46e1-b2ef-ee782b8e9dae",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:usage": "log:aeade81b7-8e3d-46e1-b2ef-ee782b8e9dae",
-            "prov:generatedEntity": "dat:found",
-            "prov:activity": "log:aeade81b7-8e3d-46e1-b2ef-ee782b8e9dae"
-        }
-    },
     "agent": {
         "alg:example": {
-            "ont:Extension": "py",
             "prov:type": {
                 "$": "prov:SoftwareAgent",
                 "type": "prov:QUALIFIED_NAME"
-            }
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "used": {
+        "_:id4": {
+            "ont:Query": "?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT",
+            "prov:activity": "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a",
+            "prov:entity": "bdp:wc8w-nujj",
+            "prov:type": "ont:Retrieval",
+            "prov:time": "2016-05-20T14:55:41.712019"
+        },
+        "_:id3": {
+            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
+            "prov:activity": "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f",
+            "prov:entity": "bdp:wc8w-nujj",
+            "prov:type": "ont:Retrieval",
+            "prov:time": "2016-05-20T14:55:41.712019"
+        }
+    },
+    "activity": {
+        "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f": {
+            "prov:startTime": "2016-05-20T14:55:41.712019",
+            "prov:endTime": "2016-05-20T14:55:43.083939"
+        },
+        "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a": {
+            "prov:startTime": "2016-05-20T14:55:41.712019",
+            "prov:endTime": "2016-05-20T14:55:43.083939"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id10": {
+            "prov:activity": "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f",
+            "prov:usage": "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f",
+            "prov:generation": "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:found"
+        },
+        "_:id7": {
+            "prov:activity": "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a",
+            "prov:usage": "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a",
+            "prov:generation": "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:lost"
         }
     },
     "wasAssociatedWith": {
         "_:id1": {
-            "prov:activity": "log:a1*",
-            "prov:agent": "alg:example"
+            "prov:agent": "alg:example",
+            "prov:activity": "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f"
         },
         "_:id2": {
-            "prov:activity": "log:a2*",
-            "prov:agent": "alg:example"
+            "prov:agent": "alg:example",
+            "prov:activity": "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a"
         }
     },
     "wasGeneratedBy": {
         "_:id6": {
-            "prov:activity": "log:a2*",
-            "prov:time": "2016-02-28T15:04:14.882412",
-            "prov:entity": "dat:lost"
+            "prov:activity": "log:a017179f4-eaa3-489b-8369-ab44dd3c2c5a",
+            "prov:entity": "dat:lost",
+            "prov:time": "2016-05-20T14:55:43.083939"
         },
         "_:id9": {
-            "prov:activity": "log:a1*",
-            "prov:time": "2016-02-28T15:04:14.882412",
-            "prov:entity": "dat:found"
-        }
-    },
-    "used": {
-        "_:id3": {
-            "prov:activity": "log:a1*",
-            "prov:time": "2016-02-28T15:04:12.954330",
-            "ont:Query": "?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT",
-            "prov:type": "ont:Retrieval",
-            "prov:entity": "bdp:wc8w-nujj"
-        },
-        "_:id4": {
-            "prov:activity": "log:a2*",
-            "prov:time": "2016-02-28T15:04:12.954330",
-            "ont:Query": "?type=Animal+Lost&$select=type,latitude,longitude,OPEN_DT",
-            "prov:type": "ont:Retrieval",
-            "prov:entity": "bdp:wc8w-nujj"
-        }
-    },
-    "wasDerivedFrom": {
-        "_:id10": {
-            "prov:activity": "log:a1*",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:a1*",
-            "prov:usage": "log:a1*",
-            "prov:generatedEntity": "dat:found"
-        },
-        "_:id7": {
-            "prov:activity": "log:a2*",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:a2*",
-            "prov:usage": "log:a2*",
-            "prov:generatedEntity": "dat:lost"
-        }
-    },
-    "activity": {
-        "log:a2*": {
-            "prov:startTime": "2016-02-28T15:04:12.954330",
-            "prov:endTime": "2016-02-28T15:04:14.882412"
-        },
-        "log:a1*": {
-            "prov:startTime": "2016-02-28T15:04:12.954330",
-            "prov:endTime": "2016-02-28T15:04:14.882412"
-        }
-    },
-    "wasAttributedTo": {
-        "_:id8": {
-            "prov:agent": "alg:example",
-            "prov:entity": "dat:found"
-        },
-        "_:id5": {
-            "prov:agent": "alg:example",
-            "prov:entity": "dat:lost"
+            "prov:activity": "log:a3431b024-b2ab-4cdc-b01c-88fbf20fa58f",
+            "prov:entity": "dat:found",
+            "prov:time": "2016-05-20T14:55:43.083939"
         }
     },
     "entity": {
+        "dat:lost": {
+            "prov:label": "Animals Lost",
+            "prov:type": "ont:DataSet"
+        },
         "dat:found": {
             "prov:label": "Animals Found",
             "prov:type": "ont:DataSet"
@@ -107,17 +85,23 @@
             "prov:label": "311, Service Requests",
             "ont:Extension": "json",
             "prov:type": "ont:DataResource"
-        },
-        "dat:lost": {
-            "prov:label": "Animals Lost",
-            "prov:type": "ont:DataSet"
         }
     },
     "prefix": {
-        "log": "http://datamechanics.io/log#",
-        "bdp": "https://data.cityofboston.gov/resource/",
         "alg": "http://datamechanics.io/algorithm/alice_bob/",
+        "dat": "http://datamechanics.io/data/alice_bob/",
         "ont": "http://datamechanics.io/ontology#",
-        "dat": "http://datamechanics.io/data/alice_bob/"
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#"
+    },
+    "wasAttributedTo": {
+        "_:id5": {
+            "prov:agent": "alg:example",
+            "prov:entity": "dat:lost"
+        },
+        "_:id8": {
+            "prov:agent": "alg:example",
+            "prov:entity": "dat:found"
+        }
     }
 }

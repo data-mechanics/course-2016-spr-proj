@@ -1,8 +1,6 @@
 {
-  "name": "scores",
   "children": [
     {
-      "name": "0-99",
       "children": [
         {
           "name": "Boston Univ East: 5",
@@ -136,10 +134,10 @@
           "name": "Longwood Medical Area: 99",
           "size": 99
         }
-      ]
+      ],
+      "name": "0-99"
     },
     {
-      "name": "100-199",
       "children": [
         {
           "name": "South Station: 100",
@@ -237,10 +235,10 @@
           "name": "Babcock Street: 182",
           "size": 182
         }
-      ]
+      ],
+      "name": "100-199"
     },
     {
-      "name": "200-299",
       "children": [
         {
           "name": "Symphony: 203",
@@ -274,10 +272,10 @@
           "name": "Kenmore: 297",
           "size": 297
         }
-      ]
+      ],
+      "name": "200-299"
     },
     {
-      "name": "300-399",
       "children": [
         {
           "name": "Downtown Crossing: 341",
@@ -287,10 +285,10 @@
           "name": "Park Street: 384",
           "size": 384
         }
-      ]
+      ],
+      "name": "300-399"
     },
     {
-      "name": "400-499",
       "children": [
         {
           "name": "Boylston: 438",
@@ -304,10 +302,10 @@
           "name": "Copley: 494",
           "size": 494
         }
-      ]
+      ],
+      "name": "400-499"
     },
     {
-      "name": "500-599",
       "children": [
         {
           "name": "Tufts Medical Center: 510",
@@ -317,20 +315,22 @@
           "name": "Chinatown: 524",
           "size": 524
         }
-      ]
+      ],
+      "name": "500-599"
     },
     {
-      "name": "600-699",
-      "children": []
+      "children": [],
+      "name": "600-699"
     },
     {
-      "name": "700-799",
       "children": [
         {
           "name": "North Station: 765",
           "size": 765
         }
-      ]
+      ],
+      "name": "700-799"
     }
-  ]
+  ],
+  "name": "scores"
 }
