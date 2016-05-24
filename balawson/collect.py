@@ -56,7 +56,7 @@ def download_and_insert(filename, url, collection_name, header = ['lat', 'locati
     repo.createPermanent(collection_name)
     repo['balawson.' + collection_name].insert_many(records)
 
-def download_and_insert2(filename, url, collection_name)
+def download_and_insert2(filename, url, collection_name):
     print('Begin downloading {0}'.format(filename))
     response = requests.get(url, stream=True) 
     with open(filename, "wb") as handle:
