@@ -108,7 +108,7 @@ def do_prov(start_time, end_time):
 	doc.wasDerivedFrom(danger_zones, danger_levels, cluster, cluster, cluster)
 
 	repo.record(doc.serialize())
-    print(doc.get_provn())
-
+	print(doc.get_provn())
+    
 if __name__ == '__main__':
 	kmeans()
