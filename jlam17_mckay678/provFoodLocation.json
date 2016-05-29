@@ -1,0 +1,132 @@
+{
+    "entity": {
+        "dat:retailBakery": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "retailBakery"
+        },
+        "bdp:wc8w-nujj": {
+            "prov:type": "ont:DataResource",
+            "prov:label": "Active Food Establishment Licenses",
+            "ont:Extension": "json"
+        },
+        "dat:cornerStore": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "cornerStore"
+        },
+        "dat:foodPantry": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "foodPantry"
+        },
+        "dat:foodEst": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "foodEst"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:entity": "bdp:wc8w-nujj",
+            "prov:time": "2016-05-27T15:42:12.552400",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jlam17_mckay678/",
+        "bdp": "https://data.cityofboston.gov/resource/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jlam17_mckay678/"
+    },
+    "agent": {
+        "alg:foodLocations": {
+            "prov:type": {
+                "$": "prov:SoftwareAgent",
+                "type": "prov:QUALIFIED_NAME"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:agent": "alg:foodLocations",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id4": {
+            "prov:entity": "dat:foodEst",
+            "prov:time": "2016-05-27T15:42:17.591266",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        },
+        "_:id7": {
+            "prov:entity": "dat:cornerStore",
+            "prov:time": "2016-05-27T15:42:17.591266",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        },
+        "_:id13": {
+            "prov:entity": "dat:retailBakery",
+            "prov:time": "2016-05-27T15:42:17.591266",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        },
+        "_:id10": {
+            "prov:entity": "dat:foodPantry",
+            "prov:time": "2016-05-27T15:42:17.591266",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        }
+    },
+    "activity": {
+        "log:a41bf0273-bb65-47a5-8420-1af745cede00": {
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-05-27T15:42:12.552400",
+            "ont:Query": "?accessType=DOWNLOAD",
+            "prov:endTime": "2016-05-27T15:42:17.591266"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id11": {
+            "prov:usage": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:foodPantry",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:generation": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        },
+        "_:id8": {
+            "prov:usage": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:cornerStore",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:generation": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        },
+        "_:id5": {
+            "prov:usage": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:foodEst",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:generation": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        },
+        "_:id14": {
+            "prov:usage": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:generatedEntity": "dat:retailBakery",
+            "prov:activity": "log:a41bf0273-bb65-47a5-8420-1af745cede00",
+            "prov:generation": "log:a41bf0273-bb65-47a5-8420-1af745cede00"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id6": {
+            "prov:entity": "dat:cornerStore",
+            "prov:agent": "alg:foodLocations"
+        },
+        "_:id3": {
+            "prov:entity": "dat:foodEst",
+            "prov:agent": "alg:foodLocations"
+        },
+        "_:id12": {
+            "prov:entity": "dat:retailBakery",
+            "prov:agent": "alg:foodLocations"
+        },
+        "_:id9": {
+            "prov:entity": "dat:foodPantry",
+            "prov:agent": "alg:foodLocations"
+        }
+    }
+}

@@ -1,7 +1,7 @@
 #python3 work_zones.py ../auth.json #gives workZones
 #python3 construction_filter.py ../auth.json #gives construction #requires workZones
 
-#python3 pothole_filter.py ../auth.json #gives potholes  #map reduce failed
+python3 pothole_filter.py ../auth.json #gives potholes  #map reduce failed
 ####python3 crime_reports.py ../auth.json #gives crimeReports  #line 55: name 'get_crime_reorts' is not defined
 
 #python3 accident_filter.py ../auth.json #gives accidents #requires crimeReports

@@ -1,107 +1,94 @@
 {
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jtsliu_kmann/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jtsliu_kmann/",
+        "bdp": "https://data.cityofboston.gov/resource/"
+    },
+    "wasAttributedTo": {
+        "_:id6": {
+            "prov:agent": "alg:fetch_property_assessment",
+            "prov:entity": "dat:property_assessment"
+        },
+        "_:id7": {
+            "prov:agent": "alg:fetch_liquor_data",
+            "prov:entity": "dat:liquor_license"
+        },
+        "_:id5": {
+            "prov:agent": "alg:create_zipcode_with_liquor_and_property_value",
+            "prov:entity": "dat:zipcode_liquor_property_info"
+        },
+        "_:id23": {
+            "prov:agent": "alg:create_zipcode_profile",
+            "prov:entity": "dat:zipcode_profile"
+        }
+    },
     "agent": {
-        "alg:fetch_hospital_data": {
-            "ont:Extension": "py",
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            }
-        },
-        "alg:create_zipcode_with_liquor_and_property_value": {
-            "ont:Extension": "py",
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            }
-        },
-        "alg:fetch_public_school_data": {
-            "ont:Extension": "py",
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            }
-        },
-        "alg:fetch_liquor_data": {
-            "ont:Extension": "py",
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            }
-        },
-        "alg:fetch_crime_data": {
-            "ont:Extension": "py",
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            }
-        },
         "alg:create_zipcode_profile": {
             "ont:Extension": "py",
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             }
         },
         "alg:fetch_property_assessment": {
             "ont:Extension": "py",
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             }
         },
-        "alg:create_crime_near_alcohol": {
+        "alg:create_zipcode_with_liquor_and_property_value": {
             "ont:Extension": "py",
             "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        },
+        "alg:fetch_liquor_data": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
             }
         }
     },
     "entity": {
-        "dat:zipcode_profile": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "Zipcode Profile"
-        },
-        "dat:public_schools": [
+        "dat:liquor_license": [
             {
                 "prov:type": "ont:DataSet",
-                "prov:label": "Public Schools"
+                "prov:label": "Liquor Licenses"
             },
             {
                 "prov:type": "ont:DataSet",
-                "prov:label": "Public Schools"
+                "prov:label": "Liquor Licenses"
             }
         ],
-        "dat:crime": [
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Crime Incidents"
-            },
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Crime Incidents"
-            }
-        ],
-        "dat:hospitals": [
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Hospitals"
-            },
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Hospitals"
-            }
-        ],
-        "bdp:hda6-fnsh": {
-            "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "Liquor Licenses"
-        },
         "bdp:qz7u-kb7x": {
             "ont:Extension": "json",
-            "prov:type": "ont:DataResource",
-            "prov:label": "Property Assessment 2014"
+            "prov:label": "Property Assessment 2014",
+            "prov:type": "ont:DataResource"
         },
+        "dat:liquor_influenced_crime": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Crime near Liquor Licenses"
+        },
+        "bdp:hda6-fnsh": {
+            "ont:Extension": "json",
+            "prov:label": "Liquor Licenses",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:property_assessment": [
+            {
+                "prov:type": "ont:Dataset",
+                "prov:label": "Property Assessment"
+            },
+            {
+                "prov:type": "ont:Dataset",
+                "prov:label": "Property Assessment"
+            }
+        ],
         "dat:zipcode_liquor_property_info": [
             {
                 "prov:type": "ont:DataSet",
@@ -112,379 +99,181 @@
                 "prov:label": "Zipcode Liquor and Propery Data"
             }
         ],
-        "dat:liquor_license": [
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Liquor Licenses"
-            },
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Liquor Licenses"
-            },
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Liquor Licenses"
-            }
-        ],
-        "dat:liquor_influenced_crime": [
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Crime near Liquor Licenses"
-            },
-            {
-                "prov:type": "ont:DataSet",
-                "prov:label": "Crime near Liquor Licenses"
-            }
-        ],
-        "bdp:ufcx-3fdn": [
-            {
-                "ont:Extension": "json",
-                "prov:type": "ont:DataResource",
-                "prov:label": "Hospital Locations"
-            },
-            {
-                "ont:Extension": "json",
-                "prov:type": "ont:DataResource",
-                "prov:label": "Boston Public Schools for school year 2012-2013"
-            },
-            {
-                "ont:Extension": "json",
-                "prov:type": "ont:DataResource",
-                "prov:label": "Crime Incident Reports"
-            }
-        ],
-        "dat:property_assessment": [
-            {
-                "prov:type": "ont:Dataset",
-                "prov:label": "Property Assessment"
-            },
-            {
-                "prov:type": "ont:Dataset",
-                "prov:label": "Property Assessment"
-            }
-        ]
-    },
-    "wasAttributedTo": {
-        "_:id7": {
-            "prov:entity": "dat:liquor_influenced_crime",
-            "prov:agent": "alg:create_crime_near_alcohol"
+        "dat:public_schools": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Public Schools"
         },
-        "_:id1": {
-            "prov:entity": "dat:crime",
-            "prov:agent": "alg:fetch_crime_data"
+        "dat:hospitals": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Hospitals"
         },
-        "_:id4": {
-            "prov:entity": "dat:hospitals",
-            "prov:agent": "alg:fetch_hospital_data"
-        },
-        "_:id5": {
-            "prov:entity": "dat:public_schools",
-            "prov:agent": "alg:fetch_public_school_data"
-        },
-        "_:id3": {
-            "prov:entity": "dat:property_assessment",
-            "prov:agent": "alg:fetch_property_assessment"
-        },
-        "_:id45": {
-            "prov:entity": "dat:zipcode_profile",
-            "prov:agent": "alg:create_zipcode_profile"
-        },
-        "_:id2": {
-            "prov:entity": "dat:zipcode_liquor_property_info",
-            "prov:agent": "alg:create_zipcode_with_liquor_and_property_value"
-        },
-        "_:id6": {
-            "prov:entity": "dat:liquor_license",
-            "prov:agent": "alg:fetch_liquor_data"
-        }
-    },
-    "wasGeneratedBy": {
-        "_:id14": {
-            "prov:time": "2016-04-13T22:40:48.681589",
-            "prov:entity": "dat:crime",
-            "prov:activity": "log:a87357c86-47fe-4d20-aa76-7301f950ea78"
-        },
-        "_:id46": {
-            "prov:time": "2016-04-13T22:52:53.782908",
-            "prov:entity": "dat:zipcode_profile",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
-        },
-        "_:id9": {
-            "prov:time": "2016-04-13T22:36:06.366057",
-            "prov:entity": "dat:hospitals",
-            "prov:activity": "log:a72a83ce1-04c0-475f-b26d-20089501abab"
-        },
-        "_:id10": {
-            "prov:time": "2016-04-13T22:44:05.143815",
-            "prov:entity": "dat:zipcode_liquor_property_info",
-            "prov:activity": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32"
-        },
-        "_:id11": {
-            "prov:time": "2016-04-13T22:38:41.045294",
-            "prov:entity": "dat:property_assessment",
-            "prov:activity": "log:af802e278-2112-4d77-8205-d4ad5289d4ae"
-        },
-        "_:id12": {
-            "prov:time": "2016-04-13T22:36:14.324825",
-            "prov:entity": "dat:public_schools",
-            "prov:activity": "log:aec8c1267-7c78-4f33-af3c-005788b55ae8"
-        },
-        "_:id13": {
-            "prov:time": "2016-04-13T22:35:46.272040",
-            "prov:entity": "dat:liquor_license",
-            "prov:activity": "log:aed9eac16-98a2-48f5-b63d-637cc32cf405"
-        },
-        "_:id8": {
-            "prov:time": "2016-04-13T22:52:17.348119",
-            "prov:entity": "dat:liquor_influenced_crime",
-            "prov:activity": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a"
+        "dat:zipcode_profile": {
+            "prov:type": "ont:DataSet",
+            "prov:label": "Zipcode Profile"
         }
     },
     "activity": {
-        "log:aec8c1267-7c78-4f33-af3c-005788b55ae8": {
-            "prov:endTime": "2016-04-13T22:36:14.324825",
-            "ont:Query": "?$limit=50000",
-            "prov:type": "ont:Retrieval",
-            "prov:startTime": "2016-04-13T22:36:13.191712"
-        },
-        "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32": {
-            "prov:endTime": "2016-04-13T22:44:05.143815",
-            "prov:startTime": "2016-04-13T22:42:49.094519",
+        "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7": {
+            "prov:startTime": "2016-05-27T16:40:54.688535",
+            "prov:endTime": "2016-05-27T16:42:38.477544",
             "prov:type": "ont:Computation"
         },
-        "log:af802e278-2112-4d77-8205-d4ad5289d4ae": {
-            "prov:endTime": "2016-04-13T22:38:41.045294",
-            "ont:Query": "?$limit=50000",
-            "prov:type": "ont:Retrieval",
-            "prov:startTime": "2016-04-13T22:36:21.701310"
-        },
-        "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a": {
-            "prov:endTime": "2016-04-13T22:52:17.348119",
-            "prov:startTime": "2016-04-13T22:44:31.595966",
+        "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6": {
+            "prov:startTime": "2016-05-27T16:42:42.566752",
+            "prov:endTime": "2016-05-27T16:42:43.097456",
             "prov:type": "ont:Computation"
         },
-        "log:a72a83ce1-04c0-475f-b26d-20089501abab": {
-            "prov:endTime": "2016-04-13T22:36:06.366057",
-            "prov:startTime": "2016-04-13T22:36:05.515796",
+        "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7": {
+            "prov:startTime": "2016-05-27T16:38:38.989104",
+            "ont:Query": "?$limit=50000",
+            "prov:endTime": "2016-05-27T16:40:54.121833",
             "prov:type": "ont:Retrieval"
         },
-        "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1": {
-            "prov:endTime": "2016-04-13T22:52:53.782908",
-            "prov:startTime": "2016-04-13T22:52:53.025296",
-            "prov:type": "ont:Computation"
-        },
-        "log:aed9eac16-98a2-48f5-b63d-637cc32cf405": {
-            "prov:endTime": "2016-04-13T22:35:46.272040",
+        "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6": {
+            "prov:startTime": "2016-05-27T16:09:45.939561",
             "ont:Query": "?$limit=50000",
-            "prov:type": "ont:Retrieval",
-            "prov:startTime": "2016-04-13T22:35:43.102898"
-        },
-        "log:a87357c86-47fe-4d20-aa76-7301f950ea78": {
-            "prov:endTime": "2016-04-13T22:40:48.681589",
-            "ont:Query": "?$limit=50000",
-            "prov:type": "ont:Retrieval",
-            "prov:startTime": "2016-04-13T22:38:49.740033"
+            "prov:endTime": "2016-05-27T16:09:49.484846",
+            "prov:type": "ont:Retrieval"
         }
     },
     "wasAssociatedWith": {
-        "_:id17": {
-            "prov:agent": "alg:fetch_liquor_data",
-            "prov:activity": "log:aed9eac16-98a2-48f5-b63d-637cc32cf405"
+        "_:id8": {
+            "prov:activity": "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7",
+            "prov:agent": "alg:fetch_property_assessment"
         },
-        "_:id15": {
-            "prov:agent": "alg:fetch_property_assessment",
-            "prov:activity": "log:af802e278-2112-4d77-8205-d4ad5289d4ae"
-        },
-        "_:id20": {
-            "prov:agent": "alg:fetch_crime_data",
-            "prov:activity": "log:a87357c86-47fe-4d20-aa76-7301f950ea78"
-        },
-        "_:id16": {
-            "prov:agent": "alg:create_zipcode_with_liquor_and_property_value",
-            "prov:activity": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32"
+        "_:id10": {
+            "prov:activity": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:agent": "alg:create_zipcode_with_liquor_and_property_value"
         },
         "_:id18": {
-            "prov:agent": "alg:fetch_public_school_data",
-            "prov:activity": "log:aec8c1267-7c78-4f33-af3c-005788b55ae8"
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:agent": "alg:create_zipcode_profile"
         },
-        "_:id40": {
-            "prov:agent": "alg:create_zipcode_profile",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
+        "_:id9": {
+            "prov:activity": "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6",
+            "prov:agent": "alg:fetch_liquor_data"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id26": {
+            "prov:generation": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usedEntity": "dat:liquor_influenced_crime",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usage": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:generatedEntity": "dat:zipcode_profile"
         },
-        "_:id21": {
-            "prov:agent": "alg:fetch_hospital_data",
-            "prov:activity": "log:a72a83ce1-04c0-475f-b26d-20089501abab"
+        "_:id25": {
+            "prov:generation": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usedEntity": "dat:zipcode_liquor_property_info",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usage": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:generatedEntity": "dat:zipcode_profile"
         },
-        "_:id19": {
-            "prov:agent": "alg:create_crime_near_alcohol",
-            "prov:activity": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a"
+        "_:id14": {
+            "prov:generation": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:usedEntity": "dat:property_assessment",
+            "prov:activity": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:usage": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:generatedEntity": "dat:zipcode_liquor_property_info"
+        },
+        "_:id28": {
+            "prov:generation": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usedEntity": "dat:hospitals",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usage": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:generatedEntity": "dat:zipcode_profile"
+        },
+        "_:id11": {
+            "prov:generation": "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6",
+            "prov:usedEntity": "bdp:hda6-fnsh",
+            "prov:activity": "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6",
+            "prov:usage": "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6",
+            "prov:generatedEntity": "dat:liquor_license"
+        },
+        "_:id12": {
+            "prov:generation": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:usedEntity": "dat:liquor_license",
+            "prov:activity": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:usage": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:generatedEntity": "dat:zipcode_liquor_property_info"
+        },
+        "_:id27": {
+            "prov:generation": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usedEntity": "dat:public_schools",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:usage": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:generatedEntity": "dat:zipcode_profile"
+        },
+        "_:id13": {
+            "prov:generation": "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7",
+            "prov:usedEntity": "bdp:qz7u-kb7x",
+            "prov:activity": "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7",
+            "prov:usage": "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7",
+            "prov:generatedEntity": "dat:property_assessment"
         }
     },
     "used": {
-        "_:id25": {
-            "prov:time": "2016-04-13T22:44:31.595966",
-            "prov:entity": "dat:liquor_license",
-            "prov:activity": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a"
+        "_:id20": {
+            "prov:time": "2016-05-27T16:42:42.566752",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:entity": "dat:liquor_influenced_crime"
         },
-        "_:id26": {
-            "prov:time": "2016-04-13T22:42:49.094519",
-            "prov:entity": "dat:liquor_license",
-            "prov:activity": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32"
+        "_:id2": {
+            "prov:time": "2016-05-27T16:09:45.939561",
+            "prov:activity": "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6",
+            "prov:entity": "bdp:hda6-fnsh"
         },
-        "_:id42": {
-            "prov:time": "2016-04-13T22:52:53.025296",
-            "prov:entity": "dat:liquor_influenced_crime",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
-        },
-        "_:id30": {
-            "prov:time": "2016-04-13T22:42:49.094519",
-            "prov:entity": "dat:property_assessment",
-            "prov:activity": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32"
-        },
-        "_:id27": {
-            "prov:time": "2016-04-13T22:36:13.191712",
-            "prov:entity": "bdp:ufcx-3fdn",
-            "prov:activity": "log:aec8c1267-7c78-4f33-af3c-005788b55ae8"
-        },
-        "_:id24": {
-            "prov:time": "2016-04-13T22:35:43.102898",
-            "prov:entity": "bdp:hda6-fnsh",
-            "prov:activity": "log:aed9eac16-98a2-48f5-b63d-637cc32cf405"
-        },
-        "_:id44": {
-            "prov:time": "2016-04-13T22:52:53.025296",
-            "prov:entity": "dat:hospitals",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
-        },
-        "_:id23": {
-            "prov:time": "2016-04-13T22:36:05.515796",
-            "prov:entity": "bdp:ufcx-3fdn",
-            "prov:activity": "log:a72a83ce1-04c0-475f-b26d-20089501abab"
-        },
-        "_:id29": {
-            "prov:time": "2016-04-13T22:36:21.701310",
-            "prov:entity": "bdp:qz7u-kb7x",
-            "prov:activity": "log:af802e278-2112-4d77-8205-d4ad5289d4ae"
-        },
-        "_:id41": {
-            "prov:time": "2016-04-13T22:52:53.025296",
-            "prov:entity": "dat:zipcode_liquor_property_info",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
+        "_:id19": {
+            "prov:time": "2016-05-27T16:42:42.566752",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:entity": "dat:zipcode_liquor_property_info"
         },
         "_:id22": {
-            "prov:time": "2016-04-13T22:38:49.740033",
-            "prov:entity": "bdp:ufcx-3fdn",
-            "prov:activity": "log:a87357c86-47fe-4d20-aa76-7301f950ea78"
+            "prov:time": "2016-05-27T16:42:42.566752",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:entity": "dat:hospitals"
         },
-        "_:id28": {
-            "prov:time": "2016-04-13T22:44:31.595966",
-            "prov:entity": "dat:crime",
-            "prov:activity": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a"
+        "_:id1": {
+            "prov:time": "2016-05-27T16:38:38.989104",
+            "prov:activity": "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7",
+            "prov:entity": "bdp:qz7u-kb7x"
         },
-        "_:id43": {
-            "prov:time": "2016-04-13T22:52:53.025296",
-            "prov:entity": "dat:public_schools",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
+        "_:id21": {
+            "prov:time": "2016-05-27T16:42:42.566752",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:entity": "dat:public_schools"
+        },
+        "_:id4": {
+            "prov:time": "2016-05-27T16:40:54.688535",
+            "prov:activity": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:entity": "dat:property_assessment"
+        },
+        "_:id3": {
+            "prov:time": "2016-05-27T16:40:54.688535",
+            "prov:activity": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:entity": "dat:liquor_license"
         }
     },
-    "prefix": {
-        "log": "http://datamechanics.io/log#",
-        "dat": "http://datamechanics.io/data/jtsliu_kmann/",
-        "ont": "http://datamechanics.io/ontology#",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "alg": "http://datamechanics.io/algorithm/jtsliu_kmann/"
-    },
-    "wasDerivedFrom": {
-        "_:id37": {
-            "prov:generation": "log:a87357c86-47fe-4d20-aa76-7301f950ea78",
-            "prov:usedEntity": "bdp:ufcx-3fdn",
-            "prov:generatedEntity": "dat:crime",
-            "prov:usage": "log:a87357c86-47fe-4d20-aa76-7301f950ea78",
-            "prov:activity": "log:a87357c86-47fe-4d20-aa76-7301f950ea78"
+    "wasGeneratedBy": {
+        "_:id16": {
+            "prov:time": "2016-05-27T16:09:49.484846",
+            "prov:activity": "log:af6c0030c-22fd-4d03-b904-19eb1eeb1da6",
+            "prov:entity": "dat:liquor_license"
         },
-        "_:id49": {
-            "prov:generation": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:usedEntity": "dat:public_schools",
-            "prov:generatedEntity": "dat:zipcode_profile",
-            "prov:usage": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
+        "_:id24": {
+            "prov:time": "2016-05-27T16:42:43.097456",
+            "prov:activity": "log:a918b49a8-9df2-48ef-bdcc-d946b9683cb6",
+            "prov:entity": "dat:zipcode_profile"
         },
-        "_:id34": {
-            "prov:generation": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a",
-            "prov:usedEntity": "dat:crime",
-            "prov:generatedEntity": "dat:liquor_influenced_crime",
-            "prov:usage": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a",
-            "prov:activity": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a"
+        "_:id15": {
+            "prov:time": "2016-05-27T16:40:54.121833",
+            "prov:activity": "log:a3b6c3929-5a64-4dba-ba30-07ff3941fbb7",
+            "prov:entity": "dat:property_assessment"
         },
-        "_:id39": {
-            "prov:generation": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32",
-            "prov:usedEntity": "dat:property_assessment",
-            "prov:generatedEntity": "dat:zipcode_liquor_property_info",
-            "prov:usage": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32",
-            "prov:activity": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32"
-        },
-        "_:id36": {
-            "prov:generation": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a",
-            "prov:usedEntity": "dat:liquor_license",
-            "prov:generatedEntity": "dat:liquor_influenced_crime",
-            "prov:usage": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a",
-            "prov:activity": "log:ac332fe3b-944f-4a09-9ba8-c8a20d3a535a"
-        },
-        "_:id33": {
-            "prov:generation": "log:aec8c1267-7c78-4f33-af3c-005788b55ae8",
-            "prov:usedEntity": "bdp:ufcx-3fdn",
-            "prov:generatedEntity": "dat:public_schools",
-            "prov:usage": "log:aec8c1267-7c78-4f33-af3c-005788b55ae8",
-            "prov:activity": "log:aec8c1267-7c78-4f33-af3c-005788b55ae8"
-        },
-        "_:id32": {
-            "prov:generation": "log:aed9eac16-98a2-48f5-b63d-637cc32cf405",
-            "prov:usedEntity": "bdp:hda6-fnsh",
-            "prov:generatedEntity": "dat:liquor_license",
-            "prov:usage": "log:aed9eac16-98a2-48f5-b63d-637cc32cf405",
-            "prov:activity": "log:aed9eac16-98a2-48f5-b63d-637cc32cf405"
-        },
-        "_:id47": {
-            "prov:generation": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:usedEntity": "dat:zipcode_liquor_property_info",
-            "prov:generatedEntity": "dat:zipcode_profile",
-            "prov:usage": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
-        },
-        "_:id48": {
-            "prov:generation": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:usedEntity": "dat:liquor_influenced_crime",
-            "prov:generatedEntity": "dat:zipcode_profile",
-            "prov:usage": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
-        },
-        "_:id31": {
-            "prov:generation": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32",
-            "prov:usedEntity": "dat:liquor_license",
-            "prov:generatedEntity": "dat:zipcode_liquor_property_info",
-            "prov:usage": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32",
-            "prov:activity": "log:a12b7f8dc-a550-4e4b-bc04-50281264bd32"
-        },
-        "_:id38": {
-            "prov:generation": "log:a72a83ce1-04c0-475f-b26d-20089501abab",
-            "prov:usedEntity": "bdp:ufcx-3fdn",
-            "prov:generatedEntity": "dat:hospitals",
-            "prov:usage": "log:a72a83ce1-04c0-475f-b26d-20089501abab",
-            "prov:activity": "log:a72a83ce1-04c0-475f-b26d-20089501abab"
-        },
-        "_:id50": {
-            "prov:generation": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:usedEntity": "dat:hospitals",
-            "prov:generatedEntity": "dat:zipcode_profile",
-            "prov:usage": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1",
-            "prov:activity": "log:a17b79428-9513-4e7b-9c6c-1e47ca771fb1"
-        },
-        "_:id35": {
-            "prov:generation": "log:af802e278-2112-4d77-8205-d4ad5289d4ae",
-            "prov:usedEntity": "bdp:qz7u-kb7x",
-            "prov:generatedEntity": "dat:property_assessment",
-            "prov:usage": "log:af802e278-2112-4d77-8205-d4ad5289d4ae",
-            "prov:activity": "log:af802e278-2112-4d77-8205-d4ad5289d4ae"
+        "_:id17": {
+            "prov:time": "2016-05-27T16:42:38.477544",
+            "prov:activity": "log:a8c61917e-3f60-4d19-ab81-dff6c51625f7",
+            "prov:entity": "dat:zipcode_liquor_property_info"
         }
     }
 }

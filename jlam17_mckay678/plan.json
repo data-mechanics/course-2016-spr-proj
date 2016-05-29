@@ -1,29 +1,804 @@
-document
+{
+    "entity": {
+        "dat:Boston_BirthLocation": {
+            "prov:label": "Boston_BirthLocation",
+            "prov:type": "Boston_BirthLocation"
+        },
+        "dat:Boston_LFP(4-6)": {
+            "prov:label": "Boston_LFP(4-6)",
+            "prov:type": "Boston_LFP(4-6)"
+        },
+        "dat:Boston_LFP(5-6)": {
+            "prov:label": "Boston_LFP(5-6)",
+            "prov:type": "Boston_LFP(5-6)"
+        },
+        "dat:Boston_Education": {
+            "prov:label": "Boston_Education",
+            "prov:type": "Boston_Education"
+        },
+        "bdp:wc8w-nujj": {
+            "prov:label": "Boston Demographics",
+            "ont:Extension": "json",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:Boston_IncomePerCapita": {
+            "prov:label": "Boston_IncomePerCapita",
+            "prov:type": "Boston_IncomePerCapita"
+        },
+        "dat:Boston_VehiclesPerHousehold": {
+            "prov:label": "Boston_VehiclesPerHousehold",
+            "prov:type": "Boston_VehiclesPerHousehold"
+        },
+        "dat:Boston_Industries(1-2)": {
+            "prov:label": "Boston_Industries(1-2)",
+            "prov:type": "Boston_Industries(1-2)"
+        },
+        "dat:Boston_LFP(1-6)": {
+            "prov:label": "Boston_LFP(1-6)",
+            "prov:type": "Boston_LFP(1-6)"
+        },
+        "dat:Boston_SchoolEnrollment": {
+            "prov:label": "Boston_SchoolEnrollment",
+            "prov:type": "Boston_SchoolEnrollment"
+        },
+        "dat:Boston_Naivity": {
+            "prov:label": "Boston_Naivity",
+            "prov:type": "Boston_Naivity"
+        },
+        "dat:Boston_WorkPlace": {
+            "prov:label": "Boston_WorkPlace",
+            "prov:type": "Boston_WorkPlace"
+        },
+        "dat:Boston_Industries(2-2)": {
+            "prov:label": "Boston_Industries(2-2)",
+            "prov:type": "Boston_Industries(2-2)"
+        },
+        "dat:Boston_Commute": {
+            "prov:label": "Boston_Commute",
+            "prov:type": "Boston_Commute"
+        },
+        "dat:Boston_Occupation": {
+            "prov:label": "Boston_Occupation",
+            "prov:type": "Boston_Occupation"
+        },
+        "dat:Boston_LFP(3-6)": {
+            "prov:label": "Boston_LFP(3-6)",
+            "prov:type": "Boston_LFP(3-6)"
+        },
+        "dat:Boston_GeographicMobility": {
+            "prov:label": "Boston_GeographicMobility",
+            "prov:type": "Boston_GeographicMobility"
+        },
+        "dat:Boston_Household": {
+            "prov:label": "Boston_Household",
+            "prov:type": "Boston_Household"
+        },
+        "dat:Boston_HousingUnits": {
+            "prov:label": "Boston_HousingUnits",
+            "prov:type": "Boston_HousingUnits"
+        },
+        "dat:Boston_GroupQuarters": {
+            "prov:label": "Boston_GroupQuarters",
+            "prov:type": "Boston_GroupQuarters"
+        },
+        "dat:Boston_FamilyIncome": {
+            "prov:label": "Boston_FamilyIncome",
+            "prov:type": "Boston_FamilyIncome"
+        },
+        "dat:Boston_LanguageSpoken": {
+            "prov:label": "Boston_LanguageSpoken",
+            "prov:type": "Boston_LanguageSpoken"
+        },
+        "dat:Boston_PopulationGrowth": {
+            "prov:label": "Boston_PopulationGrowth",
+            "prov:type": "Boston_PopulationGrowth"
+        },
+        "dat:Boston_LFP(6-6)": {
+            "prov:label": "Boston_LFP(6-6)",
+            "prov:type": "Boston_LFP(6-6)"
+        },
+        "dat:Boston_Age": {
+            "prov:label": "Boston_Age",
+            "prov:type": "Boston_Age"
+        },
+        "dat:Boston_HouseholdIncome": {
+            "prov:label": "Boston_HouseholdIncome",
+            "prov:type": "Boston_HouseholdIncome"
+        },
+        "dat:Boston_RaceEthnicity": {
+            "prov:label": "Boston_RaceEthnicity",
+            "prov:type": "Boston_RaceEthnicity"
+        },
+        "dat:Boston_TravelTime": {
+            "prov:label": "Boston_TravelTime",
+            "prov:type": "Boston_TravelTime"
+        },
+        "dat:Boston_VacancyRates": {
+            "prov:label": "Boston_VacancyRates",
+            "prov:type": "Boston_VacancyRates"
+        },
+        "dat:Boston_HousingTenure": {
+            "prov:label": "Boston_HousingTenure",
+            "prov:type": "Boston_HousingTenure"
+        },
+        "dat:Boston_LFP(2-6)": {
+            "prov:label": "Boston_LFP(2-6)",
+            "prov:type": "Boston_LFP(2-6)"
+        }
+    },
+    "activity": {
+        "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d": {
+            "ont:Query": "?accessType=NONE",
+            "prov:type": "ont:Computation",
+            "prov:endTime": "2016-05-27T14:26:02.705802",
+            "prov:startTime": "2016-05-27T14:25:47.296646"
+        }
+    },
+    "used": {
+        "_:id2": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:25:47.296646",
+            "prov:entity": "bdp:wc8w-nujj"
+        }
+    },
+    "prefix": {
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jlam17_mckay678/",
+        "dat": "http://datamechanics.io/data/jlam17_mckay678/",
+        "bdp": "https://data.cityofboston.gov/resource/"
+    },
+    "wasGeneratedBy": {
+        "_:id58": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LFP(4-6)"
+        },
+        "_:id22": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_GroupQuarters"
+        },
+        "_:id10": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Commute"
+        },
+        "_:id61": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LFP(5-6)"
+        },
+        "_:id37": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_IncomePerCapita"
+        },
+        "_:id82": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_TravelTime"
+        },
+        "_:id46": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LanguageSpoken"
+        },
+        "_:id91": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_WorkPlace"
+        },
+        "_:id40": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Industries(1-2)"
+        },
+        "_:id43": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Industries(2-2)"
+        },
+        "_:id34": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_HousingUnits"
+        },
+        "_:id4": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Age"
+        },
+        "_:id16": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_FamilyIncome"
+        },
+        "_:id64": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LFP(6-6)"
+        },
+        "_:id28": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_HouseholdIncome"
+        },
+        "_:id88": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_VehiclesPerHousehold"
+        },
+        "_:id85": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_VacancyRates"
+        },
+        "_:id67": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Naivity"
+        },
+        "_:id25": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Household"
+        },
+        "_:id73": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_PopulationGrowth"
+        },
+        "_:id13": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Education"
+        },
+        "_:id49": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LFP(1-6)"
+        },
+        "_:id70": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_Occupation"
+        },
+        "_:id55": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LFP(3-6)"
+        },
+        "_:id76": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_RaceEthnicity"
+        },
+        "_:id7": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_BirthLocation"
+        },
+        "_:id19": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_GeographicMobility"
+        },
+        "_:id79": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_SchoolEnrollment"
+        },
+        "_:id52": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_LFP(2-6)"
+        },
+        "_:id31": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:time": "2016-05-27T14:26:02.705802",
+            "prov:entity": "dat:Boston_HousingTenure"
+        }
+    },
+    "agent": {
+        "alg:bostonDemographics": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id1": {
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:agent": "alg:bostonDemographics"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id78": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_SchoolEnrollment"
+        },
+        "_:id57": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LFP(4-6)"
+        },
+        "_:id15": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_FamilyIncome"
+        },
+        "_:id69": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Occupation"
+        },
+        "_:id27": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_HouseholdIncome"
+        },
+        "_:id33": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_HousingUnits"
+        },
+        "_:id81": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_TravelTime"
+        },
+        "_:id87": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_VehiclesPerHousehold"
+        },
+        "_:id63": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LFP(6-6)"
+        },
+        "_:id12": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Education"
+        },
+        "_:id54": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LFP(3-6)"
+        },
+        "_:id48": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LFP(1-6)"
+        },
+        "_:id45": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LanguageSpoken"
+        },
+        "_:id36": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_IncomePerCapita"
+        },
+        "_:id66": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Naivity"
+        },
+        "_:id60": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LFP(5-6)"
+        },
+        "_:id18": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_GeographicMobility"
+        },
+        "_:id72": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_PopulationGrowth"
+        },
+        "_:id30": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_HousingTenure"
+        },
+        "_:id51": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_LFP(2-6)"
+        },
+        "_:id84": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_VacancyRates"
+        },
+        "_:id3": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Age"
+        },
+        "_:id21": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_GroupQuarters"
+        },
+        "_:id39": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Industries(1-2)"
+        },
+        "_:id42": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Industries(2-2)"
+        },
+        "_:id6": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_BirthLocation"
+        },
+        "_:id9": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Commute"
+        },
+        "_:id90": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_WorkPlace"
+        },
+        "_:id75": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_RaceEthnicity"
+        },
+        "_:id24": {
+            "prov:agent": "alg:bostonDemographics",
+            "prov:entity": "dat:Boston_Household"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id8": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_BirthLocation",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id92": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_WorkPlace",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id38": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_IncomePerCapita",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id14": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Education",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id35": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_HousingUnits",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id71": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Occupation",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id86": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_VacancyRates",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id23": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_GroupQuarters",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id20": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_GeographicMobility",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id32": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_HousingTenure",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id53": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LFP(2-6)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id11": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Commute",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id68": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Naivity",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id62": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LFP(5-6)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id65": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LFP(6-6)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id5": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Age",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id29": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_HouseholdIncome",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id26": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Household",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id56": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LFP(3-6)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id83": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_TravelTime",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id89": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_VehiclesPerHousehold",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id59": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LFP(4-6)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id41": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Industries(1-2)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id17": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_FamilyIncome",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id80": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_SchoolEnrollment",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id74": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_PopulationGrowth",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id50": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LFP(1-6)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id47": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_LanguageSpoken",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id77": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_RaceEthnicity",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        },
+        "_:id44": {
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generatedEntity": "dat:Boston_Industries(2-2)",
+            "prov:activity": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d",
+            "prov:generation": "log:a9928e8d0-a489-48d0-abe5-6c5905d0e20d"
+        }
+    }
+}document
+  prefix alg <http://datamechanics.io/algorithm/jlam17_mckay678/>
+  prefix log <http://datamechanics.io/log#>
+  prefix dat <http://datamechanics.io/data/jlam17_mckay678/>
+  prefix bdp <https://data.cityofboston.gov/resource/>
+  prefix ont <http://datamechanics.io/ontology#>
+  
+  agent(alg:foodNames, [ont:Extension="py", prov:type='prov:SoftwareAgent'])
+  entity(bdp:wc8w-nujj, [ont:Extension="json", prov:label="Active Food Establishment Licenses", prov:type="ont:DataResource"])
+  activity(log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, 2016-05-27T14:32:44.466700, 2016-05-27T14:32:49.773710, [ont:Query="?accessType=DOWNLOAD", prov:type="ont:Computation"])
+  wasAssociatedWith(log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, alg:foodNames, -)
+  used(log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, bdp:wc8w-nujj, 2016-05-27T14:32:44.466700)
+  entity(dat:foodEst, [prov:label="foodEst", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:foodEst, alg:foodNames)
+  wasGeneratedBy(dat:foodEst, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, 2016-05-27T14:32:49.773710)
+  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275)
+  entity(dat:cornerStore, [prov:label="cornerStore", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:cornerStore, alg:foodNames)
+  wasGeneratedBy(dat:cornerStore, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, 2016-05-27T14:32:49.773710)
+  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275)
+  entity(dat:foodPantry, [prov:label="foodPantry", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:foodPantry, alg:foodNames)
+  wasGeneratedBy(dat:foodPantry, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, 2016-05-27T14:32:49.773710)
+  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275)
+  entity(dat:summerFM, [prov:label="summerFM", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:summerFM, alg:foodNames)
+  wasGeneratedBy(dat:summerFM, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, 2016-05-27T14:32:49.773710)
+  wasDerivedFrom(dat:summerFM, bdp:wc8w-nujj, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275)
+  entity(dat:retailBakery, [prov:label="retailBakery", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:retailBakery, alg:foodNames)
+  wasGeneratedBy(dat:retailBakery, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, 2016-05-27T14:32:49.773710)
+  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275, log:a4b9c40c1-fb36-4e0e-8eb8-6042a8f76275)
+endDocumentdocument
+  prefix log <http://datamechanics.io/log#>
+  prefix alg <http://datamechanics.io/algorithm/jlam17_mckay678/>
+  prefix bdp <https://data.cityofboston.gov/resource/>
   prefix ont <http://datamechanics.io/ontology#>
   prefix dat <http://datamechanics.io/data/jlam17_mckay678/>
+  
+  agent(alg:foodNames, [prov:type='prov:SoftwareAgent', ont:Extension="py"])
+  entity(bdp:wc8w-nujj, [prov:type="ont:DataResource", prov:label="Active Food Establishment Licenses", ont:Extension="json"])
+  activity(log:aafda8ec3-5db3-420d-bcbf-b666e482d196, 2016-05-27T15:36:30.084207, 2016-05-27T15:36:36.281193, [prov:type="ont:Computation", ont:Query="?accessType=DOWNLOAD"])
+  wasAssociatedWith(log:aafda8ec3-5db3-420d-bcbf-b666e482d196, alg:foodNames, -)
+  used(log:aafda8ec3-5db3-420d-bcbf-b666e482d196, bdp:wc8w-nujj, 2016-05-27T15:36:30.084207)
+  entity(dat:foodEst, [prov:type="ont:DataSet", prov:label="foodEst"])
+  wasAttributedTo(dat:foodEst, alg:foodNames)
+  wasGeneratedBy(dat:foodEst, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, 2016-05-27T15:36:36.281193)
+  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196)
+  entity(dat:cornerStore, [prov:type="ont:DataSet", prov:label="cornerStore"])
+  wasAttributedTo(dat:cornerStore, alg:foodNames)
+  wasGeneratedBy(dat:cornerStore, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, 2016-05-27T15:36:36.281193)
+  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196)
+  entity(dat:foodPantry, [prov:type="ont:DataSet", prov:label="foodPantry"])
+  wasAttributedTo(dat:foodPantry, alg:foodNames)
+  wasGeneratedBy(dat:foodPantry, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, 2016-05-27T15:36:36.281193)
+  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196)
+  entity(dat:summerFM, [prov:type="ont:DataSet", prov:label="summerFM"])
+  wasAttributedTo(dat:summerFM, alg:foodNames)
+  wasGeneratedBy(dat:summerFM, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, 2016-05-27T15:36:36.281193)
+  wasDerivedFrom(dat:summerFM, bdp:wc8w-nujj, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196)
+  entity(dat:retailBakery, [prov:type="ont:DataSet", prov:label="retailBakery"])
+  wasAttributedTo(dat:retailBakery, alg:foodNames)
+  wasGeneratedBy(dat:retailBakery, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, 2016-05-27T15:36:36.281193)
+  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196, log:aafda8ec3-5db3-420d-bcbf-b666e482d196)
+endDocumentdocument
   prefix alg <http://datamechanics.io/algorithm/jlam17_mckay678/>
   prefix bdp <https://data.cityofboston.gov/resource/>
   prefix log <http://datamechanics.io/log#>
+  prefix dat <http://datamechanics.io/data/jlam17_mckay678/>
+  prefix ont <http://datamechanics.io/ontology#>
+  
+  agent(alg:foodNames, [ont:Extension="py", prov:type='prov:SoftwareAgent'])
+  entity(bdp:wc8w-nujj, [prov:type="ont:DataResource", ont:Extension="json", prov:label="Active Food Establishment Licenses"])
+  activity(log:ad2fae441-8952-4d87-b868-a95841ff6414, 2016-05-27T15:37:12.711933, 2016-05-27T15:37:18.191012, [ont:Query="?accessType=DOWNLOAD", prov:type="ont:Computation"])
+  wasAssociatedWith(log:ad2fae441-8952-4d87-b868-a95841ff6414, alg:foodNames, -)
+  used(log:ad2fae441-8952-4d87-b868-a95841ff6414, bdp:wc8w-nujj, 2016-05-27T15:37:12.711933)
+  entity(dat:foodEst, [prov:label="foodEst", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:foodEst, alg:foodNames)
+  wasGeneratedBy(dat:foodEst, log:ad2fae441-8952-4d87-b868-a95841ff6414, 2016-05-27T15:37:18.191012)
+  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414)
+  entity(dat:cornerStore, [prov:label="cornerStore", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:cornerStore, alg:foodNames)
+  wasGeneratedBy(dat:cornerStore, log:ad2fae441-8952-4d87-b868-a95841ff6414, 2016-05-27T15:37:18.191012)
+  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414)
+  entity(dat:foodPantry, [prov:label="foodPantry", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:foodPantry, alg:foodNames)
+  wasGeneratedBy(dat:foodPantry, log:ad2fae441-8952-4d87-b868-a95841ff6414, 2016-05-27T15:37:18.191012)
+  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414)
+  entity(dat:summerFM, [prov:label="summerFM", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:summerFM, alg:foodNames)
+  wasGeneratedBy(dat:summerFM, log:ad2fae441-8952-4d87-b868-a95841ff6414, 2016-05-27T15:37:18.191012)
+  wasDerivedFrom(dat:summerFM, bdp:wc8w-nujj, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414)
+  entity(dat:retailBakery, [prov:label="retailBakery", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:retailBakery, alg:foodNames)
+  wasGeneratedBy(dat:retailBakery, log:ad2fae441-8952-4d87-b868-a95841ff6414, 2016-05-27T15:37:18.191012)
+  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414, log:ad2fae441-8952-4d87-b868-a95841ff6414)
+endDocumentdocument
+  prefix dat <http://datamechanics.io/data/jlam17_mckay678/>
+  prefix alg <http://datamechanics.io/algorithm/jlam17_mckay678/>
+  prefix ont <http://datamechanics.io/ontology#>
+  prefix log <http://datamechanics.io/log#>
+  prefix bdp <https://data.cityofboston.gov/resource/>
+  
+  agent(alg:foodLocations, [ont:Extension="py", prov:type='prov:SoftwareAgent'])
+  entity(bdp:wc8w-nujj, [ont:Extension="json", prov:label="Active Food Establishment Licenses", prov:type="ont:DataResource"])
+  activity(log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, 2016-05-27T15:38:36.443829, 2016-05-27T15:38:41.584089, [prov:type="ont:Computation", ont:Query="?accessType=DOWNLOAD"])
+  wasAssociatedWith(log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, alg:foodLocations, -)
+  used(log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, bdp:wc8w-nujj, 2016-05-27T15:38:36.443829)
+  entity(dat:foodEst, [prov:label="foodEst", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:foodEst, alg:foodLocations)
+  wasGeneratedBy(dat:foodEst, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, 2016-05-27T15:38:41.584089)
+  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc)
+  entity(dat:cornerStore, [prov:label="cornerStore", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:cornerStore, alg:foodLocations)
+  wasGeneratedBy(dat:cornerStore, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, 2016-05-27T15:38:41.584089)
+  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc)
+  entity(dat:foodPantry, [prov:label="foodPantry", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:foodPantry, alg:foodLocations)
+  wasGeneratedBy(dat:foodPantry, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, 2016-05-27T15:38:41.584089)
+  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc)
+  entity(dat:retailBakery, [prov:label="retailBakery", prov:type="ont:DataSet"])
+  wasAttributedTo(dat:retailBakery, alg:foodLocations)
+  wasGeneratedBy(dat:retailBakery, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, 2016-05-27T15:38:41.584089)
+  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc, log:a55381da6-d65c-4e64-8ec8-ea2d454954dc)
+endDocumentdocument
+  prefix dat <http://datamechanics.io/data/jlam17_mckay678/>
+  prefix log <http://datamechanics.io/log#>
+  prefix ont <http://datamechanics.io/ontology#>
+  prefix bdp <https://data.cityofboston.gov/resource/>
+  prefix alg <http://datamechanics.io/algorithm/jlam17_mckay678/>
   
   agent(alg:foodLocations, [prov:type='prov:SoftwareAgent', ont:Extension="py"])
-  entity(bdp:wc8w-nujj, [prov:type="ont:DataResource", ont:Extension="json", prov:label="Active Food Establishment Licenses"])
-  activity(log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:19.220478, 2016-04-13T17:43:22.001121, [prov:type="ont:Computation", ont:Query="?accessType=DOWNLOAD"])
-  wasAssociatedWith(log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, alg:foodLocations, -)
-  used(log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, bdp:wc8w-nujj, 2016-04-13T17:43:19.220478)
-  entity(dat:foodEst, [prov:type="ont:DataSet", prov:label="foodEst"])
+  entity(bdp:wc8w-nujj, [prov:label="Active Food Establishment Licenses", prov:type="ont:DataResource", ont:Extension="json"])
+  activity(log:a41bf0273-bb65-47a5-8420-1af745cede00, 2016-05-27T15:42:12.552400, 2016-05-27T15:42:17.591266, [prov:type="ont:Computation", ont:Query="?accessType=DOWNLOAD"])
+  wasAssociatedWith(log:a41bf0273-bb65-47a5-8420-1af745cede00, alg:foodLocations, -)
+  used(log:a41bf0273-bb65-47a5-8420-1af745cede00, bdp:wc8w-nujj, 2016-05-27T15:42:12.552400)
+  entity(dat:foodEst, [prov:label="foodEst", prov:type="ont:DataSet"])
   wasAttributedTo(dat:foodEst, alg:foodLocations)
-  wasGeneratedBy(dat:foodEst, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
-  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
-  entity(dat:cornerStore, [prov:type="ont:DataSet", prov:label="cornerStore"])
+  wasGeneratedBy(dat:foodEst, log:a41bf0273-bb65-47a5-8420-1af745cede00, 2016-05-27T15:42:17.591266)
+  wasDerivedFrom(dat:foodEst, bdp:wc8w-nujj, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00)
+  entity(dat:cornerStore, [prov:label="cornerStore", prov:type="ont:DataSet"])
   wasAttributedTo(dat:cornerStore, alg:foodLocations)
-  wasGeneratedBy(dat:cornerStore, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
-  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
-  entity(dat:foodPantry, [prov:type="ont:DataSet", prov:label="foodPantry"])
+  wasGeneratedBy(dat:cornerStore, log:a41bf0273-bb65-47a5-8420-1af745cede00, 2016-05-27T15:42:17.591266)
+  wasDerivedFrom(dat:cornerStore, bdp:wc8w-nujj, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00)
+  entity(dat:foodPantry, [prov:label="foodPantry", prov:type="ont:DataSet"])
   wasAttributedTo(dat:foodPantry, alg:foodLocations)
-  wasGeneratedBy(dat:foodPantry, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
-  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
-  entity(dat:retailBakery, [prov:type="ont:DataSet", prov:label="retailBakery"])
+  wasGeneratedBy(dat:foodPantry, log:a41bf0273-bb65-47a5-8420-1af745cede00, 2016-05-27T15:42:17.591266)
+  wasDerivedFrom(dat:foodPantry, bdp:wc8w-nujj, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00)
+  entity(dat:retailBakery, [prov:label="retailBakery", prov:type="ont:DataSet"])
   wasAttributedTo(dat:retailBakery, alg:foodLocations)
-  wasGeneratedBy(dat:retailBakery, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, 2016-04-13T17:43:22.001121)
-  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df, log:ad4c67b5a-a2af-4eb3-95b4-57ff0ea2c1df)
+  wasGeneratedBy(dat:retailBakery, log:a41bf0273-bb65-47a5-8420-1af745cede00, 2016-05-27T15:42:17.591266)
+  wasDerivedFrom(dat:retailBakery, bdp:wc8w-nujj, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00, log:a41bf0273-bb65-47a5-8420-1af745cede00)
 endDocument
