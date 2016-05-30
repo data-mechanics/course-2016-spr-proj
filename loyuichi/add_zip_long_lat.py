@@ -27,7 +27,7 @@ for meter in repo['loyuichi.meters'].find({'X': {'$exists': True}, 'Y': {'$exist
         if (location):
             zipcode = location[0].raw['address_components'][-1]["long_name"]
             if (len(zipcode) == 4):
-				zipcode = "0" + zipcode
+                    zipcode = "0" + zipcode
             res = repo['loyuichi.meters'].update({'_id': meter['_id']}, {'$set': {'zip': zipcode}})
             print(res)
     except:

@@ -170,13 +170,13 @@ c_f.close()
 l_f.close()
 cl = len(cs)
 ll = len(ls)
-print 'FOR %d RECORDS' % cl 
+print ('FOR %d RECORDS' %cl)
 for i, c in enumerate(cs):
 	cid, lat, lon, _, _ = c
 	lid, llat, llong = min(ls, key=lambda l: haversine(float(l[2]), float(l[1]), float(lon), float(lat)))
 	dist = haversine(float(llong), float(llat), float(lon), float(lat))
 	if i % 10 == 0:
-		print '%s\t%s\t%s m\n' % (cid, lid, str(dist))
+		print ('%s\t%s\t%s m\n' % (cid, lid, str(dist)))
 	lcd.write('%s\t%s\t%s m\n' % (cid, lid, str(dist)))
 lcd.close()
 

@@ -1,0 +1,188 @@
+{
+    "used": {
+        "_:id4": {
+            "prov:entity": "bdp:54s2-yxpg",
+            "prov:activity": "log:add02a26d-9e70-472b-a246-2d114c80aea3",
+            "prov:time": "2016-05-30T14:19:39.329108"
+        },
+        "_:id6": {
+            "prov:entity": "bdp:4swk-wcg8",
+            "prov:activity": "log:ab2160a11-402e-4981-94cd-54f8302915e3",
+            "prov:time": "2016-05-30T14:19:39.329108"
+        },
+        "_:id2": {
+            "prov:entity": "bdp:effb-uspk",
+            "prov:activity": "log:a0692eac2-46b0-48d8-939e-eda1d07d0128",
+            "prov:time": "2016-05-30T14:19:39.329108"
+        },
+        "_:id8": {
+            "prov:entity": "bdp:7cdf-6fgx",
+            "prov:activity": "log:ad6cde035-9a51-41c5-90b0-24531a51b97a",
+            "prov:time": "2016-05-30T14:19:39.329108"
+        }
+    },
+    "entity": {
+        "bdp:4swk-wcg8": {
+            "prov:label": "Employee Earnings Report 2014",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:avgEarnings": {
+            "prov:label": "Police Salary and Crime Incidence by Year",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:54s2-yxpg": {
+            "prov:label": "Employee Earnings Report 2013",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:avgEarningsIncidents": {
+            "prov:label": "Police Salary and Crime Incidence by Year",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:7cdf-6fgx": {
+            "prov:label": "Crime Incident Report",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        },
+        "dat:incidentCounts": {
+            "prov:label": "Police Salary and Crime Incidence by Year",
+            "prov:type": "ont:DataSet"
+        },
+        "bdp:effb-uspk": {
+            "prov:label": "Employee Earnings Report 2012",
+            "prov:type": "ont:DataResource",
+            "ont:Extension": "json"
+        }
+    },
+    "wasAttributedTo": {
+        "_:id9": {
+            "prov:entity": "dat:avgEarnings",
+            "prov:agent": "alg:script"
+        },
+        "_:id16": {
+            "prov:entity": "dat:incidentCounts",
+            "prov:agent": "alg:script"
+        },
+        "_:id19": {
+            "prov:entity": "dat:avgEarningsIncidents",
+            "prov:agent": "alg:script"
+        }
+    },
+    "wasAssociatedWith": {
+        "_:id3": {
+            "prov:agent": "alg:script",
+            "prov:activity": "log:add02a26d-9e70-472b-a246-2d114c80aea3"
+        },
+        "_:id5": {
+            "prov:agent": "alg:script",
+            "prov:activity": "log:ab2160a11-402e-4981-94cd-54f8302915e3"
+        },
+        "_:id1": {
+            "prov:agent": "alg:script",
+            "prov:activity": "log:a0692eac2-46b0-48d8-939e-eda1d07d0128"
+        },
+        "_:id7": {
+            "prov:agent": "alg:script",
+            "prov:activity": "log:ad6cde035-9a51-41c5-90b0-24531a51b97a"
+        }
+    },
+    "wasGeneratedBy": {
+        "_:id20": {
+            "prov:entity": "dat:avgEarningsIncidents",
+            "prov:activity": "log:ad6cde035-9a51-41c5-90b0-24531a51b97a",
+            "prov:time": "2016-05-30T14:19:47.730581"
+        },
+        "_:id11": {
+            "prov:entity": "dat:avgEarnings",
+            "prov:activity": "log:add02a26d-9e70-472b-a246-2d114c80aea3",
+            "prov:time": "2016-05-30T14:19:47.730581"
+        },
+        "_:id10": {
+            "prov:entity": "dat:avgEarnings",
+            "prov:activity": "log:a0692eac2-46b0-48d8-939e-eda1d07d0128",
+            "prov:time": "2016-05-30T14:19:47.730581"
+        },
+        "_:id12": {
+            "prov:entity": "dat:avgEarnings",
+            "prov:activity": "log:ab2160a11-402e-4981-94cd-54f8302915e3",
+            "prov:time": "2016-05-30T14:19:47.730581"
+        },
+        "_:id17": {
+            "prov:entity": "dat:incidentCounts",
+            "prov:activity": "log:ad6cde035-9a51-41c5-90b0-24531a51b97a",
+            "prov:time": "2016-05-30T14:19:47.730581"
+        }
+    },
+    "agent": {
+        "alg:script": {
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            },
+            "ont:Extension": "py"
+        }
+    },
+    "wasDerivedFrom": {
+        "_:id18": {
+            "prov:usedEntity": "bdp:7cdf-6fgx",
+            "prov:activity": "log:ad6cde035-9a51-41c5-90b0-24531a51b97a",
+            "prov:generatedEntity": "dat:incidentCounts"
+        },
+        "_:id14": {
+            "prov:usedEntity": "bdp:54s2-yxpg",
+            "prov:activity": "log:add02a26d-9e70-472b-a246-2d114c80aea3",
+            "prov:generatedEntity": "dat:avgEarnings"
+        },
+        "_:id15": {
+            "prov:usedEntity": "bdp:4swk-wcg8",
+            "prov:activity": "log:ab2160a11-402e-4981-94cd-54f8302915e3",
+            "prov:generatedEntity": "dat:avgEarnings"
+        },
+        "_:id13": {
+            "prov:usedEntity": "bdp:effb-uspk",
+            "prov:activity": "log:a0692eac2-46b0-48d8-939e-eda1d07d0128",
+            "prov:generatedEntity": "dat:avgEarnings"
+        },
+        "_:id21": {
+            "prov:usedEntity": "bdp:7cdf-6fgx",
+            "prov:activity": "log:a0692eac2-46b0-48d8-939e-eda1d07d0128",
+            "prov:usage": "log:ab2160a11-402e-4981-94cd-54f8302915e3",
+            "prov:generation": "log:add02a26d-9e70-472b-a246-2d114c80aea3",
+            "prov:generatedEntity": "dat:avgEarningsIncidents"
+        }
+    },
+    "prefix": {
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/nlouie_thsu8/",
+        "bdp": "https://data-mechanics.s3.amazonaws.com/nlouie_thsu8/data",
+        "dat": "http://datamechanics.io/data/nlouie_thsu8/",
+        "log": "http://datamechanics.io/log#"
+    },
+    "activity": {
+        "log:a0692eac2-46b0-48d8-939e-eda1d07d0128": {
+            "prov:startTime": "2016-05-30T14:19:39.329108",
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?department=Boston%20Police%20Department",
+            "prov:endTime": "2016-05-30T14:19:47.730581"
+        },
+        "log:ad6cde035-9a51-41c5-90b0-24531a51b97a": {
+            "prov:startTime": "2016-05-30T14:19:39.329108",
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "",
+            "prov:endTime": "2016-05-30T14:19:47.730581"
+        },
+        "log:add02a26d-9e70-472b-a246-2d114c80aea3": {
+            "prov:startTime": "2016-05-30T14:19:39.329108",
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?department=Boston%20Police%20Department",
+            "prov:endTime": "2016-05-30T14:19:47.730581"
+        },
+        "log:ab2160a11-402e-4981-94cd-54f8302915e3": {
+            "prov:startTime": "2016-05-30T14:19:39.329108",
+            "prov:type": "ont:Retrieval",
+            "ont:Query": "?department_name=Boston%20Police%20Department",
+            "prov:endTime": "2016-05-30T14:19:47.730581"
+        }
+    }
+}

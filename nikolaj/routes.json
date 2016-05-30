@@ -1,0 +1,4 @@
+[{"_id":"all","value":{"routes":["green","orange","blue","red","39","green-e","1","23","57","66","green-d","green-c","green-b","86","16","70","83","89","105","101","116"]}},
+{"_id":"pagerank_result_t_500walk","value":{"routes":["green","orange","blue","red","green-e","green-d","green-c","green-b"]}},
+{"_id":"pagerank_result_t_500walk_bus","value":{"routes":["green","orange","blue","red","39","green-e","1","23","57","66","green-d","green-c","green-b","86","16","70","83","89","105","101","116"]}},
+{"_id":"pagerank_result_t_only","value":{"routes":["green","orange","blue","red","green-e","green-c","green-d","green-b"]}}]
