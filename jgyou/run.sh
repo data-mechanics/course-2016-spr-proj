@@ -1,3 +1,3 @@
 #python3 runallscripts.py ../auth.json
 
-python retrievehospitals.py 
+python3 retrievehospitals.py auth.json

@@ -1,152 +1,152 @@
 {
-    "wasGeneratedBy": {
-        "_:id7": {
-            "prov:time": "2016-05-27T15:37:18.191012",
-            "prov:entity": "dat:cornerStore",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
-        },
-        "_:id13": {
-            "prov:time": "2016-05-27T15:37:18.191012",
-            "prov:entity": "dat:summerFM",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
-        },
-        "_:id4": {
-            "prov:time": "2016-05-27T15:37:18.191012",
-            "prov:entity": "dat:foodEst",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
-        },
-        "_:id10": {
-            "prov:time": "2016-05-27T15:37:18.191012",
-            "prov:entity": "dat:foodPantry",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
-        },
-        "_:id16": {
-            "prov:time": "2016-05-27T15:37:18.191012",
-            "prov:entity": "dat:retailBakery",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
+    "activity": {
+        "log:a2b640950-449e-4d89-879d-46fa80360943": {
+            "prov:endTime": "2016-05-31T15:07:42.699708",
+            "prov:type": "ont:Computation",
+            "prov:startTime": "2016-05-31T15:07:37.258136",
+            "ont:Query": "?accessType=DOWNLOAD"
         }
     },
-    "entity": {
-        "dat:summerFM": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "summerFM"
+    "wasGeneratedBy": {
+        "_:id10": {
+            "prov:time": "2016-05-31T15:07:42.699708",
+            "prov:entity": "dat:foodPantry",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         },
-        "dat:foodPantry": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "foodPantry"
+        "_:id7": {
+            "prov:time": "2016-05-31T15:07:42.699708",
+            "prov:entity": "dat:cornerStore",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         },
-        "bdp:wc8w-nujj": {
-            "prov:type": "ont:DataResource",
-            "ont:Extension": "json",
-            "prov:label": "Active Food Establishment Licenses"
+        "_:id4": {
+            "prov:time": "2016-05-31T15:07:42.699708",
+            "prov:entity": "dat:foodEst",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         },
-        "dat:cornerStore": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "cornerStore"
+        "_:id16": {
+            "prov:time": "2016-05-31T15:07:42.699708",
+            "prov:entity": "dat:retailBakery",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         },
-        "dat:retailBakery": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "retailBakery"
-        },
-        "dat:foodEst": {
-            "prov:type": "ont:DataSet",
-            "prov:label": "foodEst"
+        "_:id13": {
+            "prov:time": "2016-05-31T15:07:42.699708",
+            "prov:entity": "dat:summerFM",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         }
     },
     "wasAttributedTo": {
-        "_:id6": {
-            "prov:agent": "alg:foodNames",
-            "prov:entity": "dat:cornerStore"
-        },
-        "_:id12": {
-            "prov:agent": "alg:foodNames",
-            "prov:entity": "dat:summerFM"
-        },
         "_:id3": {
-            "prov:agent": "alg:foodNames",
-            "prov:entity": "dat:foodEst"
-        },
-        "_:id15": {
-            "prov:agent": "alg:foodNames",
-            "prov:entity": "dat:retailBakery"
+            "prov:entity": "dat:foodEst",
+            "prov:agent": "alg:foodNames"
         },
         "_:id9": {
-            "prov:agent": "alg:foodNames",
-            "prov:entity": "dat:foodPantry"
+            "prov:entity": "dat:foodPantry",
+            "prov:agent": "alg:foodNames"
+        },
+        "_:id6": {
+            "prov:entity": "dat:cornerStore",
+            "prov:agent": "alg:foodNames"
+        },
+        "_:id15": {
+            "prov:entity": "dat:retailBakery",
+            "prov:agent": "alg:foodNames"
+        },
+        "_:id12": {
+            "prov:entity": "dat:summerFM",
+            "prov:agent": "alg:foodNames"
         }
-    },
-    "activity": {
-        "log:ad2fae441-8952-4d87-b868-a95841ff6414": {
-            "prov:endTime": "2016-05-27T15:37:18.191012",
-            "prov:startTime": "2016-05-27T15:37:12.711933",
-            "ont:Query": "?accessType=DOWNLOAD",
-            "prov:type": "ont:Computation"
-        }
-    },
-    "agent": {
-        "alg:foodNames": {
-            "prov:type": {
-                "$": "prov:SoftwareAgent",
-                "type": "prov:QUALIFIED_NAME"
-            },
-            "ont:Extension": "py"
-        }
-    },
-    "prefix": {
-        "alg": "http://datamechanics.io/algorithm/jlam17_mckay678/",
-        "bdp": "https://data.cityofboston.gov/resource/",
-        "log": "http://datamechanics.io/log#",
-        "dat": "http://datamechanics.io/data/jlam17_mckay678/",
-        "ont": "http://datamechanics.io/ontology#"
     },
     "wasAssociatedWith": {
         "_:id1": {
             "prov:agent": "alg:foodNames",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         }
     },
     "used": {
         "_:id2": {
-            "prov:time": "2016-05-27T15:37:12.711933",
+            "prov:time": "2016-05-31T15:07:37.258136",
             "prov:entity": "bdp:wc8w-nujj",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         }
     },
+    "agent": {
+        "alg:foodNames": {
+            "ont:Extension": "py",
+            "prov:type": {
+                "type": "prov:QUALIFIED_NAME",
+                "$": "prov:SoftwareAgent"
+            }
+        }
+    },
+    "entity": {
+        "bdp:wc8w-nujj": {
+            "ont:Extension": "json",
+            "prov:label": "Active Food Establishment Licenses",
+            "prov:type": "ont:DataResource"
+        },
+        "dat:foodEst": {
+            "prov:label": "foodEst",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:cornerStore": {
+            "prov:label": "cornerStore",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:summerFM": {
+            "prov:label": "summerFM",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:foodPantry": {
+            "prov:label": "foodPantry",
+            "prov:type": "ont:DataSet"
+        },
+        "dat:retailBakery": {
+            "prov:label": "retailBakery",
+            "prov:type": "ont:DataSet"
+        }
+    },
+    "prefix": {
+        "dat": "http://datamechanics.io/data/jlam17_mckay678/",
+        "log": "http://datamechanics.io/log#",
+        "ont": "http://datamechanics.io/ontology#",
+        "alg": "http://datamechanics.io/algorithm/jlam17_mckay678/",
+        "bdp": "https://data.cityofboston.gov/resource/"
+    },
     "wasDerivedFrom": {
-        "_:id11": {
-            "prov:generatedEntity": "dat:foodPantry",
-            "prov:usage": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
-        },
-        "_:id14": {
-            "prov:generatedEntity": "dat:summerFM",
-            "prov:usage": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
-        },
         "_:id8": {
             "prov:generatedEntity": "dat:cornerStore",
-            "prov:usage": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
+            "prov:generation": "log:a2b640950-449e-4d89-879d-46fa80360943",
             "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
+            "prov:usage": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         },
         "_:id5": {
             "prov:generatedEntity": "dat:foodEst",
-            "prov:usage": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
+            "prov:generation": "log:a2b640950-449e-4d89-879d-46fa80360943",
             "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
+            "prov:usage": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
+        },
+        "_:id11": {
+            "prov:generatedEntity": "dat:foodPantry",
+            "prov:generation": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         },
         "_:id17": {
             "prov:generatedEntity": "dat:retailBakery",
-            "prov:usage": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
+            "prov:generation": "log:a2b640950-449e-4d89-879d-46fa80360943",
             "prov:usedEntity": "bdp:wc8w-nujj",
-            "prov:generation": "log:ad2fae441-8952-4d87-b868-a95841ff6414",
-            "prov:activity": "log:ad2fae441-8952-4d87-b868-a95841ff6414"
+            "prov:usage": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
+        },
+        "_:id14": {
+            "prov:generatedEntity": "dat:summerFM",
+            "prov:generation": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:usedEntity": "bdp:wc8w-nujj",
+            "prov:usage": "log:a2b640950-449e-4d89-879d-46fa80360943",
+            "prov:activity": "log:a2b640950-449e-4d89-879d-46fa80360943"
         }
     }
 }

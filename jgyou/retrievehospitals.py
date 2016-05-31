@@ -103,13 +103,14 @@ with open("auth.json") as authfile:
 			with open('plan.json', 'w') as plan:
 				plan.write(json.dumps(json.loads(provdoc2.serialize()), indent=4))
 		else:
+			#print(plan)
 			doc2 = docModel.deserialize(plan)
-			docModel.deserialize(plan)
+			#docModel.deserialize(plan)
 			doc2.update(provdoc2)
-			plan.close()
+			#plan.close()
 			with open('plan.json', 'w') as plan:
 				plan.write(json.dumps(json.loads(doc2.serialize()), indent=4))
-				plan.close()
+				#plan.close()
 
 
 	#print(provdoc.get_provn())

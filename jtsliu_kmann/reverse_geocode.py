@@ -38,7 +38,7 @@ crime_data = getCollection('crime')
 
 count = 0
 for x in crime_data:
-	if count == 2000:
+	if count == 10:#the original count is 2000
 		break
 	lng = x['location']['coordinates'][0]
 	lat = x['location']['coordinates'][1]
