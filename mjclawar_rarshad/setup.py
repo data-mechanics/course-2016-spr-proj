@@ -29,8 +29,8 @@ def main(auth_json_path, full_provenance=False):
     with open(auth_json_path, 'r') as f:
         auth_json = json.load(f)
         api_token = auth_json['services']['cityofbostondataportal']['token']
-        username = auth_json['services']['cityofbostondataportal']['username']
-        mongo_pass = auth_json['services']['cityofbostondataportal']['password']
+        username = 'mjclawar_rarshad'#auth_json['services']['cityofbostondataportal']['username']
+        mongo_pass = 'mjclawar_rarshad' #auth_json['services']['cityofbostondataportal']['username']
 
     database_helper = database_helpers.DatabaseHelper(username=username, password=mongo_pass)
     bdp_api = bdp_query.BDPQuery(api_token=api_token)

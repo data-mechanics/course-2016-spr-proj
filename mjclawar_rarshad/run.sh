@@ -1,1 +1,1 @@
-python3 setup.py auth.json
+python3 setup.py ../auth.json

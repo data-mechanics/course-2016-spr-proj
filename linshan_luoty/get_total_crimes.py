@@ -14,15 +14,22 @@ import pymongo
 import prov.model
 import provenance
 import uuid
+import sys
 from bson.code import Code
 from bson.json_util import dumps
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
-exec(open('get_repo.py').read())
+#exec(open('get_repo.py').read())
+
+#auth
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('linshan_luoty','linshan_luoty')
+auth = json.loads(open(sys.argv[1]).read())
 
 # Set up the database connection.
-db = repo[auth['admin']['name']+'.'+'crime_zips']
+db = repo['linshan_luoty'+'.'+'crime_zips']
 
 
 startTime = datetime.datetime.now()

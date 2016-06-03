@@ -17,7 +17,13 @@ datasets = {
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
-exec(open('get_repo.py').read())
+#exec(open('get_repo.py').read())
+
+#auth
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('linshan_luoty','linshan_luoty')
+auth = json.loads(open(sys.argv[1]).read())
 
 # Retrieve some data sets.
 startTime = datetime.datetime.now()
@@ -29,7 +35,7 @@ for title in datasets:
 	#s = json.dumps(r, sort_keys=True, indent=2)
 	repo.dropPermanent(title)
 	repo.createPermanent(title)
-	repo[auth['admin']['name']+'.'+title].insert_many(r)
+	repo['linshan_luoty'+'.'+title].insert_many(r)
 
 endTime = datetime.datetime.now()
 

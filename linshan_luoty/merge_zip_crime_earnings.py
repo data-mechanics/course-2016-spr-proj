@@ -4,13 +4,20 @@ import pymongo
 import prov.model
 import provenance
 import uuid
+import sys
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
-exec(open('get_repo.py').read())
+#exec(open('get_repo.py').read())
 
-zip_location_crimes_db	= repo[auth['admin']['name']+'.'+'zip_location_crimes']
-zip_avg_earnings_db		= repo[auth['admin']['name']+'.'+'zip_avg_earnings']
+#auth
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('linshan_luoty','linshan_luoty')
+auth = json.loads(open(sys.argv[1]).read())
+
+zip_location_crimes_db	= repo['linshan_luoty'+'.'+'zip_location_crimes']
+zip_avg_earnings_db = repo['linshan_luoty'+'.'+'zip_avg_earnings']
 
 startTime = datetime.datetime.now()
 
@@ -40,9 +47,9 @@ f.close()
 # save it to a permanent folder
 repo.dropPermanent("zip_location_crimes_earnings")
 repo.createPermanent("zip_location_crimes_earnings")
-repo[auth['admin']['name']+'.'+'zip_location_crimes_earnings'].insert_many(zip_location_crimes_earnings)
+repo['linshan_luoty'+'.'+'zip_location_crimes_earnings'].insert_many(zip_location_crimes_earnings)
 
-zip_location_crimes_earnings_sorted = repo[auth['admin']['name']+'.'+'zip_location_crimes_earnings'].find({},{
+zip_location_crimes_earnings_sorted = repo['linshan_luoty'+'.'+'zip_location_crimes_earnings'].find({},{
 	'_id': False,
 	'zip': True,
 	'crimes': True,

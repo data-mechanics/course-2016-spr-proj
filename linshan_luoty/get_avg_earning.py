@@ -4,14 +4,21 @@ import pymongo
 import prov.model
 import provenance
 import uuid
+import sys
 from bson.code import Code
 
 # Until a library is created, we just use the script directly.
 exec(open('../pymongo_dm.py').read())
-exec(open('get_repo.py').read())
+#exec(open('get_repo.py').read())
+
+#auth
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('linshan_luoty','linshan_luoty')
+auth = json.loads(open(sys.argv[1]).read())
 
 # Set up the database connection.
-db = repo[auth['admin']['name']+'.'+'earnings_zips']
+db = repo['linshan_luoty'+'.'+'earnings_zips']
 
 '''
 The following MapReduce method doesn't work because of authorization problem.
