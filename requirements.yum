@@ -1,0 +1,7 @@
+python34-devel
+libxml2-devel libxslt-devel
+gcc-c++
+lapack-devel
+freetype-devel
+libpng-devel
+ImageMagick

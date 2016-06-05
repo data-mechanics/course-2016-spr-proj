@@ -62,3 +62,7 @@ To use PyMongo with the above interface, run the `pymongo_dm.py` script at the t
 exec(open('../pymongo_dm.py').read())
 ```
 The script `alice_bob/example.py` is an example that illustrates how the wrappers can be used. It also provides a detailed example of how to record appropriate provenance information using the `prov` module.
+
+## Other requirements.
+
+The requirements for the various component projects have been assembled in `requirements.yum` and `requirements.python`.
