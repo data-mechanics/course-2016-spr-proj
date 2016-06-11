@@ -42,7 +42,7 @@ with open("../Dataset/intersection_lane.csv") as f:
 			st = Int(s)
 			X.append( st )
 			# adding constrain
-			opt.add( Or( st = 2, st = -1 ) )
+			opt.add( Or( st == 2, st == -1 ) )
 			i = i + 1
 		st2 = row[1]
 		if not st2 in street:
@@ -52,7 +52,7 @@ with open("../Dataset/intersection_lane.csv") as f:
 			st = Int(s)
 			X.append( st )
 			# adding constrain
-			C.append( Or(st = 2, st = -1) )
+			C.append( Or(st == 2, st == -1) )
 			i = i + 1
 
 		# add intersection information
