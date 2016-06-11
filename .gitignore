@@ -84,3 +84,4 @@ pip-selfcheck.json
 .idea/
 
 alice_bob/plan.json
+auth.json
