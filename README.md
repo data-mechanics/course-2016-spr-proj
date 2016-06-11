@@ -65,6 +65,18 @@ On Fedora-based Linux systems, you can use the following to install all the requ
 ```
 yum -y install $(cat requirements.yum)
 ```
+Some projects require the Z3 Theorem Prover. To install it, first clone the Z3 repository:
+```
+git clone https://github.com/Z3Prover/z3.git
+```
+You can then install Z3 by following the instructions in the Z3 README. The instructions for a Linux environment are duplicated below:
+```
+cd z3
+python scripts/mk_make.py
+cd build
+make
+sudo make install
+```
 
 ## Python infrastructure
 
