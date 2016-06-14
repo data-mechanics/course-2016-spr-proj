@@ -4,7 +4,7 @@ This script collects the necessary data from online resources.
 
 import sys
 import requests
-import pymongo
+import dml
 import json
 import time
 import prov.model
@@ -13,12 +13,8 @@ import uuid
 from astral import Astral
 from haversine import haversine
 
-# Until a library is created, we just use the script directly.
-# Path of pymongo_dm.py may need to be changed to ../pymongo_dm.py.
-exec(open('../pymongo_dm.py').read())
-
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('atelass', 'atelass')
 
