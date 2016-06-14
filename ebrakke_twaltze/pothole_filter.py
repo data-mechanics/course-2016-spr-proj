@@ -6,6 +6,11 @@ import uuid
 import sys
 import subprocess
 
+exec(open('../pymongo_dm.py').read())
+
+client = pymongo.MongoClient()
+repo = client.repo
+repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
 
 def filter_potholes():
     start_time = datetime.datetime.now()
