@@ -6,7 +6,7 @@
 
 #python3 extract_earnings_zips.py ../auth.json  #gives earning_zips
 
-python3 get_avg_earning.py ../auth.json #needs earning_zips  #gives zip_avg_earnings
+#python3 get_avg_earning.py ../auth.json #needs earning_zips  #gives zip_avg_earnings
 
 #python3 merge_crime_with_zip.py ../auth.json #gives crime_zips #needs crime_incident_reports & zip_locations
 

@@ -1,6 +1,6 @@
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import time
 from datetime import datetime
@@ -12,9 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats
 
-exec(open('../pymongo_dm.py').read())
-
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('tbeaudry', 'tbeaudry')
 

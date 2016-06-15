@@ -22,7 +22,7 @@ from bs4 import BeautifulSoup
 from urllib import parse, request
 from json import loads, dumps, load
 
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -143,7 +143,7 @@ def make_provdoc(repo, runids, starttime, endtime, queries):
 
 exec(open('../pymongo_dm.py').read())
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 

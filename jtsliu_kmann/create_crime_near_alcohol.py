@@ -7,7 +7,7 @@
 import datetime
 import json
 import prov.model
-import pymongo
+import dml
 import re
 import uuid
 from bson.son import SON
@@ -17,11 +17,8 @@ from bson.son import SON
 # we assume that euclidean distance is pretty accurate. Furthermore, this is around 2.5 - 3 miles
 PSEUDO_WALKING_DISTANCE = .05
 
-# Open the file for interfacing with DB
-exec(open('../pymongo_dm.py').read())
-
 # Set up the db connection
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('jtsliu_kmann', 'jtsliu_kmann')
 

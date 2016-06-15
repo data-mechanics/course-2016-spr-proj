@@ -9,17 +9,14 @@ in mongodb.
 
 import json
 import datetime
-import pymongo
+import dml
 import uuid
 import provenance
 import prov
 import sys
 
-exec(open('../pymongo_dm.py').read())
-#exec(open('get_repo.py').read())
-
 #auth
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('linshan_luoty','linshan_luoty')
 auth = json.loads(open(sys.argv[1]).read())

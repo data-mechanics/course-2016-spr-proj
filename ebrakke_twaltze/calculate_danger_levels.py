@@ -1,4 +1,4 @@
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -7,9 +7,7 @@ from DangerZones import Pothole
 from DangerZones import Accident
 from DangerZones import Construction
 
-exec(open('../pymongo_dm.py').read())
-
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
 

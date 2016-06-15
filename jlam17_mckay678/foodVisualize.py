@@ -4,18 +4,15 @@ import pandas as pd
 import math
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import numpy as np
 from pymongo import MongoClient
 
-# Until a library is created, we just use the script directly.
-exec(open('pymongo_dm.py').read())
-
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
 

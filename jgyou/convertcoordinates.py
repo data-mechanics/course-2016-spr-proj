@@ -1,14 +1,10 @@
 from urllib import parse, request
 from json import loads, dumps
 
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
-
-#from geopy.geocoders import Nominatim
-
-exec(open('../pymongo_dm.py').read())
 
 # assumes startlocation = x-y, long-lat
 # given x-y coordinates, finds approximate address using opencage geocoder

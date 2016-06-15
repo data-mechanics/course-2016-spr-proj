@@ -5,7 +5,7 @@ and a starting location; or that find
 the group of coordinates that fall within a certain radius of the starting location (e.g. MBTA)
 '''
 
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -14,9 +14,6 @@ import time
 from urllib import request, parse
 import json
 from geopy.distance import vincenty
-
-
-exec(open('../pymongo_dm.py').read())
 
 # calls mapquest to get walking distance for two lat-long coordinates
 def findDistance(repo, user, startLocation, endLocation):

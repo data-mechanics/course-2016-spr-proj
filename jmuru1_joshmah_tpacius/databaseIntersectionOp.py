@@ -1,6 +1,6 @@
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -8,12 +8,9 @@ import uuid
 #Prof. Lapet's code used for intersections
 def intersect(R, S):
     return [t for t in R if t in S]    
-    
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('jmuru1_joshmah_tpacius', 'jmuru1_joshmah_tpacius')
 startTime = datetime.datetime.now()

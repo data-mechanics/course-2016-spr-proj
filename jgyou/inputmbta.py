@@ -11,15 +11,12 @@ https://www.mbta.com/uploadedfiles/MBTA_GTFS.zip
 from urllib import parse, request
 from json import loads, dumps, load
 
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import zipfile
 import io
-
-
-exec(open('../pymongo_dm.py').read())
 
 def make_provdoc(repo, runids, starttime, endtime):
 	provdoc = prov.model.ProvDocument()
@@ -65,7 +62,7 @@ def make_provdoc(repo, runids, starttime, endtime):
 		repo.record(provdoc.serialize())
 
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 ##########

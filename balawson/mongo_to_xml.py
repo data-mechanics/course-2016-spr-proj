@@ -4,11 +4,9 @@
 ###############################################################
 
 import pandas as pd
-import pymongo, datetime, uuid
+import dml, datetime, uuid
 import prov.model
 import random
-exec(open('../pymongo_dm.py').read())
-
 ###############################################################
 ####   declare function
 ###############################################################
@@ -47,7 +45,7 @@ def to_xml(df, filename=None, mode='w'):
 ####    access the data       
 ###############################################################
 def main():
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate('balawson', 'balawson')
 

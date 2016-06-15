@@ -6,6 +6,7 @@ note that provenance for each data source is generated either
 in the original retrieval script (e.g. retrievehospitals.py)
 or in the findnearest.py or convertcoordinates.py scripts
 '''
+import dml
 from random import uniform
 from statistics import median
 
@@ -13,7 +14,6 @@ from statistics import median
 exec(open("convertcoordinates.py").read())  
 exec(open("findnearest.py").read())   
 exec(open("generatemiscprov.py").read())
-exec(open('../pymongo_dm.py').read())
 
 
 # highly unscientific function to generate initial coordinates

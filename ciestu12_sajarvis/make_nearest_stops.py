@@ -6,13 +6,10 @@ Requires the 'green_line_walking_distances' collection.
 """
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
-
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 def map(R, f):
     '''Map set R according to function f. R is a set of tuples.'''
@@ -26,7 +23,7 @@ def reduce(R, f):
 def main():
     teamname = 'ciestu12_sajarvis'
     # Set up the database connection.
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate(teamname, teamname)
 

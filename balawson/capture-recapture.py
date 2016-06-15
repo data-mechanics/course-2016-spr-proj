@@ -2,13 +2,12 @@
 ####   import dependancies       
 ###############################################################
 import pandas as pd
-import pymongo, datetime, uuid, prov.model
-exec(open('../pymongo_dm.py').read())
+import dml, datetime, uuid, prov.model
 
 ###############################################################
 ####    access the data       
 ###############################################################
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('balawson', 'balawson')
 

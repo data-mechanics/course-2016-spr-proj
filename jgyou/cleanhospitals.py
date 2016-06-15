@@ -23,12 +23,10 @@ location_zipcode
 from urllib import parse, request
 from json import loads, dumps
 
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
-
-exec(open('../pymongo_dm.py').read())
 
 def convertCase(s):
     strs = s.lower().split(" ")
@@ -76,7 +74,7 @@ def make_provdoc(repo, runids, startTime, endTime):
 
 # set up connection
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 with open("auth.json") as f:

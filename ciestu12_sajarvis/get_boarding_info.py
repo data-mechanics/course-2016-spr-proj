@@ -4,20 +4,18 @@ during a weekday.
 """
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 def main():
     '''Wrapper to prevent all script from running when imported.'''
 
     teamname = 'ciestu12_sajarvis'
     # Set up the database connection.
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate(teamname, teamname)
 

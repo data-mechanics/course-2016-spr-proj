@@ -1,15 +1,15 @@
 import prov.model
-import pymongo
+import dml
 import datetime
 import urllib.request
 import time
 import uuid
 import sys
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
-exec(open('../pymongo_dm.py').read())
+
 def work_zones():
 	auth = json.loads(open(sys.argv[1]).read())['services']['cityofbostondataportal']
 

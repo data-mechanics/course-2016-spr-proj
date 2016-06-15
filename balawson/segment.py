@@ -4,9 +4,8 @@
 ###############################################################
 import pandas as pd
 import prov.model
-import pymongo, datetime, uuid, math, os, subprocess
+import dml, datetime, uuid, math, os, subprocess
 import mongo_to_xml, xml_to_dataframe
-exec(open('../pymongo_dm.py').read())
 
 ###############################################################
 ####   define context manager
@@ -26,7 +25,7 @@ class cd:
 ###############################################################
 ####    access the data       
 ###############################################################
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('balawson', 'balawson')
 

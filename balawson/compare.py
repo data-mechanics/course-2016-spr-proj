@@ -4,12 +4,10 @@
 ###############################################################
 
 import pandas as pd
-import pymongo, datetime, uuid
+import dml, datetime, uuid
 import prov.model
 import random
 from scic_stat_tests import *
-exec(open('../pymongo_dm.py').read())
-
 ##############################################################
 ####   random sampler
 #stackoverflow.com/questions/6482889/get-random-sample-from-list-while-maintaining-ordering-of-items
@@ -27,7 +25,7 @@ def orderedSampleWithoutReplacement(seq, k):
 ###############################################################
 ####    access the data       
 ###############################################################
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('balawson', 'balawson')
 
