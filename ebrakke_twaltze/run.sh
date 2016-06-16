@@ -18,8 +18,8 @@ python3 get_random_routes.py ../auth.json #requires dangerLevels #gives randomDi
 
 python3 average_incidents_along_path.py ../auth.json #gives randomDirectionIncidentCount #requires dangerLevels & randomDirections
 
-#python3 calculate_average_per_meter.py ../auth.json #requires random DirectionIncidentCount
+python3 calculate_average_per_meter.py ../auth.json #requires random DirectionIncidentCount
 
-#python3 distance_test.py ../auth.json
+python3 distance_test.py ../auth.json
 
 #python3 get_incidents_along_route.py ../auth.json #requires dangerLevel  #line20: list index out of range
