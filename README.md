@@ -13,6 +13,10 @@ We have committed setup scripts for a MongoDB database that will set up the data
 ```
 mongod --dbpath "<your_db_path>"
 ```
+If you're setting up after previously running `setup.js`, you may want to reset (i.e., delete) the repository as follows.
+```
+mongo reset.js
+```
 Next, make sure your user directories (e.g., `alice_bob` if Alice and Bob are working together on a team) are present in the same location as the `setup.js` script, open a separate terminal window, and run the script:
 ```
 mongo setup.js
@@ -55,8 +59,31 @@ For temporary collections that are only necessary during intermediate steps of o
 
 If you do not want to run `db.loadServerScripts()` every time you open a new terminal, you can use a `.mongorc.js` file in your home directory to store any commands or calls you want issued whenever you run `mongo`.
 
+## Required libraries and tools
+
+On Fedora-based Linux systems, you can use the following to install all the required libraries and tools:
+```
+yum -y install $(cat requirements.yum)
+```
+Some projects require the Z3 Theorem Prover. To install it, first clone the Z3 repository:
+```
+git clone https://github.com/Z3Prover/z3.git
+```
+You can then install Z3 by following the instructions in the Z3 README. The instructions for a Linux environment are duplicated below:
+```
+cd z3
+python scripts/mk_make.py
+cd build
+make
+sudo make install
+```
+
 ## Python infrastructure
 
+Make sure your Python environment has all the libraries required by the various projects (note that on your system, the Python 3 executable may have a different name, such as `python3`):
+```
+python -m pip install -r requirements.python
+```
 To use PyMongo with the above interface, run the `pymongo_dm.py` script at the top of your modules or script:
 ```
 exec(open('../pymongo_dm.py').read())

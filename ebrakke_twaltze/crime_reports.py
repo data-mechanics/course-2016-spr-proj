@@ -50,7 +50,7 @@ def do_prov(start_time=None, end_time=None):
 	crime_reports = doc.entity('bdp:ufcx-3fdn', {prov.model.PROV_LABEL:'Crime Reports', prov.model.PROV_TYPE:'ont:DataResource', 'ont:Extension':'json'})
 
 	get_crime_reports = doc.activity('log:a' + str(uuid.uuid4()), start_time, end_time, {prov.model.PROV_LABEL: 'Fetch all crime reports'})
-	doc.wasAssociatedWith(get_crime_reorts, script)
+	doc.wasAssociatedWith(get_crime_reports, script)
 	doc.usage(get_crime_reports, crime_reports, start_time, None, {prov.model.PROV_TYPE:'ont:Retrieval'})
 
 	crime = doc.entity('dat:crimeReports', {prov.model.PROV_LABEL:'Crime Reports', prov.model.PROV_TYPE:'ont:DataSet'})
