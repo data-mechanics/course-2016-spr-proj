@@ -16,17 +16,17 @@ meters_per_mile = 1609.34
 
 res = repo['loyuichi.food_establishments'].drop_indexes()
 print(res)
-res = repo['loyuichi.food_establishments'].create_index([('location_point', pymongo.GEOSPHERE)], unique=False)
+res = repo['loyuichi.food_establishments'].create_index([('location_point', dml.pymongo.GEOSPHERE)], unique=False)
 print(res)
 
 res = repo['loyuichi.meters'].drop_indexes()
 print(res)
-res = repo['loyuichi.meters'].create_index([('location', pymongo.GEOSPHERE)], unique=False)
+res = repo['loyuichi.meters'].create_index([('location', dml.pymongo.GEOSPHERE)], unique=False)
 print(res)
 
 res = repo['loyuichi.tickets'].drop_indexes()
 print(res)
-res = repo['loyuichi.tickets'].create_index([('location_point', pymongo.GEOSPHERE)], unique=False)
+res = repo['loyuichi.tickets'].create_index([('location_point', dml.pymongo.GEOSPHERE)], unique=False)
 print(res)
 
 # res = repo['loyuichi.towed'].drop_indexes()
@@ -38,7 +38,7 @@ data = []
 repo.dropPermanent('fe_radius')
 repo.createPermanent('fe_radius')
 for fe in repo['loyuichi.food_establishments'].find():
-	coordinates = fe['location_point']['coordinates']
+	coordinates = fe['location']['coordinates']
 	meters_count = repo['loyuichi.meters'].count({ 'location': { '$nearSphere': { '$geometry': { 'type': "Point", 'coordinates': coordinates }, '$maxDistance': 0.4 * meters_per_mile } } })
 	tickets_count = repo['loyuichi.tickets'].count({ 'location_point': { '$nearSphere': { '$geometry': { 'type': "Point", 'coordinates': coordinates }, '$maxDistance': 0.4 * meters_per_mile } } })
 	# towed_count = repo['loyuichi.towed'].count({ 'location_point': { '$nearSphere': { '$geometry': { 'type': "Point", 'coordinates': coordinates }, '$maxDistance': 0.7 * meters_per_mile } } })

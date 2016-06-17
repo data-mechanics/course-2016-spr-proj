@@ -15,5 +15,5 @@
 #python3 output_day_time_counts_json.py ../auth.json
 #python3 output_violations_per_zip.py ../auth.json
 
-#python3 scoring_areas.py ../auth.json  #list z[] not defined
+python3 scoring_areas.py ../auth.json  #list z[] not defined
 #python3 calc_ticket_fe_corr.py ../auth.json

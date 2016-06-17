@@ -13,7 +13,7 @@ repo.authenticate('linshan_luoty','linshan_luoty')
 auth = json.loads(open(sys.argv[1]).read())
 
 # Set up the database connection.
-db = repo['linshan_luoty'+'.'+'approved_building_permits']
+db = repo['linshan_luoty'+'.'+'crime_incident_reports']
 
 startTime = datetime.datetime.now()
 
@@ -41,6 +41,8 @@ endTime = None
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
+
+'''
 doc = provenance.init()
 doc.add_namespace('alg', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/algorithm/') # The scripts in <folder>/<filename> format.
 doc.add_namespace('dat', 'https://data-mechanics.s3.amazonaws.com/linshan_luoty/data/') # The data sets in <user>/<collection> format.
@@ -66,5 +68,5 @@ doc.wasDerivedFrom(crime, crime, update_location, update_location, update_locati
 repo.record(doc.serialize()) # Record the provenance document.
 provenance.update(doc)
 print(doc.get_provn())
-
+'''
 repo.logout()

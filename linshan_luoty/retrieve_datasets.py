@@ -43,6 +43,7 @@ endTime = None
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
+'''
 doc = provenance.init()
 
 this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
@@ -96,4 +97,5 @@ repo.record(doc.serialize()) # Record the provenance document.
 provenance.update(doc)
 
 print(doc.get_provn())
+'''
 repo.logout()

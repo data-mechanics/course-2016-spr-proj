@@ -22,7 +22,7 @@ repo.authenticate('linshan_luoty','linshan_luoty')
 auth = json.loads(open(sys.argv[1]).read())
 
 # Set up the database connection.
-db = repo['linshan_luoty'+'.'+'crime_incident_reports']
+db = repo['linshan_luoty'+'.'+'approved_building_permits']
 
 # Retrieve some data sets.
 startTime = datetime.datetime.now()
@@ -65,6 +65,8 @@ endTime = None
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
+
+'''
 doc = provenance.init()
 
 this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
@@ -87,5 +89,6 @@ repo.record(doc.serialize()) # Record the provenance document.
 provenance.update(doc)
 
 print(doc.get_provn())
+'''
 
 repo.logout()
