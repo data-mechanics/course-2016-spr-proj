@@ -82,19 +82,19 @@ def main():
     # get data and mapping 2012
     (j12, m) = get_BPD_earnings_2012()
     # output to file
-    output_json(j12, 'data/BPDEarnings2012.json')
+    output_json(j12, 'BPDEarnings2012.json')
 
     # get data and mapping 2013
     (j13,mTemp) = get_BPD_earnings_2013()
     # output to file
-    output_json(j13, 'data/BPDEarnings2013.json')
+    output_json(j13, 'BPDEarnings2013.json')
 
     # update mapping
     m = m + mTemp
 
     # get data and mapping 2014
     (j14, mTemp) = get_BPD_earnings_2014()
-    output_json(j14, 'data/BPDEarnings2014.json')
+    output_json(j14, 'BPDEarnings2014.json')
 
     # update mapping
     m = m + mTemp
@@ -103,7 +103,7 @@ def main():
     f = reduce(lambda k,vs: (k, {'avg_salary': sum(vs)/len(vs)}), m)
 
     print(f)
-    output_json(f, 'data/avgEarnings.json')
+    output_json(f, 'avgEarnings.json')
 
     # Incidence counts for each year
     f3 = [('2014', 88058), ('2015', 49760), ('2013', 87052), ('2012', 43186)]
@@ -116,11 +116,11 @@ def main():
     # m = map(lambda k, v: [(k, 1)], [(v['year'], v) for v in j])
     # # Reduce by year.
     # f3 = reduce(lambda k, vs: (k, sum(vs)), m)
-    output_json(f3,'data/incidentCounts.json')
+    output_json(f3,'incidentCounts.json')
 
     ff = reduce(lambda k, vs: dict_merge({'year': k}, functools.reduce(dict_merge, vs)), f + f3)
     print(ff)
-    output_json(ff, 'data/avgEarningsIncidents.json')
+    output_json(ff, 'avgEarningsIncidents.json')
 
 if __name__ == '__main__':
     main()
