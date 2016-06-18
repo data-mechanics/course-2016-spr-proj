@@ -1,5 +1,5 @@
 
-python3 data_retrieval.py ../auth.json
+python3 data_retrieval.py
 
 python3 data_manipulation.py 
 

@@ -19,9 +19,8 @@ repo = client.repo
 repo.authenticate('atelass', 'atelass')
 
 # Get authorization information.
-auth = json.loads(open(sys.argv[1]).read())
 mbta_open_development_key = 'wX9NwuHnZU2ToO7GmGR9uw'    # To use in the provenance document
-mbta_api_key = auth['services']['mbtadeveloperportal']['key']
+mbta_api_key = dml.auth['services']['mbtadeveloperportal']['key']
 
 # Initialize Astral object for sunrise/sunset data.
 a = Astral()
