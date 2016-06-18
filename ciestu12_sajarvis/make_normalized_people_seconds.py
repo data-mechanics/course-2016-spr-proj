@@ -7,7 +7,7 @@ Relies on the 'people_second_utility' dataset.
 """
 
 import json
-import pymongo
+import dml
 import prov.model
 import time
 import datetime
@@ -16,12 +16,9 @@ from math import ceil
 
 teamname = 'ciestu12_sajarvis'
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate(teamname, teamname)
-
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 def aggregate(R, f):
     keys = {r[0] for r in R}

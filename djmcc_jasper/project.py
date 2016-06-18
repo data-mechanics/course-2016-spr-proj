@@ -7,7 +7,7 @@
 # modules
 import urllib.request
 import json
-import pymongo
+import dml
 import time
 import sys
 
@@ -22,10 +22,8 @@ import join
 import compute_ratio
 import comp_vit
 
-exec(open('../pymongo_dm.py').read())
-
 print('Connecting to the DBMS...')
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo   = client.repo
 repo.authenticate('djmcc_jasper', 'djmcc_jasper')
 

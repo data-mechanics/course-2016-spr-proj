@@ -8,6 +8,7 @@ enze@bu.edu
 
 import time
 import csv
+from z3 import Optimize
 from z3 import *
 
 # create a dictionary contains all the street name variables

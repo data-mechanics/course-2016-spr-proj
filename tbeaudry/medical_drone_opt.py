@@ -1,15 +1,14 @@
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import time
 from scipy.optimize import linprog
 
-exec(open('../pymongo_dm.py').read())
 startTime = datetime.datetime.now()
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('tbeaudry', 'tbeaudry')
 

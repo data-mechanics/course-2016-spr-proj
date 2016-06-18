@@ -1,14 +1,12 @@
 import prov.model
-import pymongo
+import dml
 import datetime
 import time
 import uuid
 import sys
 import subprocess
 
-exec(open('../pymongo_dm.py').read())
-
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
 

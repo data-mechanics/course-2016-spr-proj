@@ -4,12 +4,11 @@ from bs4 import BeautifulSoup
 import urllib.request
 import prov.model
 import uuid
-import pymongo
+import dml
 from utils import timestamped
-exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate(uname, pwd)
     return repo

@@ -4,11 +4,10 @@
 ###############################################################
 
 import pandas as pd
-import pymongo, datetime, uuid
+import dml, datetime, uuid
 import prov.model
 import random
 import xml.etree.ElementTree as xmltree
-exec(open('../pymongo_dm.py').read())
 
 ###############################################################
 ####    parse the xml !!!!!       
@@ -56,7 +55,7 @@ def xml_to_dataframe(xml_file_name='BostonNetwork/outputs/roadnetwork.xml'):
 ####    dump dataframe
 ###############################################################
 def insert_df_to_mongo(df, collection_name):
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate('balawson', 'balawson')
 

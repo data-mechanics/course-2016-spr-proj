@@ -3,7 +3,7 @@
 import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
-import pymongo, uuid
+import dml, uuid
 import prov.model
 
 from IPython.display import HTML
@@ -14,9 +14,8 @@ from folium import plugins
 import os, time
 from selenium import webdriver
 from pyvirtualdisplay import Display
-exec(open('../pymongo_dm.py').read())
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('balawson', 'balawson')
 

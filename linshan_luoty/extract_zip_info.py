@@ -9,23 +9,20 @@ in mongodb.
 
 import json
 import datetime
-import pymongo
+import dml
 import uuid
 import provenance
 import prov
 import sys
 
-exec(open('../pymongo_dm.py').read())
-#exec(open('get_repo.py').read())
-
 #auth
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('linshan_luoty','linshan_luoty')
 auth = json.loads(open(sys.argv[1]).read())
 
 # Set up the database connection.
-db = repo['linshan_luoty'+'.'+'crime_incident_reports']
+db = repo['linshan_luoty'+'.'+'approved_building_permits']
 
 # Retrieve some data sets.
 startTime = datetime.datetime.now()

@@ -15,14 +15,11 @@ the original and processed data to the database
 
 import requests # import sodapy
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import urllib
-
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 def map(f, R):
     return [t for (k,v) in R for t in f(k,v)]
@@ -84,7 +81,7 @@ def main():
     exec(open('../pymongo_dm.py').read())
 
     # Set up the database connection.
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
 

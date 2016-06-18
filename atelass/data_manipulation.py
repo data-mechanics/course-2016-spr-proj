@@ -12,7 +12,7 @@ repo['atelass.stations_and_streetlights'] gets all the streetlights within a
 repo['atelass.crimes_and_streetlights'] gets all the streetlights within a dist_to_streetlight distance from a crime.
 '''
 
-import pymongo
+import dml
 import json
 import time
 import prov.model
@@ -20,12 +20,8 @@ import datetime
 import uuid
 from haversine import haversine
 
-# Until a library is created, we just use the script directly.
-# Path of pymongo_dm.py may need to be changed to ../pymongo_dm.py.
-exec(open('../pymongo_dm.py').read())
-
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('atelass', 'atelass')
 

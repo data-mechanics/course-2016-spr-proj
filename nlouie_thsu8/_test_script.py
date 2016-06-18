@@ -13,7 +13,7 @@ Datamechanics.io
 import requests
 import datetime
 import json
-import pymongo
+import dml
 import prov.model
 import uuid
 import urllib
@@ -109,8 +109,6 @@ class mapReduce:
 		return self.i
 
 
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
@@ -182,7 +180,7 @@ lcd.close()
 
 
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('nlouie_thsu8', 'nlouie_thsu8')
 

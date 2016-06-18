@@ -4,7 +4,7 @@ k-means algorithm.
 
 Relies on normal_ppl_sec_util, t_stop_locations, datasets.
 """
-import pymongo
+import dml
 import prov.model
 import time
 import datetime
@@ -12,11 +12,9 @@ import uuid
 import urllib.request
 import json
 
-exec(open('../pymongo_dm.py').read())
-
 teamname = 'ciestu12_sajarvis'
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate(teamname, teamname)
 

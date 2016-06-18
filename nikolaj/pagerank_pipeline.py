@@ -1,15 +1,14 @@
 import subprocess
-import pymongo
+import dml
 import storeT
 import storeBus
 import geoagg
 import pagerank
 import vizdatautil
 import prov.model
-exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate(uname, pwd)
     return repo

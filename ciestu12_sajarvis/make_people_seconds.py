@@ -11,7 +11,7 @@ Lower scores indicate a higher value, considering the overall time saved for
 commuters.
 """
 import json
-import pymongo
+import dml
 import prov.model
 import time
 import datetime
@@ -20,8 +20,6 @@ import uuid
 # Estimated time of the time cost (seconds) for stopping at a T stop.
 STOP_TIME = 60
 
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
 
 def product(R, S):
     return [(t,u) for t in R for u in S]
@@ -33,7 +31,7 @@ def aggregate(R, f):
 def main():
     teamname = 'ciestu12_sajarvis'
     # Set up the database connection.
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate(teamname, teamname)
     out_coll = 'people_second_utility'

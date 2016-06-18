@@ -7,14 +7,11 @@ that were not retrieved via scripts
 
 from urllib import request, parse
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import time
-
-exec(open('../pymongo_dm.py').read())
-
 
 def makeProvZipCodes(repo, run_id, starttime, endtime):
     provdoc = prov.model.ProvDocument()
@@ -91,7 +88,7 @@ def makeProvCommunity(repo, run_id, starttime, endtime):
 
 # set up connection
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 f = open("auth.json").read()

@@ -1,15 +1,14 @@
 import json
-import pymongo
+import dml
 import copy
 import ast
 import urllib.request
 import prov.model
 import uuid
 from utils import timestamped
-exec(open('../pymongo_dm.py').read())
 
 def get_auth_repo(uname, pwd):
-    client = pymongo.MongoClient()
+    client = dml.pymongo.MongoClient()
     repo = client.repo
     repo.authenticate(uname, pwd)
     return repo

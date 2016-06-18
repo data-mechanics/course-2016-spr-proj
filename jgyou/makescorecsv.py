@@ -7,15 +7,13 @@ is basis for the scatterplot.
 '''
 from urllib import request, parse
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import time
 import csv
 import re
-
-exec(open('../pymongo_dm.py').read())
 
 # prov document uses the original input data set for documentation purposes
 # to retain origin of data; however, actual data set retrieved from datamechanics
@@ -58,7 +56,7 @@ def make_provdoc(repo, run_id, startTime, endTime):
 
 
 # retrieve certain elements from the dataset "Location Affordability Index by Census Block Group"
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 with open("auth.json") as f:

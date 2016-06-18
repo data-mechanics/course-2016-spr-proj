@@ -3,7 +3,7 @@ import datetime
 import time
 import uuid
 import sys
-import pymongo
+import dml
 import random
 import json
 import numpy as np
@@ -12,8 +12,7 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 
-exec(open('../pymongo_dm.py').read())
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
 

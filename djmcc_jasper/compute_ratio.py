@@ -5,7 +5,7 @@
 #          Additionally this script generates data.json.
 ##########################################################
 
-import pymongo
+import dml
 import statistics
 import prov.model
 import uuid

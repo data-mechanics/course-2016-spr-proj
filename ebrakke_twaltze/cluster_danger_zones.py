@@ -1,4 +1,4 @@
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -11,9 +11,7 @@ import matplotlib.pyplot as plt
 import sklearn.cluster as cluster
 from sklearn.preprocessing import StandardScaler
 
-exec(open('../pymongo_dm.py').read())
-
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
 

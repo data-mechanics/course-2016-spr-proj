@@ -1,15 +1,13 @@
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 import apitest as apitest
 
-# Until a library is created, we just use the script directly.
-exec(open('pymongo_dm.py').read())
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('jmuru1_tpacius', 'jmuru1_tpacius')
 

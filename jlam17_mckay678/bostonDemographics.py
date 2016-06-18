@@ -1,6 +1,6 @@
 import urllib.request
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -66,11 +66,8 @@ def reduce(f, R):
     keys = {k for (k,v) in R}
     return [f(k1, [v for (k2,v) in R if k1 == k2]) for k1 in keys]
 
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
-
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('jlam17_mckay678', 'jlam17_mckay678')
 

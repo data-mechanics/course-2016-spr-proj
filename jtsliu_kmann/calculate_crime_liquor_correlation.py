@@ -4,16 +4,13 @@
 import datetime
 import json
 import prov.model
-import pymongo
+import dml
 
 from random import shuffle
 from math import sqrt
 
 import scipy.stats
 
-
-# Open the file for interfacing with DB
-exec(open('../pymongo_dm.py').read())
 
 def permute(x):
     shuffled = [xi for xi in x]

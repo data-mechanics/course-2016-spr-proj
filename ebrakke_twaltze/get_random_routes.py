@@ -4,13 +4,12 @@ import datetime
 import time
 import uuid
 import sys
-import pymongo
+import dml
 import random
 import json
 from prov.serializers import provjson
 
-exec(open('../pymongo_dm.py').read())
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('ebrakke_twaltze', 'ebrakke_twaltze')
 

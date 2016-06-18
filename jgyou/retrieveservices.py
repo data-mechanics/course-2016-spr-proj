@@ -1,13 +1,11 @@
 from urllib import parse, request
 from json import loads, dumps
 
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
 #from geopy.geocoders import Nominatim
-
-exec(open('../pymongo_dm.py').read())
 
 def make_provdoc(repo, run_ids, startTime, endTime, queries):
     
@@ -56,7 +54,7 @@ def make_provdoc(repo, run_ids, startTime, endTime, queries):
         repo.record(provdoc.serialize()) 
 
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 ##########

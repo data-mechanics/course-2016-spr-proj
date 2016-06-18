@@ -2,7 +2,7 @@
 This script goes through the data to see if there's a correlation between number of streetlights and
 number of crimes around a given station by calculating the Pearson correlation coefficient.
 '''
-import pymongo
+import dml
 import time
 import prov.model
 import json
@@ -10,12 +10,8 @@ import datetime
 import uuid
 import scipy.stats
 
-# Until a library is created, we just use the script directly.
-# Path of pymongo_dm.py may need to be changed to ../pymongo_dm.py.
-exec(open('../pymongo_dm.py').read())
-
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('atelass', 'atelass')
 

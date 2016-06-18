@@ -5,7 +5,7 @@ This script retrieves pharmacies from Yelp by zip code.
 '''
 from urllib import request, parse
 import json
-import pymongo
+import dml
 import prov.model
 import datetime
 import uuid
@@ -13,11 +13,9 @@ import time
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
 
-exec(open('../pymongo_dm.py').read())
-
 # set up connection
 
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 
 f = open("auth.json").read()

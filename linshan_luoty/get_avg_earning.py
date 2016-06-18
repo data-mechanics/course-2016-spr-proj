@@ -1,18 +1,14 @@
 import json
 import datetime
-import pymongo
+import dml
 import prov.model
 import provenance
 import uuid
 import sys
 from bson.code import Code
 
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
-#exec(open('get_repo.py').read())
-
 #auth
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('linshan_luoty','linshan_luoty')
 auth = json.loads(open(sys.argv[1]).read())

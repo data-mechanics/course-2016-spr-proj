@@ -5,7 +5,7 @@ Calculates p score for each stop - based on how important we think the
 Relies on normal_ppl_sec_util, t_stop_locations datasets
 """
 
-import pymongo
+import dml
 import prov.model
 import time
 import datetime
@@ -14,15 +14,11 @@ import urllib.request
 import json
 import scipy.stats
 
-
-exec(open('../pymongo_dm.py').read())
-
-
 from math import sqrt
 
 teamname = 'ciestu12_sajarvis'
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate(teamname, teamname)
 

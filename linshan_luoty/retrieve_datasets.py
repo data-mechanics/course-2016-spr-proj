@@ -1,7 +1,7 @@
 import urllib.request
 import json
 import datetime
-import pymongo
+import dml
 import sys
 import prov
 import provenance
@@ -14,13 +14,8 @@ datasets = {
 	'approved_building_permits':'https://data.cityofboston.gov/resource/msk6-43c6.json?$limit=50000'
 }
 
-
-# Until a library is created, we just use the script directly.
-exec(open('../pymongo_dm.py').read())
-#exec(open('get_repo.py').read())
-
 #auth
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('linshan_luoty','linshan_luoty')
 auth = json.loads(open(sys.argv[1]).read())
@@ -48,6 +43,7 @@ endTime = None
 # can then be used on subsequent runs to determine dependencies
 # and "replay" everything. The old documents will also act as a
 # log.
+'''
 doc = provenance.init()
 
 this_script = doc.agent('alg:retrieve_datasets', {prov.model.PROV_TYPE:prov.model.PROV['SoftwareAgent'], 'ont:Extension':'py'})
@@ -101,4 +97,5 @@ repo.record(doc.serialize()) # Record the provenance document.
 provenance.update(doc)
 
 print(doc.get_provn())
+'''
 repo.logout()

@@ -5,7 +5,7 @@ These times are chosen because most stations close around 1AM or a little before
 A higher score means the station is less safe, at least according to this metric and the results of this project.
 '''
 
-import pymongo
+import dml
 import time
 import json
 import prov.model
@@ -13,12 +13,8 @@ import datetime
 import uuid
 import math
 
-# Until a library is created, we just use the script directly.
-# Path of pymongo_dm.py may need to be changed to ../pymongo_dm.py.
-exec(open('../pymongo_dm.py').read())
-
 # Set up the database connection.
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('atelass', 'atelass')
 
