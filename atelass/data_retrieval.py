@@ -38,13 +38,22 @@ offset = 0
 # Request records.
 crimes_start_time = datetime.datetime.now()
 crimes = []
-x = 50000
-while x == 50000:
+if dml.options.trial:
+    x = 3
     response = requests.get(crimes_api_endpoint + '?$limit=' + str(limit) + '&$offset=' + str(offset))
+    #print(response)
     c = response.json()
-    crimes += c
-    offset += 50000
-    x = len(c)
+    crimes = c
+    offset = 3
+    #print(crimes)
+else:
+    x = 50000
+    while x == 50000:
+        response = requests.get(crimes_api_endpoint + '?$limit=' + str(limit) + '&$offset=' + str(offset))
+        c = response.json()
+        crimes += c
+        offset += 50000
+        x = len(c)
 
 # Get indexes of crimes where lat/lon is 0 (i.e., no specific location given).
 indexes = []
@@ -84,11 +93,15 @@ crimes = new_crimes
 # 00:00:00, so remove these since they are inaccurate (I'm assuming here that
 # when these records were inputted, they may not have had the times or just
 # didn't input them).
-index = 0
-for i in range(len(crimes)):
-    if crimes[i]['fromdate'].split('T')[0] == '2015-06-17':
-        index = i
-        break
+if dml.options.trial:
+    index = 3
+else:
+    index = 0
+    for i in range(len(crimes)):
+        if crimes[i]['fromdate'].split('T')[0] == '2015-06-17':
+            index = i
+            print(index)
+            break
 
 # Now that we have the index of the first crime on June 17, 2015, we can get rid
 # of it and all crimes after it.

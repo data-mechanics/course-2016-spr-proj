@@ -8,12 +8,12 @@ import sys
 if sys.version_info.major == 3:
     sys.exit('This script must be run in Python 2 (you are attempting to run it in Python 3)')
 
-import dml
+import pymongo
 import time
 import gmplot
 
 # Set up the database connection.
-client = dml.pymongo.MongoClient()
+client = pymongo.MongoClient()
 repo = client.repo
 repo.authenticate('atelass', 'atelass')
 
