@@ -7,6 +7,7 @@ import pandas as pd
 import dml, datetime, uuid
 import prov.model
 import random
+import json
 from scic_stat_tests import *
 ##############################################################
 ####   random sampler
@@ -35,9 +36,14 @@ gowalla    = pd.DataFrame(list(repo.balawson.gowalla.find()))
 brightkite = pd.DataFrame(list(repo.balawson.brightkite.find()))
 
 ####create random samples of each dataset (because they are too big)
-b_test =  brightkite.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(brightkite.lat))], 5000))]
-g_test =  gowalla.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(gowalla.lat))], 5000))]
-t_test =  tweets.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(tweets.lat))], 5000))]
+if dml.options.trial:
+    b_test =  brightkite.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,5)], 5))]
+    g_test =  gowalla.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,5)], 5))]
+    t_test =  tweets.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,5)], 5))]
+else:    
+    b_test =  brightkite.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(brightkite.lat))], 5000))]
+    g_test =  gowalla.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(gowalla.lat))], 5000))]
+    t_test =  tweets.iloc[list(orderedSampleWithoutReplacement([x for x in range(0,len(tweets.lat))], 5000))]
 
 ###############################################################
 ####    analyze the data       

@@ -5,6 +5,7 @@
 import pandas as pd
 import dml, datetime, uuid, math
 import prov.model
+import json
 from sklearn import cluster
 from sklearn.preprocessing import StandardScaler
 import numpy as np
@@ -50,19 +51,17 @@ for i in range(n_clusters):
 ####    save results       
 ###############################################################
 
-records = {'labels'  : data_labels,\
-     'centers' : data_cluster_centers,\
-     'size'    :  data_num_each_cluster,\
-     'date_created' : datetime.datetime.today(),
-     'k'        : k
+records = {'labels'  : data_labels.tolist(),\
+     'centers' : data_cluster_centers.tolist(),\
+     'size'    :  data_num_each_cluster.tolist(),\
+     'date_created' : datetime.datetime.today(),\
+     'k'        : k,\
           }
-  
+
 collection_name = 'kmeans_results'
 # doing this because kmeans is random and we may want different results
-if not(db[collection_name]):
-    repo.createPermanent(collection_name)
-#repo.dropPermanent(collection_name)
-
+repo.dropPermanent(collection_name)
+repo.createPermanent(collection_name)
 repo['balawson.' + collection_name].insert(records)
 endTime  = datetime.datetime.now()
 

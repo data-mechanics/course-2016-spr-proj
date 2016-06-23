@@ -1,4 +1,4 @@
-python3 collect.py ../auth.json
+python3 collect.py 
 
 python3 compare.py
 
