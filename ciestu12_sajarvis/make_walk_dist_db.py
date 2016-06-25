@@ -61,6 +61,9 @@ def main():
     # projection to get the values we want for stops and coordinates
     all_stops = [(s['line'], s['stop_id']) for s in stops_doc]
     all_coords = [(c['stop_id'], c['stop_lat'], c['stop_lon']) for c in coords_doc if c['stop_id']]
+    if dml.options.trial:
+        all_stops = all_stops[0:20]
+        all_coords = all_coords[0:20]
     # and aggregate all the stops on each branch into an associated list
     line_stops = aggregate(all_stops, list)
 

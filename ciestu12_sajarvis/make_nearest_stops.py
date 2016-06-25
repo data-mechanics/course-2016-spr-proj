@@ -37,7 +37,6 @@ def main():
 
     # Map together all results for each stop on each particular line.
     distances = map(stops, lambda k,v: [((k,v[0]), v)])
-
     # Reduce on the minimum *time* distance walking to the other stops on
     # the line. Second lambda function serves as the key to minimize (time).
     shortests = reduce(distances,
