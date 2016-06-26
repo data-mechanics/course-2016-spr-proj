@@ -4,6 +4,12 @@ import datetime
 import urllib.request
 import time
 import uuid
+import prov.model
+import dml
+import datetime
+import urllib.request
+import time
+import uuid
 import sys
 import json
 
@@ -26,16 +32,28 @@ def service_calls():
 	max_requests = 50000
 	url = '{}resource/wc8w-nujj.json?$limit={}&$offset={}&$$app_token={}'
 	start_time = datetime.datetime.now()
-	while True:
-		this_request = url.format(auth['service'], max_requests, offset, auth['token'])
-		print(this_request)
-		response = urllib.request.urlopen(this_request).read().decode('utf-8')
-		r = json.loads(response)
-		if len(r) == 0:
-			break
-		repo['ebrakke_twaltze.serviceCalls'].insert_many(r)
-		offset += max_requests
-		time.sleep(2)
+	if dml.options.trial:
+                while True:
+                        this_request = url.format(auth['service'], max_requests, offset, auth['token'])
+                        print(this_request)
+                        response = urllib.request.urlopen(this_request).read().decode('utf-8')
+                        r = json.loads(response)
+                        repo['ebrakke_twaltze.serviceCalls'].insert_many(r)
+                        offset += max_requests
+                        if offset >= 50000:
+                                break
+                        time.sleep(2)
+	else:
+                while True:
+                        this_request = url.format(auth['service'], max_requests, offset, auth['token'])
+                        print(this_request)
+                        response = urllib.request.urlopen(this_request).read().decode('utf-8')
+                        r = json.loads(response)
+                        if len(r) == 0:
+                                break
+                        repo['ebrakke_twaltze.serviceCalls'].insert_many(r)
+                        offset += max_requests
+                        time.sleep(2)
 	end_time = datetime.datetime.now()
 
 	do_prov()
