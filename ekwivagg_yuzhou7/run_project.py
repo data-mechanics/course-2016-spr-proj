@@ -7,13 +7,10 @@ import uuid
 import os
 import sys
 
-auth = open(sys.argv[1], 'r')
-
-cred = json.load(auth)
-
+teamname = 'ekwivagg_yuzhou7'
 client = dml.pymongo.MongoClient()
 repo = client.repo
-repo.authenticate(cred['username'], cred['pwd'])
+repo.authenticate(teamname, teamname)
 
 os.system("py -3 retrieval.py")
 print('done')

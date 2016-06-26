@@ -6,11 +6,10 @@ import datetime
 import uuid
 
 # Set up the database connection.
-auth = open('auth.json', 'r')
-cred = json.load(auth)
+teamname = 'ekwivagg_yuzhou7'
 client = dml.pymongo.MongoClient()
 repo = client.repo
-repo.authenticate(cred['username'], cred['pwd'])
+repo.authenticate(teamname, teamname)
 
 # Retrieve some data sets (not using the API here for the sake of simplicity).
 startTime = datetime.datetime.now()
