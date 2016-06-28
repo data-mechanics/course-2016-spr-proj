@@ -7,18 +7,17 @@ from flask import Flask
 from flask import request
 from flask import send_from_directory
 from bson.json_util import dumps
-import pymongo
+import dml
 import os
 
 app = Flask(__name__)
 
-exec(open('../../pymongo_dm.py').read())
 # To use as a framework for the entire system, there would be a universally
 # usable read-only account to statically configure and use here. Or, else,
 # requests could be made in sessions based on the requesting and authenticated
 # team.
 teamname = 'ciestu12_sajarvis'
-client = pymongo.MongoClient()
+client = dml.pymongo.MongoClient()
 repo = client.repo
 repo.authenticate(teamname, teamname)
 
