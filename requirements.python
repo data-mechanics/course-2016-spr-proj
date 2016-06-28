@@ -24,6 +24,7 @@ Jinja2
 MarkupSafe
 PyVirtualDisplay
 argparse
+flask
 cycler
 decorator
 folium
