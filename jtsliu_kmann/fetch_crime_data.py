@@ -23,13 +23,11 @@ repo.createPermanent("crime")
 # Use the Socrata API to get the data - limited to 50000 records, we handle this using an offset
 count = 50000
 iterations = 0
-while count == 50000: # once we don't get the max number, we have gotten them all
+if dml.options.trial: # once we don't get the max number, we have gotten them all
 	url = "https://data.cityofboston.gov/resource/ufcx-3fdn.json?$limit=50000&$offset=" + str(50000 * iterations) 
 	response = urllib.request.urlopen(url).read().decode("utf-8")
 	r = json.loads(response)
 	s = json.dumps(r, sort_keys=True, indent=2)
-	count = len(r)
-	iterations += 1
 	# Filter out the bad data
 	clean = []
 	for elem in r:
@@ -38,6 +36,22 @@ while count == 50000: # once we don't get the max number, we have gotten them al
 
 	# insert the clean data
 	repo['jtsliu_kmann.crime'].insert_many(clean)
+else:
+        while count == 50000: # once we don't get the max number, we have gotten them all
+                url = "https://data.cityofboston.gov/resource/ufcx-3fdn.json?$limit=50000&$offset=" + str(50000 * iterations) 
+                response = urllib.request.urlopen(url).read().decode("utf-8")
+                r = json.loads(response)
+                s = json.dumps(r, sort_keys=True, indent=2)
+                count = len(r)
+                iterations += 1
+                # Filter out the bad data
+                clean = []
+                for elem in r:
+                        if elem['location']['coordinates'] != [0, 0]:
+                                clean.append(elem)
+
+                # insert the clean data
+                repo['jtsliu_kmann.crime'].insert_many(clean)
 
 # record the end time
 endTime = datetime.datetime.now()

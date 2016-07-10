@@ -21,16 +21,24 @@ repo.createPermanent("property_assessment")
 
 # Socrata API limits to 50000, use offset to get around this and get all the records
 count = 50000
-iteration = 0
-while count == 50000:
-	url = "https://data.cityofboston.gov/resource/qz7u-kb7x.json?$limit=50000&$offset=" + str(50000 * iteration)
+iteration = 0       
+if dml.options.trial:
+	url = "https://data.cityofboston.gov/resource/qz7u-kb7x.json?$limit=50000&$offset=" + str(500 * iteration)
 	response = urllib.request.urlopen(url).read().decode("utf-8")
 	r = json.loads(response)
 	s = json.dumps(r, sort_keys=True, indent=2)
-	iteration += 1
-	count = len(r)
 	print("added", len(r), "records")
 	repo['jtsliu_kmann.property_assessment'].insert_many(r)
+else:
+        while count == 50000:
+                url = "https://data.cityofboston.gov/resource/qz7u-kb7x.json?$limit=50000&$offset=" + str(50000 * iteration)
+                response = urllib.request.urlopen(url).read().decode("utf-8")
+                r = json.loads(response)
+                s = json.dumps(r, sort_keys=True, indent=2)
+                iteration += 1
+                count = len(r)
+                print("added", len(r), "records")
+                repo['jtsliu_kmann.property_assessment'].insert_many(r)
 
 endTime = datetime.datetime.now()
 
